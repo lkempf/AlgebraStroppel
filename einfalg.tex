@@ -200,11 +200,11 @@ Klar: Untergruppen sind Gruppen
 \end{defi}
 
 \begin{bem}
-	$(G,\circ)$ Gruppe. $N\subseteq G$, dann gilt: $N$ erzeugt $G$ (also $G = \<N\>$) genau dann, wenn $\forall g\in G\exists n_1,\dots,n_r\in G$ (mit $r\in \IN_0$), sodass $g = n_1\circ \dots \circ n_r$ (mit $g=e$, falls $r=0$) und $n_i\in N$ oder $n_i^{-1}\in N$ für alle $1\leq i\leq r$ (*).
+	$(G,\circ)$ Gruppe. $N\subseteq G$, dann gilt: $N$ erzeugt $G$ (also $G = \<N\>$) genau dann, wenn $\forall g\in G : \exists n_1,\dots,n_r\in G$ (mit $r\in \IN_0$), sodass $g = n_1\circ \dots \circ n_r$ (mit $g=e$, falls $r=0$) und $n_i\in N$ oder $n_i^{-1}\in N$ für alle $1\leq i\leq r$ (*).
 \end{bem}
 
 \begin{proof}
-	\glqq$\Leftarrow$\grqq: Sei $g\in G$ und $g = n_1\circ\dots \circ n_r$ wie in (*). Daraus folgt $g\in \<N\>$, da $n_1,\dots,n_r\in <N>$ und dann auch $g$, weil $\<N\>$ Gruppe. Dadurch ist $G\subseteq <N>$, also $G = \<N\>$.\\
+	\glqq$\Leftarrow$\grqq: Sei $g\in G$ und $g = n_1\circ\dots \circ n_r$ wie in (*). Daraus folgt $g\in \<N\>$, da $n_1,\dots,n_r\in \<N\>$ und dann auch $g$, weil $\<N\>$ Gruppe. Dadurch ist $G\subseteq \<N\>$, also $G = \<N\>$.\\
 	\glqq$\Rightarrow$\grqq: Sei $G = \<N\>$. Behauptung: $H:=\{g\in G| g \mbox{ von der Form (*)}\}<G$. (dkddiermsü)
 	
 	Da $\<N\>\subseteq H$ nach Definition von $\<N\>$ und Gruppe, muss also $\<N\> = H$ wegen Minimalität, da $N\subseteq H$. Nach Voraussetzung folgt $G = H$. Also hat jedes $g\in G$ die Form (*).
@@ -222,7 +222,8 @@ Klar: Untergruppen sind Gruppen
 \begin{defi}
 	$G$ Gruppe heißt zyklisch, falls $\exists g\in G$, sodass $\<\{g\}\> = G$ (d.h. falls $G$ von einem Element erzeugt wird).
 \end{defi}
-Beachte: $\<\{g\}\> = \{e, g, g^{-1}, g^2, g^{-2},\dots\} = \{g^i|i\in\IZ\}$
+
+\noindent Beachte: $\<\{g\}\> = \{e, g, g^{-1}, g^2, g^{-2},\dots\} = \{g^i|i\in\IZ\}$
 
 \begin{bsp}
 
@@ -238,14 +239,14 @@ Beachte: $\<\{g\}\> = \{e, g, g^{-1}, g^2, g^{-2},\dots\} = \{g^i|i\in\IZ\}$
 
 \paragraph{Eigenschaften von Gruppenhomomorphismen} $f\colon G\to G'$ von $G$ nach $G'$ sei ein Gruppenhomo. Dann:
 \begin{enumerate}
-	\item[(E1)] $f$ Gruppeniso $\Leftrightarrow$ $f^{-1}$ Gruppeniso: denn nach Definition existiert $f^{-1}$. Zu zeigen: $f^{-1}(g'\circ' h')= f^{-1}(g')\circ f^{-1}(h')$ für alle $g',h'\in G$. Sei $g', h' \in G' \Rightarrow \exists g, h\in G\ f(g) = g', f(h) = h'$. Also: $f^{-1}(g'\circ'h')= f^{-1}(f(g)\circ'f(h)) = f^{-1}(f(g\circ h))= g\circ h  = f^{-1}(g')\circ f^{-1}(h')$
+	\item[(E1)] $f$ Gruppeniso $\Leftrightarrow$ $f^{-1}$ Gruppeniso: Nach Definition existiert $f^{-1}$. Zu zeigen: $f^{-1}(g'\circ' h')= f^{-1}(g')\circ f^{-1}(h')$ für alle $g',h'\in G$. Sei $g', h' \in G' \Rightarrow \exists g, h\in G\ f(g) = g', f(h) = h'$. Also: $f^{-1}(g'\circ'h')= f^{-1}(f(g)\circ'f(h)) = f^{-1}(f(g\circ h))= g\circ h  = f^{-1}(g')\circ f^{-1}(h')$
 	\item[(E2)] $f$ bildet Neutrales auf Neutrales ab
 	
 	\vspace{1 cm}
 	
 	\hfill 12. Oktober 2017
 	\item[(E3)] $f$ bildet Inverse auf Inverse ab
-	\item[(E4)] Sei $(G'',\circ'')$ eine weitere Gruppe; $f'\colon G'\to G''$ Gruppenhomo von $(G',\circ)$ nach $(G'',\circ'')$, dann ist $f'\circ f$ Gruppenhomo. Denn: 
+	\item[(E4)] Sei $(G'',\circ'')$ eine weitere Gruppe; $f'\colon G'\to G''$ Gruppenhomo von $(G',\circ')$ nach $(G'',\circ'')$, dann ist $f'\circ f$ Gruppenhomo. Denn: 
 	
 	$(f'\circ f)(g\circ h) = f'(f(g\circ h)) = f'(f(g)\circ'f(h)) = (f'\circ f)(g)\circ''(f'\circ f)(h)$
 \end{enumerate}
@@ -471,7 +472,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 \end{proof}
 
 \begin{kor}
-	$f\colon G\to H$ Gruppenhomo. Dann gilt $G/\mbox{Ker}f \cong \mbox{im}f$.
+	$f\colon G\to H$ Gruppenhomo. Dann gilt $G/\ker f \cong \im f$.
 \end{kor}
 \begin{proof}
 	$\mbox{Ker}f\nt G$ nach Lemma 2.2. $\Rightarrow G/\mbox{Ker}f$ ist eine Gruppe nach Satz 2.3. $\mbox{im}f$ ist eine Gruppe nach 1.3. Setze $N:= \mbox{Ker}f$. Klar: $N\subseteq \mbox{Ker}f$. Also existiert nach Satz 2.4 ein $\overline{f}$, sodass
@@ -503,7 +504,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 		Noch zu zeigen: $(H\cap N)\nt H$. Klar: $(H\cap N)\subseteq H$, $(H\cap N)<H$, weil $(H\cap N)<G$. Sei $x\in H\cap N$, $h\in H$. Dann $hxh^{-1}\in H$, weil $H<G$; und $\in N$, weil $N\nt G$. Also $hxh^{-1}\in (H\cap N) \Rightarrow H\cap N\nt H$
 		\item Betrachte 
 		\begin{eqnarray*}
-			f\colon H&\to& HN \overset{\mbox{can}}{\to} HN/N\\
+			f\colon H&\to& HN \xrightarrow{\mbox{can}} HN/N\\
 			h&\mapsto &he
 		\end{eqnarray*}
 		Nachprüfen: $f$ ist ein Gruppenhomo. Für $x\in H$ gilt $x\in \mbox{Ker}(f)\Leftrightarrow xeN = N\Leftrightarrow x = xe\in \mbox{Ker}(\mbox{can}) = N\Leftrightarrow x\in (H\cap N)$. Also existiert nach dem Homomorphiesatz ein Gruppenhomo $\overline{f}$:
