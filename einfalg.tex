@@ -1,0 +1,758 @@
+\let\IJ\undefined
+\let\epsilon\undefined
+
+\newcommand{\IA}{\mathbb A}
+\newcommand{\IB}{\mathbb B}
+\newcommand{\IC}{\mathbb C}
+\newcommand{\ID}{\mathbb D}
+\newcommand{\IE}{\mathbb E}
+\newcommand{\IF}{\mathbb F}
+\newcommand{\IG}{\mathbb G}
+\newcommand{\IH}{\mathbb H}
+\newcommand{\II}{\mathbb I}
+\newcommand{\IJ}{\mathbb J}
+\newcommand{\IK}{\mathbb K}
+\newcommand{\IL}{\mathbb L}
+\newcommand{\IM}{\mathbb M}
+\newcommand{\IN}{\mathbb N}
+\newcommand{\IO}{\mathbb O}
+\newcommand{\IP}{\mathbb P}
+\newcommand{\IQ}{\mathbb Q}
+\newcommand{\IR}{\mathbb R}
+\newcommand{\IS}{\mathbb S}
+\newcommand{\IT}{\mathbb T}
+\newcommand{\IU}{\mathbb U}
+\newcommand{\IV}{\mathbb V}
+\newcommand{\IW}{\mathbb W}
+\newcommand{\IX}{\mathbb X}
+\newcommand{\IY}{\mathbb Y}
+\newcommand{\IZ}{\mathbb Z}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\newcommand{\nt}{\vartriangleleft}
+
+\newcommand{\ul}{\underline}
+
+\newcommand{\epsilon}{\varepsilon}
+
+\documentclass[12pt,a4paper]{article}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{fontawesome, bbold, tikz-cd}
+\usepackage[pdftex]{hyperref}
+\usepackage[noabbrev,capitalize]{cleveref}
+\usepackage{tabu}
+
+\newcounter{thmcounter}[subsection]
+\newcounter{defcounter}[subsection]
+
+\theoremstyle{definition}
+\newtheorem{defi}[defcounter]{Definition}
+
+\theoremstyle{remark}
+\newtheorem*{bem}{Bemerkung}
+
+\theoremstyle{definition}
+\newtheorem{satz}[thmcounter]{Satz}
+
+\theoremstyle{definition}
+\newtheorem*{bsp}{Beispiel}
+
+\theoremstyle{plain}
+\newtheorem{kor}[thmcounter]{Korollar}
+
+\theoremstyle{plain}
+\newtheorem{lem}[thmcounter]{Lemma}
+%\newtheorem{lem}[thmcounter]{Lemma}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\im}{Im}
+\renewcommand{\circle}{\circ}
+
+\author{Luise Puhlmann}
+\title{Einführung in die Algebra\\ Wintersemester 2017/18}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\hfill 9. Oktober 2017
+
+\vspace{1cm}
+
+\url{http://www.math.uni-bonn.de/people/palmer/A1.html}
+
+\paragraph {Organisatorisches}
+\begin{itemize}
+	\item Assistent: Martin Palmer
+	\item Abgabe der Übungsblätter Donnerstag vor der Vorlesung
+	\item Übungsgruppen Beginn nächste Woche
+	\item Literatur siehe Homepage
+\end{itemize}
+
+\section{Gruppen}
+\subsection{Grundlegendes}
+\begin{defi} Eine Gruppe ist eine Menge $G$ zusammen mit einer Abbildung
+\begin{eqnarray*}
+	\circ\colon G\times G &\to& G\\
+	 (g,h)&\mapsto& g\circ h
+\end{eqnarray*}
+(genannt Gruppenoperation), sodass gilt:
+\begin{itemize}
+	\item[(G1)]$(a\circ b)\circ c = a \circ (b\circ c) \forall a,b,c\in G$ (Assoziativität)
+	\item[(G2)] $\exists e\in G$ mit $g\circ e = g = e\circ g\forall g\in G$ (Neutrales Element)
+	\item[(G3)] $\forall g\in G\ \exists g^{-1}$ sodass $g\circ g^{-1} = e = g^{-1}\circ g$ (Inverse Elemente)
+\end{itemize}
+\end{defi}
+
+\begin{bem}
+\leavevmode
+\begin{itemize}
+	\item Neutrales Element $e$ ist eindeutig
+	\item Inverse Elemente $g^{-1}$ sind eindeutig
+	\item Es gelten die Kürzungsregeln:
+		\begin{eqnarray*}
+			a\circ c = b\circ c &\Leftrightarrow& a = b\qquad \forall a,b,c\in G\\
+			c\circ a = c\circ b &\Leftrightarrow& a = b \qquad \forall a,b,c\in G
+		\end{eqnarray*}
+\end{itemize}
+\end{bem}
+
+\begin{defi}
+	$(G,\circ)$ heißt abelsch, falls $g\circ h = h\circ g$ für alle $g,h\in G$.
+\end{defi}
+
+
+
+Es reicht sogar zu fordern: Existenz von Linksneutralem und Linksinversem oder Existenz von Rechtsneutralem und Rechtsinversem.
+
+\begin{bsp}
+\leavevmode
+\begin{itemize}
+	\item $(\mathbb Z, +)$
+	\item $(K,+,\cdot)$ Körper $\Rightarrow (K,+)$ und $(K^*=K\setminus \{0\}, \cdot)$ sind Gruppen
+	\item $(V,+,\cdot)$ $K$-Vektorraum, dann ist $(V,+)$ eine Gruppe
+	\item $K$ Körper, $n\in\mathbb N$; $G = GL_n(K)$ ist Gruppe mit Matrixmultiplikation
+	\item $M$ nichtleere Menge; $S_M := \{f\colon M\to M|f \mbox{invertierbar}\}$ mit $\circ = $ Komposition von Abbildungen ist eine Gruppe; Spezialfall: $M = \{1,\dots n\},\ n\in\mathbb N$ ergibt die symmetrische Gruppe $S_n$ der Ordnung $n!$.
+	\item Sei $(G,\circ)$ eine Gruppe und $a\in G$ fest gewählt. Dann ist $(G,\circ_a)$ eine Gruppe, wobei $g\circ_a h = g\circ a\circ h$.
+\end{itemize}
+\end{bsp}
+
+\begin{defi} 
+	$(G,\circ)$ Gruppe. Dann ist die Anzahl $|G|$ der Elemente von $G$ die Ordnung von $G$.
+\end{defi}
+
+\begin{defi}
+	 Sei $(G,\circ)$ Gruppe. Eine Teilmenge $H\subseteq G$ heißt Untergruppe (kurz UG), falls $H\neq\emptyset$ und $h_1,h_2\in H\Rightarrow h_1\circ h_2^{-1}\in H$. Wir schreiben dann: $H<(G,\circ)$ oder $H<G$.
+\end{defi}
+
+\begin{bem} $H<(G,\circ)$ gilt genau dann, wenn gilt:
+	\begin{enumerate}
+	\item[(UG0)] $e\in H$
+	\item[(UG1)] $h_1,h_2\in H\Rightarrow h_1\circ h_2\in H$
+	\item[(UG2)] $h\in H\Rightarrow h^{-1}\in H$
+\end{enumerate}
+\end{bem}
+
+Klar: Untergruppen sind Gruppen
+\begin{bsp}[selber nachprüfen!!!]
+	\leavevmode
+	\begin{itemize}
+		\item $2\IZ < (\IZ, +)$
+		\item $n\in\mathbb N$; $O(n) = \{A\in GL_n(\IR)|AA^{T} = \mathbb 1_n\}< GL_n(\IR)$ die orthogonale Gruppe
+		\item  $n\in\mathbb N$; $U(n) = \{A\in GL_n(\IC)|A\overline A^{T} = \mathbb 1_n\}< GL_n(\IC)$ die unitäre Gruppe
+		\item $SL_n(K) = \{A\in GL_n(K)|\det(A)=1\}<GL_n(K)$
+		\item $SO(n) = O(n)\cap SL_n(\IR)<O(n)$
+		\item Spezielle Unitäre Gruppe
+		\item $H(3,\IR) = \left\{\left(\begin{array}{ccc}
+			1 & a & b \\ 
+			0 & 1 & c \\ 
+			0 & 0 & 1
+		\end{array}\right) \right\}$: Obere Dreiecksmatrizen, nur 1en auf der Diagonalen (Heisenberggruppe)
+	
+	\end{itemize}
+\end{bsp}
+
+\begin{defi}
+	Sei $(G,\circ)$ eine Gruppe. Sei $\emptyset\neq N\subseteq G$. Dann ist $\<N\>$ die kleinste (bzgl. Inklusion) UG von $G$, die $N$ enthält (also: $H<G$ mit $N\subseteq H\Rightarrow \<N\>\subseteq H$). Wir nennen $\<N\>$ die von $N$ erzeugte UG von $(G,\circ)$.
+\end{defi}
+
+\begin{bem}
+	$\<N\>$ ist wohldefiniert, denn seien $H_1, H_2<G$ mit $N\subseteq H_1, N\subseteq H_2$, dann $N\subseteq H_1\cap H_2$ und $H_1\cap H_2<G$. Also existiert kleinste Untergruppe, die $N$ enthält; $\<N\>$ ist wohldefiniert.
+\end{bem}
+
+\begin{defi}
+	$G$ Gruppe, $N\subseteq G$
+	\begin{enumerate}
+		\item $N$ erzeugt die Gruppe $G$, falls $\<N\> = G$. In diesem Fall heißt $N$ Erzeugendensystem der Gruppe $G$
+		\item $(G,\circ)$ heißt endlich erzeugt als Gruppe, falls $\exists N\subseteq G$ mit $|N|$ endlich und $G = \<N\>$.
+	\end{enumerate}
+\end{defi}
+
+\begin{bem}
+	$(G,\circ)$ Gruppe. $N\subseteq G$, dann gilt: $N$ erzeugt $G$ (also $G = \<N\>$) genau dann, wenn $\forall g\in G\exists n_1,\dots,n_r\in G$ (mit $r\in \IN_0$), sodass $g = n_1\circ \dots \circ n_r$ (mit $g=e$, falls $r=0$) und $n_i\in N$ oder $n_i^{-1}\in N$ für alle $1\leq i\leq r$ (*).
+\end{bem}
+
+\begin{proof}
+	\glqq$\Leftarrow$\grqq: Sei $g\in G$ und $g = n_1\circ\dots \circ n_r$ wie in (*). Daraus folgt $g\in \<N\>$, da $n_1,\dots,n_r\in <N>$ und dann auch $g$, weil $\<N\>$ Gruppe. Dadurch ist $G\subseteq <N>$, also $G = \<N\>$.\\
+	\glqq$\Rightarrow$\grqq: Sei $G = \<N\>$. Behauptung: $H:=\{g\in G| g \mbox{ von der Form (*)}\}<G$. (dkddiermsü)
+	
+	Da $\<N\>\subseteq H$ nach Definition von $\<N\>$ und Gruppe, muss also $\<N\> = H$ wegen Minimalität, da $N\subseteq H$. Nach Voraussetzung folgt $G = H$. Also hat jedes $g\in G$ die Form (*).
+\end{proof}
+
+\begin{bsp}
+	\leavevmode
+	\begin{itemize}
+		\item $\{$Transpositionen$\}\subseteq S_n$, d.h. $(i,j)$ mit $1\leq i<j\leq n$ erzeugen die Gruppe $S_n$
+		\item $\{$Einfache Transpositionen$\}\subseteq S_n$, d.h. $(i,j)$ mit $1\leq i<j=i+1\leq n$ erzeugt $S_n$
+	\end{itemize}
+	
+\end{bsp}
+
+\begin{defi}
+	$G$ Gruppe heißt zyklisch, falls $\exists g\in G$, sodass $\<\{g\}\> = G$ (d.h. falls $G$ von einem Element erzeugt wird).
+\end{defi}
+Beachte: $\<\{g\}\> = \{e, g, g^{-1}, g^2, g^{-2},\dots\} = \{g^i|i\in\IZ\}$
+
+\begin{bsp}
+
+ $(\IZ,+)$ ist zyklisch mit $\IZ =\<\{1\}\> = \<\{-1\}\>$
+
+\end{bsp}
+
+\begin{defi}
+	$(G,\circ)$ und $(G',\circ')$ seien Gruppen. Ein Gruppenhomomorphismus (kurz: Gruppenhomo) von $G$ nach $G'$ ist eine Abbildung $f\colon G\to G'$ mit $f(g\circ h) = f(g)\circ'f(h)\enspace \forall g, h\in G$.
+	
+	Er ist ein Gruppenisomorphismus (kurz: Gruppeniso), falls zusätzlich $f$ invertierbar ist. Wir schreiben $(G,\circ)\simeq (G',\circ')$, falls ein Gruppeniso von $G$ nach $G'$ existiert und nennen die Gruppen isomorph.
+\end{defi}
+
+\paragraph{Eigenschaften von Gruppenhomomorphismen} $f\colon G\to G'$ von $G$ nach $G'$ sei ein Gruppenhomo. Dann:
+\begin{enumerate}
+	\item[(E1)] $f$ Gruppeniso $\Leftrightarrow$ $f^{-1}$ Gruppeniso: denn nach Definition existiert $f^{-1}$. Zu zeigen: $f^{-1}(g'\circ' h')= f^{-1}(g')\circ f^{-1}(h')$ für alle $g',h'\in G$. Sei $g', h' \in G' \Rightarrow \exists g, h\in G\ f(g) = g', f(h) = h'$. Also: $f^{-1}(g'\circ'h')= f^{-1}(f(g)\circ'f(h)) = f^{-1}(f(g\circ h))= g\circ h  = f^{-1}(g')\circ f^{-1}(h')$
+	\item[(E2)] $f$ bildet Neutrales auf Neutrales ab
+	
+	\vspace{1 cm}
+	
+	\hfill 12. Oktober 2017
+	\item[(E3)] $f$ bildet Inverse auf Inverse ab
+	\item[(E4)] Sei $(G'',\circ'')$ eine weitere Gruppe; $f'\colon G'\to G''$ Gruppenhomo von $(G',\circ)$ nach $(G'',\circ'')$, dann ist $f'\circ f$ Gruppenhomo. Denn: 
+	
+	$(f'\circ f)(g\circ h) = f'(f(g\circ h)) = f'(f(g)\circ'f(h)) = (f'\circ f)(g)\circ''(f'\circ f)(h)$
+\end{enumerate}
+
+\begin{bsp}[Gruppenhomos]
+	\leavevmode
+	\begin{enumerate}
+		\item $(G,\circ)$ mit $\mbox{id}\colon G\to G,\ g\mapsto g$ Gruppenhomo von $(G,\circ)$ nach $(G,\circ)$
+		
+		\textbf{Achtung} $\mbox{id}\colon G\to G,\ g\mapsto g$ ist kein Gruppenhomo von $(G,\circ)$ nach $(G,\circ_a)$, falls $a\neq e$
+		
+		\item $\det\colon GL_n(K)\to K^*$ für einen Körper $K$ ist ein Gruppenhomo
+		\item $f\colon \IR^*\to \IR_{\geq 0},\ x\mapsto |x|$ Gruppenhomo von $(\IR^*,\cdot)$ nach $(\IR_{\geq 0}, \cdot)$
+		\item $x\mapsto \exp(x)$ Gruppenhomo von $(\IZ,+)$ nach $(\IR^*,\cdot)$
+		\item Betrachte $G = \left\{\left.\left(\begin{array}{cc}
+		1 & a \\ 
+		0 & 1
+		\end{array} \right)\right\vert a\in\IZ\right\}<GL_n(\IR,\cdot)$ und $f\colon \IZ\to G,\ a\mapsto\left(\begin{array}{cc}
+		1 & a \\ 
+		0 & 1
+		\end{array} \right)$ Gruppenhomo von $(\IZ,+)$ nach $(G,\mbox{Matrixmultiplikation})$. Sogar Gruppeniso mit Inversem:$\left(\begin{array}{cc}
+		1 & a \\ 
+		0 & 1
+		\end{array} \right)\mapsto a$
+		\item \textbf{Trivialer Gruppenhomo:} Schicke alles auf das neutrale Element
+		\item Gegeben $(G,\circ)$ Gruppe, $a\in G$. Dann ist $f\colon G\to G,\ g\mapsto g\circ a^{-1}$ ein Gruppenhomo von $(G,\circ)$ nach $(G,\circ_a)$
+	\end{enumerate}
+\end{bsp}
+
+\begin{lem}
+	Sei $n\in \IZ$.
+	\begin{enumerate}
+		\item Dann $\exists!$ Gruppenhomo $\mbox{can}\colon \IZ\to Z/n\IZ$ von $(\IZ,+)$ nach $(\IZ/n\IZ,+)$ mit $can(1)=\overline{1}$
+		\item Falls $n\neq 0$, existiert kein nichttrivialer Gruppenhomo $f\colon \IZ/n\IZ\to\IZ$ 
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item
+	\textbf{Eindeutigkeit:} Sei $f\colon \IZ\to \IZ/n\IZ$ Gruppenhomo. Dann $f(0)=\overline{0}$ nach (E2) und falls $f(1) = \overline{1}$, dann gilt $f(n)= f(1+\dots 1) = n\cdot f(1)$ für alle $n\in\IN$ und damit auch $f(-n) = -nf(1)$ nach (E5) $\Rightarrow$ $f$ eindeutig.
+	
+	\noindent \textbf{Gruppenhomo:} Es gilt dann $\text{can}(x) = \overline{x}$ für alle $x\in\IZ$ und da $\text{can}(x+y) = \overline{x+y} = \overline{x}+\overline{y} = \text{can}(x)+\text{can}(y)$ ist das auch ein Gruppenhomomorphismus
+	
+	\item Sei $n\neq 0$. Sei $f\colon \IZ/n\IZ\to \IZ$ Gruppenhomo. Sei $f(\overline{1})= x$. Dann: (ObdA $n\in\IN$) $0=f(0)=f(\overline{n})= f(\overline{1}+\dots \overline{1})=nf(\overline{1})= nx\Rightarrow x=0\Rightarrow$ $f$ trivialer Gruppenhomomorphismus
+	\end{enumerate}
+\end{proof}
+
+\begin{lem}
+	Sei $(G,\circ)$ eine Gruppe.
+	\begin{enumerate}
+		\item Sei $\text{Aut}(G) = \{f\colon G\to G| f \text{ Gruppeniso von $(G,\circ)$ nach }(G,\circ)\}$. Dann ist $\text{Aut}(G)$ Gruppe, die Automorphismengruppen von $G$
+		\item Betrachte die Abbildung $\text{Konj}\colon G\to \text{Aut}(G) ,\ g\mapsto \text{Konj}(g)$, wobei $\text{Konj}(g)(h)= g\circ\ h\circ g^{-1}$ für alle $h\in G$. Dann ist Konj ein Gruppenhomo von $G$ nach $\text{Aut}(G)$. (Im Allgemeinen nicht injektiv.)
+	\end{enumerate}
+\end{lem}
+
+\begin{proof}
+	einfach nachrechnen
+\end{proof}
+
+\begin{bem}
+	\leavevmode
+	\begin{enumerate}
+		\item 	Falls $(G,\circ)$ abelsch, dann ist jede Konjugation die Identität
+		\item $\text{Konj}(g) = \text{id}_G \Leftrightarrow g\in Z(G):=\{x\in G|x\circ y = y\circ x\enspace \forall y\in G\}$
+	\end{enumerate}
+\end{bem}
+
+\textbf{Konvention:} Von jetzt an schreiben wir meist $gh$ statt $g\circ h$ und $G$ statt $(G,\circ)$.
+
+\begin{satz}
+	Sei $f\colon G\to G'$ Gruppenhomo. Dann gilt:
+
+\vspace{2mm}	
+$	\begin{array}{llll}
+		\mbox{Ker}(f) & := \{g\in G|f(g) = e\}                       & <G & \mbox{ Kern von }f\\
+		\mbox{im}(f)  & := \{g'\in G'|\exists g\in G\ f(g)=g'\} & <G' & \text{ Bild von }f
+	\end{array}$
+\end{satz}
+
+\begin{proof}
+	einfach nachrechnen
+\end{proof}
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item $\mbox{Ker}(\text{can}\colon \IZ\to \IZ/n\IZ) = n\IZ<\IZ$
+		\item $\mbox{Ker}(\text{Konj}\colon G\to \text{Aut}(G)) = Z(G)<G$
+		\item $\mbox{Ker}(\det\colon GL_n(K)\to K^*) = SL_n(K)$
+	\end{enumerate}
+\end{bsp}
+
+\paragraph{Übung:} $f$ Gruppenhomo; $f$ ist injektiv genau dann, wenn $\text{Ker}(f) = \{e\}$
+
+\begin{satz}[Satz von Cayley]
+	Sei $G$ eine Gruppe. Dann ist
+	\begin{eqnarray*}
+		\Phi \colon G&\to& S_G\\
+		g&\mapsto& \Phi(g)
+	\end{eqnarray*} mit $\Phi(g)(h) = gh$ für alle $h\in G$ ein injektiver Gruppenhomomorphismus. (Damit kann man $G$ als Untergruppe einer Permutationsgruppe \glqq realisieren\grqq.)
+\end{satz}
+
+\begin{proof}
+	\leavevmode
+	
+	Wohldefiniert: $\Phi(g)$ ist invertierbar mit Inversem $h\mapsto g^{-1}h$.
+	
+	Zu zeigen: $\Phi(g_1g_2) = \Phi(g_1)\circ \Phi(g_2)$, also $\Phi(g_1g_2)(h) = \Phi(g_1)(\Phi(g_2)(h))$ für alle $h\in G$. Es gilt aber $\Phi(g_1g_2)(h) = g_1g_2h$ und $\Phi(g_1)(\Phi(g_2)(h)) = \Phi(g_1)(g_2h) = g_1g_2h$ \hfill$\checkmark$
+	
+	Injektiv: es reicht zu zeigen, dass der Kern trivial ist. Sei $g\in \text{Ker}\Phi\Leftrightarrow \Phi(g) = e = \text{id}_G \Leftrightarrow \Phi(g)(h)= h\enspace \forall h\in G\Leftrightarrow gh = h\forall h\in G\Leftrightarrow g= e$\hfill $\checkmark$
+\end{proof}
+
+
+\subsection{Satz von Lagrange und Normalteiler}
+\begin{defi}
+	$G$ Gruppe, $H<G$, $a\in G$. Dann ist:
+	\begin{itemize}
+		\item[] $aH = \{ah|h\in H\}\subseteq G$ Linksnebenklasse von $H$ zu $a$
+		\item[] $Ha = \{ha|h\in H\}\subseteq G$ Rechtsnebenklasse von $H$ zu $a$
+	\end{itemize}
+	Meist arbeiten wir mit Linksnebenklassen und nennen sie einfach Nebenklassen.
+\end{defi}
+
+\noindent
+Aus der Linearen Algebra wissen wir folgendes: \begin{enumerate}
+	\item Zwei Nebenklassen sind gleich oder disjunkt d.h. $aH\cap bH \neq \emptyset \Leftrightarrow aH = bH\Leftrightarrow b^{-1}a \in H$
+	\item Die Abbildung $aH\to H,\ ah\mapsto h$ ist bijektiv $\Rightarrow$ alle Nebenklassen haben dieselbe Kardinalität
+	\item $$ G = \bigcup\limits_{g\in G}gH = \overset{.}{\bigcup\limits_{b\in R} }bH$$, wobei $R\subseteq G$, sodass die $bH$ mit $b\in R$ genau ein Repräsentantensystem für die verschiedenen Nebenklassen bilden.
+	\item $g\in aH\Leftrightarrow g^{-1}\in Ha^{-1}$ (dadurch ergibt sich eine Bijektion zwischen Links- und Rechtsnebenklassen)
+	
+\end{enumerate}
+
+\begin{defi}
+	Bezeichne mit $G/H$ die Menge der Nebenklassen von $G$ bezüglich $H$ und mit $ H\backslash G$ die Menge der Rechtsnebenklassen. Dann gilt $|G/H| = |H\backslash G|$ (nach (4)). Wir nennen diese Zahl den Index, auch $(G:H)$, von $H$ in $G$
+\end{defi}
+
+\begin{satz}[Satz von Lagrange] \label{thm:lagrange}
+	$G$ Gruppe, $H<G$, $|G|<\infty$. Dann gilt
+	$$ |G| = |H|\cdot (G:H)\ .$$
+	Insbesondere: $|G| = p$ Primzahl $\Rightarrow H = \{e\}$ oder $H = G$.
+\end{satz}
+
+\begin{proof}
+	Formel folgt direkt aus (3), (2) und Definition von Index.
+	Falls nun $|G| = p \Rightarrow |H| = 1$ oder $|H| = p\Rightarrow H = \{e\}$ oder $H = G$.
+\end{proof}
+
+\noindent Noch mehr Wissen aus der Linearen Algebra: Falls $G$ abelsch ist, dann ist $G/H$ wieder eine Gruppe mit Gruppenoperation
+\begin{eqnarray*}
+	\circ \colon G/H\times G/H &\to& G/H\\
+	(aH,bH)&\mapsto& abH
+\end{eqnarray*}
+
+Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (siehe Übungsblatt 2).
+
+\begin{defi}
+	$G$ Gruppe, $H<G$ heißt Normalteiler falls gilt: $\forall g\in G, h\in H:\enspace g\circ h\circ g^{-1}\in H$. Wir schreiben dann: $H\vartriangleleft G$.
+\end{defi}
+\begin{bem}
+	Falls $G$ abelsch, dann ist jede Untergruppe Normalteiler.
+\end{bem}
+
+\begin{lem}
+	Sei $f\colon G\to G'$ Gruppenhomomorphismus.  Dann: $\text{Ker}(f)\vartriangleleft G$.
+\end{lem}
+\begin{proof}
+	Sei $g\in G$ und $h\in \text{Ker}f$. $\Rightarrow f(ghg^{-1}) = f(g)f(h)f(g)^{-1} = \\f(g)f(g)^{-1} = e \Rightarrow ghg^{-1}\in \text{Ker}f\Rightarrow \text{Ker}f\vartriangleleft G$.
+\end{proof}
+
+
+
+
+\vspace{1cm}
+\hfill 16. Oktober 2017
+
+\begin{satz}
+	Sei $G$ Gruppe, $N\nt G$. Dann gilt:\begin{enumerate}
+		\item $G/N$ bilden Gruppe mit $\circ\colon G/N\times G/N \to G/N,\enspace (aN, bN)\mapsto abN$.
+		\item Die Abbildung 
+		\begin{eqnarray*}
+			\mbox{can}\colon G &\to & G/N\\
+			g&\mapsto& gN
+		\end{eqnarray*}
+	ist ein surjektiver Gruppenhomo.
+	\end{enumerate}
+\end{satz}
+
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Es gilt $(aN\circ bN)\circ cN = abN\circ cN = abc N = aN\circ (bN\circ cN) \Rightarrow$ (G1)
+		Offensichtlich $eN = N$ ist neutrales Element. (G2).
+		$a^{-1}N$ ist offensichtlich Inverses zu $aN$ (G3).
+		
+		noch zu zeigen: Das ist wohldefiniert. Sei also $a_1N = a_2N$ und $b_1N = b_2N$. Daraus sollte $a_1b_1N = a_2b_2N$ folgen.
+		
+		Tatsächlich gilt $a_1^{-1}a_2 \in N$ und $b_1^{-1}b_2\in N$. Dann $(a_1b_1)^{-1}(a_2b_2) = b_1^{-1}a_1^{-1} a_2b_2$, wobei $a_1^{-1}a_2\in N$ und $b_1^{-1}a_1^{-1} a_2b_2 = b_1^{-1}b_2(b_2a_1^{-1}a_2b_2)\in N \Rightarrow (a_1b_1)^{-1}a_2b_2\in N\Rightarrow a_1b_1N = a_2b_2N$.
+		
+		\item surjektiv klar nach (3); um zu zeigen, dass das ein Gruppenhomomorphismus ist, muss man das einfach nachrechnen
+	\end{enumerate}
+\end{proof}
+
+\begin{bem}
+	Somit gilt: Normalteiler sind genau die Kerne von Gruppenhomomorphismen.
+\end{bem}
+
+\begin{satz}[Homomorphiesatz]
+	Sei $f\colon G\to H$ Gruppenhomo. Sei $N\nt G$. Dann: $N\subseteq \mbox{Ker}(f)\Leftrightarrow \exists!$ Gruppenhomo $\overline{f}\colon G/N\to H$, sodass $\overline{f}\circ \mbox{can} = f$. Also 
+	
+	\begin{tikzcd}
+		G \arrow{rd}[swap]{\mbox{can}} \arrow{r}{f} & H  \\
+				 	& G/N \arrow{u}[swap]{\exists! \overline{f}\text{ Gruppenhomo}} \\
+	\end{tikzcd}
+\end{satz}
+
+
+\begin{proof}
+	\glqq $\Leftarrow$\grqq: $\mbox{Ker}(\mbox{can}) = \{g\in G|gN = N\} = \{g\in G|g\in N\} = N \Rightarrow f(N) = \overline{f}(\mbox{can}(N)) = \overline{f}(e) = e\Rightarrow N\subseteq \mbox{Ker}(f)$.
+	
+	\noindent \glqq $\Rightarrow$\grqq: \textbf{Eindeutigkeit:} Es mus für $\overline{f}$ gelten: $\overline{f}(aN)=\overline{f}(\mbox{can}(a)) = f(a)\enspace \forall aN\in G/N\Rightarrow \overline{f}$ eindeutig bestimmt durch $f$.
+	
+	\textbf{Existenz:} Setzen $\overline{f}(aN): = f(a)\enspace \forall aN\in G/N$. Das ist wohldefiniert (klar). Zu zeigen: Das ist ein Gruppenhomo. (nachrechnen)
+\end{proof}
+
+\begin{kor}
+	$f\colon G\to H$ Gruppenhomo. Dann gilt $G/\mbox{Ker}f \cong \mbox{im}f$.
+\end{kor}
+\begin{proof}
+	$\mbox{Ker}f\nt G$ nach Lemma 2.2. $\Rightarrow G/\mbox{Ker}f$ ist eine Gruppe nach Satz 2.3. $\mbox{im}f$ ist eine Gruppe nach 1.3. Setze $N:= \mbox{Ker}f$. Klar: $N\subseteq \mbox{Ker}f$. Also existiert nach Satz 2.4 ein $\overline{f}$, sodass
+	
+	\begin{tikzcd}
+		G \arrow{rd}[swap]{\mbox{can}} \arrow{r}{f} & H  \\
+		& G/\mbox{Ker}f \arrow{u}[swap]{\exists! \overline{f}\text{ Gruppenhomo}} \\
+	\end{tikzcd}.
+	
+	Also haben wir $\overline{f}\colon G/\mbox{Ker}f\to \mbox{im}f$ ein Gruppenhomomorphismus. Er ist surjektiv, weil $\mbox{can}$ surjektiv ist. \\
+	Behauptung: $\overline{f}$ ist injektiv.
+	
+	Es gilt $\overline{f}(aN)=f(a) = e \Leftrightarrow a\in \mbox{Ker}f = N$. Also $\mbox{Ker}\overline{f} = \{N\} = \{\mbox{neutrales Element in }G/\mbox{Ker}f\}$. Also ist $\overline{f}$ injektiv. $\Rightarrow \overline{f}$ ist Gruppenisomorphismus.
+\end{proof}
+
+\begin{satz}[1. Isomorphiesatz]
+	Sei $G$ eine Gruppe, $H<G$, $N\nt G$.\begin{enumerate}
+		\item $HN:=\{hn|h\in H, n\in N\}<G$
+		\item $N\nt HN$, $(H\cap N)\nt H$
+		\item Es gilt $H/(H\cap N) \cong HN/N$ mit dem Gruppenisomorphismus $h(H\cap N)\mapsto hN$.
+	\end{enumerate}
+\end{satz}	
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item $HN\neq \emptyset$, da $e = ee\in HN$. Seien $h_1n_1,h_2n_2\in HN$ ($h_i\in H, n_i\in N$). Dann ist $h_1n_1(h_2n_2)^{-1} = h_1n_1n_2^{-1}h_2{-1} = h_1h_2^{-1}h_2n_1n_2^{-1}h_2{-1}$, wobei $n_1n_2^{-1}\in N$, $h_2n_1n_2^{-1}h_2^{-1}\in N$, da $N\nt G$ und $h_1h_2^{-1}\in H$, also ist der gesamte Ausdruck Element von $HN$.
+		\item Zunächst zeigen wir, dass $N\nt HN$: $N\subseteq HN$ (Klar, denn $n = en$). $\Rightarrow N<HN$, weil $N<G$; genauso $N\nt HN$, weil $N\nt G$.
+		
+		Noch zu zeigen: $(H\cap N)\nt H$. Klar: $(H\cap N)\subseteq H$, $(H\cap N)<H$, weil $(H\cap N)<G$. Sei $x\in H\cap N$, $h\in H$. Dann $hxh^{-1}\in H$, weil $H<G$; und $\in N$, weil $N\nt G$. Also $hxh^{-1}\in (H\cap N) \Rightarrow H\cap N\nt H$
+		\item Betrachte 
+		\begin{eqnarray*}
+			f\colon H&\to& HN \overset{\mbox{can}}{\to} HN/N\\
+			h&\mapsto &he
+		\end{eqnarray*}
+		Nachprüfen: $f$ ist ein Gruppenhomo. Für $x\in H$ gilt $x\in \mbox{Ker}(f)\Leftrightarrow xeN = N\Leftrightarrow x = xe\in \mbox{Ker}(\mbox{can}) = N\Leftrightarrow x\in (H\cap N)$. Also existiert nach dem Homomorphiesatz ein Gruppenhomo $\overline{f}$:
+		$$\overline{f}\colon H/(H\cap N)\to (HN)/N$$ ist nach Konstruktion injektiv.
+		
+		Surjektiv: Sei $hnN\in (HN)/N$ mit $h\in H, n\in N$. Dann gilt aber: $hnN = hN$ und dann $f(h)=hN$ und damit $\overline{f}\circ\mbox{can}(h) = \overline{f}(\mbox{can}(h)) = hN\Rightarrow hN\in \mbox{im}f\Rightarrow \overline{f}$ surjektiv. $\Rightarrow \overline{f}$ Gruppenisomorphismus.
+	\end{enumerate}
+\end{proof}
+
+\textbf{\Huge{Alle Lehramtsstudierenden bitte nach der Vorlesung sich melden!}}
+\bigskip
+
+Anmerkung zu Beweis des Homomorphiesatzes: Wo wird in \glqq$\Rightarrow$\grqq verwendet, dass $N\subseteq \mbox{Ker}f$? Es wird benötigt für die Wohldefiniertheit von $\overline{f}$.
+
+
+\begin{satz}[2. Isomorphiesatz]
+	Sei $G$ eine Gruppe; $N_1\nt G$, $N_2\nt G$, $N_1\subseteq N_2$. Dann gilt $N_1\nt N_2$ und $N_2/N_1\nt G/N_1$ und es gilt:
+	$$(G/N_1)/(N_2/N_1) \cong G/N_2$$ durch den Isomorphismus $(gN_1)N_2/N_1\mapsto gN_2$.
+\end{satz}	
+
+\begin{proof}
+	$G/N_1$ ist Gruppe, weil $N_1\nt G$. $N_2/N_1\subseteq G/N_1$ (Klar!); $G/N_2$ Gruppe, weil $N_2\nt G$. $N_1\subseteq N_2$ und damit $N_1\nt N_2$, weil $N_1\nt G$. Sei
+	\begin{eqnarray*}
+		f\colon G/N_1 & \to &G/N_2\\
+		gN_1 & \mapsto & gN_2
+	\end{eqnarray*}
+	
+	Das ist wohldefiert: Seien $g, h\in G$, $gN_1 = hN_1\Rightarrow g^{-1}h\in N_1\subseteq N_2\Rightarrow gN_2 = hN_2\Rightarrow$ wohldefiniert.
+	
+	Klar: $f$ ist surjektiv und $gN_1\in \mbox{Ker}(f)\Leftrightarrow gN_2 = N_2\Leftrightarrow g\in N_2$. Also $\mbox{Ker}(f) = \{gN_1|g\in N_2\} = N_2/N_1$. Also insbesondere $N_2/N_1\nt G/N_1$.
+	Nach dem Korollar des Homomorphiesatzes erhalten wir einen Gruppenhomo
+	$$ \overline{f}\colon (G/N_1)/\mbox{Ker}f(=N_2/N_1)\to \mbox{im}f = G/N_2 \mbox{ (da $f$ surjektiv)}$$
+	Nach Kosntruktion ist $\overline{f}$ injektiv, also erhalten wir den gewünschten Gruppenisomorphismus mit $\overline{f}(gN_1\cdot (N_2/N_1)) = f(gN_1) = gN_2$.
+\end{proof}
+
+\paragraph{Anwendungen}
+\begin{enumerate}
+	\item \textbf{Anzahlformel:} $G$ endliche Gruppe, $H<G$, $N\nt G$. Dann $|HN| =\frac{ |H||N|}{|H\cap N|}$. Denn nach Lagrange ist $|H| = |H\cap N|(H:H\cap N)$ und $|HN| = |N|(HN:N)$. Nach dem 1. Isomorphiesatz ist $(H:H\cap N)=(HN:N)$. Also $|HN| = \frac{|N||H|}{|H\cap N|}$\hfill $\checkmark$
+	\item $(G,\circ) = (\IZ, +)$, $m,n\in\IN$ und $m|n$. Wir wissen: $m\IZ<\IZ$ und $n\IZ<\IZ$ (sogar Normalteiler, weil $G$ abelsch ist). Klar ist: $n\IZ\subseteq m\IZ$ (insbesondere auch $n\IZ\nt m\IZ$). Dann gilt 
+	$$(\IZ/n\IZ)/(m\IZ/n\IZ) \cong \IZ/m\IZ$$
+\end{enumerate}
+
+\subsection{Zyklische Gruppen}
+Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
+\begin{satz}
+	Untergruppen von zyklischen Gruppen sind zyklisch.
+\end{satz}
+
+\begin{proof}
+	Sei $G$ eine zyklische Gruppe; $G = \<g\>$ mit $g\in G$. Sei $H<G$.\begin{itemize}
+		\item[Fall 1] $H = \{e\} = \<e\>$, also zyklisch
+		\item[Fall 2] $H\neq \{e\}\Rightarrow \exists m\in \IZ\setminus\{0\}: e\neq g^m\in H\Rightarrow \exists n\in \IN: e\neq g^n\in H$ (weil $H<G$). Wähle $n := \min\{j\in \IN|e\neq g^j\in H\}$. Behauptung: $H = \<g^n\>$.
+		
+		\glqq$\supseteq$\grqq: Klar, da $g^n\in H$
+		
+		\glqq$=$\grqq: Angenommen, Gleichheit gilt nicht. Also $\exists s\in \IZ: g^s\in H\setminus\<g^n\>$ (beachte $G = \<g\>$). Schreibe $s = an+r$ für $a,r\in \IZ$ und $0\leq r<n$. Falls $r = 0$, dann $s = an$ und $g^s = g^{an} = (g^n)^a\in \<g^n\>$ Widerspruch!
+		
+		Falls $r>0$: Dann $g^r = (g^{an})^{-1}g^{an}g^r = ((g^n)^a)^{-1}g^s\in H$ (Widerspruch zur Minimalität)
+		
+		Somit war die Annahme falsch und $H$ ist zyklisch.
+	\end{itemize}
+\end{proof}
+
+\begin{lem}
+	Bilder von zyklischen Gruppen und Gruppenhomomorphismen sind zyklisch.
+\end{lem}
+
+\begin{proof}
+	Sei $f: G \rightarrow G'$ ein Gruppenhomomorphismus und sei $G$ zyklisch, also $G = \<g\>$ für ein $g \in G$ $\Rightarrow G = \left\lbrace g^i | i \in \IZ \right\rbrace$ also $f(G) = \left\lbrace f(g^i) | i\in \IZ \right\rbrace = \left\lbrace (f(g^i)) | i \in \IZ)\right\rbrace = \<f(g)\> \Rightarrow \im f = \<f(g)\>$ zyklisch.
+\end{proof}
+
+\begin{lem} \label{lem:ord}
+	Sei $G$ endliche Gruppe $\abs G = n < \infty$. Sei $g \in G$ mit $G=\<g\>$ (also $G$ zyklisch).
+	Sei $\ord(g) = \min \left\lbrace j \in \IN | g^j = e\right\rbrace $.
+	Dann gilt: $\ord(g) = n$. 
+\end{lem}
+
+\begin{defi}
+	Allgemeiner: Sei $G$ irgendeine Gruppe, $g \in G$. Dann definiere \begin{equation*}
+		\ord(g) := \begin{cases*}
+		\min \left\lbrace j \in \IN | g^j = e\right\rbrace &falls das existiert \\
+		\infty &sonst
+		\end{cases*}
+	\end{equation*}
+	Wir nennen $ord(g)$ die Ordnung von $g \in G$.
+\end{defi}
+
+\begin{proof} [Beweis von Lemma \ref{lem:ord}]
+	\begin{enumerate}
+	\item Behauptung: $\ord(g)$ existiert. Angenommen es existiert nicht, also 
+	$
+		g^j \not = g ~ \forall j \in \IN \Rightarrow g^i \neq g^j \text{ falls } i \neq j, ~ i,j \in \IN 
+	$
+	(denn sonst gilt $g^{i-j}=e=g^{j-i}$ mit $i-j \in \IN$ oder $j-i \in \IN$).
+	Also $\abs G = \infty \Rightarrow$ Widerspruch.
+	
+	Jetzt ist noch zu zeigen, dass $n = \ord(g)$ gilt. Dazu sei $S := \left\lbrace g, g^2, ..., g^{\ord(g)} = e \right\rbrace \subset G$.
+	
+	\item Behauptung: $S < G$. Klar: $e \in S$. Sei $g^a, g^b \in S$. Schreibe $a-b = k \cdot \ord(g) + r$, wobei $k, r \in \IZ, 0 \leq r < \ord(g)$. Daraus folgt
+	\begin{equation*}
+		g^a\left( g^b \right)^{-1}=g^{a-b}=g^{k \cdot \ord(g)+r}
+		= \left(g^{\ord(g)} \right)^kg^r = e^kg^r=eg^r=g^r \in S
+	\end{equation*}
+	weil $0 \leq r < \ord(g)$.
+	Da $g \in S$, gilt $\<g\>\subset S$. Weil $S < G$ ist klar, dass $S \subset \<g\>$, also $\<g\> = S$.
+	\item Behauptung: $\abs S = \ord(g)$. Seien $g^i, g^j \in S$ mit $1 \leq i,j \leq \ord(g)$ und $g^i=g^j$. Also $g^{i-j} = e = g^{j-i}$, was ein Widerspruch zur Minimaltität von $\ord(g)$ ist außer $i=j$. Folglich sind die $g^i (1\leq i \leq \ord(g))$ paarweise verschieden, was die Behauptung zeigt.
+	\end{enumerate}
+\end{proof}
+
+\begin{bem}
+	Sei $G$ irgendeine Gruppe, $g\in G$. Dann gilt: $\ord(g) = \abs{\<g\>}$ und nach \nameref{thm:lagrange} dann $\ord(g)$ teilt $\abs G$, falls $\abs G$ endlich.
+\end{bem}
+
+\begin{satz}[Zyklische Gruppen]
+	Je zwei zyklische Gruppen der selben Ordnung sind isomorph. Genauer gilt für $G$ zyklische Gruppe: 
+	\begin{equation*}
+		G \cong \begin{cases*}
+			\IZ &falls $\abs G = \infty$ \\
+			\IZ/n\IZ &falls $\abs G = n$
+		\end{cases*}
+	\end{equation*}
+\end{satz}
+
+\begin{proof}
+	Sei $G = \<g\>$ mit $g \in G$. Sei $f: \IZ \rightarrow G : j \mapsto g^j$. Dann ist $f$ ein Gruppenhomomorphismus (nachrechnen) und surjektiv, da $G = \<g\>$.
+	\begin{itemize}
+		\item[Fall 1] $\abs G = \infty$. Dann muss $f$ injektiv sein, damit $f$ ein Isomorphismus ist und damit $\IZ \cong G$. Falls $f$ nicht injektiv ist, dann $\exists i,j \in \IZ, i\neq j$ mit $g^i=g^j$, als $g^{i-j} = e = g^{j-i}$. Folglich ist $\ord(g) < \infty$. Damit wäre $G$ nach \ref{lem:ord} endlich, was ein Widerspruch ist.
+		\item[Fall 2] $\abs G = n$ endlich. Dann folgt aus \ref{lem:ord}: 
+		\begin{equation*}
+			\ord(g)=n \Rightarrow g^n = e \Rightarrow g^{nk} = (g^n)^k = e^k = e ~ \forall k\in \IZ \Rightarrow n\IZ \subset \ker F
+		\end{equation*}
+		Nach dem Homotopiesatz gilt dann: TODO Diagramm. Also $\overline{f} : \IZ/n\IZ \rightarrow G$. Da $\abs{\IZ/n\IZ} = n = \abs G$ muss diese surjektive Abbildung schon ein Isomorphismus sein.
+	\end{itemize}
+\end{proof}
+
+\subsection{Auflösbare Gruppen}
+\begin{defi}
+	Eine Normalreihe eine Gruppe $G$ ist eine Kette von Untergruppen der Form $\left\lbrace e\right\rbrace = G_0 \nt G_1 \nt ... \nt G_n = G$. Man nennt die Quotientengruppe $G_i/G_{i-1}$ die Faktoren der Normalreihe.
+\end{defi}
+
+\begin{defi}
+	Eine Gruppe heißt auflösbar, falls eine Normalreihe mit abelschen Faktoren existiert.
+\end{defi}
+
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item Abelsche Gruppen sind auflösbar: $\left\lbrace e \right\rbrace \nt G$ und $G/\left\lbrace e \right\rbrace \cong G $, also abelsch
+		\item Sei $G = \left\lbrace \begin{pmatrix}
+		a & b \\ 
+		0 & d
+		\end{pmatrix} \in \GL_2(K) \right\rbrace < \GL_2(K) $. Behauptung: $G$ ist auflösbar. Dazu betrachtet man $G' = \left\lbrace \begin{pmatrix}
+		a & 0 \\
+		0 & d
+		\end{pmatrix} \in \GL_2(K)\right\rbrace < \GL_2(K)$, wobei $G'$ insbesondere eine Gruppe ist. 
+		\begin{equation*}
+			f: G \rightarrow G': \begin{pmatrix}
+			a & b \\ 
+			0 & d
+			\end{pmatrix} \mapsto \begin{pmatrix}
+			a & 0 \\ 
+			0 & d
+			\end{pmatrix}
+		\end{equation*}
+		was ein Gruppenepimorphismus ist (nachrechnen). Es gilt: 
+		\begin{equation*}
+			\ker f = \left\lbrace \begin{pmatrix}
+			1 & b \\ 
+			0 & 1
+			\end{pmatrix} \lvert b \in K \right\rbrace \nt G
+		\end{equation*}
+		Folglich gilt $\ker f \cong (K, +)$, sodass $\begin{pmatrix}
+		1 & b \\ 
+		0 & 1
+		\end{pmatrix} \mapsto b$, weil $\begin{pmatrix}
+		1 & b \\ 
+		0 & 1
+		\end{pmatrix}\begin{pmatrix}
+		1 & b' \\ 
+		0 & 1
+		\end{pmatrix}=\begin{pmatrix}
+		1 & b + b' \\ 
+		0 & 1
+		\end{pmatrix}$ als Gruppenhomomorphismus offensichtlich bijektiv ist. Damit ist $\ker f$ abelsch und $G'$ somit auch.
+		\begin{equation*}
+			\Rightarrow \left\lbrace e\right\rbrace  = G_0 \nt \ker f = G_1 \nt G_2 = G
+		\end{equation*}
+		und $ker f /\left\lbrace e\right\rbrace$ abelsch, sowie auch $G/\ker f \cong \im f = G'$ abelsch. Somit ist $G$ auflösbar.
+		\item $S_4$ ist auflösbar. Betrachte
+		\begin{equation*}
+			S_4 > A_4 := \left\lbrace \pi \in S_4 | \sgn(\pi) = 1 \right\rbrace 
+		\end{equation*}
+		Nach LA 1 ist $\sgn$ ein Gruppenhomomorphismus und damit $A_4 = \ker(\sgn) < S_4$. Es gilt $S_4 \nt A_4$, weil $A_4 = \ker(\sgn)$ oder weil $(S_4 - A_4) = 2$, was dann nach Blatt 2 folgt. Betrachte nun 
+		\begin{equation*}
+			A_4 > V_4 := \left\lbrace e, \underbrace{(1,2)(3,4)}_a, \underbrace{(1,3)(2,4)}_b, \underbrace{(1,4)(2,3)}_c\right\rbrace
+		\end{equation*}
+		Gruppentafel:
+		\begin{tabu}{c|[2pt]c|c|c}
+			& a & b & c \\ 
+			\tabucline[2pt]{-} 
+			a & e & c & b \\ 
+			\hline 
+			b & c & e & a \\ 
+			\hline 
+			c & b & a & e \\ 
+		\end{tabu} \\
+		Dann gilt $A_4 \nt V_4$, da folgendes gilt: 
+		\begin{equation*}
+			\forall  \pi \in S_4: \pi \circ \underbrace{(a_1, a_2)(a_3, a_4)}_\tau \circ \pi^{-1} = (\pi(a_1), \pi(a_2))(\pi(a_3), \pi(a_3))
+		\end{equation*}weil
+		\begin{alignat*}{3}
+			\pi(a_1)&\xmapsto{\pi^{-1}}&a_1&\xmapsto{\tau}&a_2&\xmapsto{\pi}\pi(a_2) \\
+			\pi(a_2)&\longmapsto&a_2&\mapsto& a_1&\mapsto\pi(a_1) \\
+			\pi(a_3)&\longmapsto&a_3&\mapsto& a_4&\mapsto\pi(a_4) \\
+			\pi(a_4)&\longmapsto&a_4&\mapsto& a_3&\mapsto\pi(a_3) \\
+		\end{alignat*} also $V_4 \nt A_4$. Folglich haben wir
+		\begin{equation}
+			\left\lbrace e\right\rbrace = G_0 \nt V_4 = G_1 \nt A_4 = G_2 \nt S_4 = G_3
+		\end{equation}
+		\begin{description}
+			\item[$G_1/G_0 \cong V_4$] ablesch
+			\item[$G_2/G_1 \cong \IZ/2\IZ$] also abelsch, da jede Gruppe $H$ der Ordunung 2 zyklisch mit $H = \<g\> (g \neq e)$ ist und dann nach Klassifikationssatz $H \cong \IZ/2\IZ$
+			\item[$G_3/G_2$] Wir wissen, dass $\abs{G_3/G_2} = 3$. Dann behaupten wir, dass $G_3/G_2 \cong \IZ/3\IZ$. Jede Gruppe $H$ mit $\abs H = 3$ ist zyklisch, denn $\<g\> < H (g \neq e)$. Nach dem \nameref{thm:lagrange} gilt $\<g\> = H$, weil $\<g\> \neq e$ und 3 prim ist. Also folgt die Aussage aus dem Klassifikationssatz.
+		\end{description}
+		Daraus folgt, dass $S_4$ auflösbar ist.
+	\end{enumerate}
+
+	\begin{satz}
+		Untergruppen und Bilder unter Gruppenhomomorphismen von auflösbaren Gruppen sind auflösbar.
+	\end{satz}
+	\begin{proof}
+		Sei $G$ auflösbare Gruppe. Dann existiert eine Auflösung 
+		\begin{equation*}
+			\left\lbrace e\right\rbrace = G_0 \nt G_1 \nt ... \nt G_n = G ~ G_i/G_{i-1} \text{ abelsch}
+		\end{equation*}
+		\begin{enumerate}
+			\item Sei $U < G$. Behauptung: $\left\lbrace e\right\rbrace = G_0 \cap U \nt (G_1 \cap U) \nt ... \nt (G_n \cap U) = U $. Es ist klar, dass $(G_{i-1} \cap U) \subset (G_1 \cap U)$. Auch klar ist, dass $G_i \cap U$ eine Gruppe ist und $(G_{i-1} ) < (G_1 \cap U)$. Jetzt ist noch zu zeigen, dass $(G_{i-1} \cap U) \nt (G_i \cap U)$. Sei $x \in G_{i-1} \cap U$ und sei $y \in G_i \cap U$. Dann folgt, dass $\underbrace{yxy^{-1}}_{\in G_{i-1}} \in U$, weil $x, y \in U, U < G$, weil $x \in G_{i-1}, y \in G_i$ und $G_{i-1} \nt G_i$. Daraus folgt, dass $yxy^{-1} \in U \cap G_{i-1}$, was zu zeigen war.
+			\item Behauptung: $G_i \cap U / G_{i-1} \cap U$ abelsch. Es gilt $G_i \cap U / G_{i-1} \cap U \stackrel{\text{1. Iso}}{\cong} (U \cap G_i)G_i/G_i \nt G_i/G_{i-1}$ abelsch. Daraus folgt die Behauptung.
+		\end{enumerate}
+	\end{proof}
+\end{bsp}
+
+%\begin{bsp}
+%	Das hier ist ein Beispiel-Diagramm:
+
+%	\begin{tikzcd}
+%		X \arrow{rd}[swap]{g\circ f} \arrow{r}{f} & Y \arrow{d}{g} \\
+%		W \arrow{u}	& Z \\
+%	\end{tikzcd}
+%\end{bsp}
+
+\end{document}
