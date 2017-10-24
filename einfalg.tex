@@ -42,7 +42,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
-\usepackage{fontawesome, bbold, tikz-cd}
+\usepackage{bbold, tikz-cd}%???@fontawesome
 \usepackage[pdftex]{hyperref}
 \usepackage[noabbrev,capitalize]{cleveref}
 \usepackage{tabu}
@@ -279,7 +279,7 @@ Klar: Untergruppen sind Gruppen
 \begin{lem}
 	Sei $n\in \IZ$.
 	\begin{enumerate}
-		\item Dann $\exists!$ Gruppenhomo $\mbox{can}\colon \IZ\to Z/n\IZ$ von $(\IZ,+)$ nach $(\IZ/n\IZ,+)$ mit $can(1)=\overline{1}$
+		\item Dann $\exists!$ Gruppenhomo $\mbox{can}\colon \IZ\to \IZ/n\IZ$ von $(\IZ,+)$ nach $(\IZ/n\IZ,+)$ mit $can(1)=\overline{1}$
 		\item Falls $n\neq 0$, existiert kein nichttrivialer Gruppenhomo $f\colon \IZ/n\IZ\to\IZ$ 
 	\end{enumerate}
 \end{lem}
@@ -322,8 +322,8 @@ Klar: Untergruppen sind Gruppen
 
 \vspace{2mm}	
 $	\begin{array}{llll}
-		\mbox{Ker}(f) & := \{g\in G|f(g) = e\}                       & <G & \mbox{ Kern von }f\\
-		\mbox{im}(f)  & := \{g'\in G'|\exists g\in G\ f(g)=g'\} & <G' & \text{ Bild von }f
+		\ker(f) & := \{g\in G|f(g) = e\}                       & <G & \mbox{ Kern von }f\\
+		\im(f)  & := \{g'\in G'|\exists g\in G\ f(g)=g'\} & <G' & \text{ Bild von }f
 	\end{array}$
 \end{satz}
 
@@ -466,7 +466,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 \begin{proof}
 	\glqq $\Leftarrow$\grqq: $\mbox{Ker}(\mbox{can}) = \{g\in G|gN = N\} = \{g\in G|g\in N\} = N \Rightarrow f(N) = \overline{f}(\mbox{can}(N)) = \overline{f}(e) = e\Rightarrow N\subseteq \mbox{Ker}(f)$.
 	
-	\noindent \glqq $\Rightarrow$\grqq: \textbf{Eindeutigkeit:} Es mus für $\overline{f}$ gelten: $\overline{f}(aN)=\overline{f}(\mbox{can}(a)) = f(a)\enspace \forall aN\in G/N\Rightarrow \overline{f}$ eindeutig bestimmt durch $f$.
+	\noindent \glqq $\Rightarrow$\grqq: \textbf{Eindeutigkeit:} Es muss für $\overline{f}$ gelten: $\overline{f}(aN)=\overline{f}(\mbox{can}(a)) = f(a)\enspace \forall aN\in G/N\Rightarrow \overline{f}$ eindeutig bestimmt durch $f$.
 	
 	\textbf{Existenz:} Setzen $\overline{f}(aN): = f(a)\enspace \forall aN\in G/N$. Das ist wohldefiniert (klar). Zu zeigen: Das ist ein Gruppenhomo. (nachrechnen)
 \end{proof}
