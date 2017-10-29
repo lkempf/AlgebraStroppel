@@ -1,0 +1,41 @@
+\usepackage{amsthm}
+
+\newcounter{thmcounter}[subsection]
+\newcounter{defcounter}[subsection]
+
+\theoremstyle{definition}
+\newtheorem{defi}[defcounter]{Definition}
+
+\theoremstyle{remark}
+\newtheorem*{bem}{Bemerkung}
+
+\theoremstyle{definition}
+\newtheorem{satz}[thmcounter]{Satz}
+
+\theoremstyle{definition}
+\newtheorem*{bsp}{Beispiel}
+
+\theoremstyle{plain}
+\newtheorem{kor}[thmcounter]{Korollar}
+
+\theoremstyle{plain}
+\newtheorem{lem}[thmcounter]{Lemma}
+
+\newcommand{\lecture}[1]{
+	\vspace{0.5cm}
+	\vbox{
+		\noindent\makebox[\textwidth]{
+			\begin{minipage}{\textwidth}
+				\flushright
+				\ifdefined \@lastLectureDate
+					{\footnotesize[\@lastLectureDate]}
+					\vspace{2pt}
+				\fi
+				\hrule
+				\vspace{2pt}
+				{\footnotesize[#1]} 
+			\end{minipage}
+		}
+	}
+	\def\@lastLectureDate{#1}
+}
