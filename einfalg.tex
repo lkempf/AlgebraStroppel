@@ -1,94 +1,20 @@
-\let\IJ\undefined
-\let\epsilon\undefined
+\documentclass[12pt,a4paper]{scrartcl}
 
-\newcommand{\IA}{\mathbb A}
-\newcommand{\IB}{\mathbb B}
-\newcommand{\IC}{\mathbb C}
-\newcommand{\ID}{\mathbb D}
-\newcommand{\IE}{\mathbb E}
-\newcommand{\IF}{\mathbb F}
-\newcommand{\IG}{\mathbb G}
-\newcommand{\IH}{\mathbb H}
-\newcommand{\II}{\mathbb I}
-\newcommand{\IJ}{\mathbb J}
-\newcommand{\IK}{\mathbb K}
-\newcommand{\IL}{\mathbb L}
-\newcommand{\IM}{\mathbb M}
-\newcommand{\IN}{\mathbb N}
-\newcommand{\IO}{\mathbb O}
-\newcommand{\IP}{\mathbb P}
-\newcommand{\IQ}{\mathbb Q}
-\newcommand{\IR}{\mathbb R}
-\newcommand{\IS}{\mathbb S}
-\newcommand{\IT}{\mathbb T}
-\newcommand{\IU}{\mathbb U}
-\newcommand{\IV}{\mathbb V}
-\newcommand{\IW}{\mathbb W}
-\newcommand{\IX}{\mathbb X}
-\newcommand{\IY}{\mathbb Y}
-\newcommand{\IZ}{\mathbb Z}
-\newcommand{\<}{\langle}
-\renewcommand{\>}{\rangle}
-\newcommand{\nt}{\vartriangleleft}
-
-\newcommand{\ul}{\underline}
-
-\newcommand{\epsilon}{\varepsilon}
-
-\documentclass[12pt,a4paper]{article}
-\usepackage[ngerman]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{mathtools}
-\usepackage{bbold, tikz-cd}%???@fontawesome
-\usepackage[pdftex]{hyperref}
-\usepackage[noabbrev,capitalize]{cleveref}
-\usepackage{tabu}
-
-\newcounter{thmcounter}[subsection]
-\newcounter{defcounter}[subsection]
-
-\theoremstyle{definition}
-\newtheorem{defi}[defcounter]{Definition}
-
-\theoremstyle{remark}
-\newtheorem*{bem}{Bemerkung}
-
-\theoremstyle{definition}
-\newtheorem{satz}[thmcounter]{Satz}
-
-\theoremstyle{definition}
-\newtheorem*{bsp}{Beispiel}
-
-\theoremstyle{plain}
-\newtheorem{kor}[thmcounter]{Korollar}
-
-\theoremstyle{plain}
-\newtheorem{lem}[thmcounter]{Lemma}
-%\newtheorem{lem}[thmcounter]{Lemma}
-
-\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\DeclareMathOperator{\GL}{GL}
-\DeclareMathOperator{\ord}{ord}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\im}{Im}
-\renewcommand{\circle}{\circ}
+\usepackage{includes}
+\usepackage{numbering}
+\usepackage{shortcuts}
 
 \author{Luise Puhlmann}
-\title{Einführung in die Algebra\\ Wintersemester 2017/18}
+\title{Einführung in die Algebra}
+\subtitle{Wintersemester 2017/18}
+
 
 \begin{document}
 \maketitle
 \tableofcontents
 \newpage
 
-\hfill 9. Oktober 2017
-
-\vspace{1cm}
+\lecture{9. Oktober 2017}
 
 \url{http://www.math.uni-bonn.de/people/palmer/A1.html}
 
@@ -242,9 +168,7 @@ Klar: Untergruppen sind Gruppen
 	\item[(E1)] $f$ Gruppeniso $\Leftrightarrow$ $f^{-1}$ Gruppeniso: Nach Definition existiert $f^{-1}$. Zu zeigen: $f^{-1}(g'\circ' h')= f^{-1}(g')\circ f^{-1}(h')$ für alle $g',h'\in G$. Sei $g', h' \in G' \Rightarrow \exists g, h\in G\ f(g) = g', f(h) = h'$. Also: $f^{-1}(g'\circ'h')= f^{-1}(f(g)\circ'f(h)) = f^{-1}(f(g\circ h))= g\circ h  = f^{-1}(g')\circ f^{-1}(h')$
 	\item[(E2)] $f$ bildet Neutrales auf Neutrales ab
 	
-	\vspace{1 cm}
-	
-	\hfill 12. Oktober 2017
+	\lecture{12. Oktober 2017}
 	\item[(E3)] $f$ bildet Inverse auf Inverse ab
 	\item[(E4)] Sei $(G'',\circ'')$ eine weitere Gruppe; $f'\colon G'\to G''$ Gruppenhomo von $(G',\circ')$ nach $(G'',\circ'')$, dann ist $f'\circ f$ Gruppenhomo. Denn: 
 	
@@ -418,9 +342,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 
 
 
-
-\vspace{1cm}
-\hfill 16. Oktober 2017
+\lecture{16. Oktober 2017}
 
 \begin{satz}
 	Sei $G$ Gruppe, $N\nt G$. Dann gilt:\begin{enumerate}
