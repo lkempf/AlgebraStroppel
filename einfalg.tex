@@ -35,8 +35,8 @@
 \end{eqnarray*}
 (genannt Gruppenoperation), sodass gilt:
 \begin{itemize}
-	\item[(G1)]$(a\circ b)\circ c = a \circ (b\circ c) \forall a,b,c\in G$ (Assoziativität)
-	\item[(G2)] $\exists e\in G$ mit $g\circ e = g = e\circ g\forall g\in G$ (Neutrales Element)
+	\item[(G1)]$(a\circ b)\circ c = a \circ (b\circ c) ~ \forall a,b,c\in G$ (Assoziativität)
+	\item[(G2)] $\exists e\in G$ mit $g\circ e = g = e\circ g ~ \forall g\in G$ (Neutrales Element)
 	\item[(G3)] $\forall g\in G\ \exists g^{-1}$ sodass $g\circ g^{-1} = e = g^{-1}\circ g$ (Inverse Elemente)
 \end{itemize}
 \end{defi}
@@ -46,6 +46,7 @@
 \begin{itemize}
 	\item Neutrales Element $e$ ist eindeutig
 	\item Inverse Elemente $g^{-1}$ sind eindeutig
+	\item Es reicht sogar zu fordern: Existenz von Linksneutralem und Linksinversem oder Existenz von Rechtsneutralem und Rechtsinversem.
 	\item Es gelten die Kürzungsregeln:
 		\begin{eqnarray*}
 			a\circ c = b\circ c &\Leftrightarrow& a = b\qquad \forall a,b,c\in G\\
@@ -58,24 +59,20 @@
 	$(G,\circ)$ heißt abelsch, falls $g\circ h = h\circ g$ für alle $g,h\in G$.
 \end{defi}
 
-
-
-Es reicht sogar zu fordern: Existenz von Linksneutralem und Linksinversem oder Existenz von Rechtsneutralem und Rechtsinversem.
-
 \begin{bsp}
 \leavevmode
 \begin{itemize}
 	\item $(\mathbb Z, +)$
 	\item $(K,+,\cdot)$ Körper $\Rightarrow (K,+)$ und $(K^*=K\setminus \{0\}, \cdot)$ sind Gruppen
 	\item $(V,+,\cdot)$ $K$-Vektorraum, dann ist $(V,+)$ eine Gruppe
-	\item $K$ Körper, $n\in\mathbb N$; $G = GL_n(K)$ ist Gruppe mit Matrixmultiplikation
-	\item $M$ nichtleere Menge; $S_M := \{f\colon M\to M|f \mbox{invertierbar}\}$ mit $\circ = $ Komposition von Abbildungen ist eine Gruppe; Spezialfall: $M = \{1,\dots n\},\ n\in\mathbb N$ ergibt die symmetrische Gruppe $S_n$ der Ordnung $n!$.
+	\item $K$ Körper, $n\in\mathbb N$; $G = \GL_n(K)$ ist Gruppe mit Matrixmultiplikation
+	\item $M$ nichtleere Menge; $S_M := \{f\colon M\to M|f ~ \text{invertierbar}\}$ mit $\circ = $ Komposition von Abbildungen ist eine Gruppe; Spezialfall: $M = \{1,\dots n\},\ n\in\mathbb N$ ergibt die symmetrische Gruppe $S_n$ der Ordnung $n!$.
 	\item Sei $(G,\circ)$ eine Gruppe und $a\in G$ fest gewählt. Dann ist $(G,\circ_a)$ eine Gruppe, wobei $g\circ_a h = g\circ a\circ h$.
 \end{itemize}
 \end{bsp}
 
 \begin{defi} 
-	$(G,\circ)$ Gruppe. Dann ist die Anzahl $|G|$ der Elemente von $G$ die Ordnung von $G$.
+	$(G,\circ)$ Gruppe. Dann ist die Anzahl $\abs G$ der Elemente von $G$ die Ordnung von $G$.
 \end{defi}
 
 \begin{defi}
@@ -83,21 +80,21 @@ Es reicht sogar zu fordern: Existenz von Linksneutralem und Linksinversem oder E
 \end{defi}
 
 \begin{bem} $H<(G,\circ)$ gilt genau dann, wenn gilt:
-	\begin{enumerate}
+	\begin{description}
 	\item[(UG0)] $e\in H$
 	\item[(UG1)] $h_1,h_2\in H\Rightarrow h_1\circ h_2\in H$
 	\item[(UG2)] $h\in H\Rightarrow h^{-1}\in H$
-\end{enumerate}
+	\end{description}
+	Klar: Untergruppen sind Gruppen
 \end{bem}
 
-Klar: Untergruppen sind Gruppen
 \begin{bsp}[selber nachprüfen!!!]
 	\leavevmode
 	\begin{itemize}
 		\item $2\IZ < (\IZ, +)$
-		\item $n\in\mathbb N$; $O(n) = \{A\in GL_n(\IR)|AA^{T} = \mathbb 1_n\}< GL_n(\IR)$ die orthogonale Gruppe
-		\item  $n\in\mathbb N$; $U(n) = \{A\in GL_n(\IC)|A\overline A^{T} = \mathbb 1_n\}< GL_n(\IC)$ die unitäre Gruppe
-		\item $SL_n(K) = \{A\in GL_n(K)|\det(A)=1\}<GL_n(K)$
+		\item $n\in\mathbb N$; $O(n) = \{A\in \GL_n(\IR)|AA^{T} = \mathds 1_n\}< \GL_n(\IR)$ die orthogonale Gruppe
+		\item  $n\in\mathbb N$; $U(n) = \{A\in GL_n(\IC)|A\overline A^{T} = \mathds 1_n\}< \GL_n(\IC)$ die unitäre Gruppe
+		\item $SL_n(K) = \{A\in \GL_n(K)|\det(A)=1\}<\GL_n(K)$
 		\item $SO(n) = O(n)\cap SL_n(\IR)<O(n)$
 		\item Spezielle Unitäre Gruppe
 		\item $H(3,\IR) = \left\{\left(\begin{array}{ccc}
@@ -110,7 +107,7 @@ Klar: Untergruppen sind Gruppen
 \end{bsp}
 
 \begin{defi}
-	Sei $(G,\circ)$ eine Gruppe. Sei $\emptyset\neq N\subseteq G$. Dann ist $\<N\>$ die kleinste (bzgl. Inklusion) UG von $G$, die $N$ enthält (also: $H<G$ mit $N\subseteq H\Rightarrow \<N\>\subseteq H$). Wir nennen $\<N\>$ die von $N$ erzeugte UG von $(G,\circ)$.
+	Sei $(G,\circ)$ eine Gruppe. Sei $\emptyset\neq N\subseteq G$. Dann ist $\<N\>$ die kleinste (bzgl. Inklusion) Untergruppe von $G$, die $N$ enthält (also: $H<G$ mit $N\subseteq H\Rightarrow \<N\>\subseteq H$). Wir nennen $\<N\>$ die von $N$ erzeugte Untergruppe von $(G,\circ)$.
 \end{defi}
 
 \begin{bem}
@@ -126,14 +123,14 @@ Klar: Untergruppen sind Gruppen
 \end{defi}
 
 \begin{bem}
-	$(G,\circ)$ Gruppe. $N\subseteq G$, dann gilt: $N$ erzeugt $G$ (also $G = \<N\>$) genau dann, wenn $\forall g\in G : \exists n_1,\dots,n_r\in G$ (mit $r\in \IN_0$), sodass $g = n_1\circ \dots \circ n_r$ (mit $g=e$, falls $r=0$) und $n_i\in N$ oder $n_i^{-1}\in N$ für alle $1\leq i\leq r$ (*).
+	$(G,\circ)$ Gruppe, sei $N\subseteq G$. Dann gilt: $N$ erzeugt $G$ (also $G = \<N\>$) genau dann, wenn $\forall g\in G : \exists n_1,\dots,n_r\in G$ (mit $r\in \IN_0$), sodass $g = n_1\circ \dots \circ n_r$ (mit $g=e$, falls $r=0$) und $n_i\in N$ oder $n_i^{-1}\in N$ für alle $1\leq i\leq r$ (*).
 \end{bem}
 
 \begin{proof}
 	\glqq$\Leftarrow$\grqq: Sei $g\in G$ und $g = n_1\circ\dots \circ n_r$ wie in (*). Daraus folgt $g\in \<N\>$, da $n_1,\dots,n_r\in \<N\>$ und dann auch $g$, weil $\<N\>$ Gruppe. Dadurch ist $G\subseteq \<N\>$, also $G = \<N\>$.\\
 	\glqq$\Rightarrow$\grqq: Sei $G = \<N\>$. Behauptung: $H:=\{g\in G| g \mbox{ von der Form (*)}\}<G$. (dkddiermsü)
 	
-	Da $\<N\>\subseteq H$ nach Definition von $\<N\>$ und Gruppe, muss also $\<N\> = H$ wegen Minimalität, da $N\subseteq H$. Nach Voraussetzung folgt $G = H$. Also hat jedes $g\in G$ die Form (*).
+	Da $\<N\>\subseteq H$ nach Definition von $\<N\>$ gilt und $\<N\>$ eine Gruppe ist, muss also $\<N\> = H$ wegen Minimalität gelten, da $N\subseteq H$ gilt. Nach Voraussetzung folgt $G = H$. Also hat jedes $g\in G$ die Form (*).
 \end{proof}
 
 \begin{bsp}
@@ -146,34 +143,39 @@ Klar: Untergruppen sind Gruppen
 \end{bsp}
 
 \begin{defi}
-	$G$ Gruppe heißt zyklisch, falls $\exists g\in G$, sodass $\<\{g\}\> = G$ (d.h. falls $G$ von einem Element erzeugt wird).
+	Eine Gruppe $G$ heißt zyklisch, falls $\exists g\in G$, sodass $\gen{\{g\}} = G$ (d.h. falls $G$ von einem Element erzeugt wird).
 \end{defi}
 
-\noindent Beachte: $\<\{g\}\> = \{e, g, g^{-1}, g^2, g^{-2},\dots\} = \{g^i|i\in\IZ\}$
+\noindent Beachte: $\gen{\{g\}} = \{e, g, g^{-1}, g^2, g^{-2},\dots\} = \{g^i|i\in\IZ\}$
 
 \begin{bsp}
 
- $(\IZ,+)$ ist zyklisch mit $\IZ =\<\{1\}\> = \<\{-1\}\>$
+ $(\IZ,+)$ ist zyklisch mit $\IZ =\genSet{1} = \genSet{-1}$
 
 \end{bsp}
 
 \begin{defi}
 	$(G,\circ)$ und $(G',\circ')$ seien Gruppen. Ein Gruppenhomomorphismus (kurz: Gruppenhomo) von $G$ nach $G'$ ist eine Abbildung $f\colon G\to G'$ mit $f(g\circ h) = f(g)\circ'f(h)\enspace \forall g, h\in G$.
 	
-	Er ist ein Gruppenisomorphismus (kurz: Gruppeniso), falls zusätzlich $f$ invertierbar ist. Wir schreiben $(G,\circ)\simeq (G',\circ')$, falls ein Gruppeniso von $G$ nach $G'$ existiert und nennen die Gruppen isomorph.
+	Er ist ein Gruppenisomorphismus (kurz: Gruppeniso), falls zusätzlich $f$ invertierbar ist. Wir schreiben $(G,\circ)\simeq (G',\circ')$, falls ein Gruppenisomorphismus von $G$ nach $G'$ existiert und nennen die Gruppen isomorph.
 \end{defi}
 
-\paragraph{Eigenschaften von Gruppenhomomorphismen} $f\colon G\to G'$ von $G$ nach $G'$ sei ein Gruppenhomo. Dann:
-\begin{enumerate}
-	\item[(E1)] $f$ Gruppeniso $\Leftrightarrow$ $f^{-1}$ Gruppeniso: Nach Definition existiert $f^{-1}$. Zu zeigen: $f^{-1}(g'\circ' h')= f^{-1}(g')\circ f^{-1}(h')$ für alle $g',h'\in G$. Sei $g', h' \in G' \Rightarrow \exists g, h\in G\ f(g) = g', f(h) = h'$. Also: $f^{-1}(g'\circ'h')= f^{-1}(f(g)\circ'f(h)) = f^{-1}(f(g\circ h))= g\circ h  = f^{-1}(g')\circ f^{-1}(h')$
+\paragraph{Eigenschaften von Gruppenhomomorphismen} $f\colon G\to G'$ von $G$ nach $G'$ sei ein Gruppenhomomorphismus. Dann gilt:
+\begin{description}
+	\item[(E1)] $f$ Gruppeniso $\Leftrightarrow$ $f^{-1}$ Gruppeniso: Nach Definition existiert $f^{-1}$. Zu zeigen: $f^{-1}(g'\circ' h')= f^{-1}(g')\circ f^{-1}(h')$ für alle $g',h'\in G$. Sei $g', h' \in G' $. Daraus folgt $ \exists g, h\in G : f(g) = g', f(h) = h'$. Also:
+	\begin{equation*}
+		f^{-1}(g'\circ'h')= f^{-1}(f(g)\circ'f(h)) = f^{-1}(f(g\circ h))= g\circ h  = f^{-1}(g')\circ f^{-1}(h')
+	\end{equation*} 
+	
 	\item[(E2)] $f$ bildet Neutrales auf Neutrales ab
 	
 	\lecture{12. Oktober 2017}
 	\item[(E3)] $f$ bildet Inverse auf Inverse ab
 	\item[(E4)] Sei $(G'',\circ'')$ eine weitere Gruppe; $f'\colon G'\to G''$ Gruppenhomo von $(G',\circ')$ nach $(G'',\circ'')$, dann ist $f'\circ f$ Gruppenhomo. Denn: 
-	
-	$(f'\circ f)(g\circ h) = f'(f(g\circ h)) = f'(f(g)\circ'f(h)) = (f'\circ f)(g)\circ''(f'\circ f)(h)$
-\end{enumerate}
+	\begin{equation*}
+		(f'\circ f)(g\circ h) = f'(f(g\circ h)) = f'(f(g)\circ'f(h)) = (f'\circ f)(g)\circ''(f'\circ f)(h)
+	\end{equation*}
+\end{description}
 
 \begin{bsp}[Gruppenhomos]
 	\leavevmode
