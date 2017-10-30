@@ -830,13 +830,110 @@ Vorbemerkung: $G$ Gruppe, $|G| = p$ Primzahl $\Rightarrow G\cong \IZ/p\IZ$. (Den
 	$ \IZ/3\IZ\times \IZ/5\IZ\to \IZ/15\IZ, g\mapsto \overline{1}$ gibt den Isomorphismus.
 \end{proof}
 
+\lecture{30. Oktober 2017}
+
+\subsection{Ringe}
+\begin{defi} Ein Ring (mit 1) ist eine Menge $R$ zusammen mit zwei Abbildungen
+	\begin{eqnarray*}
+		+,\cdot \colon R\times R &\to & R\\
+		(a,b)&\mapsto& a+b \qquad \text{Addition}\\
+		\text{bzw. }(a,b)&\mapsto& a\cdot b\qquad\text{Multiplikation,}
+	\end{eqnarray*}
+sodass gilt:
+\begin{itemize}
+	\item[R1] $(R,+)$ ist eine abelsche Gruppe.
+	\item[R2] $\forall a,b,c\in R$ gilt $(a\cdot b)\cdot c = a\cdot (b\cdot c)$ (also $\cdot$ ist assoziativ)
+	\item[R3] $\forall a,b,c\in R$ gilt:
+	\begin{eqnarray*}
+		a\cdot(b+c) &=& (a\cdot b)+ (a\cdot c)\\
+		(b+c)\cdot a& =& (b\cdot a)+(c\cdot a)
+	\end{eqnarray*} (Distributivität)
+	\item[R4] $\exists 1 = 1_R\in R$, sodass $a\cdot 1 = a = 1\cdot a$ für alle $a\in R$ (Neutrales bezüglich $\cdot$)
+\end{itemize}
+\end{defi}
+
+\begin{bem} \leavevmode
+	\begin{enumerate}
+		\item Wir bezeichnen mit $0$ oder $0_R$ das neutrale Element bezüglich $+$ und mit $(-a)$ das Inverse zu $a\in R$ bzgl $+$.
+		\item Das Element $1\in R$ ist eindeutig (denn sei $1'$ ein anderes, dann ist $1 = 1\cdot 1' = 1'$).
+		\item In einem Ring gilt: $a\cdot 0 = 0 = 0\cdot a$ für alle $a\in R$, denn $a\cdot 0 = a\cdot (0+0 = (a\cdot 0)+(a\cdot 0)\Rightarrow 0 = a\cdot 0$; analog für $0\cdot a$.
+	\end{enumerate}
+\end{bem}
+
+\begin{defi}
+	Ein Ring $(R, +,\cdot)$ heißt kommutativ, falls $a\cdot b = b\cdot a$ für alle $a,b\in R$
+\end{defi}	
+
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item Jeder Körper $(K,+,\cdot)$ ist ein kommutativer Ring (aber Ringe haben im Allgemeinen keine multiplikativ Inversen)
+		\item (aus LA) Sei $V$ ein $K$-Vektorraum, $K$ ein Körper, dann ist $(\text{End}_K(V),+,\cdot)$ ein Ring mit $(f+g)(v) = f(v)+g(v)$ und $(f\cdot g)(v) = (f\circ g)(v)$ (Hintereinanderausführung) mit $f,g\in \text{End}_K(V), v\in V$ mit $0_{\text{End}_K(V)} =$ Nullabbildung; $1_{\text{End}_K(V)} = \text{id}_V$.
+		\item Nullring: $R = \{0=1\}$ mit $0+0 = 0$ und $0\cdot 0 = 0$.
+		\item Es gilt folgende Umkehrung von $1.$: wenn $(R,+,\cdot)$ ein kommutativer Ring ist, $R\neq \{0\}$, jedes $x\in R$ mit $x\neq 0$ besitzt Inverses $x^{-1}$ bezüglich $\cdot$; dann ist $(R, +, \cdot )$ Körper
+		\item $(R, +, \cdot)$ Ring. Betrachte
+		$$ R[t] = \left\{ \sum_{i=0}^{\infty} a_it^i | a_i\in R, \text{ nur endlich viele }a_i\neq 0\right\}  = \left\{ \sum_{i=0}^{n} a_it^i | a_i\in R, n\in \IN_0\right\}$$
+		Polynome mit Koeffizienten in $R$. Dann ist $(R[t], +, \cdot)$ ein Ring mit $0_{R[t]} =$ Nullpolynom, d.h. $a_i = 0$ für alle $i$. $1_{R[t]}$ ist das Polynom $p(t) = \sum_{i = 0}^{\infty}a_it^i$ mit $a_0 = 1$ und $a_i = 0$ für $i\geq 1$.  Es gilt: $(R[t], +,\cdot)$ ist kommutativ $\Leftrightarrow$ $(R,+,\cdot)$ ist kommutativ.
+	\end{enumerate}
+\end{bsp}	
+
+\begin{defi}
+	$(R,+,\cdot)$ Ring. $R'\subseteq R$ heißt Unterring, falls
+	\begin{itemize}
+		\item[UR1] $1_R\in R'$
+		\item[UR2] $\forall a, b\in R': a+(-b)\in R', a\cdot b \in R'$
+	\end{itemize}
+\end{defi}
+
+\begin{bsp}
+	$(R,+,\cdot)$ Ring. $Z(R) = \{a\in R|a\cdot x = x\cdot a \enspace \forall x\in R\}$ Zentrum des Ringes ist ein Unterring.
+	
+	Warnung: $Z(R) \neq Z((R,+))$ im Allgemeinen
+\end{bsp}	
+
+\begin{defi}
+	Seien $(R,+,\cdot)$ und $(S,+,\cdot)$ Ringe. Eine Abbildung $\phi\colon R\to S$ ist Ringhomomorphismus (kurz Ringhomo), falls gilt:
+	\begin{itemize}
+		\item[RH1] $\phi (a+b) = \phi (a)+\phi(b)$
+		\item[RH2]$\phi(a\cdot b) = \phi(a)\cdot \phi(b)$
+		\item[RH3]$\phi(1_R) = \phi(1_S)$
+	\end{itemize}
+	für alle $a,b\in R$.
+	
+	Falls $\phi$ zusätzlich bijektiv ist, ist es ein Ringisomorphismus (kurz Ringiso)
+\end{defi}
+
+\begin{bem}
+	$\phi\colon R\to S$ Ringhomo $\Rightarrow$ $R\to S$ ist Gruppenhomo von $(R,+)$ nach $(S,+)$ wegen (RH1).
+\end{bem}
+
+\begin{lem}
+	\leavevmode
+	\begin{enumerate}
+		\item $\phi\colon R\to S$ Ringiso $\Rightarrow \phi^{-1}\colon S\to R$ Ringiso
+		\item $\phi_1\colon R\to S, \phi_2\colon S\to T$ Ringhomos $\Rightarrow \phi_2\circ\phi_1\colon R\to T$ ist ein Ringhomo
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	Nachrechnen.
+\end{proof}
 
 
+\begin{lem}
+	Sei $\phi\colon R\to S$ Ringhomomorphismus. Dann ist $\text{im}\phi\subseteq S$ ein Unterring.
+\end{lem}
 
+\begin{proof}
+	Es gilt $\phi(1_R) = 1_S\in\text{im}\phi\Rightarrow$ UR1.
+	
+	Seien $s_1, s_2\in\text{im}\phi\Rightarrow \exists r_1,r_2\in R:\enspace \phi (r_1) = s_1, \phi (r_2 )= s_2\Rightarrow s_1\cdot s_2 = \phi (r_1)\cdot \phi (r_2) = \phi(r_1\cdot r_2)\in \text{im}\phi\Rightarrow s_1\cdot s_2\in \text{im}\phi$.
+	
+	Außerdem ist $s_1+(-s_2) = \phi (r_1) + (-\phi (r_2)) = \phi (r_1)+\phi (-r_2) = \phi (r_1+(-r_2))\in\text{im}\phi\Rightarrow s_1+(-s_2)\in \text{im}\phi\Rightarrow$ UR2.
+\end{proof}
 
-
-
-
+\noindent
+\textbf{Warnung:} Wir setzen für $\phi\colon R\to S$ Ringhomo
+$$\text{Ker}\phi := \{r\in R|\phi(r)= 0_S\}\enspace.$$ Dann ist $\text{Ker}\subseteq R$ nur dann Unterring, falls $S$ der Nullring ist.
 
 
 
