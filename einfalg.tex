@@ -490,6 +490,8 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 	\end{itemize}
 \end{proof}
 
+\lecture{19. Oktober 2017}
+
 \begin{lem}
 	Bilder von zyklischen Gruppen und Gruppenhomomorphismen sind zyklisch.
 \end{lem}
@@ -668,6 +670,176 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 		\end{enumerate}
 	\end{proof}
 \end{bsp}
+
+
+
+\lecture{23. Oktober 2017}
+\subsection{title}
+\lecture{26. Oktober 2017}
+
+\begin{satz}[Satz 5.2]
+	$G$ irgendein weirdes Zeichen $X$; $X$ endlich: $|X| = \sum_{i\in I}(G: G_{x_i}) = |X^G| + \sum_{x_i\notin X^G}(G:G_{x_i})$
+\end{satz}
+
+\begin{satz}[Satz 5.3]
+	$G$ endliche Gruppe, $G$ weirdes Zeichen $G$ durch Konjugation; $|G| = |Z(G)|+\sum_{i\in I, x_i\notin Z(G)}(G:C_G(x_i))$.
+\end{satz}
+\subsection{$p$-Gruppen und Sylow-Sätze}
+\begin{defi}
+	Sei $p$ Primzahl (insbesondere $\geq 2$). Eine $p$-Gruppe ist eine Gruppe $G$ mit $|G| = p^r$ für ein $r\in\IN_0$. Insbesondere ist $|G|$ endlich.
+\end{defi}
+\begin{satz}
+	$G\neq\{e\}$ $p$-Gruppe $\Rightarrow Z(G)\neq\{e\}$
+\end{satz}
+\begin{proof}
+	Nach 5.3 (mit Notation von dort) $|G| = Z(G)+\sum_{i\in I, x_i\notin Z(G)}(G:G_{x_i})$. Nach Lagrange ist das durch $p$ teilbar oder $=1$. (Weil $G$ eine $p$-Gruppe ist). $(G:G_{x_i}) = 1 \Leftrightarrow G = G_{x_i}\Leftrightarrow x_i\in Z(G)$. Das ist ein Widerspruch. Also sind die Summanden $(G:G_{x_i})$ durch $p$ teilbar. Damit teilt $p$ auch $|Z(G)|\Rightarrow |Z(G)|\geq 2\Rightarrow Z(G)\neq \{e\}$.
+\end{proof}
+
+\begin{satz}
+	$G$ $p$-Gruppe. Dann existiert Normalreiche der Form
+	$$ \{e\}\nt G_0\nt\dots\nt G_n = G$$ für ein $n\in\IN$, sodass $G:i/G_{i-1}\cong \IZ/p\IZ$ ($1\neq i\neq n$).
+	Insbesondere ist $G$ auflösbar.
+\end{satz}
+\begin{proof}
+	Übungsblatt 3.
+\end{proof}
+
+\begin{defi}
+	$G$ endliche Gruppe, $p$ Primzahl. Sei $|G| = p^rm$ mit $p\not| m$. $H<G$ heißt $p$-Sylowgruppe, falls $|H| = p^r$. Wir definieren  $Syl_p(G):=\{H<G|H\text{ ist Sylowgruppe}\}$
+\end{defi}
+
+\begin{satz}[Sylowsätze]
+	$p$ Primzahl, $G$ endliche Gruppe, $|G| = p^rm$ mit $p\not|m$.\begin{enumerate}
+		\item $\forall 0\neq k\neq r\exists H<G$ mit $|H| = p^k$
+		\item Sei $U<G$ $p$-Gruppe. Dann $\exists g\in G$ und $S\in Syl_p(G)$, sodass $U<gSg^{-1}$.
+		\item Sei $n_p = |Syl_p(G)|$. Dann gilt \begin{itemize}
+			\item $n_p\equiv 1\pmod p$
+			\item $n_p|m$
+		\end{itemize}
+	\end{enumerate}
+\end{satz}
+
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Sei $1\leq k \leq r$. Fall $k = 0$ klar mit $H = \{e\}$. Sei $X = \{A\subseteq G| |A| = p^k\}$, wobei $|X| = {p^rm}\over{p^k}$; Übungsballt 3: $p^{r-k+1}\not | |X|$.
+		
+		Nun $G$ weirdes Zeichen $X$ durch $g.A = gA:=\{ga|a\in A\}$ für $g\in G, A\in X$. (klar: $|gA| = p^k $ also $gA\in X$). Nachrechnen: (O1), (O2) gilt (offensichtlich). 
+		
+		Nach Satz 5.2 folgt $|X| = \sum_{i\in I}(G:G_{x_i})$, wobei $\exists i\in I$, sodass $p^{r-k+1}\not| (G:G_{x_i})$, weil $p^{r-k+1}\not||X|$. Wähle solch ein $x_i = : A'\in X$.
+		
+		Behauptung: $G_{A'}<G$ mit $|G_{A'} = p^k$. Dann folgt 1) mit $H = G_{A'}. Klar: G_{A'}<G$. Nach Lagrange: $|G| = |G_{A'}|(G:G_{A'})$, wobei $p^r$ die linke Seite der Gleichung teilt, und im Index auf der rechten Seite $p$ höchstens $r-k$-mal vorkommt.
+		
+		$\Rightarrow$ $p^k$ teilt $|G_{A'}|\Rightarrow p^k\leq |G_{A'}|$. Sei $a\in A'$. Dann $G_{A'}.a:= \{g.a|g\in G_{A'}\}\subseteq G_{A'}.A'\subseteq A'$ nach Definition von $G_{A'}$.
+		
+		Also: $|G_{A'}| = |G_{A'}.a|\leq |A'| = p^k$.  (Def. von $G_{A'.a}$ und $A'\in X$).
+		Also: $|G_{A'}| = p^k\Rightarrow$ Behauptung $\Rightarrow$ 1).
+		
+		\item Sei $U<G$ mit $|U| = p^s$ für ein $s\in\IN$. Sei $S\in Syl_p(G)$. $U$ weirdes Zeichen $G/S$ nach (B3) durch Linksmultiplikation.
+		$$ u.(gS) = ugS\qquad u\in U, g\in G$$
+		$m = |G/S| = \sum_{i\in I}(U:U_{x_i})$ (nach Definition ist $S\in Syl_p(G)$; wende Lagrange an; die zweite Gleichheit folgt aus Satz 5.2).
+		
+		Weil $p\not| m$, existiert ein $i\in I$ sodass $p\not|(U:U_{x_i})$. Wähle ein solches $x_i =: aS$. Nach Lagrange ist
+		$$ p^s = |U| = |U_{aS}|(U:U_{aS})$$. Also $(U:U_{as}) = 1$. Also $U = U_{aS}$. Damit
+		\begin{center}
+			$ \begin{array}{crclc}
+			&u.aS &=& aS      						\qquad& \forall a\in U\\
+			\Leftrightarrow& (ua)S &=& as		\qquad &\forall u\in U\\
+			\Leftrightarrow& a^{-1}uaS &=& S \qquad &\forall u\in U\\
+			\Leftrightarrow& a^{-1}ua&\in& S  \qquad &\forall u\in U\\
+			\Leftrightarrow& u&\in& aSa^{-1}  \qquad &\forall u\in U
+			\end{array}$
+		\end{center}
+		Setze $g := a$ und erhalte $U<gSg^{-1}$.
+		
+		\item Übungsaufgabe
+	\end{enumerate}
+\end{proof}
+
+\paragraph{Konsequenzen}
+$G$ endliche Gruppe, $p$ Primzahl.
+\begin{enumerate}
+	\item Je zwei $p$-Sylowuntergruppen in $G$ sind zueinander konjugiert (d.h. $S, S'\in Syl_p(G) \Rightarrow \exists g\in G: S' = gSg^{-1}$)
+	\begin{proof}
+		Nach Sylowsatz 2 folgt $\exists g\in G$ mit $S'<gSg^{-1}$. Da $|S'| = |gSg'|$ nach Definition von $p$-Sylow gilt $S' = gSg^{-1}$.
+	\end{proof}
+	
+	Beachte: Falls $n_p  = |Syl_p(G)| = 1$, also $\exists!$ $p$-Sylowgruppe $S$, dann ist $S\nt G$. Denn $\forall g\in G$ ist $gSg^{-1}$ wieder $p$-Sylow, also $gSg^-1 = S$.
+	
+	\item (Cauchy) $p||G|\Rightarrow \exists g\in G$ mit $ord(g) = p$.
+	\begin{proof}
+		Nach Sylowsatz 1 existiert $H<G$ mit $|H| = p$. Wähle $g\in H$, $g\neq e$. Dann ist $\<g\> <H$ und $\<g\> \neq \{e\}$, also $\<g\> = H$ nach Lagrange. Aus Kapitel 3 folgt $ord(g) = |H| = p$.
+	\end{proof}
+	\item $G$ ist $p$-Gruppe $\Leftrightarrow $ Jedes Element $g\in G$ hat Ordnung $p^s$ für geeignetes $s\in \IN_0$ (abhängig von $g$).
+	\begin{proof}
+		\glqq$\Rightarrow$ \grqq: Sei $g\in G$. Sei $ord(g) = n$. Aus Satz 3.3 folgt $|\<g\>| = n$. $\Rightarrow n||G|$ nach Lagrange. $\Rightarrow$ (da $G$ $p$-Gruppe) $n = p^s$ für ein $s$.
+		
+		\grqq $\Leftarrow$\grqq: zu zeigen: $|G| = p^r$ für ein $r\in\IN_0$.
+		
+		Annahme: $q||G|$ für $q$ Primzahl $p\neq q$. Nach dem Satz von Cauchy existiert $g\in G$ mit $ord(g) = q$. Das ist ein Widerspruch.
+	\end{proof}
+	\begin{bem}
+		$p$-Gruppen mit unendlicher Ordnung kann man definieren als Gruppen mit $ord(g) = $ Potenz von $p$ für alle $g\in G$.
+	\end{bem}
+	
+\end{enumerate}
+
+\paragraph{Anwendungen}\leavevmode
+Vorbemerkung: $G$ Gruppe, $|G| = p$ Primzahl $\Rightarrow G\cong \IZ/p\IZ$. (Denn wähle $g\in G$, $g\neq e$. Dann $\<g\> <G$ und nach Lagrange ist $|\<g\>| = p = |G|$, also $G = \<g\>$ zyklisch, also $G\cong \IZ/p\IZ$ nach Klassifikation von zyklischen Gruppen.)
+\begin{satz}
+	$G$ Gruppe, $|G| = pq$ mit $p\neq q$ Primzahl. Dann ist $G$ auflösbar.
+\end{satz}	
+\begin{proof}
+	Ohne Beschränkung der Allgemeinheit sei $p>q$. Nach Sylowsatz 3 gilt: $n_p|q$, also $n_p\in\{1,q\}$ und $n_p\equiv 1 \pmod p$.
+	
+	$\Rightarrow n_p = 1$, weil $p>q$. Nach Bemerkung in 1 gilt $\exists!$ $p$-Sylowgruppe $S$ und $S\nt G$. Nach Definition von $p$-Sylow und weil $|G| = pq$ gilt $|S| = p$. Also erhalten wir eine Normalreihe 
+	$$ \{e\}\nt S\nt G$$ mit $S/\{e\}\cong S\cong \IZ/p\IZ$ und $|G/S| = q$, also $G/S\cong \IZ/q\IZ$.
+	
+	$\Rightarrow$ Faktoren sind abelsch $\Rightarrow$ $G$ ist auflösbar.
+\end{proof}
+
+\begin{satz}
+	$G$ Gruppe, $|G| = pq$, $p,q$ Primzahlen, $p<q$ und $p\not| q-1$. Dann $G\cong\IZ/p\IZ \times \IZ\times q\IZ$
+\end{satz}
+\begin{proof}
+	Nach Sylowsatz 3 gilt $n_p\in \{1,q\}, n_q\in\{1,p\}$ und $n_p\equiv 1\pmod p$, $n_q\equiv 1\pmod q$. Da $p<q$ ist, gilt $n_q = 1$. Also existiert genau eine $q$-Sylowgruppe $Q\nt G$. Falls $n_p = q\Rightarrow q\equiv 1\pmod p$. Daraus folt $p|(q-1)$ im Widerspruch zur Voraussetzung. Also ist $n_p = 1\Rightarrow \exists!$ $p$-Sylowgruppe $P\nt G$.
+	
+	1. Behauptung: $x\in P ,y\in Q$. Dann $xy = yx$. Denn $xyx^{-1}y^{-1}\in Q$, da $xyx^{-1}\in Q$ ($Q$ Normalteiler) und $y^{-1}\in Q$, $xyx^{-1}y^{-1}\in P$, da $x\in P und yx^{-1}y^{-1} \in P$ ($P$ Normalteiler).
+	
+	$\Rightarrow$ $xyx^{-1}y^{-1} \in P\cap Q$. Aber $P\cap Q = \{e\}$, da $|P\cap Q||p = |P|$ und $|P\cap Q||q = |Q|$.
+	
+	$\Rightarrow$ 1. Behauptung.
+	
+	Betrachte nun $\Phi\colon P\times Q\to G, (x,y)\mapsto xy$. $\Phi$ ist ein wohldefinierter Gruppenhomomorphismus. Denn $\Phi((x,y)\circ (x',y')) = \Phi ((xx', yy')) = xx'yy'$; $\Phi((x,y))\circ \Phi((x',y')) = xyx'y' = xx'yy'$ (nach der 1. Behauptung).
+	
+	Außerdem ist $\Phi$ injektiv, denn $\Phi((x,y)) = e\Leftrightarrow xy = e\Leftrightarrow x = y^{-1} = e$, weil $P\cap Q = \{e\}$.
+	
+	$\Phi$ ist surjektiv, weil $|P\times Q| = |P||Q| = pq = |G|$. $\Rightarrow$ $\Phi$ liefert Gruppenisomorphismus $P\times Q \cong G$, also $\IZ/p\IZ\times \IZ/q\IZ\cong G$
+\end{proof}
+
+
+\begin{kor}
+	$G$ Gruppe, $|G| = 15$. Dann $G\cong \IZ/3\IZ\times \IZ/5\IZ$ und $G$ ist zyklisch.
+\end{kor}
+
+\begin{proof}
+	Wir wissen $G \cong \IZ/3\IZ\times \IZ/5\IZ$. Behauptung: $ \IZ/3\IZ\times \IZ/5\IZ\cong \IZ/15\IZ$. Sei nämlich $g = (\overline{1}, \overline{1})\in  \IZ/3\IZ\times \IZ/5\IZ$. Dann gilt: $ord(g) = \min \{j|(\overline{1},\overline{1})+\dots (\overline{1},\overline{1}) = (\overline{0}, \overline{0}\in  \IZ/3\IZ\times \IZ/5\IZ)\}  =15$
+	
+	$\Rightarrow |\<g\>| = 15 \Rightarrow  \IZ/3\IZ\times \IZ/5\IZ$ ist zyklisch.
+	
+	$ \IZ/3\IZ\times \IZ/5\IZ\to \IZ/15\IZ, g\mapsto \overline{1}$ gibt den Isomorphismus.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
 
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
