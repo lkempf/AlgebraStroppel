@@ -841,14 +841,14 @@ Vorbemerkung: $G$ Gruppe, $|G| = p$ Primzahl $\Rightarrow G\cong \IZ/p\IZ$. (Den
 	\end{eqnarray*}
 sodass gilt:
 \begin{itemize}
-	\item[R1] $(R,+)$ ist eine abelsche Gruppe.
-	\item[R2] $\forall a,b,c\in R$ gilt $(a\cdot b)\cdot c = a\cdot (b\cdot c)$ (also $\cdot$ ist assoziativ)
-	\item[R3] $\forall a,b,c\in R$ gilt:
+	\item[(R1)] $(R,+)$ ist eine abelsche Gruppe.
+	\item[(R2)] $\forall a,b,c\in R$ gilt $(a\cdot b)\cdot c = a\cdot (b\cdot c)$ (also $\cdot$ ist assoziativ)
+	\item[(R3)] $\forall a,b,c\in R$ gilt:
 	\begin{eqnarray*}
 		a\cdot(b+c) &=& (a\cdot b)+ (a\cdot c)\\
 		(b+c)\cdot a& =& (b\cdot a)+(c\cdot a)
 	\end{eqnarray*} (Distributivität)
-	\item[R4] $\exists 1 = 1_R\in R$, sodass $a\cdot 1 = a = 1\cdot a$ für alle $a\in R$ (Neutrales bezüglich $\cdot$)
+	\item[(R4)] $\exists 1 = 1_R\in R$, sodass $a\cdot 1 = a = 1\cdot a$ für alle $a\in R$ (Neutrales bezüglich $\cdot$)
 \end{itemize}
 \end{defi}
 
@@ -880,8 +880,8 @@ sodass gilt:
 \begin{defi}
 	$(R,+,\cdot)$ Ring. $R'\subseteq R$ heißt Unterring, falls
 	\begin{itemize}
-		\item[UR1] $1_R\in R'$
-		\item[UR2] $\forall a, b\in R': a+(-b)\in R', a\cdot b \in R'$
+		\item[(UR1)] $1_R\in R'$
+		\item[(UR2)] $\forall a, b\in R': a+(-b)\in R', a\cdot b \in R'$
 	\end{itemize}
 \end{defi}
 
@@ -894,9 +894,9 @@ sodass gilt:
 \begin{defi}
 	Seien $(R,+,\cdot)$ und $(S,+,\cdot)$ Ringe. Eine Abbildung $\phi\colon R\to S$ ist Ringhomomorphismus (kurz Ringhomo), falls gilt:
 	\begin{itemize}
-		\item[RH1] $\phi (a+b) = \phi (a)+\phi(b)$
-		\item[RH2]$\phi(a\cdot b) = \phi(a)\cdot \phi(b)$
-		\item[RH3]$\phi(1_R) = \phi(1_S)$
+		\item[(RH1)] $\phi (a+b) = \phi (a)+\phi(b)$
+		\item[(RH2)]$\phi(a\cdot b) = \phi(a)\cdot \phi(b)$
+		\item[(RH3)]$\phi(1_R) = \phi(1_S)$
 	\end{itemize}
 	für alle $a,b\in R$.
 	
@@ -933,11 +933,87 @@ sodass gilt:
 
 \noindent
 \textbf{Warnung:} Wir setzen für $\phi\colon R\to S$ Ringhomo
-$$\text{Ker}\phi := \{r\in R|\phi(r)= 0_S\}\enspace.$$ Dann ist $\text{Ker}\subseteq R$ nur dann Unterring, falls $S$ der Nullring ist.
+$$\text{Ker}\phi := \{r\in R|\phi(r)= 0_S\}\enspace.$$ Dann ist $\text{Ker}\subseteq R$ genau dann Unterring, falls $S$ der Nullring ist. Denn:
+
+\glqq $\Rightarrow$\grqq: $\text{Ker}\phi$ Unterring $\Rightarrow 1_R\in \text{Ker}\phi\Rightarrow 0_S = \phi (1_R) = 1_S\Rightarrow \forall s\in S:\enspace s = s\cdot 1_S = s\cdot 0_S = 0_S$.
+
+\grqq $\Leftarrow$\grqq: $S = \{0\}\Rightarrow \text{Ker}\phi = R$ offensichtlich Unterring.
+
+\begin{defi}
+	Sei $(R,+,\cdot)$ ein Ring. $I\subseteq R$ heißt Ideal, falls gilt:
+	\begin{itemize}
+		\item[(I1)] $I<(R,+)$
+		\item[(I2)] \begin{itemize}
+			\item[a)] $a\cdot x \in I$ für alle $x\in I, a\in R$
+			\item[b)] $x\cdot a \in I$ für alle $x\in I, a\in R$
+		\end{itemize}
+	\end{itemize}
+	Falls nur (I1), (I2a) erfüllt sind, heißt $I$ Linksideal; falls nur (I1) und (I2b) erfüllt sind, heißt $I$ Rechtsideal.
+\end{defi}
+
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item $(\IZ,+,\cdot)$ ist Ring. Sei nun $n\in\IZ$ und $I= n\IZ = \{nk|k\in\IZ\}\subseteq \IZ$ ist Ideal, denn: $n\IZ<(\IZ,+)$, also folgt (I1); und für $a\in\IZ$ und $x = nk\in n\IZ$ gilt: $ax = ank = nak\in I$; $xa = nka  = nak \in I$ und damit folgt (I2).
+		
+		\item $(R,+,\cdot)$ Ring; $(R[t],+,\cdot)$ wie in Beispiel oben; $I = \{p(t)\in R[t]|p(t) = \sum_{i = 0}^{\infty}a_it^i\enspace a_0 = 0\}$ Polynome ohne konstanten Term. Dann ist $I\subseteq R[t]$ ein Ideal (kurz selbst überlegen).
+	\end{enumerate}
+\end{bsp}
+
+
+\begin{lem} $\phi\colon R\to S$ Ringhomo $\Rightarrow \text{Ker}\phi \subseteq R$ ist Ideal.
+\end{lem}
+
+\begin{proof}
+	$\text{Ker}\phi<(R,+)$ nach 1.3 $\Rightarrow$ (I1). Sei nun $a\in R, x\in\text{Ker}\phi\Rightarrow \phi(ax) = \phi(a)\phi(x) = \phi(a)\cdot 0_S = 0_S\Rightarrow ax\in \text{Ker}\phi$. Genauso $xa\in\text{Ker}\phi\Rightarrow$ (I2).
+\end{proof}
+
+\begin{bsp}
+	$(R[t],+,\cdot)$ wie in Beispiel 3. Sei $a\in R$.\begin{eqnarray*}
+		\text{ev}_a\colon R[t] & \to  R\\
+		p(t) = \sum_{i=0}^{\infty}b_it^i &\mapsto& p(a) = \sum_{i=0}^{\infty} b_ia^i\\
+		(b_i\in R; \text{ fast alle $b_i = 0$})&&(\text{mit }a^i = a\cdot\dots\cdot a (\text{$n$-mal}))
+	\end{eqnarray*}
+	Auswertungsabbildung
+	
+	Nachrechnen: $\text{ev}_a$ ist Ringhomo.
+	
+	$\text{Ker}(\text{ev}_a) = \{p(t)\in R[t]|p(a) = 0_R\}$. Also: das sind genau die Polynome, die $a$ als Nullstelle haben. Wir wissen: $\text{Ker}(\text{ev}_a) \subseteq R[t]$ Ideal nach 7.3.
+	
+	Spezialfall: $a = 0_R$. Dann gilt $\text{Ker}(\text{ev}_0)  = I$ wie in Bsp. 3 Teil 2); (insbesondere $I$ Ideal). 
+\end{bsp}
+
+Seien nun ein Ring $(R,+,\cdot)$ und ein Ideal $I\subseteq R$ gegeben. Insbesondere, nach $(I1)$, ist $I<(R,+)$, sogar $I\nt (R,+)$, weil $(R,+)$ abelsch.
+
+$\rightarrow$ $R/I$ ist wieder Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I$ als Elemente. Nebenklassen sind von der Form $\overline{a} = \{a+x|x\in I\}\enspace a\in R$ und die Gruppenoperation auf $G/I$ ist $\overline{a}\circ\overline{b} = \overline{a+b}$
+
+\begin{satz}
+	Voraussetzungen: $R, I$ wie oben. Dann wird $(R/I, \circ)$ zu einem Ring $(R/I,+,\cdot)$, wobei $+=\circ$ und Multiplikation $\cdot  = \odot$ gegeben ist durch $\overline{a}\odot \overline{b} = \overline{a\cdot b}$, wobei letzteres die Multiplikation in R ist.
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{itemize}
+		\item[(R1)] $(R/I,+)$ ist abelsche Gruppe (nach Kapitel 1.1)
+		\item[(R2)] Seien $\overline{a},\overline{b},\overline{c}\in R/I$. $(\overline{a}\odot\overline{b})\odot\overline{c}  = (\overline{ab})\odot \overline{c} = \overline{(ab)c} = \overline{a(bc)}  = \overline{a}\odot \overline{bc} = \overline{a}\odot(\overline{b}\odot\overline{c})$. 
+		\item[(R3)] Seien $\overline{a},\overline{b},\overline{c}\in R/I$. Dann $\overline{a}\odot(\overline{b}\circ \overline{c}) = \overline{a}\odot\overline{b+c} = \overline{a\cdot(b+c)} =\overline{ab+ac} = \overline{ab}\circ\overline{ac} = \overline{a}\odot \overline{b}\circ\overline{a}\odot\overline{c}$. Analog für den zweiten Teil von (R3).
+		\item[(R4)] Sei $\overline{a}\in R/I$. Dann gilt $\overline{a}\odot\overline{1_R}  = \overline{a1_R} = \overline{a} = \overline{1_R\cdot a} = \overline{1_R}\odot \overline{a}$
+		
+		$\Rightarrow$ $\overline{1_R}$ ist neutrales Element für $\odot$.
+		\item[] Noch zu prüfen: $\odot$ ist wohldefiniert! Also zu zeigen: für $\overline{a} = \overline{a'}$ und $\overline{b} = \overline{b'}$ folgt $\overline{a}\odot\overline{b} = \overline{a'}\odot\overline{b'}$ mit $\overline{a},\overline{b},\overline{a'},\overline{b'}\in R/I$. Sei also $\overline{a} = \overline{a'}$ und $\overline{b} = \overline{b'}$. 
+		
+		\framebox{Dann existieren $x,y\in I$ mit $a+(-a') = x$ und $b+(-b') = y$ (1)}.
+		
+		Zu zeigen ist nun $\overline{ab} = \overline{a'b'}$. Es gilt $a\cdot b = (a'+x)\cdot (b'+y)  = (a'b')+(a'y)+(xb')+(xy)$, wobei $(a'y)+(xb')+(xy)\in I$, weil $I$ Ideal ist. $\Rightarrow (ab)+(-a'b')\in I\Rightarrow \overline{ab} = \overline{a'b'}$.
+	\end{itemize}
+\end{proof}
 
 
 
 
+
+
+
+%TODO: Beispiele durchummerieren (bei subsections resetten)
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
