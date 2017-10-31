@@ -552,7 +552,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 	(denn sonst gilt $g^{i-j}=e=g^{j-i}$ mit $i-j \in \IN$ oder $j-i \in \IN$).
 	Also $\abs G = \infty \Rightarrow$ Widerspruch.
 	
-	Jetzt ist noch zu zeigen, dass $n = \ord(g)$ gilt. Dazu sei $S := \left\lbrace g, g^2, ..., g^{\ord(g)} = e \right\rbrace \subset G$.
+	Jetzt ist noch zu zeigen, dass $n = \ord(g)$ gilt. Dazu sei $S := \left\lbrace g, g^2, \ldots, g^{\ord(g)} = e \right\rbrace \subset G$.
 	
 	\item Behauptung: $S < G$. Klar: $e \in S$. Sei $g^a, g^b \in S$. Schreibe $a-b = k \cdot \ord(g) + r$, wobei $k, r \in \IZ, 0 \leq r < \ord(g)$. Daraus folgt
 	\begin{equation*}
@@ -600,7 +600,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 
 \subsection{Auflösbare Gruppen}
 \begin{defi}
-	Eine Normalreihe eine Gruppe $G$ ist eine Kette von Untergruppen der Form $\left\lbrace e\right\rbrace = G_0 \nt G_1 \nt ... \nt G_n = G$. Man nennt die Quotientengruppe $G_i/G_{i-1}$ die Faktoren der Normalreihe.
+	Eine Normalreihe eine Gruppe $G$ ist eine Kette von Untergruppen der Form $\left\lbrace e\right\rbrace = G_0 \nt G_1 \nt \ldots \nt G_n = G$. Man nennt die Quotientengruppe $G_i/G_{i-1}$ die Faktoren der Normalreihe.
 \end{defi}
 
 \begin{defi}
@@ -660,15 +660,14 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 			A_4 > V_4 := \left\lbrace e, \underbrace{(1,2)(3,4)}_a, \underbrace{(1,3)(2,4)}_b, \underbrace{(1,4)(2,3)}_c\right\rbrace
 		\end{equation*}
 		Gruppentafel:
-		\begin{tabu}{c|[2pt]c|c|c}
-			& a & b & c \\ 
-			\tabucline[2pt]{-} 
+		$\begin{array}{c||c|c|c}
+			& a & b & c \\ \hline \hline 
 			a & e & c & b \\ 
 			\hline 
 			b & c & e & a \\ 
 			\hline 
 			c & b & a & e \\ 
-		\end{tabu} \\
+		\end{array}$ \\
 		Dann gilt $A_4 \nt V_4$, da folgendes gilt: 
 		\begin{equation*}
 			\forall  \pi \in S_4: \pi \circ \underbrace{(a_1, a_2)(a_3, a_4)}_\tau \circ \pi^{-1} = (\pi(a_1), \pi(a_2))(\pi(a_3), \pi(a_3))
@@ -679,9 +678,9 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 			\pi(a_3)&\longmapsto&a_3&\mapsto& a_4&\mapsto\pi(a_4) \\
 			\pi(a_4)&\longmapsto&a_4&\mapsto& a_3&\mapsto\pi(a_3) \\
 		\end{alignat*} also $V_4 \nt A_4$. Folglich haben wir
-		\begin{equation}
+		\begin{equation*}
 			\left\lbrace e\right\rbrace = G_0 \nt V_4 = G_1 \nt A_4 = G_2 \nt S_4 = G_3
-		\end{equation}
+		\end{equation*}
 		\begin{description}
 			\item[$G_1/G_0 \cong V_4$] ablesch
 			\item[$G_2/G_1 \cong \IZ/2\IZ$] also abelsch, da jede Gruppe $H$ der Ordunung 2 zyklisch mit $H = \<g\> (g \neq e)$ ist und dann nach Klassifikationssatz $H \cong \IZ/2\IZ$
@@ -695,21 +694,23 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 		Untergruppen und Bilder unter Gruppenhomomorphismen von auflösbaren Gruppen sind auflösbar.
 	\end{satz}
 	\begin{proof}
-		Sei $G$ auflösbare Gruppe. Dann existiert eine Auflösung 
+		Sei $G$ auflösbar. Dann existiert eine Auflösung 
 		\begin{equation*}
-			\left\lbrace e\right\rbrace = G_0 \nt G_1 \nt ... \nt G_n = G ~ G_i/G_{i-1} \text{ abelsch}
+			\left\lbrace e\right\rbrace = G_0 \nt G_1 \nt \ldots \nt G_n = G, \qquad  G_i/G_{i-1} \text{ abelsch.}
 		\end{equation*}
-		\begin{enumerate}
-			\item Sei $U < G$. Behauptung: $\left\lbrace e\right\rbrace = G_0 \cap U \nt (G_1 \cap U) \nt ... \nt (G_n \cap U) = U $. Es ist klar, dass $(G_{i-1} \cap U) \subset (G_1 \cap U)$. Auch klar ist, dass $G_i \cap U$ eine Gruppe ist und $(G_{i-1} ) < (G_1 \cap U)$. Jetzt ist noch zu zeigen, dass $(G_{i-1} \cap U) \nt (G_i \cap U)$. Sei $x \in G_{i-1} \cap U$ und sei $y \in G_i \cap U$. Dann folgt, dass $\underbrace{yxy^{-1}}_{\in G_{i-1}} \in U$, weil $x, y \in U, U < G$, weil $x \in G_{i-1}, y \in G_i$ und $G_{i-1} \nt G_i$. Daraus folgt, dass $yxy^{-1} \in U \cap G_{i-1}$, was zu zeigen war.
-			\item Behauptung: $G_i \cap U / G_{i-1} \cap U$ abelsch. Es gilt $G_i \cap U / G_{i-1} \cap U \stackrel{\text{1. Iso}}{\cong} (U \cap G_i)G_i/G_i \nt G_i/G_{i-1}$ abelsch. Daraus folgt die Behauptung.
-		\end{enumerate}
-
-
+		\begin{description}
+			\item[Untergruppe:]~
+				\begin{enumerate}
+				\item Sei $U < G$. Behauptung: $\left\lbrace e\right\rbrace = G_0 \cap U \nt (G_1 \cap U) \nt \ldots \nt (G_n \cap U) = U $. Es ist klar, dass $(G_{i-1} \cap U) \subset (G_1 \cap U)$. Auch klar ist, dass $G_i \cap U$ eine Gruppe ist und $(G_{i-1} ) < (G_1 \cap U)$. Jetzt ist noch zu zeigen, dass $(G_{i-1} \cap U) \nt (G_i \cap U)$. Sei $x \in G_{i-1} \cap U$ und sei $y \in G_i \cap U$. Dann folgt, dass $\underbrace{yxy^{-1}}_{\in G_{i-1}} \in U$, weil $x, y \in U, U < G$, weil $x \in G_{i-1}, y \in G_i$ und $G_{i-1} \nt G_i$. Daraus folgt, dass $yxy^{-1} \in U \cap G_{i-1}$, was zu zeigen war.
+				\item Behauptung: $G_i \cap U / G_{i-1} \cap U$ abelsch. Es gilt $G_i \cap U / G_{i-1} \cap U \stackrel{\text{1. Iso}}{\cong} (U \cap G_i)G_i/G_i \nt G_i/G_{i-1}$ abelsch. Daraus folgt die Behauptung.
+			\end{enumerate}
 \lecture{23. Oktober 2017}
-Sei $f\colon G\to G'$ Gruppenhomomorphismus. Behauptung: $\{e\} = f(G_0)\nt f(G_1)\nt \dots \nt f(G_n ) = f(G)$ ist eine Normalreihe mit $f(G_i)/f(G_{i-1})$ abelsch.
-
-Sei $y' = f(y)\in f(G_i)$ mit $y\in G_i$. Dann gilt $y'f(G_{i-1})(y')^{-1} = f(yG_{i-1}y^{-1})\subseteq f(G_i)\Rightarrow f(G_{i-1})\nt f(G_i)$ für alle $i$. Betrachte nun 
+			\item[Bild:]
+				Sei $f\colon G\to G'$ Gruppenhomomorphismus. Behauptung: $\{e\} = f(G_0)\nt f(G_1)\nt \dots \nt f(G_n ) = f(G)$ ist eine Normalreihe mit $f(G_i)/f(G_{i-1})$ abelsch.
+				
+				Sei $y' = f(y)\in f(G_i)$ mit $y\in G_i$. Dann gilt $y'f(G_{i-1})(y')^{-1} = f(yG_{i-1}y^{-1})\subseteq f(G_i)\Rightarrow f(G_{i-1})\nt f(G_i)$ für alle $i$. Betrachte nun 
 $$\alpha\colon G_i\xto{f} f(G_i)\xto{\text{can}}f(G_i)/f(G_{i-1})$$ Dies ist ein Gruppenhomomorphismus und offensichtlich surjektiv. Da $G_{i-1}\in \ker \alpha$ existiert Gruppenhomomorphismus $\overline{\alpha}\colon G_i/G_{i-1}\to f(G_i)/f(G_{i-1})$ nach dem \nameref{thm:homsatz_g}. $\overline{\alpha}$ ist surjektiv, da auch $\alpha$ surjektiv ist. Weil $G_i/G_{i-1}$ abelsch ist, ist auch $f(G_i)/f(G_{i-1})$ abelsch. Somit folgt die Behauptung.
+		\end{description}
 \end{proof}
 
 
@@ -718,30 +719,29 @@ $$\alpha\colon G_i\xto{f} f(G_i)\xto{\text{can}}f(G_i)/f(G_{i-1})$$ Dies ist ein
 \end{defi}
 
 \begin{bem}
-	$[G,G]\nt G$ ist sogar kleinster Normalteiler, sodass $G/[G,G]$ abelsch ist (denn: sei $N\nt G, a,b\in G, aNbN = bNaN\Leftrightarrow abN = baN\Leftrightarrow a^{-1}b^{-1}ab\in N\Leftrightarrow [G,G]\subseteq N$).
+	Nach dem 2. Übungsblatt gilt $[G,G] \nt G$. $[G,G]\nt G$ ist sogar der kleinster Normalteiler, sodass $G/[G,G]$ abelsch (denn: sei $N\nt G, a,b\in G, aNbN = bNaN\Leftrightarrow abN = baN\Leftrightarrow a^{-1}b^{-1}ab\in N\Leftrightarrow [G,G]\subseteq N$).
 \end{bem}
 
 \noindent
 Betrachte zu einer Gruppe die abgeleitete Reihe:
 
-$\begin{array}{ccccccc}
- G&\vartriangleright& [G,G]&\vartriangleright& [D_1(G), D_1(G)]&\vartriangleright&\dots\qquad(1) \\
- \shortparallel &&\shortparallel&&\shortparallel&&\\
- D_0(G) &&      D_1(G)     && D_2(G) 
- \end{array}$
+\begin{equation}
+\underbrace{G}_{D^0(G)} \tn \underbrace{[G,G]}_{D^1(G)} \tn \underbrace{[D^1(G),D^1(G)]}_{D^2(G)} \tn \ldots . \tag{*}\label{eq:abgeleitetereihe}
+\end{equation}
 
-\begin{satz}
-	$G$ auflösbar $\Leftrightarrow \exists m\in\IN : D_m(G) = \{e\}$.
+\begin{satz}[Satz 4.2]
+	$G$ auflösbar $\Leftrightarrow \exists m\in\IN : D^m(G) = \{e\}$.
 \end{satz}
 \begin{proof}
 	\leavevmode
 	\begin{itemize}
-		\item [\glqq $\Leftarrow$\grqq] Die abgeleitete Reihe (1) ist nach Definition eine Normalreihe und die Faktoren sind abelsch nach Bemerkung.
-		\item [\glqq $\Rightarrow$\grqq] Sei $G$ auflösbar und $\{e\} = G_0\nt G_1\nt\dots G_n = G$ mit abelschen Faktoren. Nach Bemerkung gilt $G_n/G_{n-1}$ abelsch $\Rightarrow [G_n,G_n]\subseteq G_{n-1}$.
+		\item [\glqq $\Leftarrow$\grqq] Die abgeleitete Reihe \eqref{eq:abgeleitetereihe} ist nach Definition eine Normalreihe und die Faktoren sind abelsch nach der Bemerkung.
+		\item [\glqq $\Rightarrow$\grqq] Sei $G$ auflösbar und $\{e\} = G_0\nt G_1\nt\dots G_n = G$ mit abelschen Faktoren. Nach der Bemerkung gilt $G_N/G_{n-1}$ abelsch $\Rightarrow [G_n,G_n]\subseteq G_{n-1}$.
 		
-		Behauptung: $D_i(G) \subseteq G_{n-i}$. Das it klar für $i = 0,1$. Es gilt $D_{i+1}(G) = [D_i(G), D_i(G)]\subseteq [G_{n-i},G_{n-i}]\subseteq G_{n-i-1}$ nach Bemerkung. Also gilt $D_n(G) \subseteq G_0 = \{e\}$ und somit existiert ein $m:=n$ mit $D_m(G) =\{e\}$.	
+		Behauptung: $D^i(G) \subseteq G_{n-i}$. Dies ist für $i = 0;1$. $D^{i+1}(G) = [D^i(G), D^i(G)]\subseteq [G_{n-i},{n-i}]\subseteq G_{n-i-1}$ nach Bemerkung. Also existiert ein $n\in N$ sodass $D^n(G) \subseteq G_0 = \{e\}\Rightarrow \exists m:=n$ mit $D^m(G) =\{e\}$.	
 	\end{itemize}
 \end{proof}
+
 
 \subsection{Gruppenoperationen}
 \begin{defi}
@@ -759,47 +759,74 @@ $\begin{array}{ccccccc}
 \end{defi}
 
 \begin{bem}
-	Existenz von $\Phi$ ist äquivalent zur Existenz von $\Phi\colon G\to S_X$ Gruppenhomomorphismus mit $\Phi'(g)(x) := g.x$ (nachprüfen!)
+	Existenz von $\Phi$ ist äquivalent zur Existenz von $\Phi'\colon G\to S_X$ Gruppenhomo mit $\Phi'(g)(x) := g.x$ (nachprüfen!)
 \end{bem}
 
 \begin{defi}
-	Gegeben $G\operates X$, $G\operates Y$. Eine Abbildung $f\colon X\to Y$ heißt $G$-Homomorphismus, falls $f(g.x) = g.f(x)$ für alle $g\in G$ und $x\in X$ gilt.
+	Gegeben $G\operates X$, $G\operates Y$, $f\colon X\to Y$ Abbildung. $f$ heißt $G$-Homomorphismus, falls $f(g.x) = g.f(x)$ für alle $g\in G$ und $x\in X$.
 \end{defi}
 
 \begin{defi}
-	$G\operates X$, $x\in X$. Dann 
-	\begin{enumerate}
-		\item $G.x = \{g.x|g\in G\}$ Bahn von $x$
-		\item $G_x = \{g\in G|g.x = x\}$ Stabilisator von $x$
-		\item $X^G = \{x\in X|\forall g\in G\colon g-x = x\}$ Menge der Fixpunkte
+	$G\operates X$, $x\in X$. Dann\begin{enumerate}
+		\item $G.x = \{g.x\mid g\in G\}$ Bahn von $x$
+		\item $G_x = \{g\in G\mid g.x = x\}$ Stabilisator von $x$
+		\item $X^G = \{x\in X\mid \forall g\in G\enspace g-x = x\}$ Menge der Fixpunkte
 	\end{enumerate}
 \end{defi}
 
 \begin{bem}
-	$x\sim y$ falls $y\in G.x$ ist eine Äquivalenzrelation:\begin{itemize}
+	$x\sim y \Leftrightarrow : y\in G.x$ ist eine Äquivalenzrelation:\begin{itemize}
 		\item $x\sim x$ klar, weil $x = e.x\in G.x$
 		\item $x\sim y\Rightarrow \exists g\in G: g.x = y\Rightarrow x = g^{-1}.y\Rightarrow x\in G.y\Rightarrow y\sim x$
 		\item $x\sim y, y\sim z\Rightarrow x\sim z$ klar nach (O2)
 	\end{itemize}
-	Also $X = \dot\bigcup$ verschiedene Bahnen.
+	Also $X=\dot\bigcup\substack{\text{versch.}\\\text{Bahnen}}$.
 \end{bem}
 
 \begin{defi}
 	$G$ operiert transitiv, falls genau eine Bahn existiert.
 \end{defi}
 
-%TODO: Fix this mess later
-\begin{bsp}
-	\leavevmode
+
+\begin{bsp}~
 	\begin{enumerate}
-	\item Sei $G$ Gruppe, $X:= \{H<G\}$, $G\operates X$ durch Konjugation: $g.H = gHg^{-1}$.
-	
-	Bahnen: Konjugationsklassen von Untergruppen
-	
-	Stabilisator von $H\in X$: $G_H = \{g\in G|gHg^{-1} = H\}$ Normalisator von $H$ in $G$, $N_G(H)$
-	
-	$X^G = \{H<G|gHg^{-1} = H ~ \forall g\in G\} = \{H\nt G\}$
-	\item$G$ Gruppe, $H<G$, $X = G/H$. Dann $G\operates X = G/H$ durch $g.(aH) = gaH$ für alle $g\in G, a\in G$ (Linkstranslation), Operation ist transitiv; aber $\ker \Phi' = \bigcap\limits_{x\in G} xHx^{-1}$ (kleinster Normalteiler in $G$, der $H$ enthält)
+		\setcounter{enumi}{-1}
+		\item $SO(\IR) \operates \IR^2$ durch Drehungen um $(0,0)$. Hier gibt es unendlich viele Bahnen.
+		\begin{center}
+			TOLLES BILD -  to be inserted
+		\end{center}
+		\item $G$ Gruppe, $H<G$, $X = G$. Es sei $H \operates G$ durch
+		\begin{enumerate}[label=\alph*)]
+			\item $h.x\coloneqq hx$ (linksreguläre Operation)
+			\item $h.x\coloneqq xh^{-1}$ (rechtsreguläre Operation)
+			\item $h.x\coloneqq hxh^{-1}$ (Konjugation)
+		\end{enumerate}
+		für alle $x\in X, h \in H$ definiert, wobei sich die folgenden Eigenschaften ergeben:
+		\begin{enumerate}[label=\alph*)]
+			\item \begin{itemize}[itemsep=-3pt]
+				\item treu (nach \textsc{Cayley})
+				\item transitiv $\Leftrightarrow G = H$
+				\item Bahnen $=$ Rechtsnebenklassen
+				\item $X^H = \emptyset \Leftrightarrow H \neq \{e\}$, sonst sind alle $x \in X$ Fixpunkte
+			\end{itemize}
+			\item wie a), außer Links- statt Rechtsnebenklassen als Bahnen
+			\item \begin{itemize}[itemsep=-3pt]
+				\item Bahnen $=$ Konjugationsklassen
+				\item ${\displaystyle X^H = \{x \in X \mid \forall h \in H: h.x = x \} = \underbrace{\{x \in X \mid \forall h \in H: hxh^{-1} = x \}}_{\substack{\text{\emph{Zentralistator}}\\\text{bzgl. Konjugation auf }H}}}$
+				\item Spezialfall $H=G$: $X^H = Z(G)$.
+			\end{itemize}
+		\end{enumerate}
+		\item $G$ Gruppe, $X = \{H < G \}$. $G \operates X$ definiert durch Konjugation als \[ g.H \coloneqq gHg^{-1} = \{ ghg^{-1} \mid h \in H \} \in X. \]
+		\begin{itemize}[itemsep=-3pt]
+			\item Bahnen $=$ Konjugationsklassen von Untergruppen
+			\item Stabilisator von $H\in X$: $G_H = \{ g.H = H \}$, heißt auch \emph{Normalisator} von $H$ in $G$, schreib $N_G(H)$.
+			\item $X^G = \{ H < G \mid \forall g \in G: g.H = H \}=\{ H < G \mid \forall g \in G: gHg^{-1} = H \} = \{H \nt G \}$
+		\end{itemize}
+		\item $G$ Gruppe, $H < G$, $X = G/H$. Dann $G \operates X$ durch $g.(aH) = gaH$ für alle $g\in G, a \in G$; heißt \emph{Linkstranslation}.
+		\begin{itemize}[itemsep=-3pt]
+			\item transitiv, da $\forall a,b \in G: \exists g \in G: g(aH)=bH$.
+			\item Im Allgemeinen nicht treu, da \[\ker\Phi' = \underbrace{\bigcap_{x \in G}xHx^{-1}}_{\mathclap{\text{kleinster Normalteiler}}}.\]
+		\end{itemize}
 	\end{enumerate}
 \end{bsp}
 
@@ -816,22 +843,22 @@ $\begin{array}{ccccccc}
 	\leavevmode
 	\begin{enumerate}
 		\item Übung
-		\item Klar $f$ surjektiv; injektiv: Sei $f(g_1G_x) = g(g_2G_x)\Leftrightarrow g_1.x = g_2.x\Leftrightarrow g_1^{-1}g_2.x = x \Leftrightarrow g_1^{-1}g_2\in G_x \Leftrightarrow g_1G_x = G_2G_x$. Also $f$ wohldefiniert und bijektiv.
+		\item Klar $f$ surjektiv; injektiv: Sei $f(g_1G_x) = f(g_2G_x)\Leftrightarrow g_1.x = g_2.x\Leftrightarrow g_1^{-1}g_2.x = x \Leftrightarrow g_1^{-1}g_2\in G_x \Leftrightarrow g_1G_x = g_2G_x$ für alle $g_1,g_2 \in G, x\in X$. Also $f$ wohldefiniert und bijektiv.
 		
 		$G$-Homorphismus: zu zeigen: $f(h.(gG_x)) = h.f(gG_x)$ für alle $x\in X, h,g\in G$. Aber $f(h.(gG_x)) = hgG_x = (hg).x = h.g.x = h.f(gG_x)$
-		\item Es gilt nun $|G.x|\xeq{2} |G/G_x| = (G:G_x)$
+		\item Es gilt nun $|G.x|\xeq{2.} |G/G_x| = (G:G_x)$
 	\end{enumerate}
 \end{proof}
 
-\begin{satz}[Bahnenformel]
-	Sei $G\operates X$, $X$ endlich. Dann $$|X| = \sum_{i\in I}(G:G_{x_i}) = |X^G| + \sum_{i\in I, x_i\notin X^G}(G:G_{x_i})\enspace,$$ wobei $(x_i)_{i\in I}$ Elemente in $X$ sind, sodass die Bahnen ein Repräsentantensystem der Bahnen bilden.
+\begin{satz}[Satz 5.2 (Bahnenformel)]
+	$G\operates X$, $X$ endlich: Dann $$|X| = \sum_{i\in I}(G:G_{x_i}) = \abs*{X^G} + \sum_{\mathclap{\substack{i\in I,\\x_i\notin X^G}}}(G:G_{x_i})\enspace,$$ wobei $(x_i)_{i\in I}$ Elemente in $X$ sind, sodass die Bahnen ein Repräsentantensystem der Bahnen bilden.
 \end{satz}
 
-\begin{proof} $|X| = |\bigcup\limits_{i\in I} G.x_i| = \sum_{i\in I}|G.x_i| = \sum (G:G_{x_i}) \Rightarrow$ 1. Gleichung. Nun teile die Bahnen $G.x_i$ in solche auf mit genau einem Element ($\Leftrightarrow x_i\in X^G$) und solchen mit $\geq 2$ Elementen. Da $x_i\in X^G\Leftrightarrow G_{x_i} = G\Leftrightarrow (G:G_{x_i}) = 1$ folgt sofort die 2. Gleichung.
+\begin{proof} $|X| = \abs*{\bigcup\limits_{i\in I} G.x_i} = \sum_{i\in I}|G.x_i| = \sum (G:G_{x_i}) \Rightarrow$ 1. Gleichung. Nun teile die Bahnen $G.x_i$ in solche auf mit genau einem Element ($\Leftrightarrow x_i\in X^G$) und solchen mit $\geq 2$ Elementen. Da $x_i\in X^G\Leftrightarrow G_{x_i} = G\Leftrightarrow (G:G_{x_i}) = 1$ folgt sofort die 2. Gleichung.
 \end{proof}
 
-\begin{satz}
-	Sei $G$ endliche Gruppe. $G\operates G$ durch Konjugation. Sei $\{x_i\}_{i\in I}$ so gewählt, dass die Bahnen ein Repräsentantensystem für Konjugationsklassen sind. Dann: $$ |G|  = |Z(G)| + \sum_{i\in I}(G: C_G(x_i))\enspace ,$$ wobei $C_G(x_i) = \{g\in G|gx_ig^{-1} = x_i\}$ Zentralisatior von $x_i$ in $G$.
+\begin{satz}[Satz 5.3]
+	$G$ endliche Gruppe. $G\operates G$ durch Konjugation. Sei $(x_i)_{i\in I}$ so gewählt, dass die Bahnen ein Repräsentantensystem für Konjugationsklassen sind. Dann: \[ |G|  = |Z(G)| + \sum_{\mathclap{\substack{i\in I,\\x_i\notin Z(G)}}}(G: C_G(x_i))\enspace ,\] wobei $C_G(x_i) = \{g\in G\mid gx_ig^{-1} = x_i\}$ der Zentralisatior von $x_i$ in $G$ ist.
 \end{satz}
 
 \begin{proof}
@@ -845,18 +872,18 @@ $\begin{array}{ccccccc}
 
 \subsection{$p$-Gruppen und Sylow-Sätze}
 \begin{defi}
-	Sei $p$ Primzahl (insbesondere $\geq 2$). Eine $p$-Gruppe ist eine Gruppe $G$ mit $|G| = p^r$ für ein $r\in\IN_0$. Insbesondere ist $|G|$ endlich.
+	Sei $p$ prim (insbesondere $\geq 2$). Eine $p$-Gruppe ist eine Gruppe $G$ mit $|G| = p^r$ für ein $r\in\IN_0$. Insbesondere ist $|G|$ endlich.
 \end{defi}
-\begin{satz}
-	$G\neq\{e\}$ $p$-Gruppe $\Rightarrow Z(G)\neq\{e\}$
+\begin{satz}[Satz 6.1]
+	$G\neq\{e\}$ $p$-Gruppe $\Rightarrow Z(G)\neq \abs*{\{e\}} = 1$. Insbesondere hat $G$ nicht-triviale abelsche Untergruppe.
 \end{satz}
 \begin{proof}
-	Nach 5.3 (mit Notation von dort) $|G| = Z(G)+\sum_{i\in I, x_i\notin Z(G)}(G:G_{x_i})$. Nach Lagrange ist das durch $p$ teilbar oder $=1$. (Weil $G$ eine $p$-Gruppe ist). $(G:G_{x_i}) = 1 \Leftrightarrow G = G_{x_i}\Leftrightarrow x_i\in Z(G)$. Das ist ein Widerspruch. Also sind die Summanden $(G:G_{x_i})$ durch $p$ teilbar. Damit teilt $p$ auch $|Z(G)|\Rightarrow |Z(G)|\geq 2\Rightarrow Z(G)\neq \{e\}$.
+	Nach Satz 5.3 hat man \[ \underbrace{|G|}_{\mathclap{\text{durch $p$ teilbar}}}  = |Z(G)| + \underbrace{\sum_{\substack{i\in I,\\x_i\notin Z(G)}}(G: G_{x_i})}_{A}.\] Nach \textsc{Lagrange} ist $A$ durch $p$ teilbar oder gleich $1$, weil $G$ eine $p$-Gruppe ist. Letzters kann aber nicht sein, da $(G:G_{x_i}) = 1 \Leftrightarrow G = G_{x_i}\Leftrightarrow x_i\in Z(G)$, Widerspruch. Also sind die Summanden $(G:G_{x_i})$ und somit auch $A$ durch $p$ teilbar. Damit teilt $p$ auch $|Z(G)|\Rightarrow |Z(G)|\geq 2\Rightarrow Z(G)\neq \{e\}$.
 \end{proof}
 
-\begin{satz}
-	$G$ $p$-Gruppe. Dann existiert Normalreiche der Form
-	$$ \{e\}\nt G_0\nt\dots\nt G_n = G$$ für ein $n\in\IN$, sodass $G:i/G_{i-1}\cong \IZ/p\IZ$ ($1\neq i\neq n$).
+\begin{satz}[Satz 6.2]
+	$G$ $p$-Gruppe. Dann existiert Normalreihe der Form
+	$$ \{e\}\nt G_0\nt\dots\nt G_n = G$$ für ein $n\in\IN$, sodass $G_i/G_{i-1}\cong \IZ/p\IZ$ ($1\le i\le n$).
 	Insbesondere ist $G$ auflösbar.
 \end{satz}
 \begin{proof}
@@ -864,16 +891,16 @@ $\begin{array}{ccccccc}
 \end{proof}
 
 \begin{defi}
-	$G$ endliche Gruppe, $p$ Primzahl. Sei $|G| = p^rm$ mit $p\not| m$. $H<G$ heißt $p$-Sylowgruppe, falls $|H| = p^r$. Wir definieren  $Syl_p(G):=\{H<G|H\text{ ist Sylowgruppe}\}$
+	$G$ endliche Gruppe, $p$ Primzahl. Sei $|G| = p^rm$ mit $p\nmid m$. $H<G$ heißt $p$-Sylowgruppe, falls $|H| = p^r$. Wir definieren  $\Syl_p(G):=\{H<G\mid H\text{ ist Sylowgruppe}\}$.
 \end{defi}
 
-\begin{satz}[Sylowsätze]
-	$p$ Primzahl, $G$ endliche Gruppe, $|G| = p^rm$ mit $p\not|m$.\begin{enumerate}
-		\item $\forall 0\neq k\neq r\exists H<G$ mit $|H| = p^k$
-		\item Sei $U<G$ $p$-Gruppe. Dann $\exists g\in G$ und $S\in Syl_p(G)$, sodass $U<gSg^{-1}$.
+\begin{satz}[Satz 6.3 (Sylowsätze)]
+	$p$ Primzahl, $G$ endliche Gruppe, $|G| = p^rm$ mit $p\nmid m$.\begin{enumerate}
+		\item $\forall 0\le k\le r :\exists H<G$ mit $|H| = p^k$
+		\item Sei $U<G$ $p$-Gruppe. Dann $\exists g\in G$ und $S\in \Syl_p(G)$, sodass $U<gSg^{-1}$.
 		\item Sei $n_p = |Syl_p(G)|$. Dann gilt \begin{itemize}
 			\item $n_p\equiv 1\pmod p$
-			\item $n_p|m$
+			\item $n_p\mid m$
 		\end{itemize}
 	\end{enumerate}
 \end{satz}
@@ -881,25 +908,28 @@ $\begin{array}{ccccccc}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item Sei $1\leq k \leq r$. Fall $k = 0$ klar mit $H = \{e\}$. Sei $X = \{A\subseteq G| |A| = p^k\}$, wobei $|X| = {p^rm}\over{p^k}$; Übungsballt 3: $p^{r-k+1}\not | |X|$.
+		\item Sei $1\leq k \leq r$. Fall $k = 0$ klar mit $H = \{e\}$. Sei $X = \{A\subseteq G \mid |A| = p^k\}$, wobei $|X| = \binom{p^rm}{p^k}$. Übungsblatt 3: $p^{r-k+1}\nmid |X|$.
 		
-		Nun $G$ weirdes Zeichen $X$ durch $g.A = gA:=\{ga|a\in A\}$ für $g\in G, A\in X$. (klar: $|gA| = p^k $ also $gA\in X$). Nachrechnen: (O1), (O2) gilt (offensichtlich). 
+		Nun $G \operates X$ durch $g.A := gA=\{ga|a\in A\}$ für alle $g\in G, A\in X$. (klar: $|gA| = p^k $, also $gA\in X$). Nachrechnen: (O1), (O2) gelten (offensichtlich). 
 		
-		Nach Satz 5.2 folgt $|X| = \sum_{i\in I}(G:G_{x_i})$, wobei $\exists i\in I$, sodass $p^{r-k+1}\not| (G:G_{x_i})$, weil $p^{r-k+1}\not||X|$. Wähle solch ein $x_i = : A'\in X$.
+		Nach Satz 5.2 folgt $|X| = \sum_{i\in I}(G:G_{x_i})$, wobei $\exists i\in I$, sodass $p^{r-k+1} \nmid (G:G_{x_i})$, weil $p^{r-k+1}\nmid |X|$. Wähle solch ein $x_i = : A'\in X$.
 		
-		Behauptung: $G_{A'}<G$ mit $|G_{A'} = p^k$. Dann folgt 1) mit $H = G_{A'}. Klar: G_{A'}<G$. Nach Lagrange: $|G| = |G_{A'}|(G:G_{A'})$, wobei $p^r$ die linke Seite der Gleichung teilt, und im Index auf der rechten Seite $p$ höchstens $r-k$-mal vorkommt.
+		Behauptung: $G_{A'}<G$ mit $|G_{A'}| = p^k$. Dann folgt 1) mit $H = G_{A'}$. Klar: $G_{A'}<G$. Nach \textsc{Lagrange}: $|G| = |G_{A'}|(G:G_{A'})$, wobei $p^r$ die linke Seite der Gleichung teilt, und im Index auf der rechten Seite $p$ höchstens $r-k$-mal vorkommt.
 		
-		$\Rightarrow$ $p^k$ teilt $|G_{A'}|\Rightarrow p^k\leq |G_{A'}|$. Sei $a\in A'$. Dann $G_{A'}.a:= \{g.a|g\in G_{A'}\}\subseteq G_{A'}.A'\subseteq A'$ nach Definition von $G_{A'}$.
+		Deshalb: $p^k$ teilt $|G_{A'}|\Rightarrow p^k\leq |G_{A'}|$. Sei $a\in A'$. Dann $G_{A'}.a = \{g.a\mid g\in G_{A'}\}\subseteq G_{A'}.A'\subseteq A'$ nach Definition von $G_{A'}$.
 		
 		Also: $|G_{A'}| = |G_{A'}.a|\leq |A'| = p^k$.  (Def. von $G_{A'.a}$ und $A'\in X$).
-		Also: $|G_{A'}| = p^k\Rightarrow$ Behauptung $\Rightarrow$ 1).
+		Also: $|G_{A'}| = p^k\Rightarrow$ Behauptung $\Rightarrow$ 1. Aussage.
 		
-		\item Sei $U<G$ mit $|U| = p^s$ für ein $s\in\IN$. Sei $S\in Syl_p(G)$. $U$ weirdes Zeichen $G/S$ nach (B3) durch Linksmultiplikation.
-		$$ u.(gS) = ugS\qquad u\in U, g\in G$$
-		$m = |G/S| = \sum_{i\in I}(U:U_{x_i})$ (nach Definition ist $S\in Syl_p(G)$; wende Lagrange an; die zweite Gleichheit folgt aus Satz 5.2).
+		\item Sei $U<G$ mit $|U| = p^s$ für ein $s\in\IN$. Sei $S\in \Syl_p(G)$. $U \operates G/S$ nach (B3) durch Linksmultiplikation.
+		\begin{align*}
+			u.(gS) &= ugS\qquad \forall u\in U, g\in G \\
+			m &= |G/S| = \sum_{i\in I}(U:U_{x_i})
+		\end{align*}
+		nach Definition von $S\in Syl_p(G)$ und \textsc{Lagrange}. Die zweite Gleichheit folgt aus Satz 5.2.
 		
-		Weil $p\not| m$, existiert ein $i\in I$ sodass $p\not|(U:U_{x_i})$. Wähle ein solches $x_i =: aS$. Nach Lagrange ist
-		$$ p^s = |U| = |U_{aS}|(U:U_{aS})$$. Also $(U:U_{as}) = 1$. Also $U = U_{aS}$. Damit
+		Weil $p\nmid m$, existiert ein $i\in I$ sodass $p\nmid (U:U_{x_i})$. Wähle ein solches $x_i =: aS$. Nach \textsc{Lagrange} ist
+		\[ p^s = |U| = |U_{aS}|(U:U_{aS}).\] Also $(U:U_{aS}) = 1$. Also $U = U_{aS}$. Damit
 		\begin{center}
 			$ \begin{array}{crclc}
 			&u.aS &=& aS      						\qquad& \forall a\in U\\
@@ -911,45 +941,46 @@ $\begin{array}{ccccccc}
 		\end{center}
 		Setze $g := a$ und erhalte $U<gSg^{-1}$.
 		
-		\item Übungsaufgabe
+		\item Übungsblatt 3
 	\end{enumerate}
 \end{proof}
 
-\paragraph{Konsequenzen}
+\paragraph{Konsequenzen.}
 $G$ endliche Gruppe, $p$ Primzahl.
 \begin{enumerate}
-	\item Je zwei $p$-Sylowuntergruppen in $G$ sind zueinander konjugiert (d.h. $S, S'\in Syl_p(G) \Rightarrow \exists g\in G: S' = gSg^{-1}$)
+	\item Je zwei $p$-Sylowuntergruppen in $G$ sind zueinander konjugiert, also \[S, S'\in \Syl_p(G) \Rightarrow \exists g\in G: S' = gSg^{-1}.\]
 	\begin{proof}
 		Nach Sylowsatz 2 folgt $\exists g\in G$ mit $S'<gSg^{-1}$. Da $|S'| = |gSg'|$ nach Definition von $p$-Sylow gilt $S' = gSg^{-1}$.
 	\end{proof}
 	
-	Beachte: Falls $n_p  = |Syl_p(G)| = 1$, also $\exists!$ $p$-Sylowgruppe $S$, dann ist $S\nt G$. Denn $\forall g\in G$ ist $gSg^{-1}$ wieder $p$-Sylow, also $gSg^-1 = S$.
+	Beachte: Falls $n_p  = |\Syl_p(G)| = 1$, also $\exists!$ $p$-Sylowgruppe $S$, dann ist $S\nt G$. Denn $\forall g\in G$ ist $gSg^{-1}$ wieder $p$-Sylow, also $gSg^-1 = S$.
 	
-	\item (Cauchy) $p||G|\Rightarrow \exists g\in G$ mit $ord(g) = p$.
+	\item (\textsc{Cauchy}) $p\mid|G|\Rightarrow \exists g\in G$ mit $\ord(g) = p$.
 	\begin{proof}
-		Nach Sylowsatz 1 existiert $H<G$ mit $|H| = p$. Wähle $g\in H$, $g\neq e$. Dann ist $\<g\> <H$ und $\<g\> \neq \{e\}$, also $\<g\> = H$ nach Lagrange. Aus Kapitel 3 folgt $ord(g) = |H| = p$.
+		Nach Sylowsatz 1 existiert $H<G$ mit $|H| = p$. Wähle $g\in H$, $g\neq e$. Dann ist $\<g\> <H$ und $\<g\> \neq \{e\}$, also $\<g\> = H$ nach \textsc{Lagrange}. Aus Kapitel 3 folgt $ord(g) = |H| = p$.
 	\end{proof}
-	\item $G$ ist $p$-Gruppe $\Leftrightarrow $ Jedes Element $g\in G$ hat Ordnung $p^s$ für geeignetes $s\in \IN_0$ (abhängig von $g$).
-	\begin{proof}
-		\glqq$\Rightarrow$ \grqq: Sei $g\in G$. Sei $ord(g) = n$. Aus Satz 3.3 folgt $|\<g\>| = n$. $\Rightarrow n||G|$ nach Lagrange. $\Rightarrow$ (da $G$ $p$-Gruppe) $n = p^s$ für ein $s$.
-		
-		\grqq $\Leftarrow$\grqq: zu zeigen: $|G| = p^r$ für ein $r\in\IN_0$.
-		
-		Annahme: $q||G|$ für $q$ Primzahl $p\neq q$. Nach dem Satz von Cauchy existiert $g\in G$ mit $ord(g) = q$. Das ist ein Widerspruch.
+	\item $G$ ist $p$-Gruppe $\Leftrightarrow $ Jedes Element $g\in G$ hat Ordnung $p^s$ für ein geeignetes $s\in \IN_0$ (abhängig von $g$).
+	\begin{proof}~
+		\begin{description}
+			\item[\glqq$\Rightarrow$ \grqq] Sei $g\in G$. Sei $ord(g) = n$. Aus Satz 3.3 folgt $|\<g\>| = n$. $\Rightarrow n\mid |G|$ nach \textsc{Lagrange}. $\Rightarrow$ (da $G$ $p$-Gruppe) $n = p^s$ für ein $s \in \IN_0$.
+			\item[\grqq $\Leftarrow$\grqq] zu zeigen: $|G| = p^r$ für ein $r\in\IN_0$.
+			
+			Annahme: $q\mid|G|$ für $q$ Primzahl $p\neq q$. Nach dem Satz von \textsc{Cauchy} existiert $g\in G$ mit $\ord(g) = q$. Das ist ein Widerspruch.
+		\end{description}
 	\end{proof}
 	\begin{bem}
-		$p$-Gruppen mit unendlicher Ordnung kann man definieren als Gruppen mit $ord(g) = $ Potenz von $p$ für alle $g\in G$.
+		$p$-Gruppen mit unendlicher Ordnung kann man definieren als Gruppen mit $ord(g) = p^r$, $r\in \IN_0$ von $p$ für alle $g\in G$.
 	\end{bem}
 	
 \end{enumerate}
 
-\paragraph{Anwendungen}\leavevmode
-Vorbemerkung: $G$ Gruppe, $|G| = p$ Primzahl $\Rightarrow G\cong \IZ/p\IZ$. (Denn wähle $g\in G$, $g\neq e$. Dann $\<g\> <G$ und nach Lagrange ist $|\<g\>| = p = |G|$, also $G = \<g\>$ zyklisch, also $G\cong \IZ/p\IZ$ nach Klassifikation von zyklischen Gruppen.)
-\begin{satz}
+\paragraph{Anwendungen.}\leavevmode
+Vorbemerkung: $G$ Gruppe, $|G| = p$ prim $\Rightarrow G\cong \IZ/p\IZ$. (Denn wähle $g\in G$, $g\neq e$. Dann $\<g\> <G$ und nach \textsc{Lagrange} ist $|\<g\>| = p = |G|$, also $G = \<g\>$ zyklisch, also $G\cong \IZ/p\IZ$ nach Klassifikation von zyklischen Gruppen.)
+\begin{satz}[Satz 6.4]
 	$G$ Gruppe, $|G| = pq$ mit $p\neq q$ Primzahl. Dann ist $G$ auflösbar.
 \end{satz}	
 \begin{proof}
-	Ohne Beschränkung der Allgemeinheit sei $p>q$. Nach Sylowsatz 3 gilt: $n_p|q$, also $n_p\in\{1,q\}$ und $n_p\equiv 1 \pmod p$.
+	Ohne Beschränkung der Allgemeinheit sei $p>q$. Nach Sylowsatz 3 gilt: $n_p\mid q$, also $n_p\in\{1,q\}$ und $n_p\equiv 1 \pmod p$.
 	
 	$\Rightarrow n_p = 1$, weil $p>q$. Nach Bemerkung in 1 gilt $\exists!$ $p$-Sylowgruppe $S$ und $S\nt G$. Nach Definition von $p$-Sylow und weil $|G| = pq$ gilt $|S| = p$. Also erhalten wir eine Normalreihe 
 	$$ \{e\}\nt S\nt G$$ mit $S/\{e\}\cong S\cong \IZ/p\IZ$ und $|G/S| = q$, also $G/S\cong \IZ/q\IZ$.
@@ -957,15 +988,15 @@ Vorbemerkung: $G$ Gruppe, $|G| = p$ Primzahl $\Rightarrow G\cong \IZ/p\IZ$. (Den
 	$\Rightarrow$ Faktoren sind abelsch $\Rightarrow$ $G$ ist auflösbar.
 \end{proof}
 
-\begin{satz}
-	$G$ Gruppe, $|G| = pq$, $p,q$ Primzahlen, $p<q$ und $p\not| q-1$. Dann $G\cong\IZ/p\IZ \times \IZ\times q\IZ$
+\begin{satz}[Satz 6.5]
+	$G$ Gruppe, $|G| = pq$ mit $p,q$ prim sowie $p<q$ und $p \nmid q-1$. Dann folgt $G\cong\IZ/p\IZ \times \IZ/ q\IZ$.
 \end{satz}
 \begin{proof}
-	Nach Sylowsatz 3 gilt $n_p\in \{1,q\}, n_q\in\{1,p\}$ und $n_p\equiv 1\pmod p$, $n_q\equiv 1\pmod q$. Da $p<q$ ist, gilt $n_q = 1$. Also existiert genau eine $q$-Sylowgruppe $Q\nt G$. Falls $n_p = q\Rightarrow q\equiv 1\pmod p$. Daraus folt $p|(q-1)$ im Widerspruch zur Voraussetzung. Also ist $n_p = 1\Rightarrow \exists!$ $p$-Sylowgruppe $P\nt G$.
+	Nach Sylowsatz 3 gilt $n_p\in \{1,q\}, n_q\in\{1,p\}$ und $n_p\equiv 1\pmod p$, $n_q\equiv 1\pmod q$. Da $p<q$ ist, gilt $n_q = 1$. Also existiert genau eine $q$-Sylowgruppe $Q\nt G$. Falls $n_p = q\Rightarrow q\equiv 1\pmod p$. Daraus folgt $p\mid (q-1)$ im Widerspruch zur Voraussetzung. Also ist $n_p = 1\Rightarrow \exists!$ $p$-Sylowgruppe $P\nt G$.
 	
-	1. Behauptung: $x\in P ,y\in Q$. Dann $xy = yx$. Denn $xyx^{-1}y^{-1}\in Q$, da $xyx^{-1}\in Q$ ($Q$ Normalteiler) und $y^{-1}\in Q$, $xyx^{-1}y^{-1}\in P$, da $x\in P und yx^{-1}y^{-1} \in P$ ($P$ Normalteiler).
+	1. Behauptung: $x\in P ,y\in Q$. Dann $xy = yx$. Denn $xyx^{-1}y^{-1}\in Q$, da $xyx^{-1}\in Q$ ($Q$ Normalteiler) und $y^{-1}\in Q$, analog $xyx^{-1}y^{-1}\in P$, da $x\in P$ und $yx^{-1}y^{-1} \in P$ ($P$ Normalteiler).
 	
-	$\Rightarrow$ $xyx^{-1}y^{-1} \in P\cap Q$. Aber $P\cap Q = \{e\}$, da $|P\cap Q||p = |P|$ und $|P\cap Q||q = |Q|$.
+	$\Rightarrow$ $xyx^{-1}y^{-1} \in P\cap Q$. Aber $P\cap Q = \{e\}$, da $|P\cap Q|\mid p = |P|$ und $|P\cap Q| \mid q = |Q|$.
 	
 	$\Rightarrow$ 1. Behauptung.
 	
@@ -973,16 +1004,18 @@ Vorbemerkung: $G$ Gruppe, $|G| = p$ Primzahl $\Rightarrow G\cong \IZ/p\IZ$. (Den
 	
 	Außerdem ist $\Phi$ injektiv, denn $\Phi((x,y)) = e\Leftrightarrow xy = e\Leftrightarrow x = y^{-1} = e$, weil $P\cap Q = \{e\}$.
 	
-	$\Phi$ ist surjektiv, weil $|P\times Q| = |P||Q| = pq = |G|$. $\Rightarrow$ $\Phi$ liefert Gruppenisomorphismus $P\times Q \cong G$, also $\IZ/p\IZ\times \IZ/q\IZ\cong G$
+	$\Phi$ ist surjektiv, weil $|P\times Q| = |P|\cdot |Q| = pq = |G|$.
+	
+	$\Rightarrow$ $\Phi$ liefert Gruppenisomorphismus $P\times Q \cong G$, also $\IZ/p\IZ\times \IZ/q\IZ\cong G$.
 \end{proof}
 
 
 \begin{kor}
-	$G$ Gruppe, $|G| = 15$. Dann $G\cong \IZ/3\IZ\times \IZ/5\IZ$ und $G$ ist zyklisch.
+	$G$ Gruppe, $|G| = 15$. Dann $G\cong \IZ/3\IZ\times \IZ/5\IZ \cong \IZ/15\IZ$ und $G$ ist zyklisch.
 \end{kor}
 
 \begin{proof}
-	Wir wissen $G \cong \IZ/3\IZ\times \IZ/5\IZ$. Behauptung: $ \IZ/3\IZ\times \IZ/5\IZ\cong \IZ/15\IZ$. Sei nämlich $g = (\overline{1}, \overline{1})\in  \IZ/3\IZ\times \IZ/5\IZ$. Dann gilt: $ord(g) = \min \{j|(\overline{1},\overline{1})+\dots (\overline{1},\overline{1}) = (\overline{0}, \overline{0}\in  \IZ/3\IZ\times \IZ/5\IZ)\}  =15$
+	Wir wissen $G \cong \IZ/3\IZ\times \IZ/5\IZ$. Behauptung: $ \IZ/3\IZ\times \IZ/5\IZ\cong \IZ/15\IZ$. Sei nämlich $g = (\overline{1}, \overline{1})\in  \IZ/3\IZ\times \IZ/5\IZ$. Dann gilt: $\ord(g) = \min \{j\mid (\overline{1},\overline{1})+\dots (\overline{1},\overline{1}) = (\overline{0}, \overline{0})\in  \IZ/3\IZ\times \IZ/5\IZ\}  =15$
 	
 	$\Rightarrow |\<g\>| = 15 \Rightarrow  \IZ/3\IZ\times \IZ/5\IZ$ ist zyklisch.
 	
