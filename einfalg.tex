@@ -663,6 +663,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 		\end{description}
 		Daraus folgt, dass $S_4$ auflösbar ist.
 	\end{enumerate}
+\end{bsp}
 
 	\begin{satz}
 		Untergruppen und Bilder unter Gruppenhomomorphismen von auflösbaren Gruppen sind auflösbar.
@@ -676,22 +677,147 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 			\item Sei $U < G$. Behauptung: $\left\lbrace e\right\rbrace = G_0 \cap U \nt (G_1 \cap U) \nt ... \nt (G_n \cap U) = U $. Es ist klar, dass $(G_{i-1} \cap U) \subset (G_1 \cap U)$. Auch klar ist, dass $G_i \cap U$ eine Gruppe ist und $(G_{i-1} ) < (G_1 \cap U)$. Jetzt ist noch zu zeigen, dass $(G_{i-1} \cap U) \nt (G_i \cap U)$. Sei $x \in G_{i-1} \cap U$ und sei $y \in G_i \cap U$. Dann folgt, dass $\underbrace{yxy^{-1}}_{\in G_{i-1}} \in U$, weil $x, y \in U, U < G$, weil $x \in G_{i-1}, y \in G_i$ und $G_{i-1} \nt G_i$. Daraus folgt, dass $yxy^{-1} \in U \cap G_{i-1}$, was zu zeigen war.
 			\item Behauptung: $G_i \cap U / G_{i-1} \cap U$ abelsch. Es gilt $G_i \cap U / G_{i-1} \cap U \stackrel{\text{1. Iso}}{\cong} (U \cap G_i)G_i/G_i \nt G_i/G_{i-1}$ abelsch. Daraus folgt die Behauptung.
 		\end{enumerate}
-	\end{proof}
-\end{bsp}
+
+
 
 
 
 \lecture{23. Oktober 2017}
-\subsection{title}
+Sei $f\colon G\to G'$ Gruppenhomo. Behauptung: $\{e\} = f(G_0)\nt f(G_1)\nt \dots \nt f(G_n ) = f(G)$ ist eine Normalreihe mit $f(G_i)/f(G_{i-1})$ abelsch.
+
+Sei $y' = f(y)\in f(G_i), y\in G_i$, dann $y'f(G_{i-1})(y')^{-1} = f(yG_{i-1}y^{-1})\subseteq f(G_i)\Rightarrow f(G_{i-1})\nt f(G_i)$ für alle $i$. Betrachte nun $\alpha\colon G_i\xto{f} f(G_i)\xto{\text{can}}f(G_i)/f(G_{i-1})$ Gruppenhomo; offensichtlich surjektiv. Da $G_{i-1}\in \ker \alpha\Rightarrow \exists$ Gruppenhomo $\overline{\alpha}\colon G_i/G_{i-1}\to f(G_i)/f(G_{i-1})$ nach Homosatz $\overline{\alpha}$ surjektiv, weil $G_i/G_{i-1}$ abelsch ist, ist auch $f(G_i)/f(G_{i-1})$ abelsch $\Rightarrow$ Behauptung $\Rightarrow$ Satz.
+\end{proof}
+
+
+\begin{defi}
+	$G$ Gruppe, $M := \{ghg^{-1}h^{-1}|g,h\in G\}$; dann heißt $[G,G] = \<M\>$ Kommutatorgruppe.
+\end{defi}
+
+\begin{bem}
+	$[G,G]\nt G$ sogar kleinster Normalteiler, sodass $G/[G,G]$ abelsch (denn: sei $N\nt G, a,b\in G, aNbN = bNaN\Leftrightarrow abN = baN\Leftrightarrow a^{-1}b^{-1}ab\in N\Leftrightarrow [G,G]\subseteq N$).
+\end{bem}
+
+\noindent
+Betrachte zu einer Gruppe die abgeleitete Reihe:
+
+$\begin{array}{ccccccc}
+ G&\vartriangleright& [G,G]&\vartriangleright& [D_1(G), D_1(G)]&\vartriangleright&\dots\qquad(1) \\
+ \shortparallel &&\shortparallel&&\shortparallel&&\\
+ D_0(G) &&      D_1(G)     && D_2(G) 
+ \end{array}$
+
+\begin{satz}
+	$G$ auflösbar $\Leftrightarrow \exists m\in\IN : D^m(G) = \{e\}$.
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{itemize}
+		\item [\glqq $\Leftarrow$\grqq] Die abgeleitete Reihe (1) ist nach Definition eine Normalreihe und die Faktoren sind abelsch nach Bemerkung.
+		\item [\glqq $\Rightarrow$\grqq] Sei $G$ auflösbar und $\{e\} = G_0\nt G_1\nt\dots G_n = G$ mit abelschen Faktoren. Nach Bemerkung gilt $G_N/G_{n-1}$ abelsch $\Rightarrow [G_n,G_n]\subseteq G_{n-1}$.
+		
+		Behauptung: $D^i(G) \subseteq G_{n-i}$ klar für $i = 0;1$. $D^{i+1}(G) = [D^i(G), D^i(G)]\subseteq [G_{n-i},{n-i}]\subseteq G_{n-i-1}$ nach Bemerkung. Also $D^n(G) \subseteq G_0 = \{e\}\Rightarrow \exists m:=n$ mit $D^m(G) =\{e\}$.	
+	\end{itemize}
+\end{proof}
+
+\subsection{Gruppenoperationen}
+\begin{defi}
+	$G$ Gruppe, $X\neq \emptyset$ Menge. Eine Operation von $G$ auf $X$ ist eine Abbildung
+	\begin{eqnarray*}
+		\Phi\colon G\times X &\to & X\\
+		(g,x) &\mapsto & g.x = \Phi(g,x)
+	\end{eqnarray*}
+	sodass
+	\begin{itemize}
+		\item[(O1)] $e.x = x$ für alle $x\in X$
+		\item[(O2)] $g.(h.x) = (gh).x$ für alle $g,h\in G, x\in X$
+	\end{itemize}
+	Kurz: $G$ operiert auf $X$; wir schreiben $G\operates X$.
+\end{defi}
+
+\begin{bem}
+	Existenz von $\Phi$ ist äquivalent zur Existenz von $\Phi\colon G\to S_X$ Gruppenhomo mit $\Phi'(g)(x) := g.x$ (nachprüfen!)
+\end{bem}
+
+\begin{defi}
+	Gegeben $G\operates X$, $G\operates Y$, $f\colon X\to Y$ Abbildung heißt $G$-Homomorphismus, falls $f(g.x) = g.f(x)$ für alle $g\in G$ und $x\in X$.
+\end{defi}
+
+\begin{defi}
+	$G\operates X$, $x\in X$. Dann\begin{enumerate}
+		\item $G.x = \{g.x|g\in G\}$ Bahn von $x$
+		\item $G_x = \{g\in G|g.x = x\}$ Stabilisator von $x$
+		\item $X^G = \{x\in X|\forall g\in G\enspace g-x = x\}$ Menge der Fixpunkte
+	\end{enumerate}
+\end{defi}
+
+\begin{bem}
+	$x\sim y$ falls $y\in G.x$ ist eine Äquivalenzrelation:\begin{itemize}
+		\item $x\sim x$ klar, weil $x = e.x\in G.x$
+		\item $x\sim y\Rightarrow \exists g\in G: g.x = y\Rightarrow x = g^{-1}.y\Rightarrow x\in G.y\Rightarrow y\sim x$
+		\item $x\sim y, y\sim z\Rightarrow x\sim z$ klar nach (O2)
+	\end{itemize}
+	Also $X = \dot\bigcup$ verschiedene Bahnen.
+\end{bem}
+
+\begin{defi}
+	$G$ operiert transitiv, falls genau eine Bahn existiert.
+\end{defi}
+
+
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+	\item $G$ Gruppe, $X:= \{H<G\}$, $G\operates X$ durch Konjugation: $g.H = gHg^{-1}$.
+	
+	Bahnen: Konjugationsklassen von Untergruppen
+	
+	Stabilisator von $H\in X$: $G_H = \{g\in G|gHg^{-1} = H\}$ Normalisator von $H$ in $G$, $N_G(H)$
+	
+	$X^G = \{H<G|gHg^{-1} = H\forall g\in G\} = \{H\nt G\}$
+	\item$G$ Gruppe, $H<G$, $X = G/H$. Dann $G\operates X = G/H$ durch $g.(aH) = gaH$ für alle $g\in G, a\in G$ (Linkstranslation), Operation ist transitiv; aber $\ker \Phi' = \bigcap\limits_{x\in G} xHx^{-1}$ (kleinster Normalteiler in $G$, der $H$ enthält)
+	\end{enumerate}
+\end{bsp}
+
+\begin{lem}
+	$G\operates X$. Dann
+	\begin{enumerate}
+		\item $\forall x\in X: G_X<G$
+		\item $f\colon G/G_X\to G.x, gG_x\mapsto g.x$ wohldefiniert bijektiv und $G$-Homomorphismus (wobei $G$ links wie in Beispiel 2 oben und rechts durch $G\operates X$ operiert)
+		\item $|G.x| = (G:G_x)$, wobei $(G:G_x) = \infty$, falls $|G/G_x |=\infty$
+	\end{enumerate}
+\end{lem}
+
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Übung
+		\item Klar $f$ surjektiv; injektiv: Sei $f(g_1G_x) = g(g_2G_x)\Leftrightarrow g_1.x = g_2.x\Leftrightarrow g_1^{-1}g_2.x = x \Leftrightarrow g_1^{-1}g_2\in G_x \Leftrightarrow g_1G_x = G_2G_x$. Also $f$ wohldefiniert und bijektiv.
+		
+		$G$-Homorphismus: zu zeigen: $f(h.(gG_x)) = h.f(gG_x)$ für alle $x\in X, h,g\in G$. Aber $f(h.(gG_x)) = hgG_x = (hg).x = h.g.x = h.f(gG_x)$
+		\item Es gilt nun $|G.x|\xeq{2} |G/G_x| = (G:G_x)$
+	\end{enumerate}
+\end{proof}
+
+\begin{satz}[Bahnenformel]
+	$G\operates X$, $X$ endlich: Dann $$|X| = \sum_{i\in I}(G:G_{x_i}) = |X^G| + \sum_{i\in I, x_i\notin X^G}(G:G_{x_i})\enspace,$$ wobei $(x_i)_{i\in I}$ Elemente in $X$ sind, sodass die Bahnen ein Repräsentantensystem der Bahnen bilden.
+\end{satz}
+
+\begin{proof} $|X| = |\bigcup\limits_{i\in I} G.x_i| = \sum_{i\in I}|G.x_i| = \sum (G:G_{x_i}) \Rightarrow$ 1. Gleichung. Nun teile die Bahnen $G.x_i$ in solche auf mit genau einem Element ($\Leftrightarrow x_i\in X^G$) und solchen mit $\geq 2$ Elementen. Da $x_i\in X^G\Leftrightarrow G_{x_i} = G\Leftrightarrow (G:G_{x_i}) = 1$ folgt sofort die 2. Gleichung.
+\end{proof}
+
+\begin{satz}
+	$G$ endliche Gruppe. $G\operates G$ durch Konjugation. Sei $\{x_i\}_{i\in I}$ so gewählt, dass die Bahnen ein Repräsentantensystem für Konjugationsklassen sind. Dann: $$ |G|  = |Z(G)| + \sum_{i\in I}(G: C_G(x_i))\enspace ,$$ wobei $C_G(x_i) = \{g\in G|gx_ig^{-1} = x_i\}$ Zentralisatior von $x_i$ in $G$.
+\end{satz}
+
+\begin{proof}
+	folgt direkt aus der Bahnenformel, da $C_G(x_i) = G_{x_i}$ mit der Konjugation als Operation und $x\in X^G\Leftrightarrow g.x = x\forall g\in G\Leftrightarrow gxg^{-1} = x\forall g\in G_{x_i}\Leftrightarrow x\in Z(G)$.
+\end{proof}
+
 \lecture{26. Oktober 2017}
 
-\begin{satz}[Satz 5.2]
-	$G$ irgendein weirdes Zeichen $X$; $X$ endlich: $|X| = \sum_{i\in I}(G: G_{x_i}) = |X^G| + \sum_{x_i\notin X^G}(G:G_{x_i})$
-\end{satz}
 
-\begin{satz}[Satz 5.3]
-	$G$ endliche Gruppe, $G$ weirdes Zeichen $G$ durch Konjugation; $|G| = |Z(G)|+\sum_{i\in I, x_i\notin Z(G)}(G:C_G(x_i))$.
-\end{satz}
+
+
 \subsection{$p$-Gruppen und Sylow-Sätze}
 \begin{defi}
 	Sei $p$ Primzahl (insbesondere $\geq 2$). Eine $p$-Gruppe ist eine Gruppe $G$ mit $|G| = p^r$ für ein $r\in\IN_0$. Insbesondere ist $|G|$ endlich.
