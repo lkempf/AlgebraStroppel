@@ -560,7 +560,15 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 		\begin{equation*}
 			\ord(g)=n \Rightarrow g^n = e \Rightarrow g^{nk} = (g^n)^k = e^k = e ~ \forall k\in \IZ \Rightarrow n\IZ \subset \ker F
 		\end{equation*}
-		Nach dem Homotopiesatz gilt dann: TODO Diagramm. Also $\overline{f} : \IZ/n\IZ \rightarrow G$. Da $\abs{\IZ/n\IZ} = n = \abs G$ muss diese surjektive Abbildung schon ein Isomorphismus sein.
+		Nach dem Homomorphiesatz gilt dann: 
+		
+		\begin{tikzcd}
+					\IZ \arrow{rd}[swap]{\text{can}} \arrow{r}{f} & G  \\
+						& \IZ/n\IZ \arrow{u}[swap]{\exists!\ \overline{f}\text{ Gruppenhomo}} \\
+		\end{tikzcd}
+		
+		
+		 Also $\overline{f} : \IZ/n\IZ \rightarrow G$. Da $\abs{\IZ/n\IZ} = n = \abs G$ muss diese surjektive Abbildung schon ein Isomorphismus sein.
 	\end{itemize}
 \end{proof}
 
