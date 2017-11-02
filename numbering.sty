@@ -2,6 +2,7 @@
 
 \newcounter{thmcounter}[subsection]
 \newcounter{defcounter}[subsection]
+\newcounter{bspcounter}[subsection]
 
 \theoremstyle{definition}
 \newtheorem{defi}[defcounter]{Definition}
@@ -13,7 +14,7 @@
 \newtheorem{satz}[thmcounter]{Satz}
 
 \theoremstyle{definition}
-\newtheorem*{bsp}{Beispiel}
+\newtheorem{bsp}[bspcounter]{Beispiel}
 
 \theoremstyle{plain}
 \newtheorem{kor}[thmcounter]{Korollar}

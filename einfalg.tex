@@ -1201,11 +1201,204 @@ $\rightarrow$ $R/I$ ist wieder Gruppe mit den Nebenklassen in $(R,+)$ bezüglich
 
 
 
+\lecture{2. November 2017}
+
+Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ ein Ring mit $\overline{a}\odot\overline{b} = \overline{ab}$. Wir nennen $(R/I,+,\odot)$ den Quotientenring von $R$ nach/modulo $I$. Im Folgenden schreiben wir kurz $R$ statt $(R,+,\cdot)$ etc.
+
+\begin{satz}[Homomorphiesatz]
+	Sei $R$ Ring, $I\subseteq R$ Ideal. \begin{enumerate}
+		\item Die Abbildung $can\colon R\to R/I, a\mapsto \overline{a}$ ist Ringhomo.
+		\item Sei $\phi\colon R\to S$ Ringhomo mit $I\subseteq \ker \phi$, dann $\exists!\overline{\phi}\colon R7I\to S$ Ringhomo, sodass $\overline{\phi}\circ can  = \phi$. Also:
+		\begin{center}
+		\begin{tikzcd}
+					R \arrow{rd}[swap]{can} \arrow{r}{\phi} & S \\
+					& R/I\arrow{u}[swap]{\exists! \overline{\phi}\text{ Ringhomo}} \\
+		\end{tikzcd}
+		\end{center}
+	\end{enumerate}
+\end{satz}
+
+\begin{proof}
+	Übung.
+\end{proof} 
+
+\begin{defi}
+	Sei $R$ ein kommutativer Ring und $I, J\subseteq R$ Ideale. Dann ist \begin{itemize}
+		\item $I+J = \{x+y|x\in I, y\in J\}\subseteq R$ die Summe von $I$ und $J$
+		\item $I\cap J = \{x|x\in I, x\in J\}\subseteq R$ der Schnitt von $I$ und $J$
+		\item $I\cdot J = \{\sum_{i = 1}^na_ib_i|a_i\in I, b_i\in J, n\in\IN\}$ das Produkt von $I$ und $J$
+	\end{itemize}
+	Das sind alles Ideale in $R$ (nachprüfen!).
+\end{defi}
+
+\begin{defi}
+	Sei $R$ kommutativer Ring, $a,b\in R$. \begin{enumerate}
+		\item $(a) = \{ra|r\in R\}$ ist das von $a$ erzeugte Ideal
+		\item $b$ teilt $a$ (in $R$), falls $\exists r\in R: a = br = rb$
+		\item 
+				 $a$ ist Nullteiler, wenn $\exists r\in R, r \neq 0$ mit $ra = ar = 0$
+			
+				 $R$ ist nullteilerfrei, falls 0 der einzige Nullteiler ist
+	
+	 			 $R$ heißt Integritätsbereich, falls nullteilerfrei und $R \neq \{0\}$
+		\item $a$ heißt Einehit, falls $\exists r\in R$ mit $ar = 1 = ra$. (also $a$ hat Inverses bzgl der Multiplikation)
+		
+		$R^{\times} = \{c\in R|c \text{ Einheit in $R$}\}$ Einheitengruppe von $R$
+	\end{enumerate}
+\end{defi}
+
+\begin{bem}
+	$(a)$ ist in der Tat ein Ideal:\begin{itemize}
+		\item[(I2)] $r' \in R, x = ra\in (a)\Rightarrow r'x  = r' (ra) = (r'r)a \in (a)$ Genauso $xr'\in (a)$
+		\item[(I1)] $x,y\in I$ $x = r'a, y = ra\Rightarrow x+(-y) = (r'a)+(-ra) = (r'+(-r))a \in (a)$ (benutze dabei $-(ra) = (-r)a$, weil $(ra)+((-r)a) = (r+(-r))a = 0a = 0$, also $-(ra) = (-r)a$ 
+	\end{itemize}
+\end{bem}
+\begin{bem}
+	$R^{\times}$ ist Gruppe bezüglich $\cdot$ (Übung)
+\end{bem}
+
+\begin{defi}
+	Ein Ideal der Form $(a)$ wie oben heißt Hauptideal. Ein kommutativer Ring $R\neq\{0\}$ heißt Hauptidealring, wenn $R$ nullteilerfrei und jedes Ideal in $R$ ein Hauptideal ist (also von der Form $(a)$ ist): $\forall I\subseteq R\text{ Ideal }\exists a\in \IR: I = (a)$
+\end{defi}
+
+\begin{bsp}
+	Betrachte $(\IZ,+,\cdot)$. Behauptung: Das ist ein Hauptidealring.\begin{itemize}
+		\item $R \neq \{0\}$, $R$ nullteilerfrei (klar)
+		\item Sei $I$ Ideal, Falls $I = \{0\}$, dann $I = (0)$. Falls $I \neq \{0\}$. Dann $\exists x\in I, x\neq 0$. Wähle $n\in\IN$ minimal mit $n\in I$ (existiert weil $x\in I\Rightarrow -x \in I $ nach (I1)).
+		
+		Behauptung: $I = (n)$
+		
+		\begin{proof} \glqq $\supseteq$\grqq: nach (I2); \glqq $\subseteq$\grqq: Sei $y\in I$. Schreibe $y = bn+r$ mit $b,r\in\IZ$ mit $0\leq r< n\Rightarrow y+(-bn) = r\Rightarrow r\in I$; Widerspruch zur Minimalität von $n$ außer $r = 0$
+		
+		$\Rightarrow y = bn\Rightarrow I\subseteq (n)$
+		\end{proof}
+	\end{itemize}
+\end{bsp}
+
+\begin{bsp}
+	$(1) = R$, $(0) = \{0\}$ sind Hauptideale.
+\end{bsp}
+
+\begin{lem}
+	$R$ kommutativer Ring, $R\neq \{0\}$.\begin{enumerate}
+		\item $R$ Körper $\Leftrightarrow R^{\times} = R\setminus\{0\}$
+		\item Für $a,b,c\in R$ ist \begin{enumerate}
+			\item $(a)\subseteq (b)\Leftrightarrow$ $b$ teilt $a$
+			\item $(a) = R \Leftrightarrow a\in R^{\times} \Leftrightarrow (a) = (1)$
+			\item Falls $c$ nicht Nullteiler: $ac =bc \Rightarrow a =b$
+			\item $a$ Nullteiler $\Rightarrow a\notin R^{\times}$
+		\end{enumerate}
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item $R$ Körper $\Rightarrow \forall x\in R, x\neq 0 \exists x^{-1}$ mit $xx^{-1} = 1 =x^{-1}x\Rightarrow x\in R^{\times}\Rightarrow R\setminus \{0\}\subseteq R^{\times}$
+		
+		%$x\in R^{\times} \Rightarrow \exists b\in R: xb = 1 = bx\Rightarrow$ $x$ invertierbar  un $ x\neq 0$ (weil $1\neq 0$) $\Rightarrow$ Jedes $x\in R, x\neq 0$ ist invertierbar
+		
+		Annahme: $R^{\times} = R\setminus\{0\}$. Sei $x\in R, x\neq 0\Rightarrow x\in R^{\times}\Rightarrow \exists r \in R$ mit $xr = 1 = rx\Rightarrow r = x^{-1}$ Inverse zu $x$ $\Rightarrow R$ Körper
+		
+		\item \begin{enumerate}
+			\item 
+				\glqq $\Rightarrow$\grqq Sei $(a)\subseteq (b)\Rightarrow a\in (b)\Rightarrow \exists r\in R$ mit $a = rb\Rightarrow$ $b$ teilt $a$.
+		
+				\glqq $\Leftarrow$\grqq: $b$ teilt $a$ $\Rightarrow \exists r\in R: a =rb\Rightarrow r'a = r'(rb) = (r'r)b\in (b)\forall r'\in R\Rightarrow (a)\subseteq (b)$
+			\item
+				Sei $(a) = R\Rightarrow 1\in (a)\Rightarrow \exists r\in R: 1 = ra = ar\Rightarrow a\in R^{\times}$.
+			
+				Sei $a\in R^{\times}\Rightarrow \exists r\in R: ra = 1 = ar\Rightarrow 1\in (a) \Rightarrow r'\cdot 1 = r'\in (a) \forall r'\in R \Rightarrow (a) = R$.
+				
+				Sei $a \in R^{\times}\Rightarrow 1\in (a) \Rightarrow R = (1) \subseteq (a) \Rightarrow (1)  = (a) $.
+				
+				Sei $(1) = (a) \Rightarrow1\in (a) \Rightarrow \exists r\in R: ra = 1 = ar\Rightarrow a\in R^{\times}$.
+				
+			\item 
+				Sei $ac = bc \Rightarrow (a+(-b))c = 0\Rightarrow a+(-b) = 0\Rightarrow a = b$, da $c$ nicht Nullteiler.
+			\item 
+				Sei $a$ Nullteiler $\Rightarrow \exists r\neq 0$ mit $ra = 0$. Sei nun $a\in R^{\times}$, dann $\exists b$ mit $ab = 1\Rightarrow r = r\cdot 1 = rab = 0b = 0\Rightarrow r = 0$. Widerspruch!
+		\end{enumerate}
+	\end{enumerate}
+\end{proof}
 
 
+\begin{bsp}
+	$R = \IR[t]$, $I = (t^2)$; Behauptung: $R/I$ ist kein Körper. Denn: $\overline{t} \neq \overline{0}$, weil $t\notin I$. Andererseits: $\overline{t^2} = \overline{0}$, weil $t^2\in I$ und somit $\overline{0} = \overline{t^2} = \overline{t}\odot\overline{t}$, also $\overline{t}$ Nullteiler in $R/I$ insbesondere nach Lemma 7.6 keine Einheit. $\Rightarrow (R/I)^{\times} \neq (R/I)\setminus\{0\}\Rightarrow R/I$ kein Körper.
+\end{bsp}
 
+\begin{bsp}
+	$R = \IR [t], I = (t^2+1)$. Behauptung: $R/I$ ist Körper.
+	\begin{proof}
+		Klar: $R/I$ kommutativ, weil $R$ kommutativ. Sei $x\in R/I, x\neq 0$, zu zeigen $x\in (R/I)^{\times}$. In $(R/I)$ gilt $\overline{t^2+1} = \overline{0}$, weil $t^2+1\in I$ und damit für $j\in \IZ_{\geq 2}$:
+		$$ \overline{t ^j} = \overline{t^{j-2}(t^2+1)+(-t^{j-2})} \xeq{\text{Def von $+$ in $R/I$}} \overline{t^{j-2}(t^2+1)}+\overline{-t^{j-2}} \xeq{\text{Def von $\odot$}}$$
+		$$ =  \overline{t^{j-2}}\odot \overline{t^2+1} + \overline{-t^{j-2}} = \overline{-t^{j-2}} \xeq{\text{Def von $+$ in $R/I$}} - (\overline{t^{j-2}})$$
+		Für $p = \sum_{i = 0}^{\infty}a_it^i\in\IR[t]$ gilt: $\overline{p} = \overline{b_01+b_1t}$ für gewissen $b_0,b_1\in R$. Also oBdA $x = \overline{b_01+b_1t}$ mit $b_0^2+b_1^2 \neq 0$.
+		
+		Sei $q: = \frac{1}{b_0^2b_1^2}(b_01-b_1t)\in \IR[t] = R$ wohldefiniert, da $b_0^2+b_1^2 \neq 0$.
+		
+		Setze $y = \overline{q}$. Behaupte $y = x^{-1}$ in $R/I$. Nun gilt 
+		$$ (b_01 +b_1t) q = \frac{1}{b_0^2+b_1^2}(b_0^2+b_0b_1t-b_1b_0t-b_1^2t^2) = \frac{1}{b_0^2+b_1^2}(b_0^2-b_1^2t^2)$$
+		Da $\overline{t^2+1} = \overline{0}$, also $\overline{-t^2} = \overline{1}$ gilt $xy = \overline{\frac{1}{b_0^2+b_1^2}(b_0^2+b_1^2)} = \overline{1}$. Also ist $x\in (R/I)^{\times}$ mit Inversem $y$.
+		
+		Übung: $R/I$ ist isomorph zu $\IC$ (als Körper)
+	\end{proof}
+\end{bsp}
 
-%TODO: Beispiele durchummerieren (bei subsections resetten)
+\begin{defi}
+	$R$ kommutativer Ring, $R\neq \{0\}$. $I\subseteq R$ Ideal heißt maximal, falls $I\neq R$ und $\not \exists J\subseteq R$ ideal mit $I\subset J\subset R$ (echte Teilmengen).
+\end{defi}
+\begin{lem}
+	$R$ kommutativer Ring, $R\neq 0$. $R$ Körper $\Leftrightarrow\{0\}$ ist (einziges) maximales Ideal.
+\end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{itemize}
+		\item[\glqq $\Leftarrow$\grqq:] Sei $\{0\}$ maximales Ideal. Dann ist es einziges, denn falls $I\neq \{0\}$ maximales Ideal $\Rightarrow \{\}\subsetneq I\neq R\Rightarrow \{0\} = I$. Widerspruch!
+		
+		Sei $a\in R, a\neq 0\Rightarrow (0) \subset (a) \Rightarrow (a) = R\Rightarrow \text{Lemma 6 } R^{\times} = R\setminus\{0\}\Rightarrow R$ Körper.
+		\item[\glqq $\Rightarrow$\grqq:] Sei $R$ Körper. $I\subseteq R$ Ideal, $I\neq \{0\}$. Dann $\exists a\in I, a\neq 0$. Weil $R$ Körper ist, ist $a\in R^{\times}\Rightarrow (a) = R \Rightarrow I = R\Rightarrow \{0\}$ ist einziges Ideal und maximal.
+	\end{itemize}
+\end{proof}
+
+\begin{bsp}
+	Betrachte $R = \IZ$. Behauptung: $I\subseteq \IZ$ Ideal. Dann $I$ maximal $\Leftrightarrow I = (n) $ mit $n = p$, $p$ Primzahl.
+	\begin{proof}
+		\leavevmode
+		\begin{itemize}
+			\item[\glqq $\Rightarrow$\grqq:] Sei $I = (a)$ (weil $\IZ$ Hauptidealring) maximal. Fall $a\neq \pm p$ Primzahl, existiert $b\in \IZ$ mit $b$ teilt $a$ und $b\neq a$, $b\neq  \pm 1$.
+			
+			$\Rightarrow$ $(a)\subsetneq (b)\subsetneq R$ (weil $b\neq \pm a$; $(b)\neq R$, weil $b\neq \pm 1$, also $b\neq \IZ^{\times}$) Widerspruch zu $I$ maximal, also $a  = \pm p$ $p$ Primzahl.
+			
+			\item[\glqq $\Leftarrow$\grqq:] Sei $I = (a)$ mit $a = \pm p$, $p$ Primzahl. Sei $I \subsetneq J\subset R$, $J$ Ideal. Dann gilt $J = (b)$ für ein $b\in\IZ$ (da $\IZ$ Hauptidealring) und nach Lemma 7.6 folgt $b$ teilt $a$ und $b\neq \pm a$ (weil $I\subsetneq J$) und $b \neq \pm 1$ (weil $(b)\neq R$). Widerspruch zu $a = \pm p$.
+		\end{itemize}
+	\end{proof}
+\end{bsp}
+
+\begin{satz} \label{satz8}
+	$R$ kommutativer Ring, $R \neq\{0\}, I\subseteq R$ Ideal. Dann $R/I$ Körper $\Leftrightarrow I$ maximales Ideal.
+\end{satz}
+
+\paragraph{Als Vorbereitung:}
+
+\begin{satz}
+	Sei $\phi\colon R\to S$ Ringhomo. ($R,S$ beliebige Ringe) surjektiv. Dann gibt es eine Bijektion zwischen den Mengen
+	$$\{\text{Ideale in $R$ mit }\ker \phi\subseteq I\}\longleftrightarrow \{\text{Ideale in $S$}\}$$
+	durch:
+	\begin{eqnarray*}
+		I & \longmapsto &\phi(I)\\
+		\phi^{-1}(J) &  & J\\
+		 = \{r\in R|\phi(r) \in J\}
+	\end{eqnarray*}
+\end{satz}
+
+\begin{proof}
+	$\phi(I)\subseteq S$ ist Ideal: $UG$ klar, weil Bild von Gruppe unter Gruppenhomo.\begin{itemize}
+		\item[I2] zu zeigen: $x\in \phi(I) , r\in S\Rightarrow rx\in \phi(I), xr\in \phi(I)$. Weil $\phi$ surjektiv $\exists r'\in R$ mit $\phi(r') = r$. Nach Anname $\exists y \in I$ mit $\phi(y) = x\Rightarrow \phi(r'y) = \phi (r')\phi(y)  = rx\in \phi(I)$, weil $y\in I$ und $I$ Ideal. Genauso $\phi(yr') = xr\in\phi(I)\Rightarrow \phi(I)$ Ideal.
+		
+		$\phi^{-1}(J)\subseteq R$ Ideal mit $\ker\phi\subseteq \phi^{-1}(J)$: $\ker\phi\subseteq \phi^{-1}(J)$, weil $\ker\phi = \phi^{-1}(\{0\})$ und $0\in J$ für jedes Ideal $J$. Klar: $\phi^{-1}(J)$ Untergruppe. Sei $r\in R, x\in\phi^{-1}(J)$; zu zeigen: $rx = xr\in\phi^{-1}(J)$. Es gilt $\phi(rx) = \phi(r)\phi(x)\in J$. Genauso $\phi(xr)\in J$. Also $rx,xr\in\phi^{-1}(J)$.
+	\end{itemize}
+\end{proof}
+
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
