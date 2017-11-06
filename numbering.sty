@@ -1,25 +1,50 @@
 \usepackage{amsthm}
+\usepackage[noabbrev,capitalize,ngerman]{cleveref}
 
 \newcounter{thmcounter}[subsection]
 \newcounter{defcounter}[subsection]
 \newcounter{bspcounter}[subsection]
 
-\theoremstyle{definition}
+\newtheoremstyle{cplain}
+{11pt}
+{\parskip}
+{\itshape}
+{}
+{\bfseries}
+{.}
+{ }
+{\thmname{#1}\thmnumber{ \arabic{subsection}.#2}\thmnote{ (textmd{(#3)}}}
+
+\newtheoremstyle{cdef}
+{11pt}
+{\parskip}
+{}
+{}
+{\bfseries}
+{.}
+{ }
+{\thmname{#1}\thmnumber{ \arabic{subsection}.#2}\thmnote{ \textmd{(#3)}}}
+
+\theoremstyle{cdef}
 \newtheorem{defi}[defcounter]{Definition}
+\crefname{defi}{Definition}{Definitionen}
 
 \theoremstyle{remark}
 \newtheorem*{bem}{Bemerkung}
 
-\theoremstyle{definition}
+\theoremstyle{cdef}
 \newtheorem{satz}[thmcounter]{Satz}
+\crefname{satz}{Satz}{Sätzen}
 
-\theoremstyle{definition}
+\theoremstyle{cdef}
 \newtheorem{bsp}[bspcounter]{Beispiel}
+\crefname{bsp}{Beispiel}{Beispielen}
 
-\theoremstyle{plain}
+\theoremstyle{cplain}
 \newtheorem{kor}[thmcounter]{Korollar}
+\crefname{kor}{Korollar}{Korollaren}
 
-\theoremstyle{plain}
+\theoremstyle{cplain}
 \newtheorem{lem}[thmcounter]{Lemma}
 
 \newcommand{\lecture}[1]{

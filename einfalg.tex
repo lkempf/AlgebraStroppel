@@ -2,6 +2,7 @@
 
 \usepackage{includes}
 \usepackage{shortcuts}
+\usepackage{numbering}
 
 \author{Luise Puhlmann}
 \title{Einführung in die Algebra}
@@ -729,7 +730,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 \underbrace{G}_{D^0(G)} \tn \underbrace{[G,G]}_{D^1(G)} \tn \underbrace{[D^1(G),D^1(G)]}_{D^2(G)} \tn \ldots . \tag{*}\label{eq:abgeleitetereihe}
 \end{equation}
 
-\begin{satz}[Satz 4.2]
+\begin{satz}
 	$G$ auflösbar $\Leftrightarrow \exists m\in\IN : D^m(G) = \{e\}$.
 \end{satz}
 \begin{proof}
@@ -745,7 +746,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 
 \subsection{Gruppenoperationen}
 \begin{defi}
-	$G$ Gruppe, $X\neq \emptyset$ Menge. Eine Operation von $G$ auf $X$ ist eine Abbildung
+	Sei $G$ eine Gruppe, $X\neq \emptyset$ eine Menge. Eine Operation von $G$ auf $X$ ist eine Abbildung
 	\begin{align*}
 		\Phi\colon G\times X \longto & X\\
 		(g,x) \longmapsto & g.x = \Phi(g,x)
@@ -816,13 +817,13 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 				\item Spezialfall $H=G$: $X^H = Z(G)$.
 			\end{itemize}
 		\end{enumerate}
-		\item $G$ Gruppe, $X = \{H < G \}$. $G \operates X$ definiert durch Konjugation als \[ g.H \coloneqq gHg^{-1} = \{ ghg^{-1} \mid h \in H \} \in X. \]
+		\item Sei $G$ eine Gruppe, $X = \{H < G \}$ und sei $G \operates X$ definiert durch Konjugation als \[ g.H \coloneqq gHg^{-1} = \{ ghg^{-1} \mid h \in H \} \in X. \]
 		\begin{itemize}[itemsep=-3pt]
 			\item Bahnen $=$ Konjugationsklassen von Untergruppen
 			\item Stabilisator von $H\in X$: $G_H = \{ g.H = H \}$, heißt auch \emph{Normalisator} von $H$ in $G$, schreib $N_G(H)$.
 			\item $X^G = \{ H < G \mid \forall g \in G: g.H = H \}=\{ H < G \mid \forall g \in G: gHg^{-1} = H \} = \{H \nt G \}$
 		\end{itemize}
-		\item $G$ Gruppe, $H < G$, $X = G/H$. Dann $G \operates X$ durch $g.(aH) = gaH$ für alle $g\in G, a \in G$; heißt \emph{Linkstranslation}.
+		\item Sei $G$ eine Gruppe, $H < G$, $X = G/H$. Dann $G \operates X$ durch $g.(aH) = gaH$ für alle $g\in G, a \in G$; heißt \emph{Linkstranslation}.
 		\begin{itemize}[itemsep=-3pt]
 			\item transitiv, da $\forall a,b \in G: \exists g \in G: g(aH)=bH$.
 			\item Im Allgemeinen nicht treu, da \[\ker\Phi' = \underbrace{\bigcap_{x \in G}xHx^{-1}}_{\mathclap{\text{kleinster Normalteiler}}}.\]
@@ -834,7 +835,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 	$G\operates X$. Dann
 	\begin{enumerate}
 		\item $\forall x\in X: G_X<G$
-		\item $f\colon G/G_X\to G.x, gG_x\mapsto g.x$ wohldefiniert bijektiv und $G$-Homomorphismus (wobei $G$ links wie in Beispiel 2 oben und rechts durch $G\operates X$ operiert)
+		\item $f\colon G/G_X\to G.x, gG_x\mapsto g.x$ ist wohldefiniert, bijektiv und ein $G$-Homomorphismus (wobei $G$ links wie in Beispiel 2 oben und rechts durch $G\operates X$ operiert)
 		\item $|G.x| = (G:G_x)$, wobei $(G:G_x) = \infty$, falls $|G/G_x |=\infty$
 	\end{enumerate}
 \end{lem}
@@ -843,46 +844,44 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 	\leavevmode
 	\begin{enumerate}
 		\item Übung
-		\item Klar $f$ surjektiv; injektiv: Sei $f(g_1G_x) = f(g_2G_x)\Leftrightarrow g_1.x = g_2.x\Leftrightarrow g_1^{-1}g_2.x = x \Leftrightarrow g_1^{-1}g_2\in G_x \Leftrightarrow g_1G_x = g_2G_x$ für alle $g_1,g_2 \in G, x\in X$. Also $f$ wohldefiniert und bijektiv.
+		\item Es ist klar, dass $f$ surjektiv ist. Zur Injektivität: Sei $f(g_1G_x) = f(g_2G_x)$. Das ist äquivalent zu $ g_1.x = g_2.x\Leftrightarrow g_1^{-1}g_2.x = x \Leftrightarrow g_1^{-1}g_2\in G_x \Leftrightarrow g_1G_x = g_2G_x$ für alle $g_1,g_2 \in G, x\in X$. Also ist $f$ wohldefiniert und bijektiv.
 		
-		$G$-Homorphismus: zu zeigen: $f(h.(gG_x)) = h.f(gG_x)$ für alle $x\in X, h,g\in G$. Aber $f(h.(gG_x)) = hgG_x = (hg).x = h.g.x = h.f(gG_x)$
+		Nun muss noch gezeigt werden, dass $f$ ein $G$-Homorphismus ist: Es gilt $f(h.(gG_x)) = h.f(gG_x)$ für alle $x\in X, h,g\in G$. Aber $f(h.(gG_x)) = hgG_x = (hg).x = h.g.x = h.f(gG_x)$
 		\item Es gilt nun $|G.x|\xeq{2.} |G/G_x| = (G:G_x)$
 	\end{enumerate}
 \end{proof}
 
-\begin{satz}[Satz 5.2 (Bahnenformel)]
-	$G\operates X$, $X$ endlich: Dann $$|X| = \sum_{i\in I}(G:G_{x_i}) = \abs*{X^G} + \sum_{\mathclap{\substack{i\in I,\\x_i\notin X^G}}}(G:G_{x_i})\enspace,$$ wobei $(x_i)_{i\in I}$ Elemente in $X$ sind, sodass die Bahnen ein Repräsentantensystem der Bahnen bilden.
+\begin{satz}[Bahnenformel] \label{thm:bahnformel}
+	Sei $G$ eine Gruppe, $X$ eine endliche Menge und sei $G\operates X$ eine Gruppenoperation. Dann gilt: $$|X| = \sum_{i\in I}(G:G_{x_i}) = \abs*{X^G} + \sum_{\mathclap{\substack{i\in I,\\x_i\notin X^G}}}(G:G_{x_i})\enspace,$$ wobei $(x_i)_{i\in I}$ Elemente in $X$ sind, sodass die Bahnen ein Repräsentantensystem der Bahnen bilden.
 \end{satz}
 
-\begin{proof} $|X| = \abs*{\bigcup\limits_{i\in I} G.x_i} = \sum_{i\in I}|G.x_i| = \sum (G:G_{x_i}) \Rightarrow$ 1. Gleichung. Nun teile die Bahnen $G.x_i$ in solche auf mit genau einem Element ($\Leftrightarrow x_i\in X^G$) und solchen mit $\geq 2$ Elementen. Da $x_i\in X^G\Leftrightarrow G_{x_i} = G\Leftrightarrow (G:G_{x_i}) = 1$ folgt sofort die 2. Gleichung.
+\begin{proof} Es gilt $|X| = \abs*{\bigcup\limits_{i\in I} G.x_i} = \sum_{i\in I}|G.x_i| = \sum (G:G_{x_i})$, woraus der 1. Teil der Gleichung folgt. Teilt man nun die Bahnen $G.x_i$ in solche auf mit genau einem Element ($\Leftrightarrow x_i\in X^G$) und solchen mit $\geq 2$ Elementen, so folgt $x_i\in X^G\Leftrightarrow G_{x_i} = G\Leftrightarrow (G:G_{x_i}) = 1$. Daraus folgt sofort der 2. Teil der Gleichung.
 \end{proof}
 
-\begin{satz}[Satz 5.3]
-	$G$ endliche Gruppe. $G\operates G$ durch Konjugation. Sei $(x_i)_{i\in I}$ so gewählt, dass die Bahnen ein Repräsentantensystem für Konjugationsklassen sind. Dann: \[ |G|  = |Z(G)| + \sum_{\mathclap{\substack{i\in I,\\x_i\notin Z(G)}}}(G: C_G(x_i))\enspace ,\] wobei $C_G(x_i) = \{g\in G\mid gx_ig^{-1} = x_i\}$ der Zentralisatior von $x_i$ in $G$ ist.
+\begin{satz}
+	Sei $G$ eine endliche Gruppe. $G\operates G$ durch Konjugation. Sei $(x_i)_{i\in I}$ so gewählt, dass die Bahnen ein Repräsentantensystem für Konjugationsklassen sind. Dann gilt: \[ |G|  = |Z(G)| + \sum_{\mathclap{\substack{i\in I,\\x_i\notin Z(G)}}}(G: C_G(x_i))\enspace ,\] wobei $C_G(x_i) = \{g\in G\mid gx_ig^{-1} = x_i\}$ der Zentralisatior von $x_i$ in $G$ ist.
 \end{satz}
 
 \begin{proof}
-	folgt direkt aus der Bahnenformel, da $C_G(x_i) = G_{x_i}$ mit der Konjugation als Operation und $x\in X^G\Leftrightarrow g.x = x\forall g\in G\Leftrightarrow gxg^{-1} = x\forall g\in G_{x_i}\Leftrightarrow x\in Z(G)$.
+	Die Formel folgt direkt aus der Bahnenformel, da $C_G(x_i) = G_{x_i}$ mit der Konjugation als Operation und $x\in X^G\Leftrightarrow g.x = x~\forall g\in G\Leftrightarrow gxg^{-1} = x~\forall g\in G_{x_i}\Leftrightarrow x\in Z(G)$.
 \end{proof}
 
 \lecture{26. Oktober 2017}
-
-
 
 
 \subsection{$p$-Gruppen und Sylow-Sätze}
 \begin{defi}
 	Sei $p$ prim (insbesondere $\geq 2$). Eine $p$-Gruppe ist eine Gruppe $G$ mit $|G| = p^r$ für ein $r\in\IN_0$. Insbesondere ist $|G|$ endlich.
 \end{defi}
-\begin{satz}[Satz 6.1]
-	$G\neq\{e\}$ $p$-Gruppe $\Rightarrow Z(G)\neq \abs*{\{e\}} = 1$. Insbesondere hat $G$ nicht-triviale abelsche Untergruppe.
+\begin{satz}
+	Sei $G\neq\{e\}$ eine $p$-Gruppe. Dann gilt $\abs{Z(G)}\neq \abs*{\{e\}} = 1$. Insbesondere hat $G$ eine nicht-triviale abelsche Untergruppe.
 \end{satz}
 \begin{proof}
-	Nach Satz 5.3 hat man \[ \underbrace{|G|}_{\mathclap{\text{durch $p$ teilbar}}}  = |Z(G)| + \underbrace{\sum_{\substack{i\in I,\\x_i\notin Z(G)}}(G: G_{x_i})}_{A}.\] Nach \textsc{Lagrange} ist $A$ durch $p$ teilbar oder gleich $1$, weil $G$ eine $p$-Gruppe ist. Letzters kann aber nicht sein, da $(G:G_{x_i}) = 1 \Leftrightarrow G = G_{x_i}\Leftrightarrow x_i\in Z(G)$, Widerspruch. Also sind die Summanden $(G:G_{x_i})$ und somit auch $A$ durch $p$ teilbar. Damit teilt $p$ auch $|Z(G)|\Rightarrow |Z(G)|\geq 2\Rightarrow Z(G)\neq \{e\}$.
+	Nach Satz 5.3 hat man \[ \underbrace{|G|}_{\mathclap{\text{durch $p$ teilbar}}}  = |Z(G)| + \underbrace{\sum_{\substack{i\in I,\\x_i\notin Z(G)}}(G: G_{x_i})}_{A}.\] Nach dem \nameref{thm:lagrange} ist $A$ durch $p$ teilbar oder gleich $1$, weil $G$ eine $p$-Gruppe ist. Letzters kann aber nicht sein, da $(G:G_{x_i}) = 1 \Leftrightarrow G = G_{x_i}\Leftrightarrow x_i\in Z(G)$, Widerspruch. Also sind die Summanden $(G:G_{x_i})$ und somit auch $A$ durch $p$ teilbar. Damit teilt $p$ auch $|Z(G)|\Rightarrow |Z(G)|\geq 2\Rightarrow Z(G)\neq \{e\}$.
 \end{proof}
 
-\begin{satz}[Satz 6.2]
-	$G$ $p$-Gruppe. Dann existiert Normalreihe der Form
+\begin{satz}
+	Sei $G$ eine $p$-Gruppe. Dann existiert eine Normalreihe der Form
 	$$ \{e\}\nt G_0\nt\dots\nt G_n = G$$ für ein $n\in\IN$, sodass $G_i/G_{i-1}\cong \IZ/p\IZ$ ($1\le i\le n$).
 	Insbesondere ist $G$ auflösbar.
 \end{satz}
@@ -891,13 +890,13 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 \end{proof}
 
 \begin{defi}
-	$G$ endliche Gruppe, $p$ Primzahl. Sei $|G| = p^rm$ mit $p\nmid m$. $H<G$ heißt $p$-Sylowgruppe, falls $|H| = p^r$. Wir definieren  $\Syl_p(G):=\{H<G\mid H\text{ ist Sylowgruppe}\}$.
+	Sei $G$ eine endliche Gruppe, $p$ eine Primzahl. Sei $|G| = p^rm$ mit $p\nmid m$. $H<G$ heißt $p$-Sylowgruppe, falls $|H| = p^r$. Wir definieren  $\Syl_p(G):=\{H<G\mid H\text{ ist Sylowgruppe}\}$.
 \end{defi}
 
-\begin{satz}[Satz 6.3 (Sylowsätze)]
-	$p$ Primzahl, $G$ endliche Gruppe, $|G| = p^rm$ mit $p\nmid m$.\begin{enumerate}
-		\item $\forall 0\le k\le r :\exists H<G$ mit $|H| = p^k$
-		\item Sei $U<G$ $p$-Gruppe. Dann $\exists g\in G$ und $S\in \Syl_p(G)$, sodass $U<gSg^{-1}$.
+\begin{satz}[Sylowsätze]
+	Sei $p$ eine Primzahl, $G$ eine endliche Gruppe, $|G| = p^rm$ mit $p\nmid m$.\begin{enumerate}
+		\item $\forall 0\le k\le r \colon\exists H<G$ mit $|H| = p^k$
+		\item Sei $U<G$ eine $p$-Gruppe. Dann $\exists g\in G$ und $S\in \Syl_p(G)$, sodass $U<gSg^{-1}$.
 		\item Sei $n_p = |Syl_p(G)|$. Dann gilt \begin{itemize}
 			\item $n_p\equiv 1\pmod p$
 			\item $n_p\mid m$
@@ -908,11 +907,11 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item Sei $1\leq k \leq r$. Fall $k = 0$ klar mit $H = \{e\}$. Sei $X = \{A\subseteq G \mid |A| = p^k\}$, wobei $|X| = \binom{p^rm}{p^k}$. Übungsblatt 3: $p^{r-k+1}\nmid |X|$.
+		\item Sei $1\leq k \leq r$. Der Fall $k = 0$ ist klar mit $H = \{e\}$. Sei $X = \{A\subseteq G \mid |A| = p^k\}$, wobei $|X| = \binom{p^rm}{p^k}$. Nach Übungsblatt 3 gilt: $p^{r-k+1}\nmid |X|$.
 		
 		Nun $G \operates X$ durch $g.A := gA=\{ga|a\in A\}$ für alle $g\in G, A\in X$. (klar: $|gA| = p^k $, also $gA\in X$). Nachrechnen: (O1), (O2) gelten (offensichtlich). 
 		
-		Nach Satz 5.2 folgt $|X| = \sum_{i\in I}(G:G_{x_i})$, wobei $\exists i\in I$, sodass $p^{r-k+1} \nmid (G:G_{x_i})$, weil $p^{r-k+1}\nmid |X|$. Wähle solch ein $x_i = : A'\in X$.
+		Nach \cref{thm:bahnformel} folgt $|X| = \sum_{i\in I}(G:G_{x_i})$, wobei $\exists i\in I$, sodass $p^{r-k+1} \nmid (G:G_{x_i})$, weil $p^{r-k+1}\nmid |X|$. Wähle solch ein $x_i = : A'\in X$.
 		
 		Behauptung: $G_{A'}<G$ mit $|G_{A'}| = p^k$. Dann folgt 1) mit $H = G_{A'}$. Klar: $G_{A'}<G$. Nach \textsc{Lagrange}: $|G| = |G_{A'}|(G:G_{A'})$, wobei $p^r$ die linke Seite der Gleichung teilt, und im Index auf der rechten Seite $p$ höchstens $r-k$-mal vorkommt.
 		
@@ -976,7 +975,7 @@ $G$ endliche Gruppe, $p$ Primzahl.
 
 \paragraph{Anwendungen.}\leavevmode
 Vorbemerkung: $G$ Gruppe, $|G| = p$ prim $\Rightarrow G\cong \IZ/p\IZ$. (Denn wähle $g\in G$, $g\neq e$. Dann $\<g\> <G$ und nach \textsc{Lagrange} ist $|\<g\>| = p = |G|$, also $G = \<g\>$ zyklisch, also $G\cong \IZ/p\IZ$ nach Klassifikation von zyklischen Gruppen.)
-\begin{satz}[Satz 6.4]
+\begin{satz}
 	$G$ Gruppe, $|G| = pq$ mit $p\neq q$ Primzahl. Dann ist $G$ auflösbar.
 \end{satz}	
 \begin{proof}
@@ -988,7 +987,7 @@ Vorbemerkung: $G$ Gruppe, $|G| = p$ prim $\Rightarrow G\cong \IZ/p\IZ$. (Denn w�
 	$\Rightarrow$ Faktoren sind abelsch $\Rightarrow$ $G$ ist auflösbar.
 \end{proof}
 
-\begin{satz}[Satz 6.5]
+\begin{satz}
 	$G$ Gruppe, $|G| = pq$ mit $p,q$ prim sowie $p<q$ und $p \nmid q-1$. Dann folgt $G\cong\IZ/p\IZ \times \IZ/ q\IZ$.
 \end{satz}
 \begin{proof}
@@ -1026,11 +1025,11 @@ Vorbemerkung: $G$ Gruppe, $|G| = p$ prim $\Rightarrow G\cong \IZ/p\IZ$. (Denn w�
 
 \subsection{Ringe}
 \begin{defi} Ein Ring (mit 1) ist eine Menge $R$ zusammen mit zwei Abbildungen
-	\begin{eqnarray*}
-		+,\cdot \colon R\times R &\to & R\\
-		(a,b)&\mapsto& a+b \qquad \text{Addition}\\
-		\text{bzw. }(a,b)&\mapsto& a\cdot b\qquad\text{Multiplikation,}
-	\end{eqnarray*}
+	\begin{alignat*}{2}
+		+,\cdot \colon R\times R &\longto  R &&\quad\\
+		(a,b)&\longmapsto a+b \qquad &&\text{Addition}\\
+		\text{bzw. }(a,b)&\longmapsto a\cdot b &&\text{Multiplikation,}
+	\end{alignat*}
 sodass gilt:
 \begin{itemize}
 	\item[(R1)] $(R,+)$ ist eine abelsche Gruppe.
