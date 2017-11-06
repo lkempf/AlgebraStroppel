@@ -4,7 +4,7 @@
 \usepackage{shortcuts}
 \usepackage{numbering}
 
-\author{Alexander Esgen, Lukas Kempf, Luise Puhlmann}
+\author{Alexander Esgen \and Lukas Kempf \and Luise Puhlmann}
 \title{Einführung in die Algebra}
 \subtitle{Wintersemester 2017/18}
 
@@ -265,7 +265,7 @@
 	\end{enumerate}
 \end{bsp}
 
-\paragraph{Übung:} $f$ Gruppenhomomorphismus; $f$ ist injektiv genau dann, wenn $\text{Ker}(f) = \{e\}$
+\paragraph{Übung:} $f$ Gruppenhomomorphismus; $f$ ist injektiv genau dann, wenn $\ker f = \{e\}$.
 
 \begin{satz}[Satz von Cayley]
 	Sei $G$ eine Gruppe. Dann ist
@@ -1035,17 +1035,19 @@ sodass gilt:
 	\item[(R1)] $(R,+)$ ist eine abelsche Gruppe.
 	\item[(R2)] $\forall a,b,c\in R$ gilt $(a\cdot b)\cdot c = a\cdot (b\cdot c)$ (also $\cdot$ ist assoziativ)
 	\item[(R3)] $\forall a,b,c\in R$ gilt:
-	\begin{eqnarray*}
-		a\cdot(b+c) &=& (a\cdot b)+ (a\cdot c)\\
-		(b+c)\cdot a& =& (b\cdot a)+(c\cdot a)
-	\end{eqnarray*} (Distributivität)
+	\begin{equation*}
+		\begin{aligned}
+		a\cdot(b+c) &= (a\cdot b)+ (a\cdot c)\\
+		(b+c)\cdot a &= (b\cdot a)+(c\cdot a)
+		\end{aligned} \tag{Distributivität}
+	\end{equation*}
 	\item[(R4)] $\exists 1 = 1_R\in R$, sodass $a\cdot 1 = a = 1\cdot a$ für alle $a\in R$ (Neutrales bezüglich $\cdot$)
 \end{itemize}
 \end{defi}
 
 \begin{bem} \leavevmode
 	\begin{enumerate}
-		\item Wir bezeichnen mit $0$ oder $0_R$ das neutrale Element bezüglich $+$ und mit $(-a)$ das Inverse zu $a\in R$ bzgl $+$.
+		\item Wir bezeichnen mit $0$ oder $0_R$ das neutrale Element und mit $(-a)$ das Inverse zu $a\in R$ bezüglich $+$.
 		\item Das Element $1\in R$ ist eindeutig (denn sei $1'$ ein anderes, dann ist $1 = 1\cdot 1' = 1'$).
 		\item In einem Ring gilt: $a\cdot 0 = 0 = 0\cdot a$ für alle $a\in R$, denn $a\cdot 0 = a\cdot (0+0 = (a\cdot 0)+(a\cdot 0)\Rightarrow 0 = a\cdot 0$; analog für $0\cdot a$.
 	\end{enumerate}
@@ -1058,13 +1060,13 @@ sodass gilt:
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-		\item Jeder Körper $(K,+,\cdot)$ ist ein kommutativer Ring (aber Ringe haben im Allgemeinen keine multiplikativ Inversen)
+		\item Jeder Körper $(K,+,\cdot)$ ist ein kommutativer Ring (aber Ringe haben im Allgemeinen keine multiplikativ Inversen).
 		\item (aus LA) Sei $V$ ein $K$-Vektorraum, $K$ ein Körper, dann ist $(\text{End}_K(V),+,\cdot)$ ein Ring mit $(f+g)(v) = f(v)+g(v)$ und $(f\cdot g)(v) = (f\circ g)(v)$ (Hintereinanderausführung) mit $f,g\in \text{End}_K(V), v\in V$ mit $0_{\text{End}_K(V)} =$ Nullabbildung; $1_{\text{End}_K(V)} = \text{id}_V$.
 		\item Nullring: $R = \{0=1\}$ mit $0+0 = 0$ und $0\cdot 0 = 0$.
 		\item Es gilt folgende Umkehrung von $1.$: wenn $(R,+,\cdot)$ ein kommutativer Ring ist, $R\neq \{0\}$, jedes $x\in R$ mit $x\neq 0$ besitzt Inverses $x^{-1}$ bezüglich $\cdot$; dann ist $(R, +, \cdot )$ Körper
 		\item $(R, +, \cdot)$ Ring. Betrachte
-		$$ R[t] = \left\{ \sum_{i=0}^{\infty} a_it^i | a_i\in R, \text{ nur endlich viele }a_i\neq 0\right\}  = \left\{ \sum_{i=0}^{n} a_it^i | a_i\in R, n\in \IN_0\right\}$$
-		Polynome mit Koeffizienten in $R$. Dann ist $(R[t], +, \cdot)$ ein Ring mit $0_{R[t]} =$ Nullpolynom, d.h. $a_i = 0$ für alle $i$. $1_{R[t]}$ ist das Polynom $p(t) = \sum_{i = 0}^{\infty}a_it^i$ mit $a_0 = 1$ und $a_i = 0$ für $i\geq 1$.  Es gilt: $(R[t], +,\cdot)$ ist kommutativ $\Leftrightarrow$ $(R,+,\cdot)$ ist kommutativ.
+		\[ R[t] = \left\{ \left. \sum_{i=0}^{\infty} a_it^i \right| a_i\in R, \text{ nur endlich viele }a_i\neq 0\right\}  = \left\{\left. \sum_{i=0}^{n} a_it^i \right| a_i\in R, n\in \IN_0\right\},\]
+		die Polynome mit Koeffizienten in $R$. Dann ist $(R[t], +, \cdot)$ ein Ring mit $0_{R[t]} =$ Nullpolynom, d.h. $a_i = 0$ für alle $i$. $1_{R[t]}$ ist das Polynom $p(t) = \sum_{i = 0}^{\infty}a_it^i$ mit $a_0 = 1$ und $a_i = 0$ für $i\geq 1$.  Es gilt: $(R[t], +,\cdot)$ ist kommutativ $\Leftrightarrow$ $(R,+,\cdot)$ ist kommutativ.
 	\end{enumerate}
 \end{bsp}	
 
@@ -1077,13 +1079,13 @@ sodass gilt:
 \end{defi}
 
 \begin{bsp}
-	$(R,+,\cdot)$ Ring. $Z(R) = \{a\in R|a\cdot x = x\cdot a \enspace \forall x\in R\}$ Zentrum des Ringes ist ein Unterring.
+	$(R,+,\cdot)$ Ring. $Z(R) := \{a\in R|a\cdot x = x\cdot a \enspace \forall x\in R\}$ ist das Zentrum des Ringes; dieses ist ein Unterring.
 	
 	Warnung: $Z(R) \neq Z((R,+))$ im Allgemeinen
 \end{bsp}	
 
 \begin{defi}
-	Seien $(R,+,\cdot)$ und $(S,+,\cdot)$ Ringe. Eine Abbildung $\phi\colon R\to S$ ist Ringhomomorphismus (kurz Ringhomo), falls gilt:
+	Seien $(R,+,\cdot)$ und $(S,+,\cdot)$ Ringe. Eine Abbildung $\phi\colon R\to S$ ist Ringhomomorphismus, falls gilt:
 	\begin{itemize}
 		\item[(RH1)] $\phi (a+b) = \phi (a)+\phi(b)$
 		\item[(RH2)]$\phi(a\cdot b) = \phi(a)\cdot \phi(b)$
@@ -1091,18 +1093,18 @@ sodass gilt:
 	\end{itemize}
 	für alle $a,b\in R$.
 	
-	Falls $\phi$ zusätzlich bijektiv ist, ist es ein Ringisomorphismus (kurz Ringiso)
+	Falls $\phi$ zusätzlich bijektiv ist, ist $\phi$ ein Ringisomorphismus.
 \end{defi}
 
 \begin{bem}
-	$\phi\colon R\to S$ Ringhomo $\Rightarrow$ $R\to S$ ist Gruppenhomo von $(R,+)$ nach $(S,+)$ wegen (RH1).
+	$\phi\colon R\to S$ Ringhomomorphismus $\Rightarrow$ $R\to S$ ist Gruppenhomomorphismus von $(R,+)$ nach $(S,+)$ wegen (RH1).
 \end{bem}
 
 \begin{lem}
 	\leavevmode
 	\begin{enumerate}
-		\item $\phi\colon R\to S$ Ringiso $\Rightarrow \phi^{-1}\colon S\to R$ Ringiso
-		\item $\phi_1\colon R\to S, \phi_2\colon S\to T$ Ringhomos $\Rightarrow \phi_2\circ\phi_1\colon R\to T$ ist ein Ringhomo
+		\item $\phi\colon R\to S$ Ringisomorphismus $\Rightarrow \phi^{-1}\colon S\to R$ Ringisomorphismus
+		\item $\phi_1\colon R\to S, \phi_2\colon S\to T$ Ringhomomorphismen $\Rightarrow \phi_2\circ\phi_1\colon R\to T$ Ringhomomorphismus
 	\end{enumerate}
 \end{lem}
 \begin{proof}
@@ -1111,24 +1113,24 @@ sodass gilt:
 
 
 \begin{lem}
-	Sei $\phi\colon R\to S$ Ringhomomorphismus. Dann ist $\text{im}\phi\subseteq S$ ein Unterring.
+	Sei $\phi\colon R\to S$ Ringhomomorphismus. Dann ist $\im\phi\subseteq S$ ein Unterring.
 \end{lem}
 
 \begin{proof}
-	Es gilt $\phi(1_R) = 1_S\in\text{im}\phi\Rightarrow$ UR1.
+	Es gilt $\phi(1_R) = 1_S\in\im\phi\Rightarrow$ (UR1).
 	
-	Seien $s_1, s_2\in\text{im}\phi\Rightarrow \exists r_1,r_2\in R:\enspace \phi (r_1) = s_1, \phi (r_2 )= s_2\Rightarrow s_1\cdot s_2 = \phi (r_1)\cdot \phi (r_2) = \phi(r_1\cdot r_2)\in \text{im}\phi\Rightarrow s_1\cdot s_2\in \text{im}\phi$.
+	Seien $s_1, s_2\in\im\phi\Rightarrow \exists r_1,r_2\in R: \phi (r_1) = s_1, \phi (r_2 )= s_2\Rightarrow s_1\cdot s_2 = \phi (r_1)\cdot \phi (r_2) = \phi(r_1\cdot r_2)\in \im\phi\Rightarrow s_1\cdot s_2\in \im\phi$.
 	
-	Außerdem ist $s_1+(-s_2) = \phi (r_1) + (-\phi (r_2)) = \phi (r_1)+\phi (-r_2) = \phi (r_1+(-r_2))\in\text{im}\phi\Rightarrow s_1+(-s_2)\in \text{im}\phi\Rightarrow$ UR2.
+	Außerdem ist $s_1+(-s_2) = \phi (r_1) + (-\phi (r_2)) = \phi (r_1)+\phi (-r_2) = \phi (r_1+(-r_2))\in\im\phi\Rightarrow s_1+(-s_2)\in \im\phi\Rightarrow$ (UR2).
 \end{proof}
 
 \noindent
-\textbf{Warnung:} Wir setzen für $\phi\colon R\to S$ Ringhomo
-$$\text{Ker}\phi := \{r\in R|\phi(r)= 0_S\}\enspace.$$ Dann ist $\text{Ker}\subseteq R$ genau dann Unterring, falls $S$ der Nullring ist. Denn:
+\textbf{Warnung:} Wir setzen für $\phi\colon R\to S$ als Ringhomomorphismus
+\[\ker\phi := \{r\in R\mid\phi(r)= 0_S\}.\] Dann ist $\ker\varphi\subseteq R$ genau dann Unterring, falls $S$ der Nullring ist. Denn:
 
-\glqq $\Rightarrow$\grqq: $\text{Ker}\phi$ Unterring $\Rightarrow 1_R\in \text{Ker}\phi\Rightarrow 0_S = \phi (1_R) = 1_S\Rightarrow \forall s\in S:\enspace s = s\cdot 1_S = s\cdot 0_S = 0_S$.
+\glqq $\Rightarrow$\grqq: $\ker\phi$ Unterring $\Rightarrow 1_R\in \ker \phi\Rightarrow 0_S = \phi (1_R) = 1_S\Rightarrow \forall s\in S: s = s\cdot 1_S = s\cdot 0_S = 0_S$.
 
-\grqq $\Leftarrow$\grqq: $S = \{0\}\Rightarrow \text{Ker}\phi = R$ offensichtlich Unterring.
+\glqq $\Leftarrow$\grqq: $S = \{0\}\Rightarrow \ker\phi = R$ ist offensichtlich ein Unterring.
 
 \begin{defi}
 	Sei $(R,+,\cdot)$ ein Ring. $I\subseteq R$ heißt Ideal, falls gilt:
@@ -1145,38 +1147,38 @@ $$\text{Ker}\phi := \{r\in R|\phi(r)= 0_S\}\enspace.$$ Dann ist $\text{Ker}\subs
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-		\item $(\IZ,+,\cdot)$ ist Ring. Sei nun $n\in\IZ$ und $I= n\IZ = \{nk|k\in\IZ\}\subseteq \IZ$ ist Ideal, denn: $n\IZ<(\IZ,+)$, also folgt (I1); und für $a\in\IZ$ und $x = nk\in n\IZ$ gilt: $ax = ank = nak\in I$; $xa = nka  = nak \in I$ und damit folgt (I2).
+		\item $(\IZ,+,\cdot)$ ist Ring. Sei nun $n\in\IZ$, dann ist $I= n\IZ = \{nk\mid k\in\IZ\}\subseteq \IZ$ ein Ideal, denn: $n\IZ<(\IZ,+)$, also folgt (I1); und für $a\in\IZ$ und $x = nk\in n\IZ$ gilt: $ax = ank = nak\in I$; $xa = nka  = nak \in I$ und damit folgt (I2).
 		
-		\item $(R,+,\cdot)$ Ring; $(R[t],+,\cdot)$ wie in Beispiel oben; $I = \{p(t)\in R[t]|p(t) = \sum_{i = 0}^{\infty}a_it^i\enspace a_0 = 0\}$ Polynome ohne konstanten Term. Dann ist $I\subseteq R[t]$ ein Ideal (kurz selbst überlegen).
+		\item $(R,+,\cdot)$ Ring; $(R[t],+,\cdot)$ wie in Beispiel oben; \[I = \left\{p(t)\in R[t]\left| p(t) = \sum_{i = 0}^{\infty}a_it^i \wedge a_0 = 0\right.\right\}\] enthält die Polynome ohne konstanten Term. Dann ist $I\subseteq R[t]$ ein Ideal (nachprüfen).
 	\end{enumerate}
 \end{bsp}
 
 
-\begin{lem} $\phi\colon R\to S$ Ringhomo $\Rightarrow \text{Ker}\phi \subseteq R$ ist Ideal.
+\begin{lem} $\phi\colon R\to S$ Ringhomomorphismus $\Rightarrow \ker\phi \subseteq R$ ist Ideal.
 \end{lem}
 
 \begin{proof}
-	$\text{Ker}\phi<(R,+)$ nach 1.3 $\Rightarrow$ (I1). Sei nun $a\in R, x\in\text{Ker}\phi\Rightarrow \phi(ax) = \phi(a)\phi(x) = \phi(a)\cdot 0_S = 0_S\Rightarrow ax\in \text{Ker}\phi$. Genauso $xa\in\text{Ker}\phi\Rightarrow$ (I2).
+	$\ker \phi<(R,+)$ nach 1.3 $\Rightarrow$ (I1). Sei nun $a\in R, x\in\ker \phi\Rightarrow \phi(ax) = \phi(a)\phi(x) = \phi(a)\cdot 0_S = 0_S\Rightarrow ax\in \ker \phi$. Genauso $xa\in\ker \phi\Rightarrow$ (I2).
 \end{proof}
 
 \begin{bsp}
 	$(R[t],+,\cdot)$ wie in Beispiel 3. Sei $a\in R$.\begin{eqnarray*}
-		\text{ev}_a\colon R[t] & \to  R\\
+		\ev_a\colon R[t] & \to  R\\
 		p(t) = \sum_{i=0}^{\infty}b_it^i &\mapsto& p(a) = \sum_{i=0}^{\infty} b_ia^i\\
-		(b_i\in R; \text{ fast alle $b_i = 0$})&&(\text{mit }a^i = a\cdot\dots\cdot a (\text{$n$-mal}))
+		(b_i\in R; \text{ fast alle $b_i = 0$})&&\left(\text{mit }a^i = \prod_{k=1}^ia\right)
 	\end{eqnarray*}
-	Auswertungsabbildung
+	heißt Auswertungs- oder Evaluationsabbildung.
 	
-	Nachrechnen: $\text{ev}_a$ ist Ringhomo.
+	Nachrechnen: $\ev_a$ ist ein Ringhomomorphismus.
 	
-	$\text{Ker}(\text{ev}_a) = \{p(t)\in R[t]|p(a) = 0_R\}$. Also: das sind genau die Polynome, die $a$ als Nullstelle haben. Wir wissen: $\text{Ker}(\text{ev}_a) \subseteq R[t]$ Ideal nach 7.3.
+	$\ker (\ev_a) = \{p(t)\in R[t]\mid p(a) = 0_R\}$. Das sind genau die Polynome, die $a$ als Nullstelle haben. Wir wissen: $\ker (\ev_a) \subseteq R[t]$ Ideal nach 7.3.
 	
-	Spezialfall: $a = 0_R$. Dann gilt $\text{Ker}(\text{ev}_0)  = I$ wie in Bsp. 3 Teil 2); (insbesondere $I$ Ideal). 
+	Spezialfall: $a = 0_R$. Dann gilt $\ker \ev_0  = I$ wie in Bsp. 3 Teil 2); (insbesondere $I$ Ideal).
 \end{bsp}
 
 Seien nun ein Ring $(R,+,\cdot)$ und ein Ideal $I\subseteq R$ gegeben. Insbesondere, nach $(I1)$, ist $I<(R,+)$, sogar $I\nt (R,+)$, weil $(R,+)$ abelsch.
 
-$\rightarrow$ $R/I$ ist wieder Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I$ als Elemente. Nebenklassen sind von der Form $\overline{a} = \{a+x|x\in I\}\enspace a\in R$ und die Gruppenoperation auf $G/I$ ist $\overline{a}\circ\overline{b} = \overline{a+b}$
+$\Rightarrow$ $R/I$ ist wieder Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I$ als Elemente. Nebenklassen sind von der Form $\overline{a} = \{a+x\mid x\in I\}\enspace a\in R$ und die Gruppenoperation auf $R/I$ ist $\overline{a}\circ\overline{b} = \overline{a+b}$.
 
 \begin{satz}
 	Voraussetzungen: $R, I$ wie oben. Dann wird $(R/I, \circ)$ zu einem Ring $(R/I,+,\cdot)$, wobei $+=\circ$ und Multiplikation $\cdot  = \odot$ gegeben ist durch $\overline{a}\odot \overline{b} = \overline{a\cdot b}$, wobei letzteres die Multiplikation in R ist.
@@ -1184,7 +1186,7 @@ $\rightarrow$ $R/I$ ist wieder Gruppe mit den Nebenklassen in $(R,+)$ bezüglich
 \begin{proof}
 	\leavevmode
 	\begin{itemize}
-		\item[(R1)] $(R/I,+)$ ist abelsche Gruppe (nach Kapitel 1.1)
+		\item[(R1)] $(R/I,+)$ ist eine abelsche Gruppe (nach Kapitel 1.1).
 		\item[(R2)] Seien $\overline{a},\overline{b},\overline{c}\in R/I$. $(\overline{a}\odot\overline{b})\odot\overline{c}  = (\overline{ab})\odot \overline{c} = \overline{(ab)c} = \overline{a(bc)}  = \overline{a}\odot \overline{bc} = \overline{a}\odot(\overline{b}\odot\overline{c})$. 
 		\item[(R3)] Seien $\overline{a},\overline{b},\overline{c}\in R/I$. Dann $\overline{a}\odot(\overline{b}\circ \overline{c}) = \overline{a}\odot\overline{b+c} = \overline{a\cdot(b+c)} =\overline{ab+ac} = \overline{ab}\circ\overline{ac} = \overline{a}\odot \overline{b}\circ\overline{a}\odot\overline{c}$. Analog für den zweiten Teil von (R3).
 		\item[(R4)] Sei $\overline{a}\in R/I$. Dann gilt $\overline{a}\odot\overline{1_R}  = \overline{a1_R} = \overline{a} = \overline{1_R\cdot a} = \overline{1_R}\odot \overline{a}$
@@ -1192,7 +1194,7 @@ $\rightarrow$ $R/I$ ist wieder Gruppe mit den Nebenklassen in $(R,+)$ bezüglich
 		$\Rightarrow$ $\overline{1_R}$ ist neutrales Element für $\odot$.
 		\item[] Noch zu prüfen: $\odot$ ist wohldefiniert! Also zu zeigen: für $\overline{a} = \overline{a'}$ und $\overline{b} = \overline{b'}$ folgt $\overline{a}\odot\overline{b} = \overline{a'}\odot\overline{b'}$ mit $\overline{a},\overline{b},\overline{a'},\overline{b'}\in R/I$. Sei also $\overline{a} = \overline{a'}$ und $\overline{b} = \overline{b'}$. 
 		
-		\framebox{Dann existieren $x,y\in I$ mit $a+(-a') = x$ und $b+(-b') = y$ (1)}.
+		Dann existieren $x,y\in I$ mit $a+(-a') = x$ und $b+(-b') = y$ (1).
 		
 		Zu zeigen ist nun $\overline{ab} = \overline{a'b'}$. Es gilt $a\cdot b = (a'+x)\cdot (b'+y)  = (a'b')+(a'y)+(xb')+(xy)$, wobei $(a'y)+(xb')+(xy)\in I$, weil $I$ Ideal ist. $\Rightarrow (ab)+(-a'b')\in I\Rightarrow \overline{ab} = \overline{a'b'}$.
 	\end{itemize}
@@ -1206,19 +1208,19 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 
 \begin{satz}[Homomorphiesatz]
 	Sei $R$ Ring, $I\subseteq R$ Ideal. \begin{enumerate}
-		\item Die Abbildung $can\colon R\to R/I, a\mapsto \overline{a}$ ist Ringhomo.
-		\item Sei $\phi\colon R\to S$ Ringhomo mit $I\subseteq \ker \phi$, dann $\exists!\overline{\phi}\colon R7I\to S$ Ringhomo, sodass $\overline{\phi}\circ can  = \phi$. Also:
+		\item Die Abbildung $\can\colon R\to R/I, a\mapsto \overline{a}$ ist Ringhomo.
+		\item Sei $\phi\colon R\to S$ Ringhomo mit $I\subseteq \ker \phi$, dann $\exists!\;\overline{\phi}\colon R/I\to S$ Ringhomo, sodass $\overline{\phi}\circ \can  = \phi$. Also:
 		\begin{center}
 		\begin{tikzcd}
-					R \arrow{rd}[swap]{can} \arrow{r}{\phi} & S \\
-					& R/I\arrow{u}[swap]{\exists! \overline{\phi}\text{ Ringhomo}} \\
+					R \arrow{rd}[swap]{\can} \arrow{r}{\phi} & S \\
+					& R/I\arrow{u}[swap]{\exists! \; \overline{\phi}\text{ Ringhomo}} \\
 		\end{tikzcd}
 		\end{center}
 	\end{enumerate}
 \end{satz}
 
 \begin{proof}
-	Übung.
+	Übungsblatt 3.
 \end{proof} 
 
 \begin{defi}
@@ -1232,17 +1234,17 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 
 \begin{defi}
 	Sei $R$ kommutativer Ring, $a,b\in R$. \begin{enumerate}
-		\item $(a) = \{ra|r\in R\}$ ist das von $a$ erzeugte Ideal
+		\item $(a) = \{ra\mid r\in R\}$ ist das von $a$ erzeugte Ideal.
 		\item $b$ teilt $a$ (in $R$), falls $\exists r\in R: a = br = rb$
 		\item 
-				 $a$ ist Nullteiler, wenn $\exists r\in R, r \neq 0$ mit $ra = ar = 0$
-			
-				 $R$ ist nullteilerfrei, falls 0 der einzige Nullteiler ist
-	
-	 			 $R$ heißt Integritätsbereich, falls nullteilerfrei und $R \neq \{0\}$
-		\item $a$ heißt Einehit, falls $\exists r\in R$ mit $ar = 1 = ra$. (also $a$ hat Inverses bzgl der Multiplikation)
+		$a$ ist Nullteiler, wenn $\exists r\in R, r \neq 0$ mit $ra = ar = 0$.
+\textbf{}			
+		$R$ ist nullteilerfrei, falls 0 der einzige Nullteiler ist.
+
+		$R$ heißt Integritätsbereich, falls $R$ nullteilerfrei und $R \neq \{0\}$ ist.
+		\item $a$ heißt Einheit, falls $\exists r\in R$ mit $ar = 1 = ra$. (also $a$ hat multiplikatives Inverses).
 		
-		$R^{\times} = \{c\in R|c \text{ Einheit in $R$}\}$ Einheitengruppe von $R$
+		$R^{\times} = \{c\in R \mid c \text{ Einheit in $R$}\}$ ist Einheitengruppe von $R$.
 	\end{enumerate}
 \end{defi}
 
@@ -1253,7 +1255,7 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 	\end{itemize}
 \end{bem}
 \begin{bem}
-	$R^{\times}$ ist Gruppe bezüglich $\cdot$ (Übung)
+	$R^{\times}$ ist Gruppe bezüglich $\cdot$ (Übung).
 \end{bem}
 
 \begin{defi}
@@ -1263,13 +1265,11 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 \begin{bsp}
 	Betrachte $(\IZ,+,\cdot)$. Behauptung: Das ist ein Hauptidealring.\begin{itemize}
 		\item $R \neq \{0\}$, $R$ nullteilerfrei (klar)
-		\item Sei $I$ Ideal, Falls $I = \{0\}$, dann $I = (0)$. Falls $I \neq \{0\}$. Dann $\exists x\in I, x\neq 0$. Wähle $n\in\IN$ minimal mit $n\in I$ (existiert weil $x\in I\Rightarrow -x \in I $ nach (I1)).
+		\item Sei $I \subseteq \IZ$ ein Ideal. Falls $I = \{0\}$, dann $I = (0)$. Es sei also $I \neq \{0\}$. Dann $\exists x\in I, x\neq 0$. Wähle $n\in\IN$ minimal mit $n\in I$ (existiert weil $x\in I\Rightarrow -x \in I $ nach (I1)).
 		
 		Behauptung: $I = (n)$
 		
-		\begin{proof} \glqq $\supseteq$\grqq: nach (I2); \glqq $\subseteq$\grqq: Sei $y\in I$. Schreibe $y = bn+r$ mit $b,r\in\IZ$ mit $0\leq r< n\Rightarrow y+(-bn) = r\Rightarrow r\in I$; Widerspruch zur Minimalität von $n$ außer $r = 0$
-		
-		$\Rightarrow y = bn\Rightarrow I\subseteq (n)$
+		\begin{proof} \glqq $\supseteq$\grqq: nach (I2); \glqq $\subseteq$\grqq: Sei $y\in I$. Schreibe $y = bn+r$ mit $b,r\in\IZ$ mit $0\leq r< n\Rightarrow y+(-bn) = r\Rightarrow r\in I$; Widerspruch zur Minimalität von $n$ außer $r = 0$ $\Rightarrow y = bn\Rightarrow I\subseteq (n)$.
 		\end{proof}
 	\end{itemize}
 \end{bsp}
@@ -1281,7 +1281,7 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 \begin{lem}
 	$R$ kommutativer Ring, $R\neq \{0\}$.\begin{enumerate}
 		\item $R$ Körper $\Leftrightarrow R^{\times} = R\setminus\{0\}$
-		\item Für $a,b,c\in R$ ist \begin{enumerate}
+		\item Für $a,b,c\in R$ gilt \begin{enumerate}
 			\item $(a)\subseteq (b)\Leftrightarrow$ $b$ teilt $a$
 			\item $(a) = R \Leftrightarrow a\in R^{\times} \Leftrightarrow (a) = (1)$
 			\item Falls $c$ nicht Nullteiler: $ac =bc \Rightarrow a =b$
@@ -1296,11 +1296,11 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 		
 		%$x\in R^{\times} \Rightarrow \exists b\in R: xb = 1 = bx\Rightarrow$ $x$ invertierbar  un $ x\neq 0$ (weil $1\neq 0$) $\Rightarrow$ Jedes $x\in R, x\neq 0$ ist invertierbar
 		
-		Annahme: $R^{\times} = R\setminus\{0\}$. Sei $x\in R, x\neq 0\Rightarrow x\in R^{\times}\Rightarrow \exists r \in R$ mit $xr = 1 = rx\Rightarrow r = x^{-1}$ Inverse zu $x$ $\Rightarrow R$ Körper
+		Annahme: $R^{\times} = R\setminus\{0\}$. Sei $x\in R, x\neq 0\Rightarrow x\in R^{\times}\Rightarrow \exists r \in R$ mit $xr = 1 = rx\Rightarrow r = x^{-1}$ Inverses zu $x$ $\Rightarrow R$ Körper.
 		
 		\item \begin{enumerate}
 			\item 
-				\glqq $\Rightarrow$\grqq Sei $(a)\subseteq (b)\Rightarrow a\in (b)\Rightarrow \exists r\in R$ mit $a = rb\Rightarrow$ $b$ teilt $a$.
+				\glqq $\Rightarrow$\grqq: Sei $(a)\subseteq (b)\Rightarrow a\in (b)\Rightarrow \exists r\in R$ mit $a = rb\Rightarrow$ $b$ teilt $a$.
 		
 				\glqq $\Leftarrow$\grqq: $b$ teilt $a$ $\Rightarrow \exists r\in R: a =rb\Rightarrow r'a = r'(rb) = (r'r)b\in (b)\forall r'\in R\Rightarrow (a)\subseteq (b)$
 			\item
@@ -1326,101 +1326,104 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 \end{bsp}
 
 \begin{bsp}
-	$R = \IR [t], I = (t^2+1)$. Behauptung: $R/I$ ist Körper.
+	$R = \IR [t], I = (t^2+1)$. Behauptung: $R/I$ ist ein Körper.
 	\begin{proof}
-		Klar: $R/I$ kommutativ, weil $R$ kommutativ. Sei $x\in R/I, x\neq 0$, zu zeigen $x\in (R/I)^{\times}$. In $(R/I)$ gilt $\overline{t^2+1} = \overline{0}$, weil $t^2+1\in I$ und damit für $j\in \IZ_{\geq 2}$:
-		$$ \overline{t ^j} = \overline{t^{j-2}(t^2+1)+(-t^{j-2})} \xeq[\text{in }R/I]{\text{Def von $+$ }} \overline{t^{j-2}(t^2+1)}+\overline{-t^{j-2}} \xeq{\text{Def von $\odot$}}$$
-		$$ =  \overline{t^{j-2}}\odot \overline{t^2+1} + \overline{-t^{j-2}} = \overline{-t^{j-2}} \xeq{\text{Def von $+$ in $R/I$}} - (\overline{t^{j-2}})$$ TIM IST EINFACH NUR DOOF
-		%TODO: FIX THIS
-		Für $p = \sum_{i = 0}^{\infty}a_it^i\in\IR[t]$ gilt: $\overline{p} = \overline{b_01+b_1t}$ für gewissen $b_0,b_1\in R$. Also oBdA $x = \overline{b_01+b_1t}$ mit $b_0^2+b_1^2 \neq 0$.
+		Klar: $R/I$ kommutativ, weil $R$ kommutativ. Sei $x\in R/I, x\neq 0$, zu zeigen $x\in (R/I)^{\times}$. In $R/I$ gilt $\overline{t^2+1} = \overline{0}$, weil $t^2+1\in I$ und damit für $j\in \IZ_{\geq 2}$:
+		\begin{align*}
+			\overline{t ^j} &= \overline{t^{j-2}(t^2+1)+(-t^{j-2})} \xeq[\text{in }R/I]{\text{Def von $+$ }} \overline{t^{j-2}(t^2+1)}+\overline{-t^{j-2}} \\
+			&\xeq{\text{Def von $\odot$}}  \overline{t^{j-2}}\odot \overline{t^2+1} + \overline{-t^{j-2}} = \overline{-t^{j-2}} \xeq{\text{Def von $+$ in $R/I$}} - (\overline{t^{j-2}})
+		\end{align*}
+		Für $p = \sum_{i = 0}^{\infty}a_it^i\in\IR[t]$ gilt: $\overline{p} = \overline{b_01+b_1t}$ für gewisse $b_0,b_1\in R$. Also o.B.d.A. $x = \overline{b_01+b_1t}$ mit $b_0^2+b_1^2 \neq 0$.
 		
 		Sei $q: = \frac{1}{b_0^2b_1^2}(b_01-b_1t)\in \IR[t] = R$ wohldefiniert, da $b_0^2+b_1^2 \neq 0$.
 		
 		Setze $y = \overline{q}$. Behaupte $y = x^{-1}$ in $R/I$. Nun gilt 
 		$$ (b_01 +b_1t) q = \frac{1}{b_0^2+b_1^2}(b_0^2+b_0b_1t-b_1b_0t-b_1^2t^2) = \frac{1}{b_0^2+b_1^2}(b_0^2-b_1^2t^2)$$
-		Da $\overline{t^2+1} = \overline{0}$, also $\overline{-t^2} = \overline{1}$ gilt $xy = \overline{\frac{1}{b_0^2+b_1^2}(b_0^2+b_1^2)} = \overline{1}$. Also ist $x\in (R/I)^{\times}$ mit Inversem $y$.
+		Da $\overline{t^2+1} = \overline{0}$, also $\overline{-t^2} = \overline{1}$ gilt $xy = \overline{\frac{1}{b_0^2+b_1^2}(b_0^2+b_1^2)} = \overline{1}$. Also ist $x\in (R/I)^{\times}$ mit dem Inversen $y$.
 		
-		Übung: $R/I$ ist isomorph zu $\IC$ (als Körper)
+		Übung: $R/I$ ist isomorph zu $\IC$ (als Körper).
 	\end{proof}
 \end{bsp}
 
 \begin{defi}
-	$R$ kommutativer Ring, $R\neq \{0\}$. $I\subseteq R$ Ideal heißt maximal, falls $I\neq R$ und $\not \exists J\subseteq R$ ideal mit $I\subset J\subset R$ (echte Teilmengen).
+	$R$ kommutativer Ring, $R\neq \{0\}$. $I\subseteq R$ Ideal heißt maximal, falls $I\neq R$ und $\nexists J\subseteq R$ Ideal mit $I\subset J\subset R$ (echte Teilmengen).
 \end{defi}
 \begin{lem}
-	$R$ kommutativer Ring, $R\neq 0$. $R$ Körper $\Leftrightarrow\{0\}$ ist (einziges) maximales Ideal.
+	$R$ kommutativer Ring, $R\neq 0$. \[
+	\text{$R$ ist ein Körper} \quad\Longleftrightarrow\quad \text{$\{0\}$ ist (einziges) maximales Ideal.}
+	\]
 \end{lem}
 \begin{proof}
 	\leavevmode
 	\begin{itemize}
-		\item[\glqq $\Leftarrow$\grqq:] Sei $\{0\}$ maximales Ideal. Dann ist es einziges, denn falls $I\neq \{0\}$ maximales Ideal $\Rightarrow \{\}\subsetneq I\neq R\Rightarrow \{0\} = I$. Widerspruch!
+		\item[\glqq $\Leftarrow$\grqq:] Sei $\{0\}$ maximales Ideal. Dann ist es auch schon das einzige maximale Ideal, denn falls $I\neq \{0\}$ ein maximales Ideal ist, so folgt $\{0\}\subset I\neq R\Rightarrow \{0\} = I$. Widerspruch!
 		
 		Sei $a\in R, a\neq 0\Rightarrow (0) \subset (a) \Rightarrow (a) = R\Rightarrow \text{Lemma 6 } R^{\times} = R\setminus\{0\}\Rightarrow R$ Körper.
-		\item[\glqq $\Rightarrow$\grqq:] Sei $R$ Körper. $I\subseteq R$ Ideal, $I\neq \{0\}$. Dann $\exists a\in I, a\neq 0$. Weil $R$ Körper ist, ist $a\in R^{\times}\Rightarrow (a) = R \Rightarrow I = R\Rightarrow \{0\}$ ist einziges Ideal und maximal.
+		\item[\glqq $\Rightarrow$\grqq:] Sei $R$ ein Körper. $I\subseteq R$ Ideal, $I\neq \{0\}$. Dann $\exists a\in I$ mit $ a\neq 0$. Weil $R$ ein Körper ist, ist $a\in R^{\times}\Rightarrow (a) = R \Rightarrow I = R\Rightarrow \{0\}$ ist einziges Ideal und somit maximal.
 	\end{itemize}
 \end{proof}
 
 \begin{bsp}
-	Betrachte $R = \IZ$. Behauptung: $I\subseteq \IZ$ Ideal. Dann $I$ maximal $\Leftrightarrow I = (n) $ mit $n = p$, $p$ Primzahl.
+	Betrachte $R = \IZ$ sowie ein Ideal $I\subseteq \IZ$. \[\text{$I$ maximal} \quad \Longleftrightarrow \quad  \text{$I = (n) $ mit $n = p$, $p$ prim}\]
 	\begin{proof}
 		\leavevmode
 		\begin{itemize}
-			\item[\glqq $\Rightarrow$\grqq:] Sei $I = (a)$ (weil $\IZ$ Hauptidealring) maximal. Fall $a\neq \pm p$ Primzahl, existiert $b\in \IZ$ mit $b$ teilt $a$ und $b\neq a$, $b\neq  \pm 1$.
+			\item[\glqq $\Rightarrow$\grqq:] Sei $I = (a)$ (weil $\IZ$ Hauptidealring) maximal. Falls $a\neq \pm p$ mit $p$ prim, so existiert $b\in \IZ$ mit $b\mid a$ und $b\neq a$, $b\neq  \pm 1$.
 			
-			$\Rightarrow$ $(a)\subsetneq (b)\subsetneq R$ (weil $b\neq \pm a$; $(b)\neq R$, weil $b\neq \pm 1$, also $b\neq \IZ^{\times}$) Widerspruch zu $I$ maximal, also $a  = \pm p$ $p$ Primzahl.
+			$\Rightarrow$ $(a)\subset (b)\subset R$ (weil $b\neq \pm a$; $(b)\neq R$, weil $b\neq \pm 1$, also $b\notin \IZ^{\times}$), was im Widerspruch zu $I$ maximal steht, also ist $a  = \pm p$ mit $p$ prim.
 			
-			\item[\glqq $\Leftarrow$\grqq:] Sei $I = (a)$ mit $a = \pm p$, $p$ Primzahl. Sei $I \subsetneq J\subset R$, $J$ Ideal. Dann gilt $J = (b)$ für ein $b\in\IZ$ (da $\IZ$ Hauptidealring) und nach Lemma 7.6 folgt $b$ teilt $a$ und $b\neq \pm a$ (weil $I\subsetneq J$) und $b \neq \pm 1$ (weil $(b)\neq R$). Widerspruch zu $a = \pm p$.
+			\item[\glqq $\Leftarrow$\grqq:] Sei $I = (a)$ mit $a = \pm p$, $p$ prim. Sei $J$ ein Ideal in $R$ sowie $I \subset J\subset R$. Dann gilt $J = (b)$ für ein $b\in\IZ$ (da $\IZ$ Hauptidealring) und nach Lemma 7.6 folgt $b\mid a$ und $b\neq \pm a$ (weil $I\subset J$) und $b \neq \pm 1$ (weil $(b)\neq R$). Das ist ein Widerspruch zu $a = \pm p$.
 		\end{itemize}
 	\end{proof}
 \end{bsp}
 
 \begin{satz} \label{satz8}
-	$R$ kommutativer Ring, $R \neq\{0\}, I\subseteq R$ Ideal. Dann $R/I$ Körper $\Leftrightarrow I$ maximales Ideal.
+	$R$ kommutativer Ring, $R \neq\{0\}$, $I\subseteq R$ Ideal. \[\text{$R/I$ ist ein Körper.} \quad\Longleftrightarrow\quad \text{$I$ ist ein maximales Ideal.}\]
 \end{satz}
 
 \paragraph{Als Vorbereitung:}
 
 \begin{satz}
-	Sei $\phi\colon R\to S$ Ringhomo. ($R,S$ beliebige Ringe) surjektiv. Dann gibt es eine Bijektion zwischen den Mengen
-	$$\{\text{Ideale in $R$ mit }\ker \phi\subseteq I\}\longleftrightarrow \{\text{Ideale in $S$}\}$$
-	durch:
-	\begin{eqnarray*}
-		I & \longmapsto &\phi(I)\\
-		\phi^{-1}(J) &  & J\\ %TODO: add something linke longtomaps
-		 = \{r\in R|\phi(r) \in J\}
-	\end{eqnarray*}
+	Sei $\phi\colon R\to S$ ein Ringepimorphismus. Dann gibt es eine Bijektion zwischen den Mengen
+	\begin{alignat*}{2}
+		\left\{\substack{\text{Ideale in $R$}\\\text{ mit $\ker \phi\subseteq I$} }\right\}&\longleftrightarrow \; &&\{\text{Ideale in $S$}\} \\\intertext{durch}
+		I & \longmapsto &&\phi(I)\\
+		\underbrace{\phi^{-1}(J)}_{\mathclap{\text{$\{r\in R\mid\phi(r) \in J\}$}}} & \longmapsfrom && J
+	\end{alignat*}
 \end{satz}
 
 \begin{proof}
-	$\phi(I)\subseteq S$ ist Ideal: $UG$ klar, weil Bild von Gruppe unter Gruppenhomo.\begin{itemize}
-		\item[I2] zu zeigen: $x\in \phi(I) , r\in S\Rightarrow rx\in \phi(I), xr\in \phi(I)$. Weil $\phi$ surjektiv $\exists r'\in R$ mit $\phi(r') = r$. Nach Anname $\exists y \in I$ mit $\phi(y) = x\Rightarrow \phi(r'y) = \phi (r')\phi(y)  = rx\in \phi(I)$, weil $y\in I$ und $I$ Ideal. Genauso $\phi(yr') = xr\in\phi(I)\Rightarrow \phi(I)$ Ideal.
-		
+	\leavevmode
+	Behauptung: $\phi(I)\subseteq S$ ist ein Ideal.
+	\begin{itemize}
+		\item[(I1)] klar, weil Bilder von Gruppen unter Gruppenhomomorphismen wieder Gruppen sind
+		\item[(I2)] zu zeigen: $x\in \phi(I) , r\in S\Rightarrow rx\in \phi(I), xr\in \phi(I)$. Weil $\phi$ surjektiv $\exists r'\in R$ mit $\phi(r') = r$. Nach Anname $\exists y \in I$ mit $\phi(y) = x\Rightarrow \phi(r'y) = \phi (r')\phi(y)  = rx\in \phi(I)$, weil $y\in I$ und $I$ Ideal. Genauso $\phi(yr') = xr\in\phi(I)\Rightarrow \phi(I)$ Ideal.
+
 		$\phi^{-1}(J)\subseteq R$ Ideal mit $\ker\phi\subseteq \phi^{-1}(J)$: $\ker\phi\subseteq \phi^{-1}(J)$, weil $\ker\phi = \phi^{-1}(\{0\})$ und $0\in J$ für jedes Ideal $J$. Klar: $\phi^{-1}(J)$ Untergruppe. Sei $r\in R, x\in\phi^{-1}(J)$; zu zeigen: $rx = xr\in\phi^{-1}(J)$. Es gilt $\phi(rx) = \phi(r)\phi(x)\in J$. Genauso $\phi(xr)\in J$. Also $rx,xr\in\phi^{-1}(J)$.
 	\end{itemize}
-
-	Sei $I\subset R$ Ideal mit $I\supset \ker\phi$. Zu zeigen: $\phi^{-1}(\phi(I)) = I$.
-	\begin{itemize}
-		\item[\glqq $\supseteq$\grqq] $x\in I \Rightarrow \phi(x) \in \phi(I)\Rightarrow x\in \phi^{-1}(\phi(I))$
-		\item[\glqq $\subseteq$\grqq] $x\in \phi^{-1}(\phi(I)) \Rightarrow \phi(x)\in \phi(I)\Rightarrow \exists y\in I$ mit $\phi(x) = \phi(y)\Rightarrow \phi(x+(-y)) = 0\xRightarrow[x+(-y)\in I]{y\in I} x\in I$
-	\end{itemize}
-
-	Sei $J\subset S$ Ideal. Zu zeigen: $\phi(\phi^{-1}(J)) = J$.
-	\begin{itemize}
-		\item[\glqq $\supseteq$\grqq] $x\in J \xRightarrow{\phi\text{ surj}}\exists y\in R$ mit $\phi(y) = x\Rightarrow y\in\phi^{-1}(J)$ und $\phi(y) = x\Rightarrow x\in\phi(\phi^{-1}(J))$.
-		\item[\glqq$\subseteq$\grqq] $x\in\phi(\phi^{-1}(J))\Rightarrow \exists y\in\phi^{-1}(J): \phi(y) = x\Rightarrow x\in J$
-	\end{itemize}
+	Sei nun $I \subseteq R$ ein Ideal mit $I \supseteq \ker\phi$ und $J \subseteq S$ ein Ideal. Es bleibt zu zeigen:
+	\begin{description}
+		\item[$\phi^{-1}(\phi(I)) = I$:] \leavevmode
+		\begin{itemize}
+			\item[\glqq $\supseteq$\grqq] $x\in I \Rightarrow \phi(x) \in \phi(I)\Rightarrow x\in \phi^{-1}(\phi(I))$
+			\item[\glqq $\subseteq$\grqq] $x\in \phi^{-1}(\phi(I)) \Rightarrow \phi(x)\in \phi(I)\Rightarrow \exists y\in I$ mit $\phi(x) = \phi(y)\Rightarrow \phi(x+(-y)) = 0\xRightarrow[x+(-y)\in I]{y\in I} x\in I$
+		\end{itemize}
+		\item[$\phi(\phi^{-1}) = I$:] \leavevmode
+		\begin{itemize}
+			\item[\glqq $\supseteq$\grqq] $x\in J \xRightarrow{\phi\text{ surj}}\exists y\in R$ mit $\phi(y) = x\Rightarrow y\in\phi^{-1}(J)$ und $\phi(y) = x\Rightarrow x\in\phi(\phi^{-1}(J))$.
+			\item[\glqq$\subseteq$\grqq] $x\in\phi(\phi^{-1}(J))\Rightarrow \exists y\in\phi^{-1}(J): \phi(y) = x\Rightarrow x\in J$
+		\end{itemize}
+	\end{description}
 \end{proof}
 
 \begin{bem} Beachte: Die Bijektion von Satz 7.9 ist inklusionserhaltend, also 
-	\begin{eqnarray*}
-		I\subseteq I'&\Longleftrightarrow& \phi(I)\subseteq\phi(I')\\
-		\text{Ideale von $R$, }&&\\
-		\text{die $\ker\phi$ enthalten}
-	\end{eqnarray*}
+	\[
+	\underbrace{I \subseteq I'}_{\mathclap{\substack{\text{Ideale in $R$,}\\\text{die $\ker\phi$ enthalten}}}} \quad \Longleftrightarrow \quad \phi(I) \subseteq \phi(I').
+	\]
 \end{bem}
 
-\begin{proof} \cref{satz8} %TODO: Das hier sauber machen
-	Setze $\phi = can\colon R\to R/I$; das ist surjektiv; sei $\ker\phi = I$.
+\begin{proof}[Beweis von \cref{satz8}] %TODO: Das hier noch sauberer machen
+	Setze $\phi = \can\colon R\to R/I$ (surjektiv mit $\ker\phi = I$).
 	\begin{itemize}
 		\item [\glqq $\Leftarrow$\grqq ] Voraussetzung: $R/I$ ist Körper.
 		
@@ -1439,58 +1442,63 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 \end{proof}
 
 \begin{defi}
-	Sei $R$ kommutativer Ring, $I\subseteq R$ Ideal. Dann heißt $I$ Primideal, falls $I\neq R$ und $\forall x, y\in R$ gilt: falls $x\cdot y\in I\Rightarrow x\in I$ oder $y\in I$.
+	Sei $R$ ein kommutativer Ring, $I\subseteq R$ Ideal. Dann heißt $I$ Primideal, falls $I\neq R$ und $\forall x, y\in R$ gilt: \[xy\in I \quad \Longrightarrow \quad x\in I\text{ oder }y\in I.\]
 \end{defi}
 \begin{bem}
-	Falls $R$ Integritätsbereich, dann gilt: $\{0\}$ ist Primideal.
+	Falls $R$ ein Integritätsbereich ist, dann gilt: $\{0\}$ ist ein Primideal.
 \end{bem}
 
 
 
 \begin{bsp}
-	$R = \IZ, a\in \IZ$. Dann ist $(a)$ Primideal $\Leftrightarrow a = \pm p$, $p$ Primzahl, oder $a = 0$.
-	
-	Denn sei $a = \pm p$, $p$ Primzahl. Seien $x,y\in R$ mit $xy\in (a)$.
-	\begin{description}
-		\item[$\Rightarrow$] $p$ teilt $xy$
-		\item[$\Rightarrow$] $p$ teilt $x$ oder $p$ teilt $y$
-		\item[$\Rightarrow$] $x\in (p) = (a)$ oder $y\in (p) = (a)$
-		\item[$\Rightarrow$] $(a)$ ist Primideal.
-	\end{description}
-
-	Andersherum: Sei $(a) \neq (0)$ ein Primideal. Falls $a = \pm 1\Rightarrow (a) = R$ Widerspruch zu $(a)$ ist Primideal. Falls $a \neq \pm 1, a\neq pm p$ $p$ Primzahl: $\Rightarrow \exists n, m$ mit $1<\abs{n}, \abs{m}<\abs{a}$ sodass $a = nm$. 
-	$\Rightarrow nm\in (a)$ und $n,m\notin (a)$ Widerspruch zu $(a)$ Primideal.
+	$R = \IZ, a\in \IZ$. \[\text{$(a)$ Primideal.} \quad \Longleftrightarrow \quad \text{$a = \pm p$ mit $p$ prim oder $a = 0$} \]
 \end{bsp}
+\begin{proof}
+	\leavevmode
+	\begin{itemize}
+		\item [\glqq $\Leftarrow$\grqq ]Sei $a = \pm p$, $p$ prim. Seien $x,y\in R$ mit $xy\in (a)$.
+
+		$\Rightarrow$ $p$ teilt $xy$
+
+		$\Rightarrow$ $p$ teilt $x$ oder $p$ teilt $y$
+
+		$\Rightarrow$ $x\in (p) = (a)$ oder $y\in (p) = (a)$
+
+		$\Rightarrow$ $(a)$ ist ein Primideal.
+		\item [\glqq $\Rightarrow$\grqq ] Sei $(a) \neq (0)$ ein Primideal. Falls $a = \pm 1$, also $ (a) = R$, so ist das ein Widerspruch dazu, dass $(a)$ ein Primideal ist. Falls $a \neq \pm 1, a\neq \pm p$ mit $p$ prim, so $ \exists n, m$ mit $1<\abs{n}, \abs{m}<\abs{a}$ sodass $a = nm$. 
+		Daraus folgt nun $ nm\in (a)$ und $n,m\notin (a)$, was wieder $(a)$ als Primideal widerspricht.
+	\end{itemize}
+\end{proof}
 
 \begin{bem}
-	Beachte: $(0)$ ist Primideal in $\IZ$, aber nicht maximal. In $\IZ$ gilt $I$ max $\Rightarrow I $ ist Primideal.
+	Beachte: $(0)$ ist prim in $\IZ$, aber nicht maximal. In $\IZ$ gilt \glqq$I$ maximal $\Rightarrow I $ prim\grqq.
 \end{bem}
 
 
 \begin{satz}
-	$R$ kommutativer Ring, $R\neq\{0\}, I\subseteq R$ Ideal. Dann gilt:
-	$$ I \text{ Primideal} \Longleftrightarrow R/I \text{ Integritätsbereich}$$
-	Insbesondere ist $\{0\}$ Primideal $\Leftrightarrow$ $R$ ist Integriätsbereich.
+	Sei $R$ ein kommutativer Ring, $R\neq\{0\}$ und $ I\subseteq R$ ein Ideal. Dann gilt
+	\begin{align*} I \text{ Primideal} \quad &\Longleftrightarrow \quad R/I \text{ Integritätsbereich}. \\\intertext{Insbesondere folgt}
+	 \text{$\{0\}$ Primideal} \quad&\Longleftrightarrow\quad \text{$R$ Integritätsbereich}.\end{align*}
 \end{satz}
 
 \begin{proof}
 	\leavevmode
-	\begin{description}
+	\begin{itemize}
 		\item[\glqq $\Rightarrow$\grqq] $R$ kommutativ $\Rightarrow R/I$ ist kommutativ.
 		$I$ Primideal $\Rightarrow I\neq R\Rightarrow R/I \neq\{0\}$. 
 		
 		Seien $\overline{x}, \overline{y}\in R/I$, $\overline{x}\odot\overline{y} = \overline{0}\Rightarrow \overline{xy} = \overline{0}\Rightarrow xy\in I\Rightarrow x\in I$ oder $y\in I\Rightarrow \overline{x} = \overline{0}$ oder $\overline{y} = \overline{0}\Rightarrow R/I$ hat keine Nullteiler.
 		
-		\item[\glqq$\Leftarrow$\grqq] Voraussetzung: $R/I$ ist Integritätsbereich $\Rightarrow R/I \neq \{0\}\Rightarrow I \neq R$. Seien $x,y\in R$ mit $xy\in I$
+		\item[\glqq$\Leftarrow$\grqq] Voraussetzung: $R/I$ ist Integritätsbereich $\Rightarrow R/I \neq \{0\}\Rightarrow I \neq R$. Seien $x,y\in R$ mit $xy\in I$.
 		
 		$\Rightarrow \overline{x}\odot\overline{y} = \overline{xy} = \overline{y}$
 		
-		$\xRightarrow[\text{Int.-bereich}]{R/I} \overline{x} = \overline{0}$ oder $\overline{y} = \overline{0}\Rightarrow x\in I$ oder $y\in I\Rightarrow I$ ist Primideal.
-	\end{description}
+		$\xRightarrow[\text{nullteilerfrei}]{R/I} \overline{x} = \overline{0}$ oder $\overline{y} = \overline{0}\Rightarrow x\in I$ oder $y\in I\Rightarrow I$ ist ein Primideal.
+	\end{itemize}
 \end{proof}
 
 \begin{kor}
-	$R\neq\{0\}$ kommutativer Ring, $I\subseteq R$ Ideal. Dann gilt: $I$ maximal $\Rightarrow I $ Primideal.
+	$R\neq\{0\}$ kommutativer Ring, $I\subseteq R$ Ideal. Dann gilt: \[\text{$I$ maximal} \quad  \Longrightarrow \quad  \text{$I $ prim} \]
 \end{kor}
 \begin{proof}
 	$I$ maximal $\xLeftrightarrow{7.8}  R/I$ Körper $\Rightarrow R/I$ Integritätsbereich $\xLeftrightarrow{7.10} I$ Primideal
@@ -1498,25 +1506,25 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 
 
 \begin{kor}
-	\leavevmode
+	Es sei $R=\IZ$.
 	\begin{enumerate}
-	\item $R = \IZ$. Dann ist $\IZ/n\IZ$ Körper $\Leftrightarrow n = \pm p$ $p$ Primzahl.
-	\item  $\IZ/n\IZ$ Integritätsbereich $\Leftrightarrow n = \pm p$, $p$ Primzahl, oder $n = 0$.
+	\item Dann ist $\IZ/n\IZ$ Körper $\Leftrightarrow n = \pm p$ mit $p$ prim.
+	\item  $\IZ/n\IZ$ Integritätsbereich $\Leftrightarrow n = \pm p$ und $p$ prim oder $n = 0$.
 	\end{enumerate}
 \end{kor}
 
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item 
+		\item Folgt aus Beispiel 7.9 und Satz 7.10.
 		\item Für Ringe mit $R$ Integritätsbereich und alle Ideale sind Hauptideale, gilt: $I \neq \{0\}$ Primideal $\Rightarrow I $ maximal
 		\end{enumerate}
 \end{proof}	
 	
 \begin{satz}[Universelle Eigenschaft von Polynomringen 2]
-	Sei $\phi\colon R\to S$ Ringhomomorphismus. Sei $a\in S$. $\Rightarrow \exists!$ Ringhomo:
+	Sei $\phi\colon R\to S$ Ringhomomorphismus. Sei $a\in S$. Dann existiert ein eindeutiger Ringhomomorphismus
 	\begin{eqnarray*}
-		ev_a\colon R[t] & \longto & S\\
+		\ev_a\colon R[t] & \longto & S\\
 		t & \longmapsto & a\\
 		p(t )= \sum_{i = 0}^{\infty}b_it^i & \longmapsto& \sum_{i = 0}^{\infty} \phi(b_i)a^i
 	\end{eqnarray*}
@@ -1524,36 +1532,39 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 \end{satz}
 
 \begin{proof}
-	Reicht Existenz zu zeigen: 
-	\begin{itemize}
-		\item $ev_a(1_{R[t]}) = ev_a(1t^0) = \phi(1)\cdot a^0 = 1$
-		\item $ev_a(\sum_{i= 0}^{\infty}b_it^i + \sum_{i = 0}^{\infty}c_it^i) = ev_a(\sum_{i= 0}^{\infty}(b_i+c_i)t^i)  = \sum_{i = 0}^{\infty} \phi(b_i+c_i)a^i = \sum_{i = 0}^{\infty} \phi(b_i)a^i +\sum_{i=0}^{\infty}\phi(c_i)a^i = ev_a(\sum_{i=0}^{\infty}b_it^i) + ev_a (\sum_{i = 0}^{\infty} c_it^i)$
-		\item $ev_a((\sum_{i = 0}^{\infty}b_it^i)(\sum_{i = 0}^{\infty}c_it^i)) = ev_a(\sum_{i = 0}^{\infty}(\sum_{k = 0}^{i} b_{i-k}c_k)t^i) = \sum_{i = 0}^{\infty} (\sum_{k = 0}^{i}\phi(b_{i-k})\phi(c_k))a^i = \sum_{i = 0}^{\infty} (\sum_{k = 0}^{i}\phi(b_{i-k})a^{i-k}\phi(c_k)a^k) = (\sum_{i = 0}^{\infty} \phi(b_i)a^i)(\sum_{i = 0}^{\infty}\phi(c_i)a^i) = ev_a(\sum_{i = 0}^{\infty}b_it^i)\cdot ev_a(\sum_{i = 0}^{\infty}c_it^i)$
-	\end{itemize} %TODO: FIX THIS NICHT SEHR SCHÖNE SACHE
-	$\Rightarrow ev_a$ ist Ringhomo.
+	Da wir $\ev_a$ im Fall der Existenz bereits eindeutig charakterisiert haben, genügt es, die Existenz zu zeigen.
+	\begin{align*}
+		\ev_a(1_{R[t]}) &= \ev_a(1t^0) = \phi(1)\cdot a^0 = 1 \\
+		\ev_a\left(\sum_{i= 0}^{\infty}b_it^i + \sum_{i = 0}^{\infty}c_it^i\right) &= \ev_a\left(\sum_{i= 0}^{\infty}(b_i+c_i)t^i\right)  = \sum_{i = 0}^{\infty} \phi(b_i+c_i)a^i \\
+		&= \sum_{i = 0}^{\infty} \phi(b_i)a^i +\sum_{i=0}^{\infty}\phi(c_i)a^i=\ev_a\left(\sum_{i=0}^{\infty}b_it^i\right) + \ev_a \left(\sum_{i = 0}^{\infty} c_it^i\right) \\
+		\ev_a\left(\left(\sum_{i = 0}^{\infty}b_it^i\right)\left(\sum_{i = 0}^{\infty}c_it^i\right)\right) &= \ev_a\left(\sum_{i = 0}^{\infty}\left(\sum_{k = 0}^{i} b_{i-k}c_k\right)t^i\right) = \sum_{i = 0}^{\infty} \left(\sum_{k = 0}^{i}\phi(b_{i-k})\phi(c_k)\right)a^i \\
+		&= \sum_{i = 0}^{\infty} \left(\sum_{k = 0}^{i}\phi(b_{i-k})a^{i-k}\phi(c_k)a^k\right) = \left(\sum_{i = 0}^{\infty} \phi(b_i)a^i\right)\left(\sum_{i = 0}^{\infty}\phi(c_i)a^i\right)\\
+		& = \ev_a\left(\sum_{i = 0}^{\infty}b_it^i\right)\cdot \ev_a\left(\sum_{i = 0}^{\infty}c_it^i\right)
+	\end{align*}
+	$\Rightarrow \ev_a$ ist tatsächlich ein Ringhomomorphismus.
 \end{proof}
 
 \begin{bsp}
 	\begin{eqnarray*}
-		\phi\colon \IR & \longto & \IC\\%TODO: injektiver Pfeil
-		x & \longmapsto & x (+0\cdot i)
+		\phi\colon \IR & \hookrightarrow & \IC\\%TODO: langer Einbettungspfeil (longhookrightarrow)
+		x & \longmapsto & x
 	\end{eqnarray*}
-	$\Rightarrow \exists!$ Ringhomo
+	Es existiert ein eindeutiger Ringhomomorphismus
 	\begin{eqnarray*}
-		ev_i\colon \IR[t] & \longto & \IC\\
-		t & \longmapsto & i\\
+		\ev_\ima\colon \IR[t] & \longto & \IC\\
+		t & \longmapsto & \ima\\
 		p(t) & \longmapsto & p(i)
 	\end{eqnarray*}
-	Es gilt $ev_i(t^2+1) = i^2 +1 = 0$. $\Rightarrow t^2+1\in\ker ev_i\Rightarrow (t^2+1)\subset \ker ev_i$. Also folgt mit dem Homomorphiesatz: $\exists! \overline{ev_i}\colon \IR[t]/(t^2+1)\to \IC$ mit $\overline{ev_i}(\overline{b_1t+b_0}) = b_1i+b_0\Rightarrow \overline{ev_i}$ ist surjektiv.
+	Es gilt $\ev_\ima(t^2+1) = \ima^2 +1 = 0$. $\Rightarrow t^2+1\in\ker \ev_\ima\Rightarrow (t^2+1)\subset \ker \ev_\ima$. Mit dem Homomorphiesatz erhalten wir einen eindeutigen Ringhomomorphismus $\overline{\ev_\ima}\colon \IR[t]/(t^2+1)\to \IC$ mit $\overline{\ev_\ima}(\overline{b_1t+b_0}) = b_1i+b_0\Rightarrow \overline{\ev_\ima}$. Dieser ist offensichtlich surjektiv.
 	
 	Da jedes $\overline{p(t)}\in\IR[t]/(t^2+1)$ sich eindeutig schreiben lässt als $\overline{p(t)} = \overline{b_1t+b_0}$ gilt:
-	$$\overline{ev_i}(\overline{p(t)}) = \overline{ev_i}(\overline{b_1t+b_0}) = b_1i +b_0 = 0\Longleftrightarrow b_1 = b_0 = 0$$
-	$\Rightarrow\overline{ev_i}$ ist injektiv.
-	$\Rightarrow \overline{ev_i}$ ist Isomorphismus von Ringen (insbesondere von Körpern.)
+	$$\overline{\ev_\ima}(\overline{p(t)}) = \overline{\ev_\ima}(\overline{b_1t+b_0}) = b_1i +b_0 = 0\Longleftrightarrow b_1 = b_0 = 0$$
+	$\Rightarrow\overline{\ev_\ima}$ ist injektiv.
+	$\Rightarrow \overline{\ev_\ima}$ ist Isomorphismus von Ringen (insbesondere von Körpern).
 \end{bsp}
 
 \begin{defi}
-	$R$ ein kommutativer Ring, dann heißt $a\in R$ Nullstelle von $p(t) \in R[t]$, falls gilt: $p(a) = ev_a(p(t)) = 0$ ($\phi\colon R\to R = id \colon R\to R$).
+	Ist $R$ ein kommutativer Ring, dann heißt $a\in R$ Nullstelle von $p(t) \in R[t]$, falls gilt: $p(a) := \ev_a(p(t)) = 0$ ($\phi\colon R\to R = \id \colon R\to R$).
 \end{defi}
 
 
@@ -1561,7 +1572,7 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 	$R$ kommutativer Ring, $a\in R$. Dann:
 	\begin{enumerate}
 		\item $a$ Nullstelle von $p(t) \Leftrightarrow t-a$ teilt $p(t)$ in $R[t]$.
-		\item $R$ Integritätsbereich; $\Rightarrow R[t]$ ist Integritätsbereich und $\deg(p(t)q(t)) = \deg (p(t)) + \deg (q(t))$
+		\item $R$ Integritätsbereich $\Rightarrow R[t]$ ist Integritätsbereich und $\deg(p(t)q(t)) = \deg (p(t)) + \deg (q(t))$
 		\item $\deg (p(t)) = n, R$ Integritätsbereich $\Rightarrow$ $p(t)$ hat maximal $n$ verschiedene Nullstellen.
 	\end{enumerate}
 \end{satz}
