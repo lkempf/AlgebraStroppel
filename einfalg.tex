@@ -1329,8 +1329,9 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 	$R = \IR [t], I = (t^2+1)$. Behauptung: $R/I$ ist Körper.
 	\begin{proof}
 		Klar: $R/I$ kommutativ, weil $R$ kommutativ. Sei $x\in R/I, x\neq 0$, zu zeigen $x\in (R/I)^{\times}$. In $(R/I)$ gilt $\overline{t^2+1} = \overline{0}$, weil $t^2+1\in I$ und damit für $j\in \IZ_{\geq 2}$:
-		$$ \overline{t ^j} = \overline{t^{j-2}(t^2+1)+(-t^{j-2})} \xeq{\text{Def von $+$ in $R/I$}} \overline{t^{j-2}(t^2+1)}+\overline{-t^{j-2}} \xeq{\text{Def von $\odot$}}$$
-		$$ =  \overline{t^{j-2}}\odot \overline{t^2+1} + \overline{-t^{j-2}} = \overline{-t^{j-2}} \xeq{\text{Def von $+$ in $R/I$}} - (\overline{t^{j-2}})$$
+		$$ \overline{t ^j} = \overline{t^{j-2}(t^2+1)+(-t^{j-2})} \xeq[\text{in }R/I]{\text{Def von $+$ }} \overline{t^{j-2}(t^2+1)}+\overline{-t^{j-2}} \xeq{\text{Def von $\odot$}}$$
+		$$ =  \overline{t^{j-2}}\odot \overline{t^2+1} + \overline{-t^{j-2}} = \overline{-t^{j-2}} \xeq{\text{Def von $+$ in $R/I$}} - (\overline{t^{j-2}})$$ TIM IST EINFACH NUR DOOF
+		%TODO: FIX THIS
 		Für $p = \sum_{i = 0}^{\infty}a_it^i\in\IR[t]$ gilt: $\overline{p} = \overline{b_01+b_1t}$ für gewissen $b_0,b_1\in R$. Also oBdA $x = \overline{b_01+b_1t}$ mit $b_0^2+b_1^2 \neq 0$.
 		
 		Sei $q: = \frac{1}{b_0^2b_1^2}(b_01-b_1t)\in \IR[t] = R$ wohldefiniert, da $b_0^2+b_1^2 \neq 0$.
@@ -1396,7 +1397,175 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 		
 		$\phi^{-1}(J)\subseteq R$ Ideal mit $\ker\phi\subseteq \phi^{-1}(J)$: $\ker\phi\subseteq \phi^{-1}(J)$, weil $\ker\phi = \phi^{-1}(\{0\})$ und $0\in J$ für jedes Ideal $J$. Klar: $\phi^{-1}(J)$ Untergruppe. Sei $r\in R, x\in\phi^{-1}(J)$; zu zeigen: $rx = xr\in\phi^{-1}(J)$. Es gilt $\phi(rx) = \phi(r)\phi(x)\in J$. Genauso $\phi(xr)\in J$. Also $rx,xr\in\phi^{-1}(J)$.
 	\end{itemize}
+
+	Sei $I\subset R$ Ideal mit $I\supset \ker\phi$. Zu zeigen: $\phi^{-1}(\phi(I)) = I$.
+	\begin{itemize}
+		\item[\glqq $\supseteq$\grqq] $x\in I \Rightarrow \phi(x) \in \phi(I)\Rightarrow x\in \phi^{-1}(\phi(I))$
+		\item[\glqq $\subseteq$\grqq] $x\in \phi^{-1}(\phi(I)) \Rightarrow \phi(x)\in \phi(I)\Rightarrow \exists y\in I$ mit $\phi(x) = \phi(y)\Rightarrow \phi(x+(-y)) = 0\xRightarrow[x+(-y)\in I]{y\in I} x\in I$
+	\end{itemize}
+
+	Sei $J\subset S$ Ideal. Zu zeigen: $\phi(\phi^{-1}(J)) = J$.
+	\begin{itemize}
+		\item[\glqq $\supseteq$\grqq] $x\in J \xRightarrow{\phi\text{ surj}}\exists y\in R$ mit $\phi(y) = x\Rightarrow y\in\phi^{-1}(J)$ und $\phi(y) = x\Rightarrow x\in\phi(\phi^{-1}(J))$.
+		\item[\glqq$\subseteq$\grqq] $x\in\phi(\phi^{-1}(J))\Rightarrow \exists y\in\phi^{-1}(J): \phi(y) = x\Rightarrow x\in J$
+	\end{itemize}
 \end{proof}
+
+\begin{bem} Beachte: Die Bijektion von Satz 7.9 ist inklusionserhaltend, also 
+	\begin{eqnarray*}
+		I\subseteq I'&\Longleftrightarrow& \phi(I)\subseteq\phi(I')\\
+		\text{Ideale von $R$, }&&\\
+		\text{die $\ker\phi$ enthalten}
+	\end{eqnarray*}
+\end{bem}
+
+\begin{proof} \cref{satz8} %TODO: Das hier sauber machen
+	Setze $\phi = can\colon R\to R/I$; das ist surjektiv; sei $\ker\phi = I$.
+	\begin{itemize}
+		\item [\glqq $\Leftarrow$\grqq ] Voraussetzung: $R/I$ ist Körper.
+		
+		$\xRightarrow{7.7}\{0\}\subset R/I$ ist maximales Ideal.
+		
+		$\xRightarrow{7.9}\phi^{-1}(\{0\}) = I$ und $\phi^{-1}(R/I) = R$ sind die einzigen Ideale, die $I$ enthalten $\Rightarrow I $ maximales Ideal.
+		
+		\item[\glqq$\Rightarrow$\grqq] Voraussetzung: $I$ maximales Ideal
+		
+		$\Rightarrow$ es gibt genau $I$ und $R$ als Ideale, die $I$ enthalten
+		
+		$\xRightarrow{7.9}\{0\} = \phi(I)$ und $R/I = \phi(R)$ sind alle Ideale von $R/I$
+		
+		$\xRightarrow{7.7}R/I$ ist Körper
+	\end{itemize}
+\end{proof}
+
+\begin{defi}
+	Sei $R$ kommutativer Ring, $I\subseteq R$ Ideal. Dann heißt $I$ Primideal, falls $I\neq R$ und $\forall x, y\in R$ gilt: falls $x\cdot y\in I\Rightarrow x\in I$ oder $y\in I$.
+\end{defi}
+\begin{bem}
+	Falls $R$ Integritätsbereich, dann gilt: $\{0\}$ ist Primideal.
+\end{bem}
+
+
+
+\begin{bsp}
+	$R = \IZ, a\in \IZ$. Dann ist $(a)$ Primideal $\Leftrightarrow a = \pm p$, $p$ Primzahl, oder $a = 0$.
+	
+	Denn sei $a = \pm p$, $p$ Primzahl. Seien $x,y\in R$ mit $xy\in (a)$.
+	\begin{description}
+		\item[$\Rightarrow$] $p$ teilt $xy$
+		\item[$\Rightarrow$] $p$ teilt $x$ oder $p$ teilt $y$
+		\item[$\Rightarrow$] $x\in (p) = (a)$ oder $y\in (p) = (a)$
+		\item[$\Rightarrow$] $(a)$ ist Primideal.
+	\end{description}
+
+	Andersherum: Sei $(a) \neq (0)$ ein Primideal. Falls $a = \pm 1\Rightarrow (a) = R$ Widerspruch zu $(a)$ ist Primideal. Falls $a \neq \pm 1, a\neq pm p$ $p$ Primzahl: $\Rightarrow \exists n, m$ mit $1<\abs{n}, \abs{m}<\abs{a}$ sodass $a = nm$. 
+	$\Rightarrow nm\in (a)$ und $n,m\notin (a)$ Widerspruch zu $(a)$ Primideal.
+\end{bsp}
+
+\begin{bem}
+	Beachte: $(0)$ ist Primideal in $\IZ$, aber nicht maximal. In $\IZ$ gilt $I$ max $\Rightarrow I $ ist Primideal.
+\end{bem}
+
+
+\begin{satz}
+	$R$ kommutativer Ring, $R\neq\{0\}, I\subseteq R$ Ideal. Dann gilt:
+	$$ I \text{ Primideal} \Longleftrightarrow R/I \text{ Integritätsbereich}$$
+	Insbesondere ist $\{0\}$ Primideal $\Leftrightarrow$ $R$ ist Integriätsbereich.
+\end{satz}
+
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[\glqq $\Rightarrow$\grqq] $R$ kommutativ $\Rightarrow R/I$ ist kommutativ.
+		$I$ Primideal $\Rightarrow I\neq R\Rightarrow R/I \neq\{0\}$. 
+		
+		Seien $\overline{x}, \overline{y}\in R/I$, $\overline{x}\odot\overline{y} = \overline{0}\Rightarrow \overline{xy} = \overline{0}\Rightarrow xy\in I\Rightarrow x\in I$ oder $y\in I\Rightarrow \overline{x} = \overline{0}$ oder $\overline{y} = \overline{0}\Rightarrow R/I$ hat keine Nullteiler.
+		
+		\item[\glqq$\Leftarrow$\grqq] Voraussetzung: $R/I$ ist Integritätsbereich $\Rightarrow R/I \neq \{0\}\Rightarrow I \neq R$. Seien $x,y\in R$ mit $xy\in I$
+		
+		$\Rightarrow \overline{x}\odot\overline{y} = \overline{xy} = \overline{y}$
+		
+		$\xRightarrow[\text{Int.-bereich}]{R/I} \overline{x} = \overline{0}$ oder $\overline{y} = \overline{0}\Rightarrow x\in I$ oder $y\in I\Rightarrow I$ ist Primideal.
+	\end{description}
+\end{proof}
+
+\begin{kor}
+	$R\neq\{0\}$ kommutativer Ring, $I\subseteq R$ Ideal. Dann gilt: $I$ maximal $\Rightarrow I $ Primideal.
+\end{kor}
+\begin{proof}
+	$I$ maximal $\xLeftrightarrow{7.8}  R/I$ Körper $\Rightarrow R/I$ Integritätsbereich $\xLeftrightarrow{7.10} I$ Primideal
+\end{proof}
+
+
+\begin{kor}
+	\leavevmode
+	\begin{enumerate}
+	\item $R = \IZ$. Dann ist $\IZ/n\IZ$ Körper $\Leftrightarrow n = \pm p$ $p$ Primzahl.
+	\item  $\IZ/n\IZ$ Integritätsbereich $\Leftrightarrow n = \pm p$, $p$ Primzahl, oder $n = 0$.
+	\end{enumerate}
+\end{kor}
+
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item 
+		\item Für Ringe mit $R$ Integritätsbereich und alle Ideale sind Hauptideale, gilt: $I \neq \{0\}$ Primideal $\Rightarrow I $ maximal
+		\end{enumerate}
+\end{proof}	
+	
+\begin{satz}[Universelle Eigenschaft von Polynomringen 2]
+	Sei $\phi\colon R\to S$ Ringhomomorphismus. Sei $a\in S$. $\Rightarrow \exists!$ Ringhomo:
+	\begin{eqnarray*}
+		ev_a\colon R[t] & \longto & S\\
+		t & \longmapsto & a\\
+		p(t )= \sum_{i = 0}^{\infty}b_it^i & \longmapsto& \sum_{i = 0}^{\infty} \phi(b_i)a^i
+	\end{eqnarray*}
+	
+\end{satz}
+
+\begin{proof}
+	Reicht Existenz zu zeigen: 
+	\begin{itemize}
+		\item $ev_a(1_{R[t]}) = ev_a(1t^0) = \phi(1)\cdot a^0 = 1$
+		\item $ev_a(\sum_{i= 0}^{\infty}b_it^i + \sum_{i = 0}^{\infty}c_it^i) = ev_a(\sum_{i= 0}^{\infty}(b_i+c_i)t^i)  = \sum_{i = 0}^{\infty} \phi(b_i+c_i)a^i = \sum_{i = 0}^{\infty} \phi(b_i)a^i +\sum_{i=0}^{\infty}\phi(c_i)a^i = ev_a(\sum_{i=0}^{\infty}b_it^i) + ev_a (\sum_{i = 0}^{\infty} c_it^i)$
+		\item $ev_a((\sum_{i = 0}^{\infty}b_it^i)(\sum_{i = 0}^{\infty}c_it^i)) = ev_a(\sum_{i = 0}^{\infty}(\sum_{k = 0}^{i} b_{i-k}c_k)t^i) = \sum_{i = 0}^{\infty} (\sum_{k = 0}^{i}\phi(b_{i-k})\phi(c_k))a^i = \sum_{i = 0}^{\infty} (\sum_{k = 0}^{i}\phi(b_{i-k})a^{i-k}\phi(c_k)a^k) = (\sum_{i = 0}^{\infty} \phi(b_i)a^i)(\sum_{i = 0}^{\infty}\phi(c_i)a^i) = ev_a(\sum_{i = 0}^{\infty}b_it^i)\cdot ev_a(\sum_{i = 0}^{\infty}c_it^i)$
+	\end{itemize} %TODO: FIX THIS NICHT SEHR SCHÖNE SACHE
+	$\Rightarrow ev_a$ ist Ringhomo.
+\end{proof}
+
+\begin{bsp}
+	\begin{eqnarray*}
+		\phi\colon \IR & \longto & \IC\\%TODO: injektiver Pfeil
+		x & \longmapsto & x (+0\cdot i)
+	\end{eqnarray*}
+	$\Rightarrow \exists!$ Ringhomo
+	\begin{eqnarray*}
+		ev_i\colon \IR[t] & \longto & \IC\\
+		t & \longmapsto & i\\
+		p(t) & \longmapsto & p(i)
+	\end{eqnarray*}
+	Es gilt $ev_i(t^2+1) = i^2 +1 = 0$. $\Rightarrow t^2+1\in\ker ev_i\Rightarrow (t^2+1)\subset \ker ev_i$. Also folgt mit dem Homomorphiesatz: $\exists! \overline{ev_i}\colon \IR[t]/(t^2+1)\to \IC$ mit $\overline{ev_i}(\overline{b_1t+b_0}) = b_1i+b_0\Rightarrow \overline{ev_i}$ ist surjektiv.
+	
+	Da jedes $\overline{p(t)}\in\IR[t]/(t^2+1)$ sich eindeutig schreiben lässt als $\overline{p(t)} = \overline{b_1t+b_0}$ gilt:
+	$$\overline{ev_i}(\overline{p(t)}) = \overline{ev_i}(\overline{b_1t+b_0}) = b_1i +b_0 = 0\Longleftrightarrow b_1 = b_0 = 0$$
+	$\Rightarrow\overline{ev_i}$ ist injektiv.
+	$\Rightarrow \overline{ev_i}$ ist Isomorphismus von Ringen (insbesondere von Körpern.)
+\end{bsp}
+
+\begin{defi}
+	$R$ ein kommutativer Ring, dann heißt $a\in R$ Nullstelle von $p(t) \in R[t]$, falls gilt: $p(a) = ev_a(p(t)) = 0$ ($\phi\colon R\to R = id \colon R\to R$).
+\end{defi}
+
+
+\begin{satz}
+	$R$ kommutativer Ring, $a\in R$. Dann:
+	\begin{enumerate}
+		\item $a$ Nullstelle von $p(t) \Leftrightarrow t-a$ teilt $p(t)$ in $R[t]$.
+		\item $R$ Integritätsbereich; $\Rightarrow R[t]$ ist Integritätsbereich und $\deg(p(t)q(t)) = \deg (p(t)) + \deg (q(t))$
+		\item $\deg (p(t)) = n, R$ Integritätsbereich $\Rightarrow$ $p(t)$ hat maximal $n$ verschiedene Nullstellen.
+	\end{enumerate}
+\end{satz}
+
 
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
