@@ -453,7 +453,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 			f\colon H \longto& HN \xrightarrow{\can} HN/N\\
 			h \longmapsto &he
 		\end{align*}
-		Es lässt sich leicht nachprüfen, dass $f$ ein Gruppenhomomorphismus ist. Für $x\in H$ gilt $x\in \ker(f)\Leftrightarrow xeN = N\Leftrightarrow x = xe\in \ker(\can) = N\Leftrightarrow x\in (H\cap N)$. Also existiert nach dem \nameref{thm:homsatz_g} ein Gruppenhomomorphismus $\overline{f}$:
+		Es lässt sich leicht nachprüfen, dass $f$ ein Gruppenhomomorphismus ist. Für $x\in H$ gilt $x\in \ker(f)\Leftrightarrow xeN = N\Leftrightarrow x = xe\in \ker(\can) = N\Leftrightarrow x\in (H\cap N)$. Also existiert nach dem \namereff{thm:homsatz_g} ein Gruppenhomomorphismus $\overline{f}$:
 		\begin{equation*}
 			\overline{f}\colon H/(H\cap N)\longto (HN)/N
 		\end{equation*}
@@ -492,7 +492,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 \paragraph{Anwendungen}
 \begin{enumerate}
 	\item \textit{Anzahlformel:} Sei $G$ eine endliche Gruppe, $H<G$, $N\nt G$. Dann gilt $$|HN| =\frac{ |H||N|}{|H\cap N|}$$ 
-	Denn nach dem \nameref{thm:lagrange} ist $|H| = |H\cap N|(H:H\cap N)$ und $|HN| = |N|(HN:N)$. Nach dem \nameref{thm:iso1_g} ist $(H:H\cap N)=(HN:N)$. \hfill $\checkmark$
+	Denn nach dem \namereff{thm:lagrange} ist $|H| = |H\cap N|(H:H\cap N)$ und $|HN| = |N|(HN:N)$. Nach dem \namereff{thm:iso1_g} ist $(H:H\cap N)=(HN:N)$. \hfill $\checkmark$
 	\item Sie $(G,\circ) = (\IZ, +)$, $m,n\in\IN$ und $m|n$. Wir wissen: $m\IZ<\IZ$ und $n\IZ<\IZ$ (sogar Normalteiler, weil $G$ abelsch ist). Klar ist: $n\IZ\subseteq m\IZ$ (insbesondere auch $n\IZ\nt m\IZ$). Dann gilt 
 	$$(\IZ/n\IZ)/(m\IZ/n\IZ) \cong \IZ/m\IZ$$
 \end{enumerate}
@@ -567,7 +567,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 \end{proof}
 
 \begin{bem}
-	Sei $G$ irgendeine Gruppe, $g\in G$. Dann gilt: $\ord(g) = \abs{\<g\>}$ und nach \nameref{thm:lagrange} dann $\ord(g)$ teilt $\abs G$, falls $\abs G$ endlich.
+	Sei $G$ irgendeine Gruppe, $g\in G$. Dann gilt: $\ord(g) = \abs{\<g\>}$ und nach \namereff{thm:lagrange} dann $\ord(g)$ teilt $\abs G$, falls $\abs G$ endlich.
 \end{bem}
 
 \begin{satz}[Zyklische Gruppen]
@@ -685,7 +685,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 		\begin{description}
 			\item[$G_1/G_0 \cong V_4$] ablesch
 			\item[$G_2/G_1 \cong \IZ/2\IZ$] also abelsch, da jede Gruppe $H$ der Ordunung 2 zyklisch mit $H = \<g\> (g \neq e)$ ist und dann nach Klassifikationssatz $H \cong \IZ/2\IZ$
-			\item[$G_3/G_2$] Wir wissen, dass $\abs{G_3/G_2} = 3$. Dann behaupten wir, dass $G_3/G_2 \cong \IZ/3\IZ$. Jede Gruppe $H$ mit $\abs H = 3$ ist zyklisch, denn $\<g\> < H (g \neq e)$. Nach dem \nameref{thm:lagrange} gilt $\<g\> = H$, weil $\<g\> \neq e$ und 3 prim ist. Also folgt die Aussage aus dem Klassifikationssatz.
+			\item[$G_3/G_2$] Wir wissen, dass $\abs{G_3/G_2} = 3$. Dann behaupten wir, dass $G_3/G_2 \cong \IZ/3\IZ$. Jede Gruppe $H$ mit $\abs H = 3$ ist zyklisch, denn $\<g\> < H (g \neq e)$. Nach dem \namereff{thm:lagrange} gilt $\<g\> = H$, weil $\<g\> \neq e$ und 3 prim ist. Also folgt die Aussage aus dem Klassifikationssatz.
 		\end{description}
 		Daraus folgt, dass $S_4$ auflösbar ist.
 	\end{enumerate}
@@ -710,7 +710,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 				Sei $f\colon G\to G'$ Gruppenhomomorphismus. Behauptung: $\{e\} = f(G_0)\nt f(G_1)\nt \dots \nt f(G_n ) = f(G)$ ist eine Normalreihe mit $f(G_i)/f(G_{i-1})$ abelsch.
 				
 				Sei $y' = f(y)\in f(G_i)$ mit $y\in G_i$. Dann gilt $y'f(G_{i-1})(y')^{-1} = f(yG_{i-1}y^{-1})\subseteq f(G_i)\Rightarrow f(G_{i-1})\nt f(G_i)$ für alle $i$. Betrachte nun 
-$$\alpha\colon G_i\xto{f} f(G_i)\xto{\text{can}}f(G_i)/f(G_{i-1})$$ Dies ist ein Gruppenhomomorphismus und offensichtlich surjektiv. Da $G_{i-1}\in \ker \alpha$ existiert Gruppenhomomorphismus $\overline{\alpha}\colon G_i/G_{i-1}\to f(G_i)/f(G_{i-1})$ nach dem \nameref{thm:homsatz_g}. $\overline{\alpha}$ ist surjektiv, da auch $\alpha$ surjektiv ist. Weil $G_i/G_{i-1}$ abelsch ist, ist auch $f(G_i)/f(G_{i-1})$ abelsch. Somit folgt die Behauptung.
+$$\alpha\colon G_i\xto{f} f(G_i)\xto{\text{can}}f(G_i)/f(G_{i-1})$$ Dies ist ein Gruppenhomomorphismus und offensichtlich surjektiv. Da $G_{i-1}\in \ker \alpha$ existiert Gruppenhomomorphismus $\overline{\alpha}\colon G_i/G_{i-1}\to f(G_i)/f(G_{i-1})$ nach dem \namereff{thm:homsatz_g}. $\overline{\alpha}$ ist surjektiv, da auch $\alpha$ surjektiv ist. Weil $G_i/G_{i-1}$ abelsch ist, ist auch $f(G_i)/f(G_{i-1})$ abelsch. Somit folgt die Behauptung.
 		\end{description}
 \end{proof}
 
@@ -877,7 +877,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 	Sei $G\neq\{e\}$ eine $p$-Gruppe. Dann gilt $\abs{Z(G)}\neq \abs*{\{e\}} = 1$. Insbesondere hat $G$ eine nicht-triviale abelsche Untergruppe.
 \end{satz}
 \begin{proof}
-	Nach Satz 5.3 hat man \[ \underbrace{|G|}_{\mathclap{\text{durch $p$ teilbar}}}  = |Z(G)| + \underbrace{\sum_{\substack{i\in I,\\x_i\notin Z(G)}}(G: G_{x_i})}_{A}.\] Nach dem \nameref{thm:lagrange} ist $A$ durch $p$ teilbar oder gleich $1$, weil $G$ eine $p$-Gruppe ist. Letzters kann aber nicht sein, da $(G:G_{x_i}) = 1 \Leftrightarrow G = G_{x_i}\Leftrightarrow x_i\in Z(G)$, Widerspruch. Also sind die Summanden $(G:G_{x_i})$ und somit auch $A$ durch $p$ teilbar. Damit teilt $p$ auch $|Z(G)|\Rightarrow |Z(G)|\geq 2\Rightarrow Z(G)\neq \{e\}$.
+	Nach Satz 5.3 hat man \[ \underbrace{|G|}_{\mathclap{\text{durch $p$ teilbar}}}  = |Z(G)| + \underbrace{\sum_{\substack{i\in I,\\x_i\notin Z(G)}}(G: G_{x_i})}_{A}.\] Nach dem \namereff{thm:lagrange} ist $A$ durch $p$ teilbar oder gleich $1$, weil $G$ eine $p$-Gruppe ist. Letzters kann aber nicht sein, da $(G:G_{x_i}) = 1 \Leftrightarrow G = G_{x_i}\Leftrightarrow x_i\in Z(G)$, Widerspruch. Also sind die Summanden $(G:G_{x_i})$ und somit auch $A$ durch $p$ teilbar. Damit teilt $p$ auch $|Z(G)|\Rightarrow |Z(G)|\geq 2\Rightarrow Z(G)\neq \{e\}$.
 \end{proof}
 
 \begin{satz}
@@ -913,7 +913,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 		
 		Nach \cref{thm:bahnformel} folgt $|X| = \sum_{i\in I}(G:G_{x_i})$, wobei $\exists i\in I$, sodass $p^{r-k+1} \nmid (G:G_{x_i})$, weil $p^{r-k+1}\nmid |X|$. Wähle solch ein $x_i = : A'\in X$.
 		
-		Behauptung: $G_{A'}<G$ mit $|G_{A'}| = p^k$. Dann folgt 1) mit $H = G_{A'}$. Klar: $G_{A'}<G$. Nach \textsc{Lagrange}: $|G| = |G_{A'}|(G:G_{A'})$, wobei $p^r$ die linke Seite der Gleichung teilt, und im Index auf der rechten Seite $p$ höchstens $r-k$-mal vorkommt.
+		Behauptung: $G_{A'}<G$ mit $|G_{A'}| = p^k$. Dann folgt 1) mit $H = G_{A'}$. Klar: $G_{A'}<G$. Nach dem \namereff{thm:lagrange}: $|G| = |G_{A'}|(G:G_{A'})$, wobei $p^r$ die linke Seite der Gleichung teilt, und im Index auf der rechten Seite $p$ höchstens $r-k$-mal vorkommt.
 		
 		Deshalb: $p^k$ teilt $|G_{A'}|\Rightarrow p^k\leq |G_{A'}|$. Sei $a\in A'$. Dann $G_{A'}.a = \{g.a\mid g\in G_{A'}\}\subseteq G_{A'}.A'\subseteq A'$ nach Definition von $G_{A'}$.
 		
@@ -1546,7 +1546,7 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 
 \begin{bsp}
 	\begin{eqnarray*}
-		\phi\colon \IR & \hookrightarrow & \IC\\%TODO: langer Einbettungspfeil (longhookrightarrow)
+		\phi\colon \IR & \longhookrightarrow & \IC\\%TODO: langer Einbettungspfeil (longhookrightarrow)
 		x & \longmapsto & x
 	\end{eqnarray*}
 	Es existiert ein eindeutiger Ringhomomorphismus
