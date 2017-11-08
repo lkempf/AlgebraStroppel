@@ -155,9 +155,9 @@
 \end{bsp}
 
 \begin{defi}
-	$(G,\circ)$ und $(G',\circ')$ seien Gruppen. Ein Gruppenhomomorphismus (kurz: Gruppenhomo) von $G$ nach $G'$ ist eine Abbildung $f\colon G\to G'$ mit $f(g\circ h) = f(g)\circ'f(h)\enspace \forall g, h\in G$.
+	$(G,\circ)$ und $(G',\circ')$ seien Gruppen. Ein Gruppenhomomorphismus von $G$ nach $G'$ ist eine Abbildung $f\colon G\to G'$ mit $f(g\circ h) = f(g)\circ'f(h)\enspace \forall g, h\in G$.
 	
-	Er ist ein Gruppenisomorphismus (kurz: Gruppeniso), falls zusätzlich $f$ invertierbar ist. Wir schreiben $(G,\circ)\simeq (G',\circ')$, falls ein Gruppenisomorphismus von $G$ nach $G'$ existiert und nennen die Gruppen isomorph.
+	Er ist ein Gruppenisomorphismus, falls zusätzlich $f$ invertierbar ist. Wir schreiben $(G,\circ)\simeq (G',\circ')$, falls ein Gruppenisomorphismus von $G$ nach $G'$ existiert und nennen die Gruppen isomorph.
 \end{defi}
 
 \paragraph{Eigenschaften von Gruppenhomomorphismen} $f\colon G\to G'$ von $G$ nach $G'$ sei ein Gruppenhomomorphismus. Dann gilt:
@@ -224,7 +224,7 @@
 \begin{lem}
 	Sei $(G,\circ)$ eine Gruppe.
 	\begin{enumerate}
-		\item Sei $\text{Aut}(G) = \{f\colon G\to G| f \text{ Gruppeniso von $(G,\circ)$ nach }(G,\circ)\}$. Dann ist $\text{Aut}(G)$ eine Gruppe, die Automorphismengruppen von $G$
+		\item Sei $\text{Aut}(G) = \{f\colon G\to G| f \text{ Gruppenisomorphimus von $(G,\circ)$ nach }(G,\circ)\}$. Dann ist $\text{Aut}(G)$ eine Gruppe, die Automorphismengruppen von $G$
 		\item Betrachte die Abbildung $\text{Konj}\colon G\to \text{Aut}(G) ,\ g\mapsto \text{Konj}(g)$, wobei $\text{Konj}(g)(h)= g\circ\ h\circ g^{-1}$ für alle $h\in G$. Dann ist Konj ein Gruppenhomomorphismus von $G$ nach $\text{Aut}(G)$. (Im Allgemeinen nicht injektiv.)
 	\end{enumerate}
 \end{lem}
@@ -400,7 +400,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 	\begin{center}
 	\begin{tikzcd}
 		G \arrow{rd}[swap]{\can} \arrow{r}{f} & H  \\
-				 	& G/N \arrow{u}[swap]{\exists! \overline{f}\text{ Gruppenhomo}} \\
+				 	& G/N \arrow{u}[swap]{\exists! \overline{f}\text{ Gruppenhom}} \\
 	\end{tikzcd}
 	\end{center}
 \end{satz}
@@ -423,7 +423,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 	\begin{center}
 	\begin{tikzcd}
 		G \arrow{rd}[swap]{\can} \arrow{r}{f} & H  \\
-		& G/\ker f \arrow{u}[swap]{\exists! \overline{f}\text{ Gruppenhomo}} \\
+		& G/\ker f \arrow{u}[swap]{\exists! \overline{f}\text{ Gruppenhom}} \\
 	\end{tikzcd}
 	\end{center}
 	
@@ -497,7 +497,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 	$$(\IZ/n\IZ)/(m\IZ/n\IZ) \cong \IZ/m\IZ$$
 \end{enumerate}
 
-\subsection{Zyklische Gruppen}
+\subsection{Zyklische Gruppen} \label{ch:zyklisch}
 Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 \begin{satz}
 	Untergruppen von zyklischen Gruppen sind zyklisch.
@@ -567,7 +567,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 \end{proof}
 
 \begin{bem}
-	Sei $G$ irgendeine Gruppe, $g\in G$. Dann gilt: $\ord(g) = \abs{\<g\>}$ und nach \namereff{thm:lagrange} dann $\ord(g)$ teilt $\abs G$, falls $\abs G$ endlich.
+	Sei $G$ irgendeine Gruppe, $g\in G$. Dann gilt: $\ord(g) = \abs{\<g\>}$ und nach \namereff{thm:lagrange} denn $\ord(g)$ teilt $\abs G$, falls $\abs G$ endlich.
 \end{bem}
 
 \begin{satz}[Zyklische Gruppen]
@@ -592,7 +592,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 		\begin{center}
 		\begin{tikzcd}
 					\IZ \arrow{rd}[swap]{\text{can}} \arrow{r}{f} & G  \\
-						& \IZ/n\IZ \arrow{u}[swap]{\exists!\ \overline{f}\text{ Gruppenhomo}} \\
+						& \IZ/n\IZ \arrow{u}[swap]{\exists!\ \overline{f}\text{ Gruppenhom}} \\
 		\end{tikzcd}
 		\end{center}
 		 Also $\overline{f} : \IZ/n\IZ \rightarrow G$. Da $\abs{\IZ/n\IZ} = n = \abs G$ muss diese surjektive Abbildung schon ein Isomorphismus sein.
@@ -760,7 +760,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 \end{defi}
 
 \begin{bem}
-	Existenz von $\Phi$ ist äquivalent zur Existenz von $\Phi'\colon G\to S_X$ Gruppenhomo mit $\Phi'(g)(x) := g.x$ (nachprüfen!)
+	Existenz von $\Phi$ ist äquivalent zur Existenz von $\Phi'\colon G\to S_X$ Gruppenhomomorphismus mit $\Phi'(g)(x) := g.x$ (nachprüfen!)
 \end{bem}
 
 \begin{defi}
@@ -823,7 +823,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 			\item Stabilisator von $H\in X$: $G_H = \{ g.H = H \}$, heißt auch \emph{Normalisator} von $H$ in $G$, schreib $N_G(H)$.
 			\item $X^G = \{ H < G \mid \forall g \in G: g.H = H \}=\{ H < G \mid \forall g \in G: gHg^{-1} = H \} = \{H \nt G \}$
 		\end{itemize}
-		\item Sei $G$ eine Gruppe, $H < G$, $X = G/H$. Dann $G \operates X$ durch $g.(aH) = gaH$ für alle $g\in G, a \in G$; heißt \emph{Linkstranslation}.
+		\item Sei $G$ eine Gruppe, $H < G$, $X = G/H$. Dann $G \operates X$ durch $g.(aH) = gaH$ für alle $g\in G, a \in G$; heißt \emph{Linkstranslation}. \label{bsp:linkstrans}
 		\begin{itemize}[itemsep=-3pt]
 			\item transitiv, da $\forall a,b \in G: \exists g \in G: g(aH)=bH$.
 			\item Im Allgemeinen nicht treu, da \[\ker\Phi' = \underbrace{\bigcap_{x \in G}xHx^{-1}}_{\mathclap{\text{kleinster Normalteiler}}}.\]
@@ -913,22 +913,23 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 		
 		Nach \cref{thm:bahnformel} folgt $|X| = \sum_{i\in I}(G:G_{x_i})$, wobei $\exists i\in I$, sodass $p^{r-k+1} \nmid (G:G_{x_i})$, weil $p^{r-k+1}\nmid |X|$. Wähle solch ein $x_i = : A'\in X$.
 		
-		Behauptung: $G_{A'}<G$ mit $|G_{A'}| = p^k$. Dann folgt 1) mit $H = G_{A'}$. Klar: $G_{A'}<G$. Nach dem \namereff{thm:lagrange}: $|G| = |G_{A'}|(G:G_{A'})$, wobei $p^r$ die linke Seite der Gleichung teilt, und im Index auf der rechten Seite $p$ höchstens $r-k$-mal vorkommt.
+		Behauptung: Es gilt $G_{A'}<G$ mit $|G_{A'}| = p^k$. Dann würde 1) folgen mit $H = G_{A'}$. Es ist klar, dass $G_{A'}<G$ gilt. Nach dem \namereff{thm:lagrange} folgt dann: $|G| = |G_{A'}|(G:G_{A'})$, wobei $p^r$ die linke Seite der Gleichung teilt, und im Index auf der rechten Seite $p$ höchstens $r-k$-mal vorkommt.
 		
-		Deshalb: $p^k$ teilt $|G_{A'}|\Rightarrow p^k\leq |G_{A'}|$. Sei $a\in A'$. Dann $G_{A'}.a = \{g.a\mid g\in G_{A'}\}\subseteq G_{A'}.A'\subseteq A'$ nach Definition von $G_{A'}$.
+		Deshalb gilt: $p^k$ teilt $|G_{A'}|$ und somit $p^k\leq |G_{A'}|$. Sei $a\in A'$. Dann muss $G_{A'}.a = \{g.a\mid g\in G_{A'}\}\subseteq G_{A'}.A'\subseteq A'$ nach Definition von $G_{A'}$ gelten.
 		
-		Also: $|G_{A'}| = |G_{A'}.a|\leq |A'| = p^k$.  (Def. von $G_{A'.a}$ und $A'\in X$).
-		Also: $|G_{A'}| = p^k\Rightarrow$ Behauptung $\Rightarrow$ 1. Aussage.
+		Also folgert man $|G_{A'}| = |G_{A'}.a|\leq |A'| = p^k$.  (nach der Definition von $G_{A'}.a$ und $A'\in X$).
+		Somit erhält man $|G_{A'}| = p^k$, wodurch die Behauptung und somit auch die erste Aussage gezeigt ist.
 		
-		\item Sei $U<G$ mit $|U| = p^s$ für ein $s\in\IN$. Sei $S\in \Syl_p(G)$. $U \operates G/S$ nach (B3) durch Linksmultiplikation.
+		%TODO: Stimmt die ref? Sie war ursprünglich (B3)
+		\item Sei $U<G$ mit $|U| = p^s$ für ein $s\in\IN$. Sei $S\in \Syl_p(G)$. Sei $U \operates G/S$ wie in \cref{bsp:linkstrans} durch Linksmultiplikation gegeben.
 		\begin{align*}
 			u.(gS) &= ugS\qquad \forall u\in U, g\in G \\
 			m &= |G/S| = \sum_{i\in I}(U:U_{x_i})
 		\end{align*}
-		nach Definition von $S\in Syl_p(G)$ und \textsc{Lagrange}. Die zweite Gleichheit folgt aus Satz 5.2.
+		nach Definition von $S\in Syl_p(G)$ und dem \namereff{thm:lagrange}. Die zweite Gleichheit folgt aus \cref{thm:bahnformel}.
 		
-		Weil $p\nmid m$, existiert ein $i\in I$ sodass $p\nmid (U:U_{x_i})$. Wähle ein solches $x_i =: aS$. Nach \textsc{Lagrange} ist
-		\[ p^s = |U| = |U_{aS}|(U:U_{aS}).\] Also $(U:U_{aS}) = 1$. Also $U = U_{aS}$. Damit
+		Weil $p\nmid m$, existiert ein $i\in I$ sodass $p\nmid (U:U_{x_i})$. Wähle ein solches $x_i =: aS$. Nach dem \namereff{thm:lagrange} ist
+		\[ p^s = |U| = |U_{aS}|(U:U_{aS}).\] Also $(U:U_{aS}) = 1$. Also gilt $U = U_{aS}$. Damit folgt
 		\begin{center}
 			$ \begin{array}{crclc}
 			&u.aS &=& aS      						\qquad& \forall a\in U\\
@@ -945,80 +946,83 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 \end{proof}
 
 \paragraph{Konsequenzen.}
-$G$ endliche Gruppe, $p$ Primzahl.
+Sei $G$ eine endliche Gruppe, $p$ eine Primzahl.
 \begin{enumerate}
-	\item Je zwei $p$-Sylowuntergruppen in $G$ sind zueinander konjugiert, also \[S, S'\in \Syl_p(G) \Rightarrow \exists g\in G: S' = gSg^{-1}.\]
+	\item Je zwei $p$-Sylowuntergruppen in $G$ sind zueinander konjugiert, also \[S, S'\in \Syl_p(G) \Rightarrow \exists g\in G: S' = gSg^{-1}.\] \label{kons:kong}
 	\begin{proof}
-		Nach Sylowsatz 2 folgt $\exists g\in G$ mit $S'<gSg^{-1}$. Da $|S'| = |gSg'|$ nach Definition von $p$-Sylow gilt $S' = gSg^{-1}$.
+		Nach Sylowsatz 2 folgt $\exists g\in G$ mit $S'<gSg^{-1}$. Da $|S'| = |gSg^{-1}|$ nach Definition der $p$-Sylowgruppe gilt, folgt $S' = gSg^{-1}$.
 	\end{proof}
 	
-	Beachte: Falls $n_p  = |\Syl_p(G)| = 1$, also $\exists!$ $p$-Sylowgruppe $S$, dann ist $S\nt G$. Denn $\forall g\in G$ ist $gSg^{-1}$ wieder $p$-Sylow, also $gSg^-1 = S$.
+	Beachte: Falls $n_p  = |\Syl_p(G)| = 1$ gilt, also $\exists!$ $p$-Sylowgruppe $S$, dann ist $S\nt G$. Denn $\forall g\in G$ ist $gSg^{-1}$ wieder eine $p$-Sylowgruppe, also $gSg^{-1} = S$.
 	
-	\item (\textsc{Cauchy}) $p\mid|G|\Rightarrow \exists g\in G$ mit $\ord(g) = p$.
+	\item (Cauchy) Falls $p\mid|G|$ gilt, dann existiert ein $g\in G$ mit $\ord(g) = p$.
 	\begin{proof}
-		Nach Sylowsatz 1 existiert $H<G$ mit $|H| = p$. Wähle $g\in H$, $g\neq e$. Dann ist $\<g\> <H$ und $\<g\> \neq \{e\}$, also $\<g\> = H$ nach \textsc{Lagrange}. Aus Kapitel 3 folgt $ord(g) = |H| = p$.
+		Nach Sylowsatz 1 existiert $H<G$ mit $|H| = p$. Wähle ein $g\in H$, $g\neq e$. Dann ist $\<g\> <H$ und $\<g\> \neq \{e\}$, also $\<g\> = H$ nach dem \namereff{thm:lagrange}. Aus \cref{ch:zyklisch} folgt $\ord(g) = |H| = p$.
 	\end{proof}
-	\item $G$ ist $p$-Gruppe $\Leftrightarrow $ Jedes Element $g\in G$ hat Ordnung $p^s$ für ein geeignetes $s\in \IN_0$ (abhängig von $g$).
+	\item Es gilt: $G$ ist $p$-Gruppe $\Leftrightarrow $ Jedes Element $g\in G$ hat Ordnung $p^s$ für ein geeignetes $s\in \IN_0$ (abhängig von $g$).
 	\begin{proof}~
-		\begin{description}
-			\item[\glqq$\Rightarrow$ \grqq] Sei $g\in G$. Sei $ord(g) = n$. Aus Satz 3.3 folgt $|\<g\>| = n$. $\Rightarrow n\mid |G|$ nach \textsc{Lagrange}. $\Rightarrow$ (da $G$ $p$-Gruppe) $n = p^s$ für ein $s \in \IN_0$.
-			\item[\grqq $\Leftarrow$\grqq] zu zeigen: $|G| = p^r$ für ein $r\in\IN_0$.
-			
-			Annahme: $q\mid|G|$ für $q$ Primzahl $p\neq q$. Nach dem Satz von \textsc{Cauchy} existiert $g\in G$ mit $\ord(g) = q$. Das ist ein Widerspruch.
+		\begin{description} %TODO: Satz 3.3 durch Ch 3 ersetzt. Passt das?
+			\item[\glqq$\Rightarrow$\grqq] Sei $g\in G$, sei $\ord(g) = n$. Aus \cref{ch:zyklisch} folgt $|\<g\>| = n$. Daraus folgt $n\mid |G|$ nach dem \namereff{thm:lagrange}. Da $G$ eine $p$-Gruppe ist, muss nun $n = p^s$ für ein $s \in \IN_0$ gelten.
+			\item[\grqq $\Leftarrow$\grqq] Zu zeigen: $|G| = p^r$ für ein $r\in\IN_0$.
+			Angenommen $q\mid|G|$ für $q$ Primzahl $p\neq q$. Nach dem Satz von \textsc{Cauchy} existiert $g\in G$ mit $\ord(g) = q$. Das ist ein Widerspruch.
 		\end{description}
 	\end{proof}
 	\begin{bem}
-		$p$-Gruppen mit unendlicher Ordnung kann man definieren als Gruppen mit $ord(g) = p^r$, $r\in \IN_0$ von $p$ für alle $g\in G$.
+		$p$-Gruppen mit unendlicher Ordnung kann man definieren als Gruppen mit $\ord(g) = p^r$, $r\in \IN_0$ von $p$ für alle $g\in G$.
 	\end{bem}
 	
 \end{enumerate}
 
-\paragraph{Anwendungen.}\leavevmode
-Vorbemerkung: $G$ Gruppe, $|G| = p$ prim $\Rightarrow G\cong \IZ/p\IZ$. (Denn wähle $g\in G$, $g\neq e$. Dann $\<g\> <G$ und nach \textsc{Lagrange} ist $|\<g\>| = p = |G|$, also $G = \<g\>$ zyklisch, also $G\cong \IZ/p\IZ$ nach Klassifikation von zyklischen Gruppen.)
+\paragraph{Anwendungen.}
+Vorbemerkung: Sei $G$ eine Gruppe, $|G| = p$ prim. Dann folgt $G\cong \IZ/p\IZ$. (Denn wähle $g\in G$, $g\neq e$. Es gilt $\<g\> <G$ und nach dem \namereff{thm:lagrange} ist $|\<g\>| = p = |G|$, also ist $G = \<g\>$ zyklisch und somit $G\cong \IZ/p\IZ$ nach Klassifikation von zyklischen Gruppen.)
 \begin{satz}
-	$G$ Gruppe, $|G| = pq$ mit $p\neq q$ Primzahl. Dann ist $G$ auflösbar.
+	Sei $G$ eine Gruppe, $|G| = pq$ mit $p\neq q$ Primzahl. Dann ist $G$ auflösbar.
 \end{satz}	
 \begin{proof}
 	Ohne Beschränkung der Allgemeinheit sei $p>q$. Nach Sylowsatz 3 gilt: $n_p\mid q$, also $n_p\in\{1,q\}$ und $n_p\equiv 1 \pmod p$.
 	
-	$\Rightarrow n_p = 1$, weil $p>q$. Nach Bemerkung in 1 gilt $\exists!$ $p$-Sylowgruppe $S$ und $S\nt G$. Nach Definition von $p$-Sylow und weil $|G| = pq$ gilt $|S| = p$. Also erhalten wir eine Normalreihe 
+	Dann gilt $n_p = 1$, weil $p>q$. Nach \cref{kons:kong} der Konsequenzen der Sylowsätze gilt $\exists!$ $p$-Sylowgruppe $S$ und $S\nt G$. Nach der Definition von $p$-Sylowgruppe und weil $|G| = pq$ ist, gilt $|S| = p$. Also erhalten wir eine Normalreihe 
 	$$ \{e\}\nt S\nt G$$ mit $S/\{e\}\cong S\cong \IZ/p\IZ$ und $|G/S| = q$, also $G/S\cong \IZ/q\IZ$.
 	
-	$\Rightarrow$ Faktoren sind abelsch $\Rightarrow$ $G$ ist auflösbar.
+	Die Faktoren sind folglich abelsch und somit ist $G$ auflösbar.
 \end{proof}
 
 \begin{satz}
-	$G$ Gruppe, $|G| = pq$ mit $p,q$ prim sowie $p<q$ und $p \nmid q-1$. Dann folgt $G\cong\IZ/p\IZ \times \IZ/ q\IZ$.
+	Sei $G$ eine Gruppe, $|G| = pq$ mit $p,q$ prim sowie $p<q$ und $p \nmid q-1$. Dann folgt $G\cong\IZ/p\IZ \times \IZ/ q\IZ$.
 \end{satz}
 \begin{proof}
-	Nach Sylowsatz 3 gilt $n_p\in \{1,q\}, n_q\in\{1,p\}$ und $n_p\equiv 1\pmod p$, $n_q\equiv 1\pmod q$. Da $p<q$ ist, gilt $n_q = 1$. Also existiert genau eine $q$-Sylowgruppe $Q\nt G$. Falls $n_p = q\Rightarrow q\equiv 1\pmod p$. Daraus folgt $p\mid (q-1)$ im Widerspruch zur Voraussetzung. Also ist $n_p = 1\Rightarrow \exists!$ $p$-Sylowgruppe $P\nt G$.
+	Nach Sylowsatz 3 gilt $n_p\in \{1,q\}, n_q\in\{1,p\}$ und $n_p\equiv 1\pmod p$, $n_q\equiv 1\pmod q$. Da $p<q$ ist, gilt $n_q = 1$. Also existiert genau eine $q$-Sylowgruppe $Q\nt G$. Falls $n_p = q$ dann gilt $q\equiv 1\pmod p$. Daraus folgt $p\mid (q-1)$, was im Widerspruch zur Voraussetzung steht. Also ist $n_p = 1$, womit genau eine $p$-Sylowgruppe mit $P\nt G$ existiert.
 	
-	1. Behauptung: $x\in P ,y\in Q$. Dann $xy = yx$. Denn $xyx^{-1}y^{-1}\in Q$, da $xyx^{-1}\in Q$ ($Q$ Normalteiler) und $y^{-1}\in Q$, analog $xyx^{-1}y^{-1}\in P$, da $x\in P$ und $yx^{-1}y^{-1} \in P$ ($P$ Normalteiler).
+	Behauptung: Sei $x\in P ,y\in Q$. Dann gilt $xy = yx$. $xyx^{-1}y^{-1}$ liegt in $Q$, da $xyx^{-1}\in Q$, weil $Q$ ein Normalteiler ist und $y^{-1}\in Q$ per Definition. Analog gilt $xyx^{-1}y^{-1}\in P$, da $x\in P$ und $yx^{-1}y^{-1} \in P$.
+	Somit liegt $xyx^{-1}y^{-1}$ in $P\cap Q$. Aber es gilt $P\cap Q = \{e\}$, da $|P\cap Q|\mid p = |P|$ und $|P\cap Q| \mid q = |Q|$. Somit folgt die Behauptung.
 	
-	$\Rightarrow$ $xyx^{-1}y^{-1} \in P\cap Q$. Aber $P\cap Q = \{e\}$, da $|P\cap Q|\mid p = |P|$ und $|P\cap Q| \mid q = |Q|$.
-	
-	$\Rightarrow$ 1. Behauptung.
-	
-	Betrachte nun $\Phi\colon P\times Q\to G, (x,y)\mapsto xy$. $\Phi$ ist ein wohldefinierter Gruppenhomomorphismus. Denn $\Phi((x,y)\circ (x',y')) = \Phi ((xx', yy')) = xx'yy'$; $\Phi((x,y))\circ \Phi((x',y')) = xyx'y' = xx'yy'$ (nach der 1. Behauptung).
-	
+	Betrachte nun 
+	\begin{align*}
+		\Phi\colon P\times Q&\longto G\\
+		 (x,y)&\longmapsto xy
+	\end{align*}
+	$\Phi$ ist ein wohldefinierter Gruppenhomomorphismus, denn 
+	\begin{gather*}
+		\Phi((x,y)\circ (x',y')) = \Phi ((xx', yy')) = xx'yy' \\ \Phi((x,y))\circ \Phi((x',y')) = xyx'y' = xx'yy' ~\text{(nach Behauptung)}
+	\end{gather*}
 	Außerdem ist $\Phi$ injektiv, denn $\Phi((x,y)) = e\Leftrightarrow xy = e\Leftrightarrow x = y^{-1} = e$, weil $P\cap Q = \{e\}$.
-	
 	$\Phi$ ist surjektiv, weil $|P\times Q| = |P|\cdot |Q| = pq = |G|$.
-	
-	$\Rightarrow$ $\Phi$ liefert Gruppenisomorphismus $P\times Q \cong G$, also $\IZ/p\IZ\times \IZ/q\IZ\cong G$.
+	Somit liefert $\Phi$ einen Gruppenisomorphismus $P\times Q \cong G$, also $\IZ/p\IZ\times \IZ/q\IZ\cong G$.
 \end{proof}
 
 
 \begin{kor}
-	$G$ Gruppe, $|G| = 15$. Dann $G\cong \IZ/3\IZ\times \IZ/5\IZ \cong \IZ/15\IZ$ und $G$ ist zyklisch.
+	Sei $G$ eine Gruppe, $|G| = 15$. Dann gilt $G\cong \IZ/3\IZ\times \IZ/5\IZ \cong \IZ/15\IZ$ und $G$ ist zyklisch.
 \end{kor}
 
 \begin{proof}
-	Wir wissen $G \cong \IZ/3\IZ\times \IZ/5\IZ$. Behauptung: $ \IZ/3\IZ\times \IZ/5\IZ\cong \IZ/15\IZ$. Sei nämlich $g = (\overline{1}, \overline{1})\in  \IZ/3\IZ\times \IZ/5\IZ$. Dann gilt: $\ord(g) = \min \{j\mid (\overline{1},\overline{1})+\dots (\overline{1},\overline{1}) = (\overline{0}, \overline{0})\in  \IZ/3\IZ\times \IZ/5\IZ\}  =15$
-	
-	$\Rightarrow |\<g\>| = 15 \Rightarrow  \IZ/3\IZ\times \IZ/5\IZ$ ist zyklisch.
-	
-	$ \IZ/3\IZ\times \IZ/5\IZ\to \IZ/15\IZ, g\mapsto \overline{1}$ gibt den Isomorphismus.
+	Wir wissen $G \cong \IZ/3\IZ\times \IZ/5\IZ$. Behauptung: $ \IZ/3\IZ\times \IZ/5\IZ\cong \IZ/15\IZ$. Sei nämlich $g = (\overline{1}, \overline{1})\in  \IZ/3\IZ\times \IZ/5\IZ$. Dann gilt: $$\ord(g) = \min \{j\mid (\overline{1},\overline{1})+\dots +(\overline{1},\overline{1}) = (\overline{0}, \overline{0})\in  \IZ/3\IZ\times \IZ/5\IZ\}  =15$$
+	Folglich gilt $|\<g\>| = 15$ und damit ist $\IZ/3\IZ\times \IZ/5\IZ$ zyklisch. Der Isomorphismus ist durch 
+	\begin{align*}
+		\IZ/3\IZ\times \IZ/5\IZ&\longto \IZ/15\IZ\\
+		g&\longmapsto \overline{1}
+	\end{align*}
+	gegeben.
 \end{proof}
 
 \lecture{30. Oktober 2017}
