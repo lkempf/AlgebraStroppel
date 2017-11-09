@@ -1577,9 +1577,111 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 	\begin{enumerate}
 		\item $a$ Nullstelle von $p(t) \Leftrightarrow t-a$ teilt $p(t)$ in $R[t]$.
 		\item $R$ Integritätsbereich $\Rightarrow R[t]$ ist Integritätsbereich und $\deg(p(t)q(t)) = \deg (p(t)) + \deg (q(t))$
-		\item $\deg (p(t)) = n, R$ Integritätsbereich $\Rightarrow$ $p(t)$ hat maximal $n$ verschiedene Nullstellen.
+		\item $\deg (p(t)) = n\geq 0, R$ Integritätsbereich $\Rightarrow$ $p(t)$ hat maximal $n$ verschiedene Nullstellen.
 	\end{enumerate}
 \end{satz}
+
+
+\lecture{9. November 2017}
+
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item \glqq$\Leftarrow$\grqq: $t-a$ teilt $p(t)\Rightarrow \exists q(t) \in R[t]$ sodass $p(t) = q(t)\cdot (t-a)\Rightarrow\ev_a (p(t)) = \ev_a(q(t))\cdot\ev_a(t-a) = 0 \Rightarrow a $ ist NST von $p(t)$.
+		
+		\glqq$\Rightarrow$\grqq: Sei $a$ NST von $p(t)$ Sei
+		\begin{eqnarray*}
+			\phi\colon R&\longto & R[t]\\
+			r & \longmapsto & r\cdot 1\\[1mm]
+			\xRightarrow{7.12} \ev_{t-a} \colon R[t]& \longto & R[t]\\
+			t&\longmapsto &t-a\\[1mm]
+			\ev_{t+a}\colon R[t] & \longto & R[t]\\
+			t & \longmapsto & t+a
+		\end{eqnarray*}
+		$\Rightarrow  \ev_{t-a}\circ \ev_{t+a} = id_{R[t]} = \ev_{t+a}\circ \ev_{t-a}$
+		(Für alle $r\in R$ gilt $r1\mapsto r1; t\mapsto t+a\mapsto (t-a)+a = t$).
+		
+		Es gilt: 
+		\begin{center}
+			\begin{tikzcd}
+					R[t] \arrow{rd}[swap]{\ev_0} \arrow{r}{\ev_{t-a}} & R[t] \arrow{d}{\ev_{a}} \\
+					& R \\
+			\end{tikzcd}
+		\end{center}
+		$\ev_a \circ \ev_{t-a} = \ev_0$ bzw. $\ev_0\circ \ev_{t+a} = \ev_a$
+		
+		$\Rightarrow \ev_a(p(t)) = 0\Rightarrow \ev_0(\ev_{t+a}(p(t))) = 0\Rightarrow t$ teilt $\ev_{t+a}(p(t))\Rightarrow \exists q(t)\in R[t]$ sodass $q(t)\cdot t = \ev_{t+a}(p(t))\Rightarrow p(t) = \ev_{t-a}(ev_{t+a}(p(t))) = \ev_{t-a}(q(t))\cdot \ev_{t-a}(t) = \ev_{t-a}(q(t)) \cdot(t-a)\Rightarrow t-a$ teilt $p(t)$.
+		
+		\item $m,n\in\IN_0$:
+		$$p(t)q(t) = (\sum_{i = 0}^{m}a_it^i)(\sum_{i = 0}^{n}b_it^i) = a_nb_mt^{n+m}+\dots,$$ wobei $a_n,b_m \neq 0$ sind, also $a_mb_n\neq 0$, da $R$ Integritätsbereich ist. $\Rightarrow \deg(p(t)q(t)) = n+m$.
+		
+		\item Induktion nach Grad:
+		
+		$\deg(p(t)) = 1$: $p(t) = b_1t+b_0; b_0,b_1\in R$. Falls $a$ Nullstelle von $p(t)$, gilt nach 1: $\exists r\in R\setminus\{0\}$ sodass $r(t-a) = b_1t+b_0\Rightarrow r = b_1$ und $-ar = b_0$. Annahme: $a'$ weitere Nullstelle. Dann ist $-ar = -a'r' = -a'r$, da $r = b_1 = r'$, also $r(a'+(-a)) = 0$. Da $R$ Integritätsbereich und $r\neq 0$, muss $a' = a$ gelten.
+		
+		Sei nun $\deg(p(t)) = n>1$. Sei $a$ Nullstelle von $p(t)$. Dann folgt mit Teil 1 des Satzes: $(t-a) q(t) = p(t)$ für ein $q(t)\in R[t]$ mit $\deg(q(t)) = n-1$ (nach Teil 2 des Satzes).
+		
+		Also gilt nach der Induktionsvoraussetzung: $q(t)$ hat maximal $n-1$ Nullstellen.
+		
+		Behauptung: $b$ ist genau dann Nullstelle von $p(t)$, wenn $b$ Nullstelle von $q(t)$ ist oder $b = a$.
+		
+		\glqq$\Leftarrow$\grqq: $b$ Nullstelle von $q(t)$: $\ev_{b}(p(t)) = \ev_{b}(q(t))\cdot \ev_b{t-a} = 0\cdot \ev_{b}(t-a) = 0$ oder $b = a:$: $\ev_{b}(p(t)) = \ev_{b}(q(t))\cdot \ev_b{t-a} = \ev_{b}(q(t))\cdot 0 = 0$.
+		
+		\glqq$\Rightarrow$\grqq: $b$ Nullstelle von $p(t) \Rightarrow 0 = \ev_{b}(p(t)) = \ev_{b}(q(t))\cdot \ev_{b}(t-a)\xRightarrow{R \text{ Int-b.}} \ev_{b}(q(t)) = 0\Rightarrow b$ Nullstelle von $q(t)$ oder $\ev_b(t-a) = 0\Rightarrow b = a$.
+		
+		$\Rightarrow p(t)$ hat maximal $n$ verschiedene Nullstellen.
+	\end{enumerate}
+\end{proof}
+
+
+\begin{defi}
+	Ein Körper $K$ heißt algebraisch abgeschlossen, falls jedes $p(t)\in K[t]$ mit $\deg(p(t))>0$ eine Nullstelle hat.
+\end{defi}
+\begin{bem}
+	\leavevmode
+	\begin{enumerate}
+		\item $K$ algebraisch abgeschlossen; $p(t)\in K[t], \deg(p(t)) =n > 0\Rightarrow \exists c\in K^{\times}, a_1,\dots,a_n\in K$ nicht zwangsweise verschieden, sodass $p(t) = c(t-a_1)\dots (t-a_n)$. (Beweis: Teil 3 von Satz 7.14 induktiv anwenden)
+		\item Oft schreibt man $K = \overline{K}$ für $K$ algebraisch abgeschlossen.
+	\end{enumerate}
+\end{bem}
+
+
+\begin{defi}
+	$S$ Ring, $R\subseteq S$ Unterring, $a_1,\dots,a_n\in S$ sodass $a_ix = xa_i\forall x\in R$, $a_ia_j = a_ja_i\forall 1\leq i,j\leq n$. Setze
+	$$ R[a_1,\dots,a_n] = \bigcap\limits_{S'\subseteq S,R\subseteq S', a_1,\dots,a_n\in S'}S'$$ %TODO: mach das schöner
+	Dann heißt $R[a_1,\dots,a_n]$ der von $a_1,\dots,a_n$ erzeugte Unterring in $S$ über $R$. 
+\end{defi}
+
+
+\begin{bem}
+	\leavevmode$R[a_1,\dots,a_n]$ ist der kleinste Unterring von $S$, der $R$ und $a_1,\dots,a_n$ enthält.
+		\begin{proof}
+			\leavevmode
+			\begin{itemize}
+				\item $R[a_1,\dots,a_n]$ enthält $R$ und $a_1,\dots,a_n$ per Konstruktion.
+				\item Ist $S'$ ein weiterer solcher Unterring: $S'\supseteq \cap_{S''}S'' = R[a_1,\dots,a_n]$.
+			\end{itemize}
+		\end{proof}	
+\end{bem}
+
+\begin{satz}
+	Sei $S$ Ring, $R\subseteq S$ Unterring, $a_1,\dots,a_n\in S$ mit $a_ia_j = a_ja_i$ und $a_ix = xa_i$ für alle $x\in R$ udn $1\leq i,j\leq n$. Sei $\phi \colon R\to S$ die Inklusion und $R[t_1,\dots, t_n] := ((\dots(R[t_1])[t_2])\dots)[t_n]$. Dann ist $R[a_1,\dots,a_n]$ das Bild des Auswertehomomorphismus' 
+	\begin{eqnarray*}
+		\ev = \ev_{a_1,\dots,a_n} R[t_1,\dots,t_n] & \longto & S\\
+		p(t_1,\dots t_n) & \longmapsto & p(a_1, \dots, a_n),
+	\end{eqnarray*}
+	wobei für 
+	$$ p (t_1,\dots, t_n) = \sum_{(m_1,\dots,m_n)\in\IN_{0}^n}b_{m_1,\dots,m_n}\cdot t_1^{m_1}\dots t_n^{m_n}$$
+	(fast alle $b_{m_1,\dots,m_n} = 0$) gesetzt wird
+	$$ p(a_1,\dots, a_n ) = \sum_{(m_1,\dots, m_n)\in \IN_0^n} b_{m_1,\dots,m_n}a_1^{m_1}\dots a_n^{m_n}$$
+	
+\end{satz}
+
+
+
+
+
+
 
 
 %\begin{bsp}
