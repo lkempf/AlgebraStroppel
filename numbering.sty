@@ -5,6 +5,11 @@
 \newcounter{defcounter}[subsection]
 \newcounter{bspcounter}[subsection]
 
+%Hack to also show the subsection
+\renewcommand{\thethmcounter}{\arabic{subsection}.\arabic{thmcounter}}
+\renewcommand{\thedefcounter}{\arabic{subsection}.\arabic{defcounter}}
+\renewcommand{\thebspcounter}{\arabic{subsection}.\arabic{bspcounter}}
+
 \newtheoremstyle{cplain}
 {11pt}
 {\parskip}
@@ -13,7 +18,7 @@
 {\bfseries}
 {.}
 { }
-{\thmname{#1}\thmnumber{ \arabic{subsection}.#2}\thmnote{ (textmd{(#3)}}}
+{\thmname{#1} \thmnumber{#2}\thmnote{ \textmd{(#3)}}}
 
 \newtheoremstyle{cdef}
 {11pt}
@@ -23,7 +28,7 @@
 {\bfseries}
 {.}
 { }
-{\thmname{#1}\thmnumber{ \arabic{subsection}.#2}\thmnote{ \textmd{(#3)}}}
+{\thmname{#1} \thmnumber{#2}\thmnote{ \textmd{(#3)}}}
 
 \theoremstyle{cdef}
 \newtheorem{defi}[defcounter]{Definition}
@@ -32,7 +37,7 @@
 \theoremstyle{remark}
 \newtheorem*{bem}{Bemerkung}
 
-\theoremstyle{cdef}
+\theoremstyle{cplain}
 \newtheorem{satz}[thmcounter]{Satz}
 \crefname{satz}{Satz}{Sätzen}
 
