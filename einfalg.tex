@@ -1723,10 +1723,90 @@ Spezialfall: $n = 1$: $a\in S$ algebraisch abhängig über $R$, falls $p(a) = 0$
 		
 		Schon $i\in \IC$ alg. abhängig über $\IR$, $\ev_{i}(1+t^2) = 1+i^2  = 0$.
 		\item $a\in S$ beliebig ($S$ kommutativ) ist algebraisch abhängig über $S$: $\ev_a(t-a) = a-a = 0$.
-		\item $S =R[t_1,\dots, t_n]$, dann sind $t_1,\dots t_n$ algebraisch unabhängig über $R$, weil $\ev_{t_1,\dots, t_n}\colon R[t_1,\dots,t_n]\to R[t_1,\dots, t_n] = id_{R[t_1,\dots t_n]}$ offensichtlich injektiv.
+		\item $S =R[t_1,\dots, t_n]$, dann sind $t_1,\dots t_n$ algebraisch unabhängig über $R$, weil $\ev_{t_1,\dots, t_n}\colon R[t_1,\dots,t_n]\to R[t_1,\dots, t_n] = id_{R[t_1,\dots t_n]}$ offensichtlich injektiv. %TODO: FIX THIS OVERFULL HBOX
 		\item algebraisch über $\IQ$ unabhängige $x\in\IR$ heißen transzendente Zahlen.
 	\end{enumerate}
 \end{bsp}
+
+\lecture{13. November 2017}
+\subsection{Faktorielle Ringe}
+Ab jetzt sind alle Ringe kommutativ.
+\begin{defi} $R$ Integritätsbereich (d.h. $R\neq\{0\}$ und nullteilerfrei). Sei $a\in R$, $a\neq 0$, $a\notin R^{\times}$. 
+\begin{itemize}
+	\item $a$ heißt irreduzibel, falls: ($a = b\cdot c\Rightarrow b \in R^{\times}$ oder $c\in R^{\times}$).
+	\item $a$ heißt prim, falls: ($a$ teilt $b \cdot c\Rightarrow a$ teilt $b$ oder $a$ teilt $c$), wobei jeweils $b,c\in R$ gilt.
+	\item $R$ faktorieller Ring, falls zusätzlich für $b\in R, b\neq 0$ existiert Zerlegung
+	$$\text{PZ}\qquad b = \epsilon p_1p_2\dots p_r \text{ für ein $r\in\IN$}$$
+	mit $\epsilon\in R^{\times}$ und $p_1,\dots, p_r\in R$ irreduzibel und diese Zerlegung ist \glqq eindeutig\grqq, wobei \glqq eindeutig\grqq\ bedeutet eindeutig bis auf Einheiten und Reihenfolge der Faktoren. (d.h. falls $b = \epsilon'p_1'\dots p_s'$ für $\epsilon'\in R^{\times}$ und $p_1',\dots, p_s'$ irreduzibel, dann gilt $s = r$ und $\exists c_1,\dots, c_r\in R^{\times}$ und $\pi \in S_r$, sodass $p_i' = c_ip_{\pi(i)}$).
+\end{itemize}
+\end{defi}
+
+\begin{bsp}
+	$R = \IZ$. Sei $a\in\IZ, a\neq 0, a\notin\{\pm1\} = \IZ^{\times}$. Dann $a$ prim $\Leftrightarrow a = \pm p$, $p$ Primzahl $\Leftrightarrow a$ irreduzibel. $IZ$ ist faktoriell, denn jedes $b\in\IZ, b\neq 0$ hat Primzahlzerlegung $b = \epsilon p_1\dots p_r$ mit $p_i$ Primzahlen und $\epsilon \in\{\pm 1\} = \IZ^{\times}$. Dies ist \glqq eindeutig\grqq, z.B. $10 = 1\cdot 2\cdot 5 = (-1)(-2)\cdot 5 = (-1)2(-5)$ etc. 
+\end{bsp}
+\begin{bsp}
+	$R = \IZ[\sqrt{-5}] = \{a+b\sqrt{5}i|a,b\in \IZ\}\subset \IC$ Unterring von $\IC$, genauer der von $\sqrt{5}i$ über $\IZ$ erzeugte Unterring in $\IC$. Dann sind $2,3,1+\sqrt{5}i, 1-\sqrt{5}i$ irreduzibel, insbesondere $1+\sqrt{5}i\notin R^{\times}$ (Übung!). Außerdem: $1+\sqrt{5}i\notin \{\epsilon 2,\epsilon3|\epsilon\in R^{\times}\}$ (Übung!).
+	
+	Aber: $ 6 = 2\cdot 3 = (1+\sqrt{5})(1-\sqrt{5})$, also ist $R$ nicht faktoriell.
+\end{bsp}
+
+\begin{lem}
+	Sei $R$ Integritätsbereich, $a\in R$.
+	\begin{enumerate}
+		\item $a$ prim $\Leftrightarrow (a) \neq\{0\}, (a)$ Primideal
+		\item $a$ irreduzibel $\Leftrightarrow (a)\neq\{0\},(a)\neq R$ und $\forall b\in R:$ falls $(a) \subseteq (b)\Rightarrow (a) = (b) $ oder $(b) = R$.
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+	\item 
+	\begin{description}
+		\item[\glqq$\Rightarrow$\grqq:] $a$ prim $\Rightarrow a\neq 0, a\notin R^{\times}$ nach Definition $\Rightarrow (a)\neq \{0\}, (a) \neq R$. Sei nun $bc\in (a)$ mit $b,c\in R\Rightarrow a$ teilt $bc \xRightarrow{a\text{ prim}} a$ teilt $b$ oder $a$ teilt $c\Rightarrow b\in (a)$ oder $c\in (a)\Rightarrow (a)$ Primideal.
+		\item[\glqq$\Leftarrow$\grqq:] $(a) \neq \{0\}\Rightarrow a\neq 0$ und $(a)$ Primideal $\xRightarrow{\text{Def. Primideal}} (a) = R\Rightarrow a\notin R^{\times}$. Gelte nun $a$ teilt $bc\Rightarrow bc\in (a)\xRightarrow{(a)\text{ Primideal}} b\in (a)$ oder $c\in (a)\Rightarrow a$ teilt $b$ oder $a$ teilt $c\Rightarrow a$ prim.
+	\end{description}
+	\item
+	\begin{description}
+		\item[\glqq$\Leftarrow$\grqq:] $(a) \neq\{0\}, (a) \neq R\Rightarrow a\neq 0, a\notin R^{\times}$. Sei $a = bc\Rightarrow (a)\subseteq (b)\xRightarrow{\text{Voraussetzung}} (a) = (b)$ oder $(b) = R$.
+		
+		$\Rightarrow (a)  = (b)$ oder $b\in R^{\times} \Rightarrow\exists r\in R, b = ar$ oder $b\in R^{\times}$.
+		
+		$\Rightarrow \exists r\in R: b = bcr$ oder $b\in R^{\times} \Rightarrow \exists r\in R: b(1-cr) = 0$ oder $b\in R^{\times}\xRightarrow{R\text{ nullteilerfrei}} 1-cr = 0$ (weil $b\neq 0$, da $0\neq a = bc$) oder $b\in R^{\times}$.
+		
+		$\Rightarrow c\in R^{times}$ oder $b\in R^{\times}\Rightarrow a$ irreduzibel.
+
+		\item[\glqq$\Rightarrow$\grqq:] $a$ irreduzibel $\Rightarrow (a) \neq \{0\}$, $(a)\neq R$. Sei $b\in R$ mit $(a) \subseteq (b)\Rightarrow b$ teilt $a\Rightarrow \exists r\in R: a = br\xRightarrow{a\text{ irreduzibel}} b\in R^{\times}$ oder $r\in R^{\times}\Rightarrow (b) = R$ oder $(a) = (b) \Rightarrow $ Behauptung.
+	\end{description}
+\end{enumerate}
+\end{proof}
+
+
+
+\begin{satz} $R$ Integritätsbereich. Dann gilt für $a\in R$: \begin{enumerate}
+		\item $a$ prim$\Rightarrow a$ irreduzibel.
+		\item Falls $R$ Hauptidealring (HIR):
+		\begin{enumerate}
+			\item $a$ prim $\Leftrightarrow a$ irreduzibel.
+			\item $\{0\}\neq I\subseteq R$ Ideal: $I$ Primideal $\Leftrightarrow I$ maximales Ideal.
+		\end{enumerate}
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Sei $a = bc\xRightarrow{a\text{ prim}}a$ teilt $b$ oder $a$ teilt $c$.
+		
+		$\Rightarrow b = ar$ oder $c = ar$ für ein $r\in R$.  $\Rightarrow b = bcr$ oder $c = cbr$ für ein $r\in R\Rightarrow b(1-cr) = 0$ oder $c(1-br) =0$ für ein $r\in R$. Da $R$ nullteilerfrei ist und $b,c\neq 0$, weil $a\neq 0$, gilt $(1-cr )=0$ oder $(1-br) = 0$. Folglich ist $c$ eine Einheit oder $b$ eine Einheit. $\Rightarrow a$ irreduzibel.
+		
+		\item Die eine Richtung folgt nach (1). Sei für die Rückrichtung nun $a$ irreduzibel. Nach Lemma 8.1 ist $(a)$ maximal unter allen Hauptidealen in $R$. Da $R$ ein Hauptidealring ist, ist $(a)$ sogar ein maximales Ideal. Aus Satz 7.10 folgt, dass $(a)$ ein Primideal ist. Nun ist $a$ prim nach 8.1, da $(a)\neq\{0\}$, weil $a$ irreduzibel, also insbesondere $a\neq 0$.
+	\end{enumerate}
+\end{proof}
+
+
+
+
+
+
 
 
 
