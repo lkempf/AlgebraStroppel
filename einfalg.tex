@@ -1798,17 +1798,63 @@ Ab jetzt sind alle Ringe kommutativ.
 		
 		$\Rightarrow b = ar$ oder $c = ar$ für ein $r\in R$.  $\Rightarrow b = bcr$ oder $c = cbr$ für ein $r\in R\Rightarrow b(1-cr) = 0$ oder $c(1-br) =0$ für ein $r\in R$. Da $R$ nullteilerfrei ist und $b,c\neq 0$, weil $a\neq 0$, gilt $(1-cr )=0$ oder $(1-br) = 0$. Folglich ist $c$ eine Einheit oder $b$ eine Einheit. $\Rightarrow a$ irreduzibel.
 		
-		\item Die eine Richtung folgt nach (1). Sei für die Rückrichtung nun $a$ irreduzibel. Nach Lemma 8.1 ist $(a)$ maximal unter allen Hauptidealen in $R$. Da $R$ ein Hauptidealring ist, ist $(a)$ sogar ein maximales Ideal. Aus Satz 7.10 folgt, dass $(a)$ ein Primideal ist. Nun ist $a$ prim nach 8.1, da $(a)\neq\{0\}$, weil $a$ irreduzibel, also insbesondere $a\neq 0$.
+		\item \begin{enumerate}
+			\item Die eine Richtung folgt nach (1). Sei für die Rückrichtung nun $a$ irreduzibel. Nach Lemma 8.1 ist $(a)$ maximal unter allen Hauptidealen in $R$. Da $R$ ein Hauptidealring ist, ist $(a)$ sogar ein maximales Ideal. Aus Satz 7.10 folgt, dass $(a)$ ein Primideal ist. Nun ist $a$ prim nach 8.1, da $(a)\neq\{0\}$, weil $a$ irreduzibel, also insbesondere $a\neq 0$.
+			
+			\item \begin{description}
+					\item[\glqq$\Leftarrow$\grqq:] nach 7.10
+					\item[\glqq$\Rightarrow$\grqq:] Sei $\{0\}\neq I\subseteq R$ Primideal. Da $R$ ein Hauptidealring ist, folgt: $\exists a\in R$ mit $I = (a)$ und $a$ prim nach 8.1. Mit Teil (1) folgt: $I = (a)$ mit $a$ irreduzibel. Nach Lemma 8.1 ist $I = (a) $ maximal unter allen Hauptidealen; da $R$ HIR ist, ist $I$ maximales Ideal.
+					\end{description}
+			\end{enumerate}
 	\end{enumerate}
 \end{proof}
 
+\begin{defi} $R$ Integritätsbereich. $R$ heißt euklidischer Ring, falls eine Abbildung
+	$$\deg \colon R\setminus\{0\} \longto \IN$$
+	existiert, sodass für alle $a,b\in R, b\neq 0$ gilt: $\exists q, r\in R$ mit $a = qb+r$, sodass $r = 0$ oder $\deg(r)<\deg(b)$.
+\end{defi}
 
+\begin{satz}
+	$R$ euklidisch $\Rightarrow R$ Hauptidealring.
+\end{satz}
+\begin{proof}
+	Wie für $R = \IZ$.
+\end{proof}
 
+\begin{satz}
+	$R$ Hauptidealring $\Rightarrow R$ faktoriell.
+\end{satz}
 
+\begin{proof} Sei $0\neq b\in R$. Zu zeigen: Primfaktorzerlegung (PZ) existiert. Wir nehmen an, dass (PZ) nicht existiert, also insbesondere ist $b$ nicht irreduzibel.
+$\Rightarrow \exists b_1,c_1\neq R^{\times}: b = b_1c_1$ und nicht beide Faktoren haben eine Primfaktorzerleugn. OBdA hat $b_1$ keine (PZ), insbesondere $b_1$ nicht irreduzibel. Folglich existieren $b_2,c_2\notin R^{\times}: b_1 = b_2c_2$ und oBdA hat $b_2$ keine (PZ) etc.
 
+$\Rightarrow (b_1)\subset (b_2)\subset (b_3)\subset (b_4)\subset \dots$ für gewisse $b_i\in R$ und $(b_i)\subsetneq (b_{i+1})$: denn sonst $b_i = b_{i+1}c_{i+1}$ für ein $c_{i+1}\in R$ und $b_{i+1} = b_ic_i'$ für ein $c_i'\in R \Rightarrow b_i(1-c_i'c_{i+1}) = 0$. Da $R$ nullteilerfrei ist, folgt $c_{i+1}\in R^{\times}$ für alle $i+1$, was im Widerspruch zur Konstruktion steht.
 
+Setze nun $I : = \bigcup\limits_{i = 1}^{\infty}(b_i)$. Das ist Ideal (klar) und somit $I = (d)$ für ein $d\in R$, weil $R$ HIR ist. Nach Definition von $I$ existiert ein $b_i$ mit $d\in (b_i)$, also $(d)\subseteq (b_i)$, weil $(b_i)$ Ideal. $\Rightarrow (d) \subseteq (b_i)\subseteq I = (d)\Rightarrow (b_i) = (d)\subseteq (b_j) = (d) \forall j>i$. Das ist nun ein Widerspruch zu $(b_i) \subsetneq (b_{i+1})$. Folglich hat $b$ eine Primfaktorzerlegung. Dadurch haben wir nun die Existenz der (PZ); wir zeigen nun noch Eindeutigkeit:
 
+Seien $b = \epsilon p_1\dots p_r$ und $b = \epsilon'p_1'\dots p_s'$ zwei Zerlegungen mit $\epsilon, \epsilon'\in R^{\times}, p_i, p_j'\in R$ irreduzibel ($1\leq i\leq r, 1\leq j\leq s$). Betrachte $p_1'$. Nach (2): $p_1'$ teilt $b$; also $p_1'$ teilt $p_i$ für ein $i$ ($1\leq i\leq r$) oder $p_1'$ teilt $\epsilon$ (denn $p_1'$ ist irreduzibel und damit prim, weil $R$ HIR). Fall $p_1'$ teilt $\epsilon$, dann gilt $p_1'\in R^{\times}$ im Widerspruch zu $p_1'$ irreduzibel.
 
+Also: $\exists i: p_1'$ teilt $p_i$. OBdA sei $i = 1$ (evtl umnummerieren). Also ist $p_1 = p_1'c$ für ein $c\in R$. Da $p_1$ irreduzibel ist, ist $p_1'\in R^{\times}$ oder $c\in R^{\times}$. $p_1'$ ist aber irreduzibel und damit insbesondere keine Einheit; folglich ist $c\in R^{\times}$.
+
+$\Rightarrow \epsilon cp_1'p_2\dots p_r = b = \epsilon 'p_1'p_2'\dots p_s'$. Da $R$ nullteilerfrei ist, darf man hier kürzen: $\epsilon c p_2\dots p_r = \epsilon 'p_2'\dots p_s'$. Iteriere dieses Argument nun und erhalte schließlich $r = s$ und $p_i = p_{\pi(i)}'c_i$ für $c_i\in R^{\times}$ und $\pi\in S_r\Rightarrow$ \glqq Eindeutigkeit\grqq.
+\end{proof}
+
+\begin{bem}
+	Insbesondere: In $\IZ$ ist Primfaktorzerlegung \glqq eindeutig\grqq.
+\end{bem}
+
+\subsection{Maximale Ideale: Existenz}
+\begin{satz}
+	$R$ kommutativer Ring, %whyever, sind Ringe nicht sowieso schon kommutativ?
+	$R \neq \{0\}$
+	\begin{enumerate}
+		\item $R$ besitzt maximale Ideale (und damit auch Primideale nach 7.10)
+		\item Jedes Ideal $I\subseteq R$, $I \neq R$ ist in einem (nicht notwenig eindeutigen!) maximalen Ideal enthalten.
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	Wir zeigen zunächst (2) unter der Annahme von (1): Sei $I\neq R\Rightarrow R/I \neq \{0\}$  und besitzt daher nach (1) maximales Ideal. Nach Satz 7.9 existiert ein maximales Ideal $J\subseteq R$ mit $J\supseteq I$.
+\end{proof}
 
 
 %\begin{bsp}
