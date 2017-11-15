@@ -1020,7 +1020,7 @@ Vorbemerkung: Sei $G$ eine Gruppe, $|G| = p$ prim. Dann folgt $G\cong \IZ/p\IZ$.
 	Folglich gilt $|\<g\>| = 15$ und damit ist $\IZ/3\IZ\times \IZ/5\IZ$ zyklisch. Der Isomorphismus ist durch 
 	\begin{align*} %TODO: Klingt fishy. Gilt immer noch g=(1,1)?
 		\IZ/3\IZ\times \IZ/5\IZ&\longto \IZ/15\IZ\\
-		g&\longmapsto \overline{1}
+		g=(\overline{1},\overline{1})&\longmapsto \overline{1}
 	\end{align*}
 	gegeben.
 \end{proof}
@@ -1557,7 +1557,7 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 
 \begin{bsp}
 	\begin{eqnarray*}
-		\phi\colon \IR & \longhookrightarrow & \IC\\%TODO: langer Einbettungspfeil (longhookrightarrow)
+		\phi\colon \IR & \longhookrightarrow & \IC\\
 		x & \longmapsto & x
 	\end{eqnarray*}
 	Es existiert ein eindeutiger Ringhomomorphismus
@@ -1575,16 +1575,16 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 \end{bsp}
 
 \begin{defi}
-	Ist $R$ ein kommutativer Ring, dann heißt $a\in R$ Nullstelle von $p(t) \in R[t]$, falls gilt: $p(a) := \ev_a(p(t)) = 0$ ($\phi\colon R\to R = \id \colon R\to R$).
+	Ist $R$ ein kommutativer Ring, dann heißt $a\in R$ Nullstelle von $p(t) \in R[t]$, falls gilt: $p(a) := \ev_a(p(t)) = 0$ ($\phi\colon R\to R = \id_R$).
 \end{defi}
 
 
 \begin{satz}
-	$R$ kommutativer Ring, $a\in R$. Dann:
+	Sei $R$ ein kommutativer Ring sowie $a\in R$. Dann gilt:
 	\begin{enumerate}
 		\item $a$ Nullstelle von $p(t) \Leftrightarrow t-a$ teilt $p(t)$ in $R[t]$.
 		\item $R$ Integritätsbereich $\Rightarrow R[t]$ ist Integritätsbereich und $\deg(p(t)q(t)) = \deg (p(t)) + \deg (q(t))$
-		\item $\deg (p(t)) = n\geq 0, R$ Integritätsbereich $\Rightarrow$ $p(t)$ hat maximal $n$ verschiedene Nullstellen.
+		\item $\deg (p(t)) = n\geq 0$, $R$ Integritätsbereich $\Rightarrow$ $p(t)$ hat maximal $n$ verschiedene Nullstellen.
 	\end{enumerate}
 \end{satz}
 
@@ -1594,49 +1594,50 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item \glqq$\Leftarrow$\grqq: $t-a$ teilt $p(t)\Rightarrow \exists q(t) \in R[t]$ sodass $p(t) = q(t)\cdot (t-a)\Rightarrow\ev_a (p(t)) = \ev_a(q(t))\cdot\ev_a(t-a) = 0 \Rightarrow a $ ist NST von $p(t)$.
-		
-		\glqq$\Rightarrow$\grqq: Sei $a$ NST von $p(t)$ Sei
-		\begin{eqnarray*}
-			\phi\colon R&\longto & R[t]\\
-			r & \longmapsto & r\cdot 1\\[1mm]
-			\xRightarrow{7.12} \ev_{t-a} \colon R[t]& \longto & R[t]\\
-			t&\longmapsto &t-a\\[1mm]
-			\ev_{t+a}\colon R[t] & \longto & R[t]\\
-			t & \longmapsto & t+a
-		\end{eqnarray*}
-		$\Rightarrow  \ev_{t-a}\circ \ev_{t+a} = id_{R[t]} = \ev_{t+a}\circ \ev_{t-a}$
-		(Für alle $r\in R$ gilt $r1\mapsto r1; t\mapsto t+a\mapsto (t-a)+a = t$).
-		
-		Es gilt: 
-		\begin{center}
-			\begin{tikzcd}
+		\item \begin{description}
+			\item[\glqq$\Leftarrow$\grqq:] Gilt $t-a \mid p(t)$, so existiert ein $q(t) \in R[t]$, sodass $p(t) = q(t)\cdot (t-a)$. Dann folgt $\ev_a (p(t)) = \ev_a(q(t))\cdot\ev_a(t-a) = 0$, und $a$ ist somit eine Nullstelle von $p(t)$.
+			\item[\glqq$\Rightarrow$\grqq:] Sei $a$ eine Nullstelle von $p(t)$ und weiterhin
+			\begin{eqnarray*}
+				\phi\colon R&\longhookrightarrow & R[t]\\
+				r & \longmapsto & r\cdot 1\\[1mm]
+				\xRightarrow{7.12} \ev_{t-a} \colon R[t]& \longto & R[t]\\
+				t&\longmapsto &t-a\\[1mm]
+				\ev_{t+a}\colon R[t] & \longto & R[t]\\
+				t & \longmapsto & t+a
+			\end{eqnarray*}
+			$\Rightarrow  \ev_{t-a}\circ \ev_{t+a} = \id_{R[t]} = \ev_{t+a}\circ \ev_{t-a}$
+			(für alle $r\in R$ gilt $r1\mapsto r1$ sowie $t\mapsto t+a\mapsto (t-a)+a = t$ und umgekehrt).
+			
+			Es gilt:
+			\begin{center}
+				\begin{tikzcd}
 					R[t] \arrow{rd}[swap]{\ev_0} \arrow{r}{\ev_{t-a}} & R[t] \arrow{d}{\ev_{a}} \\
 					& R \\
-			\end{tikzcd}
-		\end{center}
-		$\ev_a \circ \ev_{t-a} = \ev_0$ bzw. $\ev_0\circ \ev_{t+a} = \ev_a$
+				\end{tikzcd}
+			\end{center}
+			$\ev_a \circ \ev_{t-a} = \ev_0$ bzw. $\ev_0\circ \ev_{t+a} = \ev_a$
+			
+			$\Rightarrow \ev_a(p(t)) = 0\Rightarrow \ev_0(\ev_{t+a}(p(t))) = 0\Rightarrow t$ teilt $\ev_{t+a}(p(t))\Rightarrow \exists q(t)\in R[t]$ sodass $q(t)\cdot t = \ev_{t+a}(p(t))\Rightarrow p(t) = \ev_{t-a}(ev_{t+a}(p(t))) = \ev_{t-a}(q(t))\cdot \ev_{t-a}(t) = \ev_{t-a}(q(t)) \cdot(t-a)\Rightarrow t-a$ teilt $p(t)$.
+		\end{description}
+		\item Es seien $m,n\in\IN_0$. Dann hat man
+		\[p(t)q(t) = \left(\sum_{i = 0}^{m}a_it^i\right)\left(\sum_{i = 0}^{n}b_it^i\right) = a_nb_mt^{n+m}+\dots,\] wobei $a_n$ und $b_n$ als Leitkoeffizienten nicht $0$ sind, also $a_mb_n\neq 0$, da $R$ ein Integritätsbereich ist. Es folgt $\deg(p(t)q(t)) = n+m$.
 		
-		$\Rightarrow \ev_a(p(t)) = 0\Rightarrow \ev_0(\ev_{t+a}(p(t))) = 0\Rightarrow t$ teilt $\ev_{t+a}(p(t))\Rightarrow \exists q(t)\in R[t]$ sodass $q(t)\cdot t = \ev_{t+a}(p(t))\Rightarrow p(t) = \ev_{t-a}(ev_{t+a}(p(t))) = \ev_{t-a}(q(t))\cdot \ev_{t-a}(t) = \ev_{t-a}(q(t)) \cdot(t-a)\Rightarrow t-a$ teilt $p(t)$.
-		
-		\item $m,n\in\IN_0$:
-		$$p(t)q(t) = (\sum_{i = 0}^{m}a_it^i)(\sum_{i = 0}^{n}b_it^i) = a_nb_mt^{n+m}+\dots,$$ wobei $a_n,b_m \neq 0$ sind, also $a_mb_n\neq 0$, da $R$ Integritätsbereich ist. $\Rightarrow \deg(p(t)q(t)) = n+m$.
-		
-		\item Induktion nach Grad:
-		
-		$\deg(p(t)) = 1$: $p(t) = b_1t+b_0; b_0,b_1\in R$. Falls $a$ Nullstelle von $p(t)$, gilt nach 1: $\exists r\in R\setminus\{0\}$ sodass $r(t-a) = b_1t+b_0\Rightarrow r = b_1$ und $-ar = b_0$. Annahme: $a'$ weitere Nullstelle. Dann ist $-ar = -a'r' = -a'r$, da $r = b_1 = r'$, also $r(a'+(-a)) = 0$. Da $R$ Integritätsbereich und $r\neq 0$, muss $a' = a$ gelten.
-		
-		Sei nun $\deg(p(t)) = n>1$. Sei $a$ Nullstelle von $p(t)$. Dann folgt mit Teil 1 des Satzes: $(t-a) q(t) = p(t)$ für ein $q(t)\in R[t]$ mit $\deg(q(t)) = n-1$ (nach Teil 2 des Satzes).
-		
-		Also gilt nach der Induktionsvoraussetzung: $q(t)$ hat maximal $n-1$ Nullstellen.
-		
-		Behauptung: $b$ ist genau dann Nullstelle von $p(t)$, wenn $b$ Nullstelle von $q(t)$ ist oder $b = a$.
-		
-		\glqq$\Leftarrow$\grqq: $b$ Nullstelle von $q(t)$: $\ev_{b}(p(t)) = \ev_{b}(q(t))\cdot \ev_b{t-a} = 0\cdot \ev_{b}(t-a) = 0$ oder $b = a:$: $\ev_{b}(p(t)) = \ev_{b}(q(t))\cdot \ev_b{t-a} = \ev_{b}(q(t))\cdot 0 = 0$.
-		
-		\glqq$\Rightarrow$\grqq: $b$ Nullstelle von $p(t) \Rightarrow 0 = \ev_{b}(p(t)) = \ev_{b}(q(t))\cdot \ev_{b}(t-a)\xRightarrow{R \text{ Int-b.}} \ev_{b}(q(t)) = 0\Rightarrow b$ Nullstelle von $q(t)$ oder $\ev_b(t-a) = 0\Rightarrow b = a$.
-		
-		$\Rightarrow p(t)$ hat maximal $n$ verschiedene Nullstellen.
+		\item Wir führend eine Induktion nach dem Grad von $p(t)$.
+		\begin{description}
+			\item[Induktionsanfang:] Für $\deg(p(t)) = 1$ ist $p(t) = b_1t+b_0$ mit $b_0,b_1\in R$. Falls $a$ eine Nullstelle von $p(t)$ ist, so existiert nach Teil 1 ein $r\in R\setminus\{0\}$, sodass $r(t-a) = b_1t+b_0$. Daraus folgt $r = b_1$ und $-ar = b_0$. Wir nehmen an, $a' \in R$ sei eine weitere Nullstelle. Dann ist $-ar = -a'r' = -a'r$, da $r = b_1 = r'$, also $r(a'+(-a)) = 0$. Da $R$ ein Integritätsbereich und $r\neq 0$ ist, muss $a' = a$ gelten.
+			\item[Induktionsschritt:] Sei nun $\deg(p(t)) = n>1$ sowie $a$ eine Nullstelle von $p(t)$. Dann existiert wieder mit Teil 1 des Satzes ein $q(t)\in R[t]$ mit $(t-a) q(t) = p(t)$ und $\deg(q(t)) = n-1$ (nach Teil 2 des Satzes).
+			
+			Also gilt nach der Induktionsvoraussetzung: $q(t)$ hat maximal $n-1$ Nullstellen.
+			
+			\emph{Behauptung}: $b$ ist genau dann eine Nullstelle von $p(t)$, wenn eine $b$ Nullstelle von $q(t)$ oder $b = a$ ist.
+			
+			\begin{description}
+				\item[\glqq$\Leftarrow$\grqq:] Ist $b$ eine Nullstelle von $q(t)$, so erhalten wir $\ev_{b}(p(t)) = \ev_{b}(q(t))\cdot \ev_b(t-a) = 0\cdot \ev_{b}(t-a) = 0$. Ist $b=a$, so folgt ebenfalls $\ev_{b}(p(t)) = \ev_{b}(q(t))\cdot \ev_b(t-a) = \ev_{b}(q(t))\cdot 0 = 0$.
+				\item[\glqq$\Rightarrow$\grqq:] Ist $b$ Nullstelle von $p(t)$, so folgt von $R$ dann $0 = \ev_{b}(p(t)) = \ev_{b}(q(t))\cdot \ev_{b}(t-a)$. Da $R$ ein Integritätsbereich ist, hat man $\ev_{b}(q(t)) = 0$, also ist $b$ eine Nullstelle von $q(t)$, oder $\ev_b(t-a) = 0$, also $b=a$.
+			\end{description}
+			
+			Folglich hat $p(t)$ maximal $n$ verschiedene Nullstellen.
+		\end{description}
 	\end{enumerate}
 \end{proof}
 
@@ -1647,68 +1648,69 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 \begin{bem}
 	\leavevmode
 	\begin{enumerate}
-		\item $K$ algebraisch abgeschlossen; $p(t)\in K[t], \deg(p(t)) =n > 0\Rightarrow \exists c\in K^{\times}, a_1,\dots,a_n\in K$ nicht zwangsweise verschieden, sodass $p(t) = c(t-a_1)\dots (t-a_n)$. (Beweis: Teil 3 von Satz 7.14 induktiv anwenden)
+		\item Es sei $K$ algebraisch abgeschlossen sowie $p(t)\in K[t]$ mit $\deg(p(t)) =n > 0$. Dann existieren ein $c\in K^{\times}$ und $ a_1,\dots,a_n\in K$ (nicht zwangsweise verschieden), sodass $p(t) = c(t-a_1)\dots (t-a_n)$. (Beweis: Teil 3 von Satz 7.14 induktiv anwenden)
 		\item Oft schreibt man $K = \overline{K}$ für $K$ algebraisch abgeschlossen.
 	\end{enumerate}
 \end{bem}
 
 
 \begin{defi}
-	$S$ Ring, $R\subseteq S$ Unterring, $a_1,\dots,a_n\in S$ sodass $a_ix = xa_i\forall x\in R$, $a_ia_j = a_ja_i\forall 1\leq i,j\leq n$. Setze
-	$$ R[a_1,\dots,a_n] = \bigcap\limits_{S'\subseteq S,R\subseteq S', a_1,\dots,a_n\in S'}S'$$ %TODO: mach das schöner
+	Sei $S$ ein Ring und $R\subseteq S$ ein Unterring sowie $a_1,\dots,a_n\in S$ mit $a_ix = xa_i$ und $a_ia_j = a_ja_i$ für alle $x\in R$ $1\leq i,j\leq n$. Setze
+	\[ R[a_1,\dots,a_n] := \bigcap_{\mathclap{\substack{S'\subseteq S,\\R\subseteq S',\\ a_1,\dots,a_n\in S'}}}S'.\]
 	Dann heißt $R[a_1,\dots,a_n]$ der von $a_1,\dots,a_n$ erzeugte Unterring in $S$ über $R$. 
 \end{defi}
 
 
 \begin{bem}
-	\leavevmode$R[a_1,\dots,a_n]$ ist der kleinste Unterring von $S$, der $R$ und $a_1,\dots,a_n$ enthält.
-		\begin{proof}
-			\leavevmode
-			\begin{itemize}
-				\item $R[a_1,\dots,a_n]$ enthält $R$ und $a_1,\dots,a_n$ per Konstruktion.
-				\item Ist $S'$ ein weiterer solcher Unterring: $S'\supseteq \cap_{S''}S'' = R[a_1,\dots,a_n]$.
-			\end{itemize}
-		\end{proof}	
+	$R[a_1,\dots,a_n]$ ist der kleinste Unterring von $S$, der $R$ und $a_1,\dots,a_n$ enthält.
 \end{bem}
+\begin{proof}
+	$R[a_1,\dots,a_n]$ enthält $R$ und $a_1,\dots,a_n$ per Konstruktion.
+	Ist $S'$ ein weiterer solcher Unterring, so ist enthält er bereits $\bigcap_{S''}S'' = R[a_1,\dots,a_n]$, wobei $S''$ wie oben definiert ist.
+\end{proof}
 
 \begin{satz}
-	Sei $S$ Ring, $R\subseteq S$ Unterring, $a_1,\dots,a_n\in S$ mit $a_ia_j = a_ja_i$ und $a_ix = xa_i$ für alle $x\in R$ udn $1\leq i,j\leq n$. Sei $\phi \colon R\to S$ die Inklusion und $R[t_1,\dots, t_n] := ((\dots(R[t_1])[t_2])\dots)[t_n]$. Dann ist $R[a_1,\dots,a_n]$ das Bild des Auswertehomomorphismus' 
+	Sei $S$ ein Ring und $R\subseteq S$ ein Unterring sowie $a_1,\dots,a_n\in S$ mit $a_ia_j = a_ja_i$ und $a_ix = xa_i$ für alle $x\in R$ und $1\leq i,j\leq n$. Sei $\phi \colon R\hookrightarrow S$ die Inklusion und $R[t_1,\dots, t_n] := ((\dots(R[t_1])[t_2])\dots)[t_n]$. Dann ist $R[a_1,\dots,a_n]$ das Bild des Auswertungshomomorphismus 
 	\begin{eqnarray*}
-		\ev = \ev_{a_1,\dots,a_n} R[t_1,\dots,t_n] & \longto & S\\
+		\ev = \ev_{a_1,\dots,a_n}: R[t_1,\dots,t_n] & \longto & S\\
 		p(t_1,\dots t_n) & \longmapsto & p(a_1, \dots, a_n),
 	\end{eqnarray*}
-	wobei für 
-	$$ p (t_1,\dots, t_n) = \sum_{(m_1,\dots,m_n)\in\IN_{0}^n}b_{m_1,\dots,m_n}\cdot t_1^{m_1}\dots t_n^{m_n}$$
-	(fast alle $b_{m_1,\dots,m_n} = 0$) gesetzt wird
-	$$ p(a_1,\dots, a_n ) = \sum_{(m_1,\dots, m_n)\in \IN_0^n} b_{m_1,\dots,m_n}a_1^{m_1}\dots a_n^{m_n}$$
-	
+	wobei
+	\begin{align*}
+		p (t_1,\dots, t_n) &= \sum_{\mathclap{(m_1,\dots,m_n)\in\IN_{0}^n}}b_{m_1,\dots,m_n}\cdot t_1^{m_1}\dots t_n^{m_n} \\
+		\intertext{(fast alle $b_{m_1,\dots,m_n} = 0$) auf}
+		p(a_1,\dots, a_n ) &= \sum_{\mathclap{(m_1,\dots, m_n)\in \IN_0^n}} b_{m_1,\dots,m_n}a_1^{m_1}\dots a_n^{m_n}
+	\end{align*}
+	abgebildet wird.
 \end{satz}
 
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}
-		\item $\ev$ ist wohldefinierter Ringhomomorphismus: 
-		$$ R[t_1,\dots, t_n]\xlongrightarrow{\ev_{a_n}} R[t_1,\dots t_{n-1}]\xlongrightarrow{\ev_{a_{n-1}}}\dots \xlongrightarrow{\ev_{a_2}}R[t_1]\ev_{a_1} S$$
-		$$\sum b_{m_1,\dots, m_n}t^{m_1}\dots t_n^{m_n}\longmapsto \sum b_{m_1,\dots m_n} a_n^{m_n}\dots a_1^{m_1} = \sum b_{m_1,\dots, m_n}a_1^{m_1}\dots a_n^{m_n}$$
-		$\Rightarrow \ev$ ist als Verknüpfung von Ringhomos wieder ein wohldefinierter Ringhomomorphismus.
-		\item Es gilt für $r\in R$: $\ev(rt_1^0\dots t_n^0) = ra_1^0\dots a_n^0 = r\Rightarrow R\subseteq \im (\ev)$
+	\begin{description}
+		\item[Wohldefiniertheit:]
+		\begin{equation*}
+		\begin{gathered}
+			R[t_1,\dots, t_n]\xlongrightarrow{\ev_{a_n}} R[t_1,\dots t_{n-1}]\xlongrightarrow{\ev_{a_{n-1}}}\dots \xlongrightarrow{\ev_{a_2}}R[t_1]\ev_{a_1} (S) \\
+			\sum b_{m_1,\dots, m_n}t^{m_1}\dots t_n^{m_n}\longmapsto \sum b_{m_1,\dots m_n} a_n^{m_n}\dots a_1^{m_1} = \sum b_{m_1,\dots, m_n}a_1^{m_1}\dots a_n^{m_n}
+		\end{gathered}
+		\end{equation*}
+		Somit ist $\ev$ als Verknüpfung von Ringhomomorphismen wieder ein wohldefinierter Ringhomomorphismus.
+		\item[$R\lbrack a_1,\dots,a_n\rbrack = \im \ev$:] Für $r\in R$ gilt $\ev(rt_1^0\dots t_n^0) = ra_1^0\dots a_n^0 = r$, also folgt $R\subseteq \im (\ev)$.
 		
-		$\ev(1t_1^0\dots t_{i-1}^0t_1^1t_{i+1}^0\dots t_n^0) = 1a_i = a_i \Rightarrow a_i\in\im(\ev) \Rightarrow R[a_1,\dots, a_n]\subseteq \im(\ev)$.
+		Da nun $\ev(1t_1^0\dots t_{i-1}^0t_1^1t_{i+1}^0\dots t_n^0) = 1a_i = a_i$, erhalten wir $a_i\in\im \ev$ und dadurch $R[a_1,\dots, a_n]\subseteq \im(\ev)$.
 		
-		Sei $S'\subseteq S$ Unterring mit $R\subseteq S'$ und $a_1,\dots, a_n\in S'$.
-		
-		$\Rightarrow p(a_1,\dots,a_n) = \sum b_{m_1,\dots,m_n}a_1^{m_1}\dots a_n^{m_n}\in S'$, da $S'$ abgeschlossen unter $+$ und $\cdot$. $\Rightarrow R[a_1,\dots,a_n] = \im(\ev)$.
-	\end{enumerate}
+		Sei $S'\subseteq S$ ein Unterring mit $R\subseteq S'$ und $a_1,\dots, a_n\in S'$. Dann ist $p(a_1,\dots,a_n) = \sum b_{m_1,\dots,m_n}a_1^{m_1}\dots a_n^{m_n}\in S'$, da $S'$ unter $+$ und $\cdot$ abgeschlossen ist. Man hat schließlich $R[a_1,\dots,a_n] = \im \ev$.
+	\end{description}
 \end{proof}
 
 \begin{defi}
-	Sei $S$ kommutativer Ring, $R\subseteq S$ Unterring, $a_1,\dots, a_n\in S$. Dann heißen $a_1,\dots,a_n$ algebraisch unabhängig (über $R$), fallls $\ev = \ev_{a_1,\dots, a_n}$ (von Satz 7.15) injektiv ist.
+	Seien $S$ ein kommutativer Ring und $R\subseteq S$ ein Unterring sowie $a_1,\dots, a_n\in S$. Dann heißen $a_1,\dots,a_n$ algebraisch unabhängig (über $R$), fallls $\ev = \ev_{a_1,\dots, a_n}$ (von Satz 7.15) injektiv ist.
 	
 	Falls $\ev$ nicht injektiv ist, so heißen $a_1,\dots, a_n$ algebraisch abhängig (über $R$).
 \end{defi}
 
 \begin{lem}
-	Gleiche Voraussetzungen wie in der Definition oben.
+	Seien $S$ ein kommutativer Ring und $R\subseteq S$ ein Unterring sowie $a_1,\dots, a_n\in S$.
 	\begin{enumerate}
 		\item $a_1,\dots,a_n$ algebraisch abhängig über $R$ $\Leftrightarrow \exists p(t_1,\dots,t_n)\in R[t_1,\dots,t_n]\setminus\{0\}$ sodass $p(a_1,\dots,a_n) = 0$.
 		\item $a_1,\dots, a_n$ algebraisch unabhängig (über $R$) $\Leftrightarrow$ $p(a_1,\dots,a_n) = 0$ für $p(t_1,\dots, t_n)\in R[t]$ impliziert $p(t_1,\dots, t_n) = 0$.
@@ -1719,45 +1721,47 @@ Spezialfall: $n = 1$: $a\in S$ algebraisch abhängig über $R$, falls $p(a) = 0$
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-		\item $1,i\in\IC$ linear unabhängig über $\IR$, aber algebraisch abhängig, denn $p(t_1,t_2) = t_1+t_2^2; \ev_{1,i}(p(t_1,t_2)) = 1+i^2 = 0$.
+		\item $1,\ima\in\IC$ linear unabhängig über $\IR$, aber algebraisch abhängig, denn mit $p(t_1,t_2) = t_1+t_2^2$ hat man $\ev_{1,\ima}(p(t_1,t_2)) = 1+\ima^2 = 0$.
 		
-		Schon $i\in \IC$ alg. abhängig über $\IR$, $\ev_{i}(1+t^2) = 1+i^2  = 0$.
-		\item $a\in S$ beliebig ($S$ kommutativ) ist algebraisch abhängig über $S$: $\ev_a(t-a) = a-a = 0$.
-		\item $S =R[t_1,\dots, t_n]$, dann sind $t_1,\dots t_n$ algebraisch unabhängig über $R$, weil $\ev_{t_1,\dots, t_n}\colon R[t_1,\dots,t_n]\to R[t_1,\dots, t_n] = id_{R[t_1,\dots t_n]}$ offensichtlich injektiv. %TODO: FIX THIS OVERFULL HBOX
-		\item algebraisch über $\IQ$ unabhängige $x\in\IR$ heißen transzendente Zahlen.
+		Schon $\ima\in \IC$ algebraisch abhängig über $\IR$, man betrachte $\ev_{\ima}(1+t^2) = 1+\ima^2  = 0$.
+		\item Sei $S$ ein kommutativer Ring sowie $a\in S$. Dann ist $s$ ist algebraisch abhängig über $S$: $\ev_a(t-a) = a-a = 0$.
+		\item Ist $S =R[t_1,\dots, t_n]$, dann sind $t_1,\dots t_n$ algebraisch unabhängig über $R$, weil $\ev_{t_1,\dots, t_n}\colon R[t_1,\dots,t_n]\to R[t_1,\dots, t_n] = \id_{R[t_1,\dots t_n]}$ offensichtlich injektiv ist.
+		\item Algebraisch über $\IQ$ unabhängige Zahlen in $\IR$ heißen transzendente Zahlen.
 	\end{enumerate}
 \end{bsp}
 
 \lecture{13. November 2017}
 \subsection{Faktorielle Ringe}
 Ab jetzt sind alle Ringe kommutativ.
-\begin{defi} $R$ Integritätsbereich (d.h. $R\neq\{0\}$ und nullteilerfrei). Sei $a\in R$, $a\neq 0$, $a\notin R^{\times}$. 
+\begin{defi} Sei $R$ ein Integritätsbereich (also $R\neq\{0\}$ und nullteilerfrei) sowie $a\in R$, $a\neq 0$, $a\notin R^{\times}$. Weiterhin seien $b,c \in R$.
 \begin{itemize}
-	\item $a$ heißt irreduzibel, falls: ($a = b\cdot c\Rightarrow b \in R^{\times}$ oder $c\in R^{\times}$).
-	\item $a$ heißt prim, falls: ($a$ teilt $b \cdot c\Rightarrow a$ teilt $b$ oder $a$ teilt $c$), wobei jeweils $b,c\in R$ gilt.
-	\item $R$ faktorieller Ring, falls zusätzlich für $b\in R, b\neq 0$ existiert Zerlegung
-	$$\text{PZ}\qquad b = \epsilon p_1p_2\dots p_r \text{ für ein $r\in\IN$}$$
-	mit $\epsilon\in R^{\times}$ und $p_1,\dots, p_r\in R$ irreduzibel und diese Zerlegung ist \glqq eindeutig\grqq, wobei \glqq eindeutig\grqq\ bedeutet eindeutig bis auf Einheiten und Reihenfolge der Faktoren. (d.h. falls $b = \epsilon'p_1'\dots p_s'$ für $\epsilon'\in R^{\times}$ und $p_1',\dots, p_s'$ irreduzibel, dann gilt $s = r$ und $\exists c_1,\dots, c_r\in R^{\times}$ und $\pi \in S_r$, sodass $p_i' = c_ip_{\pi(i)}$).
+	\item $a$ heißt irreduzibel, falls \[a = b\cdot c\quad\Longrightarrow\quad \text{$b \in R^{\times}$ oder $c\in R^{\times}$}.\]
+	\item $a$ heißt prim, falls \[a \mid b\cdot c\quad\Longrightarrow\quad \text{$a \mid b$ oder $a \mid c$}.\]
+	\item $R$ ist ein faktorieller Ring, falls zusätzlich für $b\in R, b\neq 0$ eine eindeutige Zerlegung \glqq PZ \grqq{}
+	\[b = \epsilon p_1p_2\dots p_r \text{ für ein $r\in\IN$}\]
+	mit $\epsilon\in R^{\times}$ und irreduziblen $p_1,\dots, p_r\in R$ existiert. Die Eindeutigkeit besteht hierbei bis auf Einheiten und Reihenfolge der Faktoren, das heißt, falls $b = \epsilon'p_1'\dots p_s'$ für $\epsilon'\in R^{\times}$ und $p_1',\dots, p_s'$ irreduzibel, dann gilt $s = r$ und es existieren $c_1,\dots, c_r\in R^{\times}$ und ein $\pi \in S_r$, sodass $p_i' = c_ip_{\pi(i)}$ für alle $1 \le i \le s=r$ gilt.
 \end{itemize}
 \end{defi}
 
 \begin{bsp}
-	$R = \IZ$. Sei $a\in\IZ, a\neq 0, a\notin\{\pm1\} = \IZ^{\times}$. Dann $a$ prim $\Leftrightarrow a = \pm p$, $p$ Primzahl $\Leftrightarrow a$ irreduzibel. $IZ$ ist faktoriell, denn jedes $b\in\IZ, b\neq 0$ hat Primzahlzerlegung $b = \epsilon p_1\dots p_r$ mit $p_i$ Primzahlen und $\epsilon \in\{\pm 1\} = \IZ^{\times}$. Dies ist \glqq eindeutig\grqq, z.B. $10 = 1\cdot 2\cdot 5 = (-1)(-2)\cdot 5 = (-1)2(-5)$ etc. 
+	$R = \IZ$. Sei $a\in\IZ$ mit $a\neq 0$ und $a\notin\{\pm1\} = \IZ^{\times}$. Dann erhalten wir \[\text{$a$ prim} \quad \Longleftrightarrow \quad \text{$a=\pm p$ mit $p$ prim} \quad\Longleftrightarrow\quad \text{$a$ irreduzibel}.\] $\IZ$ ist faktoriell, denn jedes $b\in\IZ, b\neq 0$ hat eine Primzahlzerlegung $b = \epsilon p_1\dots p_r$ mit $p_i$ prim und $\epsilon \in\{\pm 1\} = \IZ^{\times}$. Diese ist \glqq eindeutig\grqq, z.B. $10 = 1\cdot 2\cdot 5 = (-1)\cdot(-2)\cdot 5 = (-1)\cdot2\cdot(-5)$ etc. 
 \end{bsp}
 \begin{bsp}
-	$R = \IZ[\sqrt{-5}] = \{a+b\sqrt{5}i|a,b\in \IZ\}\subset \IC$ Unterring von $\IC$, genauer der von $\sqrt{5}i$ über $\IZ$ erzeugte Unterring in $\IC$. Dann sind $2,3,1+\sqrt{5}i, 1-\sqrt{5}i$ irreduzibel, insbesondere $1+\sqrt{5}i\notin R^{\times}$ (Übung!). Außerdem: $1+\sqrt{5}i\notin \{\epsilon 2,\epsilon3|\epsilon\in R^{\times}\}$ (Übung!).
+	$R = \IZ[\sqrt{-5}] = \{a+b\sqrt{5}\ima\mid a,b\in \IZ\}\subset \IC$. Das ist ein Unterring von $\IC$, genauer der von $\sqrt{5}\ima$ über $\IZ$ erzeugte Unterring in $\IC$, also \[\IZ[\sqrt{-5}] = \bigcap_{\mathclap{\substack{S \subseteq \IC \text{ Unterring}\\\IZ \subseteq S \\ \sqrt{5} \ima \in S }}}S. \]
+	Dann sind $2$, $3$, $1+\sqrt{5}\ima$, $1-\sqrt{5}\ima$ irreduzibel (Übung). Insbesondere ist $1+\sqrt{5}\ima\notin R^{\times}$, da es sonst $a,b \in \IZ$ gäbe, sodass $(1+\sqrt 5 \ima)(a+b\sqrt 5\ima)=1$ und somit $a-5b=1$ und $a+b=0$ ist, was aber unlösbar ist.
+	Außerdem: $1+\sqrt{5}i\notin \{\epsilon 2,\epsilon3 \mid\epsilon\in R^{\times}\}$ (Übung).
 	
-	Aber: $ 6 = 2\cdot 3 = (1+\sqrt{5})(1-\sqrt{5})$, also ist $R$ nicht faktoriell.
+	Aber es ist $ 6 = 2\cdot 3 = (1+\sqrt{5}\ima)(1-\sqrt{5}\ima)$, also ist $R$ nicht faktoriell, da die Zerlegung nicht eindeutig ist.
 \end{bsp}
 
 \begin{lem}
-	Sei $R$ Integritätsbereich, $a\in R$.
+	Sei $R$ ein Integritätsbereich und $a\in R$.
 	\begin{enumerate}
-		\item $a$ prim $\Leftrightarrow (a) \neq\{0\}, (a)$ Primideal
-		\item $a$ irreduzibel $\Leftrightarrow (a)\neq\{0\},(a)\neq R$ und $\forall b\in R:$ falls $(a) \subseteq (b)\Rightarrow (a) = (b) $ oder $(b) = R$.
+		\item $a$ prim $\Longleftrightarrow (a) \neq\{0\}$, $(a)$ Primideal
+		\item $a$ irreduzibel $\Longleftrightarrow (a)\neq\{0\}$, $(a)\neq R$ und $\forall b\in R: (a) \subseteq (b)\Rightarrow (a) = (b) \vee (b) = R$.
 	\end{enumerate}
 \end{lem}
-\begin{proof}
+\begin{proof}%TODO: sinnvoll "entkürzen" (besonders ohne beschriftete Pfeile)
 	\leavevmode
 	\begin{enumerate}
 	\item 
@@ -1782,61 +1786,62 @@ Ab jetzt sind alle Ringe kommutativ.
 
 
 
-\begin{satz} $R$ Integritätsbereich. Dann gilt für $a\in R$: \begin{enumerate}
-		\item $a$ prim$\Rightarrow a$ irreduzibel.
-		\item Falls $R$ Hauptidealring (HIR):
+\begin{satz} Sei $R$ ein Integritätsbereich. Dann gilt für $a\in R$: \begin{enumerate}
+		\item $a$ prim $\Longrightarrow a$ irreduzibel.
+		\item falls $R$ ein Hauptidealring ist:
 		\begin{enumerate}
-			\item $a$ prim $\Leftrightarrow a$ irreduzibel.
-			\item $\{0\}\neq I\subseteq R$ Ideal: $I$ Primideal $\Leftrightarrow I$ maximales Ideal.
+			\item $a$ prim $\Longleftrightarrow a$ irreduzibel.
+			\item $\{0\}\neq I\subseteq R$ Ideal: $I$ Primideal $\Longleftrightarrow I$ maximales Ideal.
 		\end{enumerate}
 	\end{enumerate}
 \end{satz}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item Sei $a = bc\xRightarrow{a\text{ prim}}a$ teilt $b$ oder $a$ teilt $c$.
-		
-		$\Rightarrow b = ar$ oder $c = ar$ für ein $r\in R$.  $\Rightarrow b = bcr$ oder $c = cbr$ für ein $r\in R\Rightarrow b(1-cr) = 0$ oder $c(1-br) =0$ für ein $r\in R$. Da $R$ nullteilerfrei ist und $b,c\neq 0$, weil $a\neq 0$, gilt $(1-cr )=0$ oder $(1-br) = 0$. Folglich ist $c$ eine Einheit oder $b$ eine Einheit. $\Rightarrow a$ irreduzibel.
+		\item Sei $a = bc$ mit $b,c \in R$. Da $a$ prim ist, folgt $a\mid b$ oder $a \mid c$, es ist also $b = ar$ oder $c = ar$ für ein $r\in R$.  Folglich haben wir $b = bcr$ oder $c = cbr$ und somit auch $b(1-cr)=0$ oder $c(1-br)=0$. Da $R$ nullteilerfrei ist und $b,c \neq 0$, weil $a \neq 0$, ist $c$ oder $b$ eine Einheit. Schließlich ist $a$ irreduzibel.
 		
 		\item \begin{enumerate}
-			\item Die eine Richtung folgt nach (1). Sei für die Rückrichtung nun $a$ irreduzibel. Nach Lemma 8.1 ist $(a)$ maximal unter allen Hauptidealen in $R$. Da $R$ ein Hauptidealring ist, ist $(a)$ sogar ein maximales Ideal. Aus Satz 7.10 folgt, dass $(a)$ ein Primideal ist. Nun ist $a$ prim nach 8.1, da $(a)\neq\{0\}$, weil $a$ irreduzibel, also insbesondere $a\neq 0$.
+			\item Die eine Richtung folgt nach 1.. Sei für die Rückrichtung nun $a$ irreduzibel. Nach Lemma 8.1 ist $(a)$ maximal unter allen Hauptidealen in $R$. Da $R$ ein Hauptidealring ist, ist $(a)$ sogar ein maximales Ideal. Aus Satz 7.10 folgt, dass $(a)$ ein Primideal ist. Nun ist $a$ prim nach 8.1, da $(a)\neq\{0\}$, weil $a$ irreduzibel, also insbesondere $a\neq 0$ ist.
 			
 			\item \begin{description}
-					\item[\glqq$\Leftarrow$\grqq:] nach 7.10
-					\item[\glqq$\Rightarrow$\grqq:] Sei $\{0\}\neq I\subseteq R$ Primideal. Da $R$ ein Hauptidealring ist, folgt: $\exists a\in R$ mit $I = (a)$ und $a$ prim nach 8.1. Mit Teil (1) folgt: $I = (a)$ mit $a$ irreduzibel. Nach Lemma 8.1 ist $I = (a) $ maximal unter allen Hauptidealen; da $R$ HIR ist, ist $I$ maximales Ideal.
+					\item[\glqq$\Leftarrow$\grqq:] siehe Satz 7.10
+					\item[\glqq$\Rightarrow$\grqq:] Sei $\{0\}\neq I\subseteq R$ ein Primideal. Da $R$ ein Hauptidealring ist, existiert ein $a\in R$ mit $I = (a)$, wobei $a$ nach Lemma 8.1 prim ist. Mit Teil 1. folgt $I = (a)$ und $a$ irreduzibel. Wieder nach Lemma 8.1 ist $I = (a) $ maximal unter allen Hauptidealen, und da $R$ ein Hauptidealring ist, ist $I$ tatsächlich ein maximales Ideal.
 					\end{description}
 			\end{enumerate}
 	\end{enumerate}
 \end{proof}
 
-\begin{defi} $R$ Integritätsbereich. $R$ heißt euklidischer Ring, falls eine Abbildung
+\begin{defi} Sei $R$ ein Integritätsbereich. $R$ heißt euklidischer Ring, falls eine Abbildung
 	$$\deg \colon R\setminus\{0\} \longto \IN$$
-	existiert, sodass für alle $a,b\in R, b\neq 0$ gilt: $\exists q, r\in R$ mit $a = qb+r$, sodass $r = 0$ oder $\deg(r)<\deg(b)$.
+	existiert, sodass für alle $a,b\in R, b\neq 0$ dann $q, r\in R$ mit \[a = qb+r \text{ und $r = 0$ oder $\deg(r)<\deg(b)$}\] existieren.
 \end{defi}
 
 \begin{satz}
-	$R$ euklidisch $\Rightarrow R$ Hauptidealring.
+	Jeder euklidische Ring ist ein Hauptidealring.
 \end{satz}
 \begin{proof}
 	Wie für $R = \IZ$.
 \end{proof}
 
 \begin{satz}
-	$R$ Hauptidealring $\Rightarrow R$ faktoriell.
+	Jeder Hauptidealring ist faktoriell.
 \end{satz}
 
-\begin{proof} Sei $0\neq b\in R$. Zu zeigen: Primfaktorzerlegung (PZ) existiert. Wir nehmen an, dass (PZ) nicht existiert, also insbesondere ist $b$ nicht irreduzibel.
-$\Rightarrow \exists b_1,c_1\neq R^{\times}: b = b_1c_1$ und nicht beide Faktoren haben eine Primfaktorzerleugn. OBdA hat $b_1$ keine (PZ), insbesondere $b_1$ nicht irreduzibel. Folglich existieren $b_2,c_2\notin R^{\times}: b_1 = b_2c_2$ und oBdA hat $b_2$ keine (PZ) etc.
-
-$\Rightarrow (b_1)\subset (b_2)\subset (b_3)\subset (b_4)\subset \dots$ für gewisse $b_i\in R$ und $(b_i)\subsetneq (b_{i+1})$: denn sonst $b_i = b_{i+1}c_{i+1}$ für ein $c_{i+1}\in R$ und $b_{i+1} = b_ic_i'$ für ein $c_i'\in R \Rightarrow b_i(1-c_i'c_{i+1}) = 0$. Da $R$ nullteilerfrei ist, folgt $c_{i+1}\in R^{\times}$ für alle $i+1$, was im Widerspruch zur Konstruktion steht.
-
-Setze nun $I : = \bigcup\limits_{i = 1}^{\infty}(b_i)$. Das ist Ideal (klar) und somit $I = (d)$ für ein $d\in R$, weil $R$ HIR ist. Nach Definition von $I$ existiert ein $b_i$ mit $d\in (b_i)$, also $(d)\subseteq (b_i)$, weil $(b_i)$ Ideal. $\Rightarrow (d) \subseteq (b_i)\subseteq I = (d)\Rightarrow (b_i) = (d)\subseteq (b_j) = (d) \forall j>i$. Das ist nun ein Widerspruch zu $(b_i) \subsetneq (b_{i+1})$. Folglich hat $b$ eine Primfaktorzerlegung. Dadurch haben wir nun die Existenz der (PZ); wir zeigen nun noch Eindeutigkeit:
-
-Seien $b = \epsilon p_1\dots p_r$ und $b = \epsilon'p_1'\dots p_s'$ zwei Zerlegungen mit $\epsilon, \epsilon'\in R^{\times}, p_i, p_j'\in R$ irreduzibel ($1\leq i\leq r, 1\leq j\leq s$). Betrachte $p_1'$. Nach (2): $p_1'$ teilt $b$; also $p_1'$ teilt $p_i$ für ein $i$ ($1\leq i\leq r$) oder $p_1'$ teilt $\epsilon$ (denn $p_1'$ ist irreduzibel und damit prim, weil $R$ HIR). Fall $p_1'$ teilt $\epsilon$, dann gilt $p_1'\in R^{\times}$ im Widerspruch zu $p_1'$ irreduzibel.
-
-Also: $\exists i: p_1'$ teilt $p_i$. OBdA sei $i = 1$ (evtl umnummerieren). Also ist $p_1 = p_1'c$ für ein $c\in R$. Da $p_1$ irreduzibel ist, ist $p_1'\in R^{\times}$ oder $c\in R^{\times}$. $p_1'$ ist aber irreduzibel und damit insbesondere keine Einheit; folglich ist $c\in R^{\times}$.
-
-$\Rightarrow \epsilon cp_1'p_2\dots p_r = b = \epsilon 'p_1'p_2'\dots p_s'$. Da $R$ nullteilerfrei ist, darf man hier kürzen: $\epsilon c p_2\dots p_r = \epsilon 'p_2'\dots p_s'$. Iteriere dieses Argument nun und erhalte schließlich $r = s$ und $p_i = p_{\pi(i)}'c_i$ für $c_i\in R^{\times}$ und $\pi\in S_r\Rightarrow$ \glqq Eindeutigkeit\grqq.
+\begin{proof} Sei $R$ ein Hauptidealring und $0\neq b\in R$. Es ist nun die Existenz einer eindeutigen Primfaktorzerlegung zu zeigen.
+\begin{description}
+	\item[Existenz:] Wir nehmen an, dass diese nicht existiert, also insbesondere $b$ nicht irreduzibel ist. Dann existieren $b_1,c_1\notin R^{\times}$ mit $b = b_1c_1$, wobei nicht beide Faktoren eine Primfaktorzerlegung haben. O.B.d.A. habe $b_1$ keine Primfaktorzerlegung, insbesondere $b_1$ nicht irreduzibel. Folglich existieren $b_2,c_2\notin R^{\times}$ mit $b_1 = b_2c_2$ und o.B.d.A. habe $b_2$ keine (PZ) etc.
+	
+	Wir erhalten eine Kette echter Inklusionen
+	\[(b_1)\subset (b_2)\subset (b_3)\subset (b_4)\subset \dots\] für gewisse $b_i\in R$. Es gilt tatsächlich $(b_i) \subsetneq (b_{i+1})$, denn sonst wäre $b_i = b_{i+1}c_{i+1}$ für ein $c_{i+1}\in R$ und $b_{i+1} = b_ic_i'$ für ein $c_i'\in R$, also $b_i(1-c_i'c_{i+1}) = 0$. Da $R$ nullteilerfrei ist, folgt $c_{i+1}\in R^{\times}$ für alle $i$, was im Widerspruch zur Konstruktion steht.
+	
+	Setze nun $I : = \bigcup\limits_{i = 1}^{\infty}(b_i)$. Dies ist ein Ideal und somit folgt $I = (d)$ für ein $d\in R$, weil $R$ ein Hauptidealring ist. Nach Definition von $I$ existiert ein $b_i$ mit $d\in (b_i)$, also $(d)\subseteq (b_i)$, weil $(b_i)$ ein Ideal ist. Wir erhalten unmittelbar $(d) \subseteq (b_i)\subseteq I = (d)$ oder $(b_i) = (d)\subseteq (b_j) = (d)$ für alle $j>i$. Das ist nun ein Widerspruch zu $(b_i) \subsetneq (b_{i+1})$. Folglich existiert für $b$ eine Primfaktorzerlegung.
+	\item[Eindeutigkeit:] Seien $b = \epsilon p_1\dots p_r$ und $b = \epsilon'p_1'\dots p_s'$ zwei Zerlegungen mit $\epsilon, \epsilon'\in R^{\times}$ und irreduziblen $p_i, p_j'\in R$ für $1\leq i\leq r$, $1\leq j\leq s$. Betrachte $p_1'$. Nach Satz 8.1 2a) ist $p_1'$ als irreduzibles Element schon prim. Da $p_1'\mid b$, folgt $p_1'\mid p_i$ für ein $i$ ($1\leq i\leq r$) oder $p_1'$ teilt $\epsilon$. Letztes kann aber nicht eintreten, da sonst $p_1'\in R^{\times}$ ist, was im Widerspruch zur Irreduzibilität von $p_1'$ steht.
+	
+	Es sei also $i$ so fixiert, dass $p_1' \mid p_i$. O.B.d.A. sei $i = 1$ (eventuelle Umnummerierung). Also ist $p_1 = p_1'c$ für ein $c\in R$. Da $p_1$ irreduzibel ist, ist $p_1'\in R^{\times}$ oder $c\in R^{\times}$. $p_1'$ ist aber irreduzibel und damit insbesondere keine Einheit; folglich ist $c\in R^{\times}$.
+	
+	Wir erhalten somit $\epsilon cp_1'p_2\dots p_r = b = \epsilon 'p_1'p_2'\dots p_s'$. Da $R$ nullteilerfrei ist, darf man hier kürzen: $\epsilon c p_2\dots p_r = \epsilon 'p_2'\dots p_s'$. Wir wenden nun dieses Argument iterativ an und erhalten schließlich $r = s$ und $p_i = p_{\pi(i)}'c_i$ für $c_i\in R^{\times}$ und $\pi\in S_r$, was genau die gewünschte Eindeutigkeit darstellt.
+\end{description}
+Somit ist $R$ faktoriell.
 \end{proof}
 
 \begin{bem}
@@ -1845,15 +1850,15 @@ $\Rightarrow \epsilon cp_1'p_2\dots p_r = b = \epsilon 'p_1'p_2'\dots p_s'$. Da 
 
 \subsection{Maximale Ideale: Existenz}
 \begin{satz}
-	$R$ kommutativer Ring, %whyever, sind Ringe nicht sowieso schon kommutativ?
-	$R \neq \{0\}$
+	Sei $R$ ein kommutativer Ring %whyever, sind Ringe nicht sowieso schon kommutativ?
+	und $R \neq \{0\}$.
 	\begin{enumerate}
-		\item $R$ besitzt maximale Ideale (und damit auch Primideale nach 7.10)
+		\item $R$ besitzt maximale Ideale (und damit auch Primideale nach Satz 7.10).
 		\item Jedes Ideal $I\subseteq R$, $I \neq R$ ist in einem (nicht notwenig eindeutigen!) maximalen Ideal enthalten.
 	\end{enumerate}
 \end{satz}
 \begin{proof}
-	Wir zeigen zunächst (2) unter der Annahme von (1): Sei $I\neq R\Rightarrow R/I \neq \{0\}$  und besitzt daher nach (1) maximales Ideal. Nach Satz 7.9 existiert ein maximales Ideal $J\subseteq R$ mit $J\supseteq I$.
+	Wir zeigen zunächst 2. unter der Annahme von 1.: Sei $I\neq R$ ein Ideal in $R$. Dann ist $R/I \neq \{0\}$  und besitzt daher nach 1. ein maximales Ideal. Nach Satz 7.9 existiert ein maximales Ideal $J\subseteq R$ mit $J\supseteq I$.
 \end{proof}
 
 
