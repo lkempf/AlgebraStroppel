@@ -1859,7 +1859,79 @@ Somit ist $R$ faktoriell.
 \end{satz}
 \begin{proof}
 	Wir zeigen zunächst 2. unter der Annahme von 1.: Sei $I\neq R$ ein Ideal in $R$. Dann ist $R/I \neq \{0\}$  und besitzt daher nach 1. ein maximales Ideal. Nach Satz 7.9 existiert ein maximales Ideal $J\subseteq R$ mit $J\supseteq I$.
+	
+	\lecture{16. November 2017}
+	
+	Noch zu zeigen: (1) Betrachte dafür $M := \{I\subseteq R| I\text{ Ideal,} I \neq R\}$. Betrachte nun die partielle Ordnung $\leq$ auf $M$ gegeben durch $I_1\leq I_2$ falls $I_1\subseteq I_2$. Sei $N\subseteq M$ total geordnete Teilmenge. Dann betrachte $\tilde{I} = \bigcup\limits_{I\in N} I$ ist Ideal (klar; das kannst du dir in einer ruhigen Minute selbst überlegen).
+	
+	$\tilde{I}\in M$, weil $1\notin \tilde{I}$, da $1\notin I\forall I\in N$ nach Definition von $N\subseteq M$.
+	
+	$\Rightarrow N$ hat obere Schranke in M. Nach dem Lemma von Zorn existiert ein maximales Element in $M$. Folglich besitzt $R$ ein maximales Ideal (im Allgemeinen nicht eindeutig).
 \end{proof}
+\begin{bsp}
+	$R = \IC[t], a\in \IC$. Dann ist
+	\begin{eqnarray*}
+		\ev_a\colon \IC[t] & \longto & \IC\\
+		p(t) & \mapsto & p(a)
+	\end{eqnarray*}
+	surjektiver Ringhomomorphismus. Es gilt $p(t) \in \ker\ev_a \Leftrightarrow p(a) = 0\Leftrightarrow a$ Nullstelle von $p(t)$. Nach Satz 7.13 ist das äquivalent dazu, dass $(t-a)$ das Polynom $p(t)$ teilt; also ist $p(t)$ Element des von $(t-a)$ erzeugten Ideals. Nach dem Homomorphiesatz für Ringe erhalten wir einen Isomorphismus
+	$$ \IC[t]/(t-a) \longto \IC$$
+	Da $\IC$ Körper ist, ist $I = (t-a)$ maximales Ideal (für jedes $a\in \IC$).
+\end{bsp}
+
+
+\subsection{Einschub: Chinesischer Restsatz}
+Stroppel hat eine Pralinenschachtel. Wenn jemand errät, wieviele Pralinen sich darin befinden, bekommt derjenige alle Pralinen (da niemand nachprüfen kann, ob das, was Stroppel bzgl der Anzahl der Pralinen behauptet, stimmt, wird vermutlich niemand die Pralinen bekommen). Wir wissen über die Anzahl der Pralinen: Wenn man sie auf vier Leute aufteilt, bleiben zwei übrig; wenn man sie auf sieben Personen verteilt, bleiben drei Pralinen übrig. Also
+\begin{eqnarray*}
+	x &\equiv & 2 \pmod 4\\
+	x &\equiv & 3 \pmod 7
+\end{eqnarray*}
+Eine Lösung ist zum Beispiel $x = 10$, aber laut Stroppel ist das nicht die Anzahl der Pralinen (die Pralinenschachtel sieht aber gar nicht so groß aus, als ob da noch wirklich viel mehr Pralinen darin sein könnten).
+
+Behauptung: Genau die Zahlen der Form $10+28k, k\in\IZ$ sind Lösungen.
+
+\begin{satz}[Chinesischer Restsatz]
+	Sei $R$ kommutativer Ring, $R\neq\{0\}$. Seien $I_1,\dots,I_s$ Ideale in $R$, sodass $I_i+I_j = R\forall i\neq j$. Dann existiert ein surjektiver Ringhomomorphismus:
+	\begin{eqnarray*}
+		\Phi\colon R & \longto & R/I_1\times \dots R/I_s\\
+		r & \longmapsto & (\overline{r},\dots, \overline{r})
+	\end{eqnarray*}
+	(wobei $\overline{r}$ jeweils die Nebenklasse von $r$ bezüglich dem passenden $I_i$ ist).
+	Dabei gilt $\ker\Phi = I_1\cap\dots\cap I_s$. Insbesondere erhalten wir einen Isomorphismus von Ringen:
+	$$ R/(I_1\cap\dots\cap I_s) \longto R/I_1 \times\dots \times R/I_s$$
+	
+\end{satz}
+
+
+\begin{proof}
+	$\Phi$ ist ein Ringhomomorphismus: nachrechnen.\\
+	$\Phi$ ist surjektiv: Nach Voraussetzung existieren für $1\leq i,j\leq s$ Elemente $a_{ij}\in I_i, a_{ji}\in I_j$ mit $a_{ij}+a_{ji} = 1$. Definiere nun
+	$$b_i = \prod_{j\neq i, 1\leq j\leq s} (1-a_{ij}) = \prod_{j\neq i, 1\leq j\leq s} a_{ji}$$
+	Es gilt
+	\begin{equation}
+	 \overline{b_i} = \begin{cases} \overline{0} &\text{ in} R/I_j \text{ für } i\neq j\\
+	 \overline{1} &\text{in } R/I
+	 \end{cases}
+	 \end{equation}
+	 Sei nun $(\overline{r_1},\dots, \overline{r_s})\in R/I_1\times \dots \times R/I_s$ beliebig ($r_i\in R$). Setze
+	 $$ x : = \sum_{i = 1}^{s} b_ir_i\in R$$
+	 Dann $\Phi(x) = \sum_{i=1}^{s}\Phi(b_ir_i) = \sum_{i=1}^{s}\Phi(b_i)\Phi(r_i)$, weil $\Phi$ Ringhomomorphismus ist.
+	 
+	 Daraus folgt $\Phi(x) = (\sum_{i =1}^{s}\overline{b_i}\overline{r_i},\dots, \sum_{i = 1}^{s}\overline{b_i}\overline{r_i})$. Nach (2) ist das $(\overline{r_1},\dots, \overline{r_s})$. Folglich ist $x$ Urbild von $(\overline{r_1},\dots, \overline{r_s})$. Damit ist $\Phi$ ist surjektiv.\\
+	 $\ker\Phi$: $r\in \ker\Phi \Leftrightarrow (\overline{r},\dots, \overline{r}) = (\overline{0},\dots, \overline{0})\in R/I_1\times\dots\times R/I_s$ 
+	
+	 $\Leftrightarrow \overline{r} = \overline{0}\in R/I_k\forall k (1\leq k\leq s) \Leftrightarrow r\in I_k\forall k\Leftrightarrow  r\in I_1\cap\dots\cap I_s$
+\end{proof}
+
+
+\subsection{Lokalisierung}
+\begin{defi} $R$ kommutativer Ring, $R\neq \{0\}$. $S\subseteq R$ heißt multiplikativ abgeschlossen, falls $1\in S$ und $s_1,s_2\in S\Rightarrow s_1s_2\in S$.
+	
+Dann heißt $S^{-1}R$ Lokalisierung von $R$ an $S$. Dabei ist $S^{-1}R$ ein kommutativer Ring, wobei die Elemente Äquivalenzklassen in $R\times S$ bezüglich $\sim$ (vgl Übungsblatt 5).
+Bezeichne mit $\frac rs$ die Äquivalenzklasse von $(r,s)\in R\times S$.
+Es gilt $\frac rs = \frac r's'\Leftrightarrow \exists a\in S: a(rs'-r's) = 0$. Wir nennen $S^{-1}R$ auch den Ring der Brüche für $R$ bzgl. $S$.
+\end{defi}
+
 
 
 %\begin{bsp}
