@@ -1932,7 +1932,83 @@ Bezeichne mit $\frac rs$ die Äquivalenzklasse von $(r,s)\in R\times S$.
 Es gilt $\frac rs = \frac r's'\Leftrightarrow \exists a\in S: a(rs'-r's) = 0$. Wir nennen $S^{-1}R$ auch den Ring der Brüche für $R$ bzgl. $S$.
 \end{defi}
 
+\begin{bem}
+	\leavevmode
+	\begin{enumerate}
+		\item Falls $0_R\in S$ ist, ist $S^{-1}R$ bereits der Nullring, denn für $,s,s'\in S, r,r'\in R$ gibt es $a\in S$ (nämlich z.B. $a = 0$) mit  $a(rs'-r's) = 0$
+		\item Falls $R$ Integritätsbereich ist, ist $S^{-1}R$ Integritätsbereich für alle $S$ mit $0\notin S$ (selber nachrechnen!)
+	\end{enumerate}
+\end{bem}
 
+\begin{satz}[Universelle Eigenschaft der Lokalisierung]
+	$R$ kommutativer Ring, $R\neq\{0\}, S\subseteq R$ multiplikativ abgeschlossen.
+	\begin{enumerate}
+		\item \begin{eqnarray*}
+					\can\colon R & \longto & S^{-1}R\\
+					r & \longmapsto \frac r1
+				\end{eqnarray*}
+			ist Ringhomomorphismus und $\can(S) \subseteq(S^{-1}R)^{\times}$
+		\item Sei $\phi\colon R\to T$ Ringhomomorphismus, sodass $\phi(S) \subseteq T^{\times}$, dann $\exists! \hat{\phi}\colon S^{-1}R\to T$ Ringhomo, sodass
+		$\hat{\phi}\circ \can = \phi$:
+		\begin{center}
+				\begin{tikzcd}
+						R \arrow{rd}[swap]{\can} \arrow{r}{\phi} & T \\
+						 	& Z\arrow{u}[swap]{\exists! \hat{\phi}\text{ Ringhomo}} \\
+				\end{tikzcd}
+		\end{center}
+	\end{enumerate}
+\end{satz}
+
+\begin{proof}
+	\begin{itemize}
+		\item $\can$ ist ein Ringhomo: nachrechnen
+		\item $\can(S)\subseteq \{\text{Einheiten}\}$: Sei $s\in S$. Dann ist $\can(s) = \frac s1$ und $\frac s1\cdot \frac1s = 1\Rightarrow \frac s1$ hat Inverses bezüglich der Multiplikation, also Einheit. Damit folgt Aussage (1).
+		\item Zu Ausssage (2): Definiere $\hat{\phi}(\frac rs) = \phi(r)\phi(s)^{-1}$ (wobei das das Inverse bzgl $\cdot$ in $S^{-1}R$ darstellt, das nach Annahme existiert)
+		
+		Nachrechnen: $\hat{phi}$ ist Ringhomomorphismus. Es gilt $\hat{\phi}\circ \can(r) = \hat{phi}(\frac r1) = \phi(r)\phi(1)^{-1} = \phi(r)\cdot 1^{-1} = \phi(r) $. Damit folgt die Existenz von $\hat{\phi}$.
+		\item Eindeutigkeit von $\hat{\phi}$: Es muss gelten $\hat{phi}(\frac rs) = \hat{\phi} (\frac r1\cdot \frac1s) = \hat{\phi}(\frac r1)\cdot \hat{\phi}(\frac1s) = \hat{\phi}(\frac r1)\hat{\phi}((\frac s1)^{-1}) = \hat{\phi}(\frac r1)\hat{\phi}(\frac s1)^{-1} = \phi(r)\phi(s)^{-1}$, weil $\hat{\phi}\circ\can = \phi\Rightarrow \hat{\phi}(\frac rs) = \phi(r)\phi(s)^{-1}$, also Eindeutigkeit.
+	\end{itemize}
+\end{proof}
+
+\begin{defi}
+	Falls $R$ Integritätsbereich, $R\neq\{0\}$. Dann $S = R\setminus\{0\}$ multiplikativ abgeschlossen und (Übungsblatt) $S^{-1}R =: Quot(R)$ ist Körper, man nennt ihn den Quotientenkörper zu  $R$.
+\end{defi}
+\begin{bem} Unterscheide von jetzt an $R/I$ Faktorring und $S^{-1}R$ Quotientenring bzw. Quotientenkörper.
+\end{bem}
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item $Quot(\IR[t]) = \left\{\frac{f(t)}{g(t)}| f(t), g(t)\in \IR[t], g(t)\neq 0\right\}$ Körper der rationalen Funktionen über $\IR$ in der Variable $t$.
+		
+		\item Was ist z.B. $Quot(\IZ[t])$? Gute Beschreibung? (Achtung: overkill incoming)
+		
+		Betrachte $R$ Integritätsbereich und dann die Abbildung
+		
+		$\begin{array}{rcccccl}
+			\phi\colon R & \xlongrightarrow{\can} & Quot(R) &\longto& (Quot(R))[t] &\longto& Quot((Quot(R))[t]) =: T\\
+			r& \longmapsto & \frac r1 & \longmapsto & \text{konstantes Polynom } \frac r1
+		\end{array}$
+		(beachte: $R'$ Integritätsbereich $\Rightarrow R'[t]$ Integritätsbereich)
+		
+		Nach universeller Eigenschaft des Polynomrings existerit genau ein Ringhomomorphismus
+		\begin{eqnarray*}
+			f = \ev_{\tilde{t}}\colon R[t] & \longto & T\\
+			\sum_{i = 0}^{\infty} b_it^i & \longmapsto & \sum_{i = 0}^{\infty}\phi(b_i)\tilde{t}^i
+		\end{eqnarray*}
+		wobei $\tilde{t} = \frac{1_{Quot(R)}\cdot t}{1} \in T$.
+		
+		Klar: $ p(t) \neq 0 \Rightarrow f(p(t)) \neq 0$, also Einehit, weil $T$ Körper. Nach Satz 11.1 existiert genau ein Ringhomomorphismus $\hat{f}\colon Quot(R[t])\to T$ mit $\hat{f}(\frac{g_1}{g_2}) = f(g_1)(f(g_2))^{-1}$. Man kann zeigen: $\hat{f}$ ist ein Ringisomorphismus (durch Angeben von inversen Abbildungen).
+		
+		Also: $Quot(R[t])\xrightarrow{\sim} Quot((Quot(R))[t]) = T$ Isomorphismus von Ringen. Im Beispiel hier wollen wir $R = \IZ$. Also
+		\begin{eqnarray*}
+			Quot(\IZ[t]) & \xlongrightarrow{\sim} & Quot((Quot(\IZ))[t])\\
+			& &= Quot(Q[t])\\
+			&& = \text{rationale Funktionen über $\IQ$ in einer Variablen}
+		\end{eqnarray*}
+	\end{enumerate}
+\end{bsp}
+
+Bezeichne ab jetzt mit $K(t_1,\dots,t_n) := Quot(K[t_1,\dots,t_n])$ für $K$ Körper.
 
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
