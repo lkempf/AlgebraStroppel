@@ -1215,16 +1215,16 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 
 \lecture{2. November 2017}
 
-Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ ein Ring mit $\overline{a}\odot\overline{b} = \overline{ab}$. Wir nennen $(R/I,+,\odot)$ den Quotientenring von $R$ nach/modulo $I$. Im Folgenden schreiben wir kurz $R$ statt $(R,+,\cdot)$ etc.
+\noindent Wir wissen: Sei $(R,+,\cdot)$ ein Ring, $I\subseteq R$ ein Ideal. Dann ist $(R/I,+,\odot)$ ein Ring mit $\overline{a}\odot\overline{b} = \overline{ab}$. Wir nennen $(R/I,+,\odot)$ den Quotientenring von $R$ nach/modulo $I$. Im Folgenden schreiben wir kurz $R$ statt $(R,+,\cdot)$ etc.
 
 \begin{satz}[Homomorphiesatz]
-	Sei $R$ Ring, $I\subseteq R$ Ideal. \begin{enumerate}
-		\item Die Abbildung $\can\colon R\to R/I, a\mapsto \overline{a}$ ist Ringhomo.
-		\item Sei $\phi\colon R\to S$ Ringhomo mit $I\subseteq \ker \phi$, dann $\exists!\;\overline{\phi}\colon R/I\to S$ Ringhomo, sodass $\overline{\phi}\circ \can  = \phi$. Also:
+	Sei $R$ ein Ring, $I\subseteq R$ ein Ideal. \begin{enumerate}
+		\item Die Abbildung $\can\colon R\to R/I, a\mapsto \overline{a}$ ist Ringhomomorphismus.
+		\item Sei $\phi\colon R\to S$ Ringhomomorphismus mit $I\subseteq \ker \phi$, dann $\exists!\;\overline{\phi}\colon R/I\to S$ Ringhomomorphismus, sodass $\overline{\phi}\circ \can  = \phi$. Also:
 		\begin{center}
 		\begin{tikzcd}
 					R \arrow{rd}[swap]{\can} \arrow{r}{\phi} & S \\
-					& R/I\arrow{u}[swap]{\exists! \; \overline{\phi}\text{ Ringhomo}} \\
+					& R/I\arrow{u}[swap]{\exists! \; \overline{\phi}\text{ Ringhom}} \\
 		\end{tikzcd}
 		\end{center}
 	\end{enumerate}
@@ -1236,52 +1236,50 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 
 \begin{defi}
 	Sei $R$ ein kommutativer Ring und $I, J\subseteq R$ Ideale. Dann ist \begin{itemize}
-		\item $I+J = \{x+y|x\in I, y\in J\}\subseteq R$ die Summe von $I$ und $J$
-		\item $I\cap J = \{x|x\in I, x\in J\}\subseteq R$ der Schnitt von $I$ und $J$
-		\item $I\cdot J = \{\sum_{i = 1}^na_ib_i|a_i\in I, b_i\in J, n\in\IN\}$ das Produkt von $I$ und $J$
+		\item $I+J = \{x+y \mid x\in I, y\in J\}\subseteq R$ die Summe von $I$ und $J$
+		\item $I\cap J = \{x \mid x\in I, x\in J\}\subseteq R$ der Schnitt von $I$ und $J$
+		\item $I\cdot J = \{\sum_{i = 1}^na_ib_i \mid a_i\in I, b_i\in J, n\in\IN\}$ das Produkt von $I$ und $J$
 	\end{itemize}
 	Das sind alles Ideale in $R$ (nachprüfen!).
 \end{defi}
 
 \begin{defi}
-	Sei $R$ kommutativer Ring, $a,b\in R$. \begin{enumerate}
+	Sei $R$ ein kommutativer Ring, $a,b\in R$. \begin{enumerate}
 		\item $(a) = \{ra\mid r\in R\}$ ist das von $a$ erzeugte Ideal.
 		\item $b$ teilt $a$ (in $R$), falls $\exists r\in R: a = br = rb$
 		\item 
-		$a$ ist Nullteiler, wenn $\exists r\in R, r \neq 0$ mit $ra = ar = 0$.
-\textbf{}			
-		$R$ ist nullteilerfrei, falls 0 der einzige Nullteiler ist.
-
+		$a$ ist Nullteiler, wenn $\exists r\in R, r \neq 0$ mit $ra = ar = 0$. $R$ ist nullteilerfrei, falls 0 der einzige Nullteiler ist.
 		$R$ heißt Integritätsbereich, falls $R$ nullteilerfrei und $R \neq \{0\}$ ist.
-		\item $a$ heißt Einheit, falls $\exists r\in R$ mit $ar = 1 = ra$. (also $a$ hat multiplikatives Inverses).
-		
-		$R^{\times} = \{c\in R \mid c \text{ Einheit in $R$}\}$ ist Einheitengruppe von $R$.
+		\item $a$ heißt Einheit, falls $\exists r\in R$ mit $ar = 1 = ra$. (also $a$ ein multiplikatives Inverses hat).
+		$R^{\times} = \{c\in R \mid c \text{ Einheit in } R\}$ ist die Einheitengruppe von $R$.
 	\end{enumerate}
 \end{defi}
 
 \begin{bem}
 	$(a)$ ist in der Tat ein Ideal:\begin{itemize}
-		\item[(I2)] $r' \in R, x = ra\in (a)\Rightarrow r'x  = r' (ra) = (r'r)a \in (a)$ Genauso $xr'\in (a)$
-		\item[(I1)] $x,y\in I$ $x = r'a, y = ra\Rightarrow x+(-y) = (r'a)+(-ra) = (r'+(-r))a \in (a)$ (benutze dabei $-(ra) = (-r)a$, weil $(ra)+((-r)a) = (r+(-r))a = 0a = 0$, also $-(ra) = (-r)a$ 
+		\item[(I2)] Sei $r' \in R, x = ra\in (a)$. Dann gilt $r'x  = r' (ra) = (r'r)a \in (a)$. Genauso für $xr'\in (a)$.
+		\item[(I1)] Seien $x,y\in I$. Dann lassen sich $x$ und $y$ in der Form $x = r'a, y = ra$ schreiben. Folglich gilt $x+(-y) = (r'a)+(-ra) = (r'+(-r))a \in (a)$. Wir benutzen dabei $-(ra) = (-r)a$, weil $(ra)+((-r)a) = (r+(-r))a = 0a = 0$ gilt.
 	\end{itemize}
 \end{bem}
 \begin{bem}
-	$R^{\times}$ ist Gruppe bezüglich $\cdot$ (Übung).
+	$R^{\times}$ ist eine Gruppe bezüglich $\cdot$ (Übung).
 \end{bem}
 
 \begin{defi}
-	Ein Ideal der Form $(a)$ wie oben heißt Hauptideal. Ein kommutativer Ring $R\neq\{0\}$ heißt Hauptidealring, wenn $R$ nullteilerfrei und jedes Ideal in $R$ ein Hauptideal ist (also von der Form $(a)$ ist): $\forall I\subseteq R\text{ Ideal }\exists a\in \IR: I = (a)$
+	Ein Ideal der Form $(a)$ wie oben heißt Hauptideal. Ein kommutativer Ring $R\neq\{0\}$ heißt Hauptidealring, wenn $R$ nullteilerfrei und jedes Ideal in $R$ ein Hauptideal ist (also von der Form $(a)$ ist): $\forall I\subseteq R\text{ Ideal }\exists a\in R: I = (a)$
 \end{defi}
 
 \begin{bsp}
-	Betrachte $(\IZ,+,\cdot)$. Behauptung: Das ist ein Hauptidealring.\begin{itemize}
-		\item $R \neq \{0\}$, $R$ nullteilerfrei (klar)
-		\item Sei $I \subseteq \IZ$ ein Ideal. Falls $I = \{0\}$, dann $I = (0)$. Es sei also $I \neq \{0\}$. Dann $\exists x\in I, x\neq 0$. Wähle $n\in\IN$ minimal mit $n\in I$ (existiert weil $x\in I\Rightarrow -x \in I $ nach (I1)).
+	Wir betrachten $(\IZ,+,\cdot)$. Behauptung: Das ist ein Hauptidealring.
+	\begin{itemize}
+		\item Es ist klar, dass $\IZ \neq \{0\}$ und dass $\IZ$ nullteilerfrei ist.
+		\item Sei $I \subseteq \IZ$ ein Ideal. Falls $I = \{0\}$, dann muss $I = (0)$ gelten. Es sei also $I \neq \{0\}$. Dann $\exists x\in I, x\neq 0$. Wähle $n\in\IN$ minimal mit $n\in I$. Denn wenn $x \in I$, so liegt nach (I1) auch das Inverse bezüglich der Addition $-x$ in $I$.
 		
-		Behauptung: $I = (n)$
-		
-		\begin{proof} \glqq $\supseteq$\grqq: nach (I2); \glqq $\subseteq$\grqq: Sei $y\in I$. Schreibe $y = bn+r$ mit $b,r\in\IZ$ mit $0\leq r< n\Rightarrow y+(-bn) = r\Rightarrow r\in I$; Widerspruch zur Minimalität von $n$ außer $r = 0$ $\Rightarrow y = bn\Rightarrow I\subseteq (n)$.
-		\end{proof}
+		Wir behaupten nun, dass $(n)$ bereits $I$ ist.
+		\begin{description}
+			\item[\glqq $\supseteq$\grqq:] Das gilt nach (I2)
+			\item[\glqq $\subseteq$\grqq:] Sei $y\in I$. Wir schreiben $y = bn+r$ mit $b,r\in\IZ$ mit $0\leq r< n$. Somit gilt $ y+(-bn) = r$ und damit würde $r$ in $I$ liegen. Das ist ein Widerspruch zur Minimalität von $n$ außer $r = 0$. Deshalb gilt $y = bn$ und folglich liegt $y$ in $(n)$.
+		\end{description} 
 	\end{itemize}
 \end{bsp}
 
@@ -1290,8 +1288,8 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 \end{bsp}
 
 \begin{lem}
-	$R$ kommutativer Ring, $R\neq \{0\}$.\begin{enumerate}
-		\item $R$ Körper $\Leftrightarrow R^{\times} = R\setminus\{0\}$
+	Sei $R$ ein kommutativer Ring, $R\neq \{0\}$.\begin{enumerate}
+		\item $R$ ist genau dann ein Körper, wenn $R^{\times} = R\setminus\{0\}$
 		\item Für $a,b,c\in R$ gilt \begin{enumerate}
 			\item $(a)\subseteq (b)\Leftrightarrow$ $b$ teilt $a$
 			\item $(a) = R \Leftrightarrow a\in R^{\times} \Leftrightarrow (a) = (1)$
@@ -1412,6 +1410,8 @@ Wir wissen: $(R,+,\cdot)$ Ring, $I\subseteq R$ Ideal; dann ist $(R/I,+,\odot)$ e
 
 		$\phi^{-1}(J)\subseteq R$ Ideal mit $\ker\phi\subseteq \phi^{-1}(J)$: $\ker\phi\subseteq \phi^{-1}(J)$, weil $\ker\phi = \phi^{-1}(\{0\})$ und $0\in J$ für jedes Ideal $J$. Klar: $\phi^{-1}(J)$ Untergruppe. Sei $r\in R, x\in\phi^{-1}(J)$; zu zeigen: $rx = xr\in\phi^{-1}(J)$. Es gilt $\phi(rx) = \phi(r)\phi(x)\in J$. Genauso $\phi(xr)\in J$. Also $rx,xr\in\phi^{-1}(J)$.
 	\end{itemize}
+	\lecture{6. November 2017}
+
 	Sei nun $I \subseteq R$ ein Ideal mit $I \supseteq \ker\phi$ und $J \subseteq S$ ein Ideal. Es bleibt zu zeigen:
 	\begin{description}
 		\item[$\phi^{-1}(\phi(I)) = I$:] \leavevmode
