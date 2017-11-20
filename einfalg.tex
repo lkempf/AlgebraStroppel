@@ -2010,6 +2010,79 @@ Es gilt $\frac rs = \frac r's'\Leftrightarrow \exists a\in S: a(rs'-r's) = 0$. W
 
 Bezeichne ab jetzt mit $K(t_1,\dots,t_n) := Quot(K[t_1,\dots,t_n])$ für $K$ Körper.
 
+
+\lecture{20. November 2017}
+\begin{bem}
+	Wenn $R$ ein kommutativer Ring ist uns $S\subseteq R$ multiplikativ abgeschlossen. Falls $S$ keine Nullteiler besitzt, dann ist
+	\begin{eqnarray*}
+		 \can\colon R &\longto& S^{-1}R\\
+		 r & \longmapsto& \frac r1
+	\end{eqnarray*}
+	injektiv. (Denn: Sei $\can(r) = \can(r')$ mit $r,r'\in R\Leftrightarrow \frac r1 = \frac r'1 \Leftrightarrow \exists s\in S$ mit $ s(r1-r'1) = 0$. Da $S$ keine Nullteiler enthält, ist $r1 -r'1 = 0\Rightarrow r' = r$.) Insbesondere können wir $R$ als Unterring von $S^{-1}R$ auffassen durch die Einbettung $\can$.
+\end{bem}
+
+
+
+\subsection{Satz von Gauß}
+Ziel dieses Kapitels:
+\begin{satz}[Gauß]
+	$R$ faktoriell $\Rightarrow R[t]$ faktoriell.
+	Genauer: $R[t]$ ist faktoriell und die irreduziblen Elemente sind bis auf Einheiten in $R$ genau Elemente der Form
+	\begin{enumerate}
+		\item irreduzible Elemente in $R\subseteq R[t]$
+		\item Elemente der Form $p(t) \in R[t]$, die irreduzibel sind in $Quot(R)[t]$ und primitiv (siehe Definition 12.1)
+	\end{enumerate}
+\end{satz}
+
+\begin{kor}
+	Sei $K$ ein Körper; dann ist $K[t_1,\dots,t_n]$ faktoriell; außerdem ist $\IZ[t_1,\dots, t_n]$ faktoriell (aber nicht Hauptidealring (vgl. Übung 5))
+\end{kor}
+%TODO: overfull hbox fixen
+
+\begin{proof} $K$ Körper und $\IZ$ sind beides HIR. Nach Satz 8.4 sind $K$ und $\IZ$ also faktoriell. Laut Satz von Gauß sind damit $K[t_1]$ und $\IZ[t_1]$ faktoriell. Wende nun den Satz von Gauß iterativ an und erhalte die Aussage.
+\end{proof}
+
+\begin{bsp}
+	$p(t) = 2t$ ist irreduzibel in $\IQ[t] = Quot(\IZ)[t]$ (da für $p(t) = bc$ in $\IQ[t]$ gilt: $\deg(b) = 0$ oder $\deg(c) = 0$ und damit $b$ oder $c$ eine Einheit in $\IQ$ ist)
+	
+	Aber: $p(t)$ ist nicht irreduzibel in $\IZ[t]$, da $p(t) = 2\cdot t$ und $2, t\notin \IZ[t]^{\times}$. (Einfaches Argument über den Grad der Polynome)
+\end{bsp}
+
+\begin{defi}
+	$R$ faktoriell. Dann heißt $p(t ) = \sum_{i = 0}^na_it^i$ mit $n = \deg (p(t))$ primitiv, falls $\nexists r\in R, r\notin R^{\times}$ und $r$ teilt $a_i$ für alle $i$ mit $1\leq i\leq n$.
+\end{defi}
+
+\begin{bsp}
+	$2t^2+4t^3\in\IZ[t]$ ist nicht primitiv (nimm $r = 2$), aber in $\IQ[t]$ ist es primitiv.
+\end{bsp}
+
+\begin{lem}[Lemma von Gauß]
+	$R$ faktoriell, $P,Q\in R[t]$ primitiv. Dann folgt, dass $PQ\in R[t]$ primitiv.	
+\end{lem}
+
+\begin{proof}
+	Wir nehmen an, dass $PQ\in R[t]$ nicht primitiv ist. Dann exsitert ein $r\in R, r\notin R^{\times}$ mit $r$ teilt $PQ$. Sei ohne Beschränkung der Allgemeinheit $r$ prim. Betrachte $R/(r)$. Da $r$ prim ist, ist $(r)$ Primideal. Folglich ist $R/(r)$ ein Integritätsbereich, also insbesondere nullteilerfrei.
+	
+	Betrachte nun $\overline{PQ} \in R/(r)[t]$ (nimm Koeffizienten modulo $(r)$). Dann gilt $\overline{PQ} = \overline{0}\in R/(r)[t]$, da $r$ das Polynom $PQ$ teilt. Da $\overline{PQ} = \overline{P}\overline{Q}$ ist, folgt damit $\overline{P}\overline{Q} = \overline{0}$. Da $R/(r)$ nullteilerfrei ist, ist $\overline{P} = 0$ oder $\overline{Q} = 0$ und damit ist $P$ nicht primitiv oder $Q$ nicht primitiv. Das ist ein Widerspruch zur Annahme.
+\end{proof}
+
+\begin{lem}
+	Sei $R$ faktoriell, $K = Quot (R)$ und $f\in R[t]$ primitiv. Wenn  $f$ irreduzibel in $K[t]$ ist, ist $f$ auch irreduzibel in $R[t]$. 
+\end{lem}
+
+\begin{proof}
+	Sei $f = bc$ in $R[t]$. Zu zeigen: $b$ oder $c$ Einheit in $R[t]$. Es gilt $f = bc$ auch in $K[t]$. Nach Voraussetzung ist $f$ irreduzibel in $K[t]$. Also ist $b$ oder $c\in K[t]^{\times} = K^{\times}$. O.b.d.A. $b\in K^{times}$, also $b \neq 0$ (da $K$ ein Körper ist) und nach Voraussetzung ist $b\in R[t]\Rightarrow b\in R, b\neq 0$. Da $R$ faktoriell ist, ist $b = \epsilon p_1\dots p_r$, wobei $\epsilon\in R^{\times}$ und $p_i\in R$ irreduzibel und $r\in\IN_0$ geeignet.
+	
+	Aus der Tatsache, dass $f$ primitiv ist, folgt, dass $b$ primitiv ist und somit $b = \epsilon$ (weil sonst die $p_i$ das $b$ teilen würden). Damit ist $b$ eine Einheit in $R$ und $f\in R[t]$ ist irreduzibel.
+\end{proof}
+
+\begin{proof}[Beweis des Satzes von Gauß] %TODO: Referenzen einfügen
+	\leavevmode
+	\begin{itemize}
+		\item Elemente der Form (a), (b) sind irreduzibel: Für (b) klar nach Lemma 12.4. Für (a): Sei $r\in R$ irreduzibel. Sei $r = bc$ in $R[t]$. Zu zeigen: $b$ oder $c\in R[t]^{\times}$. Da $R$ nullteilerfrei ist, gitl $\deg (b) = 0  =\deg (c)$, also $b,c\in R$. Weil $r\in R$ irreduzibel ist, folgt $b\in R^{\times}$ oder $c\in R^{\times}$.
+	\end{itemize}
+\end{proof}
+
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
