@@ -1128,13 +1128,10 @@ sodass gilt:
 		&\Rightarrow s_1\cdot s_2\in \im\phi
 	\end{align*}
 	Außerdem gilt:
-	\begin{align*}
-		&s_1+(-s_2) = \phi (r_1) + (-\phi (r_2)) \\ 
-		&= \phi (r_1)+\phi (-r_2) = \phi (r_1+(-r_2))\in\im\phi \\
-		&\Rightarrow s_1+(-s_2)\in \im\phi \\
-		&\Rightarrow \text{(UR2)}
-	\end{align*}
-	Somit sind alle Unterringaxiome erfüllt.
+	\begin{equation*}
+		s_1+(-s_2) = \phi (r_1) + (-\phi (r_2)) = \phi (r_1)+\phi (-r_2) = \phi (r_1+(-r_2))\in\im\phi
+	\end{equation*}
+	Somit gilt (UR2) und es sind alle Unterringaxiome erfüllt.
 \end{proof}
 
 \noindent
@@ -1287,7 +1284,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 	$(1) = R$, $(0) = \{0\}$ sind Hauptideale.
 \end{bsp}
 
-\begin{lem}
+\begin{lem} \label{lem:komring}
 	Sei $R$ ein kommutativer Ring, $R\neq \{0\}$.\begin{enumerate}
 		\item $R$ ist genau dann ein Körper, wenn $R^{\times} = R\setminus\{0\}$
 		\item Für $a,b,c\in R$ gilt \begin{enumerate}
@@ -1301,18 +1298,19 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item $R$ Körper $\Rightarrow \forall x\in R, x\neq 0 \exists x^{-1}$ mit $xx^{-1} = 1 =x^{-1}x\Rightarrow x\in R^{\times}\Rightarrow R\setminus \{0\}\subseteq R^{\times}$
+		\item Sei $R$ Körper, dann gilt: Für alle $x\in R$, wobei $x\neq 0$, existiert ein $x^{-1}$ mit $xx^{-1} = 1 =x^{-1}x$. Somit liegt $x$ in $R^{\times}$ und es gilt $R\setminus \{0\}\subseteq R^{\times}$.
 		
-		%$x\in R^{\times} \Rightarrow \exists b\in R: xb = 1 = bx\Rightarrow$ $x$ invertierbar  un $ x\neq 0$ (weil $1\neq 0$) $\Rightarrow$ Jedes $x\in R, x\neq 0$ ist invertierbar
-		
-		Annahme: $R^{\times} = R\setminus\{0\}$. Sei $x\in R, x\neq 0\Rightarrow x\in R^{\times}\Rightarrow \exists r \in R$ mit $xr = 1 = rx\Rightarrow r = x^{-1}$ Inverses zu $x$ $\Rightarrow R$ Körper.
+		Angenommen $R^{\times} = R\setminus\{0\}$. Sei $x\in R$, $x\neq 0$. Dann gilt $x\in R^{\times}$ und somit existiert ein $r \in R$ mit $xr = 1 = rx$. Folglich ist $r = x^{-1}$ und damit das Inverses zu $x$. Also ist $R$ ein Körper.
 		
 		\item \begin{enumerate}
 			\item 
-				\glqq $\Rightarrow$\grqq: Sei $(a)\subseteq (b)\Rightarrow a\in (b)\Rightarrow \exists r\in R$ mit $a = rb\Rightarrow$ $b$ teilt $a$.
-		
-				\glqq $\Leftarrow$\grqq: $b$ teilt $a$ $\Rightarrow \exists r\in R: a =rb\Rightarrow r'a = r'(rb) = (r'r)b\in (b)\forall r'\in R\Rightarrow (a)\subseteq (b)$
-			\item
+				\begin{description}
+					\item[\glqq $\Rightarrow$\grqq:] Sei $(a)\subseteq (b)$. Dann liegt $a$ in $(b)$ und es existiert ein $r\in R$ mit $a = rb$. Folglich gilt $b$ teilt $a$.
+					
+					\item[\glqq $\Leftarrow$\grqq:] Angenommen $b$ teilt $a$. Dann existiert ein $r\in R$, sodass $a =rb$. Folglich gilt $r'a = r'(rb) = (r'r)b\in (b)~\forall r'\in R$. Somit gilt $(a)\subseteq (b)$.
+				\end{description}
+				
+			\item %TODO: Fix this shit
 				Sei $(a) = R\Rightarrow 1\in (a)\Rightarrow \exists r\in R: 1 = ra = ar\Rightarrow a\in R^{\times}$.
 			
 				Sei $a\in R^{\times}\Rightarrow \exists r\in R: ra = 1 = ar\Rightarrow 1\in (a) \Rightarrow r'\cdot 1 = r'\in (a) \forall r'\in R \Rightarrow (a) = R$.
@@ -1320,74 +1318,76 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 				Sei $a \in R^{\times}\Rightarrow 1\in (a) \Rightarrow R = (1) \subseteq (a) \Rightarrow (1)  = (a) $.
 				
 				Sei $(1) = (a) \Rightarrow1\in (a) \Rightarrow \exists r\in R: ra = 1 = ar\Rightarrow a\in R^{\times}$.
-				
 			\item 
-				Sei $ac = bc \Rightarrow (a+(-b))c = 0\Rightarrow a+(-b) = 0\Rightarrow a = b$, da $c$ nicht Nullteiler.
+				\begin{align*}
+					&ac = bc \\
+					\Rightarrow& (a+(-b))c = 0 \\
+					\Rightarrow& a+(-b) = 0 \\
+					\Rightarrow& a = b
+				\end{align*}
 			\item 
-				Sei $a$ Nullteiler $\Rightarrow \exists r\neq 0$ mit $ra = 0$. Sei nun $a\in R^{\times}$, dann $\exists b$ mit $ab = 1\Rightarrow r = r\cdot 1 = rab = 0b = 0\Rightarrow r = 0$. Widerspruch!
+				Sei $a$ Nullteiler. Dann existiert ein $r\neq 0$ mit $ra = 0$. Sei nun $a\in R^{\times}$, dann $\exists b$ mit $ab = 1$. Somit gilt $r = r\cdot 1 = rab = 0 \cdot b = 0$. Somit wäre $r = 0$, was ein Widerspruch ist.
 		\end{enumerate}
 	\end{enumerate}
 \end{proof}
 
 
 \begin{bsp}
-	$R = \IR[t]$, $I = (t^2)$; Behauptung: $R/I$ ist kein Körper. Denn: $\overline{t} \neq \overline{0}$, weil $t\notin I$. Andererseits: $\overline{t^2} = \overline{0}$, weil $t^2\in I$ und somit $\overline{0} = \overline{t^2} = \overline{t}\odot\overline{t}$, also $\overline{t}$ Nullteiler in $R/I$ insbesondere nach Lemma 7.6 keine Einheit. $\Rightarrow (R/I)^{\times} \neq (R/I)\setminus\{0\}\Rightarrow R/I$ kein Körper.
+	Sei $R = \IR[t]$, $I = (t^2)$. Wir behaupten: $R/I$ ist kein Körper. Denn es gilt $\overline{t} \neq \overline{0}$, da $t\notin I$. Andererseits gilt $\overline{t^2} = \overline{0}$, weil $t^2\in I$. Somit gilt auch $\overline{0} = \overline{t^2} = \overline{t}\odot\overline{t}$, weshalb $\overline{t}$ ein Nullteiler in $R/I$ ist. Insbesondere ist $\overline{t}$ nach \cref{lem:komring} keine Einheit. Folglich gilt $(R/I)^{\times} \neq (R/I)\setminus\{0\}$ und $R/I$ kann kein Körper sein.
 \end{bsp}
 
 \begin{bsp}
-	$R = \IR [t], I = (t^2+1)$. Behauptung: $R/I$ ist ein Körper.
-	\begin{proof}
-		Klar: $R/I$ kommutativ, weil $R$ kommutativ. Sei $x\in R/I, x\neq 0$, zu zeigen $x\in (R/I)^{\times}$. In $R/I$ gilt $\overline{t^2+1} = \overline{0}$, weil $t^2+1\in I$ und damit für $j\in \IZ_{\geq 2}$:
-		\begin{align*}
-			\overline{t ^j} &= \overline{t^{j-2}(t^2+1)+(-t^{j-2})} \xeq[\text{in }R/I]{\text{Def von $+$ }} \overline{t^{j-2}(t^2+1)}+\overline{-t^{j-2}} \\
-			&\xeq{\text{Def von $\odot$}}  \overline{t^{j-2}}\odot \overline{t^2+1} + \overline{-t^{j-2}} = \overline{-t^{j-2}} \xeq{\text{Def von $+$ in $R/I$}} - (\overline{t^{j-2}})
-		\end{align*}
-		Für $p = \sum_{i = 0}^{\infty}a_it^i\in\IR[t]$ gilt: $\overline{p} = \overline{b_01+b_1t}$ für gewisse $b_0,b_1\in R$. Also o.B.d.A. $x = \overline{b_01+b_1t}$ mit $b_0^2+b_1^2 \neq 0$.
-		
-		Sei $q: = \frac{1}{b_0^2b_1^2}(b_01-b_1t)\in \IR[t] = R$ wohldefiniert, da $b_0^2+b_1^2 \neq 0$.
-		
-		Setze $y = \overline{q}$. Behaupte $y = x^{-1}$ in $R/I$. Nun gilt 
-		$$ (b_01 +b_1t) q = \frac{1}{b_0^2+b_1^2}(b_0^2+b_0b_1t-b_1b_0t-b_1^2t^2) = \frac{1}{b_0^2+b_1^2}(b_0^2-b_1^2t^2)$$
-		Da $\overline{t^2+1} = \overline{0}$, also $\overline{-t^2} = \overline{1}$ gilt $xy = \overline{\frac{1}{b_0^2+b_1^2}(b_0^2+b_1^2)} = \overline{1}$. Also ist $x\in (R/I)^{\times}$ mit dem Inversen $y$.
-		
-		Übung: $R/I$ ist isomorph zu $\IC$ (als Körper).
-	\end{proof}
+	Sei $R = \IR [t], I = (t^2+1)$. Dann ist $R/I$ ein Körper.
 \end{bsp}
 
+\begin{proof}
+	Es ist klar, dass $R/I$ kommutativ ist, weil $R$ kommutativ ist. Sei $x\in R/I, x\neq 0$. Es ist zu zeigen, dass $x\in (R/I)^{\times}$. In $R/I$ gilt $\overline{t^2+1} = \overline{0}$, weil $t^2+1$ in $I$ liegt und damit für $j\in \IZ_{\geq 2}$ folgendes gilt:
+	\begin{align*}
+		\overline{t ^j} &= \overline{t^{j-2}(t^2+1)+(-t^{j-2})} = \overline{t^{j-2}(t^2+1)} \overline{-t^{j-2}} \\
+		&= \overline{t^{j-2}}\odot \overline{t^2+1} + \overline{-t^{j-2}} = \overline{-t^{j-2}} = - (\overline{t^{j-2}})
+	\end{align*}
+	Für $p = \sum_{i = 0}^{\infty}a_it^i\in\IR[t]$ gilt: $\overline{p} = \overline{b_01+b_1t}$ für gewisse $b_0,b_1\in R$. Also sei o.B.d.A. $x = \overline{b_01+b_1t}$ mit $b_0^2+b_1^2 \neq 0$. Sei $q := \frac{1}{b_0^2b_1^2}(b_01-b_1t)\in \IR[t]$. Das ist wohldefiniert, da $b_0^2+b_1^2 \neq 0$.
+	
+	Sei $y := \overline{q}$. Wir behaupten nun, dass $y = x^{-1}$ in $R/I$ liegt. Es gilt: 
+	$$ (b_01 +b_1t) q = \frac{1}{b_0^2+b_1^2}(b_0^2+b_0b_1t-b_1b_0t-b_1^2t^2) = \frac{1}{b_0^2+b_1^2}(b_0^2-b_1^2t^2)$$
+	Da $\overline{t^2+1} = \overline{0}$ und somit $\overline{-t^2} = \overline{1}$, gilt 
+	$$xy = \overline{\frac{1}{b_0^2+b_1^2}(b_0^2+b_1^2)} = \overline{1}$$
+	Also ist $x\in (R/I)^{\times}$ mit dem Inversen $y$.
+	
+	Übung: $R/I$ ist isomorph zu $\IC$ (als Körper).
+\end{proof}
+
 \begin{defi}
-	$R$ kommutativer Ring, $R\neq \{0\}$. $I\subseteq R$ Ideal heißt maximal, falls $I\neq R$ und $\nexists J\subseteq R$ Ideal mit $I\subset J\subset R$ (echte Teilmengen).
+	Sei $R$ ein kommutativer Ring, $R\neq \{0\}$. Ein Ideal $I\subsetneq R$ heißt maximal, falls $I\neq R$ und $\nexists J\subsetneq R$ Ideal mit $I\subsetneq J\subsetneq R$ (echte Teilmengen).
 \end{defi}
 \begin{lem}
-	$R$ kommutativer Ring, $R\neq 0$. \[
-	\text{$R$ ist ein Körper} \quad\Longleftrightarrow\quad \text{$\{0\}$ ist (einziges) maximales Ideal.}
-	\]
+	Sei $R$ kommutativer Ring, $R\neq \{0\}$. Dann ist $R$ genau dann ein Körper, wenn $\lbrace 0 \rbrace$ einziges (maximales) Ideal ist.
 \end{lem}
 \begin{proof}
 	\leavevmode
 	\begin{itemize}
-		\item[\glqq $\Leftarrow$\grqq:] Sei $\{0\}$ maximales Ideal. Dann ist es auch schon das einzige maximale Ideal, denn falls $I\neq \{0\}$ ein maximales Ideal ist, so folgt $\{0\}\subset I\neq R\Rightarrow \{0\} = I$. Widerspruch!
+		\item[\glqq $\Leftarrow$\grqq:] Sei $\{0\}$ ein maximales Ideal. Dann ist es auch schon das einzige maximale Ideal, denn falls $I\neq \{0\}$ ein maximales Ideal ist, so folgt $\{0\}\subset I\neq R$. Daraus folgt $\{0\} = I$, was im Widerspruch zur Annahme steht.
 		
-		Sei $a\in R, a\neq 0\Rightarrow (0) \subset (a) \Rightarrow (a) = R\Rightarrow \text{Lemma 6 } R^{\times} = R\setminus\{0\}\Rightarrow R$ Körper.
-		\item[\glqq $\Rightarrow$\grqq:] Sei $R$ ein Körper. $I\subseteq R$ Ideal, $I\neq \{0\}$. Dann $\exists a\in I$ mit $ a\neq 0$. Weil $R$ ein Körper ist, ist $a\in R^{\times}\Rightarrow (a) = R \Rightarrow I = R\Rightarrow \{0\}$ ist einziges Ideal und somit maximal.
+		Sei $a\in R, a\neq 0$. Dann gilt $(0) \subset (a)$ und folglich $(a) = R$. Nach \cref{lem:komring} ist dann $R^{\times} = R\setminus\{0\}$ und somit ist $R$ ein Körper.
+		\item[\glqq $\Rightarrow$\grqq:] Sei $R$ ein Körper, $I\subseteq R$ Ideal, $I\neq \{0\}$. Dann existiert ein $a$ in $I$ mit $ a\neq 0$. Weil $R$ ein Körper ist, ist $a\in R^{\times}$. Daraus folgt $(a) = R$ und somit $I = R$. Somit ist $\{0\}$ das einzige Ideal und somit maximal.
 	\end{itemize}
 \end{proof}
 
 \begin{bsp}
-	Betrachte $R = \IZ$ sowie ein Ideal $I\subseteq \IZ$. \[\text{$I$ maximal} \quad \Longleftrightarrow \quad  \text{$I = (n) $ mit $n = p$, $p$ prim}\]
+	Betrachte $R = \IZ$ sowie ein Ideal $I\subseteq \IZ$. Dann ist $I$ genau dann maximal, wenn $I = (p)$, wobei $p$ prim ist.
 	\begin{proof}
 		\leavevmode
 		\begin{itemize}
-			\item[\glqq $\Rightarrow$\grqq:] Sei $I = (a)$ (weil $\IZ$ Hauptidealring) maximal. Falls $a\neq \pm p$ mit $p$ prim, so existiert $b\in \IZ$ mit $b\mid a$ und $b\neq a$, $b\neq  \pm 1$.
+			\item[\glqq $\Rightarrow$\grqq:] Sei $I = (a)$ maximal. Jedes Ideal in $\IZ$ kann so geschrieben werden, da $\IZ$ ein Hauptidealring ist. Falls $a\neq \pm p$ mit $p$ prim, so existiert $b\in \IZ$ mit $b\mid a$ und $b\neq \pm a$, $b\neq  \pm 1$.
+			Dann gilt $(a)\subsetneq (b)\subsetneq R$ ($(b)\neq R$, weil $b\neq \pm 1$, also $b\notin \IZ^{\times}$), was im Widerspruch zu $I$ maximal steht, also ist $a  = \pm p$ mit $p$ prim.
 			
-			$\Rightarrow$ $(a)\subset (b)\subset R$ (weil $b\neq \pm a$; $(b)\neq R$, weil $b\neq \pm 1$, also $b\notin \IZ^{\times}$), was im Widerspruch zu $I$ maximal steht, also ist $a  = \pm p$ mit $p$ prim.
-			
-			\item[\glqq $\Leftarrow$\grqq:] Sei $I = (a)$ mit $a = \pm p$, $p$ prim. Sei $J$ ein Ideal in $R$ sowie $I \subset J\subset R$. Dann gilt $J = (b)$ für ein $b\in\IZ$ (da $\IZ$ Hauptidealring) und nach Lemma 7.6 folgt $b\mid a$ und $b\neq \pm a$ (weil $I\subset J$) und $b \neq \pm 1$ (weil $(b)\neq R$). Das ist ein Widerspruch zu $a = \pm p$.
+			\item[\glqq $\Leftarrow$\grqq:] Sei $I = (a)$ mit $a = \pm p$, $p$ prim. Sei $J$ ein Ideal in $R$ sowie $I \subsetneq J\subsetneq R$. Dann gilt $J = (b)$ für ein $b\in\IZ$, da $\IZ$ ein Hauptidealring ist, und nach \cref{lem:komring} folgt $b\mid a$, $b\neq \pm a$ (weil $I\subsetneq J$) und $b \neq \pm 1$ (weil $(b)\neq R$). Das ist ein Widerspruch zu $a = \pm p$.
 		\end{itemize}
 	\end{proof}
 \end{bsp}
 
 \begin{satz} \label{satz8}
-	$R$ kommutativer Ring, $R \neq\{0\}$, $I\subseteq R$ Ideal. \[\text{$R/I$ ist ein Körper.} \quad\Longleftrightarrow\quad \text{$I$ ist ein maximales Ideal.}\]
+	Sei $R$ ein kommutativer Ring, $R \neq\{0\}$, $I\subseteq R$ Ideal. $R/I$ ist genau dann ein Körper, wenn $I$ ein maximales Ideal ist.
 \end{satz}
 
 \paragraph{Als Vorbereitung:}
@@ -1402,11 +1402,10 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 \end{satz}
 
 \begin{proof}
-	\leavevmode
 	Behauptung: $\phi(I)\subseteq S$ ist ein Ideal.
 	\begin{itemize}
-		\item[(I1)] klar, weil Bilder von Gruppen unter Gruppenhomomorphismen wieder Gruppen sind
-		\item[(I2)] zu zeigen: $x\in \phi(I) , r\in S\Rightarrow rx\in \phi(I), xr\in \phi(I)$. Weil $\phi$ surjektiv $\exists r'\in R$ mit $\phi(r') = r$. Nach Anname $\exists y \in I$ mit $\phi(y) = x\Rightarrow \phi(r'y) = \phi (r')\phi(y)  = rx\in \phi(I)$, weil $y\in I$ und $I$ Ideal. Genauso $\phi(yr') = xr\in\phi(I)\Rightarrow \phi(I)$ Ideal.
+		\item[(I1)] Das ist klar, weil Bilder von Gruppen unter Gruppenhomomorphismen wieder Gruppen sind.
+		\item[(I2)] Es ist zu zeigen: Falls $x\in \phi(I) , r\in S$ dann gilt $ rx\in \phi(I), xr\in \phi(I)$. Weil $\phi$ surjektiv ist, existiert ein $r'\in R$ mit $\phi(r') = r$. Nach Annahme existiert ein $y \in I$ mit $\phi(y) = x$. Dann gilt $\phi(r'y) = \phi (r')\phi(y)  = rx\in \phi(I)$, weil  $I$ ein Ideal ist. Genauso gilt $\phi(yr') = xr\in\phi(I)$. Somit ist $\phi(I)$ ein Ideal.
 
 		$\phi^{-1}(J)\subseteq R$ Ideal mit $\ker\phi\subseteq \phi^{-1}(J)$: $\ker\phi\subseteq \phi^{-1}(J)$, weil $\ker\phi = \phi^{-1}(\{0\})$ und $0\in J$ für jedes Ideal $J$. Klar: $\phi^{-1}(J)$ Untergruppe. Sei $r\in R, x\in\phi^{-1}(J)$; zu zeigen: $rx = xr\in\phi^{-1}(J)$. Es gilt $\phi(rx) = \phi(r)\phi(x)\in J$. Genauso $\phi(xr)\in J$. Also $rx,xr\in\phi^{-1}(J)$.
 	\end{itemize}
