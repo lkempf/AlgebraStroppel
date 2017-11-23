@@ -2107,8 +2107,119 @@ Ziel dieses Kapitels:
 \end{proof}
 
 \subsection{Kreisteilungspolynome}
-Anwendung 13.1 %TODO: Diese Umgebung definieren oder eine sinnvolle Lösung finden
-Sei $p$ Primzahl $\Rightarrow \Phi_p(t) = t^{p-1}+\dots +t+1$ ist irreduzibel in $\IZ[t]$ das $p$-te Kreisteilungspolynom.
+\paragraph{Anwendung 13.1} %TODO: Diese Umgebung definieren oder eine sinnvolle Lösung finden
+Sei $p$ Primzahl. Dann $\Phi_p(t) = t^{p-1}+\dots +t+1$ ist irreduzibel in $\IZ[t]$ das $p$-te Kreisteilungspolynom.
+
+\begin{proof}
+	Wir betrachten
+	\begin{align*}
+		f = \ev_{t+1} : \IZ[t] &\longto \IZ[t] \\
+		p(t) &\longmapsto p(t+1)
+	\end{align*}
+	Das ist ein Ringhomomorphismus mit der inversen Abbildung $\ev_{t-1}$. Jeder Ringhomomorphismus $\phi$ bildet Einheiten auf Einheiten ab. Falls $\phi$ ein Ringisomorphismus ist, gilt, dass für $\phi: R \to R'$ ein $x \in R$ genau dann irreduzibel ist, wenn $\phi(x) \in R$ irreduzibel ist.
+	Denn sei $x \in R$ irreduzibel. Sei $\phi(x) = b\cdot c$. Dann ist $\phi^{-1}\left( \phi (x) \right) = \phi^{-1} (b) \phi^{-1} (c) $, da $\phi^{-1}$ existiert. Also gilt $x = \phi^{-1} (b) \phi^{-1} (c) $ und damit ist $\phi^{-1}(b)$ oder $\phi^{-1}(c)$ eine Einheit. Deshalb ist bereits $b$ oder $c$ eine Einheit und somit folgt die Behauptung.
+	
+	Es reicht nun zu zeigen, dass $f\left(\Phi_p(t) \right) $ irreduzibel in $\IZ[t]$ ist. Es gilt, dass $\Phi_p(t)(t-1) = t^p - 1$.
+	\begin{align*}
+		&\Rightarrow f(\Phi_p(t))(t-1) = f(t^p - 1) \\
+		&\Rightarrow f(\Phi_p(t)) (t) = (t + 1)^p - 1 = t^p + \binom{p}{1} + \dots + \binom{p}{p-1} t + \binom{p}{p}\cdots 1 - 1 \\
+		&\Rightarrow f(\Phi_p(t)) = t^{p-1} + \binom{p}{1} + \dots + \binom{p}{p-1}t^0 = a_{p-1}t^{p-1} + a_{p-2}^{p-2} + \dots + a_0t^0
+	\end{align*}
+	Nun gilt, dass $p \not \mid a_{p-1}$ und $p \mid a_i$ für $0 \leq i \leq p-2$ und $p	^2 \not \mid a_0$. Somit sind die Kriterien für Einstein erfüllt. Folglich ist $f\left( \Phi_p(t) \right) \in \IZ[t]$ irreduzibel. Damit ist auch $\Phi_p(t)$ irreduzibel.
+	
+	Anschauliche Interpretation von $\Phi_p(t)$: Wir betrachten das Polynom $t^n-1 \in \IC[t]$ mit $n \in \IN$. Die Nullstellen sind dann genau die komplexen Zahlen $z \in \IC$ mit $z^n = 1$, also die $n$-ten Einheitswurzeln. 
+	
+	TODO: Insert Bild?
+	
+	Wir bekommen also \glqq gleichverteilte\grqq \ Punkte auf dem Einheitskreis mit $(0,1) = \xi_0$. Wir nennen $\xi$ primitive $n$-te Einheitswurzeln, falls $\xi^n = 1$ und $\xi^m \neq 1$ für alle $m > n$ ($m \in \IN$) gilt. Insbesondere ist dann $n = \ord (\xi)$ bezüglich der Multiplikation.
+\end{proof}
+
+\begin{defi}
+	Für $d \in \IN$ definieren wir 
+	\begin{equation*}
+		\Phi_d(t) = \prod_{z \text{primitive $d$-te Einheitswurzel} \neq 1} (t - z)
+	\end{equation*}
+\end{defi}
+
+\begin{bem}
+	$\Phi_d(t) = \Phi_p(t)$ wie oben, falls $d$ eine Primzahl ist. 
+\end{bem}
+
+\paragraph{d-tes Kreisteilungspolynom}
+Wir wissen, dass $\Phi_p(t) \in \IZ[t]$ irreduzibel ist, falls $p$ eine Primzahl und primitiv ist. Nach Gauss ist deshalb auch $\Phi_p(t) \in \IQ[t] = Quot(\IZ)(t)$ irreduzibel. Deshalb folgt nach 8.1, dass das von $\Phi_p(t)$ erzeuge Ideal $I := \left( \Phi_p(t)\right) $ maximal unter den Hauptidealen in $\IQ[t]$ ist. Da $\IQ[t]$ ein Hauptidealbereich ist (nach Übungsblatt 5), ist $I$ auch ein maximales Ideal. Deshalb ist $\IQ[t] / T =: K_p $ ein Körper ist, auch der $p$-te Kreisteilungskörper genannt.
+
+\begin{lem}
+	Sei $K$ ein Körper, $R \neq \{0\}$ ein kommutativer Ring. Sei $\phi: K \to R$ ein Ringhomomorphismus. Dann ist $\phi$ injektiv.
+\end{lem}
+
+\begin{proof}
+	Wir wissen, dass $\phi (1) = 1 \neq 0$. Sei $\ker \phi \neq \{0\}$. Dann existiert ein $a \in K$, das im Kern liegt, sodass $1 = a^{-1}\cdot a$, was auch im Kern liegt, da $\ker \phi$ ein Ideal ist. Dann wäre aber $\phi(1) = 0$, was ein Widerspruch ist.
+	
+	Insbesondere können wir $K$ vermöge $\phi$ als Teilmenge von $R$ auffassen.  
+\end{proof}
+
+Deshalb können wir $\IQ$ als Teilmenge von $K_p$ durch die Einbettung $\lambda \in \IQ \to \ol{\lambda}$ auffassen. $K_p$ ist dadurch ein $\IQ$-Vektorraum (nachrechnen!).
+
+\begin{lem}
+	Sei $p$ prim. Dann ist $K_p$ ein $(p-1)$-dimensionaler $\IQ$-Vektorraum.
+\end{lem}
+
+\begin{proof}
+	Wir wollen zeigen, dass
+	\begin{equation*}
+		B = \left\lbrace \ol{1}, \ol{t}, \ol{t}^2, \dots, \ol{t}^{p-1} \right\rbrace 
+	\end{equation*}
+	eine Basis ist.
+	
+	Es reicht zu zeigen, dass $\ol{t}^k \in span_{\IQ}(B)$ für $k \in \IN_0$ damit $B$ ein Erzeugendensystem ist.
+	\begin{enumerate}
+		\item Für $0 \leq k \leq p-2$ ist das klar.
+		\item Sei $k = p-1$. 
+			\begin{align*}
+				\ol{t}^{p-1} &= \ol{t}^{p-1}- \underbrace{\left( \ol{t}^{p-1} + \dots + \ol{t} + \ol{1} \right)}_{\ol{0} \in K_p} \\
+				&= \ol{t}^{p-2} + \dots + \ol{t} + \ol{1} \in Span_{\IQ}(B)
+			\end{align*}
+		\item Sei $k > p-1$.
+			\begin{align*}
+				\ol{t}^k &= \ol{t} \cdot \ol{t}^{k-1} \in \ol{t} \cdot Span_{\IQ}(B) \\
+				&\subseteq Span_{\IQ}\left\lbrace \ol{t}, \ol{t}^2, \cdots , \ol{t} ^ {p-1} \right\rbrace \\
+				&\subseteq Span_{\IQ}(B)
+			\end{align*}
+	\end{enumerate}
+	Somit ist $B$ ein Erzeugendensystem.
+	
+	Nun fehlt noch die lineare Unabhängigkeit. Sei dazu $\sum_{i=0}^{p-2}a_i\ol{t}^i = \ol{0}$ in $K_p$ mit $a_i \in \IO$. Wir betrachten $Q := \sum_{i=0}^{p-2}a_iX^i \in \IQ[X]$. Es ist klar, dass $Q(t) \in \IQ[t]$ und $Q(t) \in K_p$. Wir wissen, dass
+	\begin{equation}
+		\ol{0} = \sum_{i=0}^{p-2}a_i\ol{t}^i = \ol{\sum_{i=0}^{p-2}a_it^i} = \ol{Q(t)}
+	\end{equation}
+	Dann liegt $Q(t)$ in $I = \Phi_p(t)$ und folglich teilt $\Phi_p(t)$ $Q(t)$. Es folgt also, dass $\deg(Q(t)) \geq p-1$ oder $Q(t) = 0$, wobei ersteres ein Widerspruch zur Definition ist. Folglich gilt $Q(t) = 0$, womit alle $a_i = 0$ und $B$ ist damit linear unabhängig. 
+\end{proof}
+
+Wir betrachten 
+\begin{equation*}
+	G := \left\lbrace \phi: K_p \to K_p \middle| \phi \text{ ist Ringisomorphimus und } \IQ\text{-linear}, \phi \vert_{\IQ} = \id \right\rbrace 
+\end{equation*}
+$G$ ist eine Gruppe bezüglich der Komposition von Abbildungen. Man nennt $G$ die Galoisgruppe $Gal(K_p // \IQ)$ von $K_p$ über $\IQ$.
+Es gilt, dass $\phi(\ol{1}) = \ol{1}$. Falls $\phi(\ol{t}) = z$, dann gilt $\phi\left( \ol{t} ^k \right) = z^k$, weil $\phi$ ein Ringhomomorphismus ist.
+Wegen 13.3 bestimmt also $\phi(\ol t)$ die Abbildung $\phi$ bereits eindeutig, da $\phi$ $\IQ$-linear ist. Wir interessieren uns also nur für die Möglichkeiten für $z$.
+
+\begin{lem}
+	Sei $\phi \in G$, $a_i = \IQ$. Sei
+	\begin{equation*}
+		P(X) = \sum_{i \geq 0} a_iX^i \in K_p[X]
+	\end{equation*}
+	Falls $y$ eine Nullstelle von $P(X)$ in $K_p$ ist, dann ist auch $p(y)$ eine Nullstelle von $P(X)$.
+\end{lem}
+
+\begin{proof}
+	Sei $y$ eine Nullstelle von $P(X)$. Dann ist $\sum_{i \geq 0} a_iy^i = 0$ in $K_p$. Folglich gilt 
+	$$0 = \phi(0) = \phi\left( \sum_{i \geq 0} a_iy^i \right) = \sum_{i \geq 0} \phi(a_i) \phi(y^i) = \sum_{i \geq 0} a_i \phi(y)^i$$
+	Somit ist $\phi(y)$ eine Nullstelle.
+	
+	Nun ist $\ol t$ eine Nullstelle von $X^p -1$, falls $\phi \in G$. Andererseits ist $\ol{t}^k$ für $0 \leq k \leq p-1$ eine Nullstelle von $X^p - 1$, weil $(\ol{t}^k)^p = (\ol{t}^p)^k = (\ol 1)^k = \ol 1 \in K_p$. Folglich ist $\ol{t}^x$ eine Nullstelle von $X^p-1 \in K_p[X]$. Die $\ol{t}^k$ für $0 \leq k \leq p-2$ sind paarweise verschieden, weil sie linear unabhängig sind.
+	
+	Es gilt also, dass die Zerlegung $\ol t \mapsto \ol{t}^k$ für $k \leq k \leq p-2$ verschiedene Elemente in $G$ definieren.  
+\end{proof}
 
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
