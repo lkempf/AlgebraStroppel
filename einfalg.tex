@@ -1214,7 +1214,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 
 \noindent Wir wissen: Sei $(R,+,\cdot)$ ein Ring, $I\subseteq R$ ein Ideal. Dann ist $(R/I,+,\odot)$ ein Ring mit $\overline{a}\odot\overline{b} = \overline{ab}$. Wir nennen $(R/I,+,\odot)$ den Quotientenring von $R$ nach/modulo $I$. Im Folgenden schreiben wir kurz $R$ statt $(R,+,\cdot)$ etc.
 
-\begin{satz}[Homomorphiesatz]
+\begin{satz}[Homomorphiesatz] \label{thm:homsatz_r}
 	Sei $R$ ein Ring, $I\subseteq R$ ein Ideal. \begin{enumerate}
 		\item Die Abbildung $\can\colon R\to R/I, a\mapsto \overline{a}$ ist Ringhomomorphismus.
 		\item Sei $\phi\colon R\to S$ Ringhomomorphismus mit $I\subseteq \ker \phi$, dann $\exists!\;\overline{\phi}\colon R/I\to S$ Ringhomomorphismus, sodass $\overline{\phi}\circ \can  = \phi$. Also:
@@ -1531,7 +1531,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 		\end{enumerate}
 \end{proof}	
 	
-\begin{satz}[Universelle Eigenschaft von Polynomringen 2]
+\begin{satz}[Universelle Eigenschaft von Polynomringen 2]\label{thm:unieig_polyring}
 	Sei $\phi\colon R\to S$ Ringhomomorphismus. Sei $a\in S$. Dann existiert ein eindeutiger Ringhomomorphismus
 	\begin{eqnarray*}
 		\ev_a\colon R[t] & \longto & S\\
@@ -1861,11 +1861,11 @@ Somit ist $R$ faktoriell.
 	
 	\lecture{16. November 2017}
 	
-	Noch zu zeigen: (1) Betrachte dafür $M := \{I\subseteq R| I\text{ Ideal,} I \neq R\}$. Betrachte nun die partielle Ordnung $\leq$ auf $M$ gegeben durch $I_1\leq I_2$ falls $I_1\subseteq I_2$. Sei $N\subseteq M$ total geordnete Teilmenge. Dann betrachte $\tilde{I} = \bigcup\limits_{I\in N} I$ ist Ideal (klar; das kannst du dir in einer ruhigen Minute selbst überlegen).
+	Es bleibt die erste Aussage zu zeigen. Hierfür sei $M := \{I\subseteq R\mid I\text{ Ideal}, I \neq R\}$. Betrachte nun die partielle Ordnung $\leq$ auf $M$ gegeben durch $I_1\leq I_2$ falls $I_1\subseteq I_2$. Sei $N\subseteq M$ eine total geordnete Teilmenge. Dann betrachte $\tilde{I} := \bigcup\limits_{I\in N} I$ ist ein Ideal.
 	
-	$\tilde{I}\in M$, weil $1\notin \tilde{I}$, da $1\notin I\forall I\in N$ nach Definition von $N\subseteq M$.
+	Es folgt $\tilde{I}\in M$, weil $1\notin \tilde{I}$, da $1\notin I$ für alle $ I\in N$ aus unserer Definition von $N\subseteq M$ folgt.
 	
-	$\Rightarrow N$ hat obere Schranke in M. Nach dem Lemma von Zorn existiert ein maximales Element in $M$. Folglich besitzt $R$ ein maximales Ideal (im Allgemeinen nicht eindeutig).
+	Somit ist $N$ in $M$ nach oben beschränkt. Nach dem Lemma von \textsc{Zorn} existiert ein maximales Element in $M$, woraus die Existenz eines (nicht notwendigerweise eindeutigen) maximalen Ideals in $R$ folgt.
 \end{proof}
 \begin{bsp}
 	$R = \IC[t], a\in \IC$. Dann ist
@@ -1873,29 +1873,28 @@ Somit ist $R$ faktoriell.
 		\ev_a\colon \IC[t] & \longto & \IC\\
 		p(t) & \mapsto & p(a)
 	\end{eqnarray*}
-	surjektiver Ringhomomorphismus. Es gilt $p(t) \in \ker\ev_a \Leftrightarrow p(a) = 0\Leftrightarrow a$ Nullstelle von $p(t)$. Nach Satz 7.13 ist das äquivalent dazu, dass $(t-a)$ das Polynom $p(t)$ teilt; also ist $p(t)$ Element des von $(t-a)$ erzeugten Ideals. Nach dem Homomorphiesatz für Ringe erhalten wir einen Isomorphismus
+	ein Ringepimorphismus. Es gilt $p(t) \in \ker\ev_a$ genau dann, wenn $p(a) = 0$, also wenn $a$ eine Nullstelle von $p(t)$ ist. Nach \cref{thm:unieig_polyring} ist das äquivalent dazu, dass $(t-a)$ das Polynom $p(t)$ teilt; also ist $p(t)$ Element des von $(t-a)$ erzeugten Ideals. Nach dem \nameref{thm:homsatz_r} für Ringe erhalten wir einen Isomorphismus
 	$$ \IC[t]/(t-a) \longto \IC$$
-	Da $\IC$ Körper ist, ist $I = (t-a)$ maximales Ideal (für jedes $a\in \IC$).
+	Da $\IC$ ein Körper ist, ist $I = (t-a)$ maximales Ideal (für jedes $a\in \IC$).
 \end{bsp}
 
 
 \subsection{Einschub: Chinesischer Restsatz}
-Stroppel hat eine Pralinenschachtel. Wenn jemand errät, wieviele Pralinen sich darin befinden, bekommt derjenige alle Pralinen (da niemand nachprüfen kann, ob das, was Stroppel bzgl der Anzahl der Pralinen behauptet, stimmt, wird vermutlich niemand die Pralinen bekommen). Wir wissen über die Anzahl der Pralinen: Wenn man sie auf vier Leute aufteilt, bleiben zwei übrig; wenn man sie auf sieben Personen verteilt, bleiben drei Pralinen übrig. Also
+\paragraph{Mathematik in der Praxis.}
+Stroppel hat eine Pralinenschachtel. Wenn jemand errät, wieviele Pralinen sich darin befinden, bekommt derjenige alle Pralinen (da niemand nachprüfen kann, ob das, was Stroppel bezüglich der Anzahl der Pralinen behauptet, stimmt, wird vermutlich niemand die Pralinen bekommen). Wir wissen über die Anzahl der Pralinen: Wenn man sie auf vier Leute aufteilt, bleiben zwei übrig; wenn man sie auf sieben Personen verteilt, bleiben drei Pralinen übrig, also
 \begin{eqnarray*}
-	x &\equiv & 2 \pmod 4\\
-	x &\equiv & 3 \pmod 7
+	x &\equiv & 2 \pmod 4,\\
+	x &\equiv & 3 \pmod 7.
 \end{eqnarray*}
-Eine Lösung ist zum Beispiel $x = 10$, aber laut Stroppel ist das nicht die Anzahl der Pralinen (die Pralinenschachtel sieht aber gar nicht so groß aus, als ob da noch wirklich viel mehr Pralinen darin sein könnten).
-
-Behauptung: Genau die Zahlen der Form $10+28k, k\in\IZ$ sind Lösungen.
+Eine Lösung ist zum Beispiel $x = 10$, aber laut Stroppel ist das nicht die Anzahl der Pralinen (die Pralinenschachtel sieht aber gar nicht so groß aus, als ob da noch wirklich viel mehr Pralinen darin sein könnten). Wir vermuten nun, dass genau die Zahlen der Form $10+28k, k\in\IZ$ Lösungen sind.
 
 \begin{satz}[Chinesischer Restsatz]
-	Sei $R$ kommutativer Ring, $R\neq\{0\}$. Seien $I_1,\dots,I_s$ Ideale in $R$, sodass $I_i+I_j = R\forall i\neq j$. Dann existiert ein surjektiver Ringhomomorphismus:
+	Sei $R$ ein kommutativer Ring sowie $R\neq\{0\}$. Seien weiter $I_1,\dots,I_s$ Ideale in $R$, sodass $I_i+I_j = R$ für alle $i\neq j$ gilt. Dann existiert ein surjektiver Ringhomomorphismus
 	\begin{eqnarray*}
 		\Phi\colon R & \longto & R/I_1\times \dots R/I_s\\
 		r & \longmapsto & (\overline{r},\dots, \overline{r})
 	\end{eqnarray*}
-	(wobei $\overline{r}$ jeweils die Nebenklasse von $r$ bezüglich dem passenden $I_i$ ist).
+	(wobei $\overline{r}$ jeweils die Nebenklasse von $r$ bezüglich dem passenden Ideal $I_i$ ist).
 	Dabei gilt $\ker\Phi = I_1\cap\dots\cap I_s$. Insbesondere erhalten wir einen Isomorphismus von Ringen:
 	$$ R/(I_1\cap\dots\cap I_s) \longto R/I_1 \times\dots \times R/I_s$$
 	
@@ -1903,111 +1902,111 @@ Behauptung: Genau die Zahlen der Form $10+28k, k\in\IZ$ sind Lösungen.
 
 
 \begin{proof}
-	$\Phi$ ist ein Ringhomomorphismus: nachrechnen.\\
-	$\Phi$ ist surjektiv: Nach Voraussetzung existieren für $1\leq i,j\leq s$ Elemente $a_{ij}\in I_i, a_{ji}\in I_j$ mit $a_{ij}+a_{ji} = 1$. Definiere nun
-	$$b_i = \prod_{j\neq i, 1\leq j\leq s} (1-a_{ij}) = \prod_{j\neq i, 1\leq j\leq s} a_{ji}$$
+	Es lässt sich leicht nachrechnen, dass $\Phi$ tatsächlich ein Ringhomomorphismus ist. Es bleibt die Surjektivität von $\Phi$ zu zeigen. Nach Voraussetzung existieren für $1\leq i,j\leq s$ Elemente $a_{ij}\in I_i, a_{ji}\in I_j$ mit $a_{ij}+a_{ji} = 1$. Wir definieren nun
+	\[b_i := \prod_{\mathclap{\substack{j\neq i\\1\leq j\leq s}}} (1-a_{ij}) = \prod_{\mathclap{\substack{j\neq i\\1\leq j\leq s}}} a_{ji}\]
 	Es gilt
 	\begin{equation}
-	 \overline{b_i} = \begin{cases} \overline{0} &\text{ in} R/I_j \text{ für } i\neq j\\
-	 \overline{1} &\text{in } R/I
-	 \end{cases}
+	 \overline{b_i} = \begin{cases*} \text{$\overline{0}$ in $R/I_j$} & für $i\neq j$,\\
+	 \text{$\overline{1}$ in $R/I_i$} & für $i=j$.
+	 \end{cases*} \tag{*}\label{eq:thmchinres}
 	 \end{equation}
-	 Sei nun $(\overline{r_1},\dots, \overline{r_s})\in R/I_1\times \dots \times R/I_s$ beliebig ($r_i\in R$). Setze
-	 $$ x : = \sum_{i = 1}^{s} b_ir_i\in R$$
-	 Dann $\Phi(x) = \sum_{i=1}^{s}\Phi(b_ir_i) = \sum_{i=1}^{s}\Phi(b_i)\Phi(r_i)$, weil $\Phi$ Ringhomomorphismus ist.
+	 Sei nun $(\overline{r_1},\dots, \overline{r_s})\in R/I_1\times \dots \times R/I_s$ beliebig ($r_i\in R$). Wir setzen
+	 \[ x : = \sum_{i = 1}^{s} b_ir_i\in R.\]
+	 Da $\Phi$ ein Ringhomomorphismus ist, folgt dann mit \eqref{eq:thmchinres} \[
+	 \Phi(x) = \sum_{i=1}^{s}\Phi(b_ir_i) = \sum_{i=1}^{s}\Phi(b_i)\Phi(r_i) = \left(\sum_{i =1}^{s}\overline{b_i}\overline{r_i},\dots, \sum_{i = 1}^{s}\overline{b_i}\overline{r_i}\right) = (\overline{r_1},\dots, \overline{r_s})
+	 .\]
+	 Folglich ist $x$ Urbild von $(\overline{r_1},\dots, \overline{r_s})$. Damit ist $\Phi$ ist surjektiv.
 	 
-	 Daraus folgt $\Phi(x) = (\sum_{i =1}^{s}\overline{b_i}\overline{r_i},\dots, \sum_{i = 1}^{s}\overline{b_i}\overline{r_i})$. Nach (2) ist das $(\overline{r_1},\dots, \overline{r_s})$. Folglich ist $x$ Urbild von $(\overline{r_1},\dots, \overline{r_s})$. Damit ist $\Phi$ ist surjektiv.\\
-	 $\ker\Phi$: $r\in \ker\Phi \Leftrightarrow (\overline{r},\dots, \overline{r}) = (\overline{0},\dots, \overline{0})\in R/I_1\times\dots\times R/I_s$ 
-	
-	 $\Leftrightarrow \overline{r} = \overline{0}\in R/I_k\forall k (1\leq k\leq s) \Leftrightarrow r\in I_k\forall k\Leftrightarrow  r\in I_1\cap\dots\cap I_s$
+	 Schließlich ist $r\in \ker\Phi$ genau dann, wenn $(\overline{r},\dots, \overline{r}) = (\overline{0},\dots, \overline{0})\in R/I_1\times\dots\times R/I_s$, also wenn $\overline{r} = \overline{0}\in R/I_k$ für alle $1\leq k\leq s$. Das ist aber äquivalent dazu, dass $r$ im Schnitt $I_1\cap\dots\cap I_s$ liegt, also $\ker\Phi = I_1\cap\dots\cap I_s$.
 \end{proof}
 
 
 \subsection{Lokalisierung}
-\begin{defi} $R$ kommutativer Ring, $R\neq \{0\}$. $S\subseteq R$ heißt multiplikativ abgeschlossen, falls $1\in S$ und $s_1,s_2\in S\Rightarrow s_1s_2\in S$.
-	
-Dann heißt $S^{-1}R$ Lokalisierung von $R$ an $S$. Dabei ist $S^{-1}R$ ein kommutativer Ring, wobei die Elemente Äquivalenzklassen in $R\times S$ bezüglich $\sim$ (vgl Übungsblatt 5).
-Bezeichne mit $\frac rs$ die Äquivalenzklasse von $(r,s)\in R\times S$.
-Es gilt $\frac rs = \frac r's'\Leftrightarrow \exists a\in S: a(rs'-r's) = 0$. Wir nennen $S^{-1}R$ auch den Ring der Brüche für $R$ bzgl. $S$.
+\begin{defi} Sei $R$ ein kommutativer Ring und $R\neq \{0\}$. Eine Teilmenge $S\subseteq R$ heißt multiplikativ abgeschlossen, falls $1\in S$ und $s_1,s_2\in S\Rightarrow s_1s_2\in S$ gelten. Dann nennen wir $S^{-1}R$ die Lokalisierung von $R$ an $S$. Dabei ist $S^{-1}R$ ein kommutativer Ring, wobei die Elemente Äquivalenzklassen in $R\times S$ bezüglich $\sim$ (siehe Übungsblatt 5).
+Wir bezeichnen mit $\frac rs$ die Äquivalenzklasse von $(r,s)\in R\times S$.
+Es gilt $\frac rs = \frac {r'}{s'}$ genau dann, wenn ein $a\in S$ existiert, sodass $a(rs'-r's) = 0$. Wir nennen $S^{-1}R$ auch den Ring der Brüche für $R$ bezüglich $S$.
 \end{defi}
 
 \begin{bem}
 	\leavevmode
 	\begin{enumerate}
-		\item Falls $0_R\in S$ ist, ist $S^{-1}R$ bereits der Nullring, denn für $,s,s'\in S, r,r'\in R$ gibt es $a\in S$ (nämlich z.B. $a = 0$) mit  $a(rs'-r's) = 0$
-		\item Falls $R$ Integritätsbereich ist, ist $S^{-1}R$ Integritätsbereich für alle $S$ mit $0\notin S$ (selber nachrechnen!)
+		\item Falls $0_R\in S$ ist, so ist $S^{-1}R$ bereits der Nullring, denn für $s,s'\in S$ und $r,r'\in R$ gibt es ein $a\in S$ (nämlich z.B. $a = 0$) mit  $a(rs'-r's) = 0$.
+		\item Falls $R$ ein Integritätsbereich ist, ist auch $S^{-1}R$ ein Integritätsbereich für alle $S$ mit $0\notin S$ (selber nachrechnen!).
 	\end{enumerate}
 \end{bem}
 
-\begin{satz}[Universelle Eigenschaft der Lokalisierung]
-	$R$ kommutativer Ring, $R\neq\{0\}, S\subseteq R$ multiplikativ abgeschlossen.
+\begin{satz}[Universelle Eigenschaft der Lokalisierung] \label{thm:unieig_lokali}
+	Sei $R$ kommutativer Ring, $R\neq\{0\}$, und $S\subseteq R$ multiplikativ abgeschlossen.
 	\begin{enumerate}
-		\item \begin{eqnarray*}
+		\item Die Abbildung
+				\begin{eqnarray*}
 					\can\colon R & \longto & S^{-1}R\\
-					r & \longmapsto \frac r1
+					r & \longmapsto & \frac r1
 				\end{eqnarray*}
-			ist Ringhomomorphismus und $\can(S) \subseteq(S^{-1}R)^{\times}$
-		\item Sei $\phi\colon R\to T$ Ringhomomorphismus, sodass $\phi(S) \subseteq T^{\times}$, dann $\exists! \hat{\phi}\colon S^{-1}R\to T$ Ringhomo, sodass
-		$\hat{\phi}\circ \can = \phi$:
+			ist ein Ringhomomorphismus, wobei $\can(S) \subseteq(S^{-1}R)^{\times}$.
+		\item Sei $\phi\colon R\to T$ ein Ringhomomorphismus, sodass $\phi(S) \subseteq T^{\times}$, dann existiert ein eindeutiger Ringhomomorphismus $\hat{\phi}\colon S^{-1}R\to T$, sodass
+		$\hat{\phi}\circ \can = \phi$, also sodass das nachfolgende Diagramm kommutiert.
 		\begin{center}
 				\begin{tikzcd}
 						R \arrow{rd}[swap]{\can} \arrow{r}{\phi} & T \\
-						 	& Z\arrow{u}[swap]{\exists! \hat{\phi}\text{ Ringhomo}} \\
+						 	& Z\arrow{u}[swap]{\exists! \hat{\phi}\text{ Ringhomomorphismus}} \\
 				\end{tikzcd}
 		\end{center}
 	\end{enumerate}
 \end{satz}
 
 \begin{proof}
-	\begin{itemize}
-		\item $\can$ ist ein Ringhomo: nachrechnen
-		\item $\can(S)\subseteq \{\text{Einheiten}\}$: Sei $s\in S$. Dann ist $\can(s) = \frac s1$ und $\frac s1\cdot \frac1s = 1\Rightarrow \frac s1$ hat Inverses bezüglich der Multiplikation, also Einheit. Damit folgt Aussage (1).
-		\item Zu Ausssage (2): Definiere $\hat{\phi}(\frac rs) = \phi(r)\phi(s)^{-1}$ (wobei das das Inverse bzgl $\cdot$ in $S^{-1}R$ darstellt, das nach Annahme existiert)
-		
-		Nachrechnen: $\hat{phi}$ ist Ringhomomorphismus. Es gilt $\hat{\phi}\circ \can(r) = \hat{phi}(\frac r1) = \phi(r)\phi(1)^{-1} = \phi(r)\cdot 1^{-1} = \phi(r) $. Damit folgt die Existenz von $\hat{\phi}$.
-		\item Eindeutigkeit von $\hat{\phi}$: Es muss gelten $\hat{phi}(\frac rs) = \hat{\phi} (\frac r1\cdot \frac1s) = \hat{\phi}(\frac r1)\cdot \hat{\phi}(\frac1s) = \hat{\phi}(\frac r1)\hat{\phi}((\frac s1)^{-1}) = \hat{\phi}(\frac r1)\hat{\phi}(\frac s1)^{-1} = \phi(r)\phi(s)^{-1}$, weil $\hat{\phi}\circ\can = \phi\Rightarrow \hat{\phi}(\frac rs) = \phi(r)\phi(s)^{-1}$, also Eindeutigkeit.
-	\end{itemize}
+	\leavevmode
+	\begin{enumerate}
+		\item Durch einfaches Nachrechnen stellt man fest, dass $\can$ ein Ringhomomorphismus ist. Weiterhin sei $s\in S$. Dann ist $\can(s) = \frac s1$ und $\frac s1\cdot \frac1s = 1$, also hat $\frac s1$ ein Inverses bezüglich der Multiplikation, ist also eine Einheit. Damit folgt die erste Aussage.
+		\item \begin{description}
+			\item[Existenz:] Wir definieren $\hat{\phi}(\frac rs) = \phi(r)\phi(s)^{-1}$, wobei das Inverse bezüglich $\cdot$ in $S^{-1}R$ nach Voraussetzung existiert.
+			
+			Wieder durch Nachrechnen erhält man, dass $\hat{\phi}$ ein Ringhomomorphismus ist. Es gilt $\hat{\phi}\circ \can(r) = \hat{\phi}(\frac r1) = \phi(r)\phi(1)^{-1} = \phi(r)\cdot 1^{-1} = \phi(r) $. Damit folgt die Existenz von $\hat{\phi}$.
+			\item[Eindeutigkeit:] Wir erhalten $\hat{\phi}(\frac rs) = \hat{\phi} (\frac r1\cdot \frac1s) = \hat{\phi}(\frac r1)\cdot \hat{\phi}(\frac1s) = \hat{\phi}(\frac r1)\hat{\phi}((\frac s1)^{-1}) = \hat{\phi}(\frac r1)\hat{\phi}(\frac s1)^{-1} = \phi(r)\phi(s)^{-1}$, weil $\hat{\phi}\circ\can = \phi$, also $\hat{\phi}(\frac rs) = \phi(r)\phi(s)^{-1}$ gilt. Damit ist $\hat{\phi}$ eindeutig.
+		\end{description}
+	\end{enumerate}
 \end{proof}
 
 \begin{defi}
-	Falls $R$ Integritätsbereich, $R\neq\{0\}$. Dann $S = R\setminus\{0\}$ multiplikativ abgeschlossen und (Übungsblatt) $S^{-1}R =: Quot(R)$ ist Körper, man nennt ihn den Quotientenkörper zu  $R$.
+	Falls $R$ ein Integritätsbereich und $R\neq\{0\}$, so ist $S = R\setminus\{0\}$ multiplikativ abgeschlossen und $S^{-1}R =: \Quot(R)$ ist nach dem Übungsblatt ein Körper. Wir nennen diesen den Quotientenkörper zu $R$.
 \end{defi}
-\begin{bem} Unterscheide von jetzt an $R/I$ Faktorring und $S^{-1}R$ Quotientenring bzw. Quotientenkörper.
+\begin{bem} Wir weisen auf die Unterscheidung zwischen $R/I$, einem Faktorring, und $S^{-1}R$, einem Quotientenring bzw. Quotientenkörper, hin.
 \end{bem}
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-		\item $Quot(\IR[t]) = \left\{\frac{f(t)}{g(t)}| f(t), g(t)\in \IR[t], g(t)\neq 0\right\}$ Körper der rationalen Funktionen über $\IR$ in der Variable $t$.
+		\item $\Quot(\IR[t]) = \left\{\frac{f(t)}{g(t)}| f(t), g(t)\in \IR[t], g(t)\neq 0\right\}$, der Körper der rationalen Funktionen über $\IR$ in der Variable $t$.
 		
-		\item Was ist z.B. $Quot(\IZ[t])$? Gute Beschreibung? (Achtung: overkill incoming)
+		\item Was ist z.B. $\Quot(\IZ[t])$? Können wir diesen \glqq gut\grqq{} beschreiben? (Stroppel kündigt einen Überkill an\dots)
 		
-		Betrachte $R$ Integritätsbereich und dann die Abbildung
+		Es sei $R$ ein Integritätsbereich, wir betrachten die Abbildung
 		
 		$\begin{array}{rcccccl}
-			\phi\colon R & \xlongrightarrow{\can} & Quot(R) &\longto& (Quot(R))[t] &\longto& Quot((Quot(R))[t]) =: T\\
-			r& \longmapsto & \frac r1 & \longmapsto & \text{konstantes Polynom } \frac r1
+			\phi\colon R & \xlongrightarrow{\can} & \Quot(R) &\longto& (\Quot(R))[t] &\longto& \Quot((\Quot(R))[t]) =: T\\
+			r& \longmapsto & \frac r1 & \longmapsto & \text{konstantes Polynom } \frac r1,
 		\end{array}$
-		(beachte: $R'$ Integritätsbereich $\Rightarrow R'[t]$ Integritätsbereich)
+		wobei wir beachten, dass mit $R'$ auch $R'[t]$ ein Integritätsbereich ist.
 		
-		Nach universeller Eigenschaft des Polynomrings existerit genau ein Ringhomomorphismus
+		Nach der universellen Eigenschaft des Polynomrings existiert genau ein Ringhomomorphismus
 		\begin{eqnarray*}
 			f = \ev_{\tilde{t}}\colon R[t] & \longto & T\\
 			\sum_{i = 0}^{\infty} b_it^i & \longmapsto & \sum_{i = 0}^{\infty}\phi(b_i)\tilde{t}^i
 		\end{eqnarray*}
-		wobei $\tilde{t} = \frac{1_{Quot(R)}\cdot t}{1} \in T$.
+		wobei $\tilde{t} = \frac{1_{\Quot(R)}\cdot t}{1} \in T$.
 		
-		Klar: $ p(t) \neq 0 \Rightarrow f(p(t)) \neq 0$, also Einehit, weil $T$ Körper. Nach Satz 11.1 existiert genau ein Ringhomomorphismus $\hat{f}\colon Quot(R[t])\to T$ mit $\hat{f}(\frac{g_1}{g_2}) = f(g_1)(f(g_2))^{-1}$. Man kann zeigen: $\hat{f}$ ist ein Ringisomorphismus (durch Angeben von inversen Abbildungen).
+		Für $p(t)\neq 0$ ist klar, dass $f(p(t))$ nicht $0$, also eine Einheit ist, da $T$ ein Körper ist. Nach \cref{thm:unieig_lokali} existiert genau ein Ringhomomorphismus $\hat{f}\colon \Quot(R[t])\to T$ mit $\hat{f}\left(\frac{g_1}{g_2}\right) = f(g_1)(f(g_2))^{-1}$. Man kann zeigen, dass $\hat{f}$ ein Ringisomorphismus ist, indem man die inversen Abbildungen angibt.
 		
-		Also: $Quot(R[t])\xrightarrow{\sim} Quot((Quot(R))[t]) = T$ Isomorphismus von Ringen. Im Beispiel hier wollen wir $R = \IZ$. Also
+		Also erhalten wir $\Quot(R[t])\xrightarrow{\sim} \Quot((\Quot(R))[t]) = T$, einen Isomorphismus von Ringen. Im Beispiel hier setzen wir $R = \IZ$ und es ergibt sich
 		\begin{eqnarray*}
-			Quot(\IZ[t]) & \xlongrightarrow{\sim} & Quot((Quot(\IZ))[t])\\
-			& &= Quot(Q[t])\\
+			\Quot(\IZ[t]) & \xlongrightarrow{\sim} & \Quot((\Quot(\IZ))[t])\\
+			& &= \Quot(\IQ[t])\\
 			&& = \text{rationale Funktionen über $\IQ$ in einer Variablen}
 		\end{eqnarray*}
 	\end{enumerate}
 \end{bsp}
 
-Bezeichne ab jetzt mit $K(t_1,\dots,t_n) := Quot(K[t_1,\dots,t_n])$ für $K$ Körper.
+Wir definieren $K(t_1,\dots,t_n) := \Quot(K[t_1,\dots,t_n])$ für einen Körper $K$.
 
 
 \lecture{20. November 2017}
