@@ -1485,7 +1485,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 \end{bem}
 
 
-\begin{satz}
+\begin{satz} \label{thm:primitb}
 	Sei $R$ ein kommutativer Ring, $R\neq\{0\}$ und $ I\subseteq R$ ein Ideal. Dann gilt
 	\begin{align*} I \text{ Primideal} \quad &\Longleftrightarrow \quad R/I \text{ Integritätsbereich}. \\\intertext{Insbesondere folgt}
 	 \text{$\{0\}$ Primideal} \quad&\Longleftrightarrow\quad \text{$R$ Integritätsbereich}.\end{align*}
@@ -1507,7 +1507,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 	\end{itemize}
 \end{proof}
 
-\begin{kor}
+\begin{kor} \label{cor:maxprim}
 	$R\neq\{0\}$ kommutativer Ring, $I\subseteq R$ Ideal. Dann gilt: \[\text{$I$ maximal} \quad  \Longrightarrow \quad  \text{$I $ prim} \]
 \end{kor}
 \begin{proof}
@@ -1753,7 +1753,7 @@ Ab jetzt sind alle Ringe kommutativ.
 	Aber es ist $ 6 = 2\cdot 3 = (1+\sqrt{5}\ima)(1-\sqrt{5}\ima)$, also ist $R$ nicht faktoriell, da die Zerlegung nicht eindeutig ist.
 \end{bsp}
 
-\begin{lem}
+\begin{lem} \label{lem:primired}
 	Sei $R$ ein Integritätsbereich und $a\in R$.
 	\begin{enumerate}
 		\item $a$ prim $\Longleftrightarrow (a) \neq\{0\}$, $(a)$ Primideal
@@ -1800,7 +1800,7 @@ Ab jetzt sind alle Ringe kommutativ.
 		\item Sei $a = bc$ mit $b,c \in R$. Da $a$ prim ist, folgt $a\mid b$ oder $a \mid c$, es ist also $b = ar$ oder $c = ar$ für ein $r\in R$.  Folglich haben wir $b = bcr$ oder $c = cbr$ und somit auch $b(1-cr)=0$ oder $c(1-br)=0$. Da $R$ nullteilerfrei ist und $b,c \neq 0$, weil $a \neq 0$, ist $c$ oder $b$ eine Einheit. Schließlich ist $a$ irreduzibel.
 		
 		\item \begin{enumerate}
-			\item Die eine Richtung folgt nach 1.. Sei für die Rückrichtung nun $a$ irreduzibel. Nach Lemma 8.1 ist $(a)$ maximal unter allen Hauptidealen in $R$. Da $R$ ein Hauptidealring ist, ist $(a)$ sogar ein maximales Ideal. Aus Satz 7.10 folgt, dass $(a)$ ein Primideal ist. Nun ist $a$ prim nach 8.1, da $(a)\neq\{0\}$, weil $a$ irreduzibel, also insbesondere $a\neq 0$ ist.
+			\item Die eine Richtung folgt nach 1. Sei für die Rückrichtung nun $a$ irreduzibel. Nach Lemma 8.1 ist $(a)$ maximal unter allen Hauptidealen in $R$. Da $R$ ein Hauptidealring ist, ist $(a)$ sogar ein maximales Ideal. Aus \cref{cor:maxprim} folgt, dass $(a)$ ein Primideal ist. Nun ist $a$ prim nach \cref{lem:primired}, da $(a)\neq\{0\}$, weil $a$ irreduzibel, also insbesondere $a\neq 0$ ist.
 			
 			\item \begin{description}
 					\item[\glqq$\Leftarrow$\grqq:] siehe Satz 7.10
