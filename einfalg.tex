@@ -2285,9 +2285,60 @@ Beachte: $K\subseteq K[\alpha_1,\dots, \alpha_n]\subseteq K(\alpha_1,\dots, \alp
 	$\IC\sslash\IR$: $[\IC:\IR] = 2$; $\IR(t)\sslash \IR$: $[\IR(t): \IR] = \infty$.
 \end{bsp}
 \begin{bem}
-	Falls $L$ endlicher Körper ist und $L\sslash K$ Körpererweiterung ist. Dann gilt $|L| = |K|\cdot [L:K]$
+	Falls $L$ endlicher Körper ist und $L\sslash K$ Körpererweiterung ist. Dann gilt $|L| = |K|^{ [L:K]}$
 \end{bem}
+\begin{satz}
+	Sei $L\sslash K$ eine Körpererweiterung. Sei $V$ ein $L$-Vektorraum. Dann ist $V$ auch $K$-VR (durch Einschränken). Dann ist $\dim_KV= \dim_LV\cdot [L:K]$.
+\end{satz}
+\begin{kor}[Gradformel]
+	Seien $L_1\sslash L_2, L_2\sslash L_3$ Körpererweiterungen. Dann gilt
+	$$ [L_1: L_3] = [L_1:L_2]\cdot [L_2][L_3]$$
+\end{kor}
+\begin{proof} Folgt direkt aus Satz 14.2
+\end{proof}
 
+\begin{proof}[Beweis Satz 14.2] %TODO: LABELS
+	Sei $\{v_i|i\in I\}$ Basis von $V$ als $L$-Vektorraum. Sei $\{w_j|j\in J\}$ Basis von $L$ als $K$-VR. Behauptung: $\{z_{(i,j)} = w_jv_i|i\in I, j\in J\}$ Basis von $V$ als $K$-VR. Damit folgt dann der Satz.
+	
+	\noindent
+	Beweise also nun die Behauptung:
+	\begin{description}
+		\item[Erzeugendensystem:] Sei $v\in V\Rightarrow v = \sum_{i\in I} a_iv_i$ mit $a_i\in L$ und nur endlich viele $a_i\neq 0$ und für festes $i\in I$:
+		$$a_i = \sum_{j\in J}b_{ij}w_j \text{ mit } b_{ij}\in K$$
+		nur endliche viele $b_{ij}\neq 0$.
+		
+		$\Rightarrow v = \sum_{i\in I}\sum_{j\in J}b_{ij}w_jv_i\Rightarrow $ Erzeugendensystem
+		\item[linear unabhängig:] Sei $\sum_{(i,j)\in I'}c_{ij}z_{i,j} = 0$ mit $a_ij\in K$.; $I'\subseteq I \times J$ endlich. Zu zeigen: $c_ij = 0 \forall (i,j)\in I'$. Setze $c_{ij} = 0 \forall (i,j)\in I\times J \setminus I'$
+		
+		$\Rightarrow 0 = \sum_{(i,j)\in I'}c_{ij}z_{(i,j)} = \sum_{i\in I}(\sum_{j\in J}(c_{ij}wj))v_i$, also $c_{ij}w_j\in L$, weil $K\subseteq L$ Unterkörper.
+		
+		Da $\{v_i|i\in I\}$ eine Basis von $V$ als $L$-Vektorraum ist, folgt
+		$$\sum_{j\in J}c_{ij}w_j = 0 \qquad \forall i \in I$$
+		Da $\{w_j|j\in J\}$ linear unabhängig über $K$ ist, gilt $c_{ij} = 0\forall i,j\Rightarrow $ lineare Unabhängigkeit.
+	\end{description}
+\end{proof}
+
+\subsection{Algebraische Körpererweiterung}
+Sei $L\sslash K$ eine Körpererweiterung. Sei $a\in L$. Die Inklusion $K\to L, \lambda\mapsto\lambda$ ist ein Ringhomomorphismus. Nach universeller Eigenschaft des Polynomrings existiert genau ein Ringhomomorphismus
+\begin{eqnarray*}
+	\ev_a\colon K[t] &\longto & L\\
+	p(t) & \longmapsto & p(a)
+\end{eqnarray*}
+Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist und algebraisch sonst. Betrachte nun diese beiden Fälle.
+\begin{description}
+	\item[Fall 1] $a$ ist transzendent: Dann gilt $\ev_a\colon  K[t]\to L$ injektiv und $\im\ev_a = K[a]\subseteq L$ (nach Satz 7.15). %TODO: LABELS
+	Also existiert Isomorphismus von Ringen $K[t]\to K[a]$ nach dem Homomorphiesatz für Ringe. Nach Definition ist $K[a]\subseteq K(a)$ und somit gilt:
+	$$K(a) \supseteq \{fg^{-1}|f,g\in K[a], g\neq 0\} = : X$$
+	Da $K(a)$ der kleinste Unterkörper $UK$ von $L$ ist, der $K$ und $a$ enthält und $X$ offensichtlich Körper ist, folgt $=$.
+	
+	Folglich haben wir einen Isomorphismus von Ringen (bzw Körpern) von $K(a)\cong K(t) = Quot(K[t])$. Insbesondere sind $K(t)$, also auch $K(a)$ unendlichdimensionals als $K$-VR, also $[K(a):K] = \infty$
+	
+	\item[Fall 2] $a$ ist algebraisch über $K$. Nach Definition gilt: $\ev_a$ nicht injektiv. Also ist $\ker(\ev_a)\neq \{0\}$ Ideal in $K[t]$. Da $K[t]$ Hauptidealring ist, existiert $p(t)\in K[t]$ mit $\ker(\ev_a) = (p(t))$. Sei ohne Beschränkung der Allgemeinheit $p(t)$ normiert (d.h. Leitkoeffizient ist 1).
+	
+	Wir wissen: $p(a) = \ev_a(p(t)) = 0$. (also $a$ Nullstelle von $p(t)$). Wähle Polynom minimalen Grades in $K[t]$ normiert, nennen wir es $m_a(t)$, sodass $m_a(a) = 0$ (also sodass $a$ Nullstelle ist). Nenne dieses Polynom $m_a$ das Minimalpolynom zu $a$. (Existenz und Eindeutigkeit zeigt man wie für das Minimalpolynom in LA II). Ebenfalls wie in LA II: Für jedes Polynom $p(t)\in K[t]$ mit $p(a) = 0$ gilt: $m_a(t)$ teilt $p(t)$ in $K[t]$. Damit: $\ker\ev_a = (m_a(t))$.
+
+	Nun gilt: $K[t]/(m_a(t))\to \im(\ev_a)$ ist Isomorphismus von Ringen
+\end{description}
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
