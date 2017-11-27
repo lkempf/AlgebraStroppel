@@ -2221,6 +2221,73 @@ Wegen 13.3 bestimmt also $\phi(\ol t)$ die Abbildung $\phi$ bereits eindeutig, d
 	Es gilt also, dass die Zerlegung $\ol t \mapsto \ol{t}^k$ für $k \leq k \leq p-2$ verschiedene Elemente in $G$ definieren.  
 \end{proof}
 
+
+
+
+%TODO: vervollständige diese Vorlesung
+
+\lecture{27. November 2017}
+Letzte Vorlesung: Für einen Körper $K$ haben wir definiert $\<\emptyset\>$ Körper $= \bigcap\limits_{L\subseteq K \text{Unterkörper}}$ Primkörper von $K$.
+
+\begin{bem}
+	Primkörper ist Körper und zwar der kleinste Unterkörper von $K$; $0;1\in $ Primkörper und damit auch $1+\dots+1$ für $n$ mal eine 1 ($n\in\IN$).
+\end{bem}
+
+\begin{satz} Sei $K$ ein Körper. Dann ist der Primkörper von $K$ isomorph (als Körper) zu $$\begin{cases*} \IQ& \text{falls }char K =0\\
+	\IF_p& \text{falls }char K = p>0\end{cases*}$$.
+\end{satz}
+
+\begin{proof}
+	Betrachte $\phi\colon \IZ\to K$ mit 
+	$$\phi(n ) =\begin{cases*} 
+	n\cdot 1 &\text{falls }n\in\IN\\
+						0 & \text{falls } n = 0\\
+						-(-n\cdot 1) & \text{falls } -n\in\IN 
+						\end{cases*}$$
+	Klar: $\phi$ ist ein Ringhomomorphismus und $\im \phi\subseteq$ Primkörper von $K$ (nach Bemerkung 1).
+	
+	Fall 1: $char K = p>0$. Dann $p\cdot 1  = 0$ in $K\Rightarrow \phi(pm) = 0\forall m\in\IZ\Rightarrow p\IZ\subseteq \ker \phi\Rightarrow \exists!$ Ringhomo (nach Homomorphiesatz) $\overline{\phi}\colon \IZ/p\IZ\to K$ mit $\overline{phi}\circ \can  = \phi$. Da $p$ Primzahl ist, ist $\IZ/p\IZ = \IF_p$ ein Körper. Nach Satz 13.2 ist $\overline{\phi}$ folglich injektiv und es gilt $\im\overline{\phi}\subseteq$ Primkörper von $K$, wobei $\im\overline{\phi} \cong \IF_p$ nach dem Homomorphiesatz für Ringe. Weil der Primkörper kleinster Unterkörper von $K$ und $\im\overline{\phi}$ Körper (isomorph zu $\IF_p$) ist, muss gelten: $\im \overline{\phi}$ Primkörper $\Rightarrow$ Behauptung für den Fall $char K = p> 0$:
+	
+	Falls 2: $char K = 0$. Dann ist $\phi$ injektiv (denn wenn $\phi(n) = \phi(m) \Rightarrow (n-m)1 = 0$ in $K\Rightarrow n = m$ oder  $char K > 0 \Rightarrow n = m$). Also ist $\phi(n) \neq 0\forall n\neq 0$ (weil $p$ Gruppenhomo). Damit gilt $\phi(n)\in K^{\times}\forall n \in \IZ\setminus\{0\}\Rightarrow \exists$ Ringhomomorphismus $\hat{\phi}\colon \IQ= Quot (\IZ)to K, \hat{\phi}(\frac ab) = \phi(a)(\phi(b))^{-1}\forall \frac ab\in \IQ$ (nach der universellen Eigenschaft der Lokalisierung). Mit Satz 13.2 folgt dann: $\hat{\phi}$ ist injektiv und nach Homomorphiesatz $\IQ/\ker\hat{\phi} \cong \im\hat{\phi}$, also $\IQ \cong \im \hat{\phi}$ (Isomorphie von Ringen bzw Körpern). Wir wissen: $\im \phi\subseteq$ Primkörper von $K$. Nach Definition von $\hat{\phi}$ gilt $\im\hat{\phi}\subseteq$ Primkörper von $K$, weil der Primkörper Körper ist. Damit haben wir nun einen Unterkörper $\im \hat{\phi}\subseteq $ Primkörper von $K$, also $\im \hat{\phi}= $ Primkörper, weil dieser minimal ist. Also ist $\IQ$ isomorph zum Primkörper von $K$
+	
+\end{proof}
+
+\begin{defi}
+	Eine Körpererweiterung (kurz KE) $L\sslash K$ ist ein Paar $L, K$ von Körpern, wobei $K\subseteq L$ Unterkörper ist. Genauer: $L$ ist Körpererweiterung von K$K$.	
+\end{defi}
+
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item $\IC\sslash\IR$ KE
+		\item Sei $L\sslash K$ KE, Seien $\alpha_1, \dots, \alpha_n\in L$. Sei $M:=K\cup \{\alpha_1,\dots, \alpha n\}\Rightarrow K \subseteq \< M\>_{\text{Körper}}\subseteq L$ sind jeweils KE. Wir bezeichnen $\<M\>_{\text{Körper}} = K(\alpha_1,\dots, \alpha_n)$ den von $K$ und $\alpha_1,\dots,\alpha_n$ erzeugten Unterkörper von $L$.
+	\end{enumerate}
+\end{bsp}
+Beachte: $K\subseteq K[\alpha_1,\dots, \alpha_n]\subseteq K(\alpha_1,\dots, \alpha_n)\subseteq L$; wobei die erste Inklusion eine Inklusion von Ringen ist und die zweite im Allgemeinen tatsächlich $\neq$ ist. Die letzte Inklusion ist eine Inklusion von Körpern.
+
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item $\IR\subseteq \IR[i] = \{a+bi|a,b\in\IR\} = \IR(i) = \IC$
+		\item $\IR\subsetneq \IR[t]\subsetneq \IR(t) \subsetneq \IC(t)$
+	\end{enumerate}
+\end{bsp}
+
+\begin{defi}
+	$L\sslash K$ Körpererweiterung heißt endlich erzeugt, falls $\exists \alpha_1,\dots, \alpha_n\in L$, sodass $L = K(\alpha_1,\dots, \alpha_n)$. $L\sslash K$ heißt einfach (oder auch primitiv), falls $\exists \alpha\in L$ mit $L = K(\alpha)$.
+\end{defi}
+
+\begin{defi}
+	Sei $L\sslash K$ eine Körpererweiterung. Dann ist $L$ ein $K$-VR (in offensichtlicher Weise; siehe Kapitel 13). Wir nennen $\dim_KL = [L:K]$ Grad der Körpererweiterung $L\sslash K$
+\end{defi}
+
+\begin{bsp}
+	$\IC\sslash\IR$: $[\IC:\IR] = 2$; $\IR(t)\sslash \IR$: $[\IR(t): \IR] = \infty$.
+\end{bsp}
+\begin{bem}
+	Falls $L$ endlicher Körper ist und $L\sslash K$ Körpererweiterung ist. Dann gilt $|L| = |K|\cdot [L:K]$
+\end{bem}
+
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
