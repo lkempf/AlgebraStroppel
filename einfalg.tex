@@ -2347,7 +2347,7 @@ Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist und algebraisc
 	\begin{proof}
 		\leavevmode
 		\begin{description}
-			\item[Erzeugendensystem:] Sei $k\geq 0$. Dann $t^{d+k} = t^km_a(t)+Q$ in $K[t]$, wobei $Q$ Linearkombination von Polynomen mit Grad $<d$. Dann gilt in $K[t]/(p(t)) = K[t]/(m_a(t))$:
+			\item[Erzeugendensystem:] Sei $k\geq 0$. Dann $t^{d+k} = t^km_a(t)+Q$ in $K[t]$, wobei $Q$ Linearkombination von Polynomen mit Grad $<d+k$. Dann gilt in $K[t]/(p(t)) = K[t]/(m_a(t))$:
 			$$\overline{t^{d+k}} = \overline{t^k}\overline{m_a(t)} + \overline{Q} = \overline{Q}$$
 			Damit: $\overline{t^{d+k}} \in \< \{1, \overline{t}, \dots, \overline{t^{d-1}}\}\>$. Folglich: $B :=  \{1, \overline{t}, \dots, \overline{t^{d-1}}\}$ erzeugt $K[t]/(p(t))$ als $K$-VR. Wende nun die Evaluationsabbildung an:
 			
@@ -2394,17 +2394,47 @@ Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist und algebraisc
 		$$\sum_{i=0}^mc_ia^i = 0 \Longrightarrow \ev_a\colon K[t]\longto L$$ nicht injektiv $\Rightarrow a$ algebraisch über $K$.
 		\item Sei $L$ algebraisch und endlich erzeugt über $K$. $\Rightarrow \exists a_1,\dots, a_n\in L$ mit $L = K(a_1,\dots, a_n)$. Betrachte $K \subseteq K(a_1) \subseteq K(a_1)(a_2) = K(a_1,a_2)\subseteq \dots \subseteq K(a_1,\dots, a_n) = L$. Nach Gradformel gilt $$[L:K] = [K(a_1,\dots, a_n):K] = \prod_{i = 1}^{n}[K(a_1, dots, a_i):K(a_1,\dots, a_{i-1})]$$
 		Nach Voraussetzung ist $a_i$ algebraisch über $K$, also insbesondere algebraisch über $K(a_1,\dots, a_{i-1})$, also $[K(a_1,\dots, a_i): K(a_1,\dots , a_{i-1})] < \infty$ (nach Satz 15.1). Also ist $[L:K]< \infty$.
+		\item Sei $a\in L_1\Rightarrow \exists p(t)\in L_2[t], p(t)\neq 0$ mit $p(a) = 0$ (da $L_1\sslash L_2$ algebraisch). Sei $p(t) = \sum_{i =0}^nb_it^i$. Betrachte $K = L_3(b_0,b_1,\dots, b_n)\subseteq L_2$ Unterkörper. Dann ist $a$ algebraisch über $K$ (offensichtlich), also (mit 15.2) $[K(a):K] \leq \deg(p(t)) <\infty$. Also $K(a)\sslash K$ endlcih. Andererseits ist $L_2\sslash L_3$ algebraisch, also erst recht $K\sslash L_3$ algebraisch.
+		
+		Nach Konstruktion ist $K\sslash L_3$ endlich erzeugt; mit (2) folgt: $K\sslash L_3$ endlich. $\Rightarrow [K(a):L_3] = [K(a):K][K:L_3]$ (Gradformel). $\Rightarrow [K(a):L_3] <\infty$, also ist $a$ algebraisch über $L_3$ (Satz 15.2). $\Rightarrow L_1\sslash L_3$ algebraisch.
 	\end{enumerate}
-	
-
 \end{proof}
 
+\begin{lem}
+	$L\sslash K$ Körpererweiterung, $a,b\in L$ algebraisch über $K$. Dann gilt: $a+b$, $a\cdot b$, $a-b$, $ab^{-1}$ (falls $b\neq 0$) sind auch algebraisch über $K$.
+\end{lem}
+\begin{proof}
+	Betrachte $K(a,b) = K(a)(b)$. Dann $[K(a,b):K] = [K(a)(b):K(a)][K(a):K]$, wobei beide Faktoren endlich sind (der zweite ist endlich, weil $a$ algebraisch über $K$ ist, der erste ist endlich, weil $b$ algebraisch über $K$, also insbesondere über $K(a)$). Folgich ist $K(a,b)\sslash K$ endlich und damit nach Satz 15.1 algebraisch. Aber $K(a,b)$ enthält $a+b$, $a-b$, $ab$, $ab^{-1}$ (falls $b\neq 0$) und somit sind diese Elemente algebraisch über $K$.
+\end{proof}
 
+\begin{bem}
+	Insbesondere bilden die algebraischen Elemente über $K$ (in $L$) selbst einen Körper.
+\end{bem}
+	
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+	\item $p$ Primzahl, $n|in\IN\setminus\{0\}$, $f(t) = t^n-p\in \IQ[t]$ irreduzibel (nach Eisenstein irreduzibel in $\IZ[t]$ und primitiv, also irreduzibel in $\IQ[t]$ nach Gauß).
+	Sei nun $a = \sqrt[n]{p}\in\IC$ Nullstelle von $f(t)$. Behauptung: $[\IQ(\sqrt[n]{p}): \IQ] = n$.  Denn: Nach Definition des Minimalpolynoms $m_a(t)$ gilt: $m_a(t)$ teilt $f(t)$, also $f(t) = m_a(t)q(t)$ für ein $q(t)\in\IQ[t]$. Da $f(t)$ irreduzibel ist, folgt daraus $m_a(t)$ oder $q(t)\in \IQ[t]^{\times} = \IQ^{\times}$. Aber $m_a(t)$ kann keine Einheit sein; also $f(t) = m_a(t)\cdot \epsilon $ mit $\epsilon\in \IQ^{\times}$, aber $f(t)$ normiert, also $\epsilon = 1$. Mit Satz 15.2 folgt die Behauptung.
+	\item Betrachte $\IC\sslash \IQ$. Sei $\IQ^{\text{alg}} = \{a\in\IC|a\text{ algebraisch über }\IQ\}$. Nach Lemma 15.3 ist $\IQ\subseteq\IQ^{\text{alg}}\subseteq \IC$ Körpererweiterung. (größter Unterkörper von $\IC$, der algebraisch über $\IQ$ ist). Aber: $\IQ^{\text{alg}}$ ist nicht endlich über $\IQ$.
+	
+	Angenommen: $\IQ^{\text{alg}}\sslash \IQ$ endlich, also $[\IQ^{\text{alg}}:\IQ] = m<\infty$. Wähle $n>m$. Nach (a) ist $\sqrt[n]p \in \IQ^{\text{alg}}$ (mit $p$ wie oben) und $[\IQ(\sqrt[n]p) = \IQ] = n > m$. Aber dann $\IQ(\sqrt[n]p)\subseteq \IQ^{\text{alg}}$ und damit $[\IQ^{\text{alg}}:\IQ]\geq n$.
+	\end{enumerate}
+\end{bsp}
 
-	
-	
-	
-	
+Wir haben nun folgende Frage: $K$ Körper, $p(t)\in K[t]$. Existiert $L\sslash K$, sodass $p(t)$ Nullstelle hat in $L$?
+
+\begin{satz} $K$ Körper, $f(t)\in K[t]$ irreduzibel. Dann existier $L\sslash K$ algebraisch mit $[L:K]  = d = deg(f(t))$ und $f(t)$ hat Nullstelle in $L$.
+\end{satz}
+\begin{proof}
+	$f(t)$ irreduzibel $\Rightarrow (f(t))$ maximales Ideal in $K[t] \Rightarrow K[t]/(f(t))$ Körper. Betrachte 
+	\begin{eqnarray*}
+	\phi\colon K&\longto& K[t]\longto K[t]/(p(t)) = : L\\
+	\lambda &\longmapsto & \text{konst. Pol. }\lambda
+	\end{eqnarray*}
+	Ringhomo und $K$ Körper, also $\phi$ injektiv.
+	$\Rightarrow$ Wir können $K$ als Unterkörper von $L$ auffassen. Es gilt: $L = K(\overline{t})$ mit $\overline{t}  = \can (t)$. Setze $a: = \overline{t}$. Dann $f(a) = f(\overline{t}) = \overline{f(t)} = \overline{0}\in L$. Also folgt, dass $a\in L$ Nullstelle ist von $f(t)$. Da $f(t)$ irreduzibel ist, ist $f(t) = m_a(t)\epsilon$ für $\epsilon \in K^{\times}$ geeignet (siehe oben). Also gilt: $[L:K] = [K(a):K] = \deg(m_a(t)) = \deg(f(t)) = d$.
+\end{proof}	
 	
 	
 	
