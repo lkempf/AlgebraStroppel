@@ -1578,7 +1578,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 \end{defi}
 
 
-\begin{satz}
+\begin{satz}\label{thm:7.14}
 	Sei $R$ ein kommutativer Ring sowie $a\in R$. Dann gilt:
 	\begin{enumerate}
 		\item $a$ Nullstelle von $p(t) \Leftrightarrow t-a$ teilt $p(t)$ in $R[t]$.
@@ -2424,7 +2424,8 @@ Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist und algebraisc
 
 Wir haben nun folgende Frage: $K$ Körper, $p(t)\in K[t]$. Existiert $L\sslash K$, sodass $p(t)$ Nullstelle hat in $L$?
 
-\begin{satz} $K$ Körper, $f(t)\in K[t]$ irreduzibel. Dann existier $L\sslash K$ algebraisch mit $[L:K]  = d = deg(f(t))$ und $f(t)$ hat Nullstelle in $L$.
+\begin{satz} \label{thm:15.4}
+	$K$ Körper, $f(t)\in K[t]$ irreduzibel. Dann existiert $L\sslash K$ algebraisch mit $[L:K]  = d = deg(f(t))$ und $f(t)$ hat Nullstelle in $L$.
 \end{satz}
 \begin{proof}
 	$f(t)$ irreduzibel $\Rightarrow (f(t))$ maximales Ideal in $K[t] \Rightarrow K[t]/(f(t))$ Körper. Betrachte 
@@ -2435,9 +2436,76 @@ Wir haben nun folgende Frage: $K$ Körper, $p(t)\in K[t]$. Existiert $L\sslash K
 	Ringhomo und $K$ Körper, also $\phi$ injektiv.
 	$\Rightarrow$ Wir können $K$ als Unterkörper von $L$ auffassen. Es gilt: $L = K(\overline{t})$ mit $\overline{t}  = \can (t)$. Setze $a: = \overline{t}$. Dann $f(a) = f(\overline{t}) = \overline{f(t)} = \overline{0}\in L$. Also folgt, dass $a\in L$ Nullstelle ist von $f(t)$. Da $f(t)$ irreduzibel ist, ist $f(t) = m_a(t)\epsilon$ für $\epsilon \in K^{\times}$ geeignet (siehe oben). Also gilt: $[L:K] = [K(a):K] = \deg(m_a(t)) = \deg(f(t)) = d$.
 \end{proof}	
+
+
+
+\lecture{4. Dezember 2017}
+\begin{bem}
+	Falls $f\in K[t]$ nicht notwendig irreduzibel. Dann können wir Satz 15.4 auf irreduzible Faktoren, sagen wir $g$, von $f$ anwenden. D.h. wir schreiben
+	$$f = g\cdot h$$ mit $h \in K[x]$. Dann gilt: $\exists L\sslash K$ Körpererweiterung, sodass $g$ Nullstelle hat in $L$, also hat auch $f$ Nullstelle in $L$. Und es gilt: $[L:K] = \deg(g)\leq \deg (f)$.
+\end{bem}
+\begin{bsp} $K = \IR$, $f= t^2-1\in \IR[t]$ nicht irreduzibel, da $f = (t-1)(t+1) = gh$ mit $g = t-1$, $h = t+1\in\IR[t]$. Sei also $L = K = \IR$ und erhalten $[L:K] = 1 = \deg(g)<2 = \deg(f)$.
+
+(Im Gegensatz dazu sei $f := t^2+1$; das ist irreduzibel in $\IR[t]$. Setze $L =\IC$ und $[L:K] = [\IC:\IR] = 2 = \deg(f)$)
+\end{bsp}
 	
+\begin{satz}[bzw Definition]\label{thm:algab}
+	Ein Körper $K$ heißt algebraisch abgeschlossen, falls eine der folgenden äquivalenten Aussagen gilt:
+	\begin{enumerate}
+		\item Jedes Polynom $f\in K[t]\setminus K$ hat Nullstelle in $K$
+		\item Jedes Polynom $f\in K[t]\setminus K$ ist Produkt von Polynomen von Grad 1
+		\item Die normierten irreduziblen Polynome in $K[t]$ sind genau Elemente der Form $t-a$ mit $a\in K$.
+		\item Falls $L\sslash K$ eine algebraische Körpererweiterung ist, dann $L = K$.
+	\end{enumerate}
+\end{satz}	
+
+\begin{bsp}
+	\leavevmode
+	\begin{itemize}
+		\item $\IR$ ist nicht algebraisch abgeschlossen, weil zum Beispiel $t^2+1$ keine Nullstelle in $\IR$ hat.
+		\item $\IC$ ist algebraisch abgeschlossen (Fundamentalsatz der Algebra)
+	\end{itemize}
+\end{bsp}
+
+\begin{proof}[Beweis von \ref{thm:algab}]
+	\leavevmode
+	\begin{description}
+		\item[$1\Rightarrow2$:] Sei $f \in K[t]\setminus K$. Nach Annahme existiert eine Nullstelle $a \in K$. Zeige Aussage 2 nun mit Induktion:
+		\begin{itemize}
+			\item $\deg(f) = 1 \checkmark$
+			\item $\deg(f)\geq 2$: Wir nehmen an, dass die Behauptung stimmt für alle Polynome mit kleinerem Grad. Da $a$ Nullstelle von $f$ ist, teilt $t-a$ das Polynom $f$ (nach Satz \ref{thm:7.14}).
+			Folglich ist $f = (t-a)g$ für ein $g\in K[t]$. Es gilt $\deg(g)<\deg(f)$, da $K$ Integritätsbereich. Folglich ist $g$ Produkt von Linearfaktoren; damit auch $f$
+		\end{itemize}
+		\item[$2\Rightarrow 3$:]  Klar: $t-a\in K[t]$ ist normiert und irreduzibel (aus Gradgründen). Sei $f\in K[t]$ normiert, irreduzibel.
+		\begin{itemize}
+			\item $\deg(f) \in\{0,-\infty\}\Rightarrow f = 0$ oder $f\in K^{\times} (= K[t]^{\times})$; damit ist $f$ nicht irreduzibel; Widerspruch.
+			\item $\deg(f) = 1\Rightarrow f = t-a$ für ein $a\in K$, weil $f$ normiert ist $\checkmark$.
+			\item $\deg (f)\geq 2$: Nach 2 gilt dann $f = (t-a)g$ für ein $a\in K$ und $g\in K[t]$, wobei $g$ auch normiert ist. Aber $(t-a)$ und $g$ sind keine Einheiten (aus Gradgründen). Das ist ein Widerspruch dazu, dass $f$ irreduzibel ist.
+		\end{itemize}
+		\item[$3\Rightarrow 4$:] Sei $L\sslash K$ algebraische Körpererweiterung und $b\in L$. Also ist $b$ algebraisch über $K$. Das heißt: $\exists f\in K[t]\setminus K$ mit $f(b) = 0$. Folglich existiert ein Minimalpolynom $m_b(t)\in K[t]$ mit $m_b(b)= 0$. Insbesondere: $m_b(t)$ normiert und irreduzibel nach Definition des Normalpolynoms. Mit 3 folgt:  $m_b(t) = t-a$ für ein $a\in K$. Da $b$ Nullstelle von $m_b(t)$ ist, ist $b = a$ und damit $b\in K$. Somit ist bereits $L = K$
+		\item[$4\Rightarrow1$:] Sei $f\in K[t]\setminus K$. Nach Satz \ref{thm:15.4} existiert $L\sslash K$ algebraische Körpererweiterung, sodass $f$ Nullstelle hat in $L$. Aber nach Voraussetzung ist $L = K$. 
+	\end{description}
+\end{proof}
 	
+\subsection{Algebraischer Abschluss}
+\begin{satz}\label{thm:alg_ab}
+	Sei $K$ Körper. Dann $\exists$ Körper $L$ algebraisch abgeschlossen mit $K\subseteq L$.
+\end{satz}
+
+Zur Erinnerung: Sei $R$ ein kommutativer Ring. Sei $N\subseteq R$ Teilmenge. Dann bezeichnet $(N)$ das von $N$ erzeugte Ideal: das kleinste Ideal in $R$, das $N$ enthält. Es gilt $$(N) = \left\{\sum_{i = 1}^mr_in_i|m\in\IN, n_i\in N, r_i\in R \forall i\right\}$$
+
+\begin{proof}\ref{thm:alg_ab}
+	\leavevmode
+	\begin{description}
+		\item[1. Schritt:] Baue Körpererweiterung $L_1\sslash K$, sodass jedes $f\in K[t]$ mit $\deg(f)\geq 1$ eine Nullstelle hat in $L_1$. Sei 
+		$$J = K[t]\setminus K = \{\text{Polynome vom Grad }\geq 1\}$$
+		Betrachte $R = K[X_f|f\in J]$ (saubere Definition siehe Übungsblatt 9).  %TODO: Link auf dieses Übungsblatt einfügen
+		Das ist ein Polynomring über $K$ in unendlich vielen Variablen.
+		
+		Sei $I := (f(X_f)|f\in J)\subseteq R$ (universelle Eigenschaft von $K[t]$). Behauptung: $I$ ist ein echtes Ideal
+	\end{description}
 	
+\end{proof}
 	
 	
 
