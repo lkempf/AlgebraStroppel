@@ -1848,7 +1848,7 @@ Somit ist $R$ faktoriell.
 \end{bem}
 
 \subsection{Maximale Ideale: Existenz}
-\begin{satz}
+\begin{satz}\label{thm:9.1}
 	Sei $R$ ein kommutativer Ring %whyever, sind Ringe nicht sowieso schon kommutativ?
 	und $R \neq \{0\}$.
 	\begin{enumerate}
@@ -2502,9 +2502,31 @@ Zur Erinnerung: Sei $R$ ein kommutativer Ring. Sei $N\subseteq R$ Teilmenge. Dan
 		Betrachte $R = K[X_f|f\in J]$ (saubere Definition siehe Übungsblatt 9).  %TODO: Link auf dieses Übungsblatt einfügen
 		Das ist ein Polynomring über $K$ in unendlich vielen Variablen.
 		
-		Sei $I := (f(X_f)|f\in J)\subseteq R$ (universelle Eigenschaft von $K[t]$). Behauptung: $I$ ist ein echtes Ideal
+		Sei $I := (f(X_f)|f\in J)\subseteq R$ (universelle Eigenschaft von $K[t]$). Behauptung: $I$ ist ein echtes Ideal. Klar: $I$ ist Ideal.
+		
+		Behauptung 1: $I \neq R$ (Beweis unten)
+		Nach Satz \ref{thm:9.1} existiert ein maximales Ideal $m\subseteq R$ mit $R\supseteq m \supseteq I$. Damit ist $R/M = L_1 $ Körper. Klar: $K \subseteq R$ und sogar $K \subseteq R/m$ (durch die Abbildung $K\to R\to R/m$). Also haben wir $L_1\sslash K$ Körpererweiterung. Sei nun $f\in J = K[t]\setminus K$; $f = \sum_{i = 0}^{\infty} b_i t^i$ mit fast allen $b_i = 0$. Zu zeigen: $f$ hat Nullstelle in $L_1$.
+		
+		Wir wissen $f(\can(X_f)) = \sum_{i = 0}^{\infty}b_i\overline{X_f}^i$, wobei $b_i\in K$ ist. Also $f(\can(X_f)) = \sum_{i = 0}^{\infty}\overline{b_i}{X_f}^i = \overline{\sum_{i = 0}^{\infty}g_iX_f^i} = can(f(X_f))$, wobei $f(X_f)\in I\subseteq m$, also $f(\can(X_f)) = 0$. Also ist $\can(X_f)\in L_1$ Nullstelle von $f(t)$.
+		
+		\item[2. Schritt:] Betrachte \glqq Turm\grqq\ von Körpererweiterungen $K : = L_0\subseteq L_1\subseteq L_2\subseteq\dots$, sodass $L_{i+1}\sslash L_{i}$ Körererweiterung und jedes $f\in L_i[t]\setminus L_i$ eine Nullstelle hat in $L_{i+1}$  (existiert nach Schritt 1). Setze
+		$$ L : = \bigcup\limits_{i\geq 0} L_i$$
+		Klar: $L$ ist Körper. Zu zeigen: Gegeben $g\in L[t]\setminus L$, dann hat $g$ Nullstelle in $L$.
+		
+		Sei dafür $g = \sum_{i = 0}^{\infty}a_it^i$, nur endlich viele $a_i\neq 0$. Folglich gibt es ein $n_0\in\IN$ mit $a_i\in L_{n_0}\forall i$. Das heißt aber, dass wir $g$ als Polynom in $L_{n_0}[t]$ auffassen können. Dadurch hat $g(t)$ eine Nullstelle in $L_{n_0+1}\subseteq L$.
+		
+		$\Longrightarrow$ Es gibt einen Körper $L$ mit $K\subseteq L$
 	\end{description}
-	
+	Nun noch zum Beweis von Behauptung 1: Sei $I = R$. Also $1\in I$. Also $1 = \sum_{i =1}^{n}g_if(X_{f_i})$ für gewisse $g_i\in R$, $f_i\in J$. Mit Satz \ref{thm:15.4} (wiederholt anwenden!) existiert $L'\sslash K$ Köreprerweiterung, wobei $f_1,\dots, f_m$ Nullstellen in $L'$ haben, sagen wir $a_1,\dots, a_n$. Nach der universellen Eigenschaft für Polynomring $R$ existiert ein Ringhomomorphismus
+	\begin{eqnarray*}
+		\ev\colon R & \longto & L'[X_f|f\in J]
+	\end{eqnarray*}
+	mit $\ev(X_f) = \begin{cases} a_i & \text{ falls } f = f_i \text{ für ein }i\\
+												X_f &\text{ sonst}
+												\end{cases}$\\											
+	für $\lambda\in K$: $\ev{\lambda}  = \lambda\in K\subseteq L'$. Dann gilt $\ev(f_i(X_{f_i})) = f_i(a_i) = 0$, weil $a_i$ Nullstelle von $f_i$ ist. Also gilt für $1\in R$: 
+	$$1 = \ev(1) = \ev(\sum_{i = 0}^{m}g_if_i(x_{f_i})) = \sum_{i = 0}^m\ev(g_i)\ev(f_i(X_{f_i})) = 0$$
+	Folglich gilt $1 = 0$ in $L'[X_f|f\in J]$; Widerspruch, also $1\notin I$.
 \end{proof}
 	
 	
