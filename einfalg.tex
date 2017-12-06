@@ -1822,7 +1822,7 @@ Ab jetzt sind alle Ringe kommutativ.
 	Wie für $R = \IZ$.
 \end{proof}
 
-\begin{satz}
+\begin{satz}\label{thm:hirfakt}
 	Jeder Hauptidealring ist faktoriell.
 \end{satz}
 
@@ -2011,156 +2011,164 @@ Wir definieren $K(t_1,\dots,t_n) := \Quot(K[t_1,\dots,t_n])$ für einen Körper 
 
 \lecture{20. November 2017}
 \begin{bem}
-	Wenn $R$ ein kommutativer Ring ist uns $S\subseteq R$ multiplikativ abgeschlossen. Falls $S$ keine Nullteiler besitzt, dann ist
+	Sei $R$ ein kommutativer Ring und $S\subseteq R$ multiplikativ abgeschlossen. Falls $S$ keine Nullteiler besitzt, dann ist
 	\begin{eqnarray*}
 		 \can\colon R &\longto& S^{-1}R\\
 		 r & \longmapsto& \frac r1
 	\end{eqnarray*}
-	injektiv. (Denn: Sei $\can(r) = \can(r')$ mit $r,r'\in R\Leftrightarrow \frac r1 = \frac r'1 \Leftrightarrow \exists s\in S$ mit $ s(r1-r'1) = 0$. Da $S$ keine Nullteiler enthält, ist $r1 -r'1 = 0\Rightarrow r' = r$.) Insbesondere können wir $R$ als Unterring von $S^{-1}R$ auffassen durch die Einbettung $\can$.
+	injektiv. \emph{Begründung:} Sei $\can(r) = \can(r')$ mit $r,r'\in R$ Dann folgt $\frac r1 = \frac {r'}1$, es existiert also ein $ s\in S$ mit $ s(r1-r'1) = 0$. Da $S$ keine Nullteiler enthält, ist $r1 -r'1 = 0$, und wir erhalten $r' = r$.
+	
+	Insbesondere können wir $R$ als Unterring von $S^{-1}R$ vermöge $\can$ auffassen.
 \end{bem}
 
 
 
 \subsection{Satz von Gauß}
 Ziel dieses Kapitels:
-\begin{satz}[Gauß]
-	$R$ faktoriell $\Rightarrow R[t]$ faktoriell.
-	Genauer: $R[t]$ ist faktoriell und die irreduziblen Elemente sind bis auf Einheiten in $R$ genau Elemente der Form
-	\begin{enumerate}
-		\item irreduzible Elemente in $R\subseteq R[t]$
-		\item Elemente der Form $p(t) \in R[t]$, die irreduzibel sind in $Quot(R)[t]$ und primitiv (siehe Definition 12.1)
+\begin{satz}[Satz von Gauß]\label{thm:gauss}
+	Der Polynomring eines faktoriellen Ringes ist faktoriell.
+	
+	
+	\emph{Genauer:} Sei $R$ ein faktorieller Ring. Dann ist $R[t]$ faktoriell und die irreduziblen Elemente sind bis auf Einheiten in $R$ genau die
+	\begin{enumerate}[label=(\alph*)]
+		\item irreduziblen Elemente in $R\subseteq R[t]$ und die \label{enumi:gauss:a}
+		\item Elemente $p(t) \in R[t]$, die irreduzibel in $\Quot(R)[t]$ und primitiv (siehe \cref{def:primitiv}) sind. \label{enumi:gauss:b}
 	\end{enumerate}
 \end{satz}
 
 \begin{kor}
-	Sei $K$ ein Körper; dann ist $K[t_1,\dots,t_n]$ faktoriell; außerdem ist $\IZ[t_1,\dots, t_n]$ faktoriell (aber nicht Hauptidealring (vgl. Übung 5))
+	Sei $K$ ein Körper. Dann ist $K[t_1,\dots,t_n]$ faktoriell, also ist insbesondere $\IZ[t_1,\dots, t_n]$ faktoriell (aber kein Hauptidealring, vgl. Übungungsblatt 5)
 \end{kor}
-%TODO: overfull hbox fixen
 
-\begin{proof} $K$ Körper und $\IZ$ sind beides HIR. Nach Satz 8.4 sind $K$ und $\IZ$ also faktoriell. Laut Satz von Gauß sind damit $K[t_1]$ und $\IZ[t_1]$ faktoriell. Wende nun den Satz von Gauß iterativ an und erhalte die Aussage.
+\begin{proof} $K$ und $\IZ$ sind beide Hauptidealringe, weshalb $K$ und $\IZ$ nach \cref{thm:hirfakt} also faktoriell sind. Laut \nameref{thm:gauss} sind damit $K[t_1]$ und $\IZ[t_1]$ faktoriell. Durch iterative Anwendung folgt die Aussage.
 \end{proof}
 
 \begin{bsp}
-	$p(t) = 2t$ ist irreduzibel in $\IQ[t] = Quot(\IZ)[t]$ (da für $p(t) = bc$ in $\IQ[t]$ gilt: $\deg(b) = 0$ oder $\deg(c) = 0$ und damit $b$ oder $c$ eine Einheit in $\IQ$ ist)
+	$p(t) = 2t$ ist irreduzibel in $\IQ[t] = \Quot(\IZ)[t]$ (da für $p(t) = bc$ in $\IQ[t]$ schon $\deg(b) = 0$ oder $\deg(c) = 0$ gilt und damit $b$ oder $c$ eine Einheit in $\IQ$ ist).
 	
 	Aber: $p(t)$ ist nicht irreduzibel in $\IZ[t]$, da $p(t) = 2\cdot t$ und $2, t\notin \IZ[t]^{\times}$. (Einfaches Argument über den Grad der Polynome)
 \end{bsp}
 
-\begin{defi}
-	$R$ faktoriell. Dann heißt $p(t ) = \sum_{i = 0}^na_it^i$ mit $n = \deg (p(t))$ primitiv, falls $\nexists r\in R, r\notin R^{\times}$ und $r$ teilt $a_i$ für alle $i$ mit $1\leq i\leq n$.
+\begin{defi}\label{def:primitiv}
+	Sei $R$ ein faktorieller Ring. Dann heißt $p(t) = \sum_{i = 0}^na_it^i$ mit $n = \deg (p(t))$ primitiv, falls kein $r\in R\setminus R^{\times}$ existiert, welche alle $a_i$ mit $1\leq i\leq n$ teilt.
 \end{defi}
 
 \begin{bsp}
-	$2t^2+4t^3\in\IZ[t]$ ist nicht primitiv (nimm $r = 2$), aber in $\IQ[t]$ ist es primitiv.
+	$2t^2+4t^3\in\IZ[t]$ ist nicht primitiv (man wähle $r = 2$), dafür aber in $\IQ[t]$.
 \end{bsp}
 
-\begin{lem}[Lemma von Gauß]
-	$R$ faktoriell, $P,Q\in R[t]$ primitiv. Dann folgt, dass $PQ\in R[t]$ primitiv.	
+\begin{lem}[Lemma von Gauß]\label{lem:gauss}
+	Sei $R$ ein faktorieller Ring sowie $P,Q\in R[t]$ primitiv. Dann folgt, dass $PQ\in R[t]$ primitiv ist.	
 \end{lem}
 
 \begin{proof}
-	Wir nehmen an, dass $PQ\in R[t]$ nicht primitiv ist. Dann exsitert ein $r\in R, r\notin R^{\times}$ mit $r$ teilt $PQ$. Sei ohne Beschränkung der Allgemeinheit $r$ prim. Betrachte $R/(r)$. Da $r$ prim ist, ist $(r)$ Primideal. Folglich ist $R/(r)$ ein Integritätsbereich, also insbesondere nullteilerfrei.
+	Wir nehmen an, dass $PQ\in R[t]$ nicht primitiv ist. Dann exsitert ein $r\in R\setminus R^{\times}$ mit $r\mid PQ$. Sei ohne Beschränkung der Allgemeinheit $r$ prim. Betrachte $R/(r)$. Da $r$ prim ist, ist $(r)$ ein Primideal. Folglich ist $R/(r)$ ein Integritätsbereich, also insbesondere nullteilerfrei.
 	
-	Betrachte nun $\overline{PQ} \in R/(r)[t]$ (nimm Koeffizienten modulo $(r)$). Dann gilt $\overline{PQ} = \overline{0}\in R/(r)[t]$, da $r$ das Polynom $PQ$ teilt. Da $\overline{PQ} = \overline{P}\overline{Q}$ ist, folgt damit $\overline{P}\overline{Q} = \overline{0}$. Da $R/(r)$ nullteilerfrei ist, ist $\overline{P} = 0$ oder $\overline{Q} = 0$ und damit ist $P$ nicht primitiv oder $Q$ nicht primitiv. Das ist ein Widerspruch zur Annahme.
+	Betrachte nun $\overline{PQ} \in R/(r)[t]$ (Polynome mit Koeffizienten modulo $(r)$). Dann gilt $\overline{PQ} = \overline{0}\in R/(r)[t]$, da $r$ das Polynom $PQ$ teilt. Da $\overline{PQ} = \overline{P}\,\overline{Q}$ ist, folgt damit $\overline{P}\,\overline{Q} = \overline{0}$. Da $R/(r)$ nullteilerfrei ist, ist $\overline{P} = 0$ oder $\overline{Q} = 0$ und damit $P$ nicht primitiv oder $Q$ nicht primitiv. Das ist ein Widerspruch zur Annahme.
 \end{proof}
 
-\begin{lem}
-	Sei $R$ faktoriell, $K = Quot (R)$ und $f\in R[t]$ primitiv. Wenn  $f$ irreduzibel in $K[t]$ ist, ist $f$ auch irreduzibel in $R[t]$. 
+\begin{lem}\label{lem:faktquotirred}
+	Sei $R$ ein faktorieller Ring, $K = \Quot (R)$ und $f\in R[t]$ primitiv. Wenn $f$ irreduzibel in $K[t]$ ist, ist $f$ auch irreduzibel in $R[t]$. 
 \end{lem}
 
 \begin{proof}
-	Sei $f = bc$ in $R[t]$. Zu zeigen: $b$ oder $c$ Einheit in $R[t]$. Es gilt $f = bc$ auch in $K[t]$. Nach Voraussetzung ist $f$ irreduzibel in $K[t]$. Also ist $b$ oder $c\in K[t]^{\times} = K^{\times}$. O.b.d.A. $b\in K^{times}$, also $b \neq 0$ (da $K$ ein Körper ist) und nach Voraussetzung ist $b\in R[t]\Rightarrow b\in R, b\neq 0$. Da $R$ faktoriell ist, ist $b = \epsilon p_1\dots p_r$, wobei $\epsilon\in R^{\times}$ und $p_i\in R$ irreduzibel und $r\in\IN_0$ geeignet.
+	Sei $f = bc$ in $R[t]$. Es ist zu zeigen, dass $b$ oder $c$ eine Einheit in $R[t]$ ist. Es gilt $f = bc$ auch in $K[t]$. Nach Voraussetzung ist $f$ irreduzibel in $K[t]$. Also ist $b$ oder $c\in K[t]^{\times} = K^{\times}$. Ohne Beschränkung der Allgemeinheit gelte $b\in K^{\times}$, also $b \neq 0$ (da $K$ ein Körper ist) und da nach Voraussetzung $b\in R[t]$ ist, folgt $b\in R\setminus\{0\}$. Da $R$ faktoriell ist, ist $b = \epsilon p_1\dots p_r$, wobei $\epsilon\in R^{\times}$ und die $p_i\in R$ irreduzibel für alle $1\le i \le r$ mit einem geeigneten $r\in\IN_0$ sind.
 	
-	Aus der Tatsache, dass $f$ primitiv ist, folgt, dass $b$ primitiv ist und somit $b = \epsilon$ (weil sonst die $p_i$ das $b$ teilen würden). Damit ist $b$ eine Einheit in $R$ und $f\in R[t]$ ist irreduzibel.
+	Aus der Tatsache, dass $f$ primitiv ist, folgt, dass $b$ primitiv ist und somit $b = \epsilon$ (weil sonst die Primfaktoren Teiler von $b$ wären). Damit ist $b$ eine Einheit in $R$ und $f\in R[t]$ ist irreduzibel.
 \end{proof}
 
-\begin{proof}[Beweis des Satzes von Gauß] %TODO: Referenzen einfügen
+\newcommand{\hyperhyper}[2]{\hyperref[#1]{#2}}
+\begin{proof}[Beweis des \hyperhyper{thm:gauss}{Satzes von Gauß}] %TODO: herausfinden, warum hier optionale Argumente nicht funktionieren
 	\leavevmode
-	\begin{itemize}
-		\item Elemente der Form (a), (b) sind irreduzibel: Für (b) klar nach Lemma 12.4. Für (a): Sei $r\in R$ irreduzibel. Sei $r = bc$ in $R[t]$. Zu zeigen: $b$ oder $c\in R[t]^{\times}$. Da $R$ nullteilerfrei ist, gitl $\deg (b) = 0  =\deg (c)$, also $b,c\in R$. Weil $r\in R$ irreduzibel ist, folgt $b\in R^{\times}$ oder $c\in R^{\times}$.
+	\begin{description}
+		\item[\emph{Elemente der Form \ref{enumi:gauss:a} und \ref{enumi:gauss:b} sind irreduzibel.}] Für \ref{enumi:gauss:b} ist dies nach \cref{lem:faktquotirred} klar. Für \ref{enumi:gauss:a}: Sei $r\in R$ irreduzibel und $r = bc$ in $R[t]$. Es bleibt $b$ oder $c\in R[t]^{\times}$ zu zeigen. Da $R$ nullteilerfrei ist, gilt $\deg (b) = 0  =\deg (c)$, also $b,c\in R$. Weil $r\in R$ irreduzibel ist, folgt $b\in R^{\times}$ oder $c\in R^{\times}$.
 		
-		\item Existenz der Primfaktorzerlegung: Sei $K = Quot(R)$. DA $K$ Körper ist, folgt mit Blatt 5: $K[t]$ ist Hauptidealring, also nach Lemma 8.4 faktoriell. Sei $0\neq f\in R[t]\subseteq K[t]\Rightarrow f = \epsilon p_1\dots p_r$ in $K[t]$ mit $\epsilon\in K[t]^{\times} = K^{\times}$ und $p_1,\dots,p_r\in K[t]$ irreduzibel.
+		\item[\emph{Existenz einer Primfaktorzerlegung.}] Sei $K = \Quot(R)$. Da $K$ ein Körper ist, folgt mit Übungsblatt 5, dass $K[t]$ ein Hauptidealring ist, welcher nach \cref{thm:hirfakt} faktoriell ist. Sei $0\neq f\in R[t]\subseteq K[t]$, so existiert eine Primfaktorzerlegung mit $f = \epsilon p_1\dots p_r$ in $K[t]$ mit $\epsilon\in K[t]^{\times} = K^{\times}$ und irreduziblen $p_1,\dots,p_r\in K[t]$.
 		
-		Finde zu $1\leq i\leq r$ Elemente $c_i\in K$, sodass $p_i = c_i\tilde{p_i}$ mit $\tilde{p_i}\in R[t]$ mit $\tilde{p_i}\in R[t] $ primitiv.  (\glqq Hauptnenner\grqq). Setze $c: = c_1\dots c_r\epsilon$. Dann $f = c\tilde{p_1}\dots \tilde{p_r}$, wobei $(\tilde{p_1}\dots\tilde{p_r})$ primitiv ist nach dem Lemma von Gauß. Daraus folgt $c\in R$.
+		Wir wählen für $1\leq i\leq r$ Elemente $c_i\in K$, sodass $p_i = c_i\tilde p_i$ mit primitiven $\tilde p_i\in R[t]$ ist (\glqq Hauptnenner\grqq). Ist $c := c_1\dots c_r\epsilon$, so gilt $f = c\tilde p_1\dots \tilde p_r$, wobei $\tilde p_1\dots\tilde p_r$ nach dem \nameref{lem:gauss} primitiv ist. Daraus folgt $c\in R$.
 		
-		Da $R$ faktoriell ist, gilt $c = \eta q_1\dots q_s$ mit $\eta\in R^{\times}$ und $q_1,\dots,q_2\in R$ irreduzibel. Also ist $f = \eta q_1\dots q_s\tilde{p_1}\dots \tilde{p_r}$, wobei $q_1,\dots q_s$ Faktoren von Typ (a) und $\tilde{p_1},\dots, \tilde{p_r}$ Faktoren von Typ (b) sind. Folglich existiert eine Primfaktorzerlegung
+		Da $R$ faktoriell ist, gilt $c = \eta q_1\dots q_s$ mit $\eta\in R^{\times}$ und irreduziblen $q_1,\dots,q_2\in R$. Also ist $f = \eta q_1\dots q_s\tilde p_1\dots \tilde p_r$, wobei $q_1,\dots q_s$ Faktoren von Typ \ref{enumi:gauss:a} und $\tilde p_1,\dots, \tilde p_r$ Faktoren von Typ \ref{enumi:gauss:b} sind. Folglich existiert eine Primfaktorzerlegung
 		
-		\item Typ (a) und Typ (b) sind genau die irreduziblen Elemente in $R[t]$ (bis auf Einheiten): Sei $p\in R[t]$ irreduzibel. Dann existiert ein $\epsilon \in R[t]^{\times} = R^{\times}$ und $p_1,\dots,p_r\in R[t]$ irreduzibel von Typ (a) oder Typ (b), sodass $p = \epsilon p_1\dots p_r$ (da die Primfaktorzerlegung existiert). Da $p$ irreduzibel ist, gilt $p = p_i$ für ein $i$ bis auf Einheit.
+		\item[\emph{Typ \ref{enumi:gauss:a} und Typ \ref{enumi:gauss:b} sind genau die irreduziblen Elemente in $R[t]$ (bis auf Einheiten).}] Sei $p\in R[t]$ irreduzibel. Dann existiert ein $\epsilon \in R[t]^{\times} = R^{\times}$ und irreduzible $p_1,\dots,p_r\in R[t]$ vom Typ \ref{enumi:gauss:a} oder \ref{enumi:gauss:b}, sodass $p = \epsilon p_1\dots p_r$ (da die Primfaktorzerlegung existiert). Da $p$ irreduzibel ist, gilt $p = p_i$ für ein $i$ bis auf Einheiten.
 		
-		\item Eindeutigkeit der Primfaktorzerlegung (bis auf Einheiten): Sei $p = \eta q_1\dots q_s\tilde {p_1}\dots \tilde{p_r}$ wie oben und $p = \eta'q_1'\dots q'_{s'}\tilde{p_1'}\dots\tilde{p'_{r'}}$ andere solche Zerlegung.
-		Weil $K[t]$ faktoriell ist, gilt dann in $K[t]$:
+		\item[\emph{Eindeutigkeit der Primfaktorzerlegung (bis auf Einheiten).}] Seien $p = \eta q_1\dots q_s\tilde {p_1}\dots \tilde{p_r}$ und $p = \eta'q_1'\dots q'_{s'}\tilde{p_1'}\dots\tilde{p'_{r'}}$ zwei Primfaktorzerlegungen wie oben.
+		Weil $K[t]$ faktoriell ist, gilt dann $\eta q_1\dots q_s,\eta'q_1 '\dots q'_{s'}\in K[t]^{\times}$ und somit $r = r'$, und es existiert ein $\gamma_i\in K[t]^{\times} =K^{\times}$ für jedes $i$ mit $1\leq i \leq r$ und $\pi\in S_r$, sodass $\tilde p_{\pi(i)}' = \gamma_i\tilde{p_i}$. Da $\tilde p_i$ primitiv und $\tilde p_i'\in R[t]$ ist, gilt $\gamma_i\in R$ für alle $i$. Also existiert ein $\gamma = \gamma_1\dots \gamma_r$, sodass $\eta\gamma{q_1}\dots {q_s} = \eta'{q_1'}\dots {q_{s'}'}$ ist.
 		
-		$\eta q_1\dots q_s\in K[t]^{\times}$ und $\eta'q_1 '\dots q'_{s'}\in K[t]^{\times}$ und somit $r = r'$ und es existiert ein $\gamma_i\in K[t]^{\times} =K^{\times}$ für jedes $i$ mit $(1\leq i \leq r)$ und $\pi\in S_r$, sodass $\tilde{p_{\pi(i)}'} = \gamma_i\tilde{p_i}$. Da $\tilde{p_i}$ primitiv und $\tilde{p_i'}\in R[t]$ ist, gilt $\gamma_i\in R\forall i$. Also existiert ein $\gamma = \gamma_1\dots \gamma_r$, sodass $\eta\gamma{q_1}\dots {q_s} = \eta'{q_1'}\dots {q_{s'}'}$.
-		
-		Dabei sind alle Terme in $R$; da $R$ faktoriell ist, gilt $s = s'$ und die Zerleugung ist \glqq eindeutig\grqq.  Foglich ist insgesmat die Zerlegung \glqq eindeutig\grqq.
-	\end{itemize}
+		Dabei sind alle Terme in $R$, und da $R$ faktoriell ist, gilt $s = s'$ und die Zerlegung ist \glqq eindeutig\grqq. Folglich ist die Zerlegung insgesamt \glqq eindeutig\grqq.
+	\end{description}
 \end{proof}
 
-\begin{satz}[Eisensteinsches Irreduzibilitätskriterium]
-	Sei $f = \sum_{i = 1}^n a_it^i\in\IZ[t]$; $\deg (f) = n>0$, primitiv (also $a_n\neq 0, a_j = 0$ für $j>n$). Falls eine Primzahl $p\in\IZ$ existiert, für die gilt $p\nmid a_n, p|a_i$ für $0\leq i\leq n-1, p^2\nmid a_0$. Dann ist $f$ irreduzibel in $\IZ[t]$ (also auch in $\IQ[t]$).
+\begin{satz}[Eisensteinsches Irreduzibilitätskriterium] \label{thm:eisenstein}
+	Sei $f = \sum_{i = 1}^n a_it^i\in\IZ[t]$ primitiv sowie $\deg (f) = n>0$. Es sei $p\in \IZ$ eine Primzahl, für die Folgendes gilt: \begin{align*}
+		p \nmid a_n && \text{$p \mid a_i$ für $0 \le i \le n-1$} && p^2 \nmid a_0 
+	\end{align*}
+	Dann ist $f$ irreduzibel in $\IZ[t]$ und somit auch in $\IQ[t]$.
 \end{satz}
 
 \begin{proof}
-	Sei $f = gh$ mit $g, h\notin \IZ[t]^{\times}$, also $\deg(g)>0$, $\deg(h)>0$ (da $f$ primitiv). Sei $g = \sum_{i = 0}^mb_it^i$, $h = \sum_{i = 0}^sc_it^i$ mit $m,s>0$, $m+s = n$. Dann: $a_n = b_mc_s$, slso $p\nmid b_m, p\nmid c_s$, $a_0 = b_0c_0$, also $p\nmid b_0$ oder $p\nmid c_0$. OBdA $p|b_0$, $p\nmid c_0$. Sei $t$ maximal mit $p|b_j$ für $(0\leq j\leq t)$. Es gilt $0\leq t < m$
+	Sei $f = gh$ mit $g, h\notin \IZ[t]^{\times}$, also $\deg(g)>0$, $\deg(h)>0$, da $f$ primitiv ist. Sei $g = \sum_{i = 0}^mb_it^i$, $h = \sum_{i = 0}^sc_it^i$ mit $m,s>0$, $m+s = n$. Dann gilt $a_n = b_mc_s$, also $p\nmid b_m, p\nmid c_s$, sowie $a_0 = b_0c_0$, also $p\nmid b_0$ oder $p\nmid c_0$. Ohne Beschränkung der Allgemeinheit gelte $p\mid b_0$ und $p\nmid c_0$. Sei $t$ maximal mit $p\mid b_j$ für alle $0\leq j\leq t$. Es gilt $0\leq t < m$.
 	
-	Dann gilt: $a_{l+1} = b_0c_{l+1} +b_1c_l +b_2c_{l-1}+\dots +b_{l+1}c_0$. Dabei werden alle bis auf den letzten Summanden von $p$ geteilt und $b_{l+1}c_0$ wird nicht von $p$ geteilt. Damit teilt $p$ nicht $a_{l+1}$. Nach Voraussetzung muss also $l+1 = n$ gelten. Folglich $m = n$ und damit $s = 0$. Das ist ein Widerspruch. Damit gilt das Eisensteinsche Irreduzibilitätskriterium.
+	Nun gilt $a_{l+1} = b_0c_{l+1} +b_1c_l +b_2c_{l-1}+\dots +b_{l+1}c_0$. Dabei werden alle bis auf den letzten Summanden von $p$ geteilt und $b_{l+1}c_0$ wird nicht von $p$ geteilt. Damit teilt $p$ nicht $a_{l+1}$. Nach Voraussetzung muss also $l+1 = n$ gelten. Folglich $m = n$ und damit $s = 0$. Das ist ein Widerspruch. Damit gilt das Eisensteinsche Irreduzibilitätskriterium.
 \end{proof}
 
+\lecture{23. November 2017}
+
 \subsection{Kreisteilungspolynome}
-\paragraph{Anwendung 13.1} %TODO: Diese Umgebung definieren oder eine sinnvolle Lösung finden
-Sei $p$ Primzahl. Dann $\Phi_p(t) = t^{p-1}+\dots +t+1$ ist irreduzibel in $\IZ[t]$ das $p$-te Kreisteilungspolynom.
+\begin{anw}
+Sei $p$ prim. Dann ist $\Phi_p(t) := t^{p-1}+\dots +t+1$ irreduzibel in $\IZ[t]$, welches wir das $p$-te Kreisteilungspolynom nennen.
+\end{anw}
 
 \begin{proof}
 	Wir betrachten
 	\begin{align*}
 		f = \ev_{t+1} : \IZ[t] &\longto \IZ[t] \\
-		p(t) &\longmapsto p(t+1)
+		p(t) &\longmapsto p(t+1) ,
 	\end{align*}
-	Das ist ein Ringhomomorphismus mit der inversen Abbildung $\ev_{t-1}$. Jeder Ringhomomorphismus $\phi$ bildet Einheiten auf Einheiten ab. Falls $\phi$ ein Ringisomorphismus ist, gilt, dass für $\phi: R \to R'$ ein $x \in R$ genau dann irreduzibel ist, wenn $\phi(x) \in R$ irreduzibel ist.
-	Denn sei $x \in R$ irreduzibel. Sei $\phi(x) = b\cdot c$. Dann ist $\phi^{-1}\left( \phi (x) \right) = \phi^{-1} (b) \phi^{-1} (c) $, da $\phi^{-1}$ existiert. Also gilt $x = \phi^{-1} (b) \phi^{-1} (c) $ und damit ist $\phi^{-1}(b)$ oder $\phi^{-1}(c)$ eine Einheit. Deshalb ist bereits $b$ oder $c$ eine Einheit und somit folgt die Behauptung.
+	was ein Ringhomomorphismus mit der inversen Abbildung $\ev_{t-1}$ ist. Jeder Ringhomomorphismus $\phi$ bildet Einheiten auf Einheiten ab. Falls $\phi$ ein Ringisomorphismus ist, gilt, dass für $\phi: R \to R'$ ein $x \in R$ genau dann irreduzibel ist, wenn $\phi(x) \in R$ irreduzibel ist.
+	\textit{Begründung:} Sei $x \in R$ irreduzibel und $\phi(x) = b\cdot c$. Dann ist $\phi^{-1}\left( \phi (x) \right) = \phi^{-1} (b) \phi^{-1} (c) $, da $\phi^{-1}$ existiert. Also gilt $x = \phi^{-1} (b) \phi^{-1} (c) $ und damit ist $\phi^{-1}(b)$ oder $\phi^{-1}(c)$ eine Einheit. Deshalb ist bereits $b$ oder $c$ eine Einheit und somit folgt die Behauptung.
 	
-	Es reicht nun zu zeigen, dass $f\left(\Phi_p(t) \right) $ irreduzibel in $\IZ[t]$ ist. Es gilt, dass $\Phi_p(t)(t-1) = t^p - 1$.
+	Es reicht nun zu zeigen, dass $f\left(\Phi_p(t) \right) $ irreduzibel in $\IZ[t]$ ist. Es gilt, dass $\Phi_p(t)\cdot(t-1) = t^p - 1$.
 	\begin{align*}
-		&\Rightarrow f(\Phi_p(t))(t-1) = f(t^p - 1) \\
-		&\Rightarrow f(\Phi_p(t)) (t) = (t + 1)^p - 1 = t^p + \binom{p}{1} + \dots + \binom{p}{p-1} t + \binom{p}{p}\cdots 1 - 1 \\
-		&\Rightarrow f(\Phi_p(t)) = t^{p-1} + \binom{p}{1} + \dots + \binom{p}{p-1}t^0 = a_{p-1}t^{p-1} + a_{p-2}^{p-2} + \dots + a_0t^0
+		&\Rightarrow f(\Phi_p(t))\cdot f(t-1) = f(t^p - 1) \\
+		&\Rightarrow f(\Phi_p(t)) \cdot t = (t + 1)^p - 1 = t^p + \binom{p}{1}t^{p-1} + \dots + \binom{p}{p-1} t + \binom{p}{p} 1 - 1 \\
+		&\Rightarrow f(\Phi_p(t)) = t^{p-1} + \binom{p}{1}t^{p-2} + \dots + \binom{p}{p-1}t^0 = a_{p-1}t^{p-1} + a_{p-2}^{p-2} + \dots + a_0t^0
 	\end{align*}
-	Nun gilt, dass $p \not \mid a_{p-1}$ und $p \mid a_i$ für $0 \leq i \leq p-2$ und $p	^2 \not \mid a_0$. Somit sind die Kriterien für Einstein erfüllt. Folglich ist $f\left( \Phi_p(t) \right) \in \IZ[t]$ irreduzibel. Damit ist auch $\Phi_p(t)$ irreduzibel.
-	
-	Anschauliche Interpretation von $\Phi_p(t)$: Wir betrachten das Polynom $t^n-1 \in \IC[t]$ mit $n \in \IN$. Die Nullstellen sind dann genau die komplexen Zahlen $z \in \IC$ mit $z^n = 1$, also die $n$-ten Einheitswurzeln. 
-	
-	TODO: Insert Bild?
-	
-	Wir bekommen also \glqq gleichverteilte\grqq \ Punkte auf dem Einheitskreis mit $(0,1) = \xi_0$. Wir nennen $\xi$ primitive $n$-te Einheitswurzeln, falls $\xi^n = 1$ und $\xi^m \neq 1$ für alle $m > n$ ($m \in \IN$) gilt. Insbesondere ist dann $n = \ord (\xi)$ bezüglich der Multiplikation.
+	Nun gilt $p \nmid a_{p-1}$ und $p \mid a_i$ für $0 \leq i \leq p-2$ und $p^2 \nmid a_0$. Somit sind die Kriterien für das \hyperref[thm:eisenstein]{eisensteinsche Irreduzibilitätskriterium} erfüllt. Folglich ist $f\left( \Phi_p(t) \right) \in \IZ[t]$ irreduzibel. Damit ist auch $\Phi_p(t)$ irreduzibel.
 \end{proof}
+
+\paragraph{Anschauliche Interpretation von $\Phi_p(t)$.} Wir betrachten das Polynom $t^n-1 \in \IC[t]$ mit $n \in \IN$. Die Nullstellen sind dann genau die komplexen Zahlen $z \in \IC$ mit $z^n = 1$, also die $n$-ten Einheitswurzeln. 
+
+%TODO: Insert Bild?
+
+Wir erhalten also \glqq gleichverteilte\grqq\ Punkte auf dem Einheitskreis mit $(0,1) = \zeta_0$. Wir nennen $\zeta$ primitive $n$-te Einheitswurzel, falls $\zeta^n = 1$ und $\zeta^m \neq 1$ für alle $m > n$ ($m \in \IN$) gilt. Insbesondere ist dann $n = \ord (\xi)$ bezüglich der Multiplikation.
 
 \begin{defi}
 	Für $d \in \IN$ definieren wir 
 	\begin{equation*}
-		\Phi_d(t) = \prod_{z \text{primitive $d$-te Einheitswurzel} \neq 1} (t - z)
+		\Phi_d(t) = \prod_{\mathclap{\substack{\text{$z$ primitive $d$-te}\\\text{ Einheitswurzel $\neq 1$}}}} (t - z)
 	\end{equation*}
+	als das $d$-te Kreisteilungspolynom.
 \end{defi}
 
 \begin{bem}
 	$\Phi_d(t) = \Phi_p(t)$ wie oben, falls $d$ eine Primzahl ist. 
 \end{bem}
 
-\paragraph{d-tes Kreisteilungspolynom}
-Wir wissen, dass $\Phi_p(t) \in \IZ[t]$ irreduzibel ist, falls $p$ eine Primzahl und primitiv ist. Nach Gauss ist deshalb auch $\Phi_p(t) \in \IQ[t] = Quot(\IZ)(t)$ irreduzibel. Deshalb folgt nach 8.1, dass das von $\Phi_p(t)$ erzeuge Ideal $I := \left( \Phi_p(t)\right) $ maximal unter den Hauptidealen in $\IQ[t]$ ist. Da $\IQ[t]$ ein Hauptidealbereich ist (nach Übungsblatt 5), ist $I$ auch ein maximales Ideal. Deshalb ist $\IQ[t] / T =: K_p $ ein Körper ist, auch der $p$-te Kreisteilungskörper genannt.
+Wir wissen, dass $\Phi_p(t) \in \IZ[t]$ irreduzibel ist, falls $p$ eine Primzahl und primitiv ist. Nach dem \nameref{thm:gauss} ist deshalb auch $\Phi_p(t) \in \IQ[t] = \Quot(\IZ)[t]$ irreduzibel. Deshalb folgt nach \cref{lem:primired}, dass das von $\Phi_p(t)$ erzeuge Ideal $I := \left( \Phi_p(t)\right) $ maximal unter den Hauptidealen in $\IQ[t]$ ist. Da $\IQ[t]$ ein Hauptidealring ist (siehe Übungsblatt 5), ist $I$ auch ein maximales Ideal. Deshalb ist $\IQ[t] / T =: K_p $ ein Körper, auch der $p$-te Kreisteilungskörper genannt.
 
 \begin{lem}
-	Sei $K$ ein Körper, $R \neq \{0\}$ ein kommutativer Ring. Sei $\phi: K \to R$ ein Ringhomomorphismus. Dann ist $\phi$ injektiv.
+	Sei $K$ ein Körper und $R \neq \{0\}$ ein kommutativer Ring. Sei $\phi: K \to R$ ein Ringhomomorphismus. Dann ist $\phi$ injektiv.
 \end{lem}
 
 \begin{proof}
-	Wir wissen, dass $\phi (1) = 1 \neq 0$. Sei $\ker \phi \neq \{0\}$. Dann existiert ein $a \in K$, das im Kern liegt, sodass $1 = a^{-1}\cdot a$, was auch im Kern liegt, da $\ker \phi$ ein Ideal ist. Dann wäre aber $\phi(1) = 0$, was ein Widerspruch ist.
+	Wir wissen, dass $\phi (1) = 1 \neq 0$. Sei $\ker \phi \neq \{0\}$. Dann existiert ein $a \in K$, welches im Kern liegt, sodass $1 = a^{-1}\cdot a$, was auch im Kern liegt, da $\ker \phi$ ein Ideal ist. Dann wäre aber $\phi(1) = 0$, was ein Widerspruch ist.
 	
 	Insbesondere können wir $K$ vermöge $\phi$ als Teilmenge von $R$ auffassen.  
 \end{proof}
 
-Deshalb können wir $\IQ$ als Teilmenge von $K_p$ durch die Einbettung $\lambda \in \IQ \to \ol{\lambda}$ auffassen. $K_p$ ist dadurch ein $\IQ$-Vektorraum (nachrechnen!).
+Deshalb können wir $\IQ$ als Teilmenge von $K_p$ vermöge der (injektiven) Einbettung \[\IQ \hookrightarrow \IQ[t] \xrightarrow{\can} \IQ[t]/(\Phi_p(t))\] auffassen. $K_p$ ist dadurch ein $\IQ$-Vektorraum (nachrechnen!).
 
-\begin{lem}
+\begin{lem} \label{lem:kreisteilkoerpervekraum}
 	Sei $p$ prim. Dann ist $K_p$ ein $(p-1)$-dimensionaler $\IQ$-Vektorraum.
 \end{lem}
 
@@ -2171,70 +2179,101 @@ Deshalb können wir $\IQ$ als Teilmenge von $K_p$ durch die Einbettung $\lambda 
 	\end{equation*}
 	eine Basis ist.
 	
-	Es reicht zu zeigen, dass $\ol{t}^k \in span_{\IQ}(B)$ für $k \in \IN_0$ damit $B$ ein Erzeugendensystem ist.
-	\begin{enumerate}
-		\item Für $0 \leq k \leq p-2$ ist das klar.
-		\item Sei $k = p-1$. 
+	\begin{description}
+		\item[\emph{Erzeugendensystem.}] Es reicht zu zeigen, dass $\ol{t}^k \in \Span_{\IQ}(B)$ für $k \in \IN_0$, damit $B$ ein Erzeugendensystem ist.
+		\begin{enumerate}
+			\item Für $0 \leq k \leq p-2$ ist das klar.
+			\item Sei $k = p-1$. 
 			\begin{align*}
-				\ol{t}^{p-1} &= \ol{t}^{p-1}- \underbrace{\left( \ol{t}^{p-1} + \dots + \ol{t} + \ol{1} \right)}_{\ol{0} \in K_p} \\
-				&= \ol{t}^{p-2} + \dots + \ol{t} + \ol{1} \in Span_{\IQ}(B)
+			\ol{t}^{p-1} &= \ol{t}^{p-1}- \underbrace{\left( \ol{t}^{p-1} + \dots + \ol{t} + \ol{1} \right)}_{\ol{0} \in K_p} \\
+			&= \ol{t}^{p-2} + \dots + \ol{t} + \ol{1} \in \Span_{\IQ}(B)
 			\end{align*}
-		\item Sei $k > p-1$.
+			\item Sei $k > p-1$.
 			\begin{align*}
-				\ol{t}^k &= \ol{t} \cdot \ol{t}^{k-1} \in \ol{t} \cdot Span_{\IQ}(B) \\
-				&\subseteq Span_{\IQ}\left\lbrace \ol{t}, \ol{t}^2, \cdots , \ol{t} ^ {p-1} \right\rbrace \\
-				&\subseteq Span_{\IQ}(B)
+			\ol{t}^k &= \ol{t} \cdot \ol{t}^{k-1} \in \ol{t} \cdot \Span_{\IQ}(B) \\
+			&\subseteq \Span_{\IQ}\left\lbrace \ol{t}, \ol{t}^2, \cdots , \ol{t} ^ {p-1} \right\rbrace \\
+			&\subseteq \Span_{\IQ}(B)
 			\end{align*}
-	\end{enumerate}
-	Somit ist $B$ ein Erzeugendensystem.
-	
-	Nun fehlt noch die lineare Unabhängigkeit. Sei dazu $\sum_{i=0}^{p-2}a_i\ol{t}^i = \ol{0}$ in $K_p$ mit $a_i \in \IO$. Wir betrachten $Q := \sum_{i=0}^{p-2}a_iX^i \in \IQ[X]$. Es ist klar, dass $Q(t) \in \IQ[t]$ und $Q(t) \in K_p$. Wir wissen, dass
-	\begin{equation}
+		\end{enumerate}
+		Somit ist $B$ ein Erzeugendensystem.
+		\item[\emph{Lineare Unabhängigkeit.}] Sei $\sum_{i=0}^{p-2}a_i\ol{t}^i = \ol{0}$ in $K_p$ mit $a_i \in \IO$. Wir betrachten $Q(X) := \sum_{i=0}^{p-2}a_iX^i \in \IQ[X]$. Es ist klar, dass $Q(t) \in \IQ[t]$ und $Q(t) \in K_p$. Wir wissen, dass
+		\[
 		\ol{0} = \sum_{i=0}^{p-2}a_i\ol{t}^i = \ol{\sum_{i=0}^{p-2}a_it^i} = \ol{Q(t)}
-	\end{equation}
-	Dann liegt $Q(t)$ in $I = \Phi_p(t)$ und folglich teilt $\Phi_p(t)$ $Q(t)$. Es folgt also, dass $\deg(Q(t)) \geq p-1$ oder $Q(t) = 0$, wobei ersteres ein Widerspruch zur Definition ist. Folglich gilt $Q(t) = 0$, womit alle $a_i = 0$ und $B$ ist damit linear unabhängig. 
+		\]
+		Dann liegt $Q(t)$ in $I = \Phi_p(t)$ und folglich teilt $\Phi_p(t)$ $Q(t)$. Es folgt also, dass $\deg(Q(t)) \geq p-1$ oder $Q(t) = 0$, wobei ersteres ein Widerspruch zur Definition ist. Folglich gilt $Q(t) = 0$, womit alle $a_i = 0$ und $B$ ist damit linear unabhängig.
+	\end{description}
 \end{proof}
 
 Wir betrachten 
 \begin{equation*}
-	G := \left\lbrace \phi: K_p \to K_p \middle| \phi \text{ ist Ringisomorphimus und } \IQ\text{-linear}, \phi \vert_{\IQ} = \id \right\rbrace 
+	G := \left\lbrace \phi: K_p \to K_p \left| \substack{\text{$\phi$ ist Ringisomorphimus} \\ \text{und $\IQ$-linear, $\varphi|_\IQ = \id_\IQ$ }}\right. \right\rbrace .
 \end{equation*}
-$G$ ist eine Gruppe bezüglich der Komposition von Abbildungen. Man nennt $G$ die Galoisgruppe $Gal(K_p // \IQ)$ von $K_p$ über $\IQ$.
+$G$ ist eine Gruppe bezüglich der Komposition von Abbildungen. Man nennt $G$ die Galoisgruppe $\Gal(K_p \sslash \IQ)$ von $K_p$ über $\IQ$.
 Es gilt, dass $\phi(\ol{1}) = \ol{1}$. Falls $\phi(\ol{t}) = z$, dann gilt $\phi\left( \ol{t} ^k \right) = z^k$, weil $\phi$ ein Ringhomomorphismus ist.
-Wegen 13.3 bestimmt also $\phi(\ol t)$ die Abbildung $\phi$ bereits eindeutig, da $\phi$ $\IQ$-linear ist. Wir interessieren uns also nur für die Möglichkeiten für $z$.
+Wegen \cref{lem:kreisteilkoerpervekraum} bestimmt also $\phi(\ol t)$ die Abbildung $\phi$ bereits eindeutig, da $\phi$ $\IQ$-linear ist. Wir interessieren uns also nur für die Möglichkeiten für $z$.
 
-\begin{lem}
-	Sei $\phi \in G$, $a_i = \IQ$. Sei
+\begin{lem} \label{lem:kreisteilkoerpernst}
+	Sei $\phi \in G$ sowie $a_i = \IQ$ für alle (endlich vielen) $i$. Sei weiterhin
 	\begin{equation*}
-		P(X) = \sum_{i \geq 0} a_iX^i \in K_p[X]
+		P(X) = \sum_{i \geq 0} a_iX^i \in K_p[X].
 	\end{equation*}
-	Falls $y$ eine Nullstelle von $P(X)$ in $K_p$ ist, dann ist auch $p(y)$ eine Nullstelle von $P(X)$.
+	Falls $y$ eine Nullstelle von $P(X)$ in $K_p$ ist, dann ist auch $\varphi(y)$ mit $\varphi \in G$ eine Nullstelle von $P(X)$.
 \end{lem}
 
 \begin{proof}
 	Sei $y$ eine Nullstelle von $P(X)$. Dann ist $\sum_{i \geq 0} a_iy^i = 0$ in $K_p$. Folglich gilt 
 	$$0 = \phi(0) = \phi\left( \sum_{i \geq 0} a_iy^i \right) = \sum_{i \geq 0} \phi(a_i) \phi(y^i) = \sum_{i \geq 0} a_i \phi(y)^i$$
 	Somit ist $\phi(y)$ eine Nullstelle.
-	
-	Nun ist $\ol t$ eine Nullstelle von $X^p -1$, falls $\phi \in G$. Andererseits ist $\ol{t}^k$ für $0 \leq k \leq p-1$ eine Nullstelle von $X^p - 1$, weil $(\ol{t}^k)^p = (\ol{t}^p)^k = (\ol 1)^k = \ol 1 \in K_p$. Folglich ist $\ol{t}^x$ eine Nullstelle von $X^p-1 \in K_p[X]$. Die $\ol{t}^k$ für $0 \leq k \leq p-2$ sind paarweise verschieden, weil sie linear unabhängig sind.
-	
-	Es gilt also, dass die Zerlegung $\ol t \mapsto \ol{t}^k$ für $k \leq k \leq p-2$ verschiedene Elemente in $G$ definieren.  
 \end{proof}
 
+Nun ist $\ol t$ eine Nullstelle von $X^p-1\in K_p[X]$, weil $X^p-1=\Phi_p(X)\cdot (X-1)$ und $\Phi_p(t)=0$ in $K_p$. Damit ist $\varphi(\ol t)$ eine Nullstelle von $X^p-1$ falls $\varphi \in G$.
 
+Andererseits ist $\ol t^k$ für $0\le k \le p-1$ eine Nullstelle von $X^p -1$, weil $(\ol t^k)^p = (\ol t ^p)^k = \ol 1 = 1 \in K_p$. Die $\ol t^k$ für $0\le k \le p-2$ sind paarweise verschieden, da sie linear unabhängig sind.
 
+Somit definiert die Zuordnung $\ol t \mapsto \ol t^k$ für $0\le k \le p-2$ dann $p-1$ paarweise verschiedene Elemente in $G$. Nach \cref{lem:kreisteilkoerpernst} gibt es aber höchstens $p$ Nullstellen, also $\abs{G}\le p$.
 
-%TODO: vervollständige diese Vorlesung
+Also hat $G$ genau die Elemente gegeben durch \[ \varphi(\ol t) = \ol t^k \quad \text{für $1\le k \le p-2$}, \]
+weil $\varphi(\ol t) = \ol t^0 = 1$ und $\varphi(\ol 1) = \ol 1 = 1$ unmöglich sind.
 
-\lecture{27. November 2017}
-Letzte Vorlesung: Für einen Körper $K$ haben wir definiert $\<\emptyset\>$ Körper $= \bigcap\limits_{L\subseteq K \text{Unterkörper}}$ Primkörper von $K$.
+Zusammenfassend ist $G$ endlich und permutiert die Nullstellen von $X^p-1$. Wir werden zeigen:
+\[
+\Gal(K_p \sslash \IQ) \cong (\IZ/p\IZ)^\times
+\]
+
+\section{Galoistheorie}
+\subsection{Körpererweiterungen}
+\begin{defi}
+	Es seien $K$ und $K'$ Körper. Dann heißt $\phi : K \to K'$ Körperhomomorphismus bzw. Körperisomorphismus, falls $\phi$ ein Ringhomomorphismus bzw. ein Ringisomorphismus ist.
+\end{defi}
+
+\begin{defi}
+	Es sei $K$ ein Körper. Dann heißt $L \subseteq K$ Unterkörper, falls $L$ ein Unterring ist und für alle Elemente $x \in L$ das Inverse $x^{-1}$ bezüglich $x$ in $L$ liegt. Äquivalent dazu ist, dass $L$ ein Körper mit den von $K$ eingeschränkten Verknüpfungen ist.
+\end{defi}
 
 \begin{bem}
-	Primkörper ist Körper und zwar der kleinste Unterkörper von $K$; $0;1\in $ Primkörper und damit auch $1+\dots+1$ für $n$ mal eine 1 ($n\in\IN$).
+	Beliebige Schnitte von Unterkörpern sind Unterkörper.
 \end{bem}
 
-\begin{satz} Sei $K$ ein Körper. Dann ist der Primkörper von $K$ isomorph (als Körper) zu $$\begin{cases*} \IQ& \text{falls }char K =0\\
-	\IF_p& \text{falls }char K = p>0\end{cases*}$$.
+\begin{defi}
+	Sei $K$ ein Körper sowie $N\subseteq L$ eine Teilmenge von $K$. Dann ist
+	\[
+	\langle N\rangle_\text{Körper} := \bigcap_{\mathclap{\substack{L \subseteq K\text{ Unterkörper}\\N\subseteq L}}} L
+	\]
+	der von $N$ erzeugte Unterkörper. Insbesondere heißt
+	\[
+	\langle \emptyset\rangle_\text{Körper} = \bigcap_{\mathclap{\substack{L \subseteq K\text{ Unter-}\\\text{körper}}}} L
+	\]
+	der Primkörper von $K$.
+\end{defi}
+
+\lecture{27. November 2017}
+
+\begin{bem}
+	Der Primkörper eines Körpers ist selbst ein Körper und zwar der kleinste Unterkörper von $K$. Es ist $0,1\in \langle\emptyset\rangle$ und damit auch $1+\dots+1$ für die $n$-fache Addition der $1$ ($n\in\IN$).
+\end{bem}
+
+\begin{satz} Sei $K$ ein Körper. Dann ist der Primkörper von $K$ isomorph (als Körper) zu \[\begin{cases*} \IQ& falls $\chr K =0$,\\
+	\IF_p& falls $\chr K = p > 0$.\end{cases*}\].
 \end{satz}
 
 \begin{proof}
