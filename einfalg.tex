@@ -2568,7 +2568,116 @@ Zur Erinnerung: Sei $R$ ein kommutativer Ring. Sei $N\subseteq R$ Teilmenge. Dan
 	Folglich gilt $1 = 0$ in $L'[X_f|f\in J]$; Widerspruch, also $1\notin I$.
 \end{proof}
 	
+\lecture{7. Dezember 2017}	
+
+\begin{satz}
+	Sei $K$ Körper. Dann existiert eine algebraische Körpererweiterung $L\sslash K$ mit $L$ algebraisch abgeschlossen.
+\end{satz}
+\begin{proof}
+	Nach obigem Satz existiert $L'$ Körper, sodass $K\subseteq L'$ Unterkörper ist und $L'$ algebraisch abgeschlossen. Betrachte
+	$$K^{\text{alg}} = \{a\in L'| a\text{ algebraisch über } K\}$$
+	$K^{\text{alg}}$ ist ein Körper (siehe Kapitel 15; Beweis wie für $K = \IQ$).
 	
+	1. Behauptung: $K\subseteq K^{\text{alg}}$ (also $K\subseteq K^{\text{alg}}\subseteq L'$ jeweils Körpererweiterungen). Denn sei $b\in K$. Dann ist $b$ Nullstelle von $f = t-b\in K[t]$.
+	
+	2. Behauptung: $K^{\text{alg}}\sslash K$ algebraisch. Klar nach Definition, weil jedes Element $a\in K^{\text{alg}}$ algebraisch über $K$ ist.
+	
+	3. Behauptung: $K^{\text{alg}}$ algebraisch abgeschlossen. Sei nämlich $f\in K^{\text{alg}}[t]\setminus K^{\text{alg}}$. Zu zeigen: $f$ hat Nullstelle in $K^{\text{alg}}$. Wir wissen dabei: $K^{\text{alg}}\subseteq L'$, $L'$ ist algebraisch abgeschlossen. Folglich hat $f$ eine Nullstelle $a\in L'$, also ist $a$ algebraisch über $K^{\text{alg}}$. Mit Satz 15.1 folgt $K^{\text{alg}}(a)\sslash K^{\text{alg}}$ ist algebraische Körpererweiterung. Aus der Transitivität von algebraischen Körpererweiterungen (Satz 15.2) und der 2. Behauptung folgt, dass $K^{\text{alg}}(a)\sslash K$ algebraische Körpererweiterung ist. Folglich ist jedes Element in $K^{\text{alg}}(a)$ algebraisch über $K$; insbesondere ist $a$ algebraisch über $K$, also $a\in K^{\text{alg}}$. Setze $L:= K^{\text{alg}}$.
+\end{proof}
+
+\begin{defi}
+	Wir nennen $L$ wie in Satz 16.2 algebraischen Abschluss von $K$ und bezeichnen ihn oft mit $\overline{K}$.
+\end{defi}
+Wie sieht es nun mit der Eindeutigkeit von $\overline{K}$ aus (bis auf Isomorphismus)?
+\begin{defi}
+	Sei $K$ Körper und $L_1\sslash K$, $L_2, \sslash K$ Körpererweiterungen. Eine Abbildung $\phi\colon L_1\to L_2$ heißt $K$-Homomorphismus (kurz: $K$-Homo), falls $\phi$ Ring- (und damit Körper-)homomorphismus und $\phi|_K = \id_K$. $\phi$ heißt $K$-Isomorphismus, falls zusätzlich $\phi$ bijektiv. Falls $L_1 = L_2$ und $\phi\colon L_1\to L_2 = L_1$ $K$-Iso, dann nennen wir $\phi$ auch $K$-Automorphismus.
+\end{defi}
+
+\begin{bsp}
+	$L_1 = L_2$, $\phi = \id$ ist $K$-Automorphismus.
+\end{bsp}
+
+\begin{defi}
+	Die Menge $Aut(L\sslash K) = \{\phi\colon L\to L|\phi\ K\text{-Automorphismus}\}$ ist eine Gruppe bezüglich Komposition von Abbildungen (für jede Körpererweiterung $L\sslash K$). Wir nennen sie die Automorphismengruppe von $L\sslash K$.
+\end{defi}
+
+\begin{bsp}
+	Betrachte $\IC\sslash \IR$. Behauptung: $Aut(\IC\sslash\IR) =\{\id, z\mapsto \overline{z}\}$.
+\end{bsp}
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[\glqq$\supseteq$\grqq:] Klar.
+		\item[\glqq$\subseteq$\grqq:] Sei $\phi\in Aut(\IC\sslash\IR)$. Dann ist $\phi(a+bi) =\phi(a)+\phi(b)\phi(i) = a+b\phi(i)$, wobei $a,b\in\IR$. Also ist $\phi$ eindeutig bestimmt durch $\phi(i)$. Es gilt: $-1 = \phi(-1) = \phi(i^2) = \phi(i)^2$. Daraus folgt, dass $\phi(i)$ eine Quadratwurzel von $-1$ sein muss, also $\phi(i )= i$ ($\Rightarrow \phi = \id$) oder $\phi(i) = -i$ ($\Rightarrow \phi$ ist die komplexe Konjugation).
+	\end{description}
+\end{proof}
+
+\noindent
+Unser Ziel ist nun:
+\begin{satz}[Eindeutigkeit des algebraischen Abschlusses]\label{thm:16.3}
+	Sei $K$ ein Körper und $L_1\sslash K$, $L_2\sslash K$ Körpererweiterung, sodass $L_1,L_2$ beide ein algebraischer Abschluss von $K$ sind. Dann existiert $\phi\colon L_1\to L_2$ $K$-Isomorphismus.
+\end{satz}
+
+\begin{bem}
+	$\phi\colon L_1\to L_2$ $K$-Homo und $[L_1:K] = [L_2:K]<\infty$. Dann ist $\phi$ ein $K$-Isomorphismus. Denn: $\phi$ ist ein Ringhomo und $L_i$ ist Körper, also ist $\phi$ injektiv. Außerdem ist $\phi(x+y) = \phi(x)+\phi(y)$ und $\phi(\lambda x) = \phi(\lambda)\phi(x) = \lambda\phi(x)$ für $\lambda\in K$, $x,y\in L_i$. Also ist $\phi$ eine $K$-lineare Abbildung. Damit ist $\phi$ eine $K$-lineare injetivie Abbildung zwischen endlichdimensionalen $K$-Vektorräumen der gleichen Dimension, also ist $\phi$ bijektiv und damit ein $K$-Isomorphismus.
+\end{bem}
+
+\paragraph{Übersicht} Sei $L\sslash K$ eine Körpererweiterung. Dann gilt folgendes bezüglich Teilmengen von $\{\phi\colon L\to L\}$:
+%TODO: Insert komisches "Diagramm"
+
+\begin{lem}
+	Sei $\phi\colon L_1\to L_2$ ein $K$-Homomorphismus. Sei $f\in K[t]$. Dann gilt: $a$ Nullstelle von $f\Leftrightarrow \phi(a)$ Nullstelle von $f$. 
+\end{lem}
+\begin{proof}
+Sei $f = \sum_{i = 0}^{\infty}b_it^i\in K[t]$. Sei $a$ eine Nullstelle von $f(t)$, also $\sum_{i = 0}^{\infty}b_ia^i = 0$. \\
+$\Rightarrow \phi(\sum_{i = 0}^{\infty}b_ia^i) = \phi(0) = 0$\\
+$\Leftrightarrow \sum_{i = 0}^{\infty}	\phi(b_i)\phi(a)^i = 0$,  weil $\phi$ ein Ringhomomorphismus ist\\
+$\Leftrightarrow \sum_{i = 0}^{\infty}b_i\phi(a)^i =0$ (weil $\phi$ ein $K$-Homo ist), also ist $\phi(a)$ eine Nullstelle von $f$.
+
+Zur Rückrichtung: Da $\phi$ ein $K$-Homo ist, also insbesondere Ringhomo zwischen Körpern und damit injektiv ist, folgt: $\phi(\sum_{i = 0}^{\infty}b_ia^i) = 0\Rightarrow \sum_{i = 0}^{\infty}b_ia^i = 0$.
+\end{proof}
+
+
+
+\begin{lem}
+	Sei $\phi\colon L_1\to L_2$ ein $K$-Homomorphismus. Wenn $a\in L_1$ algebraisch über $K$ ist, ist $\phi(a)$ algebraisch über $K$ und für die Minimalpolynome gilt $m_a(t) = m_{\phi(a)}(t)\in K[t]$.
+\end{lem}
+
+\begin{proof}
+	Sei $a\in L_1$ algebraisch über $K$. Also existiert ein $f\in K[t]\setminus K$ mit $f(a) = 0\Rightarrow a$ ist Nullstelle von $f \in K[t]$. Nach Lemma 16.4 ist $\phi(a)$ Nullstelle von $f$. Daher ist $\phi(a)$ algebraisch über $K$ und Teil 1 des Lemmas folgt.
+	
+	Sei $m_a(t) \in K[t]$ Minimalpolynom von $a$. Also ist $m_a(t)$ normiert und von minimalem Grad, sodass $a$ Nullstelle ist. Nach Lemma 16.4 ist $\phi(a)$ Nullstelle von $m_a(t)\in K[t]$. Folglich ist $m_{\phi(a)}$ Teiler von $m_a(t)$. Da analog auch $m_a(t)$ ein Teiler von $m_{\phi(a)}$ ist, gilt $m_a(t) = m_{\phi(a)} (t)$.
+\end{proof}
+
+\begin{bem}
+	Beachte: $\phi$ bildet $a\in L_1$ algebraisch auf Nullstellen von $m_a(t)$ ab\textbf{!!!}
+\end{bem}
+
+\begin{lem}
+	Sei $K$ Körper. Seine $L\sslash K$, $L'\sslash K$ algebraische Körpererweiterungen und $a\in L, a'\in L'4$ mit $m_a(t)=m_{a'}(t)\in K[t]$. Dann existiert ein einduetiger $K$-Isomorphismus $\phi\colon K(a)\to K(a')$, sodass $\phi(a) = a'$.
+\end{lem}
+\begin{proof}
+	Betrachte den Ringhomo 
+	\begin{eqnarray*}
+		\ev_a\colon K[t]&\longto& L\\
+		p & \longmapsto & p(a)
+	\end{eqnarray*}
+	Dann gilt $m_a(t)\to m_a(a) = 0\Rightarrow m_a(t) \in \ker(\ev_a)\Rightarrow (m_a(t))\subseteq \ker(\ev_a)$. Nach \ref{thm:homsatz_r} existiert genau ein Ringhomo: $\overline{\ev_a}\colon K[t]/(m_a(t))\to L$, sodass $\overline{\ev_a}\circ \can = \ev_a$.
+	
+	Klar: $\im\ev_a\subseteq K(a)$. Dann auch $im\overline{\ev_a}\subseteq K(a) \Rightarrow \overline{\ev_a}\colon K[t]/(m_a(t))\to K(a)$. Wir wissen (siehe Vergleich transzendent vs. algebraisch), dass $(m_a(t))$ ein maximales Ideal ist. Also ist $K[t]/(m_a(t))$ ein Körper. Damit ist $\overline{\ev_a}$ injektiv und $\im\overline{\ev_a}\subseteq K(a)$. Außerdem ist $\im\overline{\ev_a}$ ein Körper (weil Bild von Körper unter Ringhomo) und $\im\overline{\ev_a}$ enthält offensichtlich $K$ und $a$. $\Rightarrow \im(\overline{\ev_a}) = K(a)$. Also ist $\phi_1 = \overline{\ev_a}\colon K[t]/(m_a(t))\to K(a)$ Isomorphismus von Körpern. Es gilt nach Konstruktion: $\phi_1(\overline{t}) = a$ und $\phi_1|_K = \id_K$.
+	
+	Analog haben wir einen Isomorphismus von Körpern $\phi_2: K[t]/(m_{a'}(t))\to K(a')$ mit $\phi_2(\overline{t}) =a'$ und $\phi_2|_K  =\id_K$. Dabei ist $(m_a'(t)) = (m_a(t))$ (nach Voraussetzung). Sei $\phi = \phi_1\circ \phi_1^{-1}\colon K(a) \to K(a')$ ist ein Isomorphismus von Körpern und $\phi(a) = \phi_2(\overline{t}) = \phi(a')$ und $\phi|_K = \id_K$. Folglich haben wir einen $K$ Isomorphismus $\phi\colon K(a)\to K(a')$ mit $\phi(a) = a'$ ($\phi$ ist eindeutig, da $\phi|_K =\id_K$ und $\phi(a) =a'$; dadurch ist $\phi$ eindeutig bestimmt).
+\end{proof}
+
+\begin{satz}
+	\leavevmode
+	\begin{enumerate}
+		\item $L\sslash K$ algebraische Körpererweiterung, $L'$ algebraisch abgeschlossener Körper; $f\colon K\to L'$ Ringhomomorphismus. Dann existiert $\hat{f}\colon L\to L'$ Ringhomomorphismus, sodass $\hat{f}|_K  = f$.
+		%TODO: Diagramm
+		\item Seien $K, K'$ Körper und $f\colon K\to K'$ Ringisomorphismus. Seien $\overline{K}, \overline{K'}$ algebraische Abschlüsse von $K$ beziehungsweise $K'$. Dann exsitert $\hat{f}\colon \overline{K}\to \overline{K'}$ Isomorphismus von Körpern mit $\hat{f}|_K = f$.
+	\end{enumerate}
+	
+\end{satz}
 
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
