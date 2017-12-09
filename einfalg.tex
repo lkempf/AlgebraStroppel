@@ -1668,7 +1668,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 	Ist $S'$ ein weiterer solcher Unterring, so ist enthält er bereits $\bigcap_{S''}S'' = R[a_1,\dots,a_n]$, wobei $S''$ wie oben definiert ist.
 \end{proof}
 
-\begin{satz}
+\begin{satz}\label{thm:evalpolyring}
 	Sei $S$ ein Ring und $R\subseteq S$ ein Unterring sowie $a_1,\dots,a_n\in S$ mit $a_ia_j = a_ja_i$ und $a_ix = xa_i$ für alle $x\in R$ und $1\leq i,j\leq n$. Sei $\phi \colon R\hookrightarrow S$ die Inklusion und $R[t_1,\dots, t_n] := ((\dots(R[t_1])[t_2])\dots)[t_n]$. Dann ist $R[a_1,\dots,a_n]$ das Bild des Auswertungshomomorphismus 
 	\begin{eqnarray*}
 		\ev = \ev_{a_1,\dots,a_n}: R[t_1,\dots,t_n] & \longto & S\\
@@ -2113,7 +2113,7 @@ Ziel dieses Kapitels:
 
 \lecture{23. November 2017}
 
-\subsection{Kreisteilungspolynome}
+\subsection{Kreisteilungspolynome}\label{sec:kreisteil}
 \begin{anw}
 Sei $p$ prim. Dann ist $\Phi_p(t) := t^{p-1}+\dots +t+1$ irreduzibel in $\IZ[t]$, welches wir das $p$-te Kreisteilungspolynom nennen.
 \end{anw}
@@ -2156,7 +2156,7 @@ Wir erhalten also \glqq gleichverteilte\grqq\ Punkte auf dem Einheitskreis mit $
 
 Wir wissen, dass $\Phi_p(t) \in \IZ[t]$ irreduzibel ist, falls $p$ eine Primzahl und primitiv ist. Nach dem \nameref{thm:gauss} ist deshalb auch $\Phi_p(t) \in \IQ[t] = \Quot(\IZ)[t]$ irreduzibel. Deshalb folgt nach \cref{lem:primired}, dass das von $\Phi_p(t)$ erzeuge Ideal $I := \left( \Phi_p(t)\right) $ maximal unter den Hauptidealen in $\IQ[t]$ ist. Da $\IQ[t]$ ein Hauptidealring ist (siehe Übungsblatt 5), ist $I$ auch ein maximales Ideal. Deshalb ist $\IQ[t] / T =: K_p $ ein Körper, auch der $p$-te Kreisteilungskörper genannt.
 
-\begin{lem}
+\begin{lem} \label{lem:koerhomoinj}
 	Sei $K$ ein Körper und $R \neq \{0\}$ ein kommutativer Ring. Sei $\phi: K \to R$ ein Ringhomomorphismus. Dann ist $\phi$ injektiv.
 \end{lem}
 
@@ -2269,7 +2269,7 @@ Zusammenfassend ist $G$ endlich und permutiert die Nullstellen von $X^p-1$. Wir 
 \lecture{27. November 2017}
 
 \begin{bem}
-	Der Primkörper eines Körpers ist selbst ein Körper und zwar der kleinste Unterkörper von $K$. Es ist $0,1\in \langle\emptyset\rangle$ und damit auch $1+\dots+1$ für die $n$-fache Addition der $1$ ($n\in\IN$).
+	Der Primkörper eines Körpers ist selbst ein Körper und zwar der kleinste Unterkörper von $K$. Es ist $0,1\in \langle\emptyset\rangle$ und damit auch $1+\dots+1 \in \langle \emptyset\rangle$ als die $n$-fache Addition der $1$ ($n\in\IN$).
 \end{bem}
 
 \begin{satz} Sei $K$ ein Körper. Dann ist der Primkörper von $K$ isomorph (als Körper) zu \[\begin{cases*} \IQ& falls $\chr K =0$,\\
@@ -2278,172 +2278,166 @@ Zusammenfassend ist $G$ endlich und permutiert die Nullstellen von $X^p-1$. Wir 
 
 \begin{proof}
 	Betrachte $\phi\colon \IZ\to K$ mit 
-	$$\phi(n ) =\begin{cases} 
-	n\cdot 1 &\text{falls }n\in\IN\\
-						0 & \text{falls } n = 0\\
-						-(-n\cdot 1) & \text{falls } -n\in\IN 
-					\end{cases}$$
-	Klar: $\phi$ ist ein Ringhomomorphismus und $\im \phi\subseteq$ Primkörper von $K$ (nach Bemerkung 1).
+	\[
+		\phi(n) = \begin{cases*}
+		n \cdot 1 & falls $n \in \IN$,\\
+		0 & falls $n=0$,\\
+		-(-n\cdot 1) & falls $-1 \in \IN$,
+		\end{cases*}
+	\]
+	wobei klar ist, dass $\varphi$ ein Ringhomomorphismus ist und das Bild von $\varphi$ im Primkörper von $K$ liegt.
 	
-	Fall 1: $char K = p>0$. Dann $p\cdot 1  = 0$ in $K\Rightarrow \phi(pm) = 0\forall m\in\IZ\Rightarrow p\IZ\subseteq \ker \phi\Rightarrow \exists!$ Ringhomo (nach Homomorphiesatz) $\overline{\phi}\colon \IZ/p\IZ\to K$ mit $\overline{phi}\circ \can  = \phi$. Da $p$ Primzahl ist, ist $\IZ/p\IZ = \IF_p$ ein Körper. Nach Satz 13.2 ist $\overline{\phi}$ folglich injektiv und es gilt $\im\overline{\phi}\subseteq$ Primkörper von $K$, wobei $\im\overline{\phi} \cong \IF_p$ nach dem Homomorphiesatz für Ringe. Weil der Primkörper kleinster Unterkörper von $K$ und $\im\overline{\phi}$ Körper (isomorph zu $\IF_p$) ist, muss gelten: $\im \overline{\phi}$ Primkörper $\Rightarrow$ Behauptung für den Fall $char K = p> 0$:
-	
-	Falls 2: $char K = 0$. Dann ist $\phi$ injektiv (denn wenn $\phi(n) = \phi(m) \Rightarrow (n-m)1 = 0$ in $K\Rightarrow n = m$ oder  $char K > 0 \Rightarrow n = m$). Also ist $\phi(n) \neq 0\forall n\neq 0$ (weil $p$ Gruppenhomo). Damit gilt $\phi(n)\in K^{\times}\forall n \in \IZ\setminus\{0\}\Rightarrow \exists$ Ringhomomorphismus $\hat{\phi}\colon \IQ= Quot (\IZ)to K, \hat{\phi}(\frac ab) = \phi(a)(\phi(b))^{-1}\forall \frac ab\in \IQ$ (nach der universellen Eigenschaft der Lokalisierung). Mit Satz 13.2 folgt dann: $\hat{\phi}$ ist injektiv und nach Homomorphiesatz $\IQ/\ker\hat{\phi} \cong \im\hat{\phi}$, also $\IQ \cong \im \hat{\phi}$ (Isomorphie von Ringen bzw Körpern). Wir wissen: $\im \phi\subseteq$ Primkörper von $K$. Nach Definition von $\hat{\phi}$ gilt $\im\hat{\phi}\subseteq$ Primkörper von $K$, weil der Primkörper Körper ist. Damit haben wir nun einen Unterkörper $\im \hat{\phi}\subseteq $ Primkörper von $K$, also $\im \hat{\phi}= $ Primkörper, weil dieser minimal ist. Also ist $\IQ$ isomorph zum Primkörper von $K$
-	
+	\begin{description}
+		\item[\emph{Fall 1: $\chr K = p > 0$.}] Dann liegt $p\cdot 1  = 0$ in $K$, es gilt also $\phi(pm) = 0$ für alle $m\in\IZ$, also folgt $p\IZ\subseteq \ker \phi$. Nun existiert nach dem \nameref{thm:homsatz_r} ein Ringhomomorphismus $\overline{\phi}\colon \IZ/p\IZ\to K$ mit $\overline{\phi}\circ \can  = \phi$. Da $p$ prim ist, ist $\IZ/p\IZ = \IF_p$ ein Körper. Nach \cref{lem:koerhomoinj} ist $\overline{\phi}$ folglich injektiv und $\im\ol\phi$ ist im Primkörper von $K$ enthalten, wobei $\im\overline{\phi} \cong \IF_p$ nach dem \nameref{thm:homsatz_r}. Weil der Primkörper der kleinste Unterkörper von $K$ und $\im\overline{\phi}$ ein Körper (isomorph zu $\IF_p$) ist, ist $\im \ol \phi$ der Primkörper von $K$.
+		\item[\emph{Fall 2: $\chr K = 0$.}] Dann ist $\phi$ injektiv, denn aus $\phi(n) = \phi(m)$ folgt $(n-m)1 = 0$ in $K$, also gilt $n = m$ oder  $\chr K > 0$, wobei letzteres aber nicht der Fall ist. Also ist $\phi(n) \neq 0$ für alle $n\neq 0$, da $\phi$ ein Gruppenhomomorphismus ist. Damit gilt $\phi(n)\in K^{\times}$ für alle $n \in \IZ\setminus\{0\}$. Nach der \hyperref[thm:unieig_lokali]{universellen Eigenschaft der Lokalisierung} existiert ein Ringhomomorphismus $\hat{\phi}\colon \IQ= \Quot (\IZ)\to K, \frac ab \mapsto \phi(a)(\phi(b))^{-1}$. Mit \cref{lem:koerhomoinj} folgt dann, dass $\hat{\phi}$ injektiv ist, und weiter gilt nach dem \nameref{thm:homsatz_r} $\IQ/\ker\hat{\phi} \cong \im\hat{\phi}$, also $\IQ \cong \im \hat{\phi}$ (Isomorphie von Ringen bzw. Körpern). Wir wissen, dass $\im \phi$ im Primkörper von $K$ enthalten ist. Nach Definition von $\hat{\phi}$ liegt auch $\im\hat{\phi}$ im Primkörper von $K$, weil der Primkörper ein Körper ist. Damit haben wir nun einen Unterkörper $\im \hat{\phi}$ als Teilmenge des Primkörpers von $K$, also ist $\im \hat{\phi}$ der Primkörper, weil dieser minimal ist. Also ist $\IQ$ isomorph zum Primkörper von $K$.
+	\end{description}
 \end{proof}
 
 \begin{defi}
-	Eine Körpererweiterung (kurz KE) $L\sslash K$ ist ein Paar $L, K$ von Körpern, wobei $K\subseteq L$ Unterkörper ist. Genauer: $L$ ist Körpererweiterung von K$K$.	
+	Eine Körpererweiterung $L\sslash K$ ist ein Paar $L, K$ von Körpern, wobei $K\subseteq L$ ein Unterkörper von $L$ ist. Genauer: $L$ ist eine Körpererweiterung von $K$.	
 \end{defi}
 
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-		\item $\IC\sslash\IR$ KE
-		\item Sei $L\sslash K$ KE, Seien $\alpha_1, \dots, \alpha_n\in L$. Sei $M:=K\cup \{\alpha_1,\dots, \alpha n\}\Rightarrow K \subseteq \< M\>_{\text{Körper}}\subseteq L$ sind jeweils KE. Wir bezeichnen $\<M\>_{\text{Körper}} = K(\alpha_1,\dots, \alpha_n)$ den von $K$ und $\alpha_1,\dots,\alpha_n$ erzeugten Unterkörper von $L$.
+		\item $\IC\sslash\IR$ ist eine Körpererweiterung.
+		\item Sei $L\sslash K$ eine Körpererweiterung und seien $\alpha_1, \dots, \alpha_n\in L$. Sei $M:=K\cup \{\alpha_1,\dots, \alpha_n\}$ Dann sind $K \subseteq \< M\>_{\text{Körper}}\subseteq L$ jeweils Körpererweiterungen. Wir bezeichnen $\<M\>_{\text{Körper}} = K(\alpha_1,\dots, \alpha_n)$ den von $K$ und $\alpha_1,\dots,\alpha_n$ erzeugten Unterkörper von $L$.
 	\end{enumerate}
 \end{bsp}
-Beachte: $K\subseteq K[\alpha_1,\dots, \alpha_n]\subseteq K(\alpha_1,\dots, \alpha_n)\subseteq L$; wobei die erste Inklusion eine Inklusion von Ringen ist und die zweite im Allgemeinen tatsächlich $\neq$ ist. Die letzte Inklusion ist eine Inklusion von Körpern.
+Beachte: $K\subseteq K[\alpha_1,\dots, \alpha_n]\subseteq K(\alpha_1,\dots, \alpha_n)\subseteq L$; wobei die erste Inklusion eine Inklusion von Ringen ist und die zweite im Allgemeinen tatsächlich echt ist. Die letzte Inklusion ist eine Inklusion von Körpern.
 
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-		\item $\IR\subseteq \IR[i] = \{a+bi|a,b\in\IR\} = \IR(i) = \IC$
+		\item $\IR\subseteq \IR[i] = \{a+b\ima\mid a,b\in\IR\} = \IR(\ima) = \IC$
 		\item $\IR\subsetneq \IR[t]\subsetneq \IR(t) \subsetneq \IC(t)$
 	\end{enumerate}
 \end{bsp}
 
 \begin{defi}
-	$L\sslash K$ Körpererweiterung heißt endlich erzeugt, falls $\exists \alpha_1,\dots, \alpha_n\in L$, sodass $L = K(\alpha_1,\dots, \alpha_n)$. $L\sslash K$ heißt einfach (oder auch primitiv), falls $\exists \alpha\in L$ mit $L = K(\alpha)$.
+	Eine Körpererweiterung $L\sslash K$ heißt endlich erzeugt, falls $\alpha_1,\dots, \alpha_n\in L$ existieren, sodass $L = K(\alpha_1,\dots, \alpha_n)$. $L\sslash K$ heißt einfach (oder auch primitiv), falls ein $\alpha\in L$ mit $L = K(\alpha)$ existiert.
 \end{defi}
 
 \begin{defi}
-	Sei $L\sslash K$ eine Körpererweiterung. Dann ist $L$ ein $K$-VR (in offensichtlicher Weise; siehe Kapitel 13). Wir nennen $\dim_KL = [L:K]$ Grad der Körpererweiterung $L\sslash K$
+	Sei $L\sslash K$ eine Körpererweiterung. Dann ist $L$ ein $K$-Vektorraum (in offensichtlicher Weise; siehe \cref{sec:kreisteil}). Wir nennen $\dim_KL = [L:K]$ den Grad der Körpererweiterung $L\sslash K$.
 \end{defi}
 
 \begin{bsp}
 	$\IC\sslash\IR$: $[\IC:\IR] = 2$; $\IR(t)\sslash \IR$: $[\IR(t): \IR] = \infty$.
 \end{bsp}
 \begin{bem}
-	Falls $L$ endlicher Körper ist und $L\sslash K$ Körpererweiterung ist. Dann gilt $|L| = |K|^{ [L:K]}$
+	Falls $L$ ein endlicher Körper sowie $L\sslash K$ eine Körpererweiterung ist, so gilt $|L| = |K|^{ [L:K]}$.
 \end{bem}
-\begin{satz}
-	Sei $L\sslash K$ eine Körpererweiterung. Sei $V$ ein $L$-Vektorraum. Dann ist $V$ auch $K$-VR (durch Einschränken). Dann ist $\dim_KV= \dim_LV\cdot [L:K]$.
+\begin{satz}\label{thm:ke_grad}
+	Sei $L\sslash K$ eine Körpererweiterung und $V$ ein $L$-Vektorraum. Dann ist $V$ durch Einschränkung der Verknüpfungen auch ein $K$-Vektorraum. Es gilt $\dim_KV= \dim_LV\cdot [L:K]$.
 \end{satz}
-\begin{kor}[Gradformel]
-	Seien $L_1\sslash L_2, L_2\sslash L_3$ Körpererweiterungen. Dann gilt
-	$$ [L_1: L_3] = [L_1:L_2]\cdot [L_2][L_3]$$
+\begin{kor}[Gradformel] \label{kor:gradformel}
+	Seien $L_1\sslash L_2$ und $L_2\sslash L_3$ Körpererweiterungen. Dann gilt
+	$$ [L_1: L_3] = [L_1:L_2]\cdot [L_2:L_3]$$
 \end{kor}
-\begin{proof} Folgt direkt aus Satz 14.2
+\begin{proof} Folgt direkt aus \cref{thm:ke_grad}.
 \end{proof}
 
-\begin{proof}[Beweis Satz 14.2] %TODO: LABELS
-	Sei $\{v_i|i\in I\}$ Basis von $V$ als $L$-Vektorraum. Sei $\{w_j|j\in J\}$ Basis von $L$ als $K$-VR. Behauptung: $\{z_{(i,j)} = w_jv_i|i\in I, j\in J\}$ Basis von $V$ als $K$-VR. Damit folgt dann der Satz.
-	
-	\noindent
-	Beweise also nun die Behauptung:
+\begin{proof}[Beweis von \cref{thm:ke_grad}]
+	Sei $\{v_i\mid i\in I\}$ eine Basis von $V$ als $L$-Vektorraum und $\{w_j\mid j\in J\}$ eine Basis von $L$ als $K$-Vektorraum. Wir zeigen nun, dass $\{z_{(i,j)} = w_jv_i\mid i\in I, j\in J\}$ eine Basis von $V$ als $K$-Vektorraum ist. Damit folgt dann der Satz.
 	\begin{description}
-		\item[Erzeugendensystem:] Sei $v\in V\Rightarrow v = \sum_{i\in I} a_iv_i$ mit $a_i\in L$ und nur endlich viele $a_i\neq 0$ und für festes $i\in I$:
-		$$a_i = \sum_{j\in J}b_{ij}w_j \text{ mit } b_{ij}\in K$$
-		nur endliche viele $b_{ij}\neq 0$.
+		\item[\emph{Erzeugendensystem.}] Sei $v\in V$, so existiert eine Darstellung $v = \sum_{i\in I} a_iv_i$ mit $a_i\in L$, wobei nur endliche viele $a_i\neq 0$ sind, und für festes $i\in I$ gilt außerdem
+		\[a_i = \sum_{j\in J}b_{ij}w_j \text{ mit } b_{ij}\in K\]
+		wobei wieder nur endlich viele $b_{ij}\neq 0$ sind. Nun gilt aber $v = \sum_{i\in I}\sum_{j\in J}b_{ij}w_jv_i$, und wir sind fertig.
+		\item[\emph{Lineare Unabhängigkeit.}] Sei $\sum_{(i,j)\in I'}c_{ij}z_{(i,j)} = 0$ mit $c_{ij}\in K$ und endlichem $I'\subseteq I \times J$. Es ist zu zeigen, dass $c_ij = 0$ für alle $(i,j)\in I'$ gilt.
 		
-		$\Rightarrow v = \sum_{i\in I}\sum_{j\in J}b_{ij}w_jv_i\Rightarrow $ Erzeugendensystem
-		\item[linear unabhängig:] Sei $\sum_{(i,j)\in I'}c_{ij}z_{i,j} = 0$ mit $a_ij\in K$.; $I'\subseteq I \times J$ endlich. Zu zeigen: $c_ij = 0 \forall (i,j)\in I'$. Setze $c_{ij} = 0 \forall (i,j)\in I\times J \setminus I'$
-		
-		$\Rightarrow 0 = \sum_{(i,j)\in I'}c_{ij}z_{(i,j)} = \sum_{i\in I}(\sum_{j\in J}(c_{ij}wj))v_i$, also $c_{ij}w_j\in L$, weil $K\subseteq L$ Unterkörper.
-		
-		Da $\{v_i|i\in I\}$ eine Basis von $V$ als $L$-Vektorraum ist, folgt
-		$$\sum_{j\in J}c_{ij}w_j = 0 \qquad \forall i \in I$$
-		Da $\{w_j|j\in J\}$ linear unabhängig über $K$ ist, gilt $c_{ij} = 0\forall i,j\Rightarrow $ lineare Unabhängigkeit.
+		Wir setzen $c_{ij} = 0$ für alle $(i,j)\in (I\times J) \setminus I'$. Nun folgt \[0 = \sum_{\mathclap{(i,j)\in I'}}c_{ij}z_{(i,j)} = \sum_{i\in I}\left(\sum_{j\in J}(c_{ij}w_j)\right)v_i,\]also $c_{ij}w_j\in L$, weil $K\subseteq L$ ein Unterkörper ist. Da $\{v_i\mid i\in I\}$ eine Basis von $V$ als $L$-Vektorraum ist, folgt $\sum_{j\in J}c_{ij}w_j = 0$ für alle $i \in I$. Da weiterhin $\{w_j\mid j\in J\}$ linear unabhängig über $K$ ist, gilt $c_{ij} = 0$ für alle $i \in I$ und $j \in J$.
 	\end{description}
 \end{proof}
 
 \subsection{Algebraische Körpererweiterung}
-Sei $L\sslash K$ eine Körpererweiterung. Sei $a\in L$. Die Inklusion $K\to L, \lambda\mapsto\lambda$ ist ein Ringhomomorphismus. Nach universeller Eigenschaft des Polynomrings existiert genau ein Ringhomomorphismus
+Sei $L\sslash K$ eine Körpererweiterung sowie $a\in L$. Die Inklusion $K\to L, \lambda\mapsto\lambda$ ist ein Ringhomomorphismus. Nach der \hyperref[thm:unieig_polyring]{universellen Eigenschaft des Polynomrings} existiert genau ein Ringhomomorphismus
 \begin{eqnarray*}
 	\ev_a\colon K[t] &\longto & L\\
-	p(t) & \longmapsto & p(a)
+	p(t) & \longmapsto & p(a).
 \end{eqnarray*}
-Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist und algebraisch sonst. Betrachte nun diese beiden Fälle.
+Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist, und algebraisch anderenfalls. Betrachte nun diese beiden Fälle.
 \begin{description}
-	\item[Fall 1:] $a$ ist transzendent: Dann gilt $\ev_a\colon  K[t]\to L$ injektiv und $\im\ev_a = K[a]\subseteq L$ (nach Satz 7.15). %TODO: LABELS
-	Also existiert Isomorphismus von Ringen $K[t]\to K[a]$ nach dem Homomorphiesatz für Ringe. Nach Definition ist $K[a]\subseteq K(a)$ und somit gilt:
-	$$K(a) \supseteq \{fg^{-1}|f,g\in K[a], g\neq 0\} = : X$$
-	Da $K(a)$ der kleinste Unterkörper $UK$ von $L$ ist, der $K$ und $a$ enthält und $X$ offensichtlich Körper ist, folgt $=$.
+	\item[\emph{Fall 1: $a$ ist transzendent.}] Dann ist $\ev_a\colon  K[t]\to L$ injektiv und nach \cref{thm:evalpolyring} gilt $\im\ev_a = K[a]\subseteq L$.
+	Also existiert ein Isomorphismus von Ringen $K[t]\to K[a]$ nach dem \nameref{thm:homsatz_r}. Nach Definition ist $K[a]\subseteq K(a)$ und somit gilt
+	\[K(a) \supseteq \{fg^{-1}\mid f,g\in K[a], g\neq 0\} =: X.\]
+	Da $K(a)$ der kleinste Unterkörper von $L$ ist, der $K$ und $a$ enthält und $X$ offensichtlich ein Körper ist, folgt Gleichheit.
 	
-	Folglich haben wir einen Isomorphismus von Ringen (bzw Körpern) von $K(a)\cong K(t) = Quot(K[t])$. Insbesondere sind $K(t)$, also auch $K(a)$ unendlichdimensionals als $K$-VR, also $[K(a):K] = \infty$
+	Folglich erhalten wir einen Isomorphismus von Ringen (bzw. Körpern) von $K(a)\cong K(t) = \Quot(K[t])$. Insbesondere sind $K(t)$, also auch $K(a)$ unendlichdimensionale als $K$-Vektorräume, also $[K(a):K] = \infty$.
 	
-	\item[Fall 2:] $a$ ist algebraisch über $K$. Nach Definition gilt: $\ev_a$ nicht injektiv. Also ist $\ker(\ev_a)\neq \{0\}$ Ideal in $K[t]$. Da $K[t]$ Hauptidealring ist, existiert $p(t)\in K[t]$ mit $\ker(\ev_a) = (p(t))$. Sei ohne Beschränkung der Allgemeinheit $p(t)$ normiert (d.h. Leitkoeffizient ist 1).
+	\item[\emph{Fall 2: $a$ ist algebraisch über $K$.}] Nach Definition ist $\ev_a$ nicht injektiv. Also ist $\ker(\ev_a)\neq \{0\}$ ein Ideal in $K[t]$. Da $K[t]$ ein Hauptidealring ist, existiert ein $p(t)\in K[t]$ mit $\ker(\ev_a) = (p(t))$. Sei ohne Beschränkung der Allgemeinheit $p(t)$ normiert (d.h. der Leitkoeffizient ist $1$).
 	
-	Wir wissen: $p(a) = \ev_a(p(t)) = 0$. (also $a$ Nullstelle von $p(t)$). Wähle Polynom minimalen Grades in $K[t]$ normiert, nennen wir es $m_a(t)$, sodass $m_a(a) = 0$ (also sodass $a$ Nullstelle ist). Nenne dieses Polynom $m_a$ das Minimalpolynom zu $a$. (Existenz und Eindeutigkeit zeigt man wie für das Minimalpolynom in LA II). Ebenfalls wie in LA II: Für jedes Polynom $p(t)\in K[t]$ mit $p(a) = 0$ gilt: $m_a(t)$ teilt $p(t)$ in $K[t]$. Damit: $\ker\ev_a = (m_a(t))$.
+	Wir wissen, dass $p(a) = \ev_a(p(t)) = 0$, also dass $a$ eine Nullstelle von $p(t)$ ist. Wähle nun ein normiertes Polynom minimalen Grades in $K[t]$, genannt $m_a(t)$, sodass $m_a(a) = 0$, also sodass eine Nullstelle ist. Wir nennen $m_a$ das Minimalpolynom zu $a$ (Existenz und Eindeutigkeit zeigt man wie für das Minimalpolynom in LA II). Ebenfalls wie in LA IIzeigt man, dass $m_a(t)$ jedes Polynom $p(t)\in K[t]$ mit $p(a)=0$ teilt. Damit folgt, dass $\ker\ev_a = (m_a(t))$ ist.
 
-	Nun gilt: $\overline{\ev_a}\colon K[t]/(m_a(t))\to \im(\ev_a)\subset L$ ist Isomorphismus von Ringen
-	\lecture{30. November 2017}
-	Dabei ist $\im(\ev_a)\subseteq L$, $L$ Körper und $\im(\ev_a)$ Ring. Folglich ist $\im\ev_a$ Integritätsbereich und $K[t]/(p(t))$ Integritätsbereich. Damit ist $(p(t))$ ein Primideal und $p(t)$ ist prim.. Da $K[t]$ Hauptidealring ist, ist $p(t)$ irreduzibel und $(p(t))$ maximal unter allen Hauptidealen; folglich ist $(p(t))$ maximal und $K[t]/(p(t))$ ist ein Körper.
+	Vermöge des \nameref{thm:homsatz_r} erhalten wir schließlich einen Ringhomomorphismus $\overline{\ev_a}\colon K[t]/(m_a(t))\to \im(\ev_a)\subset L$.
 	
-	Da $\overline{\ev_a}\colon K[t]/(p(t))\to \im\ev_a = K[a]\subseteq L$ Ringhomo ist und auf einem Körper definiert ist, ist $\overline{\ev_a}$ injektiv und $K[a]$ ist somit Körper. Also gilt $K[a]\subseteq K(a) \subseteq L$. Da $K(a)$ der kleinste Körper ist, der $K$ und $a$ enthält, ist $K[a] = K(a)$.
+\lecture{30. November 2017}
 	
-	Behauptung: $[K(a):K] = d := \deg(m_a(t))$; genauer: $1, a, a^2,\dots, a^{d-1}$ ist eine Basis von $K(a)$ als $K$-VR.
+	Dabei ist $\im(\ev_a)\subseteq L$ und $L$ ein Körper und $\im(\ev_a)$ ein Ring. Folglich sind $\im\ev_a$ und $K[t]/(p(t))$ Integritätsbereiche. Damit ist $(p(t))$ ein Primideal und $p(t)$ ist prim. Da $K[t]$ ein Hauptidealring ist, ist $p(t)$ irreduzibel und $(p(t))$ maximal unter allen Hauptidealen; folglich ist $(p(t))$ maximal und $K[t]/(p(t))$ ein Körper.
+	
+	Da $\overline{\ev_a}\colon K[t]/(p(t))\to \im\ev_a = K[a]\subseteq L$ ein Ringhomomorphismus und auf einem Körper definiert ist, ist $\overline{\ev_a}$ injektiv und $K[a]$ somit ein Körper. Also gilt $K[a]\subseteq K(a) \subseteq L$. Da $K(a)$ der kleinste Körper ist, der $K$ und $a$ enthält, folgt $K[a] = K(a)$.
+	
+	\emph{Behauptung:} $[K(a):K] = d := \deg(m_a(t))$. Genauer: $1, a, a^2,\dots, a^{d-1}$ ist eine Basis von $K(a)$ als $K$-Vektorraum.
 	\begin{proof}
 		\leavevmode
 		\begin{description}
-			\item[Erzeugendensystem:] Sei $k\geq 0$. Dann $t^{d+k} = t^km_a(t)+Q$ in $K[t]$, wobei $Q$ Linearkombination von Polynomen mit Grad $<d+k$. Dann gilt in $K[t]/(p(t)) = K[t]/(m_a(t))$:
-			$$\overline{t^{d+k}} = \overline{t^k}\overline{m_a(t)} + \overline{Q} = \overline{Q}$$
-			Damit: $\overline{t^{d+k}} \in \< \{1, \overline{t}, \dots, \overline{t^{d-1}}\}\>$. Folglich: $B :=  \{1, \overline{t}, \dots, \overline{t^{d-1}}\}$ erzeugt $K[t]/(p(t))$ als $K$-VR. Wende nun die Evaluationsabbildung an:
-			
-			$\overline{ev_a}(B)$ erzeugt $\im\overline{\ev_a} = K(a)$ als $K$-VR (da $\overline{ev_a}$ insbesondere $K$-VR-Iso). Aber $\overline{\ev_a}(B) = \{1, a, a^2,\dots, a^{d-1}\}$
-			\item{linear unabhängig:} Sei $\sum_{i =0}^{d-1}c_ia^i = 0$ (in $K(a)$) mit $c_i\in K$. Annahme: $\exists i$ mit $c_i \neq 0$. Wähle $m$ maximal mit $c_m \neq 0$. Dann $\sum_{i = 0}^{m}c_ia^i = 0$. Sei o.B.d.A. $c_m = 1$. Dann wissen wir:
-			$$0 = \sum_{i = 0}^m c_ia^i = \overline{ev_a}(\sum_{i=0}^mc_i\overline{t}^i)\Longrightarrow \ev_a(\sum_{i=0}^m c_it^i) = 0\enspace .$$
-			Folglich hat $\sum_{i=0}^mc_it^i\in K[t]$ als Nullstelle $a$ und Grad $= m <d$ im Widerspruch zu Definition von $m_a(t)$, weil $m_a(t)$ das normierte Polynom kleinsten Grades mit $a$ als Nullstelle ist.
+			\item[\emph{Erzeugendensystem.}] Sei $k\geq 0$. Dann $t^{d+k} = t^km_a(t)+Q$ in $K[t]$, wobei $Q$ eine Linearkombination von Polynomen mit Grad kleiner als $d+k$ ist. Dann gilt in $K[t]/(p(t)) = K[t]/(m_a(t))$.
+			\[\overline{t^{d+k}} = \overline{t^k}\overline{m_a(t)} + \overline{Q} = \overline{Q}.\]
+			Damit folgt $\overline{t^{d+k}} \in \< \{1, \overline{t}, \dots, \overline{t^{d-1}}\}\>$. Folglich erzeugt $B :=  \{1, \overline{t}, \dots, \overline{t^{d-1}}\}$ dann $K[t]/(p(t))$ als $K$-Vektorraum. Wende nun die Evaluationsabbildung an:
+			$\overline{\ev_a}(B)$ erzeugt $\im\overline{\ev_a} = K(a)$ als $K$-VR, da $\overline{\ev_a}$ insbesondere ein $K$-Vektorraum-Isomorphismus ist. Da $\overline{\ev_a}(B) = \{1, a, a^2,\dots, a^{d-1}\}$, folgt die Aussage.
+			\item{\emph{Lineare Unabhängigkeit.}} Sei $\sum_{i =0}^{d-1}c_ia^i = 0$ (in $K(a)$) mit $c_i\in K$. Wir nehmen an, dass ein $i$ mit $c_i\neq 0$ existiert. Wähle $m$ maximal mit $c_m \neq 0$. Dann ist $\sum_{i = 0}^{m}c_ia^i = 0$. Sei ohne Beschränkung der Allgemeinheit $c_m = 1$. Dann wissen wir
+			\[0 = \sum_{i = 0}^m c_ia^i = \overline{ev_a}\left(\sum_{i=0}^mc_i\overline{t}^i\right)\Longrightarrow \ev_a\left(\sum_{i=0}^m c_it^i\right) = 0.\]
+			Folglich hat $\sum_{i=0}^mc_it^i\in K[t]$ als Nullstelle $a$ und den Grad $m <d$ im Widerspruch zu Definition von $m_a(t)$, weil $m_a(t)$ das normierte Polynom kleinsten Grades mit $a$ als Nullstelle ist.
 		\end{description}
 	\end{proof}
 \end{description}
 
 \begin{bsp}
-	Betrachte $\IC\sslash\IR$ und $i\in\IC$. Dann: $t^2+1\in \IR[t]$ ist $m_i(t)$. Also $[\IR(i):\IR] = 2$. %TODO: FIX THIS HÄSSLICHEN ZEILENUMBRUCH
+	Betrachte $\IC\sslash\IR$ und $\ima\in\IC$. Dann ist $t^2+1\in \IR[t]$ das Minimalpolynom $m_i(t)$ zu $\ima$. Es gilt folglich $[\IR(i):\IR] = 2$.
 \end{bsp}
 
-\begin{satz}[15.1]
-	$L\sslash K$ Körpererweiterung, $a\in L$. Dann sind äquivalent:
+\begin{satz}\label{thm:algebraisch_aequivalenzen}
+	Sei $L\sslash K$ eine Körpererweiterung und$a\in L$. Dann sind äquivalent:
 	\begin{enumerate}
-		\item $a$ algebraisch über $K$
+		\item $a$ ist algebraisch über $K$.
 		\item $K[a] = K(a) \subseteq L$
-		\item $\dim_KK(a) = d = \deg(m_a(t))$
-		In diesem Fall nennen wir $ d = [K(a):K]$ den Grad von $a$ über $K$.
+		\item $\dim_KK(a) = d = \deg(m_a(t))$.
 	\end{enumerate}
+	Im letzten Fall nennen wir $ d = [K(a):K]$ den Grad von $a$ über $K$.
 \end{satz}
 \begin{proof}
 	siehe oben
 \end{proof}
 \begin{defi}
-	$L\sslash K$ heißt algebraisch, falls jedes $a\in L$ algebraisch über $K$ ist. Weiter heißt $L\sslash K$ endlich, wenn $L$ als $K$-VR endliche Dimension hat (also der Grad $[L:K]$ der Körpererweiterung endlich ist).
+	Eine Körpererweiterung $L\sslash K$ heißt algebraisch, falls jedes $a\in L$ algebraisch über $K$ ist. Weiter heißt $L\sslash K$ endlich, wenn $L$ als $K$-Vektorraum endliche Dimension hat, also der Grad $[L:K]$ der Körpererweiterung endlich ist.
 \end{defi}	
 	
-\begin{satz}
+\begin{satz}\label{thm:algebraischekes}
 	\leavevmode
 	\begin{enumerate}
-		\item Jede endliche Körpererweiterung ist algebraisch
-		\item Falls $L\sslash K$ algebraisch und endlich erzeugt ist, ist $L\sslash K$ endlich
-		\item (Transitivität) Seien $L_1\sslash L_2, L_2\sslash L_3$ beide algebraisch. Dann ist auch $L_1\sslash L_3$ algebraisch.
+		\item Jede endliche Körpererweiterung ist algebraisch.\label{enumi:endlich=>algebraisch}
+		\item Falls $L\sslash K$ algebraisch und endlich erzeugt ist, ist $L\sslash K$ endlich.\label{enumi:alg+endlicherz=>endlich}
+		\item Seien $L_1\sslash L_2$ und $L_2\sslash L_3$ beide algebraisch. Dann ist auch $L_1\sslash L_3$ algebraisch (Transitivität).
 	\end{enumerate}
 \end{satz}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item Sei $a\in L$. Dann $\exists m\in \IN$, sodass $1, a, a^2, \dots, a^m$ linear abhängig über $K$, da nach Voraussetzung $\dim_KL<\infty$. Folgich existieren $c_i\in K$ ($0\leq i \leq m$), nicht alle $c_i = 0$ mit
-		$$\sum_{i=0}^mc_ia^i = 0 \Longrightarrow \ev_a\colon K[t]\longto L$$ nicht injektiv $\Rightarrow a$ algebraisch über $K$.
-		\item Sei $L$ algebraisch und endlich erzeugt über $K$. $\Rightarrow \exists a_1,\dots, a_n\in L$ mit $L = K(a_1,\dots, a_n)$. Betrachte $K \subseteq K(a_1) \subseteq K(a_1)(a_2) = K(a_1,a_2)\subseteq \dots \subseteq K(a_1,\dots, a_n) = L$. Nach Gradformel gilt $$[L:K] = [K(a_1,\dots, a_n):K] = \prod_{i = 1}^{n}[K(a_1, dots, a_i):K(a_1,\dots, a_{i-1})]$$
-		Nach Voraussetzung ist $a_i$ algebraisch über $K$, also insbesondere algebraisch über $K(a_1,\dots, a_{i-1})$, also $[K(a_1,\dots, a_i): K(a_1,\dots , a_{i-1})] < \infty$ (nach Satz 15.1). Also ist $[L:K]< \infty$.
-		\item Sei $a\in L_1\Rightarrow \exists p(t)\in L_2[t], p(t)\neq 0$ mit $p(a) = 0$ (da $L_1\sslash L_2$ algebraisch). Sei $p(t) = \sum_{i =0}^nb_it^i$. Betrachte $K = L_3(b_0,b_1,\dots, b_n)\subseteq L_2$ Unterkörper. Dann ist $a$ algebraisch über $K$ (offensichtlich), also (mit 15.2) $[K(a):K] \leq \deg(p(t)) <\infty$. Also $K(a)\sslash K$ endlcih. Andererseits ist $L_2\sslash L_3$ algebraisch, also erst recht $K\sslash L_3$ algebraisch.
+		\item Sei $a\in L$. Dann existiert ein $m\in \IN$, sodass $1, a, a^2, \dots, a^m$ linear abhängig über $K$ ist, da nach Voraussetzung $\dim_KL<\infty$. Folglich existieren $c_i\in K$ ($0\leq i \leq m$), die nicht alle $0$ sind, mit
+		$\sum_{i=0}^mc_ia^i = 0$. Asl ist $\ev_a\colon K[t]\longto L$ nicht injektiv und $a$ somit algebraisch über $K$.
+		\item Sei $L$ algebraisch und endlich erzeugt über $K$. Dann existieren Elemente $a_1,\dots, a_n\in L$ mit $L = K(a_1,\dots, a_n)$. Betrachte \[K \subseteq K(a_1) \subseteq K(a_1)(a_2) = K(a_1,a_2)\subseteq \dots \subseteq K(a_1,\dots, a_n) = L.\] Nach der \nameref{kor:gradformel} gilt $$[L:K] = [K(a_1,\dots, a_n):K] = \prod_{i = 1}^{n}[K(a_1, \dots, a_i):K(a_1,\dots, a_{i-1})]$$
+		Nach Voraussetzung ist $a_i$ algebraisch über $K$, also insbesondere algebraisch über $K(a_1,\dots, a_{i-1})$, also ist $[K(a_1,\dots, a_i): K(a_1,\dots , a_{i-1})] < \infty$ nach \cref{thm:algebraisch_aequivalenzen}. Schließlich gilt $[L:K]< \infty$.
+		\item Ist $a\in L_1\Rightarrow$, so existiert ein $p(t)\in L_2[t]$ mit $p(t)\neq 0$ und $p(a) = 0$, da $L_1\sslash L_2$ algebraisch ist. Sei $p(t) = \sum_{i=0}^nb_it^i$. Betrachte den Unterkörper $K = L_3(b_0,b_1,\dots, b_n)$ von $L_2$. Dann ist $a$ offensichtlich algebraisch über $K$, also folgt $[K(a):K] \leq \deg(p(t)) <\infty$ nach \ref{enumi:alg+endlicherz=>endlich}; $K(a)\sslash K$ ist somit endlich. Andererseits ist $L_2\sslash L_3$ algebraisch, also ist erst recht $K\sslash L_3$ algebraisch.
 		
-		Nach Konstruktion ist $K\sslash L_3$ endlich erzeugt; mit (2) folgt: $K\sslash L_3$ endlich. $\Rightarrow [K(a):L_3] = [K(a):K][K:L_3]$ (Gradformel). $\Rightarrow [K(a):L_3] <\infty$, also ist $a$ algebraisch über $L_3$ (Satz 15.2). $\Rightarrow L_1\sslash L_3$ algebraisch.
+		Nach Konstruktion ist $K\sslash L_3$ endlich erzeugt; mit \ref{enumi:alg+endlicherz=>endlich} folgt, dass $K\sslash L_3$ endlich ist. Mit der \nameref{kor:gradformel} erhalten wir $[K(a):L_3] = [K(a):K][K:L_3]$. Somit ist $[K(a):L_3] <\infty$, also ist $a$ algebraisch über $L_3$ nach \ref{enumi:endlich=>algebraisch}. Somit ist $L_1 \sslash L_3$ algebraisch.
 	\end{enumerate}
 \end{proof}
 
-\begin{lem}
-	$L\sslash K$ Körpererweiterung, $a,b\in L$ algebraisch über $K$. Dann gilt: $a+b$, $a\cdot b$, $a-b$, $ab^{-1}$ (falls $b\neq 0$) sind auch algebraisch über $K$.
+\begin{lem}\label{lem:alguk}
+	Seien $L\sslash K$ eine Körpererweiterung sowie $a,b\in L$ algebraisch über $K$. Dann sind $a+b$, $a\cdot b$, $a-b$ und $ab^{-1}$ (falls $b\neq 0$) auch algebraisch über $K$.
 \end{lem}
 \begin{proof}
-	Betrachte $K(a,b) = K(a)(b)$. Dann $[K(a,b):K] = [K(a)(b):K(a)][K(a):K]$, wobei beide Faktoren endlich sind (der zweite ist endlich, weil $a$ algebraisch über $K$ ist, der erste ist endlich, weil $b$ algebraisch über $K$, also insbesondere über $K(a)$). Folgich ist $K(a,b)\sslash K$ endlich und damit nach Satz 15.1 algebraisch. Aber $K(a,b)$ enthält $a+b$, $a-b$, $ab$, $ab^{-1}$ (falls $b\neq 0$) und somit sind diese Elemente algebraisch über $K$.
+	Betrachte $K(a,b) = K(a)(b)$. Dann $[K(a,b):K] = [K(a)(b):K(a)][K(a):K]$, wobei beide Faktoren endlich sind (der zweite ist endlich, weil $a$ algebraisch über $K$ ist, der erste ist endlich, weil $b$ algebraisch über $K$, also insbesondere über $K(a)$ ist). Folglich ist $K(a,b)\sslash K$ endlich und damit nach \cref{thm:algebraisch_aequivalenzen} algebraisch. Aber $K(a,b)$ enthält $a+b$, $a-b$, $ab$ und $ab^{-1}$ (falls $b\neq 0$) und somit sind diese Elemente algebraisch über $K$.
 \end{proof}
 
 \begin{bem}
@@ -2453,27 +2447,26 @@ Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist und algebraisc
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-	\item $p$ Primzahl, $n|in\IN\setminus\{0\}$, $f(t) = t^n-p\in \IQ[t]$ irreduzibel (nach Eisenstein irreduzibel in $\IZ[t]$ und primitiv, also irreduzibel in $\IQ[t]$ nach Gauß).
-	Sei nun $a = \sqrt[n]{p}\in\IC$ Nullstelle von $f(t)$. Behauptung: $[\IQ(\sqrt[n]{p}): \IQ] = n$.  Denn: Nach Definition des Minimalpolynoms $m_a(t)$ gilt: $m_a(t)$ teilt $f(t)$, also $f(t) = m_a(t)q(t)$ für ein $q(t)\in\IQ[t]$. Da $f(t)$ irreduzibel ist, folgt daraus $m_a(t)$ oder $q(t)\in \IQ[t]^{\times} = \IQ^{\times}$. Aber $m_a(t)$ kann keine Einheit sein; also $f(t) = m_a(t)\cdot \epsilon $ mit $\epsilon\in \IQ^{\times}$, aber $f(t)$ normiert, also $\epsilon = 1$. Mit Satz 15.2 folgt die Behauptung.
-	\item Betrachte $\IC\sslash \IQ$. Sei $\IQ^{\text{alg}} = \{a\in\IC|a\text{ algebraisch über }\IQ\}$. Nach Lemma 15.3 ist $\IQ\subseteq\IQ^{\text{alg}}\subseteq \IC$ Körpererweiterung. (größter Unterkörper von $\IC$, der algebraisch über $\IQ$ ist). Aber: $\IQ^{\text{alg}}$ ist nicht endlich über $\IQ$.
+	\item Sei $p$ eine Primzahl und $n \in\IN\setminus\{0\}$. Dann ist $f(t) = t^n-p\in \IQ[t]$ irreduzibel (nach dem \hyperref[thm:eisenstein]{eisensteinschen Irreduzibilitätskriterium} irreduzibel in $\IZ[t]$ und primitiv, also irreduzibel in $\IQ[t]$ nach dem \nameref{thm:gauss}).
+	Sei nun $a = \sqrt[n]{p}\in\IC$ eine Nullstelle von $f(t)$. Behauptung: $[\IQ(\sqrt[n]{p}): \IQ] = n$. Denn: Nach Definition des Minimalpolynoms $m_a(t)$ gilt $m_a(t)\mid f(t)$, also $f(t) = m_a(t)q(t)$ für ein $q(t)\in\IQ[t]$. Da $f(t)$ irreduzibel ist, folgt daraus $m_a(t)$ oder $q(t)\in \IQ[t]^{\times} = \IQ^{\times}$. Aber $m_a(t)$ kann keine Einheit sein; also $f(t) = m_a(t)\cdot \epsilon$ mit $\epsilon\in \IQ^{\times}$. Da $f(t)$ aber normiert ist, folgt $\epsilon = 1$. Mit \cref{thm:algebraischekes} folgt die Behauptung.
+	\item Betrachte $\IC\sslash \IQ$. Sei $\IQ^{\text{alg}} = \{a\in\IC\mid a\text{ algebraisch über }\IQ\}$. Nach \cref{lem:alguk} ist $\IQ\subseteq\IQ^{\text{alg}}\subseteq \IC$ eine Körpererweiterung, nämliche der größte Unterkörper von $\IC$, der algebraisch über $\IQ$ ist.
 	
-	Angenommen: $\IQ^{\text{alg}}\sslash \IQ$ endlich, also $[\IQ^{\text{alg}}:\IQ] = m<\infty$. Wähle $n>m$. Nach (a) ist $\sqrt[n]p \in \IQ^{\text{alg}}$ (mit $p$ wie oben) und $[\IQ(\sqrt[n]p) = \IQ] = n > m$. Aber dann $\IQ(\sqrt[n]p)\subseteq \IQ^{\text{alg}}$ und damit $[\IQ^{\text{alg}}:\IQ]\geq n$.
+	Aber $\IQ^{\text{alg}}$ ist nicht endlich über $\IQ$. Angenommen, $\IQ^{\text{alg}}\sslash \IQ$ wäre endlich, also $[\IQ^{\text{alg}}:\IQ] = m<\infty$. Wähle nun $n>m$. Nach dem ersten Beispiel ist $\sqrt[n]p \in \IQ^{\text{alg}}$ (mit $p$ wie oben) und $[\IQ(\sqrt[n]p) = \IQ] = n > m$. Aber dann folgt $\IQ(\sqrt[n]p)\subseteq \IQ^{\text{alg}}$ und damit $[\IQ^{\text{alg}}:\IQ]\geq n$.
 	\end{enumerate}
 \end{bsp}
 
-Wir haben nun folgende Frage: $K$ Körper, $p(t)\in K[t]$. Existiert $L\sslash K$, sodass $p(t)$ Nullstelle hat in $L$?
+Wir haben nun folgende Frage: Mit einem $K$ Körper und $p(t)\in K[t]$, existiert eine Körpererweiterung $L\sslash K$, sodass $p(t)$ eine Nullstelle in $L$ hat?
 
 \begin{satz} \label{thm:15.4}
-	$K$ Körper, $f(t)\in K[t]$ irreduzibel. Dann existiert $L\sslash K$ algebraisch mit $[L:K]  = d = deg(f(t))$ und $f(t)$ hat Nullstelle in $L$.
+	Sei $K$ ein Körper und $f(t)\in K[t]$ irreduzibel. Dann existiert eine algebraische Körpererweiterung $L\sslash K$ mit $[L:K]  = d = deg(f(t))$, sodass $f(t)$ eine Nullstelle in $L$ hat.
 \end{satz}
 \begin{proof}
-	$f(t)$ irreduzibel $\Rightarrow (f(t))$ maximales Ideal in $K[t] \Rightarrow K[t]/(f(t))$ Körper. Betrachte 
+	Da $f(t)$ irreduzibel ist, ist $(f(t))$ ein maximales Ideal in $K[t]$ und $K[t]/(f(t))$ somit ein Körper. Betrachte den Ringhomomorphismus 
 	\begin{eqnarray*}
 	\phi\colon K&\longto& K[t]\longto K[t]/(p(t)) = : L\\
-	\lambda &\longmapsto & \text{konst. Pol. }\lambda
+	\lambda &\longmapsto & \text{konstantes Polynom $\lambda$},
 	\end{eqnarray*}
-	Ringhomo und $K$ Körper, also $\phi$ injektiv.
-	$\Rightarrow$ Wir können $K$ als Unterkörper von $L$ auffassen. Es gilt: $L = K(\overline{t})$ mit $\overline{t}  = \can (t)$. Setze $a: = \overline{t}$. Dann $f(a) = f(\overline{t}) = \overline{f(t)} = \overline{0}\in L$. Also folgt, dass $a\in L$ Nullstelle ist von $f(t)$. Da $f(t)$ irreduzibel ist, ist $f(t) = m_a(t)\epsilon$ für $\epsilon \in K^{\times}$ geeignet (siehe oben). Also gilt: $[L:K] = [K(a):K] = \deg(m_a(t)) = \deg(f(t)) = d$.
+	welcher injektiv ist, da $K$ ein Körper ist; wir können $K$ also als Unterkörper von $L$ auffassen. Es gilt $L = K(\overline{t})$ mit $\overline{t}  = \can (t)$. Setzt man $a: = \overline{t}$, so folgt $f(a) = f(\overline{t}) = \overline{f(t)} = \overline{0}\in L$. Es ist $a\in L$ also eine Nullstelle von $f(t)$. Da $f(t)$ irreduzibel ist, ist $f(t) = m_a(t)\epsilon$ für ein geeignetes $\epsilon \in K^{\times}$ (siehe oben). Also gilt $[L:K] = [K(a):K] = \deg(m_a(t)) = \deg(f(t)) = d$.
 \end{proof}	
 
 
