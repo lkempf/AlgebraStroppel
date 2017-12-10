@@ -19,6 +19,23 @@
 
 \usepackage{pgf,tikz,tikz-cd}
 \usetikzlibrary{positioning,arrows,calc}
+\makeatletter
+\tikzset{
+  edge node/.code={%
+      \expandafter\def\expandafter\tikz@tonodes\expandafter{\tikz@tonodes #1}}}
+\makeatother
+\tikzset{
+  Subseteq/.style={
+    draw=none,
+    every to/.append style={
+      edge node={node [sloped, allow upside down, auto=false]{$\subseteq$}}}
+  },
+  Equals/.style={
+    draw=none,
+    every to/.append style={
+      edge node={node [sloped, allow upside down, auto=false]{$=$}}}
+  }
+}
 
 \usepackage[pdftex]{hyperref}
 \usepackage{tabu}

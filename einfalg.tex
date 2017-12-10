@@ -2386,7 +2386,7 @@ Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist, und algebrais
 			Damit folgt $\overline{t^{d+k}} \in \< \{1, \overline{t}, \dots, \overline{t^{d-1}}\}\>$. Folglich erzeugt $B :=  \{1, \overline{t}, \dots, \overline{t^{d-1}}\}$ dann $K[t]/(p(t))$ als $K$-Vektorraum. Wende nun die Evaluationsabbildung an:
 			$\overline{\ev_a}(B)$ erzeugt $\im\overline{\ev_a} = K(a)$ als $K$-VR, da $\overline{\ev_a}$ insbesondere ein $K$-Vektorraum-Isomorphismus ist. Da $\overline{\ev_a}(B) = \{1, a, a^2,\dots, a^{d-1}\}$, folgt die Aussage.
 			\item{\emph{Lineare Unabhängigkeit.}} Sei $\sum_{i =0}^{d-1}c_ia^i = 0$ (in $K(a)$) mit $c_i\in K$. Wir nehmen an, dass ein $i$ mit $c_i\neq 0$ existiert. Wähle $m$ maximal mit $c_m \neq 0$. Dann ist $\sum_{i = 0}^{m}c_ia^i = 0$. Sei ohne Beschränkung der Allgemeinheit $c_m = 1$. Dann wissen wir
-			\[0 = \sum_{i = 0}^m c_ia^i = \overline{ev_a}\left(\sum_{i=0}^mc_i\overline{t}^i\right)\Longrightarrow \ev_a\left(\sum_{i=0}^m c_it^i\right) = 0.\]
+			\[0 = \sum_{i = 0}^m c_ia^i = \overline{\ev_a}\left(\sum_{i=0}^mc_i\overline{t}^i\right)\Longrightarrow \ev_a\left(\sum_{i=0}^m c_it^i\right) = 0.\]
 			Folglich hat $\sum_{i=0}^mc_it^i\in K[t]$ als Nullstelle $a$ und den Grad $m <d$ im Widerspruch zu Definition von $m_a(t)$, weil $m_a(t)$ das normierte Polynom kleinsten Grades mit $a$ als Nullstelle ist.
 		\end{description}
 	\end{proof}
@@ -2449,7 +2449,7 @@ Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist, und algebrais
 	\begin{enumerate}
 	\item Sei $p$ eine Primzahl und $n \in\IN\setminus\{0\}$. Dann ist $f(t) = t^n-p\in \IQ[t]$ irreduzibel (nach dem \hyperref[thm:eisenstein]{eisensteinschen Irreduzibilitätskriterium} irreduzibel in $\IZ[t]$ und primitiv, also irreduzibel in $\IQ[t]$ nach dem \nameref{thm:gauss}).
 	Sei nun $a = \sqrt[n]{p}\in\IC$ eine Nullstelle von $f(t)$. Behauptung: $[\IQ(\sqrt[n]{p}): \IQ] = n$. Denn: Nach Definition des Minimalpolynoms $m_a(t)$ gilt $m_a(t)\mid f(t)$, also $f(t) = m_a(t)q(t)$ für ein $q(t)\in\IQ[t]$. Da $f(t)$ irreduzibel ist, folgt daraus $m_a(t)$ oder $q(t)\in \IQ[t]^{\times} = \IQ^{\times}$. Aber $m_a(t)$ kann keine Einheit sein; also $f(t) = m_a(t)\cdot \epsilon$ mit $\epsilon\in \IQ^{\times}$. Da $f(t)$ aber normiert ist, folgt $\epsilon = 1$. Mit \cref{thm:algebraischekes} folgt die Behauptung.
-	\item Betrachte $\IC\sslash \IQ$. Sei $\IQ^{\text{alg}} = \{a\in\IC\mid a\text{ algebraisch über }\IQ\}$. Nach \cref{lem:alguk} ist $\IQ\subseteq\IQ^{\text{alg}}\subseteq \IC$ eine Körpererweiterung, nämliche der größte Unterkörper von $\IC$, der algebraisch über $\IQ$ ist.
+	\item\label{enumi:IQalgkoerp} Betrachte $\IC\sslash \IQ$. Sei $\IQ^{\text{alg}} = \{a\in\IC\mid a\text{ algebraisch über }\IQ\}$. Nach \cref{lem:alguk} ist $\IQ\subseteq\IQ^{\text{alg}}\subseteq \IC$ eine Körpererweiterung, nämliche der größte Unterkörper von $\IC$, der algebraisch über $\IQ$ ist.
 	
 	Aber $\IQ^{\text{alg}}$ ist nicht endlich über $\IQ$. Angenommen, $\IQ^{\text{alg}}\sslash \IQ$ wäre endlich, also $[\IQ^{\text{alg}}:\IQ] = m<\infty$. Wähle nun $n>m$. Nach dem ersten Beispiel ist $\sqrt[n]p \in \IQ^{\text{alg}}$ (mit $p$ wie oben) und $[\IQ(\sqrt[n]p) = \IQ] = n > m$. Aber dann folgt $\IQ(\sqrt[n]p)\subseteq \IQ^{\text{alg}}$ und damit $[\IQ^{\text{alg}}:\IQ]\geq n$.
 	\end{enumerate}
@@ -2458,7 +2458,7 @@ Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist, und algebrais
 Wir haben nun folgende Frage: Mit einem $K$ Körper und $p(t)\in K[t]$, existiert eine Körpererweiterung $L\sslash K$, sodass $p(t)$ eine Nullstelle in $L$ hat?
 
 \begin{satz} \label{thm:15.4}
-	Sei $K$ ein Körper und $f(t)\in K[t]$ irreduzibel. Dann existiert eine algebraische Körpererweiterung $L\sslash K$ mit $[L:K]  = d = deg(f(t))$, sodass $f(t)$ eine Nullstelle in $L$ hat.
+	Sei $K$ ein Körper und $f(t)\in K[t]$ irreduzibel. Dann existiert eine algebraische Körpererweiterung $L\sslash K$ mit $[L:K]  = d = \deg(f(t))$, sodass $f(t)$ eine Nullstelle in $L$ hat.
 \end{satz}
 \begin{proof}
 	Da $f(t)$ irreduzibel ist, ist $(f(t))$ ein maximales Ideal in $K[t]$ und $K[t]/(f(t))$ somit ein Körper. Betrachte den Ringhomomorphismus 
@@ -2473,21 +2473,20 @@ Wir haben nun folgende Frage: Mit einem $K$ Körper und $p(t)\in K[t]$, existier
 
 \lecture{4. Dezember 2017}
 \begin{bem}
-	Falls $f\in K[t]$ nicht notwendig irreduzibel. Dann können wir Satz 15.4 auf irreduzible Faktoren, sagen wir $g$, von $f$ anwenden. D.h. wir schreiben
-	$$f = g\cdot h$$ mit $h \in K[x]$. Dann gilt: $\exists L\sslash K$ Körpererweiterung, sodass $g$ Nullstelle hat in $L$, also hat auch $f$ Nullstelle in $L$. Und es gilt: $[L:K] = \deg(g)\leq \deg (f)$.
+	Sei $f\in K[t]$ nicht notwendig irreduzibel. Dann können wir \cref{thm:15.4} auf irreduzible Faktoren von $f$, etwa $g\in K[t]$, anwenden. Wir schreiben $f = g\cdot h$ mit $h \in K[t]$. Dann existiert eine Körpererweiterung $L\sslash K$, sodass $g$ in $L$ eine Nullstelle hat, und damit auch $f$. Weiterhin gilt $[L:K] = \deg(g)\leq \deg (f)$.
 \end{bem}
-\begin{bsp} $K = \IR$, $f= t^2-1\in \IR[t]$ nicht irreduzibel, da $f = (t-1)(t+1) = gh$ mit $g = t-1$, $h = t+1\in\IR[t]$. Sei also $L = K = \IR$ und erhalten $[L:K] = 1 = \deg(g)<2 = \deg(f)$.
+\begin{bsp} $K = \IR$, $f= t^2-1\in \IR[t]$ nicht irreduzibel, da $f = (t-1)(t+1) = gh$ mit $g = t-1$, $h = t+1\in\IR[t]$. Sei also $L = K = \IR$, und wir erhalten $[L:K] = 1 = \deg(g)<2 = \deg(f)$.
 
-(Im Gegensatz dazu sei $f := t^2+1$; das ist irreduzibel in $\IR[t]$. Setze $L =\IC$ und $[L:K] = [\IC:\IR] = 2 = \deg(f)$)
+Im Gegensatz dazu sei $f = t^2+1$ (irreduzibel in $\IR[t]$). Mit $L =\IC$ erhält man $[L:K] = [\IC:\IR] = 2 = \deg(f)$.
 \end{bsp}
 	
-\begin{satz}[bzw Definition]\label{thm:algab}
+\begin{satz}\label{thm:algab}
 	Ein Körper $K$ heißt algebraisch abgeschlossen, falls eine der folgenden äquivalenten Aussagen gilt:
 	\begin{enumerate}
-		\item Jedes Polynom $f\in K[t]\setminus K$ hat Nullstelle in $K$
-		\item Jedes Polynom $f\in K[t]\setminus K$ ist Produkt von Polynomen von Grad 1
-		\item Die normierten irreduziblen Polynome in $K[t]$ sind genau Elemente der Form $t-a$ mit $a\in K$.
-		\item Falls $L\sslash K$ eine algebraische Körpererweiterung ist, dann $L = K$.
+		\item Jedes Polynom $f\in K[t]\setminus K$ hat eine Nullstelle in $K$. \label{enumi:algab:1}
+		\item Jedes Polynom $f\in K[t]\setminus K$ ist Produkt von Polynomen von Grad $1$. \label{enumi:algab:2}
+		\item Die normierten irreduziblen Polynome in $K[t]$ sind genau die Elemente der Form $t-a$ mit $a\in K$. \label{enumi:algab:3}
+		\item Falls $L\sslash K$ eine algebraische Körpererweiterung ist, dann gilt schon $L = K$. \label{enumi:algab:4}
 	\end{enumerate}
 \end{satz}	
 
@@ -2495,139 +2494,143 @@ Wir haben nun folgende Frage: Mit einem $K$ Körper und $p(t)\in K[t]$, existier
 	\leavevmode
 	\begin{itemize}
 		\item $\IR$ ist nicht algebraisch abgeschlossen, weil zum Beispiel $t^2+1$ keine Nullstelle in $\IR$ hat.
-		\item $\IC$ ist algebraisch abgeschlossen (Fundamentalsatz der Algebra)
+		\item $\IC$ ist algebraisch abgeschlossen (Fundamentalsatz der Algebra).
 	\end{itemize}
 \end{bsp}
 
-\begin{proof}[Beweis von \ref{thm:algab}]
+\begin{proof}[Beweis von \cref{thm:algab}]
 	\leavevmode
 	\begin{description}
-		\item[$1\Rightarrow2$:] Sei $f \in K[t]\setminus K$. Nach Annahme existiert eine Nullstelle $a \in K$. Zeige Aussage 2 nun mit Induktion:
+		\item[\glqq$1\Rightarrow2$\grqq:] Sei $f \in K[t]\setminus K$. Nach Annahme existiert eine Nullstelle $a \in K$. Wir zeigen Aussage \ref{enumi:algab:2} mit vollständiger Induktion.
 		\begin{itemize}
-			\item $\deg(f) = 1 \checkmark$
-			\item $\deg(f)\geq 2$: Wir nehmen an, dass die Behauptung stimmt für alle Polynome mit kleinerem Grad. Da $a$ Nullstelle von $f$ ist, teilt $t-a$ das Polynom $f$ (nach Satz \ref{thm:7.14}).
-			Folglich ist $f = (t-a)g$ für ein $g\in K[t]$. Es gilt $\deg(g)<\deg(f)$, da $K$ Integritätsbereich. Folglich ist $g$ Produkt von Linearfaktoren; damit auch $f$
+			\item Der Induktionsanfang $\deg(f) = 1$ ist klar.
+			\item $\deg(f)\geq 2$: Wir nehmen an, dass die Behauptung für alle Polynome kleineren Grades stimmt. Da eine $a$ Nullstelle von $f$ ist, teilt $t-a$ das Polynom $f$ nach Satz \ref{thm:7.14}.
+			Folglich gilt $f = (t-a)g$ für ein $g\in K[t]$. Es gilt $\deg(g)<\deg(f)$, da $K$ ein Integritätsbereich ist. Somit ist $g$ und damit auch $f$ ein Produkt von Linearfaktoren.
 		\end{itemize}
-		\item[$2\Rightarrow 3$:]  Klar: $t-a\in K[t]$ ist normiert und irreduzibel (aus Gradgründen). Sei $f\in K[t]$ normiert, irreduzibel.
+		\item[\glqq$2\Rightarrow 3$\grqq:] Offensichtlich ist $t-a\in K[t]$ normiert und irreduzibel (aus Gradgründen). Sei $f\in K[t]$ normiert und irreduzibel.
 		\begin{itemize}
-			\item $\deg(f) \in\{0,-\infty\}\Rightarrow f = 0$ oder $f\in K^{\times} (= K[t]^{\times})$; damit ist $f$ nicht irreduzibel; Widerspruch.
-			\item $\deg(f) = 1\Rightarrow f = t-a$ für ein $a\in K$, weil $f$ normiert ist $\checkmark$.
-			\item $\deg (f)\geq 2$: Nach 2 gilt dann $f = (t-a)g$ für ein $a\in K$ und $g\in K[t]$, wobei $g$ auch normiert ist. Aber $(t-a)$ und $g$ sind keine Einheiten (aus Gradgründen). Das ist ein Widerspruch dazu, dass $f$ irreduzibel ist.
+			\item Falls $\deg(f) \in\{0,-\infty\}$, so folgt $f=0$ oder $f\in K^{\times} = K[t]^{\times}$; damit ist $f$ aber nicht irreduzibel, ein Widerspruch.
+			\item Wenn $\deg(f) = 1$, ist $f = t-a$ für ein $a\in K$, weil $f$ normiert ist.
+			\item Sei $\deg (f)\geq 2$. Nach \ref{enumi:algab:2} gilt dann $f = (t-a)g$ für ein $a\in K$ und $g\in K[t]$, wobei $g$ auch normiert ist. Da $(t-a)$ und $g$ aber aus Gradgründen keine Einheiten sind, steht dies im Widerspruch dazu, dass $f$ irreduzibel ist.
 		\end{itemize}
-		\item[$3\Rightarrow 4$:] Sei $L\sslash K$ algebraische Körpererweiterung und $b\in L$. Also ist $b$ algebraisch über $K$. Das heißt: $\exists f\in K[t]\setminus K$ mit $f(b) = 0$. Folglich existiert ein Minimalpolynom $m_b(t)\in K[t]$ mit $m_b(b)= 0$. Insbesondere: $m_b(t)$ normiert und irreduzibel nach Definition des Normalpolynoms. Mit 3 folgt:  $m_b(t) = t-a$ für ein $a\in K$. Da $b$ Nullstelle von $m_b(t)$ ist, ist $b = a$ und damit $b\in K$. Somit ist bereits $L = K$
-		\item[$4\Rightarrow1$:] Sei $f\in K[t]\setminus K$. Nach Satz \ref{thm:15.4} existiert $L\sslash K$ algebraische Körpererweiterung, sodass $f$ Nullstelle hat in $L$. Aber nach Voraussetzung ist $L = K$. 
+		\item[\glqq$3\Rightarrow 4$\grqq:] Sei $L\sslash K$ eine algebraische Körpererweiterung und $b\in L$. Dann ist $b$ algebraisch über $K$, es existiert also ein $f\in K[t]\setminus K$ mit $f(b) = 0$. Folglich existiert ein Minimalpolynom $m_b(t)\in K[t]$ mit $m_b(b)= 0$. Nach der Definition des Normalpolynoms ist $m_b(t)$ normiert und irreduzibel. Mit \ref{enumi:algab:3} folgt, dass $m_b(t) = t-a$ für ein $a\in K$. Da $b$ eine Nullstelle von $m_b(t)$ ist, erhalten wir $b = a$ und damit $b\in K$. Somit ist bereits $L = K$.
+		\item[\glqq$4\Rightarrow1$\grqq:] Sei $f\in K[t]\setminus K$. Nach Satz \ref{thm:15.4} existiert eine algebraische Körpererweiterung $L\sslash K$, sodass $f$ in $L$ eine Nullstelle hat. Aber nach Voraussetzung ist $L = K$. 
 	\end{description}
 \end{proof}
 	
 \subsection{Algebraischer Abschluss}
 \begin{satz}\label{thm:alg_ab}
-	Sei $K$ Körper. Dann $\exists$ Körper $L$ algebraisch abgeschlossen mit $K\subseteq L$.
+	Sei $K$ ein Körper. Dann existiert ein algebraisch abgeschlossener Körper $L$ mit $K\subseteq L$.
 \end{satz}
 
-Zur Erinnerung: Sei $R$ ein kommutativer Ring. Sei $N\subseteq R$ Teilmenge. Dann bezeichnet $(N)$ das von $N$ erzeugte Ideal: das kleinste Ideal in $R$, das $N$ enthält. Es gilt $$(N) = \left\{\sum_{i = 1}^mr_in_i|m\in\IN, n_i\in N, r_i\in R \forall i\right\}$$
+Zur Erinnerung: Für einen kommutativen Ring $R$ und eine Teilmenge $N\subseteq R$ bezeichnet $(N)$ das von $N$ erzeugte Ideal, also das kleinste Ideal in $R$, das $N$ enthält. Es gilt \[(N) = \left\{\left.\sum_{i = 1}^mr_in_i\right|m\in\IN, n_i\in N, r_i\in R \;\forall i\right\}.\]
 
-\begin{proof}\ref{thm:alg_ab}
+\begin{proof}[Beweis von \cref{thm:alg_ab}]
 	\leavevmode
 	\begin{description}
-		\item[1. Schritt:] Baue Körpererweiterung $L_1\sslash K$, sodass jedes $f\in K[t]$ mit $\deg(f)\geq 1$ eine Nullstelle hat in $L_1$. Sei 
-		$$J = K[t]\setminus K = \{\text{Polynome vom Grad }\geq 1\}$$
-		Betrachte $R = K[X_f|f\in J]$ (saubere Definition siehe Übungsblatt 9).  %TODO: Link auf dieses Übungsblatt einfügen
+		\item[\emph{1. Schritt:}] Wir \glqq bauen\grqq\ eine Körpererweiterung $L_1\sslash K$, sodass jedes $f\in K[t]$ mit $\deg(f)\geq 1$ eine Nullstelle in $L_1$ hat. Sei 
+		\[J = K[t]\setminus K = \{\text{Polynome vom Grad $\geq 1$}\}\]
+		Betrachte $R = K[X_f\mid f\in J]$ (siehe \href{http://www.math.uni-bonn.de/people/palmer/EIDA-Blatt-09.pdf}{Übungsblatt 9} für eine saubere Definition).
 		Das ist ein Polynomring über $K$ in unendlich vielen Variablen.
 		
-		Sei $I := (f(X_f)|f\in J)\subseteq R$ (universelle Eigenschaft von $K[t]$). Behauptung: $I$ ist ein echtes Ideal. Klar: $I$ ist Ideal.
+		Sei $I := (f(X_f)\mid f\in J)\subseteq R$ nach der \hyperref[thm:unieig_polyring]{universellen Eigenschaft von $K[t]$}. Es ist klar, dass $I$ ein Ideal ist; wir behaupten, dass $I$ sogar ein echtes Ideal ist. Der Beweis hierfür folgt weiter unten.
 		
-		Behauptung 1: $I \neq R$ (Beweis unten)
-		Nach Satz \ref{thm:9.1} existiert ein maximales Ideal $m\subseteq R$ mit $R\supseteq m \supseteq I$. Damit ist $R/M = L_1 $ Körper. Klar: $K \subseteq R$ und sogar $K \subseteq R/m$ (durch die Abbildung $K\to R\to R/m$). Also haben wir $L_1\sslash K$ Körpererweiterung. Sei nun $f\in J = K[t]\setminus K$; $f = \sum_{i = 0}^{\infty} b_i t^i$ mit fast allen $b_i = 0$. Zu zeigen: $f$ hat Nullstelle in $L_1$.
+		Nach \cref{thm:9.1} existiert ein maximales Ideal $m\subseteq R$ mit $R\supseteq m \supseteq I$. Damit ist $R/m = L_1 $ ein Körper. Offenbar gilt $K \subseteq R$ und sogar $K \subseteq R/m$ (durch die Abbildung $K\to R\to R/m$). Somit haben wir eine Körpererweiterung $L_1\sslash K$. Sei nun $f\in J = K[t]\setminus K$ mit $f = \sum_{i = 0}^{\infty} b_i t^i$ und fast allen $b_i = 0$. Es ist zu zeigen, dass $f$ eine Nullstelle in $L_1$ hat.
 		
-		Wir wissen $f(\can(X_f)) = \sum_{i = 0}^{\infty}b_i\overline{X_f}^i$, wobei $b_i\in K$ ist. Also $f(\can(X_f)) = \sum_{i = 0}^{\infty}\overline{b_i}{X_f}^i = \overline{\sum_{i = 0}^{\infty}g_iX_f^i} = can(f(X_f))$, wobei $f(X_f)\in I\subseteq m$, also $f(\can(X_f)) = 0$. Also ist $\can(X_f)\in L_1$ Nullstelle von $f(t)$.
+		Wir wissen $f(\can(X_f)) = \sum_{i = 0}^{\infty}b_i\ol{X_f}^i$, wobei $b_i\in K$ ist. Also gilt \[f(\can(X_f)) = \sum_{i = 0}^{\infty}\ol{b_i}{X_f}^i = \ol{\sum_{i = 0}^{\infty}g_iX_f^i} = \can(f(X_f)),\] wobei $f(X_f)\in I\subseteq m$, also $f(\can(X_f)) = 0$. Also ist $\can(X_f)\in L_1$ eine Nullstelle von $f(t)$.
 		
-		\item[2. Schritt:] Betrachte \glqq Turm\grqq\ von Körpererweiterungen $K : = L_0\subseteq L_1\subseteq L_2\subseteq\dots$, sodass $L_{i+1}\sslash L_{i}$ Körererweiterung und jedes $f\in L_i[t]\setminus L_i$ eine Nullstelle hat in $L_{i+1}$  (existiert nach Schritt 1). Setze
-		$$ L : = \bigcup\limits_{i\geq 0} L_i$$
-		Klar: $L$ ist Körper. Zu zeigen: Gegeben $g\in L[t]\setminus L$, dann hat $g$ Nullstelle in $L$.
+		\item[\emph{2. Schritt:}] Betrachte den \glqq Turm\grqq\ von Körpererweiterungen $K := L_0\subseteq L_1\subseteq L_2\subseteq\dots$, sodass $L_{i+1}\sslash L_{i}$ eine Körpererweiterung ist und jedes $f\in L_i[t]\setminus L_i$ eine Nullstelle in $L_{i+1}$ hat (existiert nach Schritt 1). Setze
+		\[L : = \bigcup\limits_{i\geq 0} L_i, \]
+		was natürlich ein Körper ist. Es ist nun zu zeigen, dass es für jedes $g\in L[t]\setminus L$ eine Nullstelle in $L$ gibt.
 		
-		Sei dafür $g = \sum_{i = 0}^{\infty}a_it^i$, nur endlich viele $a_i\neq 0$. Folglich gibt es ein $n_0\in\IN$ mit $a_i\in L_{n_0}\forall i$. Das heißt aber, dass wir $g$ als Polynom in $L_{n_0}[t]$ auffassen können. Dadurch hat $g(t)$ eine Nullstelle in $L_{n_0+1}\subseteq L$.
+		Sei dafür $g = \sum_{i = 0}^{\infty}a_it^i$ mit nur endlich vielen $a_i\neq 0$. Folglich gibt es ein $n_0\in\IN$ mit $a_i\in L_{n_0}$ für alle $i$. Das heißt aber, dass wir $g$ als Polynom in $L_{n_0}[t]$ auffassen können. Dadurch hat $g(t)$ eine Nullstelle in $L_{n_0+1}\subseteq L$.
 		
-		$\Longrightarrow$ Es gibt einen Körper $L$ mit $K\subseteq L$
+		Somit gibt es einen Körper $L$ mit $K\subseteq L$.
+		\item[\emph{Beweis von $I\neq R$:}] Sei $I = R$, also liegt $1\in I$. Somit existieren gewisse $g_i\in R$ und $f_i\in J$ mit $1 = \sum_{i =1}^{n}g_if(X_{f_i})$. Nach wiederholter Anwendung von \cref{thm:15.4} existiert eine Körpererweiterung $L'\sslash K$, wobei $f_1,\dots, f_m$ Nullstellen in $L'$ haben, sagen wir $a_1,\dots, a_n$. Nach der \hyperref[thm:unieig_polyring]{universellen Eigenschaft für Polynomringe} existiert ein Ringhomomorphismus
+		\begin{eqnarray*}
+			\ev\colon R & \longto & L'[X_f\mid f\in J]
+		\end{eqnarray*}
+		mit \[\ev(X_f) = \begin{cases*} a_i & falls $f=f_i$ für ein $i$\\
+		X_f & sonst
+		\end{cases*}\]							
+		und $\ev(\lambda)  = \lambda\in K\subseteq L'$ für $\lambda\in K$. Dann gilt $\ev(f_i(X_{f_i})) = f_i(a_i) = 0$, weil $a_i$ eine Nullstelle von $f_i$ ist. Also gilt für $1\in R$ 
+		\[1 = \ev(1) = \ev\left(\sum_{i = 0}^{m}g_if_i(x_{f_i})\right) = \sum_{i = 0}^m\ev(g_i)\ev(f_i(X_{f_i})) = 0\]
+		Folglich gilt $1 = 0$ in $L'[X_f\mid f\in J]$, was ein Widerspruch ist, also ist $1\notin I$.
 	\end{description}
-	Nun noch zum Beweis von Behauptung 1: Sei $I = R$. Also $1\in I$. Also $1 = \sum_{i =1}^{n}g_if(X_{f_i})$ für gewisse $g_i\in R$, $f_i\in J$. Mit Satz \ref{thm:15.4} (wiederholt anwenden!) existiert $L'\sslash K$ Köreprerweiterung, wobei $f_1,\dots, f_m$ Nullstellen in $L'$ haben, sagen wir $a_1,\dots, a_n$. Nach der universellen Eigenschaft für Polynomring $R$ existiert ein Ringhomomorphismus
-	\begin{eqnarray*}
-		\ev\colon R & \longto & L'[X_f|f\in J]
-	\end{eqnarray*}
-	mit $\ev(X_f) = \begin{cases} a_i & \text{ falls } f = f_i \text{ für ein }i\\
-												X_f &\text{ sonst}
-												\end{cases}$\\											
-	für $\lambda\in K$: $\ev{\lambda}  = \lambda\in K\subseteq L'$. Dann gilt $\ev(f_i(X_{f_i})) = f_i(a_i) = 0$, weil $a_i$ Nullstelle von $f_i$ ist. Also gilt für $1\in R$: 
-	$$1 = \ev(1) = \ev(\sum_{i = 0}^{m}g_if_i(x_{f_i})) = \sum_{i = 0}^m\ev(g_i)\ev(f_i(X_{f_i})) = 0$$
-	Folglich gilt $1 = 0$ in $L'[X_f|f\in J]$; Widerspruch, also $1\notin I$.
 \end{proof}
 	
 \lecture{7. Dezember 2017}	
 
-\begin{satz}
-	Sei $K$ Körper. Dann existiert eine algebraische Körpererweiterung $L\sslash K$ mit $L$ algebraisch abgeschlossen.
+\begin{satz}\label{thm:algabschexis}
+	Sei $K$ ein Körper. Dann existiert eine algebraische Körpererweiterung $L\sslash K$, wobei $L$ algebraisch abgeschlossen ist.
 \end{satz}
 \begin{proof}
-	Nach obigem Satz existiert $L'$ Körper, sodass $K\subseteq L'$ Unterkörper ist und $L'$ algebraisch abgeschlossen. Betrachte
-	$$K^{\text{alg}} = \{a\in L'| a\text{ algebraisch über } K\}$$
-	$K^{\text{alg}}$ ist ein Körper (siehe Kapitel 15; Beweis wie für $K = \IQ$).
+	Nach obigem Satz existiert ein Körper $L'$, sodass $K\subseteq L'$ ein Unterkörper und $L'$ algebraisch abgeschlossen ist. Betrachte
+	\[K^{\text{alg}} = \{a\in L' \mid a\text{ algebraisch über } K\},\]
+	was nach einem analogen Beweis wie \hyperref[enumi:IQalgkoerp]{hier} ein Körper ist.
 	
-	1. Behauptung: $K\subseteq K^{\text{alg}}$ (also $K\subseteq K^{\text{alg}}\subseteq L'$ jeweils Körpererweiterungen). Denn sei $b\in K$. Dann ist $b$ Nullstelle von $f = t-b\in K[t]$.
+	Nun ist $K\subseteq K^{\text{alg}}$, denn für $b\in K$ ist $b$ eine Nullstelle von $f = t-b\in K[t]$. Also sind $K\subseteq K^{\text{alg}}\subseteq L'$ jeweils Körpererweiterungen.
 	
-	2. Behauptung: $K^{\text{alg}}\sslash K$ algebraisch. Klar nach Definition, weil jedes Element $a\in K^{\text{alg}}$ algebraisch über $K$ ist.
+	Außerdem ist $K^{\text{alg}}\sslash K$ algebraisch, was nach Definition klar ist, da jedes Element $a\in K^{\text{alg}}$ algebraisch über $K$ ist.
 	
-	3. Behauptung: $K^{\text{alg}}$ algebraisch abgeschlossen. Sei nämlich $f\in K^{\text{alg}}[t]\setminus K^{\text{alg}}$. Zu zeigen: $f$ hat Nullstelle in $K^{\text{alg}}$. Wir wissen dabei: $K^{\text{alg}}\subseteq L'$, $L'$ ist algebraisch abgeschlossen. Folglich hat $f$ eine Nullstelle $a\in L'$, also ist $a$ algebraisch über $K^{\text{alg}}$. Mit Satz 15.1 folgt $K^{\text{alg}}(a)\sslash K^{\text{alg}}$ ist algebraische Körpererweiterung. Aus der Transitivität von algebraischen Körpererweiterungen (Satz 15.2) und der 2. Behauptung folgt, dass $K^{\text{alg}}(a)\sslash K$ algebraische Körpererweiterung ist. Folglich ist jedes Element in $K^{\text{alg}}(a)$ algebraisch über $K$; insbesondere ist $a$ algebraisch über $K$, also $a\in K^{\text{alg}}$. Setze $L:= K^{\text{alg}}$.
+	Wir zeigen schließlich, dass $K^{\text{alg}}$ algebraisch abgeschlossen ist. Sei nämlich $f\in K^{\text{alg}}[t]\setminus K^{\text{alg}}$. Es ist zu zeigen, dass $f$ eine Nullstelle in $K^{\text{alg}}$ hat. Wir wissen dabei, dass $K^{\text{alg}}\subseteq L'$ und $L'$ algebraisch abgeschlossen ist. Folglich hat $f$ eine Nullstelle $a\in L'$, also ist $a$ algebraisch über $K^{\text{alg}}$. Mit \cref{thm:algebraisch_aequivalenzen} folgt, dass $K^{\text{alg}}(a)\sslash K^{\text{alg}}$ eine algebraische Körpererweiterung ist. Aus der Transitivität von algebraischen Körpererweiterungen (\cref{thm:algebraischekes}) und der Algebraizität von $K^{\text{alg}}\sslash K$ folgt, dass $K^{\text{alg}}(a)\sslash K$  einealgebraische Körpererweiterung ist. Folglich ist jedes Element in $K^{\text{alg}}(a)$ algebraisch über $K$; insbesondere ist $a$ algebraisch über $K$, also $a\in K^{\text{alg}}$.
+	
+	Setze nun $L:= K^{\text{alg}}$.
 \end{proof}
 
 \begin{defi}
-	Wir nennen $L$ wie in Satz 16.2 algebraischen Abschluss von $K$ und bezeichnen ihn oft mit $\overline{K}$.
+	Wir nennen den vermöge \cref{thm:algabschexis} existierenden Körper $L$ algebraischen Abschluss von $K$ und bezeichnen ihn oft mit $\overline{K}$.
 \end{defi}
-Wie sieht es nun mit der Eindeutigkeit von $\overline{K}$ aus (bis auf Isomorphismus)?
+Wie sieht es nun mit der Eindeutigkeit von $\overline{K}$ aus (bis auf Isomorphie)?
 \begin{defi}
-	Sei $K$ Körper und $L_1\sslash K$, $L_2, \sslash K$ Körpererweiterungen. Eine Abbildung $\phi\colon L_1\to L_2$ heißt $K$-Homomorphismus (kurz: $K$-Homo), falls $\phi$ Ring- (und damit Körper-)homomorphismus und $\phi|_K = \id_K$. $\phi$ heißt $K$-Isomorphismus, falls zusätzlich $\phi$ bijektiv. Falls $L_1 = L_2$ und $\phi\colon L_1\to L_2 = L_1$ $K$-Iso, dann nennen wir $\phi$ auch $K$-Automorphismus.
+	Sei $K$ ein Körper sowie $L_1\sslash K$ und $L_2, \sslash K$ Körpererweiterungen. Eine Abbildung $\phi\colon L_1\to L_2$ heißt $K$-Homomorphismus, falls $\phi$ ein Ring- und damit ein Körperhomomorphismus und $\phi|_K = \id_K$ ist. $\phi$ heißt $K$-Isomorphismus, falls zusätzlich $\phi$ bijektiv ist. Falls $L_1 = L_2$ und $\phi\colon L_1\to L_2 = L_1$ ein $K$-Isomorphismus ist, dann nennen wir $\phi$ auch $K$-Automorphismus.
 \end{defi}
 
 \begin{bsp}
-	$L_1 = L_2$, $\phi = \id$ ist $K$-Automorphismus.
+	$L_1 = L_2$, $\phi = \id_{L_1}$ ist ein $K$-Automorphismus.
 \end{bsp}
 
 \begin{defi}
-	Die Menge $Aut(L\sslash K) = \{\phi\colon L\to L|\phi\ K\text{-Automorphismus}\}$ ist eine Gruppe bezüglich Komposition von Abbildungen (für jede Körpererweiterung $L\sslash K$). Wir nennen sie die Automorphismengruppe von $L\sslash K$.
+	Die Menge $\Aut(L\sslash K) = \{\phi\colon L\to L\mid \phi\ K\text{-Automorphismus}\}$ ist eine Gruppe bezüglich der Komposition von Abbildungen (für jede Körpererweiterung $L\sslash K$). Wir nennen sie die Automorphismengruppe von $L\sslash K$.
 \end{defi}
 
 \begin{bsp}
-	Betrachte $\IC\sslash \IR$. Behauptung: $Aut(\IC\sslash\IR) =\{\id, z\mapsto \overline{z}\}$.
+	Für $\IC\sslash \IR$ gilt $\Aut(\IC\sslash\IR) =\{\id_\IC, z\mapsto \overline{z}\}$.
 \end{bsp}
 \begin{proof}
 	\leavevmode
 	\begin{description}
 		\item[\glqq$\supseteq$\grqq:] Klar.
-		\item[\glqq$\subseteq$\grqq:] Sei $\phi\in Aut(\IC\sslash\IR)$. Dann ist $\phi(a+bi) =\phi(a)+\phi(b)\phi(i) = a+b\phi(i)$, wobei $a,b\in\IR$. Also ist $\phi$ eindeutig bestimmt durch $\phi(i)$. Es gilt: $-1 = \phi(-1) = \phi(i^2) = \phi(i)^2$. Daraus folgt, dass $\phi(i)$ eine Quadratwurzel von $-1$ sein muss, also $\phi(i )= i$ ($\Rightarrow \phi = \id$) oder $\phi(i) = -i$ ($\Rightarrow \phi$ ist die komplexe Konjugation).
+		\item[\glqq$\subseteq$\grqq:] Sei $\phi\in \Aut(\IC\sslash\IR)$. Dann ist $\phi(a+b\ima) =\phi(a)+\phi(b)\phi(\ima) = a+b\phi(\ima)$, wobei $a,b\in\IR$. Also ist $\phi$ durch durch $\phi(\ima)$ bereits eindeutig bestimmt. Es gilt $-1 = \phi(-1) = \phi(\ima^2) = \phi(\ima)^2$. Daraus folgt, dass $\phi(\ima)$ eine Quadratwurzel von $-1$ sein muss, also $\phi(\ima)=\ima$ (also $\phi = \id_\IC$) oder $\phi(\ima) = -\ima$ (also ist $\phi$ die komplexe Konjugation).
 	\end{description}
 \end{proof}
 
 \noindent
 Unser Ziel ist nun:
 \begin{satz}[Eindeutigkeit des algebraischen Abschlusses]\label{thm:16.3}
-	Sei $K$ ein Körper und $L_1\sslash K$, $L_2\sslash K$ Körpererweiterung, sodass $L_1,L_2$ beide ein algebraischer Abschluss von $K$ sind. Dann existiert $\phi\colon L_1\to L_2$ $K$-Isomorphismus.
+	Sei $K$ ein Körper sowie $L_1\sslash K$ und $L_2\sslash K$ Körpererweiterungen, sodass $L_1,L_2$ algebraische Abschlüsse von $K$ sind. Dann existiert ein $K$-Isomorphismus $\phi\colon L_1\to L_2$.
 \end{satz}
 
 \begin{bem}
-	$\phi\colon L_1\to L_2$ $K$-Homo und $[L_1:K] = [L_2:K]<\infty$. Dann ist $\phi$ ein $K$-Isomorphismus. Denn: $\phi$ ist ein Ringhomo und $L_i$ ist Körper, also ist $\phi$ injektiv. Außerdem ist $\phi(x+y) = \phi(x)+\phi(y)$ und $\phi(\lambda x) = \phi(\lambda)\phi(x) = \lambda\phi(x)$ für $\lambda\in K$, $x,y\in L_i$. Also ist $\phi$ eine $K$-lineare Abbildung. Damit ist $\phi$ eine $K$-lineare injetivie Abbildung zwischen endlichdimensionalen $K$-Vektorräumen der gleichen Dimension, also ist $\phi$ bijektiv und damit ein $K$-Isomorphismus.
+	Sei $\phi\colon L_1\to L_2$ ein $K$-Homomorphismus und $[L_1:K] = [L_2:K]<\infty$. Dann ist $\phi$ ein $K$-Isomorphismus, da $\phi$ ein Ringhomomorphismus und $L_i$ ein Körper ist, und somit $\phi$ injektiv ist. Außerdem ist $\phi(x+y) = \phi(x)+\phi(y)$ und $\phi(\lambda x) = \phi(\lambda)\phi(x) = \lambda\phi(x)$ für $\lambda\in K$ sowie $x,y\in L_i$. Also ist $\phi$ eine $K$-lineare Abbildung. Damit ist $\phi$ eine $K$-lineare injektive Abbildung zwischen endlichdimensionalen $K$-Vektorräumen der gleichen Dimension, also ist $\phi$ bijektiv und damit ein $K$-Isomorphismus.
 \end{bem}
 
-\paragraph{Übersicht} Sei $L\sslash K$ eine Körpererweiterung. Dann gilt folgendes bezüglich Teilmengen von $\{\phi\colon L\to L\}$:
-%TODO: Insert komisches "Diagramm"
+\paragraph{Übersicht} Sei $L\sslash K$ eine Körpererweiterung. Dann gilt folgendes bezüglich der Teilmengen von $\{\phi\colon L\to L\}$:
 
-\begin{lem}
-	Sei $\phi\colon L_1\to L_2$ ein $K$-Homomorphismus. Sei $f\in K[t]$. Dann gilt: $a$ Nullstelle von $f\Leftrightarrow \phi(a)$ Nullstelle von $f$. 
+\begin{center}
+	\begin{tikzcd}
+		\left\{ \phi \left| \substack{\text{$\phi$ Ringhomo-}\\\text{morphismus}} \right. \right\} \arrow[Equals]{d}{} && \left\{ \phi \mid \text{$\phi$ $K$-linear}  \right\} \\
+		\left\{ \phi \left| \substack{\text{$\phi$ Körperhomo-}\\\text{morphismus}} \right. \right\} & \left\{ \phi \left| \substack{\text{$\phi$ Körperiso-}\\\text{morphismus}} \right. \right\} \arrow[Subseteq]{l}{} & \arrow[Subseteq]{u}{} \left\{ \phi \left| \substack{\text{$\phi$ $K$-linear}\\\text{und injektiv}} \right. \right\} \\
+		\left\{ \phi \left| \substack{\text{$\phi$ $K$-Homo-}\\\text{morphismus}} \right. \right\} \arrow[Subseteq]{u}{} & \Aut(L \sslash K) \arrow[Subseteq]{ru}{} \arrow[Subseteq]{u}{} \arrow[Subseteq]{l}{}
+	\end{tikzcd}
+\end{center}
+
+\begin{lem}\label{lem:khomonst}
+	Sei $\phi\colon L_1\to L_2$ ein $K$-Homomorphismus. Sei $f\in K[t]$. Dann ist $a$ genau dann eine Nullstelle von $f\Leftrightarrow \phi(a)$, wenn $a$ Nullstelle von $f$.
 \end{lem}
 \begin{proof}
-Sei $f = \sum_{i = 0}^{\infty}b_it^i\in K[t]$. Sei $a$ eine Nullstelle von $f(t)$, also $\sum_{i = 0}^{\infty}b_ia^i = 0$. \\
-$\Rightarrow \phi(\sum_{i = 0}^{\infty}b_ia^i) = \phi(0) = 0$\\
-$\Leftrightarrow \sum_{i = 0}^{\infty}	\phi(b_i)\phi(a)^i = 0$,  weil $\phi$ ein Ringhomomorphismus ist\\
-$\Leftrightarrow \sum_{i = 0}^{\infty}b_i\phi(a)^i =0$ (weil $\phi$ ein $K$-Homo ist), also ist $\phi(a)$ eine Nullstelle von $f$.
-
-Zur Rückrichtung: Da $\phi$ ein $K$-Homo ist, also insbesondere Ringhomo zwischen Körpern und damit injektiv ist, folgt: $\phi(\sum_{i = 0}^{\infty}b_ia^i) = 0\Rightarrow \sum_{i = 0}^{\infty}b_ia^i = 0$.
+Sei $f = \sum_{i = 0}^{\infty}b_it^i\in K[t]$ und $a$ eine Nullstelle von $f(t)$, also $\sum_{i = 0}^{\infty}b_ia^i = 0$. Das ist genau dann der Fall, wenn $\phi(\sum_{i = 0}^{\infty}b_ia^i) = \phi(0) = 0$, da $\phi$ als Ringhomomorphismus zwischen Körpern injektiv ist. Hierzu ist $\sum_{i = 0}^{\infty}	\phi(b_i)\phi(a)^i = 0$ äquivalent,  weil $\phi$ ein Ringhomomorphismus ist, was wiederum genau dann eintritt, wenn
+$\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, also ist $\phi(a)$ eine Nullstelle von $f$.
 \end{proof}
 
 
@@ -2637,37 +2640,45 @@ Zur Rückrichtung: Da $\phi$ ein $K$-Homo ist, also insbesondere Ringhomo zwisch
 \end{lem}
 
 \begin{proof}
-	Sei $a\in L_1$ algebraisch über $K$. Also existiert ein $f\in K[t]\setminus K$ mit $f(a) = 0\Rightarrow a$ ist Nullstelle von $f \in K[t]$. Nach Lemma 16.4 ist $\phi(a)$ Nullstelle von $f$. Daher ist $\phi(a)$ algebraisch über $K$ und Teil 1 des Lemmas folgt.
+	Sei $a\in L_1$ algebraisch über $K$, es existiert also ein $f\in K[t]\setminus K$ mit $f(a) = 0$. $a$ ist folglich eine Nullstelle von $f \in K[t]$. Nach \cref{lem:khomonst} ist $\phi(a)$ eine Nullstelle von $f$. Daher ist $\phi(a)$ algebraisch über $K$ und Teil 1 des Lemmas folgt.
 	
-	Sei $m_a(t) \in K[t]$ Minimalpolynom von $a$. Also ist $m_a(t)$ normiert und von minimalem Grad, sodass $a$ Nullstelle ist. Nach Lemma 16.4 ist $\phi(a)$ Nullstelle von $m_a(t)\in K[t]$. Folglich ist $m_{\phi(a)}$ Teiler von $m_a(t)$. Da analog auch $m_a(t)$ ein Teiler von $m_{\phi(a)}$ ist, gilt $m_a(t) = m_{\phi(a)} (t)$.
+	Sei $m_a(t) \in K[t]$ das Minimalpolynom von $a$; $m_a(t)$ ist also normiert und von minimalem Grad, sodass $a$ Nullstelle ist. Nach \cref{lem:khomonst} ist $\phi(a)$ eine Nullstelle von $m_a(t)\in K[t]$. Folglich ist $m_{\phi(a)}$ Teiler von $m_a(t)$. Da analog auch $m_a(t)$ ein Teiler von $m_{\phi(a)}$ ist, gilt $m_a(t) = m_{\phi(a)} (t)$.
 \end{proof}
 
 \begin{bem}
-	Beachte: $\phi$ bildet $a\in L_1$ algebraisch auf Nullstellen von $m_a(t)$ ab\textbf{!!!}
+	Beachte: $\phi$ bildet algebraische $a\in L_1$ auf Nullstellen von $m_a(t)$ ab\textbf{!!!}
 \end{bem}
 
 \begin{lem}
-	Sei $K$ Körper. Seine $L\sslash K$, $L'\sslash K$ algebraische Körpererweiterungen und $a\in L, a'\in L'4$ mit $m_a(t)=m_{a'}(t)\in K[t]$. Dann existiert ein einduetiger $K$-Isomorphismus $\phi\colon K(a)\to K(a')$, sodass $\phi(a) = a'$.
+	Sei $K$ ein Körper sowie $L\sslash K$ und $L'\sslash K$ algebraische Körpererweiterungen und $a\in L$, $a'\in L'4$ mit $m_a(t)=m_{a'}(t)\in K[t]$. Dann existiert ein eindeutiger $K$-Isomorphismus $\phi\colon K(a)\to K(a')$, sodass $\phi(a) = a'$.
 \end{lem}
 \begin{proof}
-	Betrachte den Ringhomo 
+	Betrachte den Ringhomomorphismus
 	\begin{eqnarray*}
 		\ev_a\colon K[t]&\longto& L\\
-		p & \longmapsto & p(a)
+		p & \longmapsto & p(a).
 	\end{eqnarray*}
-	Dann gilt $m_a(t)\to m_a(a) = 0\Rightarrow m_a(t) \in \ker(\ev_a)\Rightarrow (m_a(t))\subseteq \ker(\ev_a)$. Nach \ref{thm:homsatz_r} existiert genau ein Ringhomo: $\overline{\ev_a}\colon K[t]/(m_a(t))\to L$, sodass $\overline{\ev_a}\circ \can = \ev_a$.
+	Dann gilt $m_a(t)\mapsto m_a(a) = 0$, also $m_a(t) \in \ker(\ev_a)$, woraus $(m_a(t))\subseteq \ker(\ev_a)$ folgt. Nach dem \nameref{thm:homsatz_r} existiert genau ein Ringhomomorphismus \[\overline{\ev_a}\colon K[t]/(m_a(t))\to L,\] sodass $\overline{\ev_a}\circ \can = \ev_a$.
 	
-	Klar: $\im\ev_a\subseteq K(a)$. Dann auch $im\overline{\ev_a}\subseteq K(a) \Rightarrow \overline{\ev_a}\colon K[t]/(m_a(t))\to K(a)$. Wir wissen (siehe Vergleich transzendent vs. algebraisch), dass $(m_a(t))$ ein maximales Ideal ist. Also ist $K[t]/(m_a(t))$ ein Körper. Damit ist $\overline{\ev_a}$ injektiv und $\im\overline{\ev_a}\subseteq K(a)$. Außerdem ist $\im\overline{\ev_a}$ ein Körper (weil Bild von Körper unter Ringhomo) und $\im\overline{\ev_a}$ enthält offensichtlich $K$ und $a$. $\Rightarrow \im(\overline{\ev_a}) = K(a)$. Also ist $\phi_1 = \overline{\ev_a}\colon K[t]/(m_a(t))\to K(a)$ Isomorphismus von Körpern. Es gilt nach Konstruktion: $\phi_1(\overline{t}) = a$ und $\phi_1|_K = \id_K$.
+	Es ist klar, dass $\im\ev_a\subseteq K(a)$. Dann gilt auch $\im\overline{\ev_a}\subseteq K(a)$, und wir können $\overline{\ev_a}\colon K[t]/(m_a(t))\to K(a)$ betrachten. Wir wissen (siehe Vergleich transzendent vs. algebraisch), dass $(m_a(t))$ ein maximales Ideal ist. Also ist $K[t]/(m_a(t))$ ein Körper. Damit ist $\overline{\ev_a}$ injektiv und $\im\overline{\ev_a}\subseteq K(a)$. Außerdem ist $\im\overline{\ev_a}$ ein Körper, weil es das Bild eines Körpers unter einem Ringhomomorphismus ist, und $\im\overline{\ev_a}$ enthält offensichtlich $K$ und $a$. Somit gilt $\im(\overline{\ev_a}) = K(a)$. Also ist $\phi_1 = \overline{\ev_a}\colon K[t]/(m_a(t))\to K(a)$ ein Isomorphismus von Körpern. Nach Konstruktion gilt $\phi_1(\overline{t}) = a$ und $\phi_1|_K = \id_K$.
 	
-	Analog haben wir einen Isomorphismus von Körpern $\phi_2: K[t]/(m_{a'}(t))\to K(a')$ mit $\phi_2(\overline{t}) =a'$ und $\phi_2|_K  =\id_K$. Dabei ist $(m_a'(t)) = (m_a(t))$ (nach Voraussetzung). Sei $\phi = \phi_1\circ \phi_1^{-1}\colon K(a) \to K(a')$ ist ein Isomorphismus von Körpern und $\phi(a) = \phi_2(\overline{t}) = \phi(a')$ und $\phi|_K = \id_K$. Folglich haben wir einen $K$ Isomorphismus $\phi\colon K(a)\to K(a')$ mit $\phi(a) = a'$ ($\phi$ ist eindeutig, da $\phi|_K =\id_K$ und $\phi(a) =a'$; dadurch ist $\phi$ eindeutig bestimmt).
+	Analog haben wir einen Isomorphismus von Körpern $\phi_2: K[t]/(m_{a'}(t))\to K(a')$ mit $\phi_2(\overline{t}) =a'$ und $\phi_2|_K  =\id_K$. Dabei ist $(m_a'(t)) = (m_a(t))$ (nach Voraussetzung). Nun ist $\phi = \phi_1\circ \phi_1^{-1}\colon K(a) \to K(a')$ ein Isomorphismus von Körpern und $\phi(a) = \phi_2(\overline{t}) = \phi(a')$ und $\phi|_K = \id_K$. Folglich erhalten wir einen $K$-Isomorphismus $\phi\colon K(a)\to K(a')$ mit $\phi(a) = a'$
+	
+	$\phi$ ist eindeutig, da $\phi|_K =\id_K$ und $\phi(a) =a'$; dadurch ist $\phi$ eindeutig bestimmt.
 \end{proof}
 
 \begin{satz}
 	\leavevmode
 	\begin{enumerate}
-		\item $L\sslash K$ algebraische Körpererweiterung, $L'$ algebraisch abgeschlossener Körper; $f\colon K\to L'$ Ringhomomorphismus. Dann existiert $\hat{f}\colon L\to L'$ Ringhomomorphismus, sodass $\hat{f}|_K  = f$.
-		%TODO: Diagramm
-		\item Seien $K, K'$ Körper und $f\colon K\to K'$ Ringisomorphismus. Seien $\overline{K}, \overline{K'}$ algebraische Abschlüsse von $K$ beziehungsweise $K'$. Dann exsitert $\hat{f}\colon \overline{K}\to \overline{K'}$ Isomorphismus von Körpern mit $\hat{f}|_K = f$.
+		\item Sei $L\sslash K$ eine algebraische Körpererweiterung sowie $L'$ ein algebraisch abgeschlossener Körper und $f\colon K\to L'$ ein Ringhomomorphismus. Dann existiert ein Ringhomomorphismus $\hat{f}\colon L\to L'$, sodass $\hat{f}|_K  = f$, also sodass das Diagramm
+		\begin{center}
+			\begin{tikzcd}
+				L \arrow{r}{\exists \hat f} & L' \\
+				K \arrow[Subseteq]{u}{} \arrow{ru}[swap]{f}
+			\end{tikzcd}
+		\end{center}
+		kommutiert.
+		\item Seien $K, K'$ Körper und $f\colon K\to K'$  ein Ringisomorphismus. Seien weiterhin $\overline{K}$ und $\overline{K'}$ algebraische Abschlüsse von $K$ beziehungsweise $K'$. Dann existiert ein Isomorphismus von Körpern $\hat{f}\colon \overline{K}\to \overline{K'}$ mit $\hat{f}|_K = f$.
 	\end{enumerate}
 	
 \end{satz}
