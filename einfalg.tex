@@ -2619,9 +2619,9 @@ Unser Ziel ist nun:
 
 \begin{center}
 	\begin{tikzcd}
-		\left\{ \phi \left| \substack{\text{$\phi$ Ringhomo-}\\\text{morphismus}} \right. \right\} \arrow[Equals]{d}{} && \left\{ \phi \mid \text{$\phi$ $K$-linear}  \right\} \\
-		\left\{ \phi \left| \substack{\text{$\phi$ Körperhomo-}\\\text{morphismus}} \right. \right\} & \left\{ \phi \left| \substack{\text{$\phi$ Körperiso-}\\\text{morphismus}} \right. \right\} \arrow[Subseteq]{l}{} & \arrow[Subseteq]{u}{} \left\{ \phi \left| \substack{\text{$\phi$ $K$-linear}\\\text{und injektiv}} \right. \right\} \\
-		\left\{ \phi \left| \substack{\text{$\phi$ $K$-Homo-}\\\text{morphismus}} \right. \right\} \arrow[Subseteq]{u}{} & \Aut(L \sslash K) \arrow[Subseteq]{ru}{} \arrow[Subseteq]{u}{} \arrow[Subseteq]{l}{}
+		\left\{ \phi \middle| \substack{\text{$\phi$ Ringhomo-}\\\text{morphismus}}  \right\} \arrow[Equals]{d}{} && \left\{ \phi \mid \text{$\phi$ $K$-linear}  \right\} \\
+		\left\{ \phi \middle| \substack{\text{$\phi$ Körperhomo-}\\\text{morphismus}}  \right\} & \left\{ \phi \middle| \substack{\text{$\phi$ Körperiso-}\\\text{morphismus}}  \right\} \arrow[Subseteq]{l}{} & \arrow[Subseteq]{u}{} \left\{ \phi \middle| \substack{\text{$\phi$ $K$-linear}\\\text{und injektiv}}  \right\} \\
+		\left\{ \phi \middle| \substack{\text{$\phi$ $K$-Homo-}\\\text{morphismus}}  \right\} \arrow[Subseteq]{u}{} & \Aut(L \sslash K) \arrow[Subseteq]{ru}{} \arrow[Subseteq]{u}{} \arrow[Subseteq]{l}{}
 	\end{tikzcd}
 \end{center}
 
@@ -2667,7 +2667,7 @@ $\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, al
 	$\phi$ ist eindeutig, da $\phi|_K =\id_K$ und $\phi(a) =a'$; dadurch ist $\phi$ eindeutig bestimmt.
 \end{proof}
 
-\begin{satz}[Fortsetzungssatz 1]
+\begin{satz}[Fortsetzungssatz] \label{thm:fortsetz}
 	\leavevmode
 	\begin{enumerate}
 		\item Sei $L\sslash K$ eine algebraische Körpererweiterung sowie $L'$ ein algebraisch abgeschlossener Körper und $f\colon K\to L'$ ein Ringhomomorphismus. Dann existiert ein Ringhomomorphismus $\hat{f}\colon L\to L'$, sodass $\hat{f}|_K  = f$, also sodass das Diagramm
@@ -2677,8 +2677,8 @@ $\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, al
 				K \arrow[Subseteq]{u}{} \arrow{ru}[swap]{f}
 			\end{tikzcd}
 		\end{center}
-		kommutiert.
-		\item Seien $K, K'$ Körper und $f\colon K\to K'$  ein Ringisomorphismus. Seien weiterhin $\overline{K}$ und $\overline{K'}$ algebraische Abschlüsse von $K$ beziehungsweise $K'$. Dann existiert ein Isomorphismus von Körpern $\hat{f}\colon \overline{K}\to \overline{K'}$ mit $\hat{f}|_K = f$.
+		kommutiert. \label{enumi:forsetz:1}
+		\item Seien $K, K'$ Körper und $f\colon K\to K'$  ein Ringisomorphismus. Seien weiterhin $\overline{K}$ und $\overline{K'}$ algebraische Abschlüsse von $K$ beziehungsweise $K'$. Dann existiert ein Isomorphismus von Körpern $\hat{f}\colon \overline{K}\to \overline{K'}$ mit $\hat{f}|_K = f$. \label{enumi:forsetz:2}
 	\end{enumerate}
 	
 \end{satz}
@@ -2689,92 +2689,113 @@ $\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, al
 	\leavevmode
 	\begin{enumerate}
 		\item Betrachte
-		$$ Z =\left\{(M. g_M)|K\subseteq M\subseteq L \text{ Zwischenkörper}, g_M\colon M\to L' \text{ Ringhomo}, g_M|_K = f\right\}$$
+		\[Z =\left\{(M, g_M) \middle| \substack{\text{$K\subseteq M\subseteq L$ Zwischenkörper,}\\\text{$g_M\colon M\to L'$ Ringhomo-}\\\text{morphismus, $g_M|_K = f$}}\right\}.\]
 		Nun: \begin{itemize}
-			\item $Z\neq \emptyset$ (denn $(K,f)\in Z$).
-			\item Definiere partielle Ordnung auf $Z$ durch $(M, g_M)\leq (M',g_{M'}):\Leftrightarrow M\subseteq M', g_{M'}|_M = g_M$. Nachprüfen: das ist tatsächlich eine partielle Ordnung.
-			\item Sei $U\subseteq Z$ total geordnete Teilmenge. Dann hat $U$ eine obere Schranke $(S, g_S)$ (bezüglich $\leq$) in $Z$. Denn: Sei $U  = \{(U_i,g_i)|i\in I\}\subseteq Z$. Dann setze $S : = \bigcup\limits_{i\in I} U_i$ und $g_S\colon S\to L'$ definiert durch $g_s(u_i) = g_i(u_i)$, falls $u_i\in U_i$. Nun gilt:
-			\begin{itemize}
-				\item $S$ ist Körper: Da $U$ total geordnet ist, gilt für $x,y\in S$: $\exists i$ mit $x,y\in U_i$, da falls $x\in U_m, y\in U_j$ gilt $U_m\leq U_j$ oder $U_j\leq U_m$. Da alle $U_k$ Körper ist, folgt $S$ Körper.
-				\item $g_S$ ist wohldefiniert: Sei $u\in S$ mit $u\in U_i\cap U_j$. Da $U$ total geordnet ist, gilt $U_i\leq U_j$ oder $U_j\leq U_i$ und dann nach Definition von $\leq$ sogar $g_i(u) = g_j(u)$, weil $(U_i,g_i)\leq (U_j, g_j)$ oder $(U_j,g_j)\leq (U_i,g_i)$ und $u\in U_i\cap U_j$.
-				\item $g_S$ ist ein Ringhomomorphismus: Klar, weil $U$ total geordnet und alle $g_i$ Ringhomomorphismen sind.
-			\end{itemize}
-			$\Rightarrow (S, g_S)\in Z$ (beachte $g_i|_K = f$ für alle $i$ nach Definition, also auch $g_S|_K = f$). Offensichtlich ist $(S,g_S)$ obere Schranke für $U$.
-			\item Mit dem Lemma von Zorn folgt: Es gibt ein maximales Element $(M_{\max}, g_{\max})\in Z$.
-			\item 1. Behauptung: $M_{\max} = L$. Dann folgt (1) mit $\hat{f} = g_{\max}\colon M_{\max} = L\to L'$ Ringhomomorphismus und es gilt $\hat{f}|_K = g_{\max}|_K = f$, weil $(M_{\max}, g_{\max})\in Z$.
-			\begin{proof}[Beweis der 1. Behauptung]
-				Da $(M_{\max}, g_{\max})\in Z$, gilt $M_{\max}\subseteq L$. Sei also $a\in L$, aber $a\notin M_{\max}$. Wir wollen nun einen Widerspruch herleiten. Da $L\sslash K$ algebraisch ist, sit erst recht $L\sslash M_{\max}$ algebraisch, da $K\subseteq M_{\max}$. Folglich existiert ein Minimalpolynom $m_a(t)\in M_{\max}[t]\setminus M_{\max}$ von $a$. Sei $m_a = \sum_{i = 0}^{\infty}b_it^i$.  Sei $m'_a(t) = \sum_{i = 0}^{\infty}g_{\max}(b_i)t^i\in L'[t]\setminus L'$. Da $L'$ nach Voraussetzung algebraisch abgeschlossen ist, existiert eine Nullstelle $a'$ von $m_a'(t)$ in $L'$. Betrachte nun den Ringhomomorphismus
+			\item $Z$ ist nicht leer, da $(K,f)\in Z$.
+			\item Wir definieren auf $Z$ durch $(M, g_M)\leq (M',g_{M'}):\Leftrightarrow M\subseteq M', g_{M'}|_M = g_M$ eine partielle Ordnung. Das Nachprüfen dieser Eigenschaft bleibt dem Leser überlassen.
+			\item Sei $U\subseteq Z$ eine total geordnete Teilmenge. Dann hat $U$ eine obere Schranke $(S, g_S)$ in $Z$ bezüglich obiger Ordnung. Dafür sei $U  = \{(U_i,g_i)\mid i\in I\}\subseteq Z$. Dann setze $S := \bigcup_{i\in I} U_i$ und $g_S\colon S\to L'$ definiert durch $g_s(u_i) = g_i(u_i)$, falls $u_i\in U_i$. Nun gilt:
+			\begin{description}
+				\item[\emph{$S$ ist ein Körper.}] Da $U$ total geordnet ist, existiert für $x,y\in S$ ein $i\in I$ mit $x,y\in U_i$, da etwa für $x\in U_m, y\in U_j$ schon $U_m\leq U_j$ oder $U_j\leq U_m$ gilt. Da alle $U_k$ Körper sind, ist auch $S$ ein Körper.
+				\item[\emph{$g_S$ ist wohldefiniert.}] Sei $u\in S$ mit $u\in U_i\cap U_j$. Da $U$ total geordnet ist, gilt $U_i\subseteq U_j$ oder $U_j\subseteq U_i$, und dann nach Definition der Ordnung sogar $g_i(u) = g_j(u)$, weil $(U_i,g_i)\leq (U_j, g_j)$ oder $(U_j,g_j)\leq (U_i,g_i)$ und $u\in U_i\cap U_j$ ist.
+				\item[\emph{$g_S$ ist ein Ringhomomorphismus.}] Analog zu den obigen Beweisen ist dies sofort klar, da $U$ total geordnet ist und alle $g_i$ Ringhomomorphismen sind.
+			\end{description}
+			Somit liegt $(S, g_S)\in Z$ (beachte $g_i|_K = f$ für alle $i\in I$ nach Definition, also auch $g_S|_K = f$). Offensichtlich ist $(S,g_S)$ eine obere Schranke für $U$.
+			\item Mit dem Lemma von Zorn folgt die Existenz eines maximalen Elementes $(M_{\max}, g_{\max})\in Z$.
+			\item \emph{Behauptung:} $M_{\max} = L$. Daraus folgt direkt \ref{enumi:forsetz:1} mit dem Ringhomomorphismus $\hat{f} = g_{\max}\colon M_{\max} = L\to L'$, für den $\hat{f}|_K = g_{\max}|_K = f$ gilt, weil $(M_{\max}, g_{\max})\in Z$ liegt.
+			\begin{proof}[Beweis der Behauptung]
+				Da $(M_{\max}, g_{\max})\in Z$, gilt $M_{\max}\subseteq L$. Sei also $a\in L$, aber $a\notin M_{\max}$. Wir wollen nun einen Widerspruch herleiten. Da $L\sslash K$ algebraisch ist, ist erst recht $L\sslash M_{\max}$ algebraisch, da $K\subseteq M_{\max}$. Folglich existiert das Minimalpolynom $m_a(t)\in M_{\max}[t]\setminus M_{\max}$ von $a$. Sei $m_a = \sum_{i = 0}^{\infty}b_it^i$.  Sei $m'_a(t) = \sum_{i = 0}^{\infty}g_{\max}(b_i)t^i\in L'[t]\setminus L'$. Da $L'$ nach Voraussetzung algebraisch abgeschlossen ist, existiert eine Nullstelle $a'$ von $m_a'(t)$ in $L'$. Betrachte nun den Ringhomomorphismus
 				\begin{eqnarray*}
 					\ev_{a'}\colon M_{\max}[t] &\longto& L'\\
-					\sum_{j = 0}^{\infty} c_it^i &\longmapsto& \sum_{i = 0}^{\infty} g_{\max}(c_i)(a')^i
+					\sum_{j = 0}^{\infty} c_it^i &\longmapsto& \sum_{i = 0}^{\infty} g_{\max}(c_i)(a')^i.
 				\end{eqnarray*}
 				Nach Konstruktion gilt hier:
 				\begin{itemize}
-					\item $(m_a(t))\subseteq \ker\ev_{a'}$
-					\item $\ev_{a'}|_K = g_{\max}|_K ) f$ (nach Definition von $Z$). Nach dem Homomorphiesatz für Ringe erhalten wir einen Ringhomomorphismus
-					$$\overline{\ev_{a'}}\colon M_{\max}[t]/(m_a(t))\to L'\enspace,$$
-					sodass $\overline{\ev_{a'}}\circ \can = \ev_{a'}$. Da $a$ algebraisch ist, ist andererseits $\beta\colon M_{\max}(a) \cong M_{max}[t]/(m_a(t))$ ein Isomorphismus von Körpern und damit $M_{\max}\subsetneq M_{\max}(a)\cong M_{\max}[t]/(m_a(t))$. Also haben wir einen Körper $M_{\max}(a)\subseteq L$ gefunden mit $M_{\max}\subsetneq M_{\max}(a)$.
+					\item $(m_a(t))\subseteq \ker\ev_{a'}$.
+					\item Es gilt $\ev_{a'}|_K = g_{\max}|_K = f$ nach der Definition von $Z$. Nach dem \nameref{thm:homsatz_r} erhalten wir einen Ringhomomorphismus
+					\[\overline{\ev_{a'}}\colon M_{\max}[t]/(m_a(t))\to L'\enspace,\]
+					sodass $\overline{\ev_{a'}}\circ \can = \ev_{a'}$. Da $a$ algebraisch ist, ist andererseits $\beta: M_{\max}(a) \xrightarrow{\sim} M_{max}[t]/(m_a(t))$ ein Isomorphismus von Körpern und damit $M_{\max}\subsetneq M_{\max}(a)\cong M_{\max}[t]/(m_a(t))$. Wir erhalten also einen Körper $M_{\max}(a)\subseteq L$ mit $M_{\max}\subsetneq M_{\max}(a)$.
 					
-					Also ist $(M_{\max}, \ev_{a'}\circ \beta)\in Z$, denn: offensichtlich ist $\ev_{a'}\circ \beta\colon M_{\max}(a)\to L'$ Ringhomomorphismus und $\ev_{a'}\circ \beta|_K = \ev_{a'}|_K = f$ nach Konstruktion. Das ist ein Widerspruch zur Maximalität von $(M_{\max}, g_{\max})$. Damit folgt die 1. Behauptung und insgesamt Teil 1 des Satzes.
+					Also ist $(M_{\max}, \ev_{a'}\circ \beta)\in Z$, da $\ev_{a'}\circ \beta\colon M_{\max}(a)\to L'$ offensichtlich ein Ringhomomorphismus mit $(\ev_{a'}\circ \beta)|_K = \ev_{a'}|_K = f$ nach Konstruktion ist. Das ist ein Widerspruch zur Maximalität von $(M_{\max}, g_{\max})$. Damit folgt die Behauptung und insgesamt Teil \ref{enumi:forsetz:1} des Satzes.
 				\end{itemize}
 			\end{proof}
 		\end{itemize}
-		\item Betrachte $L:=\overline{K}$ und $f\colon K\xrightarrow{\phi} K'\subseteq \overline{K'} =: L'$. Da $L\sslash K$ algebraisch (nach Definition des algebraischen Abschlusses) und $L' = \overline{K'}$ algebraisch abgeschlossen ist, können wir Teil 1 des Satzes anwenden und erhalten einen Ringhomomorphismus:
-		$$\hat{\phi}\colon L = \overline{K}\longto \overline{K'} = L'$$
-		mit $\hat{\phi}|_K = \phi$. Da $\phi$ Ringhomomorphismus ist udn $\overline{K}$ ein Körper ist, ist $\phi$ injektiv. Noch zu zeigen: $\phi$ ist surjektiv. Dabei wissen wir:
+		\item Betrachte $L := \overline{K}$ und $f\colon K\xrightarrow{\phi} K'\subseteq \overline{K'} =: L'$. Da $L\sslash K$ algebraisch (nach Definition des algebraischen Abschlusses) und $L' = \overline{K'}$ algebraisch abgeschlossen ist, können wir Teil \ref{enumi:forsetz:1} des Satzes anwenden und erhalten einen Ringhomomorphismus
+		\[\hat{\phi}\colon L = \overline{K}\longto \overline{K'} = L'\]
+		mit $\hat{\phi}|_K = \phi$. Da $\hat\phi$ ein Ringhomomorphismus und $\overline{K}$ ein Körper ist, ist $\hat\phi$ injektiv. Es bleibt die Surjektivität von $\hat{\phi}$ zu zeigen. Dabei wissen wir:
 		\begin{itemize}
-			\item $\im(\hat{\phi}) \subseteq L'$ ist Unterkörper, weil $\overline{K}$ ein Körper ist
-			\item $K' = \im\phi = f(K) = \hat{\phi}(K)\subseteq \im\hat{\phi}$, also $K'\subseteq \im\hat{\phi}\subseteq \overline{K'} = L'$
-			\item $\overline{K}$ algebraisch abeschlossen, also ist $\im \hat{\phi}$ algebraisch abgeschlossen (denn sei $\sum_{i = 0}^{\infty}c_it^i\in \im \hat{\phi}[t]\setminus \im\hat{\phi}$, dann existieren $a_i\in \overline{K}$ mit $c_i = \hat{\phi}(a_i)$ und $\sum_{i = 0}^{\infty} a_it^i\in \overline{K}[t]\setminus \overline{K}$ hat Nullstelle $x$ in $\overline{K}$, da $\overline{K}$ algebraisch abgeschlossen ist. Also ist $\hat{\phi}(x)$ Nullstelle von $\sum_{i = 0}^{\infty}c_it^i$).
-			\item $\im\hat{\phi}\sslash K'$ algebraisch, da $\im\hat{\phi}\subseteq\overline{K'}$ und $\overline{K'}\sslash K'$ algebraisch nach Definition des algebraischen Abschlusses ist erst recht  $\im\hat{\phi}\sslash K'$ algebraisch.
+			\item $\im\hat{\phi} \subseteq L'$ ist ein Unterkörper, weil $\overline{K}$ ein Körper ist.
+			\item $K' = \im\phi = f(K) = \hat{\phi}(K)\subseteq \im\hat{\phi}$, also $K'\subseteq \im\hat{\phi}\subseteq \overline{K'} = L'$.
+			\item Da $\overline{K}$ algebraisch abeschlossen ist, ist auch $\im \hat{\phi}$ algebraisch abgeschlossen, da für $\sum_{i = 0}^{\infty}c_it^i\in \im \hat{\phi}[t]\setminus \im\hat{\phi}$ dann $a_i\in \overline{K}$ mit $c_i = \hat{\phi}(a_i)$ existieren, wobei $\sum_{i = 0}^{\infty} a_it^i\in \overline{K}[t]\setminus \overline{K}$ eine Nullstelle $x$ in $\overline{K}$ hat, da $\overline{K}$ algebraisch abgeschlossen ist, weshalb $\hat{\phi}(x)$ eine Nullstelle von $\sum_{i = 0}^{\infty}c_it^i$ ist.
+			\item Die Körpererweiterung $\im\hat{\phi}\sslash K'$ ist algebraisch, da $\im\hat{\phi}\subseteq\overline{K'}$ und $\overline{K'}\sslash K'$ algebraisch per Definition ist, und somit insbesondere auch $\im\hat{\phi}\sslash K'$ algebraisch ist.
 		\end{itemize} 
-		Also ist $K'\subseteq  \im\hat {\phi}\subseteq \overline{K'}$; da $\im\hat{\phi}$ algebraisch abgeschlossen ist, folgt mit Satz 15.5 $\im\hat{\phi} = \overline{K'}$. Folglich haben wir einen Isomorphismus von Körpern
-		$$\hat{\phi}\colon \overline{K}\o \overline{K'}$$
-		und $\hat{\phi}|_K = f|_K = \phi$. Also folgt Teil (2).
+		Also ist $K'\subseteq  \im\hat {\phi}\subseteq \overline{K'}$; da $\im\hat{\phi}$ algebraisch abgeschlossen ist, folgt mit \cref{thm:algab} $\im\hat{\phi} = \overline{K'}$. Folglich haben wir einen Isomorphismus von Körpern
+		\[\hat{\phi}\colon \overline{K}\xrightarrow{\sim} \overline{K'},\]
+		wobei $\hat{\phi}|_K = f|_K = \phi$. Also folgt Teil \ref{enumi:forsetz:2}.
 	\end{enumerate}
 \end{proof}
-Damit folgt der Eindeutigkeitssatz \ref{thm:16.3}:
-\begin{proof}
-	Sei $K$ Körper udn $L_1, L_2$ algebraische Abschlüsse von $K$. Setze $K' = K$ udn $\phi = \id\colon K\to K = K'$. $\overline{K} = L_1, \overline{K'} = L_2$. Nach obigem Satz, Teil 2, existiert $\hat{\phi}\colon L_1\to L_2$ Körperisomorphismus mit $\hat{\phi}|_K = \phi = \id_K$. Damit existiert ein $K$-Isomorphismus $\hat{\phi}\colon L_1\to L_2$.
-\end{proof}
 
-\noindent
-Wie sieht nun zum Beispiel $\overline{\IQ}$ aus? Oder $\overline{\IF_2}$?
+Damit folgt der Eindeutigkeitssatz \ref{thm:16.3}.
+
+\medskip
+
+Wie sehen nun zum Beispiel $\overline{\IQ}$ oder $\overline{\IF_2}$ aus?
 \begin{bem}
-	Wir wissen: $\IQ\subsetneq \overline{\IQ}$, da beispielsweise $t^2-2\in \IQ[t]$ keine Nullstelle in $\IQ$ hat. Wir können $\IQ^{\text{alg}} = \{z\in \IC|z\text{ algebraisch über } \IQ\}\subseteq \IC$ als algebraischen Abschluss nehmen, da $\IC$ algebraisch abgeschlossen ist. \glqq Man\grqq\ weiß, dass $\IQ^{\text{alg}} \subsetneq \IC$, weil es transzendente Zahlen gibt, z.B. $\pi\in\IC\setminus\IQ^{\text{alg}}$.
+	Wir wissen: $\IQ\subsetneq \overline{\IQ}$, da beispielsweise $t^2-2\in \IQ[t]$ keine Nullstelle in $\IQ$ hat. Wir können $\IQ^{\text{alg}} = \{z\in \IC\mid \text{$z$ algebraisch über $\IQ$}\}\subseteq \IC$ als algebraischen Abschluss nehmen, da $\IC$ algebraisch abgeschlossen ist. \glqq Man\grqq\ weiß, dass $\IQ^{\text{alg}} \subsetneq \IC$, weil es transzendente Zahlen gibt, z.B. $\pi\in\IC\setminus\IQ^{\text{alg}}$.
 	Aus der Konstruktion des algebraischen Abschlusses kann man folgern, dass $\IQ^{\text{alg}}$ abzählbar ist.
 	
 	Für $\overline{\IF_2}$ ist die Lage besser. Wir brauchen aber ein besseres Verständnis endlicher Körper.
 \end{bem}
 
 \subsection{Endliche Körper}
-Ziel: Gegeben eine Primzahl $p$ und $r\in\IN= \IZ_{>0}$. Dann existiert ein Körper $\IF$ mit $|\IF| = p^r$. Genauer:
+Ziel: Gegeben eine Primzahl $p$ und $r\in\IN= \IZ_{>0}$. Dann existiert ein Körper $\IF$ mit $|\IF| = p^r$. Genauer gilt der folgende
 \begin{satz}[Klassifikationssatz]
 	Es gibt eine Bijektion
 	\begin{eqnarray*}
-		\{\IF|\IF\text{ endlicher Körper (bis auf Isomorphie von Körpern)}\}& \longleftrightarrow& \{p^r|p \text{ Primzahl}, r\in\IN\}\\
+		\left\{\IF\,\middle|\,\substack{\text{$\IF$ endlicher Körper}\\\text{(bis auf Körperisomorphie)}}\right\}& \xlongleftrightarrow{1:1}& \{p^r\mid \text{$p$ Primzahl}, r\in\IN\}\\
 		\IF & \longmapsto & |\IF|
 	\end{eqnarray*}
-	Wir nennen dann den (bis auf Ismorphie eindeutigen) Körper mit $p^r$ Elementen $\IF_{p^r}$
+	Wir nennen dann den (bis auf Isomorphie eindeutigen) Körper mit $p^r$ Elementen $\IF_{p^r}$.
 \end{satz}
 \begin{bem}
 	\leavevmode
 	\begin{itemize}
-		\item Falls $r = 1$ ist, kennen wir $\IF_p = (\IZ/p\IZ, +, \cdot)$ aus LA
-		\item Achtung: $\IF_4 \not\cong \IZ/2\IZ\times \IZ/2\IZ$, da letzteres Nullteiler hat.
+		\item Falls $r = 1$ ist, kennen wir $\IF_p = (\IZ/p\IZ, +, \cdot)$ aus der linearen Algebra.
+		\item Achtung: $\IF_4 \ncong \IZ/2\IZ\times \IZ/2\IZ$, da letzterer Nullteiler hat.
 	\end{itemize}
 \end{bem}
 \begin{bsp}
-	Betrachte $p(t) = t^2+t+^\in \IF_2[t]$. $p$ ist irreduzibel, da $p$ keine Nullstellen hat. Folglich ist $K = \IF_2[t]/(p(t))$ Körper (weil $(p(t))$ maximales Ideal ist). Als $\IF_2$-Vektorraum hat $K$ die Basis $\overline{1}, \overline{t}$. Also hat $K$ 4 Elemente $a\overline{1}+b\overline{t}$ mit $a,b\in \IF_2$; $K = \{0,\overline{ 1},\overline{ t}, \overline{1+t}\}$. 
+	Betrachte $p(t) = t^2+t+1\in \IF_2[t]$. $p$ ist irreduzibel, da $p$ keine Nullstellen hat. Folglich ist $K = \IF_2[t]/(p(t))$ ein Körper, weil $(p(t))$ ein maximales Ideal ist. Als $\IF_2$-Vektorraum hat $K$ die Basis $\overline{1}, \overline{t}$. Also hat $K$ 4 Elemente $a\overline{1}+b\overline{t}$ mit $a,b\in \IF_2$; $K = \{0,\overline{ 1},\overline{ t}, \overline{1+t}\}$, wobei wir $x := \ol t$ und $y := \ol{1+t}$ setzen.
 	
-	\noindent
-	Additions- und Mutliplikationstafel von $K$:  \url{https://de.wikiversity.org/wiki/Kategorie:Der_K%C3%B6rper_mit_4_Elementen}
-	%TODO: Additions- und Multiplikationstafel für IF_4
+	Wir betrachten nun die Additions- und Multiplikationstafeln von $K$.
+	\begin{center}
+		\begin{tabular}{c||c|c|c|c}
+			$+$ & $\ol 0$ & $\ol 1$ & $x$ & $y$  \\
+			\hline \hline
+			$\ol 0$ & $\ol 0$ & $\ol 1$ & $x$ & $y$ \\
+			\hline
+			$\ol 1$ & $\ol 1$ & $\ol 0$ & $y$ & $x$ \\
+			\hline
+			$x$ & $x$ & $y$ & $\ol 0$ & $\ol 1$ \\
+			\hline
+			$y$ & $y$ & $x$ & $\ol 1$ & $\ol 0$ \\
+		\end{tabular} $\qquad$
+		\begin{tabular}{c||c|c|c|c}
+			$\cdot$ & $\ol 0$ & $\ol 1$ & $x$ & $y$  \\
+			\hline \hline
+			$\ol 0$ & $\ol 0$ & $\ol 0$ & $\ol 0$ & $\ol 0$ \\
+			\hline
+			$\ol 1$ & $\ol 0$ & $\ol 1$ & $x$ & $y$ \\
+			\hline
+			$x$ & $\ol 0$ & $x$ & $y$ & $\ol 1$ \\
+			\hline
+			$y$ & $\ol 0$ & $y$ & $\ol 1$ & $x$ \\
+		\end{tabular}
+	\end{center}
 	
 	\noindent Beobachtungen:
 	\begin{itemize}
-		\item $\chr{K} = 2$, weil $1+1 = 0$ und $\IF_2\subseteq K$ Primkörper.
-		\item Alle Elemente in $K^{\times}$ sind Nullstellen von $t^3-1$; alle Elemente in $K$ sind Nullstellen von $t^4 -t$
+		\item $\chr{K} = 2$, weil $1+1 = 0$ und $\IF_2\subseteq K$ der Primkörper ist.
+		\item Alle Elemente in $K^{\times}$ sind Nullstellen von $t^3-1$; alle Elemente in $K$ sind Nullstellen von $t^4 -t$.
 		\item $K^{\times} = K\setminus \{0\}$ ist eine Gruppe bezüglich $\cdot$ und ismorph zu $\IZ/3\IZ$ und insbesondere zyklisch.
 	\end{itemize}
 \end{bsp}
