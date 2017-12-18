@@ -2997,6 +2997,58 @@ Zunächst noch ein Nachtrag zu Lemma \ref{lem:17.4}: Sei $\IF$ Körper mit $|IF|
 	Sei $K$ ein Körper, $\chr K = p$. Dann ist $Fr\colon K\to K, a\mapsto a^p$ ein Ringhomomorphismus, der Frobeniushomomorphismus. (Denn $Fr(xy) = (xy)^p = x^py^p = Fr(x)Fr(y)$ und $Fr(x+y) = (x+y)^p = x^p+y^p = Fr(x) + Fr(y)$.
 \end{defi}
 
+\begin{proof}[Beweis von \ref{thm:18.1} (Existenz eines Körpers mit $p^r = n$ Elementen)]
+	Sei $p(t) = t^n-t\in\IF_p[t]$. Sei $L$ ein Zerfällungskörper von $p(t)$ über $\IF_p$. Dann ist $\IF_p\subseteq L$ Primkörper, also $\chr L = p$. Betrachte $Fr^r : = Fr\circ\dots\circ Fr\colon L\to L$ $r$-ter Frobeniushomomorphismus. Betrachte nun
+	 $$L^{Fr^r} = \{x\in L|Fr^r(x) = x\} = \{x\in L|x^{p^r} = x\} = \{x\in L|x^n -x = 0\}\subseteq L$$
+	 Nachrechnen: $L^{Fr^r}\subseteq L$ ist ein Unterkörper. Da $L$ Zerfällungskörper ist von $p(t ) = t^n-t$ und andererseits alle Nullstellen von $t^n-t$ schon in $L^{Fr^r}$, gilt $L^{Fr^r} = L$. Daher ist $|L|\leq n$, weil $t^n-t$ höchstens $n$ verschiedene Nullstellen hat. Nun reicht es zu zeigen: $|L| = n$.
+	 
+	 Behauptung: $t^n-t$ hat $n$ verschiedene Nullstellen. (Damit folgt dann $\IF= L$ ist der gesuchte Körper). Angenommen, es gibt weniger als $n$ verschiedene Nullstellen, dann existiert eine mehrfache Nullstelle $a$ in $L$ (da $L$ ein Zerfällungskörper ist). Dann gilt aber $p'(a) = 0$. Andererseits ist $p'(t) = nt^{n-1}-1 = -1$, da $n = p^r$ und wir in Charakteristik $p$ sind. Folglich ist $p'$ nie $0$ und wir haben einen Widerspruch. Also hat $t^n-t$ genau $n$ verschiedene Nullstellen.	
+\end{proof}
+
+Damit ist der Klassifikationssatz der endlichen Körper gezeigt.
+
+\begin{kor}
+	Der Zerfällungskörper von $p(t) = t^n-t\in\IF_p[t]$ (mit $p,n$ wie in \ref{thm:18.1}) ist eindeutig bis auf Isomorphie.
+\end{kor}
+\begin{proof}
+	Denn $\Phi(p^r):= \IF$ ist Zerfällungskörper von $t^n-t$ und ist eindeutig bis auf Ismorphismus von Körpern.
+\end{proof}	
+
+\noindent
+Allgemein:
+\begin{satz}
+	Seien $K$ und $K'$ Körper und $\phi\colon K\to K'$ Ringhomomorphismus. Sei $f(t)\in K[t]\setminus K$ und $L$ bzw. $L'$ Zerfällungskörper von $f(t)$ über $K$ bzw. von $\phi_{*}(f)\in K'[t]\setminus K'$, wobei 
+	\begin{eqnarray*}
+		\phi_{*}\colon K[t] & \longto & K'[t]\\
+		\sum b_it^i & \longmapsto & \sum \phi(b_i)t^i
+	\end{eqnarray*}
+	Falls $\phi$ Isomorphismus ist, dann existiert ein Ringisomorpismus $\hat \phi\colon L\to L'$ mit $\hat\phi|_K = \phi$.
+\end{satz}
+\begin{proof}
+	Wähle (siehe Eindeutigkeit Version 1) algebraischen Abschluss $\overline{K}$ bzw. $\overline{K'}$ von $K$ bzw. $K'$ so, dass $K\subseteq L\subseteq \overline{K}$ und $K'\subseteq L'\subseteq \overline{K'}$. Der Fortsetzungssatz sagt uns nun, dass ein Homomorphismus $\hat\phi\colon \overline{K}\to\overline{K'}$ existiert mit $\hat\phi|_K = \phi$. Falls $\phi$ Isomorphismus ist, dann ist auch $\hat\phi$ Isomorphismus von Körpern.
+	
+	Andererseits existieren $a_1,\dots, a_n\in \overline{K}$ und $c\in K$ mit $f(t) = c\prod_{i = 1}^n(t-a_i)$ und damit $\hat\phi(f(t)) = \phi(c)\prod_{i = 1}^n(t-\hat\phi(a_i))$. Also ist $\hat\phi(a_i)$ für $1\leq i\leq n$ Nullstelle von $\hat\phi(f(t)) = \phi_{*}(f(t))$. Damit ist $L = K(a_1,\dots, a_n)$ (da Zerfällungskörper von $K$) wird unter $\hat\phi$ abgebildet auf $L' = K'(\hat\phi(a_1),\dots ,\hat\phi(a_n))$ offensichtlich surjektiv auf $L'$; injektiv automatisch, also ist $\hat\phi$ Isomorphismus von Körpern.
+\end{proof}
+
+\begin{satz}[Eindeutigkeit des Zerfällungskörpers]
+	Sei $K$ ein Körper und $L, L'$ Zerfällungskörper von $K$. Dann existiert ein $K$-Isomorphismus $\hat\phi\colon L\to L'$. 
+\end{satz}
+\begin{proof}
+	Wende Satz 18.6 auf $K' = K$ und $\phi = \id$ an.
+\end{proof}
+\begin{satz}
+	Sei $\IF$ ein endlicher Körper, $|\IF| = p^r = n$. Dann gilt:
+	\begin{itemize}
+		\item $Gal(\IF/\IF_p) = \{\phi\colon \IF\to \IF|\phi\text{ Ringisomorphismus}\}$.
+		\item $Gal(\IF/\IF_p) \cong (\IZ/n\IZ, +)$ als Gruppe, erzeugt von $Fr$. Wir werden zeigen, dass daraus folgt, dass eine Bijektion (Galoiskorrespondenz) existiert:
+		\begin{eqnarray*}
+			\{\text{Untergruppen von }Gal(\IF/\IF_p)\}&\xlongleftrightarrow{1:1}&\{\text{Unterkörper }von \IF\}\\
+			U &\longmapsto & \IF^U = \{x\in\IF|\phi(x) = x\}
+		\end{eqnarray*}
+	\end{itemize}
+\end{satz}
+
+
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
