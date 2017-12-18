@@ -2901,6 +2901,102 @@ Beachte: Sei $\IF$ wie im Lemma \ref{lem:17.4}. Dann gilt:
 \end{bsp}
 \paragraph{Existenz von Zerfällungskörpern} Sei $f(t) \in K[t]$. Betrachte den algebraischen Abschluss $\overline{K}$ von $K$. Dann existieren $a_1,\dots, a_n\in\overline{K}$ und $c\in K$ mit $f(t) = c\prod_{i = 1}^{n}(t-a_i)$. Setze $L: = K(a_1,\dots, a_n)$. Dies ist dann ein Zerfällungskörper von $f(t)\in K[t]$, der in $\overline{K}$ enthaltene Zerfällungskörper.
 
+
+\lecture{18. Dezember 2017}
+Wir wollen später noch zeigen:
+\begin{satz}\label{thm:18.1}
+	Sei $p$ eine Primzahl und $r\in\IN$. Dann existiert ein Körper $\IF$ mit $|\IF| = p^r$.
+\end{satz}
+
+\vspace{3mm}
+Zunächst noch ein Nachtrag zu Lemma \ref{lem:17.4}: Sei $\IF$ Körper mit $|IF| = n = p^r$. Dann folgt, dass $\IF\cong \IF_p[t]/(p(t))$ für jedes $p(t)\in\IF_p[t]$ mit $p(t)$ irreduzibel, Teiler von $t^n-t$ und $\deg(p(t)) = r$. Noch zu zeigen: Ein solches $p(t)$ existiert.
+\begin{proof}
+	Wir wissen:
+	\begin{itemize}
+		\item $\IF_p\subseteq \IF$ ist der Primkörper
+		\item $\IF^{\times}$ zyklisch, das heißt es existiert ein $a\in\IF^{times}$ mit $\IF^{\times} = \<a\>$.
+		\item für alle Einheiten $x\in \IF^{\times}$: $x^n-x = 0$.
+	\end{itemize}
+	Insbesondere: $m_a(t)\in\IF_p[t]$ teilt $t^n-t\in\IF_p[t]$ und $\IF_p(a) = \IF$. Betrachte den Ringhomo
+	\begin{eqnarray*}
+		\ev_a\colon \IF_p[t] & \longto & \IF\\
+		\sum_{i = 0}^{\infty} b_it^i & \longmapsto &\sum_{i = 0}^{\infty}b_ia^i
+	\end{eqnarray*}
+	Klar ist: $\im\ev_a = \IF_p(a) = \IF$, also $\ev_a$ surjektiv. Nach dem Homomorphiesatz existiert ein Ringhomo
+	$$\overline{\ev_a}\colon K := \IF_p[t]/(m_a(t))\longto \IF$$
+	mit $\ev_a = \overline{\ev_a}\circ\can$. Also ist $\overline{\ev_a}$ surjektiv und $K$ ist ein Körper, also auch injektiv. $\Rightarrow \overline{\ev_a}$ ist ein Isomorphismus von Körpern.
+	
+	Insbesondere ist $\deg(m_a(t)) = \dim_{\IF_p}K = \dim_{\IF_p}\IF= r$. Klar ist, dass $m_a(t)$ irreduzibel ist, und es teilt $t^m-t$. Folglich ist $m_a(t)$ ein gesuchtes Polynom.
+\end{proof}
+
+\begin{defi}
+	Sei $K$ ein Körper, $f\in K[t]$ mit $f = \sum_{i = 0}^n a_it^i$. Die formale Ableitung von $f(t)$ ist $f'(t) = \sum_{i = 1}^{n} ia_it^{i-1}\in K[t]$. 
+\end{defi}
+\begin{bsp}
+	\leavevmode
+	\begin{itemize}
+		\item[] $f(t) = 2t^3+2t^2+1\in \IF_3[t]$
+		\item[] $f'(t) = 6t^2 + 4t = t\in\IF_3[t]$
+	\end{itemize}
+\end{bsp}
+Übung: Formale Ableitung erfüllt Produktregel $(fg)' = f'g+fg'$.
+
+\begin{satz}
+	$L\sslash K$ Körpererweiterung, $f,g\in K[t]$, $g\neq 0$. Dann:
+	\begin{enumerate}
+		\item Gilt $f = hg+r$ in $L[t]$ mit $\deg(r)<\deg(h)$, dann auch $f = hg+r$ in $K[t]$.
+		\item Falls $g$ das Polynom $f$ in $L[t]$ teilt, dann auch in $K[t]$.
+		\item der normierte $ggt(f,g)$ in $L[t]$ $= $ normierter $ggt(f,g)$ in $K[t]$.
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	$K[t]$ ist euklidisch $\Rightarrow \exists h', r'\in K[t]$ mit $f = h'g+r'$, wobei $\deg(r')<\deg(g)$. Da $L[t]$ ebenfalls euklidisch ist, existieren eindeutige $h, r\in L[t]$ mit $f = hg+r$ und $\deg(r) <\deg(g)$. Aus der Eindeutigkeit folgt $h = h'$, $r = r'$. Also gilt die 1. Aussage. Die 2. Aussage folgt aus 1. mit $r = 0$. 3. bleibt dem aufmerksamen Leser als Übung überlassen.
+\end{proof}
+
+\begin{satz}
+	Sei $K$ Körper, $p\in K[t]$, $p\neq 0$. Sei $L$ ein Zerfällungskörper von $p$ über $K$. Dann sind folgende Aussagen äquivalent:
+	\begin{enumerate}
+		\item $p$ hat mehrfache Nullstelle in $L$ (d.h. $\exists a\in L: (t-a)^2|p$ in $L[t]$).
+		\item $p$ und $p'$ haben einen gemeinsamen Teiler $h(t)\in L[t]\setminus L$.
+		\item $p$ und $p'$ haben eine gemeinsame Nullstelle.
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[$1\Rightarrow 2$:] Sei $a\in L$ mehrfache Nullstelle von $p$. Dann ist $p = (t-a)^2Q(t) = (t^2-2at+a^2)Q(t)$ für ein $Q(t)\in L[t]$. Nach der Produktregel ist $p' = 2(t-a)Q(t) + (t-a)^2Q'(t)$. Damit teilt $(t-a)$ sowohl $p$ als auch $p'$.
+		\item[$2\Rightarrow 3$:] $p$ und $p'$ haben einen gemeinsamen Teiler $h(t)\in L[t]\setminus L$. Da $L$ Zerfällungskörper von $p$ ist, existiert ein $a\in L$, das Nullstelle von $h(t)$ ist. Insbesondere ist $a$ eine gemeinsame Nullstelle von $p$ und $p'$.
+		\item[$3\Rightarrow 1$:] Sei $a$ eine gemeinsame Nullstelle von $p$ und $p'$. Also ist $p = (t-a)Q(t)$ mit $Q(t)\in L[t]$. Es folgt $p' = Q(t) + (t-a)Q'(t)$. Da $(t-a)$ das Polynom $p'$ teilt, muss also $(t-a)$ auch $Q(t)$ teilen und $(t-a)^2|p$. Folglich ist $a$ mehrfache Nullstelle von $p$.
+	\end{description}
+\end{proof}
+\begin{kor}
+	Sei $p\in K[t]\setminus K$ ($K$ Körper) irreduzibel. Dann sind äquivalent\begin{enumerate}
+		\item $p$ hat mehrfache Nullstelle im Zerfällungskörper
+		\item $p' = 0$ (Nullpolynom)
+		\item $\exists Q\in K[t]$ mit $p = Q(t^p)$ mit $0<p = \chr K$.
+	\end{enumerate}
+\end{kor}
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[$2\Rightarrow3$:] Sei $p = a_nt^n+\dots +a_1t+a_0$ mit $a_n \neq 0$, $n\geq 1$. Mit der Voraussetzugn $p' = 0$ folgt $ja_j = 0$ für alle $1\leq j\leq n$. Da $K$ aber nullteilerfrei ist, gilt $n = 0$ in $K$. Folglich existiert eine Primzahl $p$ mit $p = \chr K$ und dann $n = pk$ für ein $k\in\IN$. Also ist $ja_j = 0$, falls $a_j = 0$ oder $j$ Vielfaches von $p$. Das heißt, $p = a_0+a_pt^p+a_{2p}t^{2p}+\dots+a_{pk}t^{pk}$. Damit ist $p = Q(t^p)$, wobei $Q(t)= a_0+a_pt+a_{2p}t^2+\dots a_{pk}t^k$.
+		\item[$3\Rightarrow1$:] Sei $a$ Nullstelle von $Q(t)$ in einem Zerfällungskörper $L$ von $Q(t)$. Dann ist $Q(t) = (t-a)h(t)$ für ein $h(t)\in L[t]$. 
+		
+		$\Rightarrow p = (t^p-a)h(t^p)$. Wähle Nullstelle $b$ von $t^p-a$ (also $p$-te Wurzel von $a$) in einem algebraischen Abschluss von $K$. 
+		
+		$\Rightarrow p(t) = (t^p-b^p)h(t^p) = (t-b)^pn(t^p)$. Da $p\geq 2$ ist, hat $p(t)$ mehrfache Nullstelle $b$ in einem algebraischen Abschluss von $K$, also auch in dem zugehörigen Zerfällungskörper.
+		\item[$1\Rightarrow3$:] Sei $a$ mehrfache Nullstelle von $p$. Nach Satz 18.3 ist $a$ gemeinsame  Nullstelle von $p$ und $p'$ bzw. $p$ und $p'$ haben gemeinsamen Teiler $h(t)\in L[t]\setminus L$.
+		\begin{itemize}
+			\item $h(t)\neq 0$ (sonst $p(t) = 0$ im Widerspruch zu $p$ irreduzibel)
+			\item Da $p$ irreduzibel ist und $\deg(h(t)) \leq \deg(p')<\deg(p)$ (falls $p' \neq 0$). Damit ist $h(t)$ Einheit im Widerspruch zu $h(t) \notin L$. Also ist $p' = 0$.
+		\end{itemize}
+	\end{description}
+\end{proof}
+
+\begin{defi}
+	Sei $K$ ein Körper, $\chr K = p$. Dann ist $Fr\colon K\to K, a\mapsto a^p$ ein Ringhomomorphismus, der Frobeniushomomorphismus. (Denn $Fr(xy) = (xy)^p = x^py^p = Fr(x)Fr(y)$ und $Fr(x+y) = (x+y)^p = x^p+y^p = Fr(x) + Fr(y)$.
+\end{defi}
+
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
