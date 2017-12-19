@@ -570,7 +570,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 	Sei $G$ irgendeine Gruppe, $g\in G$. Dann gilt: $\ord(g) = \abs{\<g\>}$ und nach \namereff{thm:lagrange} denn $\ord(g)$ teilt $\abs G$, falls $\abs G$ endlich.
 \end{bem}
 
-\begin{satz}[Zyklische Gruppen]
+\begin{satz}[Klassifikation zyklischer Gruppen] \label{thm:klasszykl}
 	Je zwei zyklische Gruppen der selben Ordnung sind isomorph. Genauer gilt für $G$ zyklische Gruppe: 
 	\begin{equation*}
 		G \cong \begin{cases*}
@@ -893,7 +893,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 	Sei $G$ eine endliche Gruppe, $p$ eine Primzahl. Sei $|G| = p^rm$ mit $p\nmid m$. $H<G$ heißt $p$-Sylowgruppe, falls $|H| = p^r$. Wir definieren  $\Syl_p(G):=\{H<G\mid H\text{ ist Sylowgruppe}\}$.
 \end{defi}
 
-\begin{satz}[Sylowsätze]
+\begin{satz}[Sylowsätze] \label{thm:sylow}
 	Sei $p$ eine Primzahl, $G$ eine endliche Gruppe, $|G| = p^rm$ mit $p\nmid m$.\begin{enumerate}
 		\item $\forall 0\le k\le r \colon\exists H<G$ mit $|H| = p^k$
 		\item Sei $U<G$ eine $p$-Gruppe. Dann $\exists g\in G$ und $S\in \Syl_p(G)$, sodass $U<gSg^{-1}$.
@@ -2748,7 +2748,7 @@ Wie sehen nun zum Beispiel $\overline{\IQ}$ oder $\overline{\IF_2}$ aus?
 
 \subsection{Endliche Körper}
 Ziel: Gegeben eine Primzahl $p$ und $r\in\IN= \IZ_{>0}$. Dann existiert ein Körper $\IF$ mit $|\IF| = p^r$. Genauer gilt der folgende
-\begin{satz}[Klassifikationssatz]\label{thm:17.1}
+\begin{satz}[Klassifikationssatz endlicher Körper]\label{thm:17.1}
 	Es gibt eine Bijektion
 	\begin{eqnarray*}
 		\Phi\colon\left\{\IF\,\middle|\,\substack{\text{$\IF$ endlicher Körper}\\\text{(bis auf Körperisomorphie)}}\right\}& \xlongleftrightarrow{1:1}& \{p^r\mid \text{$p$ Primzahl}, r\in\IN\}\\
@@ -2796,167 +2796,173 @@ Ziel: Gegeben eine Primzahl $p$ und $r\in\IN= \IZ_{>0}$. Dann existiert ein Kör
 	\begin{itemize}
 		\item $\chr{K} = 2$, weil $1+1 = 0$ und $\IF_2\subseteq K$ der Primkörper ist.
 		\item Alle Elemente in $K^{\times}$ sind Nullstellen von $t^3-1$; alle Elemente in $K$ sind Nullstellen von $t^4 -t$.
-		\item $K^{\times} = K\setminus \{0\}$ ist eine Gruppe bezüglich $\cdot$ und ismorph zu $\IZ/3\IZ$ und insbesondere zyklisch.
+		\item $K^{\times} = K\setminus \{0\}$ ist eine Gruppe bezüglich $\cdot$ sowie ismorph zu $\IZ/3\IZ$ und somit insbesondere zyklisch.
 	\end{itemize}
 \end{bsp}
 
 \lecture{14. Dezember 2017}
 \begin{lem}
-	Sei $\IF$ endlicher Körper. Dann ist $|\IF| = p^r$ für eine Primzahl $p$ und $r\in\IN$ und dann gilt $\chr \IF = p$.
+	Sei $\IF$ ein endlicher Körper. Dann ist $|\IF| = p^r$ für eine Primzahl $p$ und $r\in\IN$ und es gilt $\chr \IF = p$.
 \end{lem}
 
 \begin{proof}
-	$\IF$ hat Primkörper $\IF_p$ (weil sonst wäre $\IQ\cong$ Primkörper $\subseteq \IF$; Widerspruch zu $|\IF|<\infty$) für eine Primzahl $p$ eindeutig bestimmt. Insbesondere $\IF_p\subseteq \IF$ Unterkörper. Damit ist $\IF$ ein $\IF_p$-Vektorraum und es gilt $\IF\cong (\IF_p)^n$ für ein $n\in\IN$ (Isomorphismus als $\IF_p$-Vektorraum). Folglich ist $|\IF| = p^n\Rightarrow$ Setze $r = n = \dim_{\IF_p}\IF$. Also ist $\Phi$ eine wohldefinierte Abbildung.
+	$\IF$ hat den Primkörper $\IF_p$ (weil sonst $\IQ \cong \text{Primkörper} \subseteq \IF$, was ein Widerspruch zur Endlichkeit von $\IF$ wäre) für eine eindeutig bestimmte Primzahl $p$. Insbesondere ist $\IF_p\subseteq \IF$ ein Unterkörper. Damit ist $\IF$ ein $\IF_p$-Vektorraum und es gilt $\IF\cong (\IF_p)^n$ für ein $n\in\IN$ (Isomorphismus als $\IF_p$-Vektorraum). Folglich ist $|\IF| = p^n\Rightarrow$; wir setzen also $r = n = \dim_{\IF_p}\IF$.
 \end{proof}
+Also ist $\Phi$ aus \cref{thm:17.1} eine wohldefinierte Abbildung.
 
 \begin{satz}\label{thm:17.3}
-	$K$ Körper, $H<(K^{\times},\cdot)$ endliche Untergruppe $\Rightarrow H$ zyklisch.
+	Sei $K$ Körper sowie $H<(K^{\times},\cdot)$ eine endliche Untergruppe. Dann ist $H$ zyklisch.
 \end{satz}
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[1. Behauptung:] Sei $G$ eine endliche abelsche Gruppe. Dann existiert ein Isomorphismus von Gruppen $G\cong G_{p_1}\times\dots\times G_{p_n}$, wobei $G_{p_i}$ die $p_i$-Sylowuntergruppen von $G$ sind (genauer: $G_{p_1},dots,G_{p_n}$ sind genau die Sylowuntergruppen von G). Insbesondere:
+		\item[1. Behauptung:] Sei $G$ eine endliche abelsche Gruppe. Dann existiert ein Isomorphismus von Gruppen $G\cong G_{p_1}\times\dots\times G_{p_n}$, wobei die $G_{p_i}$ die $p_i$-Sylowuntergruppen von $G$ sind (genauer: $G_{p_1},\dots,G_{p_n}$ sind genau die Sylowuntergruppen von G). Insbesondere gilt dann
 		\begin{equation}
-			H\cong G_{p_1}\times\dots\times G_{p_n}
+			H\cong G_{p_1}\times\dots\times G_{p_n} \tag{*}\label{eq:h=prodg}
 		\end{equation}
-		mit $G_{p_i}$ $p_i$-Sylowuntergruppe von $H$.
-		\item[2. Behauptung:] Die $G_{p_i}$ ($1\leq i\leq n$) in (2) sind zyklisch.
-		\item[3. Behauptung:] $G_{p_1}\times\dots\times G_{p_n}$ wie in (2) zyklisch.
+		mit $G_{p_i}$ als $p_i$-Sylowuntergruppe von $H$ für $1\le i \le n$.
+		\item[2. Behauptung:] Alle $G_{p_i}$ ($1\leq i\leq n$) in \eqref{eq:h=prodg} für $1\le i\le  n$ sind zyklisch.
+		\item[3. Behauptung:] Die Gruppe $G_{p_1}\times\dots\times G_{p_n}$ wie in \eqref{eq:h=prodg} ist zyklisch.
 	\end{description}
 	Damit ist $H$ zyklisch.
 	\begin{description}
-		\item[Beweis 1. Behauptung:] Sei $|G| = p_1^{c_1}\dots p_n^{c_n}$ mit $p_i$ Primzahlen, paarweise verschieden. Nach dem Sylowsatz existiert eine $p_i$-Sylowuntergruppe $G_{p_i}$ von $G$ und diese ist eindeutig (denn jede andere $p_i$-Sylowuntergruppe $G'_{p_i}$ ist konjugiert und also $G'_{p_i} = G_{p_i}$, weil $G$ abelsch ist). Klar ist: $G_{p_i}\cap G_{p_j} = \{e\}$ für $i\neq j$ (nach Lagrange \ref{thm:lagrange}). Betrachte
+		\item[Beweis 1. Behauptung:] Sei $|G| = p_1^{c_1}\dots p_n^{c_n}$ mit paarweise verschiedenen Primzahlen $p_i$. Nach den \hyperref[thm:sylow]{Sylowsätzen} existiert eine $p_i$-Sylowuntergruppe $G_{p_i}$ von $G$. Diese ist eindeutig, da jede andere $p_i$-Sylowuntergruppe zu dieser konjugiert ist, woraus sogar Gleichheit folgt, da $G$ abelsch ist. Es ist nach dem \nameref{thm:lagrange} klar, dass $G_{p_i}\cap G_{p_j} = \{e\}$ für $i\neq j$ gilt. Betrachte
 		\begin{eqnarray*}
 			f\colon G_{p_1}\times\dots\times G_{p_n} & \longto & G\\
-			(g_1\dots, g_n) & \longmapsto & g_1\dots g_n
+			(g_1,\dots, g_n) & \longmapsto & g_1\dots g_n.
 		\end{eqnarray*}
+		Im Folgenden seien $(g_1,\dots,g_n),(g'_1,\dots,g'_n)$ immer in $G_{p_1}\times\dots\times G_{p_n}$.
 		\begin{itemize}
-			\item $f$ ist Gruppenhomo: Denn $f((g_1,\dots, g_n)(g_1',\dots, g_n')) = f((g_1g_1',\dots, g_ng_n')) = g_1g_1'g_2g_2'\dots g_ng_n' = g_1g_2\dots g_ng_1'\dots g_n' = f((g_1,\dots, g_n))f((g_1',\dots, g_n'))$.
-			\item $f$ ist injektiv: Sei $f((g_1,\dots, g_n)) = f((g_1',\dots, g_n'))$ Dann ist $g_1\dots g_n = g_1'\dots g_n'$. Umformen ergibt
-			$$ g_2\dots g_n(g_2'\dots g_n')^{-1} = g_1^{-1}g_1'\enspace,$$
+			\item $f$ ist ein Gruppenhomomorphismus, da \begin{align*}&f((g_1,\dots, g_n)(g_1',\dots, g_n')) = f((g_1g_1',\dots, g_ng_n')) = g_1g_1'g_2g_2'\dots g_ng_n'\\ &= g_1g_2\dots g_ng_1'\dots g_n' = f((g_1,\dots, g_n))f((g_1',\dots, g_n'))\end{align*} gilt.
+			\item $f$ ist injektiv. Zum Beweis sei $f((g_1,\dots, g_n)) = f((g_1',\dots, g_n'))$. Dann ist $g_1\dots g_n = g_1'\dots g_n'$. Umformen ergibt
+			\[ g_2\dots g_n(g_2'\dots g_n')^{-1} = g_1^{-1}g_1'\enspace,\]
 			wobei $g_2\dots g_n(g_2'\dots g_n')^{-1}  = g_2(g_2')^{-1}\dots g_n(g_n')^{-1}\in f(\{e\}\times G_{p_2}\times \dots \times G_{p_n})$ und $g_1^{-1}g_1'\in f(G_{p_1})$.
 			
-			Sei $\tilde{G} = \{e\}\times G_{p_2}\times\dots\times G_{p_n}$.  Wir wissen nach dem Homomorphiesatz: $f(\tilde{G})\cong \tilde {G}/\ker f|_{\tilde{G}}$. Damit folgt $|f(\tilde{G}) = \frac{|\{e\}\times G_{p_2}\times\dots\times G_{p_n}|}{|\ker f|_{\tilde{G}}|}$ nach Lagrange.
+			Sei $\tilde{G} = \{e\}\times G_{p_2}\times\dots\times G_{p_n}$.  Nach dem nach dem \nameref{thm:homsatz_g} gilt $f(\tilde{G})\cong \tilde {G}/\ker f|_{\tilde{G}}$. Damit folgt $|f(\tilde{G})| = \frac{|\{e\}\times G_{p_2}\times\dots\times G_{p_n}|}{|\ker f|_{\tilde{G}}|}$ nach dem \nameref{thm:lagrange}. $|f(\tilde{G})|$ teilt somit $p_2^{c_2}\dots p_n^{c_n}$. Analog zeigt man, dass $|f(G_{p_1})|$ dann $p_1{c_1}$ teilt. 
 			
-			$\Rightarrow |f(\tilde{G})|$ teilt $p_2^{c_2}\dots p_n^{c_n}$. Analog: $|f(G_{p_1})|$ teilt $p_1{c_1}$. 
-			
-			$\Rightarrow ord (g_2\dots g_n(g_2'\dots g_n')^{-1})$ teilt $p_2^{c_2}\dots p_n^{c_n}$ und $ord(g_1^{-1}g_1')$ teilt $p_1^{c_1}$. Da die $p_i$ paarweise verschieden sind, ist $ord(g_1^{-1}g_1') = 1\Rightarrow g_1^{-1}g_1' = e\Rightarrow g_1' = g_1$. Völlig analog folgt $g_i = g_i'$ für alle $1\leq i\leq n$.
-			\item $f$ ist surjektiv: $f$ ist injektiv und $|G_{p_1}\times\dots\times G_{p_n}| = p_1^{c_1}\dots p_n^{c_n} = |G|<\infty$. Damit ist $f$ bijektiv und die 1. Behauptung folgt.
+			$\ord (g_2\dots g_n(g_2'\dots g_n')^{-1})$ teilt also $p_2^{c_2}\dots p_n^{c_n}$ und $\ord(g_1^{-1}g_1')$ teilt $p_1^{c_1}$. Da die $p_i$ paarweise verschieden sind, ist $\ord(g_1^{-1}g_1') = 1$, also $g_1^{-1}g_1' = e$ und schließlich $g_1' = g_1$. Völlig analog folgt $g_i = g_i'$ für alle $1\leq i\leq n$.
+			\item $f$ ist surjektiv, da $f$ injektiv  ist und $|G_{p_1}\times\dots\times G_{p_n}| = p_1^{c_1}\dots p_n^{c_n} = |G|<\infty$ gilt.
 		\end{itemize}
-	\item[Beweis 2. Behauptung:] Annahme: $G_{p_i}$ nicht zyklisch für ein $i$ ($1\leq i\leq n$). Schreibe $p = p_i$, $c = c_i$ ($c_i$ wie oben). Es gilt $|G_p| = p^c$ und nach Annahme $ord(g)<p^c$ für alle $g\in G_p$. Da $ord(g)$ die Ordnung der Gruppe $|G_p|$ teilt, folgt $ord(g)\leq p^{c-1}$ für alle $g\in G_p$; sogar $\ord(g) = p^m$ für ein $m\leq c-1$ (für alle $g$ mit $m$ abhängig von $g$).
+	Damit ist $f$ ein bijektiver Ringhomomorphismus und die 1. Behauptung folgt.
+	\item[Beweis 2. Behauptung:] Wir nehmen an, $G_{p_i}$ wäre nicht zyklisch für ein $i=1,\dots,n$. Wir setzen $p = p_i$ und $c = c_i$ ($c_i$ wie oben). Es gilt $|G_p| = p^c$ und nach Annahme $\ord(g)<p^c$ für alle $g\in G_p$. Da $ord(g)$ die Ordnung der Gruppe $|G_p|$ teilt, folgt $ord(g)\leq p^{c-1}$ und sogar $\ord(g) = p^m$ für ein $m\leq c-1$ für alle $g\in G_p$, wobei $m$ von $g$ abhängig ist.
 	
-	Also ist $g^{p^m} = 1$ und $g$ ist eine Nullstelle des Polynoms $t^{p^m}-1$, sogar von $t^{p^{c-1}}-1$. Damit gilt für alle $g\in G_p$: $g$ ist Nullstelle von $t^{p^{c-1}}-1$. Aber $t^{p^{c-1}}-1$ hat aber höchstens $p^{c-1}$ verschiedene Nullstellen, was im Widerspruch dazu, dass $|G_p| = p^c> p^{c-1}$ ist. Also ist $G_{p_i}$ zyklisch für alle $1\leq i\leq n$.
-	\item[Beweis 3. Behauptung] zu zeigen: $G_{p_1}\times\dots\times G_{p_n}$ wie in (2) zyklisch. Nach der 2. Behauptung wissen wir $G_{p_i}\cong \IZ/p_i^{c_i}\IZ$ (nach Klassifikation von zyklischen Gruppen). Also $H\cong \IZ/p_1^{c_1} \IZ\times\dots \times \IZ/p_n^{c_n}\IZ$ Isomorphismus von Gruppen. Da $p_i\neq p_j$ Primzahlen, ist $1 = ap_i^{c_i}+bp_j^{c_j}$ für $a,b\in\IZ$ (Euklidischer Algorithmus). Damit ist $1\in p_i^{c_i}\IZ+p_j^{c_j}\IZ$ und wir können den Chinesischen Restsatz anwenden. Dadurch erhalten wir einen Isomorphismus von Ringen
-	$$\IZ/p_1^{c_1}\IZ\times\dots \times\IZ/p_n^{c_n}\IZ \xlongrightarrow{\cong} \IZ/m\IZ$$
-	mit $m = p_1^{c_1}\dots p_n^{c_n}$. Dies ist insbesondere Isomorphismus von Gruppen. Da $\IZ(m\IZ)$ zyklisch ist, folgt also, dass $H$ zyklisch ist.
+	Also ist $g^{p^m} = 1$ und $g$ ist eine Nullstelle des Polynoms $t^{p^m}-1$, und somit auch von $t^{p^{c-1}}-1$. Damit ist $g$ eine Nullstelle von $t^{p^{c-1}}-1$ für alle $g\in G_p$. Aber $t^{p^{c-1}}-1$ hat höchstens $p^{c-1}$ verschiedene Nullstellen, was im Widerspruch dazu, dass $|G_p| = p^c> p^{c-1}$ ist. Also ist $G_{p_i}$ zyklisch für alle $1\leq i\leq n$.
+	\item[Beweis 3. Behauptung:] Es ist zu zeigen, dass $G_{p_1}\times\dots\times G_{p_n}$ wie in \eqref{eq:h=prodg} zyklisch ist. Nach der 2. Behauptung wissen wir $G_{p_i}\cong \IZ/p_i^{c_i}\IZ$ mit der \nameref{thm:klasszykl}. Es ist also $H\cong \IZ/p_1^{c_1} \IZ\times\dots \times \IZ/p_n^{c_n}\IZ$ als Isomorphismus von Gruppen. Da die $p_i$ paarweise verschiedene Primzahlen sind, existieren $a,b\in\IZ$ so, dass $1 = ap_i^{c_i}+bp_j^{c_j}$ (Euklidischer Algorithmus). Damit ist $1\in p_i^{c_i}\IZ+p_j^{c_j}\IZ$ und wir können den Chinesischen Restsatz anwenden. Dadurch erhalten wir einen Isomorphismus von Ringen
+	$$\IZ/p_1^{c_1}\IZ\times\dots \times\IZ/p_n^{c_n}\IZ \xlongrightarrow{\sim} \IZ/m\IZ$$
+	mit $m = p_1^{c_1}\dots p_n^{c_n}$. Dies ist insbesondere Isomorphismus von Gruppen. Da $\IZ/m\IZ$ zyklisch ist, folgt schließlich, dass $H$ zyklisch ist.
 \end{description}
 \end{proof}
 
 \begin{bem} Insbesondere gilt: für endliche Körper $\IF$ ist $(\IF^{\times}, \cdot)$ eine zyklische Gruppe.
 \end{bem}
 \begin{lem}\label{lem:17.4}
-	Sei $\IF$ endlicher Körper mit $|\IF| = n = p^r$ ($p$ Primzahl, $r\in\IN$). Dann existiert ein Isomorphismus von Körpern $\IF\cong \IF_p[t]/(p(t))$, wobei $p(t)\in \IF_p[t]$ mit $\deg(p(t)) = r$ und $p(t)$ Teilder von $t^n-t\in F_p[t]$ und irreduzibel. Und falls $p(t)$ dies erfüllt, existiert ein solcher Isomorphismus.
+	Sei $\IF$ ein endlicher Körper mit $|\IF| = n = p^r$, wobei $p$ eine Primzahl und $r\in\IN$ ist. Dann existiert ein Isomorphismus von Körpern $\IF\cong \IF_p[t]/(p(t))$, wobei $p(t)\in \IF_p[t]$ mit $\deg(p(t)) = r$ und $p(t)\mid t^n-t\in F_p[t]$ sowie irreduzibel ist. Umgekehrt existiert ein solcher Isomorphismus, wenn $p(t)$ soebige Eigenschaften erfüllt.
 \end{lem}
 \begin{proof}
-	$(\IF^{times}, \cdot)$ ist eine endliche ablesche Gruppe, also nach \ref{thm:17.3} zyklisch (der Ordnung $n-1$). Folgich existiert ein $a\in\IF^{\times}$ mit $\IF^{\times} = \<a\>$. Insbesondere ist $ord(a) = n-1$, also $a^{n-1} = 1\in\IF^{\times}\subseteq \IF$. Es gilt sogar $x^{n-1} = 1$ für alle $x\in\<a\> = \IF^{\times}$. Damit ist jedes $x\in \IF$ Nullstelle von $t^n-t\in\IF_p[t]$. Da es höchstens $n$ verschiedene Nullstellen gibt und $|\IF| = n $, folgt 
-	$$\IF= \{\text{Nullstellen von } t^n-t\in\IF_p[t]\}$$
-	und somit zerfällt $t^n-t$ über $\IF$ vollständig in Linearfaktoren. Sei $p(t)$ wie im Lemma. Sei o.B.d.A. $p(t)$ normiert. Da $x\in\IF^{\times}$ Nullstelle von $t^{n}-t$ ist und $p(t)$ das Polynom $t^{n}-t$ teilt, gilt $p(t) = m_x(t)$ Minimalpolynom fpr ein $x\in\IF^{times}$, weil $p(t)$ irreduzibel ist. Betrachte nun den Ringhomomorphismus
+	$(\IF^{\times}, \cdot)$ ist eine endliche ablesche Gruppe, also nach \cref{thm:17.3} zyklisch mit der Ordnung $n-1$. Folglich existiert ein $a\in\IF^{\times}$ mit $\IF^{\times} = \<a\>$. Insbesondere ist $\ord(a) = n-1$, also $a^{n-1} = 1\in\IF^{\times}\subseteq \IF$. Es gilt sogar $x^{n-1} = 1$ für alle $x\in\<a\> = \IF^{\times}$. Damit ist jedes $x\in \IF$ Nullstelle von $t^n-t\in\IF_p[t]$. Da es höchstens $n$ verschiedene Nullstellen gibt und $|\IF| = n $, folgt 
+	\[\IF= \{\text{Nullstellen von $t^n-t\in\IF_p[t]$}\}\]
+	und somit zerfällt $t^n-t$ über $\IF$ vollständig in Linearfaktoren. Sei $p(t)$ wie im Lemma definiert und o.B.d.A. $p(t)$ normiert. Da $x\in\IF^{\times}$ eine Nullstelle von $t^{n}-t$ ist und $p(t)$ das Polynom $t^{n}-t$ teilt, ist $p(t) = m_x(t)$ das Minimalpolynom für ein $x\in\IF^{\times}$, weil $p(t)$ irreduzibel ist. Betrachte nun den Ringhomomorphismus
 	\begin{eqnarray*}
 		\ev_x\colon \IF_p[t] &\longto & \IF\\
 		\sum_{i = 0}^{\infty}b_it^i & \longmapsto & \sum_{i = 0}^{\infty}b_ix^i
 	\end{eqnarray*}
-	Das induziert, weil $p(x) = 0$ ist, einen Ringhomomorphismus
-	$$\overline{\ev_x}\colon \IF_p[t]/(m_x(t)) \to \IF$$
+	Dieser induziert, weil $p(x) = 0$ ist, nach dem \nameref{thm:homsatz_r} einen Ringhomomorphismus
+	\[\overline{\ev_x}\colon \IF_p[t]/(m_x(t)) \to \IF.\]
 	Wir wissen, dass $K :=\IF_p[t]/(p(t))$ ein Körper ist, weil $p(t)$ irreduzibel ist. Folglich ist $\overline{\ev_x}\colon K\to \IF$ injektiv und nach Konstruktion ein Ringhomomorphismus.
 	
-	Behauptung: $\overline{\ev_x}$ ist surjektiv. Denn wir wissen $\dim_{\IF_p}K = \deg(p(t)) = r$ (denn $\{1,overline{t},\dots, \overline{t^{\deg(p(t))-1}}\}$ ist eine Basis). Also $|K| = p^r = n = |\IF|$.  Damit ist $\overline{\ev_x}$ eine injektive Abbildung zwischen endlichen Mengen derselben Kardinalität, also bijektiv.
+	Wir behaupten, dass $\overline{\ev_x}$ surjektiv ist. Wir wissen $\dim_{\IF_p}K = \deg(p(t)) = r$, da $\{1,\overline{t},\dots, \overline{t^{\deg(p(t))-1}}\}$ eine Basis ist. Also gilt $|K| = p^r = n = |\IF|$. Damit ist $\overline{\ev_x}$ eine injektive Abbildung zwischen endlichen Mengen derselben Kardinalität, also bijektiv.
 	
-	$\Rightarrow \exists: \IF_p[t]/(p(t))\xlongrightarrow{\cong}\IF$ Körperisomorphismus für alle $p(t)$ wie im Lemma.
+	Folglich existiert ein $\IF_p[t]/(p(t))\xlongrightarrow{\cong}\IF$ Körperisomorphismus für alle $p(t)$ wie im Lemma.
+	
+	Es bleibt noch zu zeigen, dass ein solches $p(t)$ auch tatsächlich immer existiert; siehe dazu den \hyperref[nachtrag zu 17.4]{Nachtrag} zu Beginn der nächsten Vorlesung.
 \end{proof}
 
 \begin{bem}
-	Lemma \ref{lem:17.4} besagt insbesondere, dass zwei endliche Körper derselben Kardinalität isomorph sind $\Rightarrow \Phi$ ist injektiv. Noch zu zeigen: $\Phi$ ist surjektiv. (das $\Phi$ aus \ref{thm:17.1})
+	Wir betrachten das $\Phi$ aus \cref{thm:17.1}. \cref{lem:17.4} besagt insbesondere, dass zwei endliche Körper derselben Kardinalität isomorph sind; $\Phi$ ist also injektiv. Es bleibt zu zeigen, dass $\Phi$ surjektiv ist.
 \end{bem}
 
-\noindent
-Beachte: Sei $\IF$ wie im Lemma \ref{lem:17.4}. Dann gilt:
+\medskip
+
+Beachte: Sei $\IF$ wie im \cref{lem:17.4} definiert. Dann gilt:
 \begin{enumerate}
 	\item $f(t) = t^n-t\in\IF_p[t]$ zerfällt in Linearfaktoren über $\IF$.
-	\item $\IF= \IF_p(a_1,\dots, a_n)$, wobei $a_1,\dots, a_n$ Nullstelle von $f(t)$
+	\item $\IF= \IF_p(a_1,\dots, a_n)$, wobei $a_1,\dots, a_n$ die Nullstellen von $f(t)$ sind.
 \end{enumerate}
 
 \subsection{Zerfällungskörper}
 \begin{defi}
-	Sei $K$ Körper und $f(t)\in K[t]$ mit $\deg(f(t))\geq 1$. Sei $L\sslash K$ eine Körpererweiterung. Dann heißt $L$ Zerfällungskörper von $f(t)$ über $K$ oder Zerfällungskörper (ZFK) von $f(t) \in K[t]$, falls
+	Sei $K$ ein Körper und $f(t)\in K[t]$ mit $\deg(f(t))\geq 1$. Sei $L\sslash K$ eine Körpererweiterung. Dann heißt $L$ (ein) Zerfällungskörper von $f(t)$ über $K$, falls
 	\begin{enumerate}
-		\item $f(t)$ zerfällt in Linearfaktoren über $L$, das heißt es existieren 
+		\item $f(t)$ in Linearfaktoren über $L$ zerfällt, es existiert also eine Darstellung
 		\begin{equation}
-			a_1,\dots, a_n\in L \text{ und } c\in K \text{ mit }f(t) = c\prod_{i = 1}^{n}(t-a_i)
+			f(t) = c\prod_{i = 1}^{n}(t-a_i) \tag{*} \label{eq:zfklin}
 		\end{equation}
-		\item $L = K(a_1,\dots, a_n)\subseteq L$ mit $a_1,\dots, a_n$ wie in (3)
+		mit $a_1,\dots,a_n \in L$ und $c\in K$, und
+		\item $L = K(a_1,\dots, a_n)\subseteq L$ mit $a_1,\dots, a_n$ wie in \eqref{eq:zfklin} gilt.
 	\end{enumerate}
 \end{defi}
 \begin{bsp}
-	Sei $f(t) = t^2+1\in\IR[t]$. Dann ist $\IC$ Zerfällungskörper über $\IR$, da $f(t) = (t-i)(t+i)$, also gilt 1., und $\IR(i,-i) = \IC$, also gilt 2.
+	Sei $f(t) = t^2+1\in\IR[t]$. Dann ist $\IC$ ein Zerfällungskörper über $\IR$, da $f(t) = (t-i)(t+i)$, also gilt 1., und $\IR(i,-i) = \IC$, also gilt 2.
 \end{bsp}
-\paragraph{Existenz von Zerfällungskörpern} Sei $f(t) \in K[t]$. Betrachte den algebraischen Abschluss $\overline{K}$ von $K$. Dann existieren $a_1,\dots, a_n\in\overline{K}$ und $c\in K$ mit $f(t) = c\prod_{i = 1}^{n}(t-a_i)$. Setze $L: = K(a_1,\dots, a_n)$. Dies ist dann ein Zerfällungskörper von $f(t)\in K[t]$, der in $\overline{K}$ enthaltene Zerfällungskörper.
-
+\paragraph{Existenz von Zerfällungskörpern.} Sei $f(t) \in K[t]$. Betrachte den algebraischen Abschluss $\overline{K}$ von $K$. Dann existieren $a_1,\dots, a_n\in\overline{K}$ und $c\in K$ mit $f(t) = c\prod_{i = 1}^{n}(t-a_i)$. Setze $L: = K(a_1,\dots, a_n)$. Dies ist dann ein Zerfällungskörper von $f(t)\in K[t]$, der in $\overline{K}$ enthaltene Zerfällungskörper.
 
 \lecture{18. Dezember 2017}
+
 Wir wollen später noch zeigen:
 \begin{satz}\label{thm:18.1}
 	Sei $p$ eine Primzahl und $r\in\IN$. Dann existiert ein Körper $\IF$ mit $|\IF| = p^r$.
 \end{satz}
 
-\vspace{3mm}
-Zunächst noch ein Nachtrag zu Lemma \ref{lem:17.4}: Sei $\IF$ Körper mit $|IF| = n = p^r$. Dann folgt, dass $\IF\cong \IF_p[t]/(p(t))$ für jedes $p(t)\in\IF_p[t]$ mit $p(t)$ irreduzibel, Teiler von $t^n-t$ und $\deg(p(t)) = r$. Noch zu zeigen: Ein solches $p(t)$ existiert.
+\medskip
+
+Zunächst noch ein {Nachtrag\label{nachtrag zu 17.4}} zu \cref{lem:17.4}. Beim dortigen Beweis bleibt noch zu zeigen, dass ein solches $p(t)$ existiert.
 \begin{proof}
 	Wir wissen:
 	\begin{itemize}
-		\item $\IF_p\subseteq \IF$ ist der Primkörper
-		\item $\IF^{\times}$ zyklisch, das heißt es existiert ein $a\in\IF^{times}$ mit $\IF^{\times} = \<a\>$.
-		\item für alle Einheiten $x\in \IF^{\times}$: $x^n-x = 0$.
+		\item $\IF_p\subseteq \IF$ ist der Primkörper.
+		\item $\IF^{\times}$ ist zyklisch; es existiert also ein $a\in\IF^{\times}$ mit $\IF^{\times} = \<a\>$.
+		\item Für alle Einheiten $x\in \IF^{\times}$ gilt $x^n-x = 0$.
 	\end{itemize}
-	Insbesondere: $m_a(t)\in\IF_p[t]$ teilt $t^n-t\in\IF_p[t]$ und $\IF_p(a) = \IF$. Betrachte den Ringhomo
+	Insbesondere teilt $m_a(t)\in\IF_p[t]$ dann $t^n-t\in\IF_p[t]$ und es gilt $\IF_p(a) = \IF$. Betrachte den Ringhomomorphismus
 	\begin{eqnarray*}
 		\ev_a\colon \IF_p[t] & \longto & \IF\\
-		\sum_{i = 0}^{\infty} b_it^i & \longmapsto &\sum_{i = 0}^{\infty}b_ia^i
+		\sum_{i = 0}^{\infty} b_it^i & \longmapsto &\sum_{i = 0}^{\infty}b_ia^i.
 	\end{eqnarray*}
-	Klar ist: $\im\ev_a = \IF_p(a) = \IF$, also $\ev_a$ surjektiv. Nach dem Homomorphiesatz existiert ein Ringhomo
-	$$\overline{\ev_a}\colon K := \IF_p[t]/(m_a(t))\longto \IF$$
-	mit $\ev_a = \overline{\ev_a}\circ\can$. Also ist $\overline{\ev_a}$ surjektiv und $K$ ist ein Körper, also auch injektiv. $\Rightarrow \overline{\ev_a}$ ist ein Isomorphismus von Körpern.
+	Klar ist, dass $\im\ev_a = \IF_p(a) = \IF$ gilt; $\ev_a$ ist also surjektiv. Nach dem \nameref{thm:homsatz_r} existiert ein Ringhomomorphismus
+	\[\overline{\ev_a}\colon K := \IF_p[t]/(m_a(t))\longto \IF\]
+	mit $\ev_a = \overline{\ev_a}\circ\can$. Dieser ist $\overline{\ev_a}$ surjektiv und auch injektiv, da $K$ ein Körper ist. Somit ist $\overline{\ev_a}$ ist ein Isomorphismus von Körpern.
 	
-	Insbesondere ist $\deg(m_a(t)) = \dim_{\IF_p}K = \dim_{\IF_p}\IF= r$. Klar ist, dass $m_a(t)$ irreduzibel ist, und es teilt $t^m-t$. Folglich ist $m_a(t)$ ein gesuchtes Polynom.
+	Insbesondere ist $\deg(m_a(t)) = \dim_{\IF_p}K = \dim_{\IF_p}\IF= r$. Klar ist, dass $m_a(t)$ irreduzibel ist und $t^m-t$ teilt. Folglich ist $m_a(t)$ ein gesuchtes Polynom.
 \end{proof}
 
 \begin{defi}
-	Sei $K$ ein Körper, $f\in K[t]$ mit $f = \sum_{i = 0}^n a_it^i$. Die formale Ableitung von $f(t)$ ist $f'(t) = \sum_{i = 1}^{n} ia_it^{i-1}\in K[t]$. 
+	Sei $K$ ein Körper sowie $f\in K[t]$ mit $f = \sum_{i = 0}^n a_it^i$. Die formale Ableitung von $f(t)$ ist $f'(t) = \sum_{i = 1}^{n} ia_it^{i-1}\in K[t]$.
 \end{defi}
 \begin{bsp}
-	\leavevmode
-	\begin{itemize}
-		\item[] $f(t) = 2t^3+2t^2+1\in \IF_3[t]$
-		\item[] $f'(t) = 6t^2 + 4t = t\in\IF_3[t]$
-	\end{itemize}
+	\[
+	f(t) = 2t^3+2t^2+1\in \IF_3[t] \quad \Longrightarrow \quad f'(t) = 6t^2 + 4t = t\in\IF_3[t]
+	\]
 \end{bsp}
-Übung: Formale Ableitung erfüllt Produktregel $(fg)' = f'g+fg'$.
+
+\noindent
+Übungsblatt: Die formale Ableitung erfüllt die Produktregel $(fg)' = f'g+fg'$.
 
 \begin{satz}
-	$L\sslash K$ Körpererweiterung, $f,g\in K[t]$, $g\neq 0$. Dann:
+	$L\sslash K$ eine Körpererweiterung sowie $f,g\in K[t]$ und $g\neq 0$. Dann:
 	\begin{enumerate}
-		\item Gilt $f = hg+r$ in $L[t]$ mit $\deg(r)<\deg(h)$, dann auch $f = hg+r$ in $K[t]$.
-		\item Falls $g$ das Polynom $f$ in $L[t]$ teilt, dann auch in $K[t]$.
-		\item der normierte $ggt(f,g)$ in $L[t]$ $= $ normierter $ggt(f,g)$ in $K[t]$.
+		\item Gilt $f = hg+r$ in $L[t]$ mit $\deg(r)<\deg(h)$, dann gilt auch $f = hg+r$ in $K[t]$.
+		\item Falls $g$ das Polynom $f$ in $L[t]$ teilt, dann teilt es es auch in $K[t]$.
+		\item Die normierten größten gemeinsamen Teiler in $L[t]$ und $K[t]$ sind gleich.
 	\end{enumerate}
 \end{satz}
 \begin{proof}
-	$K[t]$ ist euklidisch $\Rightarrow \exists h', r'\in K[t]$ mit $f = h'g+r'$, wobei $\deg(r')<\deg(g)$. Da $L[t]$ ebenfalls euklidisch ist, existieren eindeutige $h, r\in L[t]$ mit $f = hg+r$ und $\deg(r) <\deg(g)$. Aus der Eindeutigkeit folgt $h = h'$, $r = r'$. Also gilt die 1. Aussage. Die 2. Aussage folgt aus 1. mit $r = 0$. 3. bleibt dem aufmerksamen Leser als Übung überlassen.
+	Da $K[t]$ euklidisch ist, existieren $h', r'\in K[t]$ mit $f = h'g+r'$, wobei $\deg(r')<\deg(g)$. Da $L[t]$ ebenfalls euklidisch ist, existieren eindeutige $h, r\in L[t]$ mit $f = hg+r$ und $\deg(r) <\deg(g)$. Aus der Eindeutigkeit folgen $h = h'$ und $r = r'$. Also gilt die 1. Aussage. Die 2. Aussage folgt aus der ersten mit $r = 0$. Die letzte Aussage bleibt dem aufmerksamen Leser als Übung überlassen.
 \end{proof}
 
-\begin{satz}
-	Sei $K$ Körper, $p\in K[t]$, $p\neq 0$. Sei $L$ ein Zerfällungskörper von $p$ über $K$. Dann sind folgende Aussagen äquivalent:
+\begin{satz} \label{thm:18.3}
+	Sei $K$ ein Körper sowie $p\in K[t]$ mit $p\neq 0$. Sei $L$ ein Zerfällungskörper von $p$ über $K$. Dann sind folgende Aussagen äquivalent:
 	\begin{enumerate}
-		\item $p$ hat mehrfache Nullstelle in $L$ (d.h. $\exists a\in L: (t-a)^2|p$ in $L[t]$).
+		\item $p$ hat eine eine mehrfache Nullstelle in $L$, es existiert also ein $a\in L$ mir $(t-a)^2\mid p$ in $L[t]$.
 		\item $p$ und $p'$ haben einen gemeinsamen Teiler $h(t)\in L[t]\setminus L$.
 		\item $p$ und $p'$ haben eine gemeinsame Nullstelle.
 	\end{enumerate}
@@ -2964,86 +2970,80 @@ Zunächst noch ein Nachtrag zu Lemma \ref{lem:17.4}: Sei $\IF$ Körper mit $|IF|
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[$1\Rightarrow 2$:] Sei $a\in L$ mehrfache Nullstelle von $p$. Dann ist $p = (t-a)^2Q(t) = (t^2-2at+a^2)Q(t)$ für ein $Q(t)\in L[t]$. Nach der Produktregel ist $p' = 2(t-a)Q(t) + (t-a)^2Q'(t)$. Damit teilt $(t-a)$ sowohl $p$ als auch $p'$.
-		\item[$2\Rightarrow 3$:] $p$ und $p'$ haben einen gemeinsamen Teiler $h(t)\in L[t]\setminus L$. Da $L$ Zerfällungskörper von $p$ ist, existiert ein $a\in L$, das Nullstelle von $h(t)$ ist. Insbesondere ist $a$ eine gemeinsame Nullstelle von $p$ und $p'$.
-		\item[$3\Rightarrow 1$:] Sei $a$ eine gemeinsame Nullstelle von $p$ und $p'$. Also ist $p = (t-a)Q(t)$ mit $Q(t)\in L[t]$. Es folgt $p' = Q(t) + (t-a)Q'(t)$. Da $(t-a)$ das Polynom $p'$ teilt, muss also $(t-a)$ auch $Q(t)$ teilen und $(t-a)^2|p$. Folglich ist $a$ mehrfache Nullstelle von $p$.
+		\item[\glqq$1\Rightarrow 2$\grqq:] Sei $a\in L$ eine mehrfache Nullstelle von $p$. Dann ist $p = (t-a)^2Q(t) = (t^2-2at+a^2)Q(t)$ für ein $Q(t)\in L[t]$. Nach der Produktregel ist $p' = 2(t-a)Q(t) + (t-a)^2Q'(t)$. Damit teilt $(t-a)$ sowohl $p$ als auch $p'$.
+		\item[\glqq$2\Rightarrow 3$\grqq:] $p$ und $p'$ haben einen gemeinsamen Teiler $h(t)\in L[t]\setminus L$. Da $L$ ein Zerfällungskörper von $p$ ist, existiert ein $a\in L$, welches eine Nullstelle von $h(t)$ ist. Insbesondere ist $a$ eine gemeinsame Nullstelle von $p$ und $p'$.
+		\item[\glqq$3\Rightarrow 1$\grqq:] Sei $a$ eine gemeinsame Nullstelle von $p$ und $p'$. Also ist $p = (t-a)Q(t)$ mit $Q(t)\in L[t]$. Es folgt $p' = Q(t) + (t-a)Q'(t)$. Da $(t-a)$ das Polynom $p'$ teilt, muss also $(t-a)$ auch $Q(t)$ teilen und somit gilt $(t-a)^2\mid p$. Folglich ist $a$ eine mehrfache Nullstelle von $p$.
 	\end{description}
 \end{proof}
 \begin{kor}
-	Sei $p\in K[t]\setminus K$ ($K$ Körper) irreduzibel. Dann sind äquivalent\begin{enumerate}
-		\item $p$ hat mehrfache Nullstelle im Zerfällungskörper
-		\item $p' = 0$ (Nullpolynom)
-		\item $\exists Q\in K[t]$ mit $p = Q(t^p)$ mit $0<p = \chr K$.
+	Sei $K$ ein Körper und $p\in K[t]\setminus K$ irreduzibel. Dann sind äquivalent:
+	\begin{enumerate}
+		\item $p$ hat eine mehrfache Nullstelle im Zerfällungskörper.
+		\item $p' = 0$ (Nullpolynom).
+		\item Es existiert ein $Q\in K[t]$ mit $p = Q(t^p)$ mit $0<p = \chr K$.
 	\end{enumerate}
 \end{kor}
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[$2\Rightarrow3$:] Sei $p = a_nt^n+\dots +a_1t+a_0$ mit $a_n \neq 0$, $n\geq 1$. Mit der Voraussetzugn $p' = 0$ folgt $ja_j = 0$ für alle $1\leq j\leq n$. Da $K$ aber nullteilerfrei ist, gilt $n = 0$ in $K$. Folglich existiert eine Primzahl $p$ mit $p = \chr K$ und dann $n = pk$ für ein $k\in\IN$. Also ist $ja_j = 0$, falls $a_j = 0$ oder $j$ Vielfaches von $p$. Das heißt, $p = a_0+a_pt^p+a_{2p}t^{2p}+\dots+a_{pk}t^{pk}$. Damit ist $p = Q(t^p)$, wobei $Q(t)= a_0+a_pt+a_{2p}t^2+\dots a_{pk}t^k$.
-		\item[$3\Rightarrow1$:] Sei $a$ Nullstelle von $Q(t)$ in einem Zerfällungskörper $L$ von $Q(t)$. Dann ist $Q(t) = (t-a)h(t)$ für ein $h(t)\in L[t]$. 
+		\item[\glqq$2\Rightarrow3$\grqq:] Sei $p = a_nt^n+\dots +a_1t+a_0$ mit $a_n \neq 0$, $n\geq 1$. Mit der Voraussetzung $p' = 0$ folgt $ja_j = 0$ für alle $1\leq j\leq n$. Da $K$ aber nullteilerfrei ist, gilt $n = 0$ in $K$. Folglich existiert eine Primzahl $q$ mit $q = \chr K$ und dann $n = qk$ für ein $k\in\IN$. Also ist $ja_j = 0$, falls $a_j = 0$ oder $j$ Vielfaches von $p$. Das heißt, $p = a_0+a_pt^p+a_{2p}t^{2p}+\dots+a_{pk}t^{pk}$. Damit ist $p = Q(t^p)$, wobei $Q(t)= a_0+a_pt+a_{2p}t^2+\dots a_{pk}t^k$.
+		\item[\glqq$3\Rightarrow1$\grqq:] Sei $a$ eine Nullstelle von $Q(t)$ in einem Zerfällungskörper $L$ von $Q(t)$. Dann ist $Q(t) = (t-a)h(t)$ für ein $h(t)\in L[t]$; es gilt also $p = (t^p-a)h(t^p)$. Sei $b$ eine Nullstelle von $t^p-a$, also eine $p$-te Wurzel von $a$, in einem algebraischen Abschluss von $K$. 
 		
-		$\Rightarrow p = (t^p-a)h(t^p)$. Wähle Nullstelle $b$ von $t^p-a$ (also $p$-te Wurzel von $a$) in einem algebraischen Abschluss von $K$. 
-		
-		$\Rightarrow p(t) = (t^p-b^p)h(t^p) = (t-b)^pn(t^p)$. Da $p\geq 2$ ist, hat $p(t)$ mehrfache Nullstelle $b$ in einem algebraischen Abschluss von $K$, also auch in dem zugehörigen Zerfällungskörper.
-		\item[$1\Rightarrow3$:] Sei $a$ mehrfache Nullstelle von $p$. Nach Satz 18.3 ist $a$ gemeinsame  Nullstelle von $p$ und $p'$ bzw. $p$ und $p'$ haben gemeinsamen Teiler $h(t)\in L[t]\setminus L$.
-		\begin{itemize}
-			\item $h(t)\neq 0$ (sonst $p(t) = 0$ im Widerspruch zu $p$ irreduzibel)
-			\item Da $p$ irreduzibel ist und $\deg(h(t)) \leq \deg(p')<\deg(p)$ (falls $p' \neq 0$). Damit ist $h(t)$ Einheit im Widerspruch zu $h(t) \notin L$. Also ist $p' = 0$.
-		\end{itemize}
+		Nach der binomischen Formel \glqq für Dumme\grqq\ erhalten wir $p(t) = (t^p-b^p)h(t^p) = (t-b)^pn(t^p)$. Da $p\geq 2$ ist, hat $p(t)$ die mehrfache Nullstelle $b$ in einem algebraischen Abschluss von $K$, also auch in dem zugehörigen Zerfällungskörper.
+		\item[\glqq$1\Rightarrow3$\grqq:] Sei $a$ eine mehrfache Nullstelle von $p$. Nach \cref{thm:18.3} ist $a$ eine gemeinsame  Nullstelle von $p$ und $p'$ bzw. $p$ und $p'$ haben einen gemeinsamen Teiler $h(t)\in L[t]\setminus L$. Es gilt $h(t)\neq 0$, da sonst schon $p(t) = 0$ im Widerspruch zur Irreduzibilität von $p$ ist. Da $p$ irreduzibel ist und $\deg(h(t)) \leq \deg(p')<\deg(p)$ im Fall von $p' \neq 0$, ist damit $h(t)$ eine Einheit im Widerspruch zu $h(t) \notin L$. Also ist $p' = 0$.
 	\end{description}
 \end{proof}
 
 \begin{defi}
-	Sei $K$ ein Körper, $\chr K = p$. Dann ist $Fr\colon K\to K, a\mapsto a^p$ ein Ringhomomorphismus, der Frobeniushomomorphismus. (Denn $Fr(xy) = (xy)^p = x^py^p = Fr(x)Fr(y)$ und $Fr(x+y) = (x+y)^p = x^p+y^p = Fr(x) + Fr(y)$.
+	Sei $K$ ein Körper, $\chr K = p$. Dann ist $\Fr\colon K\to K, a\mapsto a^p$ ein Ringhomomorphismus, der Frobeniushomomorphismus. (Denn $\Fr(xy) = (xy)^p = x^py^p = \Fr(x)\Fr(y)$ und $\Fr(x+y) = (x+y)^p = x^p+y^p = \Fr(x) + \Fr(y)$ für alle $x,y\in K$.)
 \end{defi}
 
-\begin{proof}[Beweis von \ref{thm:18.1} (Existenz eines Körpers mit $p^r = n$ Elementen)]
-	Sei $p(t) = t^n-t\in\IF_p[t]$. Sei $L$ ein Zerfällungskörper von $p(t)$ über $\IF_p$. Dann ist $\IF_p\subseteq L$ Primkörper, also $\chr L = p$. Betrachte $Fr^r : = Fr\circ\dots\circ Fr\colon L\to L$ $r$-ter Frobeniushomomorphismus. Betrachte nun
-	 $$L^{Fr^r} = \{x\in L|Fr^r(x) = x\} = \{x\in L|x^{p^r} = x\} = \{x\in L|x^n -x = 0\}\subseteq L$$
-	 Nachrechnen: $L^{Fr^r}\subseteq L$ ist ein Unterkörper. Da $L$ Zerfällungskörper ist von $p(t ) = t^n-t$ und andererseits alle Nullstellen von $t^n-t$ schon in $L^{Fr^r}$, gilt $L^{Fr^r} = L$. Daher ist $|L|\leq n$, weil $t^n-t$ höchstens $n$ verschiedene Nullstellen hat. Nun reicht es zu zeigen: $|L| = n$.
-	 
-	 Behauptung: $t^n-t$ hat $n$ verschiedene Nullstellen. (Damit folgt dann $\IF= L$ ist der gesuchte Körper). Angenommen, es gibt weniger als $n$ verschiedene Nullstellen, dann existiert eine mehrfache Nullstelle $a$ in $L$ (da $L$ ein Zerfällungskörper ist). Dann gilt aber $p'(a) = 0$. Andererseits ist $p'(t) = nt^{n-1}-1 = -1$, da $n = p^r$ und wir in Charakteristik $p$ sind. Folglich ist $p'$ nie $0$ und wir haben einen Widerspruch. Also hat $t^n-t$ genau $n$ verschiedene Nullstellen.	
+\begin{proof}[Beweis von \cref{thm:18.1}]
+	Sei $p(t) = t^n-t\in\IF_p[t]$. Sei $L$ ein Zerfällungskörper von $p(t)$ über $\IF_p$. Dann ist $\IF_p\subseteq L$ der Primkörper, also $\chr L = p$. Betrachte $\Fr^r : = \Fr\circ\dots\circ \Fr\colon L\to L$ als den $r$-ten Frobeniushomomorphismus. Sei weiterhin
+	\[L^{\Fr^r} := \{x\in L\mid Fr^r(x) = x\} = \{x\in L\mid x^{p^r} = x\} = \{x\in L\mid x^n -x = 0\}\subseteq L.\]
+	Man rechnet leicht nach, dass $L^{\Fr^r}\subseteq L$ ein Unterkörper von $L$ ist. Da $L$ ein Zerfällungskörper von $p(t ) = t^n-t$ ist und andererseits alle Nullstellen von $t^n-t$ schon in $L^{Fr^r}$ liegen, gilt $L^{\Fr^r} = L$. Daher ist $|L|\leq n$, weil $t^n-t$ höchstens $n$ verschiedene Nullstellen hat. Nun reicht es zu zeigen, dass $|L| = n$.
+	
+	Wir behaupten, dass $t^n-t$ genau $n$ verschiedene Nullstellen hat; damit ist dann $\IF := L$ der gesuchte Körper. Angenommen, es gibt weniger als $n$ verschiedene Nullstellen; dann existiert eine mehrfache Nullstelle $a$ in $L$, da $L$ ein Zerfällungskörper ist. Dann gilt aber $p'(a) = 0$. Andererseits ist $p'(t) = nt^{n-1}-1 = -1$, da $n = p^r$ und wir mit Charakteristik $p$ rechnen. Folglich ist $p'$ nie $0$ und wir erhalten einen Widerspruch. Also hat $t^n-t$ genau $n$ verschiedene Nullstellen.	
 \end{proof}
 
-Damit ist der Klassifikationssatz der endlichen Körper gezeigt.
+Damit ist der \nameref{thm:17.1} gezeigt.
 
 \begin{kor}
-	Der Zerfällungskörper von $p(t) = t^n-t\in\IF_p[t]$ (mit $p,n$ wie in \ref{thm:18.1}) ist eindeutig bis auf Isomorphie.
+	Der Zerfällungskörper von $p(t) = t^n-t\in\IF_p[t]$ (mit $p,n$ wie in \cref{thm:18.1}) ist eindeutig bis auf Isomorphie.
 \end{kor}
 \begin{proof}
-	Denn $\Phi(p^r):= \IF$ ist Zerfällungskörper von $t^n-t$ und ist eindeutig bis auf Ismorphismus von Körpern.
+	$\Phi(p^r) := \IF$ ist (ein) Zerfällungskörper von $t^n-t$ und ist eindeutig bis auf Isomorphie von Körpern.
 \end{proof}	
 
-\noindent
-Allgemein:
-\begin{satz}
-	Seien $K$ und $K'$ Körper und $\phi\colon K\to K'$ Ringhomomorphismus. Sei $f(t)\in K[t]\setminus K$ und $L$ bzw. $L'$ Zerfällungskörper von $f(t)$ über $K$ bzw. von $\phi_{*}(f)\in K'[t]\setminus K'$, wobei 
+Allgemeiner lässt sich der folgende Satz formulieren:
+\begin{satz} \label{thm:18.6}
+	Seien $K$ und $K'$ Körper und $\phi\colon K\to K'$ ein Ringhomomorphismus. Sei $f(t)\in K[t]\setminus K$ und $L$ bzw. $L'$ Zerfällungskörper von $f(t)$ über $K$ bzw. von $\phi_{*}(f)\in K'[t]\setminus K'$, wobei 
 	\begin{eqnarray*}
 		\phi_{*}\colon K[t] & \longto & K'[t]\\
-		\sum b_it^i & \longmapsto & \sum \phi(b_i)t^i
+		\sum b_it^i & \longmapsto & \sum \phi(b_i)t^i.
 	\end{eqnarray*}
-	Falls $\phi$ Isomorphismus ist, dann existiert ein Ringisomorpismus $\hat \phi\colon L\to L'$ mit $\hat\phi|_K = \phi$.
+	Falls $\phi$ ein Isomorphismus ist, dann existiert ein Ringisomorpismus $\hat \phi\colon L\to L'$ mit $\hat\phi|_K = \phi$.
 \end{satz}
 \begin{proof}
-	Wähle (siehe Eindeutigkeit Version 1) algebraischen Abschluss $\overline{K}$ bzw. $\overline{K'}$ von $K$ bzw. $K'$ so, dass $K\subseteq L\subseteq \overline{K}$ und $K'\subseteq L'\subseteq \overline{K'}$. Der Fortsetzungssatz sagt uns nun, dass ein Homomorphismus $\hat\phi\colon \overline{K}\to\overline{K'}$ existiert mit $\hat\phi|_K = \phi$. Falls $\phi$ Isomorphismus ist, dann ist auch $\hat\phi$ Isomorphismus von Körpern.
+	Wähle den bis auf Isomorphie eindeutigen algebraischen Abschluss $\overline{K}$ bzw. $\overline{K'}$ von $K$ bzw. $K'$ so, dass $K\subseteq L\subseteq \overline{K}$ und $K'\subseteq L'\subseteq \overline{K'}$. Der \nameref{thm:fortsetz} sagt uns nun, dass ein Homomorphismus $\hat\phi\colon \overline{K}\to\overline{K'}$ mit $\hat\phi|_K = \phi$ existiert. Falls $\phi$ ein Isomorphismus ist, dann ist auch $\hat\phi$ Isomorphismus von Körpern.
 	
-	Andererseits existieren $a_1,\dots, a_n\in \overline{K}$ und $c\in K$ mit $f(t) = c\prod_{i = 1}^n(t-a_i)$ und damit $\hat\phi(f(t)) = \phi(c)\prod_{i = 1}^n(t-\hat\phi(a_i))$. Also ist $\hat\phi(a_i)$ für $1\leq i\leq n$ Nullstelle von $\hat\phi(f(t)) = \phi_{*}(f(t))$. Damit ist $L = K(a_1,\dots, a_n)$ (da Zerfällungskörper von $K$) wird unter $\hat\phi$ abgebildet auf $L' = K'(\hat\phi(a_1),\dots ,\hat\phi(a_n))$ offensichtlich surjektiv auf $L'$; injektiv automatisch, also ist $\hat\phi$ Isomorphismus von Körpern.
+	Andererseits existieren $a_1,\dots, a_n\in \overline{K}$ und $c\in K$ mit $f(t) = c\prod_{i = 1}^n(t-a_i)$ und damit $\hat\phi(f(t)) = \phi(c)\prod_{i = 1}^n(t-\hat\phi(a_i))$. Also ist $\hat\phi(a_i)$ für $1\leq i\leq n$ eine Nullstelle von $\hat\phi(f(t)) = \phi_{*}(f(t))$. Damit ist $L = K(a_1,\dots, a_n)$, da er ein Zerfällungskörper von $K$ ist, und wird unter $\hat\phi$ auf $L' = K'(\hat\phi(a_1),\dots ,\hat\phi(a_n))$ abgebildet. $\hat{\phi}$ ist offensichtlich surjektiv. Da $\hat{\phi}$ automatisch injektiv ist, ist $\hat\phi$ ein Isomorphismus von Körpern.
 \end{proof}
 
 \begin{satz}[Eindeutigkeit des Zerfällungskörpers]
 	Sei $K$ ein Körper und $L, L'$ Zerfällungskörper von $K$. Dann existiert ein $K$-Isomorphismus $\hat\phi\colon L\to L'$. 
 \end{satz}
 \begin{proof}
-	Wende Satz 18.6 auf $K' = K$ und $\phi = \id$ an.
+	Wende \cref{thm:18.6} auf $K' = K$ und $\phi = \id_K$ an.
 \end{proof}
 \begin{satz}
-	Sei $\IF$ ein endlicher Körper, $|\IF| = p^r = n$. Dann gilt:
+	Sei $\IF$ ein endlicher Körper sowie $|\IF| = p^r = n$. Dann gilt:
 	\begin{itemize}
-		\item $Gal(\IF/\IF_p) = \{\phi\colon \IF\to \IF|\phi\text{ Ringisomorphismus}\}$.
-		\item $Gal(\IF/\IF_p) \cong (\IZ/n\IZ, +)$ als Gruppe, erzeugt von $Fr$. Wir werden zeigen, dass daraus folgt, dass eine Bijektion (Galoiskorrespondenz) existiert:
+		\item $\Gal(\IF\sslash\IF_p) = \{\phi\colon \IF\to \IF\mid\text{$\phi$ Ringisomorphismus}\}$.
+		\item $\Gal(\IF\sslash\IF_p) \cong (\IZ/n\IZ, +)$ als Gruppe, erzeugt von $\Fr$. Wir werden zeigen, dass daraus folgt, dass eine Bijektion (Galoiskorrespondenz) existiert:
 		\begin{eqnarray*}
-			\{\text{Untergruppen von }Gal(\IF/\IF_p)\}&\xlongleftrightarrow{1:1}&\{\text{Unterkörper }von \IF\}\\
-			U &\longmapsto & \IF^U = \{x\in\IF|\phi(x) = x\forall \phi\in U\}
+			\{\text{Untergruppen von $\Gal(\IF\sslash\IF_p)$}\}&\xlongleftrightarrow{1:1}&\{\text{Unterkörper von $\IF$}\}\\
+			U &\longmapsto & \IF^U = \{x\in\IF\mid \phi(x) = x \;\forall \phi\in U\}
 		\end{eqnarray*}
 	\end{itemize}
 \end{satz}
