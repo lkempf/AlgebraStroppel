@@ -5,7 +5,7 @@ install:
 - sudo apt-get -qq update
 - sudo apt-get install -y wget
 - 'wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu && chmod +x ./install-tl-ubuntu'
-- sudo ./install-tl-ubuntu
+- sudo ./install-tl-ubuntu --profile default.profile
 - sudo apt-get install -y latexmk
 - eval "$(sed 's/^/export /' /etc/environment)"
 deploy:
