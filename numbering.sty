@@ -63,22 +63,16 @@
 \newtheorem{lem}[thmcounter]{Lemma}
 
 \newcommand{\lecture}[1]{
-	\vspace{0.5cm}
-	\vbox{
-		\noindent\makebox[\textwidth]{
-			\begin{minipage}{\textwidth}
-				\flushright
-				\ifdefined \@lastLectureDate
-					{\footnotesize[\@lastLectureDate]}
-					\vspace{2pt}
-				\fi
-				\hrule
-				\vspace{2pt}
-				{\footnotesize[#1]} 
-			\end{minipage}
-		}
-	}
-	\def\@lastLectureDate{#1}
+	\vspace{0.5cm}%
+	\ifdefined \@lastLectureDate
+		\hfill%
+		{\footnotesize[\@lastLectureDate]}%
+		\vspace{2pt}%
+	\fi
+	\hrule%
+	\vspace{2pt}%
+	\hfill{\footnotesize[#1]}%
+	\def\@lastLectureDate{#1}%
 }
 
 \newcommand{\namereff}[1]{\textsc{\nameref{#1}}}	
