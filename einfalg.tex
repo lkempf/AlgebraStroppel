@@ -1360,8 +1360,8 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 \begin{defi}
 	Sei $R$ ein kommutativer Ring, $R\neq \{0\}$. Ein Ideal $I\subsetneq R$ heißt maximal, falls $I\neq R$ und $\nexists J\subsetneq R$ Ideal mit $I\subsetneq J\subsetneq R$ (echte Teilmengen).
 \end{defi}
-\begin{lem}
-	Sei $R$ kommutativer Ring, $R\neq \{0\}$. Dann ist $R$ genau dann ein Körper, wenn $\lbrace 0 \rbrace$ einziges (maximales) Ideal ist.
+\begin{lem} \label{lem:field_0_max_ideal}
+	Sei $R$ kommutativer Ring, $R\neq \{0\}$. Dann ist $R$ genau dann ein Körper, wenn $\lbrace 0 \rbrace$ das einzige (maximale) Ideal ist.
 \end{lem}
 \begin{proof}
 	\leavevmode
@@ -1373,7 +1373,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 	\end{itemize}
 \end{proof}
 
-\begin{bsp}
+\begin{bsp} \label{bsp:IZ_max_ideal_klas}
 	Betrachte $R = \IZ$ sowie ein Ideal $I\subseteq \IZ$. Dann ist $I$ genau dann maximal, wenn $I = (p)$, wobei $p$ prim ist.
 	\begin{proof}
 		\leavevmode
@@ -1386,13 +1386,13 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 	\end{proof}
 \end{bsp}
 
-\begin{satz} \label{satz8}
+\begin{satz} \label{thm:field_max_ideal}
 	Sei $R$ ein kommutativer Ring, $R \neq\{0\}$, $I\subseteq R$ Ideal. $R/I$ ist genau dann ein Körper, wenn $I$ ein maximales Ideal ist.
 \end{satz}
 
 \paragraph{Als Vorbereitung:}
 
-\begin{satz}
+\begin{satz} \label{thm:ideal_bij}
 	Sei $\phi\colon R\to S$ ein Ringepimorphismus. Dann gibt es eine Bijektion zwischen den Mengen
 	\begin{alignat*}{2}
 		\left\{\substack{\text{Ideale in $R$}\\\text{ mit $\ker \phi\subseteq I$} }\right\}&\longleftrightarrow \; &&\{\text{Ideale in $S$}\} \\\intertext{durch}
@@ -1406,8 +1406,11 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 	\begin{itemize}
 		\item[(I1)] Das ist klar, weil Bilder von Gruppen unter Gruppenhomomorphismen wieder Gruppen sind.
 		\item[(I2)] Es ist zu zeigen: Falls $x\in \phi(I) , r\in S$ dann gilt $ rx\in \phi(I), xr\in \phi(I)$. Weil $\phi$ surjektiv ist, existiert ein $r'\in R$ mit $\phi(r') = r$. Nach Annahme existiert ein $y \in I$ mit $\phi(y) = x$. Dann gilt $\phi(r'y) = \phi (r')\phi(y)  = rx\in \phi(I)$, weil  $I$ ein Ideal ist. Genauso gilt $\phi(yr') = xr\in\phi(I)$. Somit ist $\phi(I)$ ein Ideal.
-
-		$\phi^{-1}(J)\subseteq R$ Ideal mit $\ker\phi\subseteq \phi^{-1}(J)$: $\ker\phi\subseteq \phi^{-1}(J)$, weil $\ker\phi = \phi^{-1}(\{0\})$ und $0\in J$ für jedes Ideal $J$. Klar: $\phi^{-1}(J)$ Untergruppe. Sei $r\in R, x\in\phi^{-1}(J)$; zu zeigen: $rx = xr\in\phi^{-1}(J)$. Es gilt $\phi(rx) = \phi(r)\phi(x)\in J$. Genauso $\phi(xr)\in J$. Also $rx,xr\in\phi^{-1}(J)$.
+	\end{itemize}
+	Behauptung: $\phi^{-1}(J)\subseteq R$ ist ein Ideal mit $\ker\phi \subseteq \phi^{-1}(J)$.
+	\begin{itemize}
+		\item[(I1)]	Sei $\phi^{-1}(J)\subseteq R$ ein Ideal. Dann gilt $\ker\phi\subseteq \phi^{-1}(J)$, weil $\ker\phi = \phi^{-1}(\{0\})$ und $0\in J$ für jedes Ideal $J$. Es ist klar, dass $\phi^{-1}(J)$ eine Untergruppe von $R$ ist, da $\phi$ ein Gruppenhomomorphismus ist. 
+		\item[(I2)] Sei $r\in R, x\in\phi^{-1}(J)$; es ist zu zeigen, dass $rx, xr\in\phi^{-1}(J)$. Es gilt $\phi(rx) = \phi(r)\phi(x)\in J$. Genauso gilt $\phi(xr)\in J$. Also liegen $rx$ und $xr$ in $\phi^{-1}(J)$, womit die Behauptung gezeigt ist.
 	\end{itemize}
 	\lecture{6. November 2017}
 
@@ -1416,52 +1419,53 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 		\item[$\phi^{-1}(\phi(I)) = I$:] \leavevmode
 		\begin{itemize}
 			\item[\glqq $\supseteq$\grqq] $x\in I \Rightarrow \phi(x) \in \phi(I)\Rightarrow x\in \phi^{-1}(\phi(I))$
-			\item[\glqq $\subseteq$\grqq] $x\in \phi^{-1}(\phi(I)) \Rightarrow \phi(x)\in \phi(I)\Rightarrow \exists y\in I$ mit $\phi(x) = \phi(y)\Rightarrow \phi(x+(-y)) = 0\xRightarrow[x+(-y)\in I]{y\in I} x\in I$
+			\item[\glqq $\subseteq$\grqq] 
+			\begin{align*}
+				&x\in \phi^{-1}(\phi(I)) \\
+				\Rightarrow & \phi(x)\in \phi(I) \\
+				\Rightarrow & \exists y\in I \text{ mit } \phi(x) = \phi(y) \\
+				\Rightarrow & \phi(x+(-y)) = 0 \\
+				\Rightarrow & x\in I, \text{ da } y \in I
+			\end{align*}
 		\end{itemize}
-		\item[$\phi(\phi^{-1}) = I$:] \leavevmode
+		\item[$\phi(\phi^{-1}(J)) = I$:] \leavevmode
 		\begin{itemize}
-			\item[\glqq $\supseteq$\grqq] $x\in J \xRightarrow{\phi\text{ surj}}\exists y\in R$ mit $\phi(y) = x\Rightarrow y\in\phi^{-1}(J)$ und $\phi(y) = x\Rightarrow x\in\phi(\phi^{-1}(J))$.
-			\item[\glqq$\subseteq$\grqq] $x\in\phi(\phi^{-1}(J))\Rightarrow \exists y\in\phi^{-1}(J): \phi(y) = x\Rightarrow x\in J$
+			\item[\glqq $\supseteq$\grqq] 
+			\begin{align*}
+				&x\in J \\
+				\Rightarrow &\exists y\in R \text{ mit } \phi(y) = x \\
+				\Rightarrow &y\in\phi^{-1}(J) \text{ und } \phi(y) = x \\
+				\Rightarrow &x\in\phi(\phi^{-1}(J))
+			\end{align*}
+			\item[\glqq$\subseteq$\grqq] $x\in\phi(\phi^{-1}(J))\Rightarrow \exists y\in\phi^{-1}(J)\colon \phi(y) = x\Rightarrow x\in J$
 		\end{itemize}
 	\end{description}
 \end{proof}
 
-\begin{bem} Beachte: Die Bijektion von Satz 7.9 ist inklusionserhaltend, also 
+\begin{bem} Beachte: Die Bijektion von \cref{thm:ideal_bij} ist inklusionserhaltend, also 
 	\[
 	\underbrace{I \subseteq I'}_{\mathclap{\substack{\text{Ideale in $R$,}\\\text{die $\ker\phi$ enthalten}}}} \quad \Longleftrightarrow \quad \phi(I) \subseteq \phi(I').
 	\]
 \end{bem}
 
-\begin{proof}[Beweis von \cref{satz8}] %TODO: Das hier noch sauberer machen
-	Setze $\phi = \can\colon R\to R/I$ (surjektiv mit $\ker\phi = I$).
+\begin{proof}[Beweis von \cref{thm:field_max_ideal}] %TODO: Das hier noch sauberer machen
+	Setze $\phi := \can \colon R\to R/I$ (surjektiv mit $\ker\phi = I$).
 	\begin{itemize}
-		\item [\glqq $\Leftarrow$\grqq ] Voraussetzung: $R/I$ ist Körper.
-		
-		$\xRightarrow{7.7}\{0\}\subset R/I$ ist maximales Ideal.
-		
-		$\xRightarrow{7.9}\phi^{-1}(\{0\}) = I$ und $\phi^{-1}(R/I) = R$ sind die einzigen Ideale, die $I$ enthalten $\Rightarrow I $ maximales Ideal.
-		
-		\item[\glqq$\Rightarrow$\grqq] Voraussetzung: $I$ maximales Ideal
-		
-		$\Rightarrow$ es gibt genau $I$ und $R$ als Ideale, die $I$ enthalten
-		
-		$\xRightarrow{7.9}\{0\} = \phi(I)$ und $R/I = \phi(R)$ sind alle Ideale von $R/I$
-		
-		$\xRightarrow{7.7}R/I$ ist Körper
+		\item [\glqq $\Leftarrow$\grqq ] Sei $R/I$ ein Körper. Nach \cref{lem:field_0_max_ideal} ist $\{0\}\subseteq R/I$ ein maximales Ideal. Dann gilt nach \cref{thm:ideal_bij}, dass $\phi^{-1}(\{0\}) = I$ und $\phi^{-1}(R/I) = R$ die einzigen Ideale sind, die $I$ enthalten. Somit ist $I$ ein maximales Ideal.
+		\item[\glqq$\Rightarrow$\grqq] Sei $I$ ein maximales Ideal in $R$. Dann gibt es genau $I$ und $R$ als Ideale, die $I$ enthalten.
+		Nach \cref{thm:ideal_bij} sind $\{0\} = \phi(I)$ und $R/I = \phi(R)$ alle Ideale von $R/I$. Aus \cref{lem:field_0_max_ideal} folgt dann, dass $R/I$ ein Körper ist.
 	\end{itemize}
 \end{proof}
 
 \begin{defi}
-	Sei $R$ ein kommutativer Ring, $I\subseteq R$ Ideal. Dann heißt $I$ Primideal, falls $I\neq R$ und $\forall x, y\in R$ gilt: \[xy\in I \quad \Longrightarrow \quad x\in I\text{ oder }y\in I.\]
+	Sei $R$ ein kommutativer Ring, $I\subseteq R$ ein Ideal. Dann heißt $I$ Primideal, falls $I\neq R$ und $\forall x, y\in R$ gilt, dass falls $xy$ in $I$ liegt, $x$ oder $y$ das auch tut, also: \[xy\in I \quad \Longrightarrow \quad x\in I\text{ oder }y\in I.\]
 \end{defi}
 \begin{bem}
-	Falls $R$ ein Integritätsbereich ist, dann gilt: $\{0\}$ ist ein Primideal.
+	Falls $R$ ein Integritätsbereich ist, dann ist $\{0\}$ ein Primideal.
 \end{bem}
 
-
-
 \begin{bsp}
-	$R = \IZ, a\in \IZ$. \[\text{$(a)$ Primideal.} \quad \Longleftrightarrow \quad \text{$a = \pm p$ mit $p$ prim oder $a = 0$} \]
+	Sei $R = \IZ, a\in \IZ$. Dann ist $(a)$ genau dann ein Primideal, wenn $a$ oder $-a$ prim ist, oder $a = 0$.
 \end{bsp}
 \begin{proof}
 	\leavevmode
@@ -1474,8 +1478,8 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 
 		$\Rightarrow$ $x\in (p) = (a)$ oder $y\in (p) = (a)$
 
-		$\Rightarrow$ $(a)$ ist ein Primideal.
-		\item [\glqq $\Rightarrow$\grqq ] Sei $(a) \neq (0)$ ein Primideal. Falls $a = \pm 1$, also $ (a) = R$, so ist das ein Widerspruch dazu, dass $(a)$ ein Primideal ist. Falls $a \neq \pm 1, a\neq \pm p$ mit $p$ prim, so $ \exists n, m$ mit $1<\abs{n}, \abs{m}<\abs{a}$ sodass $a = nm$. 
+		$\Rightarrow$ $(a)$ ist ein Primideal
+		\item [\glqq $\Rightarrow$\grqq ] Sei $(a) \neq (0)$ ein Primideal. Falls $a = \pm 1$, also $ (a) = R$, so ist das ein Widerspruch dazu, dass $(a)$ ein Primideal ist. Falls $a \neq \pm 1, a\neq \pm p$ mit $p$ prim, so existieren $n, m$ mit $1<\abs{n}, \abs{m}<\abs{a}$ sodass $a = nm$. 
 		Daraus folgt nun $ nm\in (a)$ und $n,m\notin (a)$, was wieder $(a)$ als Primideal widerspricht.
 	\end{itemize}
 \end{proof}
@@ -1494,40 +1498,49 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 \begin{proof}
 	\leavevmode
 	\begin{itemize}
-		\item[\glqq $\Rightarrow$\grqq] $R$ kommutativ $\Rightarrow R/I$ ist kommutativ.
-		$I$ Primideal $\Rightarrow I\neq R\Rightarrow R/I \neq\{0\}$. 
+		\item[\glqq $\Rightarrow$\grqq] Da $R$ kommutativ ist, ist auch $R/I$ kommutativ.
+		Sei $I$ ein Primideal. Dann gilt $I\neq R$ und somit $R/I \neq\{0\}$. 
 		
-		Seien $\overline{x}, \overline{y}\in R/I$, $\overline{x}\odot\overline{y} = \overline{0}\Rightarrow \overline{xy} = \overline{0}\Rightarrow xy\in I\Rightarrow x\in I$ oder $y\in I\Rightarrow \overline{x} = \overline{0}$ oder $\overline{y} = \overline{0}\Rightarrow R/I$ hat keine Nullteiler.
+		Seien $\overline{x}, \overline{y}\in R/I$ mit  $\overline{x}\odot\overline{y} = \overline{0}$.
+		\begin{align*}
+			&\overline{xy} = \overline{0} \\
+			\Rightarrow& xy\in I \\
+			\Rightarrow& x\in I \text{ oder } y\in I \\
+			\Rightarrow& \overline{x} = \overline{0} \text{ oder } \overline{y} = \overline{0} \\
+			\Rightarrow& R/I \text{ hat keine Nullteiler}
+		\end{align*}
 		
-		\item[\glqq$\Leftarrow$\grqq] Voraussetzung: $R/I$ ist Integritätsbereich $\Rightarrow R/I \neq \{0\}\Rightarrow I \neq R$. Seien $x,y\in R$ mit $xy\in I$.
-		
-		$\Rightarrow \overline{x}\odot\overline{y} = \overline{xy} = \overline{y}$
-		
-		$\xRightarrow[\text{nullteilerfrei}]{R/I} \overline{x} = \overline{0}$ oder $\overline{y} = \overline{0}\Rightarrow x\in I$ oder $y\in I\Rightarrow I$ ist ein Primideal.
+		\item[\glqq$\Leftarrow$\grqq] Sei $R/I$ ein Integritätsbereich. Dann ist $R/I \neq \{0\}$. Daraus folgt $I \neq R$. Seien $x,y\in R$ mit $xy\in I$. Dann gilt:
+		\begin{align*}
+			&\overline{x}\odot\overline{y} = \overline{xy} = \overline{y} \\
+			\Rightarrow& \overline{x} = \overline{0} \text{ oder } \overline{y} = \overline{0} \\
+			\Rightarrow& x\in I \text{ oder } y\in I \\
+			\Rightarrow& I \text{ ist ein Primideal}
+		\end{align*}
 	\end{itemize}
 \end{proof}
 
 \begin{kor} \label{cor:maxprim}
-	$R\neq\{0\}$ kommutativer Ring, $I\subseteq R$ Ideal. Dann gilt: \[\text{$I$ maximal} \quad  \Longrightarrow \quad  \text{$I $ prim} \]
+	Sei $R\neq\{0\}$ ein kommutativer Ring, $I\subseteq R$ ein Ideal. Dann gilt: \[\text{$I$ maximal} \quad  \Longrightarrow \quad  \text{$I $ prim} \]
 \end{kor}
 \begin{proof}
-	$I$ maximal $\xLeftrightarrow{7.8}  R/I$ Körper $\Rightarrow R/I$ Integritätsbereich $\xLeftrightarrow{7.10} I$ Primideal
+	$I$ maximal $\xLeftrightarrow{\ref{thm:field_max_ideal}}  R/I$ Körper $\Rightarrow R/I$ Integritätsbereich $\xLeftrightarrow{\ref{thm:primitb}} I$ Primideal
 \end{proof}
 
 
-\begin{kor}
+\begin{kor} \label{cor:IZ_quotring_klas}
 	Es sei $R=\IZ$.
 	\begin{enumerate}
-	\item Dann ist $\IZ/n\IZ$ Körper $\Leftrightarrow n = \pm p$ mit $p$ prim.
-	\item  $\IZ/n\IZ$ Integritätsbereich $\Leftrightarrow n = \pm p$ und $p$ prim oder $n = 0$.
+	\item Dann ist $\IZ/n\IZ$ Körper genau dann wenn $n = \pm p$ mit $p$ prim.
+	\item  $\IZ/n\IZ$ ist Integritätsbereich genau dann wenn $n = \pm p$ und $p$ prim oder $n = 0$.
 	\end{enumerate}
 \end{kor}
 
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item Folgt aus Beispiel 7.9 und Satz 7.10.
-		\item Für Ringe mit $R$ Integritätsbereich und alle Ideale sind Hauptideale, gilt: $I \neq \{0\}$ Primideal $\Rightarrow I $ maximal
+		\item Folgt aus \cref{bsp:IZ_max_ideal_klas} und \cref{thm:primitb}.
+		\item Für Ringe $R$, die Integritätsbereich Hauptidealbereich sind, gilt für ein Primideal $I \neq \{0\}$, dass $I $ maximal ist.
 		\end{enumerate}
 \end{proof}	
 	
@@ -1551,10 +1564,11 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 		&= \sum_{i = 0}^{\infty} \left(\sum_{k = 0}^{i}\phi(b_{i-k})a^{i-k}\phi(c_k)a^k\right) = \left(\sum_{i = 0}^{\infty} \phi(b_i)a^i\right)\left(\sum_{i = 0}^{\infty}\phi(c_i)a^i\right)\\
 		& = \ev_a\left(\sum_{i = 0}^{\infty}b_it^i\right)\cdot \ev_a\left(\sum_{i = 0}^{\infty}c_it^i\right)
 	\end{align*}
-	$\Rightarrow \ev_a$ ist tatsächlich ein Ringhomomorphismus.
+	Somit ist $\ev_a$ tatsächlich ein Ringhomomorphismus.
 \end{proof}
 
 \begin{bsp}
+	Sei
 	\begin{eqnarray*}
 		\phi\colon \IR & \longhookrightarrow & \IC\\
 		x & \longmapsto & x
@@ -1565,12 +1579,11 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 		t & \longmapsto & \ima\\
 		p(t) & \longmapsto & p(i)
 	\end{eqnarray*}
-	Es gilt $\ev_\ima(t^2+1) = \ima^2 +1 = 0$. $\Rightarrow t^2+1\in\ker \ev_\ima\Rightarrow (t^2+1)\subset \ker \ev_\ima$. Mit dem Homomorphiesatz erhalten wir einen eindeutigen Ringhomomorphismus $\overline{\ev_\ima}\colon \IR[t]/(t^2+1)\to \IC$ mit $\overline{\ev_\ima}(\overline{b_1t+b_0}) = b_1i+b_0\Rightarrow \overline{\ev_\ima}$. Dieser ist offensichtlich surjektiv.
+	Es gilt $\ev_\ima(t^2+1) = \ima^2 +1 = 0$. Somit gilt $t^2+1\in\ker \ev_\ima$ und deshalb auch $(t^2+1)\subset \ker \ev_\ima$. Mit dem \namereff{thm:homsatz_r} erhalten wir einen eindeutigen Ringhomomorphismus $\overline{\ev_\ima}\colon \IR[t]/(t^2+1)\to \IC$ mit $\overline{\ev_\ima}(\overline{b_1t+b_0}) = b_1i+b_0$. Dieser ist offensichtlich surjektiv.
 	
-	Da jedes $\overline{p(t)}\in\IR[t]/(t^2+1)$ sich eindeutig schreiben lässt als $\overline{p(t)} = \overline{b_1t+b_0}$ gilt:
-	$$\overline{\ev_\ima}(\overline{p(t)}) = \overline{\ev_\ima}(\overline{b_1t+b_0}) = b_1i +b_0 = 0\Longleftrightarrow b_1 = b_0 = 0$$
-	$\Rightarrow\overline{\ev_\ima}$ ist injektiv.
-	$\Rightarrow \overline{\ev_\ima}$ ist Isomorphismus von Ringen (insbesondere von Körpern).
+	Da sich jedes $\overline{p(t)}\in\IR[t]/(t^2+1)$ eindeutig schreiben lässt als $\overline{p(t)} = \overline{b_1t+b_0}$ gilt:
+	$$\overline{\ev_\ima}(\overline{p(t)}) = \overline{\ev_\ima}(\overline{b_1t+b_0}) = b_1i +b_0 = 0\Leftrightarrow b_1 = b_0 = 0$$
+	Damit ist $\overline{\ev_\ima}$ injektiv und somit ist $\overline{\ev_\ima}$ ein Isomorphismus von Ringen (insbesondere von Körpern).
 \end{bsp}
 
 \begin{defi}
@@ -1578,10 +1591,10 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 \end{defi}
 
 
-\begin{satz}\label{thm:7.14}
+\begin{satz}\label{thm:nullstelle_eigenschaft}
 	Sei $R$ ein kommutativer Ring sowie $a\in R$. Dann gilt:
 	\begin{enumerate}
-		\item $a$ Nullstelle von $p(t) \Leftrightarrow t-a$ teilt $p(t)$ in $R[t]$.
+		\item $a$ Nullstelle von $p(t) \Leftrightarrow t-a$ teilt $p(t)$ in $R[t]$
 		\item $R$ Integritätsbereich $\Rightarrow R[t]$ ist Integritätsbereich und $\deg(p(t)q(t)) = \deg (p(t)) + \deg (q(t))$
 		\item $\deg (p(t)) = n\geq 0$, $R$ Integritätsbereich $\Rightarrow$ $p(t)$ hat maximal $n$ verschiedene Nullstellen.
 	\end{enumerate}
@@ -1599,15 +1612,15 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 			\begin{eqnarray*}
 				\phi\colon R&\longhookrightarrow & R[t]\\
 				r & \longmapsto & r\cdot 1\\[1mm]
-				\xRightarrow{7.12} \ev_{t-a} \colon R[t]& \longto & R[t]\\
+				\xRightarrow{\ref{cor:IZ_quotring_klas}} \ev_{t-a} \colon R[t]& \longto & R[t]\\
 				t&\longmapsto &t-a\\[1mm]
 				\ev_{t+a}\colon R[t] & \longto & R[t]\\
 				t & \longmapsto & t+a
 			\end{eqnarray*}
-			$\Rightarrow  \ev_{t-a}\circ \ev_{t+a} = \id_{R[t]} = \ev_{t+a}\circ \ev_{t-a}$
+			Es gilt $\ev_{t-a}\circ \ev_{t+a} = \id_{R[t]} = \ev_{t+a}\circ \ev_{t-a}$
 			(für alle $r\in R$ gilt $r1\mapsto r1$ sowie $t\mapsto t+a\mapsto (t-a)+a = t$ und umgekehrt).
 			
-			Es gilt:
+			Somit folgt:
 			\begin{center}
 				\begin{tikzcd}
 					R[t] \arrow{rd}[swap]{\ev_0} \arrow{r}{\ev_{t-a}} & R[t] \arrow{d}{\ev_{a}} \\
