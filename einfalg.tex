@@ -267,7 +267,7 @@
 
 \paragraph{Übung:} $f$ Gruppenhomomorphismus; $f$ ist injektiv genau dann, wenn $\ker f = \{e\}$.
 
-\begin{satz}[Satz von Cayley]
+\begin{satz}[Satz von Cayley] \label{thm:cayley}
 	Sei $G$ eine Gruppe. Dann ist
 	\begin{align*}
 		\Phi \colon G&\longto S_G\\
@@ -702,15 +702,15 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 		\begin{description}
 			\item[Untergruppe:]~
 				\begin{enumerate}
-				\item Sei $U < G$. Behauptung: $\left\lbrace e\right\rbrace = G_0 \cap U \nt (G_1 \cap U) \nt \ldots \nt (G_n \cap U) = U $. Es ist klar, dass $(G_{i-1} \cap U) \subset (G_1 \cap U)$. Auch klar ist, dass $G_i \cap U$ eine Gruppe ist und $(G_{i-1} ) < (G_1 \cap U)$. Jetzt ist noch zu zeigen, dass $(G_{i-1} \cap U) \nt (G_i \cap U)$. Sei $x \in G_{i-1} \cap U$ und sei $y \in G_i \cap U$. Dann folgt, dass $\underbrace{yxy^{-1}}_{\in G_{i-1}} \in U$, weil $x, y \in U, U < G$, weil $x \in G_{i-1}, y \in G_i$ und $G_{i-1} \nt G_i$. Daraus folgt, dass $yxy^{-1} \in U \cap G_{i-1}$, was zu zeigen war.
-				\item Behauptung: $G_i \cap U / G_{i-1} \cap U$ abelsch. Es gilt $G_i \cap U / G_{i-1} \cap U \stackrel{\text{1. Iso}}{\cong} (U \cap G_i)G_i/G_i \nt G_i/G_{i-1}$ abelsch. Daraus folgt die Behauptung.
+				\item Sei $U < G$. Behauptung: $\left\lbrace e\right\rbrace = G_0 \cap U \nt (G_1 \cap U) \nt \ldots \nt (G_n \cap U) = U $. Es ist klar, dass $(G_{i-1} \cap U) \subset (G_i \cap U)$. Auch klar ist, dass $G_i \cap U$ eine Gruppe ist und $(G_{i-1} ) < (G_i \cap U)$. Jetzt ist noch zu zeigen, dass $(G_{i-1} \cap U) \nt (G_i \cap U)$. Sei $x \in G_{i-1} \cap U$ und sei $y \in G_i \cap U$. Dann folgt, dass $\underbrace{yxy^{-1}}_{\in G_{i-1}} \in U$, weil $x, y \in U, U < G$, weil $x \in G_{i-1}, y \in G_i$ und $G_{i-1} \nt G_i$. Daraus folgt, dass $yxy^{-1} \in U \cap G_{i-1}$, was zu zeigen war.
+				\item Behauptung: $G_i \cap U / G_{i-1} \cap U$ abelsch. Nach dem \namereff{thm:iso1_g} gilt $G_i \cap U / G_{i-1} \cap U \cong (U \cap G_i)G_{i-1}/G_{i-1} \nt G_i/G_{i-1}$ abelsch. Daraus folgt die Behauptung.
 			\end{enumerate}
 \lecture{23. Oktober 2017}
 			\item[Bild:]
 				Sei $f\colon G\to G'$ Gruppenhomomorphismus. Behauptung: $\{e\} = f(G_0)\nt f(G_1)\nt \dots \nt f(G_n ) = f(G)$ ist eine Normalreihe mit $f(G_i)/f(G_{i-1})$ abelsch.
 				
 				Sei $y' = f(y)\in f(G_i)$ mit $y\in G_i$. Dann gilt $y'f(G_{i-1})(y')^{-1} = f(yG_{i-1}y^{-1})\subseteq f(G_i)\Rightarrow f(G_{i-1})\nt f(G_i)$ für alle $i$. Betrachte nun 
-$$\alpha\colon G_i\xto{f} f(G_i)\xto{\text{can}}f(G_i)/f(G_{i-1})$$ Dies ist ein Gruppenhomomorphismus und offensichtlich surjektiv. Da $G_{i-1}\in \ker \alpha$ existiert Gruppenhomomorphismus $\overline{\alpha}\colon G_i/G_{i-1}\to f(G_i)/f(G_{i-1})$ nach dem \namereff{thm:homsatz_g}. $\overline{\alpha}$ ist surjektiv, da auch $\alpha$ surjektiv ist. Weil $G_i/G_{i-1}$ abelsch ist, ist auch $f(G_i)/f(G_{i-1})$ abelsch. Somit folgt die Behauptung.
+\[\alpha\colon G_i\xto{f} f(G_i)\xto{\text{can}}f(G_i)/f(G_{i-1}).\] Dies ist ein Gruppenhomomorphismus, welcher offensichtlich surjektiv ist. Da $G_{i-1}\subseteq \ker \alpha$, existiert Gruppenhomomorphismus $\overline{\alpha}\colon G_i/G_{i-1}\to f(G_i)/f(G_{i-1})$ nach dem \namereff{thm:homsatz_g}. $\overline{\alpha}$ ist surjektiv, da auch $\alpha$ surjektiv ist. Weil $G_i/G_{i-1}$ abelsch ist, ist auch $f(G_i)/f(G_{i-1})$ abelsch. Somit folgt die Behauptung.
 		\end{description}
 \end{proof}
 
@@ -737,9 +737,9 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 	\leavevmode
 	\begin{itemize}
 		\item [\glqq $\Leftarrow$\grqq] Die abgeleitete Reihe \eqref{eq:abgeleitetereihe} ist nach Definition eine Normalreihe und die Faktoren sind abelsch nach der Bemerkung.
-		\item [\glqq $\Rightarrow$\grqq] Sei $G$ auflösbar und $\{e\} = G_0\nt G_1\nt\dots G_n = G$ mit abelschen Faktoren. Nach der Bemerkung gilt $G_N/G_{n-1}$ abelsch $\Rightarrow [G_n,G_n]\subseteq G_{n-1}$.
+		\item [\glqq $\Rightarrow$\grqq] Sei $G$ auflösbar und $\{e\} = G_0\nt G_1\nt\dots G_n = G$ mit abelschen Faktoren. Nach der Bemerkung gilt $G_n/G_{n-1}$ abelsch $\Rightarrow [G_n,G_n]\subseteq G_{n-1}$.
 		
-		Behauptung: $D^i(G) \subseteq G_{n-i}$. Dies ist für $i = 0;1$. $D^{i+1}(G) = [D^i(G), D^i(G)]\subseteq [G_{n-i},{n-i}]\subseteq G_{n-i-1}$ nach Bemerkung. Also existiert ein $n\in N$ sodass $D^n(G) \subseteq G_0 = \{e\}\Rightarrow \exists m:=n$ mit $D^m(G) =\{e\}$.	
+		Behauptung: $D^i(G) \subseteq G_{n-i}$. Dies ist für $i = 0;1$. $D^{i+1}(G) = [D^i(G), D^i(G)]\subseteq [G_{n-1},{n-1}]\subseteq G_{n-i-1}$ nach Bemerkung. Also existiert ein $n\in N$ sodass $D^n(G) \subseteq G_0 = \{e\}\Rightarrow \exists m:=n$ mit $D^m(G) =\{e\}$.	
 	\end{itemize}
 \end{proof}
 
@@ -785,7 +785,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 \end{bem}
 
 \begin{defi}
-	$G$ operiert transitiv, falls genau eine Bahn existiert.
+	$G$ operiert transitiv, falls genau eine Bahn existiert. Die Operation $\Phi$ heißt treu, falls $\Phi'$ (siehe obige Bemerkung) injektiv ist.
 \end{defi}
 
 
@@ -805,7 +805,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 		für alle $x\in X, h \in H$ definiert, wobei sich die folgenden Eigenschaften ergeben:
 		\begin{enumerate}[label=\alph*)]
 			\item \begin{itemize}[itemsep=-3pt]
-				\item treu (nach \textsc{Cayley})
+				\item treu (nach dem \namereff{thm:cayley})
 				\item transitiv $\Leftrightarrow G = H$
 				\item Bahnen $=$ Rechtsnebenklassen
 				\item $X^H = \emptyset \Leftrightarrow H \neq \{e\}$, sonst sind alle $x \in X$ Fixpunkte
