@@ -1394,7 +1394,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 \paragraph{Als Vorbereitung:}
 
 \begin{satz} \label{thm:ideal_bij}
-	Sei $\phi\colon R\to S$ ein Ringepimorphismus. Dann gibt es eine Bijektion zwischen den Mengen
+	Sei $\phi\colon R\to S$ ein surjektiver Ringhomomorphismus. Dann gibt es eine Bijektion zwischen den Mengen
 	\begin{alignat*}{2}
 		\left\{\substack{\text{Ideale in $R$}\\\text{ mit $\ker \phi\subseteq I$} }\right\}&\longleftrightarrow \; &&\{\text{Ideale in $S$}\} \\\intertext{durch}
 		I & \longmapsto &&\phi(I)\\
@@ -1889,7 +1889,7 @@ Somit ist $R$ faktoriell.
 		\ev_a\colon \IC[t] & \longto & \IC\\
 		p(t) & \longmapsto & p(a)
 	\end{eqnarray*}
-	ein Ringepimorphismus. Es gilt $p(t) \in \ker\ev_a$ genau dann, wenn $p(a) = 0$, also wenn $a$ eine Nullstelle von $p(t)$ ist. Nach \cref{thm:unieig_polyring} ist das äquivalent dazu, dass $(t-a)$ das Polynom $p(t)$ teilt; also ist $p(t)$ Element des von $(t-a)$ erzeugten Ideals. Nach dem \namereff{thm:homsatz_r} für Ringe erhalten wir einen Isomorphismus
+	ein surjektiver Ringhomomorphismus. Es gilt $p(t) \in \ker\ev_a$ genau dann, wenn $p(a) = 0$, also wenn $a$ eine Nullstelle von $p(t)$ ist. Nach \cref{thm:unieig_polyring} ist das äquivalent dazu, dass $(t-a)$ das Polynom $p(t)$ teilt; also ist $p(t)$ Element des von $(t-a)$ erzeugten Ideals. Nach dem \namereff{thm:homsatz_r} für Ringe erhalten wir einen Isomorphismus
 	$$ \IC[t]/(t-a) \longto \IC$$
 	Da $\IC$ ein Körper ist, ist $I = (t-a)$ maximales Ideal (für jedes $a\in \IC$).
 \end{bsp}
