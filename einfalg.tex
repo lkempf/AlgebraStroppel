@@ -3106,6 +3106,77 @@ Vorbereitung zum Beweis von \ref{thm:19.1}:
 	
 	\noindent Surjektivität: Sei $K\subseteq \IF$ Unterkörper (dann gilt automatisch $\IF_p\subseteq K$). $\Rightarrow K$ ist $\IF_p$-Vektorraum $\Rightarrow |K| = p^m$ für ein $m\leq r$. Da $\IF$ auch $K$-Vektorraum ist, muss $m$ ein Teiler von $r$ sein. Nach der Konstruktion endlicher Körper gilt $x^{p^m}-x = 0$ für alle $x\in K$ und $K$ besteht genau aus diesen Nullstellen. Es folgt, dass $K = \IF^{Fr^m} = \{x\in \IF|Fr^m(x) = x\}$. Damit $K = \Phi(H)$ für $H = \<Fr^m\>$. 
 \end{proof}
+
+\begin{satz} $\IF$ endlicher Körper, $\chr \IF = p$. Sei $1\neq a\in\IF$ und $r$ minimal, sodass $a^{p^r} =a$. Dann gilt:
+	\begin{enumerate}
+		\item $1, a, a^2,\dots, a^{p^{r-1}}$ paarweise verschieden
+		\item $m_a(t) = (t-a)(t-a^p)\dots(t-a^{p^r-1}):=f(t)\in\IF_p[t]$ Minimalpolynom von $a$ über $\IF_p$. (Damit folgt dann die 1. Behauptung aus dem Beweis von Lemma 19.2)
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+\item Folgt aus Punkt 2, weil $r$ minimal gewählt.
+\item	Es gilt $m_a(t^p) = m_a(t)^p$ (Binomi für Dummies).
+	Damit: Falls $z$ Nullstelle von $m_a(t)$, dann auch $z^p\Rightarrow$ Menge der Nullstellen von $m_a(t)$ sind stabil unter Frobeniusabbbildung $Fr$.  Also gilt für jede Nullstelle $z$ von $m_a(t)$:  $Q = (t-z)(t-z^p)\dots(t-z^{p^r}-1)$ teilt $m_a(t)$, insbesondere für $z = a$. Also ist $Q_{z = a} = f(t) = m_a(t)$, weil $m_a(t)$ minimal mit Nullstelle $a$ und Leitkoeffizient 1, falls $q\in\IF_p[t]$.
+	
+	Noch zu zeigen: $Q(t) \in\IF_p[t]$. Wir wissen 
+	\begin{equation}Q(t^p) = Q(t)^p\end{equation}
+	 Falls $Q(t) = \sum_{i \geq 0}b_it^i\in\IF[t]$, dann $Q(t)^p = \sum_{i geq 0} b_i^p(t^i)^p = \sum_{i\geq 0} Fr(b_i)(t^i)^p$. Somit mit $(2)$: $b_i = Fr(b_i)$ für alle $i$. Nach Konstruktion endlicher Körper ist dadurch $b_i\in \IF_p$ für alle $i$, womit wir schließlich $Q(t) \in\IF_p[t]$.
+	\end{enumerate}
+\end{proof}
+\begin{defi} $L\sslash K$ heißt einfach, falls $L\cong K(a)$ für ein $a\in L$.
+\end{defi}
+\begin{satz}
+	Sei $K(a)\sslash K$ einfache, algebraische Körpererweiterung und $M\sslash K$ beliebige Körpererweiterung. Dann
+	\begin{eqnarray*}
+		\{\phi\colon K(a)\to M K\text{-Homomorphismus}\} & \xlongleftrightarrow{1:1} & \{\text{Nullstellen von }m_a(t)\in K[t]\text{ in }M\}\\
+		\phi &\longmapsto & \phi(a)
+	\end{eqnarray*}
+	das heißt zu jeder Nullstelle $z\in M$ von $m_a(t)$ existiert genau ein $K$-Homomorphismus $\phi\colon K(a)\to M$ mit $\phi(a) = z$. 
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[wohldefiniert:] Sei $\phi\colon K(a)\to M$ ein $K$-Homomorphismus, $\phi(a) = z$. Dann folgt $m_a(z) = m_a(\phi(a)) = \phi(m_a(a)) = 0$
+		\item[injektiv:] $\phi$ ist eindeutig bestimmt durch $\phi(a)$, weil Körperhomo, $\phi|_K = \id$.
+		\item[surjektiv:] Sei $z\in M$ Nullstelle von $m_a(t)$. Betrachte
+		\begin{eqnarray*}
+			\ev_z\colon K[t] & \longto & M \text{ Ringhomomorphismus}\\
+			f(t) &\longmapsto & f(z)
+		\end{eqnarray*}
+		Da $z$ Nullstelle von $m_a(t)$ ist, induziert das Ringhomomorphismus
+		$$\overline{\ev_z}\colon K[t]/(m_a(t))\longto M$$
+		wobei $\beta\colon K[t]/(m_a(t)) \xrightarrow{\cong} K(a)\subseteq K$; $K(a)\sslash K$ algebraisch und $\overline{ev_z}$ Körperhomomorphismus mit $\overline{ev_z}\circ \beta|_K = \id_K$ nach Konstruktion. Setze $\phi:= \overline{\ev_z}\circ\beta$ und $\phi(a) = \overline{\ev_z}\circ\beta(a) = \overline{ev_z}(\overline{t}) = z$.
+	\end{description}
+\end{proof}
+\begin{kor}
+	$K$ Körper, $f\in K[t]$. Dann ist der Zerfällungskörper von $f$ eindeutig bis auf $K$-Isomorphismus.
+\end{kor}
+\begin{proof}
+	Übung.
+\end{proof}
+\begin{defi} Eine Körpererweiterung $L\sslash K$ heißt normal, falls sie algebraisch ist und falls für $f\in K[t]$ irreduzibel gilt: $f$ hat Nullstelle in $L\Rightarrow f$ zerfällt in Linearfaktoren über $L$.
+\end{defi}
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item $\IQ(\sqrt{2})\sslash \IQ$ normal (Übung)
+		\item $\IQ(\sqrt[3]{2})\sslash \IQ$ ist nicht normal, denn betrachte $f = t^3-2$. Es gilt $\IQ(\sqrt[3]{2})\subseteq \IR$ und $f$ hat Nullstellen $\sqrt[3]{2}\in \IQ(\sqrt[3]{2})$ und $\sqrt[3]{2}\xi, \sqrt[3]{2}\xi^2\notin \IR$, mit $\xi = e^{\frac{2\pi i}{3}}$
+	\end{enumerate}
+\end{bsp}
+\begin{satz}[Normalität] Sei $L\sslash K$ eine endliche Körpererweiterung. Dann sind äquivalent:
+\begin{enumerate}
+	\item $L\sslash K$ normal
+	\item $L$ ist Zerfällungskörper eines Polynoms $f\in K[t]$.
+	\item Sei $M\sslash K$ eine Körpererweiterungen . Dann haben alle Körperhomomorphismen $\phi\colon L\to M$, die die Inklusion $K\to M$ fortsetzen, dasselbe Bild, das heißt, folgendes Diagramm kommutiert:
+	\begin{tikzcd}
+				L \arrow{r}{\phi} & M  \\
+				K \arrow{u}\arrow{ru}\\
+	\end{tikzcd}
+	wobei $K\to L$, $K\to M$ jeweils die Inklusionen sind.
+\end{enumerate}
+\end{satz}
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
