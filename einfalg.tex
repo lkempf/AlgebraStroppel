@@ -3064,7 +3064,48 @@ Allgemeiner lässt sich der folgende Satz formulieren:
 	\end{itemize}
 \end{satz}
 
+\section{Galoistheorie for real}
+Ziel: $L\sslash K$ \glqq gute\grqq\ Körpererweiterung. Dann gibt es eine 1:1-Korrespondenz zwischen Untergruppen der Galoisgruppe $Gal(L\sslash K)$ und Zwischenkörpern $K\subseteq$ ? $\subseteq L$.
 
+\subsection{Normale und separable Körpererweiterungen}
+\begin{satz}[Spezialfall der Galoiskorrespondenz]\label{thm:19.1} Sei $\IF$ ein endlicher Körper mit $|\IF| = n = p^r$ ($p$ Primzahl). Dann definiere $G:= Gal(\IF\sslash\IF_p):=\{\phi\colon \IF\to\IF \text{ Körperisomorphismus}, \phi|_{\IF_p} = id$. Dann existiert eine Bijektion von Mengen
+\begin{eqnarray*}
+\Phi\colon	\{\text{UG von  }G = Gal(\IF/\IF_p)\} & \xlongleftrightarrow{1:1} &\{\text{ Zwischenkörper }\IF_p\subseteq \text{ ? }\subseteq \IF\}\\
+	H &\longmapsto & \IF^H
+\end{eqnarray*}
+wobei $\IF^H := \{x\in\IF|\phi(x) = x\forall \phi\in H\}$ den Fixkörper bezüglich $H$ bezeichnet.
+\end{satz}
+\begin{bem}
+	\leavevmode
+	\begin{enumerate}
+		\item $\IF^H$ ist Körper, denn für $x,y\in\IF^H$ ist für alle $\phi\in H: \phi(x\pm y) = \phi(x)\pm\phi(y) = x\pm y$, $\phi(xy) = \phi(x)\phi(y) = xy$, $\phi(x^{-1}) = \phi(x)^{-1} = x^{-1}$, also ist $\Phi$ wohldefiniert
+		\item $\phi\in H\Leftarrow \phi$ ist Ringhomomorphismus, also $\phi(1) = 1$ und $\phi|_{\IF_p} = \id$ automatisch (wir müssen es also eigentlich gar nicht fordern).
+		
+		Also $G = \{\phi\colon \IF\to \IF \text{ Körperhomomorphismus}\}$ in diesem Fall. Insbesondere: $Fr\colon \IF\to\IF, x\mapsto x^p$ ist in $G$.
+	\end{enumerate}
+\end{bem}
+Vorbereitung zum Beweis von \ref{thm:19.1}:
+\begin{lem}
+	Gleiche Voraussetzungen wie in Satz \ref{thm:19.1}. Dann ist $G = Gal(\IF/\IF_p)$ zyklisch der Ordnung $r$.
+\end{lem}
+\begin{proof}
+	Wir wissen (nach der Konstruktion endlicher Körper) $\IF = \IF_p(a)$ für ein $a\in \IF$. Nach Bemerkung 2 ist $\phi\in G$ festgelegt durch $\phi(a)$. Sei $m_a(t)\in\IF_p[t]$ Minimalpolynom von $a$.
+	
+	\noindent 1. Behauptung: $m_a(t) = (t-a)(t-a^p)\dots(t-a^{p^{r-a}})$. Beweis später. Dabei sind die Koeffizienten von $m_a(t)$ in $\IF_p$, also $m_a(\phi(a)) = \phi(m_a(a)) = 0$, denn $\phi|_{\IF_p} = \id\Rightarrow \phi(a)$ Nullstelle von $m_a(t)$. Folglich existiert ein $s$ mit $0\leq s\leq r-1$ mit $\phi(a) = a^{p^s}$. Damit ist $\phi = Fr^s$ (weil eindeutig bestimmt auf $a$) und $G = \<Fr\> = \{\id, Fr, Fr^2,\dots\}$.
+	
+	\noindent 2. Behauptung: $Fr^r = \id_{\IF}$, $Fr^j\neq Fr^i$ für $1\leq i<j\leq r$.
+	Beweis: Sei $Fr^j = Fr^i\Rightarrow Fr^{j-i} = \id_{\IF}\Rightarrow Fr^m = \id_{\IF}$ für ein $m<r\Rightarrow x^{p^m} = x\forall x\in \IF\Rightarrow x^{p^m}-x = 0\forall x\in\IF$. Damit muss $p^m\geq|\IF| = p^r$ oder $p^m = 1$ sein, also $m\leq r$ oder $m = 0$ im Widerspruch zu $m<r$ und $i\neq j$.
+	
+	Wir hatten $\IF$ als Nullstellen von $f(t) = t^n-t$ konstruiert. Also gilt für $x\in \IF$ immer $x^{p^r} -x = 0$ ($p^r = n$), also $Fr^r = \id_{\IF}$. Damit erhalten wir insgesamt $G = \{Fr, Fr^2,\dots, Fr^r = \id_{\IF}\}$. Wie behauptet ist $G$ folglich zyklisch (erzeugt von $Fr$) der Ordnung r.
+\end{proof}
+
+\begin{proof}[Beweis von \ref{thm:19.1}]
+	Sei $H<G$; Da $G$ zyklisch ist, ist $H$ zyklisch der Ordnung $k$, wobei $k$ ein Teiler von $r$ ist, also $r = km$, dann $H = \{Fr^m, Fr^{2m},\dots, Fr^{km} = \id\}$. Dann $\Phi(H) = \IF^H = \{x\in\IF|\phi(x) = x\forall\phi\in H\} = \{x\in \IF|Fr^m(x) = x\} = \{x\in\IF|x^{p^m}-x = 0\}$. Nun betrachte $f\in \IF_p[t], f = t^{p^m}-t$.
+	
+	\noindent Behauptung: $f$ hat $p^m$ verschiedene Nullstellen in $\IF$. Denn $f' = p^mt^{p^m-1}-1 = -1$ hat keine Nullstelle. Damit ist $|\IF^H| = p^m$ (da $m$ Teiler von $r$ ist, liegen alle Nullstellen in $\IF$ nach Konstruktion von $\IF$). Folglich ist $\Phi$ injektiv.
+	
+	\noindent Surjektivität: Sei $K\subseteq \IF$ Unterkörper (dann gilt automatisch $\IF_p\subseteq K$). $\Rightarrow K$ ist $\IF_p$-Vektorraum $\Rightarrow |K| = p^m$ für ein $m\leq r$. Da $\IF$ auch $K$-Vektorraum ist, muss $m$ ein Teiler von $r$ sein. Nach der Konstruktion endlicher Körper gilt $x^{p^m}-x = 0$ für alle $x\in K$ und $K$ besteht genau aus diesen Nullstellen. Es folgt, dass $K = \IF^{Fr^m} = \{x\in \IF|Fr^m(x) = x\}$. Damit $K = \Phi(H)$ für $H = \<Fr^m\>$. 
+\end{proof}
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
