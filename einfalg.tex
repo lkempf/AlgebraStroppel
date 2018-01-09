@@ -834,9 +834,9 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 \begin{lem}
 	$G\operates X$. Dann
 	\begin{enumerate}
-		\item $\forall x\in X: G_X<G$
-		\item $f\colon G/G_X\to G.x, gG_x\mapsto g.x$ ist wohldefiniert, bijektiv und ein $G$-Homomorphismus (wobei $G$ links wie in Beispiel 2 oben und rechts durch $G\operates X$ operiert)
-		\item $|G.x| = (G:G_x)$, wobei $(G:G_x) = \infty$, falls $|G/G_x |=\infty$
+		\item $\forall x\in X: G_x<G$
+		\item $f\colon G/G_x\to G.x, gG_x\mapsto g.x$ ist wohldefiniert, bijektiv und ein $G$-Homomorphismus (wobei $G$ links wie in Beispiel 2 oben und rechts durch $G\operates X$ operiert).
+		\item $|G.x| = (G:G_x)$, wobei $(G:G_x) = \infty$, falls $|G/G_x |=\infty$.
 	\end{enumerate}
 \end{lem}
 
@@ -896,7 +896,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 \begin{satz}[Sylowsätze] \label{thm:sylow}
 	Sei $p$ eine Primzahl, $G$ eine endliche Gruppe, $|G| = p^rm$ mit $p\nmid m$.\begin{enumerate}
 		\item $\forall 0\le k\le r \colon\exists H<G$ mit $|H| = p^k$
-		\item Sei $U<G$ eine $p$-Gruppe. Dann $\exists g\in G$ und $S\in \Syl_p(G)$, sodass $U<gSg^{-1}$.
+		\item Sei $U<G$ eine $p$-Gruppe. Dann $\exists g\in G$, sodass $U<gSg^{-1}$ für alle $S\in \Syl_p(G)$ gilt.
 		\item Sei $n_p = |Syl_p(G)|$. Dann gilt \begin{itemize}
 			\item $n_p\equiv 1\pmod p$
 			\item $n_p\mid m$
@@ -2854,7 +2854,7 @@ Also ist $\Phi$ aus \cref{thm:17.1} eine wohldefinierte Abbildung.
 			\[ g_2\dots g_n(g_2'\dots g_n')^{-1} = g_1^{-1}g_1'\enspace,\]
 			wobei $g_2\dots g_n(g_2'\dots g_n')^{-1}  = g_2(g_2')^{-1}\dots g_n(g_n')^{-1}\in f(\{e\}\times G_{p_2}\times \dots \times G_{p_n})$ und $g_1^{-1}g_1'\in f(G_{p_1})$.
 			
-			Sei $\tilde{G} = \{e\}\times G_{p_2}\times\dots\times G_{p_n}$.  Nach dem nach dem \nameref{thm:homsatz_g} gilt $f(\tilde{G})\cong \tilde {G}/\ker f|_{\tilde{G}}$. Damit folgt $|f(\tilde{G})| = \frac{|\{e\}\times G_{p_2}\times\dots\times G_{p_n}|}{|\ker f|_{\tilde{G}}|}$ nach dem \nameref{thm:lagrange}. $|f(\tilde{G})|$ teilt somit $p_2^{c_2}\dots p_n^{c_n}$. Analog zeigt man, dass $|f(G_{p_1})|$ dann $p_1{c_1}$ teilt. 
+			Sei $\tilde{G} = \{e\}\times G_{p_2}\times\dots\times G_{p_n}$. Nach dem \nameref{thm:homsatz_g} gilt $f(\tilde{G})\cong \tilde {G}/\ker f|_{\tilde{G}}$. Damit folgt $|f(\tilde{G})| = \frac{|\{e\}\times G_{p_2}\times\dots\times G_{p_n}|}{|\ker f|_{\tilde{G}}|}$ nach dem \nameref{thm:lagrange}. $|f(\tilde{G})|$ teilt somit $p_2^{c_2}\dots p_n^{c_n}$. Analog zeigt man, dass $|f(G_{p_1})|$ dann $p_1{c_1}$ teilt. 
 			
 			$\ord (g_2\dots g_n(g_2'\dots g_n')^{-1})$ teilt also $p_2^{c_2}\dots p_n^{c_n}$ und $\ord(g_1^{-1}g_1')$ teilt $p_1^{c_1}$. Da die $p_i$ paarweise verschieden sind, ist $\ord(g_1^{-1}g_1') = 1$, also $g_1^{-1}g_1' = e$ und schließlich $g_1' = g_1$. Völlig analog folgt $g_i = g_i'$ für alle $1\leq i\leq n$.
 			\item $f$ ist surjektiv, da $f$ injektiv  ist und $|G_{p_1}\times\dots\times G_{p_n}| = p_1^{c_1}\dots p_n^{c_n} = |G|<\infty$ gilt.
