@@ -218,6 +218,7 @@
 	\noindent Gruppenhomomorphismus: Es gilt dann $\text{can}(x) = \overline{x}$ für alle $x\in\IZ$ und da $\text{can}(x+y) = \overline{x+y} = \overline{x}+\overline{y} = \text{can}(x)+\text{can}(y)$ ist das auch ein Gruppenhomomorphismus.
 	
 	\item Sei $n\neq 0$. Sei $f\colon \IZ/n\IZ\to \IZ$ ein Gruppenhomomorphismus. Sei $f(\overline{1})= x$. Dann: (oBdA $n\in\IN$) $0=f(0)=f(\overline{n})= f(\overline{1}+\dots \overline{1})=nf(\overline{1})= nx\Rightarrow x=0$. Somit ist $f$ ein trivialer Gruppenhomomorphismus.
+	\qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -282,6 +283,7 @@
 	\item Gruppenhomomorphismus: Zu zeigen: $\Phi(g_1g_2) = \Phi(g_1)\circ \Phi(g_2)$, also $\Phi(g_1g_2)(h) = \Phi(g_1)(\Phi(g_2)(h))$ für alle $h\in G$. Es gilt $\Phi(g_1g_2)(h) = g_1g_2h$ und $\Phi(g_1)(\Phi(g_2)(h))  = \Phi(g_1)(g_2h) = g_1g_2h$, was zu zeigen war.
 	
 	\item Injektiv: Es reicht zu zeigen, dass der Kern trivial ist. Sei $g\in \ker\Phi\Leftrightarrow \Phi(g) = e = \text{id}_G \Leftrightarrow \Phi(g)(h)= h ~ \forall h\in G\Leftrightarrow gh = h ~ \forall h\in G\Leftrightarrow g= e$
+	\qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -349,6 +351,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 		&f(ghg^{-1}) = f(g)f(h)f(g)^{-1} = f(g)f(g)^{-1} = e \\
 		&\Rightarrow ghg^{-1}\in \ker f \\
 		&\Rightarrow \ker f\nt G
+  \qedhere
 	\end{align*}
 \end{proof}
 
@@ -387,6 +390,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 		
 		
 		\item Surjektivität ist klar nach (3); um zu zeigen, dass das ein Gruppenhomomorphismus ist, muss man das einfach nachrechnen.
+  \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -460,6 +464,7 @@ Im Allgemeinen (falls $G$ nicht abelsch ist) ist $\circ$ nicht wohldefiniert (si
 		Dieser ist nach Konstruktion injektiv.
 		
 		Surjektiv: Sei $hnN\in (HN)/N$ mit $h\in H, n\in N$. Dann gilt aber: $hnN = hN$ und dann $f(h)=hN$. Somit gilt $\overline{f}\circ\can(h) = \overline{f}(\can(h)) = hN$ woraus folgt, dass $hN\in \im f$. Folglich ist $\overline{f}$ surjektiv und deshalb ein Gruppenisomorphismus.
+  \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -515,6 +520,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 		Falls $r>0$: Dann $g^r = (g^{an})^{-1}g^{an}g^r = ((g^n)^a)^{-1}g^s\in H$ (Widerspruch zur Minimalität)
 		
 		Somit war die Annahme falsch und $H$ ist zyklisch.
+  \qedhere
 	\end{description}
 \end{proof}
 
@@ -563,6 +569,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 	weil $0 \leq r < \ord(g)$.
 	Da $g \in S$, gilt $\<g\>\subset S$. Weil $S < G$ ist klar, dass $S \subset \<g\>$, also $\<g\> = S$.
 	\item Behauptung: $\abs S = \ord(g)$. Seien $g^i, g^j \in S$ mit $1 \leq i,j \leq \ord(g)$ und $g^i=g^j$. Also $g^{i-j} = e = g^{j-i}$, was ein Widerspruch zur Minimaltität von $\ord(g)$ ist außer $i=j$. Folglich sind die $g^i (1\leq i \leq \ord(g))$ paarweise verschieden, was die Behauptung zeigt.
+	\qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -596,6 +603,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 		\end{tikzcd}
 		\end{center}
 		 Also $\overline{f} : \IZ/n\IZ \rightarrow G$. Da $\abs{\IZ/n\IZ} = n = \abs G$ muss diese surjektive Abbildung schon ein Isomorphismus sein.
+  \qedhere
 	\end{itemize}
 \end{proof}
 
@@ -739,7 +747,8 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 		\item [\glqq $\Leftarrow$\grqq] Die abgeleitete Reihe \eqref{eq:abgeleitetereihe} ist nach Definition eine Normalreihe und die Faktoren sind abelsch nach der Bemerkung.
 		\item [\glqq $\Rightarrow$\grqq] Sei $G$ auflösbar und $\{e\} = G_0\nt G_1\nt\dots G_n = G$ mit abelschen Faktoren. Nach der Bemerkung gilt $G_n/G_{n-1}$ abelsch $\Rightarrow [G_n,G_n]\subseteq G_{n-1}$.
 		
-		Behauptung: $D^i(G) \subseteq G_{n-i}$. Dies ist für $i = 0;1$. $D^{i+1}(G) = [D^i(G), D^i(G)]\subseteq [G_{n-1},{n-1}]\subseteq G_{n-i-1}$ nach Bemerkung. Also existiert ein $n\in N$ sodass $D^n(G) \subseteq G_0 = \{e\}\Rightarrow \exists m:=n$ mit $D^m(G) =\{e\}$.	
+		Behauptung: $D^i(G) \subseteq G_{n-i}$. Dies ist für $i = 0;1$. $D^{i+1}(G) = [D^i(G), D^i(G)]\subseteq [G_{n-1},{n-1}]\subseteq G_{n-i-1}$ nach Bemerkung. Also existiert ein $n\in N$ sodass $D^n(G) \subseteq G_0 = \{e\}\Rightarrow \exists m:=n$ mit $D^m(G) =\{e\}$.
+  \qedhere
 	\end{itemize}
 \end{proof}
 
@@ -848,6 +857,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 		
 		Nun muss noch gezeigt werden, dass $f$ ein $G$-Homorphismus ist: Es gilt $f(h.(gG_x)) = h.f(gG_x)$ für alle $x\in X, h,g\in G$. Aber $f(h.(gG_x)) = hgG_x = (hg).x = h.g.x = h.f(gG_x)$
 		\item Es gilt nun $|G.x|\xeq{2.} |G/G_x| = (G:G_x)$
+  \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -942,6 +952,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 		Setze $g := a$ und erhalte $U<gSg^{-1}$.
 		
 		\item Übungsblatt 3
+  \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -965,12 +976,12 @@ Sei $G$ eine endliche Gruppe, $p$ eine Primzahl.
 			\item[\glqq$\Rightarrow$\grqq] Sei $g\in G$, sei $\ord(g) = n$. Aus \cref{ch:zyklisch} folgt $|\<g\>| = n$. Daraus folgt $n\mid |G|$ nach dem \namereff{thm:lagrange}. Da $G$ eine $p$-Gruppe ist, muss nun $n = p^s$ für ein $s \in \IN_0$ gelten.
 			\item[\grqq $\Leftarrow$\grqq] Zu zeigen: $|G| = p^r$ für ein $r\in\IN_0$.
 			Angenommen $q\mid|G|$ für $q$ Primzahl $p\neq q$. Nach dem Satz von \textsc{Cauchy} existiert $g\in G$ mit $\ord(g) = q$. Das ist ein Widerspruch.
+    \qedhere
 		\end{description}
 	\end{proof}
 	\begin{bem}
 		$p$-Gruppen mit unendlicher Ordnung kann man definieren als Gruppen mit $\ord(g) = p^r$, $r\in \IN_0$ von $p$ für alle $g\in G$.
 	\end{bem}
-	
 \end{enumerate}
 
 \paragraph{Anwendungen.}
@@ -1328,6 +1339,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 				\end{align*}
 			\item 
 				Sei $a$ Nullteiler. Dann existiert ein $r\neq 0$ mit $ra = 0$. Sei nun $a\in R^{\times}$, dann $\exists b$ mit $ab = 1$. Somit gilt $r = r\cdot 1 = rab = 0 \cdot b = 0$. Somit wäre $r = 0$, was ein Widerspruch ist.
+    \qedhere
 		\end{enumerate}
 	\end{enumerate}
 \end{proof}
@@ -1371,6 +1383,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 		
 		Sei $a\in R, a\neq 0$. Dann gilt $(0) \subset (a)$ und folglich $(a) = R$. Nach \cref{lem:komring} ist dann $R^{\times} = R\setminus\{0\}$ und somit ist $R$ ein Körper.
 		\item[\glqq $\Rightarrow$\grqq:] Sei $R$ ein Körper, $I\subseteq R$ Ideal, $I\neq \{0\}$. Dann existiert ein $a$ in $I$ mit $ a\neq 0$. Weil $R$ ein Körper ist, ist $a\in R^{\times}$. Daraus folgt $(a) = R$ und somit $I = R$. Somit ist $\{0\}$ das einzige Ideal und somit maximal.
+  \qedhere
 	\end{itemize}
 \end{proof}
 
@@ -1383,6 +1396,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 			Dann gilt $(a)\subsetneq (b)\subsetneq R$ ($(b)\neq R$, weil $b\neq \pm 1$, also $b\notin \IZ^{\times}$), was im Widerspruch zu $I$ maximal steht, also ist $a  = \pm p$ mit $p$ prim.
 			
 			\item[\glqq $\Leftarrow$\grqq:] Sei $I = (a)$ mit $a = \pm p$, $p$ prim. Sei $J$ ein Ideal in $R$ sowie $I \subsetneq J\subsetneq R$. Dann gilt $J = (b)$ für ein $b\in\IZ$, da $\IZ$ ein Hauptidealring ist, und nach \cref{lem:komring} folgt $b\mid a$, $b\neq \pm a$ (weil $I\subsetneq J$) und $b \neq \pm 1$ (weil $(b)\neq R$). Das ist ein Widerspruch zu $a = \pm p$.
+    \qedhere
 		\end{itemize}
 	\end{proof}
 \end{bsp}
@@ -1439,6 +1453,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 				\Rightarrow &x\in\phi(\phi^{-1}(J))
 			\end{align*}
 			\item[\glqq$\subseteq$\grqq] $x\in\phi(\phi^{-1}(J))\Rightarrow \exists y\in\phi^{-1}(J)\colon \phi(y) = x\Rightarrow x\in J$
+    \qedhere
 		\end{itemize}
 	\end{description}
 \end{proof}
@@ -1455,6 +1470,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 		\item [\glqq $\Leftarrow$\grqq ] Sei $R/I$ ein Körper. Nach \cref{lem:field_0_max_ideal} ist $\{0\}\subseteq R/I$ ein maximales Ideal. Dann gilt nach \cref{thm:ideal_bij}, dass $\phi^{-1}(\{0\}) = I$ und $\phi^{-1}(R/I) = R$ die einzigen Ideale sind, die $I$ enthalten. Somit ist $I$ ein maximales Ideal.
 		\item[\glqq$\Rightarrow$\grqq] Sei $I$ ein maximales Ideal in $R$. Dann gibt es genau $I$ und $R$ als Ideale, die $I$ enthalten.
 		Nach \cref{thm:ideal_bij} sind $\{0\} = \phi(I)$ und $R/I = \phi(R)$ alle Ideale von $R/I$. Aus \cref{lem:field_0_max_ideal} folgt dann, dass $R/I$ ein Körper ist.
+  \qedhere
 	\end{itemize}
 \end{proof}
 
@@ -1482,6 +1498,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 		$\Rightarrow$ $(a)$ ist ein Primideal
 		\item [\glqq $\Rightarrow$\grqq ] Sei $(a) \neq (0)$ ein Primideal. Falls $a = \pm 1$, also $ (a) = R$, so ist das ein Widerspruch dazu, dass $(a)$ ein Primideal ist. Falls $a \neq \pm 1, a\neq \pm p$ mit $p$ prim, so existieren $n, m$ mit $1<\abs{n}, \abs{m}<\abs{a}$ sodass $a = nm$. 
 		Daraus folgt nun $ nm\in (a)$ und $n,m\notin (a)$, was wieder $(a)$ als Primideal widerspricht.
+  \qedhere
 	\end{itemize}
 \end{proof}
 
@@ -1517,6 +1534,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 			\Rightarrow& \overline{x} = \overline{0} \text{ oder } \overline{y} = \overline{0} \\
 			\Rightarrow& x\in I \text{ oder } y\in I \\
 			\Rightarrow& I \text{ ist ein Primideal}
+    \qedhere
 		\end{align*}
 	\end{itemize}
 \end{proof}
@@ -1542,7 +1560,8 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 	\begin{enumerate}
 		\item Folgt aus \cref{bsp:IZ_max_ideal_klas} und \cref{thm:primitb}.
 		\item Für Ringe $R$, die Integritätsbereich Hauptidealbereich sind, gilt für ein Primideal $I \neq \{0\}$, dass $I $ maximal ist.
-		\end{enumerate}
+  \qedhere
+  \end{enumerate}
 \end{proof}	
 	
 \begin{satz}[Universelle Eigenschaft von Polynomringen 2]\label{thm:unieig_polyring}
@@ -1654,6 +1673,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 			\end{description}
 			
 			Folglich hat $p(t)$ maximal $n$ verschiedene Nullstellen.
+  \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -1795,6 +1815,7 @@ Ab jetzt sind alle Ringe kommutativ.
 		In diesem Fall gilt $c \in R^{\times}$ und folglich ist $b$ oder $c$ eine Einheit, also $a$ irreduzibel.
 
 		\item[\glqq$\Rightarrow$\grqq:] Sei $a$ irreduzibel. Es folgt sofort $(a) \neq \{0\}$ und $(a)\neq R$. Sei nun $b\in R$ mit $(a) \subseteq (b)$. Dann gilt $b$ teilt $a$ und somit existiert ein $r\in R$, sodass $a = br$. Aus der Irreduzibilität von $a$ folgt nun $b\in R^{\times}$ oder $r\in R^{\times}$. Folglich gilt $(b) = R$ oder $(a) = (b)$.
+  \qedhere
 	\end{description}
 \end{enumerate}
 \end{proof}
@@ -1821,6 +1842,7 @@ Ab jetzt sind alle Ringe kommutativ.
 			\item \begin{description}
 					\item[\glqq$\Leftarrow$\grqq:] siehe \cref{thm:primitb}
 					\item[\glqq$\Rightarrow$\grqq:] Sei $\{0\}\neq I\subseteq R$ ein Primideal. Da $R$ ein Hauptidealring ist, existiert ein $a\in R$ mit $I = (a)$, wobei $a$ nach \cref{lem:primired} prim ist. Mit Teil 1. folgt $I = (a)$ und $a$ irreduzibel. Wieder nach \cref{lem:primired} ist $I = (a) $ maximal unter allen Hauptidealen, und da $R$ ein Hauptidealring ist, ist $I$ tatsächlich ein maximales Ideal.
+					\qedhere
 					\end{description}
 			\end{enumerate}
 	\end{enumerate}
@@ -1980,6 +2002,7 @@ Es gilt $\frac rs = \frac {r'}{s'}$ genau dann, wenn ein $a\in S$ existiert, sod
 			
 			Wieder durch Nachrechnen erhält man, dass $\hat{\phi}$ ein Ringhomomorphismus ist. Es gilt $\hat{\phi}\circ \can(r) = \hat{\phi}(\frac r1) = \phi(r)\phi(1)^{-1} = \phi(r)\cdot 1^{-1} = \phi(r) $. Damit folgt die Existenz von $\hat{\phi}$.
 			\item[Eindeutigkeit:] Wir erhalten $\hat{\phi}(\frac rs) = \hat{\phi} (\frac r1\cdot \frac1s) = \hat{\phi}(\frac r1)\cdot \hat{\phi}(\frac1s) = \hat{\phi}(\frac r1)\hat{\phi}((\frac s1)^{-1}) = \hat{\phi}(\frac r1)\hat{\phi}(\frac s1)^{-1} = \phi(r)\phi(s)^{-1}$, weil $\hat{\phi}\circ\can = \phi$, also $\hat{\phi}(\frac rs) = \phi(r)\phi(s)^{-1}$ gilt. Damit ist $\hat{\phi}$ eindeutig.
+    \qedhere
 		\end{description}
 	\end{enumerate}
 \end{proof}
@@ -2111,6 +2134,7 @@ Ziel dieses Kapitels:
 		Weil $K[t]$ faktoriell ist, gilt dann $\eta q_1\dots q_s,\eta'q_1 '\dots q'_{s'}\in K[t]^{\times}$ und somit $r = r'$, und es existiert ein $\gamma_i\in K[t]^{\times} =K^{\times}$ für jedes $i$ mit $1\leq i \leq r$ und $\pi\in S_r$, sodass $\tilde p_{\pi(i)}' = \gamma_i\tilde{p_i}$. Da $\tilde p_i$ primitiv und $\tilde p_i'\in R[t]$ ist, gilt $\gamma_i\in R$ für alle $i$. Also existiert ein $\gamma = \gamma_1\dots \gamma_r$, sodass $\eta\gamma{q_1}\dots {q_s} = \eta'{q_1'}\dots {q_{s'}'}$ ist.
 		
 		Dabei sind alle Terme in $R$, und da $R$ faktoriell ist, gilt $s = s'$ und die Zerlegung ist \glqq eindeutig\grqq. Folglich ist die Zerlegung insgesamt \glqq eindeutig\grqq.
+  \qedhere
 	\end{description}
 \end{proof}
 
@@ -2217,6 +2241,7 @@ Deshalb können wir $\IQ$ als Teilmenge von $K_p$ vermöge der (injektiven) Einb
 		\ol{0} = \sum_{i=0}^{p-2}a_i\ol{t}^i = \ol{\sum_{i=0}^{p-2}a_it^i} = \ol{Q(t)}
 		\]
 		Dann liegt $Q(t)$ in $I = \Phi_p(t)$ und folglich teilt $\Phi_p(t)$ $Q(t)$. Es folgt also, dass $\deg(Q(t)) \geq p-1$ oder $Q(t) = 0$, wobei ersteres ein Widerspruch zur Definition ist. Folglich gilt $Q(t) = 0$, womit alle $a_i = 0$ und $B$ ist damit linear unabhängig.
+  \qedhere
 	\end{description}
 \end{proof}
 
@@ -2306,6 +2331,7 @@ Zusammenfassend ist $G$ endlich und permutiert die Nullstellen von $X^p-1$. Wir 
 	\begin{description}
 		\item[\emph{Fall 1: $\chr K = p > 0$.}] Dann liegt $p\cdot 1  = 0$ in $K$, es gilt also $\phi(pm) = 0$ für alle $m\in\IZ$, also folgt $p\IZ\subseteq \ker \phi$. Nun existiert nach dem \nameref{thm:homsatz_r} ein Ringhomomorphismus $\overline{\phi}\colon \IZ/p\IZ\to K$ mit $\overline{\phi}\circ \can  = \phi$. Da $p$ prim ist, ist $\IZ/p\IZ = \IF_p$ ein Körper. Nach \cref{lem:koerhomoinj} ist $\overline{\phi}$ folglich injektiv und $\im\ol\phi$ ist im Primkörper von $K$ enthalten, wobei $\im\overline{\phi} \cong \IF_p$ nach dem \nameref{thm:homsatz_r}. Weil der Primkörper der kleinste Unterkörper von $K$ und $\im\overline{\phi}$ ein Körper (isomorph zu $\IF_p$) ist, ist $\im \ol \phi$ der Primkörper von $K$.
 		\item[\emph{Fall 2: $\chr K = 0$.}] Dann ist $\phi$ injektiv, denn aus $\phi(n) = \phi(m)$ folgt $(n-m)1 = 0$ in $K$, also gilt $n = m$ oder  $\chr K > 0$, wobei letzteres aber nicht der Fall ist. Also ist $\phi(n) \neq 0$ für alle $n\neq 0$, da $\phi$ ein Gruppenhomomorphismus ist. Damit gilt $\phi(n)\in K^{\times}$ für alle $n \in \IZ\setminus\{0\}$. Nach der \hyperref[thm:unieig_lokali]{universellen Eigenschaft der Lokalisierung} existiert ein Ringhomomorphismus $\hat{\phi}\colon \IQ= \Quot (\IZ)\to K, \frac ab \mapsto \phi(a)(\phi(b))^{-1}$. Mit \cref{lem:koerhomoinj} folgt dann, dass $\hat{\phi}$ injektiv ist, und weiter gilt nach dem \nameref{thm:homsatz_r} $\IQ/\ker\hat{\phi} \cong \im\hat{\phi}$, also $\IQ \cong \im \hat{\phi}$ (Isomorphie von Ringen bzw. Körpern). Wir wissen, dass $\im \phi$ im Primkörper von $K$ enthalten ist. Nach Definition von $\hat{\phi}$ liegt auch $\im\hat{\phi}$ im Primkörper von $K$, weil der Primkörper ein Körper ist. Damit haben wir nun einen Unterkörper $\im \hat{\phi}$ als Teilmenge des Primkörpers von $K$, also ist $\im \hat{\phi}$ der Primkörper, weil dieser minimal ist. Also ist $\IQ$ isomorph zum Primkörper von $K$.
+  \qedhere
 	\end{description}
 \end{proof}
 
@@ -2363,6 +2389,7 @@ Beachte: $K\subseteq K[\alpha_1,\dots, \alpha_n]\subseteq K(\alpha_1,\dots, \alp
 		\item[\emph{Lineare Unabhängigkeit.}] Sei $\sum_{(i,j)\in I'}c_{ij}z_{(i,j)} = 0$ mit $c_{ij}\in K$ und endlichem $I'\subseteq I \times J$. Es ist zu zeigen, dass $c_{ij} = 0$ für alle $(i,j)\in I'$ gilt.
 		
 		Wir setzen $c_{ij} = 0$ für alle $(i,j)\in (I\times J) \setminus I'$. Nun folgt \[0 = \sum_{\mathclap{(i,j)\in I'}}c_{ij}z_{(i,j)} = \sum_{i\in I}\left(\sum_{j\in J}(c_{ij}w_j)\right)v_i,\]also $c_{ij}w_j\in L$, weil $K\subseteq L$ ein Unterkörper ist. Da $\{v_i\mid i\in I\}$ eine Basis von $V$ als $L$-Vektorraum ist, folgt $\sum_{j\in J}c_{ij}w_j = 0$ für alle $i \in I$. Da weiterhin $\{w_j\mid j\in J\}$ linear unabhängig über $K$ ist, gilt $c_{ij} = 0$ für alle $i \in I$ und $j \in J$.
+  \qedhere
 	\end{description}
 \end{proof}
 
@@ -2404,6 +2431,7 @@ Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist, und algebrais
 			\item{\emph{Lineare Unabhängigkeit.}} Sei $\sum_{i =0}^{d-1}c_ia^i = 0$ (in $K(a)$) mit $c_i\in K$. Wir nehmen an, dass ein $i$ mit $c_i\neq 0$ existiert. Wähle $m$ maximal mit $c_m \neq 0$. Dann ist $\sum_{i = 0}^{m}c_ia^i = 0$. Sei ohne Beschränkung der Allgemeinheit $c_m = 1$. Dann wissen wir
 			\[0 = \sum_{i = 0}^m c_ia^i = \overline{\ev_a}\left(\sum_{i=0}^mc_i\overline{t}^i\right)\Longrightarrow \ev_a\left(\sum_{i=0}^m c_it^i\right) = 0.\]
 			Folglich hat $\sum_{i=0}^mc_it^i\in K[t]$ als Nullstelle $a$ und den Grad $m <d$ im Widerspruch zu Definition von $m_a(t)$, weil $m_a(t)$ das normierte Polynom kleinsten Grades mit $a$ als Nullstelle ist.
+    \qedhere
 		\end{description}
 	\end{proof}
 \end{description}
@@ -2446,6 +2474,7 @@ Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist, und algebrais
 		\item Ist $a\in L_1$, so existiert ein $p(t)\in L_2[t]$ mit $p(t)\neq 0$ und $p(a) = 0$, da $L_1\sslash L_2$ algebraisch ist. Sei $p(t) = \sum_{i=0}^nb_it^i$. Betrachte den Unterkörper $K = L_3(b_0,b_1,\dots, b_n)$ von $L_2$. Dann ist $a$ offensichtlich algebraisch über $K$, also folgt $[K(a):K] \leq \deg(p(t)) <\infty$ nach \ref{enumi:alg+endlicherz=>endlich}; $K(a)\sslash K$ ist somit endlich. Andererseits ist $L_2\sslash L_3$ algebraisch, also ist erst recht $K\sslash L_3$ algebraisch.
 		
 		Nach Konstruktion ist $K\sslash L_3$ endlich erzeugt; mit \ref{enumi:alg+endlicherz=>endlich} folgt, dass $K\sslash L_3$ endlich ist. Mit der \nameref{kor:gradformel} erhalten wir $[K(a):L_3] = [K(a):K][K:L_3]$. Somit ist $[K(a):L_3] <\infty$, also ist $a$ algebraisch über $L_3$ nach \ref{enumi:endlich=>algebraisch}. Somit ist $L_1 \sslash L_3$ algebraisch.
+  \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -2531,6 +2560,7 @@ Im Gegensatz dazu sei $f = t^2+1$ (irreduzibel in $\IR[t]$). Mit $L =\IC$ erhäl
 		\end{itemize}
 		\item[\glqq$3\Rightarrow 4$\grqq:] Sei $L\sslash K$ eine algebraische Körpererweiterung und $b\in L$. Dann ist $b$ algebraisch über $K$, es existiert also ein $f\in K[t]\setminus K$ mit $f(b) = 0$. Folglich existiert ein Minimalpolynom $m_b(t)\in K[t]$ mit $m_b(b)= 0$. Nach der Definition des Normalpolynoms ist $m_b(t)$ normiert und irreduzibel. Mit \ref{enumi:algab:3} folgt, dass $m_b(t) = t-a$ für ein $a\in K$. Da $b$ eine Nullstelle von $m_b(t)$ ist, erhalten wir $b = a$ und damit $b\in K$. Somit ist bereits $L = K$.
 		\item[\glqq$4\Rightarrow1$\grqq:] Sei $f\in K[t]\setminus K$. Nach Satz \ref{thm:15.4} existiert eine algebraische Körpererweiterung $L\sslash K$, sodass $f$ in $L$ eine Nullstelle hat. Aber nach Voraussetzung ist $L = K$. 
+  \qedhere
 	\end{description}
 \end{proof}
 	
@@ -2572,6 +2602,7 @@ Zur Erinnerung: Für einen kommutativen Ring $R$ und eine Teilmenge $N\subseteq 
 		und $\ev(\lambda)  = \lambda\in K\subseteq L'$ für $\lambda\in K$. Dann gilt $\ev(f_i(X_{f_i})) = f_i(a_i) = 0$, weil $a_i$ eine Nullstelle von $f_i$ ist. Also gilt für $1\in R$ 
 		\[1 = \ev(1) = \ev\left(\sum_{i = 0}^{m}g_if_i(x_{f_i})\right) = \sum_{i = 0}^m\ev(g_i)\ev(f_i(X_{f_i})) = 0\]
 		Folglich gilt $1 = 0$ in $L'[X_f\mid f\in J]$, was ein Widerspruch ist, also ist $1\notin I$.
+  \qedhere
 	\end{description}
 \end{proof}
 	
@@ -2618,6 +2649,7 @@ Wie sieht es nun mit der Eindeutigkeit von $\overline{K}$ aus (bis auf Isomorphi
 	\begin{description}
 		\item[\glqq$\supseteq$\grqq:] Klar.
 		\item[\glqq$\subseteq$\grqq:] Sei $\phi\in \Aut(\IC\sslash\IR)$. Dann ist $\phi(a+b\ima) =\phi(a)+\phi(b)\phi(\ima) = a+b\phi(\ima)$, wobei $a,b\in\IR$. Also ist $\phi$ durch durch $\phi(\ima)$ bereits eindeutig bestimmt. Es gilt $-1 = \phi(-1) = \phi(\ima^2) = \phi(\ima)^2$. Daraus folgt, dass $\phi(\ima)$ eine Quadratwurzel von $-1$ sein muss, also $\phi(\ima)=\ima$ (also $\phi = \id_\IC$) oder $\phi(\ima) = -\ima$ (also ist $\phi$ die komplexe Konjugation).
+  \qedhere
 	\end{description}
 \end{proof}
 
@@ -2732,6 +2764,7 @@ $\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, al
 					sodass $\overline{\ev_{a'}}\circ \can = \ev_{a'}$. Da $a$ algebraisch ist, ist andererseits $\beta: M_{\max}(a) \xrightarrow{\sim} M_{\max}[t]/(m_a(t))$ ein Isomorphismus von Körpern und damit $M_{\max}\subsetneq M_{\max}(a)\cong M_{\max}[t]/(m_a(t))$. Wir erhalten also einen Körper $M_{\max}(a)\subseteq L$ mit $M_{\max}\subsetneq M_{\max}(a)$.
 					
 					Also ist $(M_{\max}, \ev_{a'}\circ \beta)\in Z$, da $\ev_{a'}\circ \beta\colon M_{\max}(a)\to L'$ offensichtlich ein Ringhomomorphismus mit $(\ev_{a'}\circ \beta)|_K = \ev_{a'}|_K = f$ nach Konstruktion ist. Das ist ein Widerspruch zur Maximalität von $(M_{\max}, g_{\max})$. Damit folgt die Behauptung und insgesamt Teil \ref{enumi:forsetz:1} des Satzes.
+        \qedhere
 				\end{itemize}
 			\end{proof}
 		\end{itemize}
@@ -2747,6 +2780,7 @@ $\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, al
 		Also ist $K'\subseteq  \im\hat {\phi}\subseteq \overline{K'}$; da $\im\hat{\phi}$ algebraisch abgeschlossen ist, folgt mit \cref{thm:algab} $\im\hat{\phi} = \overline{K'}$. Folglich haben wir einen Isomorphismus von Körpern
 		\[\hat{\phi}\colon \overline{K}\xrightarrow{\sim} \overline{K'},\]
 		wobei $\hat{\phi}|_K = f|_K = \phi$. Also folgt Teil \ref{enumi:forsetz:2}.
+  \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -2866,6 +2900,7 @@ Also ist $\Phi$ aus \cref{thm:17.1} eine wohldefinierte Abbildung.
 	\item[Beweis 3. Behauptung:] Es ist zu zeigen, dass $G_{p_1}\times\dots\times G_{p_n}$ wie in \eqref{eq:h=prodg} zyklisch ist. Nach der 2. Behauptung wissen wir $G_{p_i}\cong \IZ/p_i^{c_i}\IZ$ mit der \nameref{thm:klasszykl}. Es ist also $H\cong \IZ/p_1^{c_1} \IZ\times\dots \times \IZ/p_n^{c_n}\IZ$ als Isomorphismus von Gruppen. Da die $p_i$ paarweise verschiedene Primzahlen sind, existieren $a,b\in\IZ$ so, dass $1 = ap_i^{c_i}+bp_j^{c_j}$ (Euklidischer Algorithmus). Damit ist $1\in p_i^{c_i}\IZ+p_j^{c_j}\IZ$ und wir können den Chinesischen Restsatz anwenden. Dadurch erhalten wir einen Isomorphismus von Ringen
 	$$\IZ/p_1^{c_1}\IZ\times\dots \times\IZ/p_n^{c_n}\IZ \xlongrightarrow{\sim} \IZ/m\IZ$$
 	mit $m = p_1^{c_1}\dots p_n^{c_n}$. Dies ist insbesondere Isomorphismus von Gruppen. Da $\IZ/m\IZ$ zyklisch ist, folgt schließlich, dass $H$ zyklisch ist.
+	\qedhere
 \end{description}
 \end{proof}
 
@@ -3007,6 +3042,7 @@ Zunächst noch ein {Nachtrag\label{nachtrag zu 17.4}} zu \cref{lem:17.4}. Beim d
 		
 		Nach der binomischen Formel \glqq für Dumme\grqq\ erhalten wir $p(t) = (t^p-b^p)h(t^p) = (t-b)^pn(t^p)$. Da $p\geq 2$ ist, hat $p(t)$ die mehrfache Nullstelle $b$ in einem algebraischen Abschluss von $K$, also auch in dem zugehörigen Zerfällungskörper.
 		\item[\glqq$1\Rightarrow3$\grqq:] Sei $a$ eine mehrfache Nullstelle von $p$. Nach \cref{thm:18.3} ist $a$ eine gemeinsame  Nullstelle von $p$ und $p'$ bzw. $p$ und $p'$ haben einen gemeinsamen Teiler $h(t)\in L[t]\setminus L$. Es gilt $h(t)\neq 0$, da sonst schon $p(t) = 0$ im Widerspruch zur Irreduzibilität von $p$ ist. Da $p$ irreduzibel ist und $\deg(h(t)) \leq \deg(p')<\deg(p)$ im Fall von $p' \neq 0$, ist damit $h(t)$ eine Einheit im Widerspruch zu $h(t) \notin L$. Also ist $p' = 0$.
+  \qedhere
 	\end{description}
 \end{proof}
 
@@ -3123,6 +3159,7 @@ Vorbereitung zum Beweis von \ref{thm:19.1}:
 	Noch zu zeigen: $Q(t) \in\IF_p[t]$. Wir wissen 
 	\begin{equation}Q(t^p) = Q(t)^p\end{equation}
 	 Falls $Q(t) = \sum_{i \geq 0}b_it^i\in\IF[t]$, dann $Q(t)^p = \sum_{i \geq 0} b_i^p(t^i)^p = \sum_{i\geq 0} \Fr(b_i)(t^i)^p$. Somit mit $(2)$: $b_i = \Fr(b_i)$ für alle $i$. Nach Konstruktion endlicher Körper ist dadurch $b_i\in \IF_p$ für alle $i$, womit wir schließlich $Q(t) \in\IF_p[t]$.
+  \qedhere
 	\end{enumerate}
 \end{proof}
 \begin{defi} $L\sslash K$ heißt einfach, falls $L\cong K(a)$ für ein $a\in L$.
@@ -3148,6 +3185,7 @@ Vorbereitung zum Beweis von \ref{thm:19.1}:
 		Da $z$ Nullstelle von $m_a(t)$ ist, induziert das Ringhomomorphismus
 		$$\overline{\ev_z}\colon K[t]/(m_a(t))\longto M$$
 		wobei $\beta\colon K[t]/(m_a(t)) \xrightarrow{\cong} K(a)\subseteq K$; $K(a)\sslash K$ algebraisch und $\overline{\ev_z}$ Körperhomomorphismus mit $\overline{\ev_z}\circ \beta|_K = \id_K$ nach Konstruktion. Setze $\phi:= \overline{\ev_z}\circ\beta$ und $\phi(a) = \overline{\ev_z}\circ\beta(a) = \overline{\ev_z}(\overline{t}) = z$.
+  \qedhere
 	\end{description}
 \end{proof}
 \begin{kor}
