@@ -226,7 +226,7 @@
 	Sei $(G,\circ)$ eine Gruppe.
 	\begin{enumerate}
 		\item Sei $\Aut(G) = \{f\colon G\to G| f \text{ Gruppenisomorphimus von $(G,\circ)$ nach }(G,\circ)\}$. Dann ist $\Aut(G)$ eine Gruppe, die Automorphismengruppen von $G$
-		\item Betrachte die Abbildung $\Konj\colon G\to \Aut(G) ,\ g\mapsto \Konj(g)$, wobei $\Konj(g)(h)= g\circ\ h\circ g^{-1}$ für alle $h\in G$. Dann ist Konj ein Gruppenhomomorphismus von $G$ nach $\Aut(G)$. (Im Allgemeinen nicht injektiv.)
+		\item Betrachte die Abbildung $\Konj\colon G\to \Aut(G) ,\ g\mapsto \Konj(g)$, wobei $\Konj(g)(h)= g\circ\ h\circ g^{-1}$ für alle $h\in G$. Dann ist Konj ein Gruppenhomomorphismus von $G$ nach $\Aut(G)$. \textup(Im Allgemeinen nicht injektiv.\textup)
 	\end{enumerate}
 \end{lem}
 
@@ -273,7 +273,7 @@
 	\begin{align*}
 		\Phi \colon G&\longto S_G\\
 		g&\longmapsto \Phi(g)
-	\end{align*} mit $\Phi(g)(h) = gh$ für alle $h\in G$ ein injektiver Gruppenhomomorphismus. (Damit kann man $G$ als Untergruppe einer Permutationsgruppe \glqq realisieren\grqq.)
+	\end{align*} mit $\Phi(g)(h) = gh$ für alle $h\in G$ ein injektiver Gruppenhomomorphismus. \textup(Damit kann man $G$ als Untergruppe einer Permutationsgruppe \glqq realisieren\grqq.\textup)
 \end{satz}
 
 \begin{proof}
@@ -535,7 +535,7 @@ Wir schreiben kurz $\<g\>$ statt $\<\{g\}\>$.
 \end{proof}
 
 \begin{lem} \label{lem:ord}
-	Sei $G$ endliche Gruppe $\abs G = n < \infty$. Sei $g \in G$ mit $G=\<g\>$ (also $G$ zyklisch).
+	Sei $G$ endliche Gruppe $\abs G = n < \infty$. Sei $g \in G$ mit $G=\<g\>$ \textup(also $G$ zyklisch\textup).
 	Sei $\ord(g) = \min \left\lbrace j \in \IN | g^j = e\right\rbrace $.
 	Dann gilt: $\ord(g) = n$. 
 \end{lem}
@@ -844,7 +844,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 	$G\operates X$. Dann
 	\begin{enumerate}
 		\item $\forall x\in X: G_x<G$
-		\item $f\colon G/G_x\to G.x, gG_x\mapsto g.x$ ist wohldefiniert, bijektiv und ein $G$-Homomorphismus (wobei $G$ links wie in Beispiel 2 oben und rechts durch $G\operates X$ operiert).
+		\item $f\colon G/G_x\to G.x, gG_x\mapsto g.x$ ist wohldefiniert, bijektiv und ein $G$-Homomorphismus \textup(wobei $G$ links wie in Beispiel 2 oben und rechts durch $G\operates X$ operiert\textup).
 		\item $|G.x| = (G:G_x)$, wobei $(G:G_x) = \infty$, falls $|G/G_x |=\infty$.
 	\end{enumerate}
 \end{lem}
@@ -892,7 +892,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 
 \begin{satz}
 	Sei $G$ eine $p$-Gruppe. Dann existiert eine Normalreihe der Form
-	$$ \{e\}\nt G_0\nt\dots\nt G_n = G$$ für ein $n\in\IN$, sodass $G_i/G_{i-1}\cong \IZ/p\IZ$ ($1\le i\le n$).
+	$$ \{e\}\nt G_0\nt\dots\nt G_n = G$$ für ein $n\in\IN$, sodass $G_i/G_{i-1}\cong \IZ/p\IZ$ \textup($1\le i\le n$\textup).
 	Insbesondere ist $G$ auflösbar.
 \end{satz}
 \begin{proof}
@@ -1374,7 +1374,7 @@ Somit ist $R/I$ wieder eine Gruppe mit den Nebenklassen in $(R,+)$ bezüglich $I
 	Sei $R$ ein kommutativer Ring, $R\neq \{0\}$. Ein Ideal $I\subsetneq R$ heißt maximal, falls $I\neq R$ und $\nexists J\subsetneq R$ Ideal mit $I\subsetneq J\subsetneq R$ (echte Teilmengen).
 \end{defi}
 \begin{lem} \label{lem:field_0_max_ideal}
-	Sei $R$ kommutativer Ring, $R\neq \{0\}$. Dann ist $R$ genau dann ein Körper, wenn $\lbrace 0 \rbrace$ das einzige (maximale) Ideal ist.
+	Sei $R$ kommutativer Ring, $R\neq \{0\}$. Dann ist $R$ genau dann ein Körper, wenn $\lbrace 0 \rbrace$ das einzige \textup(maximale\textup) Ideal ist.
 \end{lem}
 \begin{proof}
 	\leavevmode
@@ -1890,8 +1890,8 @@ Somit ist $R$ faktoriell.
 	Sei $R$ ein Ring.
 	und $R \neq \{0\}$.
 	\begin{enumerate}
-		\item $R$ besitzt maximale Ideale (und damit auch Primideale nach \cref{thm:primitb}).
-		\item Jedes Ideal $I\subseteq R$, $I \neq R$ ist in einem (nicht notwenig eindeutigen!) maximalen Ideal enthalten.
+		\item $R$ besitzt maximale Ideale \textup(und damit auch Primideale nach \cref{thm:primitb}\textup).
+		\item Jedes Ideal $I\subseteq R$, $I \neq R$ ist in einem \textup(nicht notwenig eindeutigen!\textup) maximalen Ideal enthalten.
 	\end{enumerate}
 \end{satz}
 \begin{proof}
@@ -1932,7 +1932,7 @@ Eine Lösung ist zum Beispiel $x = 10$, aber laut Stroppel ist das nicht die Anz
 		\Phi\colon R & \longto & R/I_1\times \dots R/I_s\\
 		r & \longmapsto & (\overline{r},\dots, \overline{r})
 	\end{eqnarray*}
-	(wobei $\overline{r}$ jeweils die Nebenklasse von $r$ bezüglich dem passenden Ideal $I_i$ ist).
+	\textup(wobei $\overline{r}$ jeweils die Nebenklasse von $r$ bezüglich dem passenden Ideal $I_i$ ist\textup).
 	Dabei gilt $\ker\Phi = I_1\cap\dots\cap I_s$. Insbesondere erhalten wir einen Isomorphismus von Ringen:
 	$$ R/(I_1\cap\dots\cap I_s) \longto R/I_1 \times\dots \times R/I_s$$
 	
@@ -2071,12 +2071,12 @@ Ziel dieses Kapitels:
 	\emph{Genauer:} Sei $R$ ein faktorieller Ring. Dann ist $R[t]$ faktoriell und die irreduziblen Elemente sind bis auf Einheiten in $R$ genau die
 	\begin{enumerate}[label=(\alph*)]
 		\item irreduziblen Elemente in $R\subseteq R[t]$ und die \label{enumi:gauss:a}
-		\item Elemente $p(t) \in R[t]$, die irreduzibel in $\Quot(R)[t]$ und primitiv (siehe \cref{def:primitiv}) sind. \label{enumi:gauss:b}
+		\item Elemente $p(t) \in R[t]$, die irreduzibel in $\Quot(R)[t]$ und primitiv \textup(siehe \cref{def:primitiv}\textup) sind. \label{enumi:gauss:b}
 	\end{enumerate}
 \end{satz}
 
 \begin{kor}
-	Sei $K$ ein Körper. Dann ist $K[t_1,\dots,t_n]$ faktoriell, also ist insbesondere $\IZ[t_1,\dots, t_n]$ faktoriell (aber kein Hauptidealring, vgl. Übungungsblatt 5)
+	Sei $K$ ein Körper. Dann ist $K[t_1,\dots,t_n]$ faktoriell, also ist insbesondere $\IZ[t_1,\dots, t_n]$ faktoriell \textup(aber kein Hauptidealring, vgl. Übungungsblatt 5\textup)
 \end{kor}
 
 \begin{proof} $K$ und $\IZ$ sind beide Hauptidealringe, weshalb $K$ und $\IZ$ nach \cref{thm:hirfakt} also faktoriell sind. Laut \nameref{thm:gauss} sind damit $K[t_1]$ und $\IZ[t_1]$ faktoriell. Durch iterative Anwendung folgt die Aussage.
@@ -2313,7 +2313,7 @@ Zusammenfassend ist $G$ endlich und permutiert die Nullstellen von $X^p-1$. Wir 
 	Der Primkörper eines Körpers ist selbst ein Körper und zwar der kleinste Unterkörper von $K$. Es ist $0,1\in \langle\emptyset\rangle$ und damit auch $1+\dots+1 \in \langle \emptyset\rangle$ als die $n$-fache Addition der $1$ ($n\in\IN$).
 \end{bem}
 
-\begin{satz} Sei $K$ ein Körper. Dann ist der Primkörper von $K$ isomorph (als Körper) zu \[\begin{cases*} \IQ& falls $\chr K =0$,\\
+\begin{satz} Sei $K$ ein Körper. Dann ist der Primkörper von $K$ isomorph \textup(als Körper\textup) zu \[\begin{cases*} \IQ& falls $\chr K =0$,\\
 	\IF_p& falls $\chr K = p > 0$.\end{cases*}\]
 \end{satz}
 
@@ -2461,7 +2461,7 @@ Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist, und algebrais
 	\begin{enumerate}
 		\item Jede endliche Körpererweiterung ist algebraisch.\label{enumi:endlich=>algebraisch}
 		\item Falls $L\sslash K$ algebraisch und endlich erzeugt ist, ist $L\sslash K$ endlich.\label{enumi:alg+endlicherz=>endlich}
-		\item Seien $L_1\sslash L_2$ und $L_2\sslash L_3$ beide algebraisch. Dann ist auch $L_1\sslash L_3$ algebraisch (Transitivität).
+		\item Seien $L_1\sslash L_2$ und $L_2\sslash L_3$ beide algebraisch. Dann ist auch $L_1\sslash L_3$ algebraisch \textup(Transitivität\textup).
 	\end{enumerate}
 \end{satz}
 \begin{proof}
@@ -2801,10 +2801,10 @@ Ziel: Gegeben eine Primzahl $p$ und $r\in\IN= \IZ_{>0}$. Dann existiert ein Kör
 \begin{satz}[Klassifikationssatz endlicher Körper]\label{thm:17.1}
 	Es gibt eine Bijektion
 	\begin{eqnarray*}
-		\Phi\colon\left\{\IF\,\middle|\,\substack{\text{$\IF$ endlicher Körper}\\\text{(bis auf Körperisomorphie)}}\right\}& \xlongleftrightarrow{1:1}& \{p^r\mid \text{$p$ Primzahl}, r\in\IN\}\\
+		\Phi\colon\left\{\IF\,\middle|\,\substack{\text{$\IF$ endlicher Körper}\\\text{\textup(bis auf Körperisomorphie\textup)}}\right\}& \xlongleftrightarrow{1:1}& \{p^r\mid \text{$p$ Primzahl}, r\in\IN\}\\
 		\IF & \longmapsto & |\IF|
 	\end{eqnarray*}
-	Wir nennen dann den (bis auf Isomorphie eindeutigen) Körper mit $p^r$ Elementen $\IF_{p^r}$.
+	Wir nennen dann den \textup(bis auf Isomorphie eindeutigen\textup) Körper mit $p^r$ Elementen $\IF_{p^r}$.
 \end{satz}
 \begin{bem}
 	\leavevmode
@@ -3030,7 +3030,7 @@ Zunächst noch ein {Nachtrag\label{nachtrag zu 17.4}} zu \cref{lem:17.4}. Beim d
 	Sei $K$ ein Körper und $p\in K[t]\setminus K$ irreduzibel. Dann sind äquivalent:
 	\begin{enumerate}
 		\item $p$ hat eine mehrfache Nullstelle im Zerfällungskörper.
-		\item $p' = 0$ (Nullpolynom).
+		\item $p' = 0$ \textup(Nullpolynom\textup).
 		\item Es existiert ein $Q\in K[t]$ mit $p = Q(t^p)$ mit $0<p = \chr K$.
 	\end{enumerate}
 \end{kor}
@@ -3061,7 +3061,7 @@ Zunächst noch ein {Nachtrag\label{nachtrag zu 17.4}} zu \cref{lem:17.4}. Beim d
 Damit ist der \nameref{thm:17.1} gezeigt.
 
 \begin{kor}
-	Der Zerfällungskörper von $p(t) = t^n-t\in\IF_p[t]$ (mit $p,n$ wie in \cref{thm:18.1}) ist eindeutig bis auf Isomorphie.
+	Der Zerfällungskörper von $p(t) = t^n-t\in\IF_p[t]$ \textup(mit $p,n$ wie in \cref{thm:18.1}\textup) ist eindeutig bis auf Isomorphie.
 \end{kor}
 \begin{proof}
 	$\Phi(p^r) := \IF$ ist (ein) Zerfällungskörper von $t^n-t$ und ist eindeutig bis auf Isomorphie von Körpern.
@@ -3092,7 +3092,7 @@ Allgemeiner lässt sich der folgende Satz formulieren:
 	Sei $\IF$ ein endlicher Körper sowie $|\IF| = p^r = n$. Dann gilt:
 	\begin{itemize}
 		\item $\Gal(\IF\sslash\IF_p) = \{\phi\colon \IF\to \IF\mid\text{$\phi$ Ringisomorphismus}\}$.
-		\item $\Gal(\IF\sslash\IF_p) \cong (\IZ/n\IZ, +)$ als Gruppe, erzeugt von $\Fr$. Wir werden zeigen, dass daraus folgt, dass eine Bijektion (Galoiskorrespondenz) existiert:
+		\item $\Gal(\IF\sslash\IF_p) \cong (\IZ/n\IZ, +)$ als Gruppe, erzeugt von $\Fr$. Wir werden zeigen, dass daraus folgt, dass eine Bijektion \textup(Galoiskorrespondenz\textup) existiert:
 		\begin{eqnarray*}
 			\{\text{Untergruppen von $\Gal(\IF\sslash\IF_p)$}\}&\xlongleftrightarrow{1:1}&\{\text{Unterkörper von $\IF$}\}\\
 			U &\longmapsto & \IF^U = \{x\in\IF\mid \phi(x) = x \;\forall \phi\in U\}
@@ -3104,7 +3104,7 @@ Allgemeiner lässt sich der folgende Satz formulieren:
 Ziel: $L\sslash K$ \glqq gute\grqq\ Körpererweiterung. Dann gibt es eine 1:1-Korrespondenz zwischen Untergruppen der Galoisgruppe $Gal(L\sslash K)$ und Zwischenkörpern $K\subseteq$ ? $\subseteq L$.
 
 \subsection{Normale und separable Körpererweiterungen}
-\begin{satz}[Spezialfall der Galoiskorrespondenz]\label{thm:19.1} Sei $\IF$ ein endlicher Körper mit $|\IF| = n = p^r$ ($p$ Primzahl). Dann definiere $G:= Gal(\IF\sslash\IF_p):=\{\phi\colon \IF\to\IF \text{ Körperisomorphismus}, \phi|_{\IF_p} = id$. Dann existiert eine Bijektion von Mengen
+\begin{satz}[Spezialfall der Galoiskorrespondenz]\label{thm:19.1} Sei $\IF$ ein endlicher Körper mit $|\IF| = n = p^r$ \textup($p$ Primzahl\textup). Dann definiere $G:= Gal(\IF\sslash\IF_p):=\{\phi\colon \IF\to\IF \text{ Körperisomorphismus}, \phi|_{\IF_p} = id$. Dann existiert eine Bijektion von Mengen
 \begin{eqnarray*}
 \Phi\colon	\{\text{UG von  }G = Gal(\IF/\IF_p)\} & \xlongleftrightarrow{1:1} &\{\text{ Zwischenkörper }\IF_p\subseteq \text{ ? }\subseteq \IF\}\\
 	H &\longmapsto & \IF^H
@@ -3146,7 +3146,7 @@ Vorbereitung zum Beweis von \ref{thm:19.1}:
 \begin{satz} $\IF$ endlicher Körper, $\chr \IF = p$. Sei $1\neq a\in\IF$ und $r$ minimal, sodass $a^{p^r} =a$. Dann gilt:
 	\begin{enumerate}
 		\item $1, a, a^2,\dots, a^{p^{r-1}}$ paarweise verschieden
-		\item $m_a(t) = (t-a)(t-a^p)\dots(t-a^{p^r-1}) =: f(t)\in\IF_p[t]$ Minimalpolynom von $a$ über $\IF_p$. (Damit folgt dann die 1. Behauptung aus dem Beweis von Lemma 19.2)
+		\item $m_a(t) = (t-a)(t-a^p)\dots(t-a^{p^r-1}) =: f(t)\in\IF_p[t]$ Minimalpolynom von $a$ über $\IF_p$. \textup(Damit folgt dann die 1. Behauptung aus dem Beweis von Lemma 19.2\textup)
 	\end{enumerate}
 \end{satz}
 \begin{proof}
