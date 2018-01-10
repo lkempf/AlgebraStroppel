@@ -226,7 +226,7 @@
 	Sei $(G,\circ)$ eine Gruppe.
 	\begin{enumerate}
 		\item Sei $\Aut(G) = \{f\colon G\to G| f \text{ Gruppenisomorphimus von $(G,\circ)$ nach }(G,\circ)\}$. Dann ist $\Aut(G)$ eine Gruppe, die Automorphismengruppen von $G$
-		\item Betrachte die Abbildung $\text{Konj}\colon G\to \Aut(G) ,\ g\mapsto \text{Konj}(g)$, wobei $\text{Konj}(g)(h)= g\circ\ h\circ g^{-1}$ für alle $h\in G$. Dann ist Konj ein Gruppenhomomorphismus von $G$ nach $\Aut(G)$. (Im Allgemeinen nicht injektiv.)
+		\item Betrachte die Abbildung $\Konj\colon G\to \Aut(G) ,\ g\mapsto \Konj(g)$, wobei $\Konj(g)(h)= g\circ\ h\circ g^{-1}$ für alle $h\in G$. Dann ist Konj ein Gruppenhomomorphismus von $G$ nach $\Aut(G)$. (Im Allgemeinen nicht injektiv.)
 	\end{enumerate}
 \end{lem}
 
@@ -238,7 +238,7 @@
 	\leavevmode
 	\begin{enumerate}
 		\item 	Falls $(G,\circ)$ abelsch, dann ist jede Konjugation die Identität.
-		\item $\text{Konj}(g) = \text{id}_G \Leftrightarrow g\in Z(G):=\{x\in G|x\circ y = y\circ x\enspace \forall y\in G\}$
+		\item $\Konj(g) = \text{id}_G \Leftrightarrow g\in Z(G):=\{x\in G|x\circ y = y\circ x\enspace \forall y\in G\}$
 	\end{enumerate}
 \end{bem}
 
@@ -261,7 +261,7 @@
 	\leavevmode
 	\begin{enumerate}
 		\item $\ker(\text{can}\colon \IZ\to \IZ/n\IZ) = n\IZ<\IZ$
-		\item $\ker(\text{Konj}\colon G\to \Aut(G)) = Z(G)<G$
+		\item $\ker(\Konj\colon G\to \Aut(G)) = Z(G)<G$
 		\item $\ker(\det\colon \GL_n(K)\to K^*) = SL_n(K)$
 	\end{enumerate}
 \end{bsp}
