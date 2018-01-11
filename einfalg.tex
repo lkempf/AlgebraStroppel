@@ -3212,13 +3212,59 @@ Vorbereitung zum Beweis von \ref{thm:19.1}:
 	\item $L\sslash K$ normal
 	\item $L$ ist Zerfällungskörper eines Polynoms $f\in K[t]$.
 	\item Sei $M\sslash K$ eine Körpererweiterungen . Dann haben alle Körperhomomorphismen $\phi\colon L\to M$, die die Inklusion $K\to M$ fortsetzen, dasselbe Bild, das heißt, folgendes Diagramm kommutiert:
+	
 	\begin{tikzcd}
 				L \arrow{r}{\phi} & M  \\
 				K \arrow{u}\arrow{ru}\\
 	\end{tikzcd}
+
 	wobei $K\to L$, $K\to M$ jeweils die Inklusionen sind.
 \end{enumerate}
 \end{satz}
+
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[$1\Rightarrow2$:] Sei $L = K(a_1,\dots,a_n)$ für gewisse $a_1,\dots,a_n\in L$. Betrachte $m_{a_i}(t)\in K[t]$ Minimalpolynom für $a_i$. Sei $f(t):=m_{a_1}(t)\dots m_{a_n}(t)\in K[t]$. Jedes $m_{a_i}$ hat Nullstelle in $L$. (Nämlich z.B. $a_i$.) Da $L\sslash K$ normal ist, sind alle Nullstellen von $m_{a_i}(t)$ in $L$, weil $m_{a_i}(t)$ irreduzibel ist für jedes $i$. Damit sind alles Nullstellen von $f(t)$ in $L$. $\Rightarrow L$ ist Zerfällungskorper von $f(t)$.
+		\item[$2\Rightarrow3$:] $L$ Zerfällungskörper von $f(t)\in K[t]\Rightarrow L = K(a_1,\dots, a_n)$ mit $a_i$ die Nullstellen von $f(t)$. Sei $\phi_j\colon L\to M$ $K$-Homomorphismus mit $j = 1,2$ wie in $3$. Zu zeigen: $\im \phi_1 = \im\phi_2$.
+		
+		Dann $\phi_j(a_i)$ Nullstelle von $f(t)$. Da Nullstelle eindeutig ist, gilt nach Satz 19.4: $\{\phi_1(a_i)|1\leq i\leq n\} = \{\phi_2(a_i)|1\leq i\leq n\}$. Da dadurch $\phi_1, \phi_2$ eindeutig bestimmst sind durch $\phi|_K = \id$ und $\phi(a_i)$ für $1\leq i\leq n$, ist $\im\phi_1 = \im\phi_2$.
+		\item[$3\Rightarrow 1$:] Sei $f(t)\in K[t]$ irreduzibel. Sei $z\in L$ Nullstelle von $f(t)$. Zu zeigen: alle Nullstellen von $f(t)$ liegen in $L$. Nach Voraussetzugn: $L = K(b_1,\dots, b_n)$ für gewisse $b_i\in L$. Sei $M\sslash L$ Körpererweiterung, sodass $m_{b_1}(t),\dots , m_{b_n}(t)\in K[t]$ (die Minimalpolynome der $b_i$) vollständig zerfallen über $M$. Sei $z'$ eine Nullstelle von $f(t)$. Betrachte
+		\begin{center}
+			\begin{tikzcd}
+				K(z) \arrow{r}{\phi} & M  \\
+				K \arrow{u}\arrow{ru}\\
+			\end{tikzcd}
+		\end{center}
+		mit $K\to K(z)$ und $K\to M$ jeweils die Inklusion und $\phi(z) = z'$, $\phi$ ist ein $K$-Homomorphismus (existiert nach Satz 19.4).
+		
+		$\Rightarrow \exists \hat{\phi}\colon L\to M$ mit $\hat{\phi}|_{K(z)} = \phi$, weil $L\sslash K$ endlich, also algebraisch, also $L\sslash K(z)$ algebraisch. Klar: $\hat{\phi}(z) = z'$. Nun liegt jedes Nullstelle von $f(t)$ im Bild von $\hat{\phi}$, was ein $K$-Homomorphismus $L\to M$ ist. Nach Voraussetzung liegt jedes Nullstelle von $f(t)$ schon im Bild jedes $K$-Homomorphismus' $L\to M$; insbesondere also in $L$. (nimm $\id\colon L\to L$.)
+	\end{description}
+\end{proof}
+
+\begin{bem}
+	Man kann statt $L\sslash K$ endlich auch nur $L\sslash K$ algebraisch fordern und $2$ ersetzen durch: $L$ ist Zerfällungskörper über $K$ (d.h. allse $f(t)\in K[t]$ zerfallen über $L$). Das existiert, denn betrachte $K\subseteq M\subseteq \overline{K}$ mit $M$ Zwischenkörper erzeugt von allen Nullstellen von Polynomen in $K[t]$. Wei vorher für Zerfällungskörper von Polynomen kann man zeigen, dass obiger Zerfällungskörper eindeutig bis auf $K$-Isomorphismus ist.
+\end{bem}
+
+\begin{satz}\label{thm:19.7}
+	Sei $L\sslash K$ eine endliche Körpererweiterung. Dann existiert eine endliche Körpererweiterung $M\sslash L$, sodass $M\sslash K$ normal ist.
+\end{satz}
+\begin{kor}
+	Sei $L\sslash K$ Körpererweiterung und $K\subseteq M\subseteq L$ Zwischenkörper mit $M\sslash K$ normal (und endlich, wobei man das nach Bemerkung auch weglassen kann). Dann gilt: $\phi\colon M\to L$ $K$-Homomorphismus. Dann ist $\phi(M) = M$.	
+\end{kor}
+\begin{proof}
+	Betrachte $M\xrightarrow{\phi}L$ und $M\xrightarrow{\id}M\subseteq L$ $K$-Homomorphismen. Da $M\sslash K$ normal ist, gilt nach Satz 19.6 $\im\phi = \im(\id) = M$.
+\end{proof}
+
+\begin{proof}[Beweis von Satz \ref{thm:19.7}]
+	$L\sslash K$ endlich $\Rightarrow L = K(a_1,\dots, a_n)$ für gewisse $a_1,\dots,a_n\in L$. Sei $f(t) = m_{a_1}(t)\dots m_{a_n}(t)\in K[t]$ mit $m_{a_i}(t)$ Minimalpolynom von $a_i$ Sei $M$ Zerfällungskörper von $f(t)$ über $L$, also auch Zerfällungskörper von $f(t)$ über $K$. Nach satz 19.6 ist $M\sslash K$ normal. Noch zu zeigen: $M\sslash K$ ist endlich. Behauptung: $[M:K]\leq \deg(f(t))$. Damit folgt Satz, Behauptung folgt aus nächstem Lemma.
+\end{proof}
+\begin{lem} Sei $f(t)\in K[t]$, $K$ Körper, $L$ Zerfällungskörper von $f(t)$. Dann $[L:K]\leq\deg(f(t))$.
+\end{lem}
+\begin{proof}
+	Sei $L = K(b_1,\dots, b_n)$, wobei $b_i$ die (verschiedenen) Nullstellen von $f(t)$ sind. Insbesondere teilt $m_{b_i}(t)$ das $f(t)$. $\Rightarrow [K(b_i):K] = \deg m_{b_i}(t)\leq \deg f(t)$. Dann $[L:K] = [L:K(b_1)][K(b_1):K]$. Beachte $L = K(b_1)(b_2,\dots, b_n)$ ist Zerfällungskörper von $f(t)/(t-b_1)$. Mit Induktion $[L_K(b_1)][K(b_1):K]\leq (\deg(f(t)/(t-b_1))!\cdot\deg(f(t)) = (deg(f(t)))!$
+\end{proof}
+
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
