@@ -3265,6 +3265,65 @@ Vorbereitung zum Beweis von \ref{thm:19.1}:
 	Sei $L = K(b_1,\dots, b_n)$, wobei $b_i$ die (verschiedenen) Nullstellen von $f(t)$ sind. Insbesondere teilt $m_{b_i}(t)$ das $f(t)$. $\Rightarrow [K(b_i):K] = \deg m_{b_i}(t)\leq \deg f(t)$. Dann $[L:K] = [L:K(b_1)][K(b_1):K]$. Beachte $L = K(b_1)(b_2,\dots, b_n)$ ist Zerfällungskörper von $f(t)/(t-b_1)$. Mit Induktion $[L_K(b_1)][K(b_1):K]\leq (\deg(f(t)/(t-b_1))!\cdot\deg(f(t)) = (deg(f(t)))!$
 \end{proof}
 
+\begin{bem} Sei $L\sslash K$ normale Körpererweiterung; $K\subseteq M\subseteq L$ Zwischenkörper. Dann ist $L$ normale Hülle von $M\sslash K$, falls es keinen Zwischenkörper $M\subseteq N\subseteq L$ mit $N\sslash K$ normal gibt. (Also ist $L$ der kleinste Körper, der $M$ enthält und normal über $K$ ist.) Man kann zeigen: die normale Hülle ist eindeutig bis auf $K$-Isomorphismus.
+\end{bem}
+
+\begin{defi} Sei $L\sslash K$ eine Körpererweiterung. \begin{enumerate}
+		\item $a\in L$ heißt separabel, falls $m_a(t)\in K[t]$ keine mehrfachen Nullstellen hat in $\overline{K}$. %vllt auch in $L$, aber Stroppel weiß das gerade nicht so genau
+		\item $f(t)\in K[t]$ heißt separabel, falls $f(t)$ keine mehrfachen Nullstellen hat in $\overline{K}$.
+		\item $L\sslash K$ heißt separabel, falls jedes $a\in L$ separabel ist.
+	\end{enumerate}
+\end{defi}
+
+\begin{defi}
+	Ein Körper $K$ heißt perfekt, falls $\chr K = 0$ oder $\chr K = p>0$ und dann der Frobenius-Homomorphimus surjektiv ist.
+\end{defi}
+\begin{bsp} Jeder endliche Körper $\IF$ ist perfekt, da $Fr\colon \IF\to \IF$ ein Ringhomomorphismus ist; insbesondere injektiv (da $\IF$ Körper), also bijektiv, weil $|\IF|<\infty$.
+\end{bsp}
+\begin{bsp}\leavevmode\begin{enumerate}
+	\item Jedes irreduzible Polynom $f(t)\in K[t]$ mit $\chr K = 0$ ist separabel.
+	\item Betrachte $\IF_p(x)\sslash \IF_p(x^p)$ mit $x$ transzendent über $\IF_p$. Sei $f(t) = t^p-x^p\in \IF_p(x^p)[t]$. Dann ist $f(t)$ irreduzibel (nachprüfen!), aber zerfällt über $\IF_p(x)$ und hat mehrfache Nullstellen, denn: $(t^p-x^p) = (t-x)^p$.
+	\end{enumerate}
+\end{bsp}
+
+\begin{satz}
+	Jede algebraische Erweiterung $L\sslash K$ über einem perfekten Körper $K$ ist separabel.
+\end{satz}
+
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[1. $\chr K = 0$:] Sei $a\in L$ und $m_a(t) \in K[t]$ Minimalpolynom, insbesondere $m_a(t)$ irreduzibel. Nach Beispiel 19.3 hat $m_a(t)$ keine mehrfachen Nullstellen, also ist $a$ separabel über $K$. Da $a$ beliebig gewählt war, ist $L$ separabel über $K$.
+		\item[2. $\chr K = p>0$:] Sei $a\in L$ und $m_a(t)\in K[t]$ Minimalpolynom. Annahme: $m_a(t)$ hat mehrfache Nullstelle. Mit Satz 18.4 folgt $m_a'(t) = 0$, $m_a(t) = Q(t^p)$ für ein $Q(t)\in K[t]$. Sei $Q(t)  =\sum_{i = 0}^n b_it^i\in K[t]$. Weil $K$ perfekt ist, existieren $a_1, \dots, a_n$ mit $a_i^p = b_i$. Dann: $(\sum_{i = 0}^na_it^i)^p = \sum_{i = 0}^nb_i(t^p)^i = Q(t^p) = m_a(t)$. Das ist ein Widerspruch zu $m_a(t)$ irreduzibel; folglich hat $m_a(t)$ keine mehrfachen Nullstellen. Damit ist $a$ separabel über $K$ für alle $a\in L$; $L\sslash K$ ist folglich separabel.
+	\end{description}
+\end{proof}
+
+\begin{defi}
+	$L\sslash K$ sei eine algebraische Körpererweiterung. Dann definiere den Separabilitätsgrad
+	$$[L:K]_{sep} \coloneqq |\{\phi\colon L\to\overline{K}|\phi K\text{-Homomorphismus}\}$$
+	von $L\sslash K$.
+\end{defi}
+
+\begin{bem}\leavevmode\begin{enumerate}
+		\item Separabilitätsgrad ist unabhängig von der Wahl von $\overline{K}$.
+		\item $L_1\sslash K$, $L_2\sslash K$ seien Körpererweiterungen und es existiert $\phi\colon L_1\to L_2$ $K$-Homomorphismsu, der Isomorphismus ist. Dann gilt $[L_1:K]_{sep} = [L_2:K]_{sep}$.
+		\item Wir nennen Elemente $a\in L$ für $L\sslash K$ Körpererweiterung inseparabel, falls es nicht separabel ist.
+	\end{enumerate}
+\end{bem}
+\begin{lem}\label{lem:19.11}
+	Sei $L\sslash K$ algebraische endliche Körpererweiterung. Dann gilt: $[L:K]_{sep}\leq [L:K]$.
+\end{lem}
+\begin{lem}\label{lem:19.12}
+	Seien $L_1\sslash L_2$ und $L_2\sslash L_3$ Körpererweiterungen. Dann gilt:$[L_1:L_3]_{sep} = [L_1:L_2]_{sep}[L_2:L_3]_{sep}$.
+\end{lem}
+\begin{bem}
+	Sei $L\sslash K$ endlich, normal. Dann ist $\phi(L) = L$ für jeden $K$-Homomorphismus nach Korollar 19.8. Also $L\sslash K$ normal und $[L:K]_{sep} = \#\{K-\text{Homos }\phi\colon L\to L\} = \#Aut_K(L)$, weil jeder Homomorphismus injektiv ist, also bijektiv, weil $\dim_LK$ endlich.
+\end{bem}
+\begin{proof}[Beweis von \ref{lem:19.12}]
+	Übungsblatt
+\end{proof}
+\begin{proof}[Beweis von \ref{lem:19.11}] Sei $L = K(a_1,\dots, a_n)$ für gewisse $a_1,\dots, a_n\in L$. Sei $L_0 = K$, $L_i = K(a_1,\dots, a_i)$, also $L_i = L_{i-1}(a_i)$. Wir wissen: für einfache algebraische Erweiterung $M(a)\sslash M$ für einen Körper $M$ ist $[M(a):M]_{sep} = |\{\phi\colon M(a)\to \overline{M}|\phi M\text{-Homo}\leq \deg m_a(t)\in M[t]$ nach Satz 19.4, wobei $\deg m_a(t) = [M(a):M]$. Somit $[L:K]_{sep} = \prod_{i = 1}^n[L_i:L_{i-1}]_{sep} \leq \prod_{i = 1}^n[L_i:L_{i-1}] = [L:K]$.	
+\end{proof}
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
