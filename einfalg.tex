@@ -3367,12 +3367,75 @@ Vorbereitung zum Beweis von \ref{thm:19.1}:
 		Falls $1\leq i\neq m\leq m$ gilt $\phi_(x) \neq \phi_j(x)$ oder $\phi_i(y)\neq\phi_j(y)$, da $\phi_i,\phi_j$ bereits eindeutig bestimmt sind durch Werte auf $x,y$.
 		
 		$\Rightarrow f\neq 0$. Da $|K|$ undendlich ist, existiert ein $c\in K$ mit $f(c) \neq 0$. Also für $i<j$: $(\phi_i(x)-\phi_j(y))+(\phi_i(y)-\phi_j(y))c \neq 0$. Damit folgt $\phi_i(x) üc\phi_i(y)\neq \phi_j(x)+\phi_j(y)c$ (für $i\neq j$). Da $c\in K$ ist, gilt $\phi_i(c) = c$, $\phi_j(c) = c$. Damit (da $\phi_i,\phi_j$ Körperhomomorphismen sind) folgt $\phi_i(x+cy)\neq \phi_j(x+cy)$. Setze $a\eqqcolon x +cy$. Dann sind die $\phi_i(a)$ für $1\leq i\leq m$ paarweise verschieden. Die $\phi_i(a)$ sind Nullstellen von $m_a(t)\in K[t]$. (Nach 19.14)
-		$$\Rightarrow [K(a):K] = \deg m_a(t)\geq m = [L:K] = [L:K(a)][K(a):K]$$
-		also $[L:K(a)] = 1$ und $L = K(a)$.
+		$$\Rightarrow [K(a):K] = \deg m_a(t)\geq m = [N:K] = [N:K(a)][K(a):K]$$
+		also $[N:K(a)] = 1$ und $L = K(a)$.
 	\end{description}
 	
 	
 \end{proof}
+
+\subsection{Galoisgruppen}
+\begin{defi}
+	$L\sslash K$ Körpererweiterung. Dann definiere die Galoisgruppe $$\Gal(L\sslash K) = \{\phi\colon L\to L|\phi\text{ bijektiver Körperhomomorphismus}, \phi|_K = \id_K\}$$
+	von $L\sslash K$. Das ist eine Gruppe bezüglich Komposition von Abbildungen.
+\end{defi}
+\begin{lem}\label{lem:20.1}
+	$\Gal(L\sslash K)\subseteq  A\eqqcolon\{\phi\colon L\to L|\phi\ K\text{-Homomorphismus}\}$. Ist $L\sslash K$ algebraisch, dann gilt sogar Gleichheit.
+\end{lem}
+\begin{proof}
+	Falls $L\sslash K$ endlich ist, ist für $\phi\in A$ die Abbildung $\phi$ injektiv und, da $L\sslash K$ endlich ist, bijektiv.
+	
+	Falls $L\sslash K$ nicht endlich ist, aber algebraisch: Sei $a\in L, m_a(t)\in K[t]$ Minimalpolynom. Dann ist $\phi(a)$ Nullstelle von $m_a(t)$ für alle $\phi\in A$. Sei $L' = K(\{\text{Nullstelle von }m_a(t)\text{ in }L\})\subseteq L$. Es gilt $a\in L', \phi(a)\in L'$ für alle $\phi \in A$ und $\phi\colon L'\to L'$ und $\phi(L') = L'$, weil $\phi$ die Nullstellen permutiert.
+	Folglich existiert ein Urbild von $a$ unter $\phi$; damit ist $\phi\in A$ surjektiv und injektiv automatisch. Also ist $\phi$ bijektiv und $\phi\in \Gal(L\sslash K)$.
+\end{proof}
+
+\begin{defi}
+	Sei $G$ Gruppe; $X$ Menge und $G\operates X$ eine Operation von $G$ auf $X$. Sie heißt
+	\begin{description}
+		\item[treu,] falls $(g.x = x\forall x\in X)\Rightarrow g = e$
+		\item[transitiv,] falls $\forall x,y\in X\exists g\in G$ mit $g.x = y$
+	\end{description}
+\end{defi}	
+\begin{satz}
+	 Sei $K$ Körper, $f\in K[t]$. Sei $L$ Zerfällungskörper von $f$ über $K$. Dann operiert $G\eqqcolon \Gal(L\sslash K)$ auf $X\eqqcolon \{\text{Nullstellen von }f\text{ in }L\}$ treu und transitiv durch $\phi.x = \phi(x)$ für $\phi\in G, x\in X$. 
+\end{satz}	
+\begin{proof}
+	\leavevmode
+	\begin{description}
+	\item[Die definierte Operation ist tatsächlich eine Operation:] $y\in X\Rightarrow \phi(y)\in X\forall\phi \in G$, alos $\phi.y$ wohldefiniert. Seien $\phi_1,\phi_2\in G, x\in X$. Dann $(\phi_1\circ\phi_2).x = \phi_1\circ\phi_2(x) = \phi_1(\phi_s(x)) = \phi_1.(\phi_2.x)\checkmark$.
+	
+	$e.x = \id_L.x = \id_L(x) = x\checkmark$
+	
+	$\Rightarrow G\operates X$.
+	\item[treu:] Sei $\phi\in G$. Da $L = K(a_1,\dots, a_n)$ mit $a_i$ Nullstellen von $f$ folgt: $(\phi.x = x\forall x\in X)\Rightarrow \phi(a_i) = a_i\forall i$. Aber $\phi\in G$ ist eindeutig bestimmt durch $\phi(a_i)$ für $1\leq i\leq n$, also $\phi = \id_L$.
+	\item[transitiv:] Seien $x,y\in X$. Dann existiert genau ein $K$-Homomorphismus $\phi\colon K(x)\to\overline{K}$ mit $\phi(x) = y$. Nach dem Fortsetzungssatz existiert genau ein $K$-Homomorphimsu $\hat{\phi}\colon L\to\overline{K}$ mit $\hat{\phi}|_{K(x)}  =\phi$. Da $L$ Zerfällungskörper, also normal ist, ist $\hat{\phi}(L) = L$ und somit existiert genau ein $K$-Homomorphismus $\phi\colon L\to L$ mit $\phi(x) =y$. Daraus folgt $\phi.x = y$.
+	\end{description}
+\end{proof}
+
+
+\begin{bem}
+	Hat $f$ genau $n$ Nullstellen (in $L$), so gilt $\Gal(L\sslash K) < S_n\cong\{\text{Permutationen der Nullstellen von }f\}$
+\end{bem}
+
+\subsection{Galoiserweiterungen}
+\begin{defi}
+	Eine Körpererweiterung $L\sslash K$ heißt Galoiserweiterung, falls sie normal und separabel ist.
+	
+	In diesem Fall gilt (\ref{lem:20.1}) $\Gal (L\sslash K) = \Aut (L\sslash K) =\{\phi\colon L\to L|K\text{-Homomorphismus}\}$.
+\end{defi}
+
+\begin{satz}[Galoiserweiterungen]\label{thm:21.1}
+	Sei $L\sslash K$ endlich. Dann ist äquivalent:
+	\begin{enumerate}
+		\item $L\sslash K$ ist Galoissch
+		\item $[L:K] = |\Gal(L\sslash K)|$
+		\item $K = L^{\Gal(L\sslash K)}\eqqcolon\{x\in L|\phi(x) = x\forall \phi\in \Gal(L\sslash K)\}$
+		\item für alle $a\in L$ ist $m_a(t) = \prod_{b\in \Gal(L\sslash K).a}(t-b)$
+	\end{enumerate}
+\end{satz}
+
+
+
 
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
