@@ -3100,128 +3100,130 @@ Allgemeiner lässt sich der folgende Satz formulieren:
 	\end{itemize}
 \end{satz}
 
+
+\lecture{8. Januar 2018}
 \section{Galoistheorie for real}
-Ziel: $L\sslash K$ \glqq gute\grqq\ Körpererweiterung. Dann gibt es eine 1:1-Korrespondenz zwischen Untergruppen der Galoisgruppe $\Gal(L\sslash K)$ und Zwischenkörpern $K\subseteq$ ? $\subseteq L$.
+Ziel: Für eine \glqq gute\grqq\ Körpererweiterung $L\sslash K$ gibt es eine 1:1-Korrespondenz zwischen den Untergruppen der Galoisgruppe $\Gal(L\sslash K)$ und Zwischenkörpern $K\subseteq M \subseteq L$.
 
 \subsection{Normale und separable Körpererweiterungen}
-\begin{satz}[Spezialfall der Galoiskorrespondenz]\label{thm:19.1} Sei $\IF$ ein endlicher Körper mit $|\IF| = n = p^r$ \textup($p$ Primzahl\textup). Dann definiere
+\begin{satz}[Spezialfall der Galoiskorrespondenz]\label{thm:spezielle galoiskorrespondenz} Sei $\IF$ ein endlicher Körper mit $|\IF| = n = p^r$ \textup($p$ prim\textup). Dann definiere
 \[
-  G\coloneqq \Gal(\IF\sslash\IF_p)\coloneqq\{\phi\colon \IF\to\IF \text{ Körperisomorphismus}, \phi|_{\IF_p} = \id \}.
+  G\coloneqq \Gal(\IF\sslash\IF_p)\coloneqq\{\phi\colon \IF\to\IF \text{ Körperisomorphismus}, \phi|_{\IF_p} = \id_{\IF_p} \}.
 \]
 Dann existiert eine Bijektion von Mengen
 \begin{eqnarray*}
-\Phi\colon	\{\text{UG von  }G = \Gal(\IF/\IF_p)\} & \xlongleftrightarrow{1:1} &\{\text{ Zwischenkörper }\IF_p\subseteq \text{ ? }\subseteq \IF\}\\
-	H &\longmapsto & \IF^H
+\Phi\colon	\{\text{Untergruppen von  $G$} = \Gal(\IF/\IF_p)\} & \xlongleftrightarrow{1:1} &\{\text{Zwischenkörper }\IF_p\subseteq M\subseteq \IF\}\\
+	H &\longmapsto & \IF^H,
 \end{eqnarray*}
-wobei $\IF^H \coloneqq \{x\in\IF|\phi(x) = x\forall \phi\in H\}$ den Fixkörper bezüglich $H$ bezeichnet.
+wobei $\IF^H \coloneqq \{x\in\IF\mid\forall \phi\in H:\phi(x) = x\}$ den Fixkörper bezüglich $H$ bezeichnet.
 \end{satz}
 \begin{bem}
 	\leavevmode
 	\begin{enumerate}
-		\item $\IF^H$ ist Körper, denn für $x,y\in\IF^H$ ist für alle $\phi\in H: \phi(x\pm y) = \phi(x)\pm\phi(y) = x\pm y$, $\phi(xy) = \phi(x)\phi(y) = xy$, $\phi(x^{-1}) = \phi(x)^{-1} = x^{-1}$, also ist $\Phi$ wohldefiniert
-		\item $\phi\in H\Leftarrow \phi$ ist Ringhomomorphismus, also $\phi(1) = 1$ und $\phi|_{\IF_p} = \id$ automatisch (wir müssen es also eigentlich gar nicht fordern).
+		\item $\IF^H$ ist ein Körper, denn für $x,y\in\IF^H$ gilt für alle $\phi\in H: \phi(x\pm y) = \phi(x)\pm\phi(y) = x\pm y$, $\phi(xy) = \phi(x)\phi(y) = xy$, $\phi(x^{-1}) = \phi(x)^{-1} = x^{-1}$. Also ist $\Phi$ wohldefiniert.
+		\item Aus $\phi\in H$ folgt bereits, dass $\phi$ ein Ringhomomorphismus ist, da $\phi(1) = 1$ und $\phi|_{\IF_p} = \id_{\IF_p}$ automatisch gelten (wir müssen es also eigentlich gar nicht fordern). \label{bem:galoiskor:2}
 		
-		Also $G = \{\phi\colon \IF\to \IF \text{ Körperhomomorphismus}\}$ in diesem Fall. Insbesondere: $\Fr\colon \IF\to\IF, x\mapsto x^p$ ist in $G$.
+		Also $G = \{\phi\colon \IF\to \IF \text{ Körperhomomorphismus}\}$ in diesem Fall. Insbesondere ist $\Fr\colon \IF\to\IF, x\mapsto x^p$ in $G$.
 	\end{enumerate}
 \end{bem}
-Vorbereitung zum Beweis von \ref{thm:19.1}:
-\begin{lem}
-	Gleiche Voraussetzungen wie in Satz \ref{thm:19.1}. Dann ist $G = \Gal(\IF/\IF_p)$ zyklisch der Ordnung $r$.
+Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
+\begin{lem} \label{lem:19.2}
+	Gleiche Voraussetzungen wie in \cref{thm:spezielle galoiskorrespondenz}. Dann ist $G = \Gal(\IF/\IF_p)$ zyklisch der Ordnung $r$.
 \end{lem}
 \begin{proof}
-	Wir wissen (nach der Konstruktion endlicher Körper) $\IF = \IF_p(a)$ für ein $a\in \IF$. Nach Bemerkung 2 ist $\phi\in G$ festgelegt durch $\phi(a)$. Sei $m_a(t)\in\IF_p[t]$ Minimalpolynom von $a$.
-	
-	\noindent 1. Behauptung: $m_a(t) = (t-a)(t-a^p)\dots(t-a^{p^{r-a}})$. Beweis später. Dabei sind die Koeffizienten von $m_a(t)$ in $\IF_p$, also $m_a(\phi(a)) = \phi(m_a(a)) = 0$, denn $\phi|_{\IF_p} = \id\Rightarrow \phi(a)$ Nullstelle von $m_a(t)$. Folglich existiert ein $s$ mit $0\leq s\leq r-1$ mit $\phi(a) = a^{p^s}$. Damit ist $\phi = \Fr^s$ (weil eindeutig bestimmt auf $a$) und $G = \<\Fr\> = \{\id, \Fr, \Fr^2,\dots\}$.
-	
-	\noindent 2. Behauptung: $\Fr^r = \id_{\IF}$, $\Fr^j\neq \Fr^i$ für $1\leq i<j\leq r$.
-	Beweis: Sei $\Fr^j = \Fr^i\Rightarrow \Fr^{j-i} = \id_{\IF}\Rightarrow \Fr^m = \id_{\IF}$ für ein $m<r\Rightarrow x^{p^m} = x\forall x\in \IF\Rightarrow x^{p^m}-x = 0\forall x\in\IF$. Damit muss $p^m\geq|\IF| = p^r$ oder $p^m = 1$ sein, also $m\leq r$ oder $m = 0$ im Widerspruch zu $m<r$ und $i\neq j$.
-	
-	Wir hatten $\IF$ als Nullstellen von $f(t) = t^n-t$ konstruiert. Also gilt für $x\in \IF$ immer $x^{p^r} -x = 0$ ($p^r = n$), also $\Fr^r = \id_{\IF}$. Damit erhalten wir insgesamt $G = \{\Fr, \Fr^2,\dots, \Fr^r = \id_{\IF}\}$. Wie behauptet ist $G$ folglich zyklisch (erzeugt von $\Fr$) der Ordnung $r$.
+	Wir wissen (nach der Konstruktion endlicher Körper) $\IF = \IF_p(a)$ für ein $a\in \IF$. Nach Bemerkung \ref{bem:galoiskor:2} ist $\phi\in G$ festgelegt durch $\phi(a)$. Sei $m_a(t)\in\IF_p[t]$ das Minimalpolynom von $a$.
+	\begin{description}
+		\item[1. Behauptung: $m_a(t) = (t-a)(t-a^p)\dots(t-a^{p^{r-1}})$.] \emph{Beweis:} \hyperref[thm:19.3]{später}. Dabei sind die Koeffizienten von $m_a(t)$ in $\IF_p$, also $m_a(\phi(a)) = \phi(m_a(a)) = 0$, denn $\phi|_{\IF_p} = \id_{\IF_p}$, also ist $\phi(a)$ eine Nullstelle von $m_a(t)$. Folglich existiert ein $s$ mit $0\leq s\leq r-1$ mit $\phi(a) = a^{p^s}$. Damit ist $\phi = \Fr^s$ (weil eindeutig bestimmt auf $a$) und $G = \<\Fr\> = \{\id, \Fr, \Fr^2,\dots\}$. \label{lem:19.2:1}
+		\item[2. Behauptung: $\Fr^r = \id_{\IF}$ sowie $\Fr^j\neq \Fr^i$ für $1\leq i<j\leq r$.] \emph{Beweis:} Ist $\Fr^j = \Fr^i$, so folgt $\Fr^{j-i} = \id_{\IF}$, also $\Fr^m = \id_{\IF}$ für ein $m<r$. Deshalb gilt nun $x^{p^m} = x$ und weiter $x^{p^m}-x = 0$ für alle $x\in\IF$. Damit muss $p^m\geq|\IF| = p^r$ oder $p^m = 1$ sein, also $m\geq r$ oder $m = 0$ im Widerspruch zu $m<r$ und $i\neq j$. Außerdem hatten wir $\IF$ als Nullstellen von $f(t) = t^n-t$ konstruiert. Also gilt für $x\in \IF$ immer $x^{p^r} -x = 0$ ($p^r = n$), also $\Fr^r = \id_{\IF}$.
+	\end{description}
+	 Damit erhalten wir insgesamt $G = \{\Fr, \Fr^2,\dots, \Fr^r = \id_{\IF}\}$. Wie behauptet ist $G$ folglich zyklisch (erzeugt von $\Fr$) der Ordnung $r$.
 \end{proof}
 
-\begin{proof}[Beweis von \ref{thm:19.1}]
-	Sei $H<G$; Da $G$ zyklisch ist, ist $H$ zyklisch der Ordnung $k$, wobei $k$ ein Teiler von $r$ ist, also $r = km$, dann $H = \{\Fr^m, \Fr^{2m},\dots, \Fr^{km} = \id\}$. Dann $\Phi(H) = \IF^H = \{x\in\IF|\phi(x) = x\forall\phi\in H\} = \{x\in \IF|\Fr^m(x) = x\} = \{x\in\IF|x^{p^m}-x = 0\}$. Nun betrachte $f\in \IF_p[t], f = t^{p^m}-t$.
-	
-	\noindent Behauptung: $f$ hat $p^m$ verschiedene Nullstellen in $\IF$. Denn $f' = p^mt^{p^m-1}-1 = -1$ hat keine Nullstelle. Damit ist $|\IF^H| = p^m$ (da $m$ Teiler von $r$ ist, liegen alle Nullstellen in $\IF$ nach Konstruktion von $\IF$). Folglich ist $\Phi$ injektiv.
-	
-	\noindent Surjektivität: Sei $K\subseteq \IF$ Unterkörper (dann gilt automatisch $\IF_p\subseteq K$). $\Rightarrow K$ ist $\IF_p$-Vektorraum $\Rightarrow |K| = p^m$ für ein $m\leq r$. Da $\IF$ auch $K$-Vektorraum ist, muss $m$ ein Teiler von $r$ sein. Nach der Konstruktion endlicher Körper gilt $x^{p^m}-x = 0$ für alle $x\in K$ und $K$ besteht genau aus diesen Nullstellen. Es folgt, dass $K = \IF^{\Fr^m} = \{x\in \IF|\Fr^m(x) = x\}$. Damit $K = \Phi(H)$ für $H = \<\Fr^m\>$. 
+\begin{proof}[Beweis von \cref{thm:spezielle galoiskorrespondenz}]
+	Sei $H<G$. Da $G$ zyklisch ist, ist $H$ zyklisch der Ordnung $k$, wobei $k$ ein Teiler von $r$ ist, also $r = km$. Damit folgt $H = \{\Fr^m, \Fr^{2m},\dots, \Fr^{km} = \id\}$. Weiter gilt $\Phi(H) = \IF^H = \{x\in\IF\mid \forall\phi\in H:\phi(x) = x\} = \{x\in \IF\mid\Fr^m(x) = x\} = \{x\in\IF\mid x^{p^m}-x = 0\}$. Nun betrachte $f\in \IF_p[t], f = t^{p^m}-t$.
+	\begin{description}
+		\item[Injektivität:] $f$ hat $p^m$ verschiedene Nullstellen in $\IF$, da $f' = p^mt^{p^m-1}-1 = -1$ keine Nullstellen hat. Damit ist $|\IF^H| = p^m$ (da $m$ ein Teiler von $r$ ist, liegen alle Nullstellen in $\IF$ nach Konstruktion von $\IF$). Folglich ist $\Phi$ injektiv.
+		\item[Surjektivität:] Sei $K\subseteq \IF$ ein Unterkörper. Dann gilt automatisch $\IF_p\subseteq K$, und $K$ ist ein $\IF_p$-Vektorraum. Somit gilt $|K| = p^m$ für ein $m\leq r$. Da $\IF$ auch ein $K$-Vektorraum ist, muss $m$ ein Teiler von $r$ sein. Nach der Konstruktion endlicher Körper gilt $x^{p^m}-x = 0$ für alle $x\in K$ und $K$ besteht genau aus diesen Nullstellen. Es folgt, dass $K = \IF^{\Fr^m} = \{x\in \IF\mid\Fr^m(x) = x\}$. Damit ist $K = \Phi(H)$ für $H = \<\Fr^m\>$.
+		\qedhere
+	\end{description}
 \end{proof}
 
-\begin{satz} $\IF$ endlicher Körper, $\chr \IF = p$. Sei $1\neq a\in\IF$ und $r$ minimal, sodass $a^{p^r} =a$. Dann gilt:
+\begin{satz} \label{thm:19.3}
+	Sei $\IF$ ein endlicher Körper mit $\chr \IF = p$. Sei $1\neq a\in\IF$ und $r$ minimal, sodass $a^{p^r} =a$. Dann gilt:
 	\begin{enumerate}
-		\item $1, a, a^2,\dots, a^{p^{r-1}}$ paarweise verschieden
-		\item $m_a(t) = (t-a)(t-a^p)\dots(t-a^{p^r-1}) \eqqcolon f(t)\in\IF_p[t]$ Minimalpolynom von $a$ über $\IF_p$. \textup(Damit folgt dann die 1. Behauptung aus dem Beweis von Lemma 19.2\textup)
+		\item $1, a, a^2,\dots, a^{p^{r-1}}$ sind paarweise verschieden.
+		\item $m_a(t) = (t-a)(t-a^p)\dots(t-a^{p^{r-1}}) \eqqcolon f(t)\in\IF_p[t]$ Minimalpolynom von $a$ über $\IF_p$. \textup(Damit folgt dann die 2. Behauptung aus dem Beweis von \cref{lem:19.2}\textup) \label{thm:19.3:2}
 	\end{enumerate}
 \end{satz}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-\item Folgt aus Punkt 2, weil $r$ minimal gewählt.
-\item	Es gilt $m_a(t^p) = m_a(t)^p$ (Binomi für Dummies).
-	Damit: Falls $z$ Nullstelle von $m_a(t)$, dann auch $z^p\Rightarrow$ Menge der Nullstellen von $m_a(t)$ sind stabil unter Frobeniusabbbildung $\Fr$.  Also gilt für jede Nullstelle $z$ von $m_a(t)$:  $Q = (t-z)(t-z^p)\dots(t-z^{p^r}-1)$ teilt $m_a(t)$, insbesondere für $z = a$. Also ist $Q_{z = a} = f(t) = m_a(t)$, weil $m_a(t)$ minimal mit Nullstelle $a$ und Leitkoeffizient 1, falls $q\in\IF_p[t]$.
+		\item Folgt aus Punkt \ref{thm:19.3:2}, weil $r$ minimal gewählt wurde.
+		\item Es gilt $m_a(t^p) = m_a(t)^p$ nach der binomischen Formel \glqq für Dumme\grqq. Falls nun $z$ eine Nullstelle von $m_a(t)$ ist, so gilt das Gleiche für $z^p$. Somit ist Menge der Nullstellen von $m_a(t)$ sind stabil unter Frobeniusabbbildung $\Fr$. Also teilt $Q_z = (t-z)(t-z^p)\dots(t-z^{p^{r-1}})$ dann $m_a(t)$ für jede Nullstelle $z$ von $m_a(t)$, insbesondere für $z = a$. Deshalb ist $Q_{z = a} = f(t) = m_a(t)$, weil $m_a(t)$ minimal mit Nullstelle $a$ und Leitkoeffizient $1$, falls $q\in\IF_p[t]$ ist.
 	
-	Noch zu zeigen: $Q(t) \in\IF_p[t]$. Wir wissen 
-	\begin{equation}Q(t^p) = Q(t)^p\end{equation}
-	 Falls $Q(t) = \sum_{i \geq 0}b_it^i\in\IF[t]$, dann $Q(t)^p = \sum_{i \geq 0} b_i^p(t^i)^p = \sum_{i\geq 0} \Fr(b_i)(t^i)^p$. Somit mit $(2)$: $b_i = \Fr(b_i)$ für alle $i$. Nach Konstruktion endlicher Körper ist dadurch $b_i\in \IF_p$ für alle $i$, womit wir schließlich $Q(t) \in\IF_p[t]$.
+		Noch zu zeigen: $Q(t) \in\IF_p[t]$. Wir wissen
+		\begin{equation}Q(t^p) = Q(t)^p. \tag{*}\label{eq:19.3}\end{equation}
+		Falls $Q(t) = \sum_{i \geq 0}b_it^i\in\IF[t]$, dann gilt $Q(t)^p = \sum_{i \geq 0} b_i^p(t^i)^p = \sum_{i\geq 0} \Fr(b_i)(t^i)^p$. Somit mit \eqref{eq:19.3}: $b_i = \Fr(b_i)$ für alle $i$. Nach Konstruktion endlicher Körper ist dadurch $b_i\in \IF_p$ für alle $i\ge 0$, womit wir schließlich $Q(t) \in\IF_p[t]$ erhalten.
   \qedhere
 	\end{enumerate}
 \end{proof}
-\begin{defi} $L\sslash K$ heißt einfach, falls $L\cong K(a)$ für ein $a\in L$.
+\begin{defi} $L\sslash K$ heißt einfach, falls ein $a\in L$ existiert, sodass $L\cong K(a)$ gilt.
 \end{defi}
 \begin{satz}
-	Sei $K(a)\sslash K$ einfache, algebraische Körpererweiterung und $M\sslash K$ beliebige Körpererweiterung. Dann
+	Sei $K(a)\sslash K$ eine einfache, algebraische Körpererweiterung und $M\sslash K$ eine beliebige Körpererweiterung. Dann
 	\begin{eqnarray*}
 		\{K\text{-Homomorphismen } \phi\colon K(a)\to M\} & \xlongleftrightarrow{1:1} & \{\text{Nullstellen von }m_a(t)\in K[t]\text{ in }M\}\\
 		\phi &\longmapsto & \phi(a)
 	\end{eqnarray*}
-	das heißt zu jeder Nullstelle $z\in M$ von $m_a(t)$ existiert genau ein $K$-Homomorphismus $\phi\colon K(a)\to M$ mit $\phi(a) = z$. 
+	Es existiert also zu jeder Nullstelle $z\in M$ von $m_a(t)$ genau ein $K$-Homomorphismus $\phi\colon K(a)\to M$ mit $\phi(a) = z$.
 \end{satz}
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[wohldefiniert:] Sei $\phi\colon K(a)\to M$ ein $K$-Homomorphismus, $\phi(a) = z$. Dann folgt $m_a(z) = m_a(\phi(a)) = \phi(m_a(a)) = 0$
-		\item[injektiv:] $\phi$ ist eindeutig bestimmt durch $\phi(a)$, weil Körperhomomorphismus, $\phi|_K = \id$.
-		\item[surjektiv:] Sei $z\in M$ Nullstelle von $m_a(t)$. Betrachte
+		\item[Wohldefiniertheit:] Sei $\phi\colon K(a)\to M$ ein $K$-Homomorphismus, $\phi(a) = z$. Dann folgt $m_a(z) = m_a(\phi(a)) = \phi(m_a(a)) = 0$.
+		\item[Injektivität:] $\phi$ ist eindeutig bestimmt durch $\phi(a)$, weil $\phi$ ein Körperhomomorphismus mit $\phi|_K = \id_K$ ist.
+		\item[Surjektivität:] Sei $z\in M$ eine Nullstelle von $m_a(t)$. Betrachte den Ringhomomorphismus
 		\begin{eqnarray*}
-			\ev_z\colon K[t] & \longto & M \text{ Ringhomomorphismus}\\
-			f(t) &\longmapsto & f(z)
+			\ev_z\colon K[t] & \longto & M\\
+			f(t) &\longmapsto & f(z).
 		\end{eqnarray*}
-		Da $z$ Nullstelle von $m_a(t)$ ist, induziert das Ringhomomorphismus
-		$$\overline{\ev_z}\colon K[t]/(m_a(t))\longto M$$
-		wobei $\beta\colon K[t]/(m_a(t)) \xrightarrow{\cong} K(a)\subseteq K$; $K(a)\sslash K$ algebraisch und $\overline{\ev_z}$ Körperhomomorphismus mit $\overline{\ev_z}\circ \beta|_K = \id_K$ nach Konstruktion. Setze $\phi\coloneqq \overline{\ev_z}\circ\beta$ und $\phi(a) = \overline{\ev_z}\circ\beta(a) = \overline{\ev_z}(\overline{t}) = z$.
+		Da $z$ eine Nullstelle von $m_a(t)$ ist, induziert $\ev_z$ einen Ringhomomorphismus
+		\[\overline{\ev_z}\colon K[t]/(m_a(t))\longto M,\]
+		wobei $\beta\colon K[t]/(m_a(t)) \xrightarrow{\sim} K(a)\subseteq K$; $K(a)\sslash K$ algebraisch und $\overline{\ev_z}$ ein Körperhomomorphismus mit $\overline{\ev_z}\circ \beta|_K = \id_K$ nach Konstruktion ist. Man setze nun $\phi\coloneqq \overline{\ev_z}\circ\beta$ und $\phi(a) = \overline{\ev_z}\circ\beta(a) = \overline{\ev_z}(\overline{t}) = z$.
   \qedhere
 	\end{description}
 \end{proof}
 \begin{kor}
-	$K$ Körper, $f\in K[t]$. Dann ist der Zerfällungskörper von $f$ eindeutig bis auf $K$-Isomorphismus.
+	Sei $K$ Körper sowie $f\in K[t]$. Dann ist der Zerfällungskörper von $f$ eindeutig bis auf $K$-Isomorphismus.
 \end{kor}
 \begin{proof}
 	Übung.
 \end{proof}
-\begin{defi} Eine Körpererweiterung $L\sslash K$ heißt normal, falls sie algebraisch ist und falls für $f\in K[t]$ irreduzibel gilt: $f$ hat Nullstelle in $L\Rightarrow f$ zerfällt in Linearfaktoren über $L$.
+\begin{defi} Eine Körpererweiterung $L\sslash K$ heißt normal, falls sie algebraisch ist und falls  irreduzible $f\in K[t]$ in Linearfaktoren über $L$ zerfallen, wenn $f$ eine Nullstelle in $L$ hat.
 \end{defi}
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
 		\item $\IQ(\sqrt{2})\sslash \IQ$ normal (Übung)
-		\item $\IQ(\sqrt[3]{2})\sslash \IQ$ ist nicht normal, denn betrachte $f = t^3-2$. Es gilt $\IQ(\sqrt[3]{2})\subseteq \IR$ und $f$ hat Nullstellen $\sqrt[3]{2}\in \IQ(\sqrt[3]{2})$ und $\sqrt[3]{2}\xi, \sqrt[3]{2}\xi^2\notin \IR$, mit $\xi = e^{\frac{2\pi i}{3}}$
+		\item $\IQ(\sqrt[3]{2})\sslash \IQ$ ist nicht normal, denn betrachte $f = t^3-2$. Es gilt $\IQ(\sqrt[3]{2})\subseteq \IR$ und $f$ hat Nullstellen $\sqrt[3]{2}\in \IQ(\sqrt[3]{2})$ und $\sqrt[3]{2}\xi, \sqrt[3]{2}\xi^2\notin \IR$, mit $\xi = e^{\frac{2\pi i}{3}}$.
 	\end{enumerate}
 \end{bsp}
 \begin{satz}[Normalität] Sei $L\sslash K$ eine endliche Körpererweiterung. Dann sind äquivalent:
 \begin{enumerate}
-	\item $L\sslash K$ normal
+	\item $L\sslash K$ ist normal.
 	\item $L$ ist Zerfällungskörper eines Polynoms $f\in K[t]$.
-	\item Sei $M\sslash K$ eine Körpererweiterungen . Dann haben alle Körperhomomorphismen $\phi\colon L\to M$, die die Inklusion $K\to M$ fortsetzen, dasselbe Bild, das heißt, folgendes Diagramm kommutiert:
-	
-	\begin{tikzcd}
-				L \arrow{r}{\phi} & M  \\
-				K \arrow{u}\arrow{ru}\\
-	\end{tikzcd}
-
-	wobei $K\to L$, $K\to M$ jeweils die Inklusionen sind.
+	\item Sei $M\sslash K$ eine Körpererweiterungen . Dann haben alle Körperhomomorphismen $\phi\colon L\to M$, die die Inklusion $K \hookrightarrow M$ fortsetzen, dasselbe Bild; das folgende Diagramm kommutiert also.
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzcd}
+			L \arrow{r}{\phi} & M  \\
+			K \arrow[hookrightarrow]{u}\arrow[hookrightarrow]{ru}\\
+		\end{tikzcd}
+	\end{figure}
 \end{enumerate}
 \end{satz}
-
+%TODO: herausfinden, warum hier so viel freier Platz ist
+\lecture{11. Januar 2018}
 \begin{proof}
 	\leavevmode
 	\begin{description}
