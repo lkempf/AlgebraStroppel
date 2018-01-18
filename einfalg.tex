@@ -3481,6 +3481,45 @@ Dabei entsprechen normale Untergruppen $N\nt G$ genau den Zwischenkörpern $K\su
 	$\Phi$ ist verträglich mit Inklusion in folgender Weise: Seien $H_1, H_2<G$. Dann $H_1\subseteq H_2\Leftrightarrow \Phi(H_1)\supseteq \Phi(H_2)$
 \end{bem}
 
+\noindent Vorbereitung zum Beweis:
+\begin{satz}\label{thm:22.2}
+	$L$ Körper. $G\subseteq \{\phi\colon L\to L|\phi\text{ bijektiver Körperhomomorphismus}\}$. $G$ sei endlich. Dann: $L\sslash L^G$ ist Galoissch und $\Gal(L\sslash L^G) = G$. 
+\end{satz}
+\begin{proof}
+	Sei $K\coloneqq L^G$ und $n = |G|$. Sei $a\in L\Rightarrow X\coloneqq\{\phi(a)|\phi\in G\}$ endliche Menge, da $|G|$ endlich. Betrachte $f\coloneqq f_a\coloneqq  \prod_{b\in X}(t-b)$. Jedes $\phi\in G$ definiert injektive Abbildung $\phi\colon X\to X$, also bijektiv, wei $X$ endlich. $\Rightarrow \phi_*(f) = \prod_{b\in X} (t-\phi(b)) =\prod_{b\in X}(t-b) = f \Rightarrow f\in L^G[t] = K[t]$. Es gilt $f(a) = 0$ und $f$ separabel (über $K$) und alle Nullstellen in $L\Rightarrow L$ ist Zerfällungskörper von allen $f_a$ ($a\in L$).
+	Nach der Bemerkung zum  Satz über normale Körpererweiterungen ist $L\sslash K$ normal und nach Konstruktion separabel. Also ist $L\sslash K = L\sslash L^G$ Galoissch.
+	
+	Noch zu zeigen: $G = \Gal(L\sslash L^G)$. Wir wissen:
+	\begin{enumerate}
+		\item  für alle $a\in L$ ist $[K(a):K]\leq n$, denn $m_a(t)$ teilt $f_a$ und somit $[K(a):K] = \deg(m_a(t))\geq \deg(f_a)\geq |G| = n$.
+		\item Klar: $G\subseteq Gal(L\sslash L^G)$. 
+	\end{enumerate}
+	Andererseits:$n = |G|\leq |Gal(L\sslash L^G)| = [L:L^G] = [L:K]\leq n$. Folglich sind alle $\leq$ sogar $=$ und $|G| = |\Gal(L\sslash K)|$, woraus folgt $G = \Gal(L\sslash K)$.
+\end{proof}
+
+\noindent Nun zu
+\begin{proof}[Beweis von \ref{thm:22.1}]
+$G\coloneqq \Gal(L\sslash K)$. Es gilt: $L\sslash K$ Galoissch $\Rightarrow L\sslash M$ Galoissch für alle Zwischenkörper $K\subseteq M\subseteq L$ (nachprüfen!). Sei $\Psi \colon M\mapsto H_M$ wie im Satz. $\Phi\circ\Psi = \id$, denn $\Phi(\Psi(M)) =\Phi( H_M )= \Phi(\{g\in G|g(m) = m\forall m\in M\} )= \Phi(\Gal(L\sslash M)) = L^{\Gal(L\sslash M)} = M$ nach Satz \ref{thm:22.2}, weil $|G|$ endlich ist, also $|\Gal(L\sslash M)|$ endlich.
+
+Weiterhin ist $\Psi\circ\Phi = \id$, denn $\Psi(\Phi(H)) = \Psi(L^H) =H_{L^H}$ mit $H_{L^H} = \{g\in G|g(x) = x\forall x\in L^H\} = \Gal(L\sslash L^H) = H$ nach Satz \ref{thm:22.2}. Also ist $\Phi$ tatsächlich eine Bijektion.
+
+Noch zu zeigen: Korrespondenz zwischen normalen Untergruppen und normalen Körpererweiterungen. Vorbemerkung dazu: Für $g\in \Gal(L\sslash K)$ gilt $g(L^H) =L^{gHg^{-1}}$ für $H<G$. Denn:
+\begin{description}
+	\item[\glqq$\subseteq$\grqq:] $x\in g(L^H)\Leftrightarrow x = g(y)$ für ein $y\in L^H \Leftrightarrow x = g(y)$ für ein $y$ mit $\phi(y) = y\forall \phi\in H\Rightarrow (g\circ \phi\circ g^{-1}) (x) = g(\phi(y))  = g(y) = x\forall \phi\in H$.
+	\item[\glqq$\supseteq$\grqq:] Sei $x$ in $L^{gHg^{-1}}\Leftrightarrow g\circ\phi\circ g^{-1}(x) = x\forall \phi\in H\Leftrightarrow g^{-1}(x) = \phi(g^{-1}(x))\forall \phi\in H$. Setze $y\coloneqq g^{-1}(x) = L^H$. Dann $x = g(y)\in g(L^H)$. 
+\end{description}
+Sei $H<G$. Dann $L^H\sslash K$ normal $\Leftrightarrow \forall a\in L^H$ sind alle Nullstellen von $m_a(t)\in K[t]$ in $L^H$ enthalten $\Leftrightarrow \forall a\in L^H g(a) \in L^H\forall g\in G$ (weil $G$ transitiv auf den Nullstellen operiert). $\Leftrightarrow \forall g\in G: g(L^H) = L^H$ (weil $[L:K]$ endlich). Nach der Vorbemerkung ist das äquivalent zu: $\forall g\in G: L^H = L^{gHg^{-1}} \Leftrightarrow H = gHg^{-1}\forall g\in G$, da $\Phi$ bijektiv ist $\Leftrightarrow H\nt G$ Normalteiler.
+
+Letzter Schritt: $\Gal(L^H\sslash K) \cong G/H$, falls $H\nt G$. Da $L\sslash K$ separabel nach Voraussetzung ist, ist insbesondere $L^H\sslash K$ separabel. Falls $H\nt G$ gilt (siehe oben) $g(L^H) = L^H\forall g\in G$, also erhalten wir eine wohldefinierte Abbildung
+\begin{eqnarray*}
+	res\colon G &\longto & \Gal(L^H\sslash K)\\
+	g & \longmapsto & g|_{L^H}
+\end{eqnarray*}
+Das ist offensichtlich ein Gruppenhomomorphismus mit $\ker{res} = \{g\in \Gal(L\sslash K)|g|_{L^H} = \id\} = \Psi(L^H) = H$. Wir erhalten also einen induzierten Gruppenhomomorphismus $\overline{res}\colon G/H\to \Gal(L^H\sslash K)$, der nach Konstruktion injektiv ist. Außerdem ist $|\Gal(L^H\sslash K)| = [L^H:K]$ nach \ref{thm:21.1} und $[L:K] = [L:L^H][L^H:K]$, wobei $[L:K] = |G|$ nach Satz \ref{thm:21.1} und $[L:L^H] = |H|$ nach \ref{thm:22.2}; folglich muss gelten: $[L^H:K] = |G/H|$. Also ist $\overline{res}$ ein Gruppenisomorphismus.
+\end{proof}
+	
+
+
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
