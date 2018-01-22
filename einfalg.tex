@@ -3399,7 +3399,7 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 	\end{description}
 \end{defi}	
 \begin{satz}
-	 Sei $K$ Körper, $f\in K[t]$. Sei $L$ Zerfällungskörper von $f$ über $K$. Dann operiert $G\eqqcolon \Gal(L\sslash K)$ auf $X\eqqcolon \{\text{Nullstellen von }f\text{ in }L\}$ treu und transitiv durch $\phi.x = \phi(x)$ für $\phi\in G, x\in X$. 
+	 Sei $K$ Körper, $f\in K[t]$ irreduzibel. Sei $L$ Zerfällungskörper von $f$ über $K$. Dann operiert $G\eqqcolon \Gal(L\sslash K)$ auf $X\eqqcolon \{\text{Nullstellen von }f\text{ in }L\}$ treu und transitiv durch $\phi.x = \phi(x)$ für $\phi\in G, x\in X$. 
 \end{satz}	
 \begin{proof}
 	\leavevmode
@@ -3483,7 +3483,7 @@ Dabei entsprechen normale Untergruppen $N\nt G$ genau den Zwischenkörpern $K\su
 
 \noindent Vorbereitung zum Beweis:
 \begin{satz}\label{thm:22.2}
-	$L$ Körper. $G\subseteq \{\phi\colon L\to L|\phi\text{ bijektiver Körperhomomorphismus}\}$. $G$ sei endlich. Dann: $L\sslash L^G$ ist Galoissch und $\Gal(L\sslash L^G) = G$. 
+	$L$ Körper. $G\subseteq \{\phi\colon L\to L|\phi\text{ bijektiver Körperhomomorphismus}\}$. $G$ sei endliche Gruppe. Dann: $L\sslash L^G$ ist Galoissch und $\Gal(L\sslash L^G) = G$. 
 \end{satz}
 \begin{proof}
 	Sei $K\coloneqq L^G$ und $n = |G|$. Sei $a\in L\Rightarrow X\coloneqq\{\phi(a)|\phi\in G\}$ endliche Menge, da $|G|$ endlich. Betrachte $f\coloneqq f_a\coloneqq  \prod_{b\in X}(t-b)$. Jedes $\phi\in G$ definiert injektive Abbildung $\phi\colon X\to X$, also bijektiv, wei $X$ endlich. $\Rightarrow \phi_*(f) = \prod_{b\in X} (t-\phi(b)) =\prod_{b\in X}(t-b) = f \Rightarrow f\in L^G[t] = K[t]$. Es gilt $f(a) = 0$ und $f$ separabel (über $K$) und alle Nullstellen in $L\Rightarrow L$ ist Zerfällungskörper von allen $f_a$ ($a\in L$).
@@ -3517,9 +3517,88 @@ Letzter Schritt: $\Gal(L^H\sslash K) \cong G/H$, falls $H\nt G$. Da $L\sslash K$
 \end{eqnarray*}
 Das ist offensichtlich ein Gruppenhomomorphismus mit $\ker{res} = \{g\in \Gal(L\sslash K)|g|_{L^H} = \id\} = \Psi(L^H) = H$. Wir erhalten also einen induzierten Gruppenhomomorphismus $\overline{res}\colon G/H\to \Gal(L^H\sslash K)$, der nach Konstruktion injektiv ist. Außerdem ist $|\Gal(L^H\sslash K)| = [L^H:K]$ nach \ref{thm:21.1} und $[L:K] = [L:L^H][L^H:K]$, wobei $[L:K] = |G|$ nach Satz \ref{thm:21.1} und $[L:L^H] = |H|$ nach \ref{thm:22.2}; folglich muss gelten: $[L^H:K] = |G/H|$. Also ist $\overline{res}$ ein Gruppenisomorphismus.
 \end{proof}
+
+\lecture{22. Januar 2018}
+
+\begin{bsp}
+	\begin{itemize}
+	\item $\IC/\IR$ Galoiserweiterung vom Grad $[\IC:\IR] = 2$. Dann $G = \Gal(\IC/\IR)$. Nach \ref{thm:21.1} ist $|G| = 2\Rightarrow G\cong \IZ/2\IZ$. 
+	\item $f = (t^2-2)(t^2-3)\in \IQ[t]$, $L$ sei der Zerfällungskörper von $f$. Behauptung: $L = \IQ(\sqrt{2}, \sqrt{3})$ hat Basis über $\IQ$: $1, \sqrt{2},\sqrt{3}, \sqrt{6}$ (Übung).
+	\end{itemize}
+\end{bsp}	
+
+
+\subsection{Fundamentalsatz der Algebra}
+Wir wollen nun die Galoiskorrespondenz verwenden, um den Fundamentalsatz der Algebra zu beweisen (mihilfe des Zwischenwertsatzes aus der Analysis).
+\begin{satz}[Fundamentalsatz der Algebra]\label{thm:fundamentalsatz}
+	$\IC$ ist algebraisch abgeschlossen.
+\end{satz}
+\begin{proof}
+	Sei $L\sslash \IC$ endliche algebraische Körpererweiterung. Zu zeigen: $L = \IC$. Da $L\sslash \IC$ endlich ist, ist $L\sslash \IR$ ebenfalls endlich. Weil $\chr \IR= 0$ ist, ist $L\sslash \IR$ separabel, o.B.d.A. $L\sslash \IR$ normal (\ref{thm:19.7}). Damit ist $L\sslash \IR$ eine Galoiserweiterung.
 	
+	Sei $G:= \Gal(L\sslash \IR)$ und $S\subseteq G$ eine $2$-Sylowgruppe. $L^S\sslash R$ ist eine endliche, algebraische Körpererweiterung. Außerdem gilt: $[L:\IR] = [L:L^S][L^S:\IR]$, wobei $[L:\IR] = |G|$ nach \ref{thm:21.1} und $[L:L^S] = |S|$ nach \ref{thm:22.2}, da $S\subseteq G$ Untergruppe der endlichen Gruppe $G$ ist. Nach \ref{thm:22.2} ist $L\sslash L^S$ außerdem Galoissch. Nun ist $S$ aber eine $2$-Sylowgrppe, folglich ist $[L^S:\IR]$ ungerade. Aus dem Satz vom primitiven Element folgt $L^S = \IR(a)$ mit $\deg(m_a(t))$ ungerade ($m_a(t)\in\IR[t]$). Da es ungeraden Grad hat, hat $m_a(t)$ mindestens eine Nullstelle in $\IR$ (Zwischenwertsatz). Daraus folgt $\deg(m_a(t)) = 1$, weil $m_a(t)\in\IR[t]$ irreduzibel ist. Damit ist $L^S =\IR$ und $G =S$ insbesondere $2$-Gruppe. Da $G$ nun eine $2$-Gruppe ist, existiert nach Satz 6.2 eine Sequenz $\{e\} = G_0\subseteq G_1\subseteq G_2\subseteq\dots\subseteq G_r = G = \Gal(L\sslash \IR)$ von Untergruppen, sodass $G_i/G_{i-1} \cong \IZ/2\IZ$ (für ein geeignetes $r\in\IN$).
+	
+	Mit der Galoiskorrespondenz (\ref{thm:21.1}) erhalten wir eine Sequenz von Körpererweiterungen $L = L^{\{e\}}\subseteq L^{G_1}\supseteq L^{G_2}\supseteq\dots \supseteq L^{G_r} = L^G = \IR$, wobei die letzte Gleichheit aus \ref{thm:21.1} folgt. Setze $L^{G_i} = L_i$. Damit ist $L_i\sslash L_{i+1}$ Galoissch mit Galoisgruppe $G_{i+1}/G_i$ (Zusatz zur Korrespondenz für Normalteiler). Insgesamt erhalten wir $L$ also aus $\IR$ durch sukzessive endlich viele Körpererweiterungen von Grad 2.
+	
+	Aber jede Körpererweiterung vom Grad 2 ist gegeben durch Adjunktion eines Elementes $a$ mit $\deg(m_a(t)) = 2$. Wir wissen: Jedes quadratische Polynom in $\IC[t]$ hat Nullstelle (sogar 2) Nullstellen in $\IC$. Folglich kann $\IC$ nicht durch quadratische Erweiterungen echt vergrößert werden. Damit ist $L = \IC$ (starte mit $\IR\subseteq \IC = L^{G}$). %TODO: das G im exponenten von L hat irgendeinen Index
+	
+\end{proof}
 
 
+\subsection{Zyklotomische Körper}
+Betrachte $f = t^n-1\in K[t]$ (mit $n\in\IZ_{>0}, K$ Körper). Frage: Was ist der Zerfällungskörper von $f$?
+
+Im Fall $K = \IC$ sind die Nullstellen von $f$ genau die $n$-ten Einheitswurzeln in $\IC$. Also für $K = \IR$, dann $L = \IR(\{\zeta|\zeta\ n\text{-te Einheitswurzel}\})\subseteq \overline{\IR} = \IC$. (Genauso für $K = \IQ$). Was passiert für Körper $K$ mit $\chr K = p > 0$?
+
+
+Falls $\chr (K) = p>0$ und $n = p^sm$ mit $p\not |m$, dann $f = t^n-1 = t^{mp^s}-1 = (t^m-1)^{p^s}$. Wir sehen: Der Zerfällungskörper von $f$ ist dasselbe wie der Zerfällungskörper von $t^m-1$. Sei nun o.B.d.A.
+\begin{equation}
+\chr K = 0\text{ oder }(\chr(K) = p\text{ und }p\not| n)
+\end{equation}
+\begin{description}
+	\item[1. Behauptung:] $f = t^n-1\in K[t]$ mit $(2)$ ist separabel.
+	\begin{proof}
+		(Klar für $\chr K = 0$.) Es gilt $f' = nt^{n-1}\in K[t]$ hat mit $(2)$ nur $0$ als Nullstelle $\Rightarrow$ $f$ hat keine mehrfachen Nullstellen.
+	\end{proof}
+	Sei nun $Z = \{z_1,\dots, z_n\}$ die Menge der Nullstellen von $f\in K[t]$ in $\overline{K}$.
+	\item[2. Behauptung:] $Z\subseteq \overline{K}^{\times}$ ist eine zyklische Untergrupe.
+	\begin{proof}
+		$z_i, z_j\in Z\Rightarrow (z_iz_j)^n-1 = z_i^nz_j^n-1 = 1\cdot 1-1 = 0\Rightarrow z_iz_j\in Z$ und $(z_i^{-1})^n -1 = (z_i^n)^{-1}-1 = 1-1 = 0$; folglich ist $z_i^{-1}\in Z$ (klar: $e  = 1\in Z$). Damit ist $Z$ eine Untergruppe von $\overline{K}^{\times}$. Da $Z<\overline{K}^{\times}$ endlich ist, ist nach \ref{thm:17.3} $Z$ zyklisch. 
+	\end{proof}
+\end{description}
+Folglich $Z \cong \IZ/n\IZ$ als Gruppe, weil $|Z| = n$ nach der 1. Behauptung. Damit hat $Z$ genau $\phi(n)$ verschiedene Erzeuger, da $\phi(n) = |\{\overline{m}\in \IZ/n\IZ|ggT (m,n) = 1\}|$. %TODO: ggT als mathoperator hinzufügen
+Wir nennen diese Erzeuger von $Z$ primitive $n$-ten Einheitswurzeln über $K$ (analog zum Fall $K = \IC$). Wähle nun eine solche $n$-te Einheitswurzel $\xi_n$.
+\begin{lem}
+	Mit $(2)$ gilt: Der Zerfällungskörper von $f = t^n-1\in K[t]$ ist $K(\xi_n)$.
+\end{lem}
+\begin{proof}
+	Schreibe $\xi  = \xi_n$. Es gilt $\xi^n = 1$ nach Definition und $\xi^i$ sind für $1\leq i \leq n$ paarweise verschieden. Denn sei $\xi^i = \xi^j$ mit $1\leq j<i\leq n$, dann $\xi^{i-j} = 1$. Das ist ein Widerspruch, da $i-j<n$, aber $\xi$ primitive $n$-te Einheitswurzel ist.
+	
+	Außerdem: $(\xi^i)^n-1 = (\xi^n)^i-1 = 1-1 = 0\Rightarrow \xi^i$ ist Nullstelle von $f \Rightarrow K(\xi) =$ Zerfällungskörper von $f$.
+\end{proof}
+\begin{defi}
+	Der Zerfällungskörper von $f = t^n-1\in K[t]$ (unter der Annahme $(2)$) heißt zyklomotischer Körper der Ordnung $n$ über $K$.
+\end{defi}
+\begin{lem}
+	Sei $n\in \IZ_{>0}$, es gelte $(2)$. Sei $f(t) = t^n-1\in K[t]$. Sei $L$ Zerfällungskörper von $f$. Dann gilt: $G = \Gal(L\sslash K)$ ist abelsch und $|G|\ |\phi(n)$.
+\end{lem}
+\begin{proof}
+	Wir haben einen Gruppenhomomorphismus
+	\begin{eqnarray*}
+		\phi\colon G = \Gal(L\sslash K) & \longto & \Aut(Z) =\{\phi\colon Z\to Z|\phi\text{ bijektiver Gruppenhomomorphismus}\}\\
+		g & \longmapsto & g|_Z
+	\end{eqnarray*}
+	wobei $Z$ so ist wie in der 2. Behauptung oben.
+	
+	Dieser Gruppenhomomorphismus ist injektiv, weil $g$ bereits eindeutig bestimmt ist durch $g|_Z$, da $L$ der Zerfällungskörper von $f$ ist. Da $Z = \IZ/n\IZ$ (vgl 2. Behauptung), ist $\Aut(Z) \cong \Aut(\IZ/n\IZ)\cong(\IZ/n\IZ)^{\times}$ (vgl. irgendein frühes Übungsblatt). Folglich ist $\Aut (Z)$ abelsch und $\im\phi<\Aut(Z)$ ist abelsch; damit ist $G$ abelsch. Außerdem: $|G| = |Gal(L\sslash K)|$ teilt $|\Aut(\IZ/n\IZ)|$ (nach \ref{thm:lagrange}), und $|\Aut(\IZ/n\IZ)| = |(\IZ/n\IZ)^{\times}| = \phi(n)$.
+\end{proof}
+\begin{bsp}
+	\leavevmode
+	\begin{itemize}
+	\item $K = \IF_2, f = t^3-1 = (t-1)(t^2+t+1)\in\IF_2[t]$, wobei $(t^2+t+1)$ irreduzibel ist in $\IF_2[t]$. Jede Nullstelle $a\neq 1$ von $f$ in $\overline{\IF_2}$ ist primitive dritte Einheitswurzel. Dann ist $[\IF_2(a):\IF_2] = 2$.
+	\item $f = t^7-1 = (t-1)(t^3+t^2+1)(t^3+t+1)$. Es existieren $6$ primitive $7$-te Einheitswurzeln; $(t^3+t^2+1)$ und $(t^3+t+1)$ treten als Minimalpolynome davon auf. Im Gegensatz zu $K = \IQ$, wo jede primitive $n$-te Einheitswurzel dasselbe Minimalpolynom hat (vgl \ref{thm:24.4})
+	\end{itemize}
+\end{bsp}
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
