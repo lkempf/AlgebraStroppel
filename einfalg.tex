@@ -3579,7 +3579,7 @@ Wir nennen diese Erzeuger von $Z$ primitive $n$-ten Einheitswurzeln über $K$ (a
 \begin{defi}
 	Der Zerfällungskörper von $f = t^n-1\in K[t]$ (unter der Annahme $(2)$) heißt zyklomotischer Körper der Ordnung $n$ über $K$.
 \end{defi}
-\begin{lem}
+\begin{lem}\label{lem:24.2}
 	Sei $n\in \IZ_{>0}$, es gelte $(2)$. Sei $f(t) = t^n-1\in K[t]$. Sei $L$ Zerfällungskörper von $f$. Dann gilt: $G = \Gal(L\sslash K)$ ist abelsch und $|G|\ |\phi(n)$.
 \end{lem}
 \begin{proof}
@@ -3599,6 +3599,127 @@ Wir nennen diese Erzeuger von $Z$ primitive $n$-ten Einheitswurzeln über $K$ (a
 	\item $f = t^7-1 = (t-1)(t^3+t^2+1)(t^3+t+1)$. Es existieren $6$ primitive $7$-te Einheitswurzeln; $(t^3+t^2+1)$ und $(t^3+t+1)$ treten als Minimalpolynome davon auf. Im Gegensatz zu $K = \IQ$, wo jede primitive $n$-te Einheitswurzel dasselbe Minimalpolynom hat (vgl \ref{thm:24.4})
 	\end{itemize}
 \end{bsp}
+
+
+\lecture{25. Januar 2018}
+\begin{lem}\label{lem:24.3}%lohnt sich zu merken
+	Sei $\xi$ primitive $n$-te Einheitwurzel (über $K$), $m\in\IZ$. Dann: $\xi^m$ primitiv $\Leftrightarrow ggt(m,n) = 1$.
+\end{lem}
+
+\begin{proof}
+	Sei $f = t^n-1\in K[t]$, $Z$ die Menge der Nullstellen von $f$ in $\overline{K}$. $Z$ ist eine zyklische Gruppe bezüglich Multiplikation; Erzeuger sind die primitiven $n$-ten Einheitswurzeln.
+	
+	Wir haben also einen Isomorphismus von Gruppen:
+	\begin{eqnarray*}
+		\IZ/n\IZ &\longto & Z\\
+		\overline{1}&\longmapsto & \xi
+	\end{eqnarray*}
+	nun ist $\xi^m$ primitiv genau dann, wenn $\ord(\xi^m) = n \Leftrightarrow ord(\overline{m}) = n$ in $\IZ/n\IZ \Leftrightarrow ggT(m,n) = 1$.
+\end{proof}
+\begin{satz}\label{thm:24.4}
+	Sei $\xi\in\overline{\IQ}$ primitive $n$-te Einheitswurzel (über $\IQ$). Dann ist $\IQ(\xi)\sslash\IQ$ Galoissch und $[\IQ(\xi):\IQ] = \phi(n)$.
+\end{satz}
+\begin{proof}
+	Nach \ref{lem:24.2} wissen wir, dass $\IQ(\xi)\sslash\IQ$ Galoissch ist und $[\IQ(\xi):\IQ]\leq \phi(n)$. Also bleibt zu zeigen: Für das Minimalpolynom $f = m_{\xi}(t)\in\IQ[t]$ von $\xi$ gilt: $\deg(f) = \phi(n)$.
+	
+	Dafür reicht es nach Lemma \ref{lem:24.3} zu zeigen: Jede primitive $n$-te Einheitswurzel ist Nullstelle von $f$ (über $\overline{\IQ}$). Klar ist: $f$ teilt $t^n-1$ (nach der Definition des Minimalpolynoms). Folglich gilt $t^n-1 = f\cdot h$ in $\IQ[t]$ mit $h\in \IQ[t]$ normiert. Aus \ref{lem:24.5} folgt $f,h\in\IZ[t]$ (da $f,h$ normiert).
+	
+	Sei nun $p$ Primzahl, $p\not|n$. Behauptung: $f(\xi^p) = 0$. Falls nicht, dann $h(\xi^p) = 0$, weil $(\xi^p)^n-1 = 0$. Dann ist $\xi$ Nullstelle von $h(t^p)$. Also: $f$ teilt $h(t^p)$ (Definition des Minimalpolynoms und $h$ normiert). Damit folgt $h(t^p) = f\cdot g$ für ein $g\in\IQ[t]$ normiert. Wieder mit \ref{lem:24.5} folgt $f,g\in\IZ[t]$. Betrachte den Ringhomomorphismus
+	\begin{eqnarray*}
+		\IZ[t] & \longto & \IF_p[t] = \IZ/p\IZ[t]\\
+		\sum_{i\geq0}c_it^i & \longmapsto & \sum_{i\geq 0} \overline{c_i}t^i
+	\end{eqnarray*}
+	Damit: $\overline{h(t^p)} = \overline{f}\overline{g}$, wobei $\overline{h(t^p)} = \overline{h(t)}^p$. Folglich haben $\overline{f(t)}$ und $\overline{h(t)}$ eine gemeinsame Nullstelle (bzw. sind nicht teilerfremd). Damit hat $t^n-1 = \overline{t^n-1} = \overline{f}\overline{h}$ eine mehrfache Nullstelle im Widerspruch zu $p\not|n$. Es folgt sofort $f(\xi^p) = 0$.
+	
+	Sei nun $xi'$ eine beliebige primitive $n$-te Einheitswurzel. Zu zeigen: $f(\xi') = 0$. Sei $\xi' = \xi^m$ ($m\in \IN, ggT(m,n) =1$ nach \ref{lem:24.3}). Also $\xi'  =\xi^{p_1\dots p_r}$ mit $p_1\dots p_r = m$ und $p_i$ Primzahlen mit $p_i\not| n$ für alle $i$. Wende nun obiges Argument wiederholt an und erhalte $f(\xi') = f(\xi{p_1\dots p_r}) = 0$.
+\end{proof}
+
+\begin{lem}\label{lem:24.5}
+	Seien $\alpha, \beta, \gamma\in\IQ[t], \alpha\in\IZ[t], \alpha = \beta\gamma; \beta,\gamma$ normiert. Dann folgt bereits $\beta, \gamma\in\IZ[t]$.
+\end{lem}
+\begin{proof}
+	Seien
+	$\beta = \frac1a\tilde{\beta}$ mit $\tilde{\beta}\in\IZ[t], \tilde{\beta} = \sum_{i = 0}^ma_it^i$ und
+	$\gamma = \frac1b\tilde{\gamma}$ mit $\tilde{\gamma}\in\IZ[t], \tilde{\gamma} = \sum_{i = 0}^nb_it^i$ mit $a_m \neq 0, b_n\neq 0$ und $ggT(a_1,\dots, a_m) = 1 = ggT(b_1,\dots, b_n)$.
+	
+	Damit gilt also $ab\alpha = \tilde{\beta}\tilde{\gamma}$. Zeige: $a = 1-b$. Sei dafür $p$ Primzahl mit $p|ab$. Wende Reduktion modulo $p$ an: $0 = \overline{\beta}\overline{\gamma}$ in $\IF_p[t]\Rightarrow \overline{\tilde{\beta}} = 0$ oder $\overline{\tilde{\gamma}} = 0$.
+	
+	Es folgt $ggT(a_1,\dots,A_m)>1$ oder $ggT(b_1,\dots, b_n)>1$, wobei $a_m = a$, $b_n = b$ nach Voraussetzung. Das ist ein Widerspruch zu obiger Annahme. Folglich existiert kein $p$ mit $p|ab$, also $ab = 1$ und $a = 1-b$.
+\end{proof}
+
+\begin{defi}
+	Sei $K$ Körper, $n\in\IZ_{>0}$ und $\chr(K)\not| n$. Dann sei
+	$$\Phi_n(t) = \prod_{i = 1}^{\phi(n)}(t-\xi_i)\in\overline{K}[t]\enspace,$$
+	wobei $\xi_1,\dots,\xi_{\phi(n)}$ die primitiven $n$-ten Einheitswurzeln über $K$ sind, das $n$-te Kreisteilungspolynom über $K$.
+\end{defi}
+
+\begin{satz}\label{thm:24.6}
+	Es gelte $(2)$ (also $\chr K = 0$ oder $\chr(K) = p$ und $p\not|n$). Dann gilt:
+	\begin{enumerate}
+		\item $\Phi_n(t)\in K[t]$, normiert, separabel und vom Grad $\phi(n)$.
+		\item Für $K = \IQ$ ist $\Phi_n(t)\in\IZ[t]$ und ist irreduzibel in $\IQ[t]$ und $\IZ[t]$.
+		\item $t^n-1 = \prod_{d|n}\Phi_d(t)$
+		\item Das $n$-te Kreisteilungspolynom $\Phi_{n,K}(t)$ über $K$ erhält man aus $\Phi_n(t)\in\IZ[t]$ (dem $n$-ten Kreisteilungspolynom über $\IQ$), indem man auf die Koeffizienten den Ringhomomorphismus gegeben durch $\IZ\to K, 1\mapsto 1$ anwendet.
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item normiert, separabel, Grad $= \phi(n)\checkmark$
+		
+		zu zeigen: $\Phi_k(t)\in K[t]$. Sei $L = K(\xi_!,\dots, \xi_{\phi(n)}) = K(\xi_1)$ nach \ref{lem:24.2}. Dann ist $\Phi_n(t)\in L[t]$. Jedes $\phi\in \Gal(L\sslash K)$ bildet primitive $n$-te Einheitswurzeln auf primitive $n$-te Einheitswurzeln ab. Also permutiert $\phi$ die primitiven Einheitswurzeln. Also $\phi_*(\Phi_n(t)) = \Phi_n(t)\forall \phi\in \Gal(L\sslash K)$. Daraus folgt $\Phi_n(t)\in L^{\Gal(L\sslash K)}[t] = K[t]$ nach \ref{thm:21.1}, da $L\sslash K$ Galoissch ist.
+		
+		\item Sei $K  = \IQ$. Klar: $m_{\xi}(t)\in \IQ[t]$ und $m_{\xi}(t)|\Phi_n(t)$ für jede primitive $n$-te Einheitswurzel $\xi$ nach der Definition des Minimalpolynoms.
+		
+		Mit \ref{thm:24.4} folgt $\deg(m_\xi(t)) = [\IQ(\xi):\IQ] = \phi(n)$, nach Punkt 1 dieses Satzes gilt also $m_{\xi}(t) = \Phi_n(t)$, da $\Phi_n(t)$ normiert ist. Daher ist $\Phi_n(t)$ irreduzibel in $\IQ[t]$, da $m_{\xi}(t)$ irreduzibel ist.
+		
+		Außerdem teilt $\Phi_n(t)$ das Polynom $t^n-1$ (weil $\Phi_n(t) = m_{\xi}(t)$). $\Rightarrow t^n-1 = \Phi_n(t)\cdot h(t)\in \IQ[t]$ mit $h(t), \Phi_n(t)\in\IQ[t]$ normiert. Aus \ref{lem:24.5} folgt nun $\Phi_n(t), h(t)\in\IZ[t]$ und $\Phi_n(t)\in\IZ[t]$ irreduzibel, weil irreduzibel in $\IQ[t]$ und primitiv. 
+		\item Sei $\mathcal{P}_d  = \{\text{primitive }d\text{-te Einheitswurzel}\}$. Dann ist $Z = \bigcup\limits_{d|n}\mathcal{P}_d$. Also gilt $$t^n-1 = \prod_{d|n}\prod_{\xi\in\mathcal{P}_d}(t-\xi) = \prod_{d|n}(t)$$
+		\item zu zeigen: die kanonische Abbildung
+		\begin{eqnarray*}
+			\alpha\colon \IZ[t] & \longto & K[t]\\
+			\sum_{i \geq 0}b_it^i & \longmapsto & \sum_{i\geq 0}\can(b_i)t^i
+		\end{eqnarray*}
+		(mit $\can\colon \IZ\to K, 1\mapsto 1$ Ringhomomorphismus) bildet $\Phi_{n,\IQ}(t)$ auf $\Phi_{n, K}(t)$ ab. (Wobei $\Phi_{n, \IQ}(t)\in\IZ[t]$.) Beweis per Induktion:
+		\begin{description}
+			\item[$n = 1$:] $t-1 (\in \IZ[t]) \mapsto t-1 (\in K[t]) \checkmark$.
+			\item[$n>1$:] $t^n-1 = \Phi_{n\IQ}(t)\prod_{d|n, d<n}\Phi_{d,\IQ}(t)$. Nach Induktionsannahme ist $t^n-1  =\alpha(t^n-1) = \alpha(\Phi_{n,\IQ}(t))\prod_{d|n, d<n}\Phi_{d, K}(t)$, andererseits $t^n-1 = \Phi_{n,K}\prod_{d|n, d<n}\Phi_{d, K}(t)$.  Da $K$ nullteilerfrei ist, impliziert das bereits $\Phi_{n,K}(t) = \alpha(\Phi_{n,\IQ}(t))$.
+		\end{description}
+	\end{enumerate}
+\end{proof}
+\begin{lem}\label{lem:24.7}
+	Sei $f = t^n-b\in K[t]$ für einen Körper $K$, sodass $K$ genau $n$ verschiedene Nullstellen von $t^n-1$ enthält. Sei $L$ der Zerfällungskörper von $f$. Dann ist $\Gal(L\sslash K)$ zyklisch und $|\Gal(L\sslash K)|$ teilt $n$.
+\end{lem}
+\begin{proof}
+	Sei $Z\subseteq K$ wie bisher die Menge der Nullstellen von $t^n-1$. Sei $a\in L$ Nullstelle von $f$. Dann sind $az_1, az_2,\dots, az_n$ mit $Z  = \{z_1,\dots, z_n\}$ genau die Nullstellen von $f$ (paarweise verschieden, weil $z_i$ paarweise verschieden sind und $a\neq 0$). Also $L = K(az_1,\dots, az_n)  = K(a)$, da $z_i\in K$.
+	
+	Seien $\phi_1,\phi_2\in \Gal(L\sslash K)$. Dann gilt $\phi_1(a) = az_i, \phi_2(a) = az_j$ für gewisse $i,j\in\{1,\dots, n\}$ und $\phi_1,\phi_2$ sind daduruch bestimmt. $\phi_2\circ\phi_1(a) = \phi_2(az_i) = az_iz_j$. Dann ist
+	\begin{eqnarray*}
+		\Gal(L\sslash K) & \longto & Z\subseteq \overline{K}^{\times}\\
+		\phi & \longmapsto & z_j = \frac{\phi(a)}{a}
+	\end{eqnarray*}
+	ein injektiver Gruppenhomomorphismus. Da $Z$ zyklisch der Ordnung $n$ ist, gilt: $|\Gal(L\sslash K)| = |\im\Psi|\leq |Z| = n$, sogar $|\Gal(L\sslash K)|$ teilt $n$ nach Lagrange. Weil $\Psi$ injektiv ist und $Z$ zyklisch ist, ist $\Gal(L\sslash K)$ zyklisch.
+\end{proof}
+
+
+
+
+\paragraph{Hintergrund/Ausblick}
+Fermats letzter Satz: Gegeben $n\in\IN, n\neq 0$. Existiert $(x,y,z)\in\IZ^3$ mit $x^n+y^n = z^n$?
+
+Für $n=1$ gibt es natürlich unendlich viele Lösungen; für $n=2$ löst jedes pythagoräische Tripel die Gleichung. Da für $u,v\in\IZ$ das Tripel $(u^2-v^2, 2uv, u^2+v^2)$ pythagoräisch ist, gibt es auch für $n = 2$ unendlich viele Lösungen.
+
+Fermat behaupete: $x^n+y^n = z^n$ hat für $n>2$ keine nichttriviale Lösung. (Wurde Ende des 20. Jahrhunderts von Andrew Wiles bewiesen.)
+
+\noindent Wie ist Fermat möglicherweise auf die Idee gekommen, das einfach bewiesen zu haben?
+
+Sei $X,Y\in \IZ$ und $n\in\IZ_{>0}$, $n $ ungerade. Betrachte den Ausdruck $X^n+Y^n\in\IZ[\xi]$, wobei $\xi$ primitive $n$-te Einheitswurzel ist. Behauptung: $X^n+Y^n = (X+Y)(X+\xi Y)\dots(X+\xi^{n-1}Y)$. (Beweis: \ref{lem:24.7}, nachrechnen).
+
+Falls nun $X^n+Y^n = Z^n\in\IZ$ gilt, können wir $X^n+Y^n = p_1\dots p_r$ Produkt von Primzahlen schreiben, die sind irreduzibel in $\IZ[\xi]$. Wenn $\IZ[\xi]$ faktoriell ist, dann ist das ein Widerspruch zur eindeutigen Zerlegung in irreduzible Elemente.
+
+
+
+
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
 
