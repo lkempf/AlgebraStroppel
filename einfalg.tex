@@ -3717,8 +3717,123 @@ Sei $X,Y\in \IZ$ und $n\in\IZ_{>0}$, $n $ ungerade. Betrachte den Ausdruck $X^n+
 
 Falls nun $X^n+Y^n = Z^n\in\IZ$ gilt, können wir $X^n+Y^n = p_1\dots p_r$ Produkt von Primzahlen schreiben, die sind irreduzibel in $\IZ[\xi]$. Wenn $\IZ[\xi]$ faktoriell ist, dann ist das ein Widerspruch zur eindeutigen Zerlegung in irreduzible Elemente.
 
+\lecture{29. Januar 2018}
+\subsection{Inverses Galoisproblem}
+Wir wissen: Wenn $\xi$ eine primtitve $n$-te Einheitswurzel ist (über $\IQ$ in $\IC$), dann ist $\IQ(\xi)\sslash \IQ$ Galoissch und $\Gal(\IQ(\xi)\sslash\IQ)\cong (\IZ/n\IZ)^{\times}$.
+
+Falls $n_1,\dots, n_r\in\IZ_{>0}$ teilerfremd sind und $\epsilon_i$ primitive $n_i$-te Einheitwurzel ist, dann ist $\epsilon = \epsilon_1\dots\epsilon_r$ primitve $n = n_1\dots n_r$-te Einheitwurzel (nachprüfen!), also $\Gal(\IQ(\epsilon)\sslash \IQ)\cong (\IZ/n\IZ)^{\times}\cong (\IZ/n_1\IZ)^{\times}\times\dots\times(\IZ/n_r\IZ)^{\times}$, wobei die letzte Isomorphie noch nachzuprüfen ist.
+
+Frage: Welche Gruppen treten als $\Gal(L\sslash \IQ)$ auf? (Mit $L\sslash \IQ$ endlich? Galois?) Tritt jede endliche Gruppe auf?
+
+\begin{satz}[Dirichlet]
+	Gegeben $n\in\IZ_{>0}$. Dann existieren unendlich viele Primzahlen $p$ mit $p\equiv 1\pmod n$.
+\end{satz}
+\begin{proof}
+	Annahme: es existieren nur endlich viele solche Primzahlen, sagen wir $p_1,\dots,p_r$. Sei $m\coloneqq np_1\dots p_r$. Dann ist \begin{equation}\Phi_m(t) \in \IZ[t]\text{ normiert und }\Phi(0)\neq 0\enspace .
+	\end{equation}
+	Deswegen $\lim_{z\to\infty}\Phi_m(mz) = \infty$ (wobei $z\in\IN$). Daraus folgt, dass ein $z_0\in\IN$ existiert, sodass $\Phi_m(mz_0)>p_i$ für alle $i$ gilt. Mit $(3)$ folgt, dass eine Primzahl $p$ existiert mit $p|\Phi_m(mz_0)$ und $p\neq p_i\forall i$. Also gilt $p|(mz_0)^m-1$, aber $p\not|(mz_0)^m$, weshalb $\gcd(m,p) = 1$ und $\overline{\Phi_m(mz_0)} = 0\in\IF_p$. Nach \ref{lem:25.2} folgt daraus $p\equiv 1\pmod m$ und mit der Definition von $m$ folgt $p\equiv 1\pmod n$.
+\end{proof}
+\begin{lem}\label{lem:25.2}
+	Sei $m\in\IZ_{>0}$, $p$ Primzahl, $\gcd(m,p) = 1$ und $\overline{\Phi_m(t)}$ hat Nullstelle $\overline{a}$ in $\IF_p$ ($a\in\IZ$). Dann $p\equiv 1\pmod m$.
+\end{lem}
+\begin{proof}
+	$p|\Phi_m(a)$, da $\overline{\Phi_m(\overline{a})} = 0$ in $\IF_p$. Daraus folgt $p|a^m-1\Rightarrow a^m\equiv 1\pmod p\Rightarrow \overline{a}^m = 1\in\IF_p^{\times}\subseteq \IF_p$, wobei $\IF_p^{\times}$ die zyklische Gruppe der Ordnung $p-1$ ist.
+	
+	Behauptung: $\ord(\overline{a}) = m$ in $\IF_p^{\times}$. (Da $\overline{a}^m = 1$ ist, gilt auf jeden Fall $\ord(\overline{a})\leq m$.) Angenommen, $\ord(\overline{a}) = s<m$. (Beachte, dass dann $s|m$ gilt.) Nun gilt $t^m-1 = \prod_{d|m}\Phi_d(t) = \Phi_m(t)\prod{d|m, d<m}\Phi_d(t) = \Phi_m(t) \left(\prod_{d|s}\Phi_d(t)\right) h(t) = \Phi_m(t)(t^s-1)h(t)$ für gewisses $h(t)\in\IZ[t]$.
+		
+	Also $\overline{a}^m-1 = \overline{\Phi_m(\overline{a})}(\overline{a}^s-1)\overline{h(\overline{a})}$, wobei die ersten beiden Faktoren beide $0$ sind. Damit folgt $f(t) = t^m-1\in\IF_p[t]$ hat mehrfache Nullstelle im Widerspruch zu $f'(t) = mt^{m-1}\in\IF_p[t]$, wobei $m\neq 0$ nach Voraussetzung.
+	
+	Folglich gilt die Behauptung; es ist $\ord(\overline{a}) = m$ und mit Lagrange erhalten wir $m|p-1$, also $p\equiv 1\pmod m$.
+\end{proof}
+
+\begin{satz}\label{thm:25.3}
+	Jede endliche abelsche Gruppe $G$ ist isomorph zu $\Gal(L\sslash \IQ)$ für eine endliche Körpererweiterung $L\sslash \IQ$, Galoissch.
+\end{satz}
+\begin{proof}
+	Sei $G$ eine endliche abelsche Gruppe. Mit den Sylowsätzen und 11.5 folgt, dass $n_1,\dots, n_r\in\IZ_{>0}$ existieren mit $G\cong \IZ/n_1\IZ\times\dots \times \IZ/n_r\IZ$. Nach Dirichlet finden wir Primzahlen $p_i$ ($1\leq i\leq r$) paarweise verschieden mit $p_i\equiv 1\pmod n_i$. Also $p_i-1 = m_in_i$ für gewisse $m_i\in\IZ$.
+	
+	Übung: es existiert eine Untergrupe $H_i<(\IZ/p_i\IZ)^{\times}$ der Ordnung $m_i$ mit $(\IZ/p_i\IZ)^{\times}/H_i = \IZ/n_i\IZ$.
+	
+	Seien nun $\epsilon_i$ für $1\leq i\leq r$ primitive $p_i$-te Einheitwurzeln. Sei $\epsilon = \epsilon_1\dots \epsilon_r$, also primitive $p_1\dots p_r$-te Einheitswurzel und $\Gal\coloneqq\Gal(\IQ(\epsilon)\sslash \IQ)\cong (\IZ/p_1\IZ)^{\times}\times\dots \times(\IZ/p_r\IZ)^{\times}$.
+	Sei $H< \Gal(\IQ(\epsilon)\sslash \IQ)$ die Untergruppe, die $H_1\times\dots\times H_r$ entspricht.
+	Sei $M = L^H$ mit $L = \IQ(\epsilon)$. ($M$ ist ein Zwischenkörper $\IQ\subseteq M\subseteq L$.) Da $\Gal$ abelsch ist, ist $H<\Gal$ automatisch normal. Die Galoiskorrespondenz sagt uns nun, dass $M\sslash \IQ$ normal ist. Da $M\sslash \IQ$ außerdem separabel ist (z.B. weil $\chr\IQ=0$), ist diese Körpererweiterung Galoissch mit
+	$\Gal(M\sslash \IQ) = \Gal/H\cong (\IZ/p_1\IZ)^{\times}/H_1\times\dots\times(\IZ/p_r\IZ)^{\times}/H_r\cong \IZ/n_1\IZ\times\dots\times\IZ/n_r\IZ$.
+\end{proof}
+Im Allgemeinen ist das inverse Galoisproblem aber ungelöst!
+
+\subsection{Auflösbarkeit von algebraischen Gleichungen}
+Algebraische Gleichung: $f(t) = t^n+a_{n-1}t^{n-1}+\dots+a_1t+a_0\in\IQ[t]$ (oder $\IR[t],\IC[t]$).
+
+$$ (*)\qquad f(t) = 0$$
+\begin{description}
+	\item[$n = 1$:] $t_1 = -a_0$ (einzige Lösung)
+	\item[$n = 2$:] $t_{1,2} = \frac{-a_1\pm\sqrt{a_1^2-4a_0}}{2}\in\IC$. Schon Babylonier konnten das, allerdings nur geometrisch und nur für bestimmte Werte, weil sie noch nicht so viele Skillz im Wurzelziehen hatten. Im 16. Jahrhundert wurde dann diese allgemeine Formel entdeckt.
+	\item[$n = 3,4$:] auch hier gibt es explizite Formeln (entdeckt circa 1550)
+\end{description}
+\begin{defi}
+	Sei $L\sslash K$ eine endliche Körpererweiterung. Sie heißt durch Radikale (von lat.: radix, dt.: Wurzel) auflösbar, falls ein $E\sslash K$ existiert mit $L\subseteq E$ und außerdem Körpererweiterungen
+	$$K = E_0\subset E_1\subset E_2\subset \dots \subset E_r = E$$
+	sodass $E_i = E_{i-1}(a_i)$ für ein $a_i\in E_i$, sodass $a_i$ Nullstelle eines Polynoms $Q(t)\in E_{i-1}[t]$ mit
+	\begin{enumerate}
+		\item $Q(t) = t^n-c$, wobei $\chr K \not|n$ oder
+		\item $Q(t) = t^p-t-c\in E_{n-1}[t]$ mit $\chr K = p>0$
+	\end{enumerate}
+\end{defi}
+\begin{defi}
+	$L\sslash K$ sei eine endliche Körpererweiterung. Wir nennen $L\sslash K$ auflösbar, falls Körpererweiterungen $K\subseteq L\subseteq E$ existieren mit $E\sslash K$ Galoissch und $\Gal(E\sslash K)$ ist auflösbar (als Gruppe).
+\end{defi}
+\begin{lem}
+	Sei $N$ die normale Hülle von $L\sslash K$ in $\overline{K}$. Dann ist $L\sslash K$ auflösbar genau dann, wenn $L\sslash K$ separabel ist und $\Gal(N\sslash K)$ auflösbar ist.
+\end{lem}
+
+\begin{proof}
+	\begin{description}
+		\item[\glqq$\Rightarrow$\grqq:] Sei $E$ wie in der Definition, also insbesondere $L\sslash K$ separabel (weil $K\subseteq L\subseteq E$). Nach dem Fortsetzungssatz ist $res\colon\Gal(E\sslash K)\to \Gal(N\sslash K), \phi\mapsto \phi|_N$, wobei das wohldefiniert ist, weil $N$ normal ist, surjektiv.
+		Dabei ist $\Gal(E\sslash K)$ auflösbar nach Voraussetzung. Als Quotient einer auflösbaren Gruppe ist $\Gal(N\sslash K)$ auflösbar.
+		\item[\glqq$\Leftarrow$\grqq:] $N\sslash K$ endlich (nach Definition), Galois mit $\Gal(N\sslash K)$ auflösbar. $E\coloneqq N$.
+	\end{description}
+\end{proof}
+Insbesondere: $L\sslash K$ endlich Galoissch. Dann ist $L\sslash K$ genau dann auflösbar, wenn $\Gal(L\sslash K)$ auflösbar ist.
 
 
+\begin{satz}
+	Sei $L\sslash K$ eine endliche Körpererweiterung. Dann sind folgende Aussagen äquivalent:
+	\begin{enumerate}
+		\item $L\sslash K$ durch Radikale auflösbar
+		\item $L\sslash K$ auflösbar
+	\end{enumerate}
+	Wir wissen bereits: $L\sslash K$ zusätzlich Galoissch. Dann ist $L\sslash K$ genau dann auflösbar, wenn $\Gal(L\sslash K)$ auflösbar ist.
+\end{satz}
+\begin{proof} Bosch: Algebra.
+\end{proof}
+\begin{kor}
+	Jede separable Körpererweiterung vom Grad $[L:K]\leq 4$ ist (durch Radikale) auflösbar.
+\end{kor}
+\begin{proof}
+	Mit dem Satz vom primitiven Element wissen wir $L = K(a)$ für ein $a\in L$. Sei $M$ der Zerfällungskörper von $m_a(t)\in K[t]$. Nun hat $m_a(t)\geq 4$ Nullstellen. Also ist $\Gal(M\sslash K)<S_n$, wobei $N$ die Anzahl der Nullstellen von $m_a(t)$ ist. Da Untergruppen von auflösbaren Gruppen auflösbar sind, reicht es also zu zeigen, dass $S_2, S_3, S_4$ auflösbar sind. Für $S_2, S_3$ wissen wir das; für $S_4$ ist $\{e\}\nt V_4\nt A_4\nt S_4$ eine Normalreihe mit abelschen Quotienten. Folglich ist auch $S_4$ auflösbar.
+\end{proof}
+\begin{satz}[Abel-Ruffini]
+	Im Allgemeinen ist eine Gleichung $f(t) = 0$ 5. Grades nicht auflösbar. (Das heißt der Zerfällungskörper von $f(t)$ ist über $\IQ$ nicht durch Radikale auflösbar.)
+\end{satz}
+\begin{proof}
+	Eine \glqq allgemeine\grqq\ Gleichung $n$-ten Grades hat Galoisgruppe $S_n$ (d.h. es existiert ein $f(t)$ von Grad $n$ wie boen mit $\Gal(\text{ZFK von }f(t)\sslash \IQ)\cong S_n$; einen Beweis für $n =p$ Primzahl findet sich im Bosch). 
+	
+	Für $n = 5$ (man kanns sogar zeigen für $n\geq 5$) ist $S_n$ nicht auflösbar (siehe unten).
+\end{proof}
+Es kann also keine allgemeine Lösungsformel mit Wurzelausdrücken für Polynome vom Grad $5$ geben.
+
+\begin{bem}
+	$S_5$ ist nicht auflösbar. Wir wissen: $A_5 = [S_5, S_5]$. Es reicht zu zeigen: $A_5$ ist nicht auflösbar. Dafür reicht es zu zeigen: $A_5 = [A_5, A_5]$.
+	
+	1. Behauptung: 3-er-Zykel $(a,b,c)\in S_5$ erzeugen $A_5$ (Übung)
+	
+	2. Behauptung: Jeder $3$-er-Zyklus $(i,j,k)$ lässt sich schreiben als $(i,j,k)  = (i,k,j)(i,k,j) = (i,k)(k,j)(i,k)(k,j) = (i,k)(l,m)(k,j)(l,m)(l,m)(i,k)(l,m)(k,j) = ghg^{-1}h^{-1}$ mit $g = (i,k)(l,m)$, $h = (k,j)(l,m)$.
+\end{bem}
+%Klausurrelevant: Alles außer zyklotomische Körper, vmtl auch Punkt 25,26 nicht.
+%Wahr/Falsch
+%Abfragen von Definitionen, Aussagen von Sätzen
+%Beweisaufgaben
+%Beispiele rechnen
 
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
