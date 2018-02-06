@@ -213,6 +213,12 @@ TSWLatexianTemp*
 # KBibTeX
 *~[0-9]*
 
+#TexStudio
+*.txss
+
+#VS code
+/.vs/*
+
 # auto folder when using emacs and auctex
 /auto/*
 
