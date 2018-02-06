@@ -1929,7 +1929,7 @@ Eine Lösung ist zum Beispiel $x = 10$, aber laut Stroppel ist das nicht die Anz
 \begin{satz}[Chinesischer Restsatz]
 	Sei $R$ ein kommutativer Ring sowie $R\neq\{0\}$. Seien weiter $I_1,\dots,I_s$ Ideale in $R$, sodass $I_i+I_j = R$ für alle $i\neq j$ gilt. Dann existiert ein surjektiver Ringhomomorphismus
 	\begin{eqnarray*}
-		\Phi\colon R & \longto & R/I_1\times \dots R/I_s\\
+		\Phi\colon R & \longto & R/I_1\times \dots \times R/I_s\\
 		r & \longmapsto & (\overline{r},\dots, \overline{r})
 	\end{eqnarray*}
 	\textup(wobei $\overline{r}$ jeweils die Nebenklasse von $r$ bezüglich dem passenden Ideal $I_i$ ist\textup).
@@ -1944,25 +1944,28 @@ Eine Lösung ist zum Beispiel $x = 10$, aber laut Stroppel ist das nicht die Anz
 	\[b_i \coloneqq \prod_{\mathclap{\substack{j\neq i\\1\leq j\leq s}}} (1-a_{ij}) = \prod_{\mathclap{\substack{j\neq i\\1\leq j\leq s}}} a_{ji}\]
 	Es gilt
 	\begin{equation}
-	 \overline{b_i} = \begin{cases*} \text{$\overline{0}$ in $R/I_j$} & für $i\neq j$,\\
-	 \text{$\overline{1}$ in $R/I_i$} & für $i=j$.
-	 \end{cases*} \tag{*}\label{eq:thmchinres}
-	 \end{equation}
-	 Sei nun $(\overline{r_1},\dots, \overline{r_s})\in R/I_1\times \dots \times R/I_s$ beliebig ($r_i\in R$). Wir setzen
-	 \[ x : = \sum_{i = 1}^{s} b_ir_i\in R.\]
-	 Da $\Phi$ ein Ringhomomorphismus ist, folgt dann mit \eqref{eq:thmchinres} \[
-	 \Phi(x) = \sum_{i=1}^{s}\Phi(b_ir_i) = \sum_{i=1}^{s}\Phi(b_i)\Phi(r_i) = \left(\sum_{i =1}^{s}\overline{b_i}\overline{r_i},\dots, \sum_{i = 1}^{s}\overline{b_i}\overline{r_i}\right) = (\overline{r_1},\dots, \overline{r_s})
-	 .\]
-	 Folglich ist $x$ Urbild von $(\overline{r_1},\dots, \overline{r_s})$. Damit ist $\Phi$ ist surjektiv.
-	 
-	 Schließlich ist $r\in \ker\Phi$ genau dann, wenn $(\overline{r},\dots, \overline{r}) = (\overline{0},\dots, \overline{0})\in R/I_1\times\dots\times R/I_s$, also wenn $\overline{r} = \overline{0}\in R/I_k$ für alle $1\leq k\leq s$. Das ist aber äquivalent dazu, dass $r$ im Schnitt $I_1\cap\dots\cap I_s$ liegt, also $\ker\Phi = I_1\cap\dots\cap I_s$.
+	\overline{b_i} = \begin{cases*} \text{$\overline{0}$ in $R/I_j$} & für $i\neq j$,\\
+	\text{$\overline{1}$ in $R/I_i$} & für $i=j$.
+	\end{cases*} \tag{*}\label{eq:thmchinres}
+	\end{equation}
+	Sei nun $(\overline{r_1},\dots, \overline{r_s})\in R/I_1\times \dots \times R/I_s$ beliebig ($r_i\in R$). Wir setzen
+	\[ x : = \sum_{i = 1}^{s} b_ir_i\in R.\]
+	Da $\Phi$ ein Ringhomomorphismus ist, folgt dann mit \eqref{eq:thmchinres} \[
+	\Phi(x) = \sum_{i=1}^{s}\Phi(b_ir_i) = \sum_{i=1}^{s}\Phi(b_i)\Phi(r_i) = \left(\sum_{i =1}^{s}\overline{b_i}\overline{r_i},\dots, \sum_{i = 1}^{s}\overline{b_i}\overline{r_i}\right) = (\overline{r_1},\dots, \overline{r_s})
+	.\]
+	Folglich ist $x$ Urbild von $(\overline{r_1},\dots, \overline{r_s})$. Damit ist $\Phi$ ist surjektiv.
+	
+	Schließlich ist $r\in \ker\Phi$ genau dann, wenn $(\overline{r},\dots, \overline{r}) = (\overline{0},\dots, \overline{0})\in R/I_1\times\dots\times R/I_s$, also wenn $\overline{r} = \overline{0}\in R/I_k$ für alle $1\leq k\leq s$. Das ist aber äquivalent dazu, dass $r$ im Schnitt $I_1\cap\dots\cap I_s$ liegt, also $\ker\Phi = I_1\cap\dots\cap I_s$.
 \end{proof}
 
 
 \subsection{Lokalisierung}
-\begin{defi} Sei $R$ ein kommutativer Ring und $R\neq \{0\}$. Eine Teilmenge $S\subseteq R$ heißt multiplikativ abgeschlossen, falls $1\in S$ und $s_1,s_2\in S\Rightarrow s_1s_2\in S$ gelten. Dann nennen wir $S^{-1}R$ die Lokalisierung von $R$ an $S$. Dabei ist $S^{-1}R$ ein kommutativer Ring, wobei die Elemente Äquivalenzklassen in $R\times S$ bezüglich $\sim$ (siehe Übungsblatt 5).
-Wir bezeichnen mit $\frac rs$ die Äquivalenzklasse von $(r,s)\in R\times S$.
-Es gilt $\frac rs = \frac {r'}{s'}$ genau dann, wenn ein $a\in S$ existiert, sodass $a(rs'-r's) = 0$. Wir nennen $S^{-1}R$ auch den Ring der Brüche für $R$ bezüglich $S$.
+\begin{defi} Sei $R$ ein kommutativer Ring und $R\neq \{0\}$. Eine Teilmenge $S\subseteq R$ heißt multiplikativ abgeschlossen, falls $1\in S$ und $s_1,s_2\in S\Rightarrow s_1s_2\in S$ gelten. Dann nennen wir $S^{-1}R$ die Lokalisierung von $R$ an $S$. Dabei ist $S^{-1}R$ ein kommutativer Ring, wobei die Elemente die Äquivalenzklassen in $R\times S$ bezüglich $\sim$ mit
+	\begin{equation*}
+	(r, s) \sim (r', s') \quad \Longleftrightarrow \quad \exists a \in S \colon a \cdot (r \cdot s' - r' \cdot s) = 0_R
+	\end{equation*}
+	(siehe Übungsblatt 5) sind.
+	Wir bezeichnen mit $\frac rs$ die Äquivalenzklasse von $(r,s)\in R\times S$. Wir nennen $S^{-1}R$ auch den Ring der Brüche für $R$ bezüglich $S$.
 \end{defi}
 
 \begin{bem}
@@ -1974,21 +1977,21 @@ Es gilt $\frac rs = \frac {r'}{s'}$ genau dann, wenn ein $a\in S$ existiert, sod
 \end{bem}
 
 \begin{satz}[Universelle Eigenschaft der Lokalisierung] \label{thm:unieig_lokali}
-	Sei $R$ kommutativer Ring, $R\neq\{0\}$, und $S\subseteq R$ multiplikativ abgeschlossen.
+	Sei $R$ ein kommutativer Ring, $R\neq\{0\}$, und $S\subseteq R$ multiplikativ abgeschlossen.
 	\begin{enumerate}
 		\item Die Abbildung
-				\begin{eqnarray*}
-					\can\colon R & \longto & S^{-1}R\\
-					r & \longmapsto & \frac r1
-				\end{eqnarray*}
-			ist ein Ringhomomorphismus, wobei $\can(S) \subseteq(S^{-1}R)^{\times}$.
+		\begin{eqnarray*}
+			\can\colon R & \longto & S^{-1}R\\
+			r & \longmapsto & \frac r1
+		\end{eqnarray*}
+		ist ein Ringhomomorphismus, wobei $\can(S) \subseteq(S^{-1}R)^{\times}$.
 		\item Sei $\phi\colon R\to T$ ein Ringhomomorphismus, sodass $\phi(S) \subseteq T^{\times}$, dann existiert ein eindeutiger Ringhomomorphismus $\hat{\phi}\colon S^{-1}R\to T$, sodass
 		$\hat{\phi}\circ \can = \phi$, also sodass das nachfolgende Diagramm kommutiert.
 		\begin{center}
-				\begin{tikzcd}
-						R \arrow{rd}[swap]{\can} \arrow{r}{\phi} & T \\
-						 	& Z\arrow{u}[swap]{\exists! \hat{\phi}\text{ Ringhomomorphismus}} \\
-				\end{tikzcd}
+			\begin{tikzcd}
+				R \arrow{rd}[swap]{\can} \arrow{r}{\phi} & T \\
+				& Z\arrow{u}[swap]{\exists! \hat{\phi}\text{ Ringhomomorphismus}} \\
+			\end{tikzcd}
 		\end{center}
 	\end{enumerate}
 \end{satz}
@@ -1997,34 +2000,43 @@ Es gilt $\frac rs = \frac {r'}{s'}$ genau dann, wenn ein $a\in S$ existiert, sod
 	\leavevmode
 	\begin{enumerate}
 		\item Durch einfaches Nachrechnen stellt man fest, dass $\can$ ein Ringhomomorphismus ist. Weiterhin sei $s\in S$. Dann ist $\can(s) = \frac s1$ und $\frac s1\cdot \frac1s = 1$, also hat $\frac s1$ ein Inverses bezüglich der Multiplikation, ist also eine Einheit. Damit folgt die erste Aussage.
-		\item \begin{description}
-			\item[Existenz:] Wir definieren $\hat{\phi}(\frac rs) = \phi(r)\phi(s)^{-1}$, wobei das Inverse bezüglich $\cdot$ in $S^{-1}R$ nach Voraussetzung existiert.
-			
-			Wieder durch Nachrechnen erhält man, dass $\hat{\phi}$ ein Ringhomomorphismus ist. Es gilt $\hat{\phi}\circ \can(r) = \hat{\phi}(\frac r1) = \phi(r)\phi(1)^{-1} = \phi(r)\cdot 1^{-1} = \phi(r) $. Damit folgt die Existenz von $\hat{\phi}$.
-			\item[Eindeutigkeit:] Wir erhalten $\hat{\phi}(\frac rs) = \hat{\phi} (\frac r1\cdot \frac1s) = \hat{\phi}(\frac r1)\cdot \hat{\phi}(\frac1s) = \hat{\phi}(\frac r1)\hat{\phi}((\frac s1)^{-1}) = \hat{\phi}(\frac r1)\hat{\phi}(\frac s1)^{-1} = \phi(r)\phi(s)^{-1}$, weil $\hat{\phi}\circ\can = \phi$, also $\hat{\phi}(\frac rs) = \phi(r)\phi(s)^{-1}$ gilt. Damit ist $\hat{\phi}$ eindeutig.
-    \qedhere
-		\end{description}
+		\item Existenz: Wir definieren $\hat{\phi}(\frac rs) = \phi(r)\phi(s)^{-1}$, wobei das Inverse bezüglich $\cdot$ in $S^{-1}R$ nach Voraussetzung existiert.
+		Wieder durch Nachrechnen erhält man, dass $\hat{\phi}$ ein Ringhomomorphismus ist. Es gilt $$\hat{\phi}\circ \can(r) = \hat{\phi}(\frac r1) = \phi(r)\phi(1)^{-1} = \phi(r)\cdot 1^{-1} = \phi(r) $$ 
+		Damit folgt die Existenz von $\hat{\phi}$.
+		
+		Eindeutigkeit: Wir erhalten
+		\begin{align*}
+		&\hat{\phi}\left(\frac rs \right) \\
+		=& \hat{\phi} \left(\frac r1\cdot \frac1s \right) \\
+		=& \hat{\phi}\left(\frac r1 \right)\cdot \hat{\phi}\left(\frac1s \right) \\
+		=& \hat{\phi}\left(\frac r1 \right)\hat{\phi}\left(\left(\frac s1 \right)^{-1} \right) \\
+		=& \hat{\phi}\left(\frac r1 \right)\hat{\phi}\left(\frac s1 \right)^{-1} \\
+		=& \phi(r)\phi(s)^{-1}
+		\end{align*} 
+		weil $\hat{\phi}\circ\can = \phi$, also $\hat{\phi}(\frac rs) = \phi(r)\phi(s)^{-1}$ gilt. Damit ist $\hat{\phi}$ eindeutig.
+		\qedhere
 	\end{enumerate}
 \end{proof}
 
 \begin{defi}
-	Falls $R$ ein Integritätsbereich und $R\neq\{0\}$, so ist $S = R\setminus\{0\}$ multiplikativ abgeschlossen und $S^{-1}R \eqqcolon \Quot(R)$ ist nach dem Übungsblatt ein Körper. Wir nennen diesen den Quotientenkörper zu $R$.
+	Falls $R$ ein Integritätsbereich ist und $R\neq\{0\}$, so ist $S = R\setminus\{0\}$ multiplikativ abgeschlossen und $S^{-1}R \eqqcolon \Quot(R)$ ist nach dem Übungsblatt ein Körper. Wir nennen diesen den Quotientenkörper zu $R$.
 \end{defi}
 \begin{bem} Wir weisen auf die Unterscheidung zwischen $R/I$, einem Faktorring, und $S^{-1}R$, einem Quotientenring bzw. Quotientenkörper, hin.
 \end{bem}
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-		\item $\Quot(\IR[t]) = \left\{\frac{f(t)}{g(t)}| f(t), g(t)\in \IR[t], g(t)\neq 0\right\}$, der Körper der rationalen Funktionen über $\IR$ in der Variable $t$.
+		\item $$\Quot(\IR[t]) = \left\{\frac{f(t)}{g(t)}\mathrel{\Big|} f(t), g(t)\in \IR[t], g(t)\neq 0\right\}$$der Körper der rationalen Funktionen über $\IR$ in der Variable $t$.
 		
-		\item Was ist z.B. $\Quot(\IZ[t])$? Können wir diesen \glqq gut\grqq{} beschreiben? (Stroppel kündigt einen Überkill an \dots)
+		\item Was ist z.B. $\Quot(\IZ[t])$? Können wir diesen \glqq gut\grqq{} beschreiben? (Stroppel kündigt einen Überkill an\dots)
 		
 		Es sei $R$ ein Integritätsbereich, wir betrachten die Abbildung
 		
 		$\begin{array}{rcccccl}
-			\phi\colon R & \xlongrightarrow{\can} & \Quot(R) &\longto& (\Quot(R))[t] &\longto& \Quot((\Quot(R))[t]) \eqqcolon T\\
-			r& \longmapsto & \frac r1 & \longmapsto & \text{konstantes Polynom } \frac r1,
+		\phi\colon R & \xlongrightarrow{\can} & \Quot(R) &\longto& (\Quot(R))[t] &\longto& \Quot((\Quot(R))[t]) \eqqcolon T\\
+		r& \longmapsto & \frac r1 & \longmapsto & \text{konstantes Polynom } \frac r1
 		\end{array}$
+		
 		wobei wir beachten, dass mit $R'$ auch $R'[t]$ ein Integritätsbereich ist.
 		
 		Nach der universellen Eigenschaft des Polynomrings existiert genau ein Ringhomomorphismus
@@ -2032,7 +2044,7 @@ Es gilt $\frac rs = \frac {r'}{s'}$ genau dann, wenn ein $a\in S$ existiert, sod
 			f = \ev_{\tilde{t}}\colon R[t] & \longto & T\\
 			\sum_{i = 0}^{\infty} b_it^i & \longmapsto & \sum_{i = 0}^{\infty}\phi(b_i)\tilde{t}^i
 		\end{eqnarray*}
-		wobei $\tilde{t} = \frac{1_{\Quot(R)}\cdot t}{1} \in T$.
+		wobei $$\tilde{t} = \frac{1_{\Quot(R)}\cdot t}{1} \in T$$
 		
 		Für $p(t)\neq 0$ ist klar, dass $f(p(t))$ nicht $0$, also eine Einheit ist, da $T$ ein Körper ist. Nach \cref{thm:unieig_lokali} existiert genau ein Ringhomomorphismus $\hat{f}\colon \Quot(R[t])\to T$ mit $\hat{f}\left(\frac{g_1}{g_2}\right) = f(g_1)(f(g_2))^{-1}$. Man kann zeigen, dass $\hat{f}$ ein Ringisomorphismus ist, indem man die inversen Abbildungen angibt.
 		
@@ -2052,15 +2064,12 @@ Wir definieren $K(t_1,\dots,t_n) \coloneqq \Quot(K[t_1,\dots,t_n])$ für einen K
 \begin{bem}
 	Sei $R$ ein kommutativer Ring und $S\subseteq R$ multiplikativ abgeschlossen. Falls $S$ keine Nullteiler besitzt, dann ist
 	\begin{eqnarray*}
-		 \can\colon R &\longto& S^{-1}R\\
-		 r & \longmapsto& \frac r1
+		\can\colon R &\longto& S^{-1}R\\
+		r & \longmapsto& \frac r1
 	\end{eqnarray*}
-	injektiv. \emph{Begründung:} Sei $\can(r) = \can(r')$ mit $r,r'\in R$ Dann folgt $\frac r1 = \frac {r'}1$, es existiert also ein $ s\in S$ mit $ s(r1-r'1) = 0$. Da $S$ keine Nullteiler enthält, ist $r1 -r'1 = 0$, und wir erhalten $r' = r$.
-	
+	injektiv. Denn sei $\can(r) = \can(r')$ mit $r,r'\in R$ Dann folgt $\frac r1 = \frac {r'}1$, es existiert also ein $ s\in S$ mit $ s(r1-r'1) = 0$. Da $S$ keine Nullteiler enthält, ist $r1 -r'1 = 0$, und wir erhalten $r' = r$.
 	Insbesondere können wir $R$ als Unterring von $S^{-1}R$ vermöge $\can$ auffassen.
 \end{bem}
-
-
 
 \subsection{Satz von Gauß}
 Ziel dieses Kapitels:
@@ -2079,7 +2088,7 @@ Ziel dieses Kapitels:
 	Sei $K$ ein Körper. Dann ist $K[t_1,\dots,t_n]$ faktoriell, also ist insbesondere $\IZ[t_1,\dots, t_n]$ faktoriell \textup(aber kein Hauptidealring, vgl. Übungungsblatt 5\textup)
 \end{kor}
 
-\begin{proof} $K$ und $\IZ$ sind beide Hauptidealringe, weshalb $K$ und $\IZ$ nach \cref{thm:hirfakt} also faktoriell sind. Laut \nameref{thm:gauss} sind damit $K[t_1]$ und $\IZ[t_1]$ faktoriell. Durch iterative Anwendung folgt die Aussage.
+\begin{proof} $K$ und $\IZ$ sind beide Hauptidealringe, weshalb $K$ und $\IZ$ nach \cref{thm:hirfakt} also faktoriell sind. Laut \namereff{thm:gauss} sind damit $K[t_1]$ und $\IZ[t_1]$ faktoriell. Durch iterative Anwendung folgt die Aussage.
 \end{proof}
 
 \begin{bsp}
