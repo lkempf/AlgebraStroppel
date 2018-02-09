@@ -2182,7 +2182,7 @@ Sei $p$ prim. Dann ist $\Phi_p(t) \coloneqq t^{p-1}+\dots +t+1$ irreduzibel in $
 		&\Rightarrow f(\Phi_p(t)) \cdot t = (t + 1)^p - 1 = t^p + \binom{p}{1}t^{p-1} + \dots + \binom{p}{p-1} t + \binom{p}{p} 1 - 1 \\
 		&\Rightarrow f(\Phi_p(t)) = t^{p-1} + \binom{p}{1}t^{p-2} + \dots + \binom{p}{p-1}t^0 = a_{p-1}t^{p-1} + a_{p-2}t^{p-2} + \dots + a_0t^0
 	\end{align*}
-	Nun gilt $p \nmid a_{p-1}$ und $p \mid a_i$ für $0 \leq i \leq p-2$ und $p^2 \nmid a_0$. Somit sind die Kriterien für das \textsc{\hyperref[thm:eisenstein]{Eisensteinsche Irreduzibilitätskriterium}} erfüllt. Folglich ist $f\left( \Phi_p(t) \right) \in \IZ[t]$ irreduzibel. Damit ist auch $\Phi_p(t)$ irreduzibel.
+	Nun gilt $p \nmid a_{p-1}$ und $p \mid a_i$ für $0 \leq i \leq p-2$ und $p^2 \nmid a_0$. Somit sind die Kriterien für das \hyperreff[thm:eisenstein]{Eisensteinsche Irreduzibilitätskriterium} erfüllt. Folglich ist $f\left( \Phi_p(t) \right) \in \IZ[t]$ irreduzibel. Damit ist auch $\Phi_p(t)$ irreduzibel.
 \end{proof}
 
 \paragraph{Anschauliche Interpretation von $\Phi_p(t)$.} Wir betrachten das Polynom $t^n-1 \in \IC[t]$ mit $n \in \IN$. Die Nullstellen sind dann genau die komplexen Zahlen $z \in \IC$ mit $z^n = 1$, also die $n$-ten Einheitswurzeln. 
@@ -2338,7 +2338,7 @@ Zusammenfassend ist $G$ endlich und permutiert die Nullstellen von $X^p-1$. Wir 
 	
 	\begin{description}
 		\item[\emph{Fall 1: $\chr K = p > 0$.}] Dann liegt $p\cdot 1  = 0$ in $K$, es gilt also $\phi(pm) = 0$ für alle $m\in\IZ$, also folgt $p\IZ\subseteq \ker \phi$. Nun existiert nach dem \namereff{thm:homsatz_r} ein Ringhomomorphismus $\overline{\phi}\colon \IZ/p\IZ\to K$ mit $\overline{\phi}\circ \can  = \phi$. Da $p$ prim ist, ist $\IZ/p\IZ = \IF_p$ ein Körper. Nach \cref{lem:koerhomoinj} ist $\overline{\phi}$ folglich injektiv und $\im\ol\phi$ ist im Primkörper von $K$ enthalten, wobei $\im\overline{\phi} \cong \IF_p$ nach dem \namereff{thm:homsatz_r}. Weil der Primkörper der kleinste Unterkörper von $K$ ist und $\im\overline{\phi}$ ein Körper (isomorph zu $\IF_p$) ist, ist $\im \ol \phi$ der Primkörper von $K$.
-		\item[\emph{Fall 2: $\chr K = 0$.}] Dann ist $\phi$ injektiv, denn aus $\phi(n) = \phi(m)$ folgt $(n-m)1 = 0$ in $K$, also gilt $n = m$ oder  $\chr K > 0$, wobei letzteres aber nicht der Fall ist. Also ist $\phi(n) \neq 0$ für alle $n\neq 0$, da $\phi$ ein Gruppenhomomorphismus ist. Damit gilt $\phi(n)\in K^{\times}$ für alle $n \in \IZ\setminus\{0\}$. Nach der \textsc{\hyperref[thm:unieig_lokali]{universellen Eigenschaft der Lokalisierung}} existiert ein Ringhomomorphismus $\hat{\phi}\colon \IQ= \Quot (\IZ)\to K, \frac ab \mapsto \phi(a)(\phi(b))^{-1}$. Mit \cref{lem:koerhomoinj} folgt dann, dass $\hat{\phi}$ injektiv ist, und weiter gilt nach dem \namereff{thm:homsatz_r} $\IQ/\ker\hat{\phi} \cong \im\hat{\phi}$, also $\IQ \cong \im \hat{\phi}$ (Isomorphie von Ringen bzw. Körpern). Wir wissen, dass $\im \phi$ im Primkörper von $K$ enthalten ist. Nach Definition von $\hat{\phi}$ liegt auch $\im\hat{\phi}$ im Primkörper von $K$, weil der Primkörper ein Körper ist. Damit haben wir nun einen Unterkörper $\im \hat{\phi}$ als Teilmenge des Primkörpers von $K$, also ist $\im \hat{\phi}$ der Primkörper, weil dieser minimal ist. Also ist $\IQ$ isomorph zum Primkörper von $K$.
+		\item[\emph{Fall 2: $\chr K = 0$.}] Dann ist $\phi$ injektiv, denn aus $\phi(n) = \phi(m)$ folgt $(n-m)1 = 0$ in $K$, also gilt $n = m$ oder  $\chr K > 0$, wobei letzteres aber nicht der Fall ist. Also ist $\phi(n) \neq 0$ für alle $n\neq 0$, da $\phi$ ein Gruppenhomomorphismus ist. Damit gilt $\phi(n)\in K^{\times}$ für alle $n \in \IZ\setminus\{0\}$. Nach der \hyperreff[thm:unieig_lokali]{universellen Eigenschaft der Lokalisierung} existiert ein Ringhomomorphismus $\hat{\phi}\colon \IQ= \Quot (\IZ)\to K, \frac ab \mapsto \phi(a)(\phi(b))^{-1}$. Mit \cref{lem:koerhomoinj} folgt dann, dass $\hat{\phi}$ injektiv ist, und weiter gilt nach dem \namereff{thm:homsatz_r} $\IQ/\ker\hat{\phi} \cong \im\hat{\phi}$, also $\IQ \cong \im \hat{\phi}$ (Isomorphie von Ringen bzw. Körpern). Wir wissen, dass $\im \phi$ im Primkörper von $K$ enthalten ist. Nach Definition von $\hat{\phi}$ liegt auch $\im\hat{\phi}$ im Primkörper von $K$, weil der Primkörper ein Körper ist. Damit haben wir nun einen Unterkörper $\im \hat{\phi}$ als Teilmenge des Primkörpers von $K$, also ist $\im \hat{\phi}$ der Primkörper, weil dieser minimal ist. Also ist $\IQ$ isomorph zum Primkörper von $K$.
   \qedhere
 	\end{description}
 \end{proof}
@@ -2402,7 +2402,7 @@ Beachte: $K\subseteq K[\alpha_1,\dots, \alpha_n]\subseteq K(\alpha_1,\dots, \alp
 \end{proof}
 
 \subsection{Algebraische Körpererweiterung}
-Sei $L\sslash K$ eine Körpererweiterung sowie $a\in L$. Die Inklusion $K\to L, \lambda\mapsto\lambda$ ist ein Ringhomomorphismus. Nach der \textsc{\hyperref[thm:unieig_polyring]{universellen Eigenschaft des Polynomrings}} existiert genau ein Ringhomomorphismus
+Sei $L\sslash K$ eine Körpererweiterung sowie $a\in L$. Die Inklusion $K\to L, \lambda\mapsto\lambda$ ist ein Ringhomomorphismus. Nach der \hyperreff[thm:unieig_polyring]{universellen Eigenschaft des Polynomrings} existiert genau ein Ringhomomorphismus
 \begin{eqnarray*}
 	\ev_a\colon K[t] &\longto & L\\
 	p(t) & \longmapsto & p(a).
@@ -2500,24 +2500,26 @@ Wir nennen $a$ transzendent über $K$, falls $\ev_a$ injektiv ist, und algebrais
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-	\item Sei $p$ eine Primzahl und $n \in\IN\setminus\{0\}$. Dann ist $f(t) = t^n-p\in \IQ[t]$ irreduzibel (nach dem \hyperref[thm:eisenstein]{Eisensteinschen Irreduzibilitätskriterium} irreduzibel in $\IZ[t]$ und primitiv, also irreduzibel in $\IQ[t]$ nach dem \nameref{thm:gauss}).
-	Sei nun $a = \sqrt[n]{p}\in\IC$ eine Nullstelle von $f(t)$. Behauptung: $[\IQ(\sqrt[n]{p}): \IQ] = n$. Denn: Nach Definition des Minimalpolynoms $m_a(t)$ gilt $m_a(t)\mid f(t)$, also $f(t) = m_a(t)q(t)$ für ein $q(t)\in\IQ[t]$. Da $f(t)$ irreduzibel ist, folgt daraus $m_a(t)$ oder $q(t)\in \IQ[t]^{\times} = \IQ^{\times}$. Aber $m_a(t)$ kann keine Einheit sein; also $f(t) = m_a(t)\cdot \epsilon$ mit $\epsilon\in \IQ^{\times}$. Da $f(t)$ aber normiert ist, folgt $\epsilon = 1$. Mit \cref{thm:algebraischekes} folgt die Behauptung.
-	\item\label{enumi:IQalgkoerp} Betrachte $\IC\sslash \IQ$. Sei $\IQ^{\text{alg}} = \{a\in\IC\mid a\text{ algebraisch über }\IQ\}$. Nach \cref{lem:alguk} ist $\IQ\subseteq\IQ^{\text{alg}}\subseteq \IC$ eine Körpererweiterung, nämliche der größte Unterkörper von $\IC$, der algebraisch über $\IQ$ ist.
+	\item Sei $p$ eine Primzahl und $n \in\IN\setminus\{0\}$. Dann ist $f(t) = t^n-p\in \IQ[t]$ irreduzibel (nach dem \hyperreff[thm:eisenstein]{Eisensteinschen Irreduzibilitätskriterium} irreduzibel in $\IZ[t]$ und primitiv, also irreduzibel in $\IQ[t]$ nach dem \namereff{thm:gauss}).
+	Sei nun $a = \sqrt[n]{p}\in\IC$ eine Nullstelle von $f(t)$.
 	
-	Aber $\IQ^{\text{alg}}$ ist nicht endlich über $\IQ$. Angenommen, $\IQ^{\text{alg}}\sslash \IQ$ wäre endlich, also $[\IQ^{\text{alg}}:\IQ] = m<\infty$. Wähle nun $n>m$. Nach dem ersten Beispiel ist $\sqrt[n]p \in \IQ^{\text{alg}}$ (mit $p$ wie oben) und $[\IQ(\sqrt[n]p) = \IQ] = n > m$. Aber dann folgt $\IQ(\sqrt[n]p)\subseteq \IQ^{\text{alg}}$ und damit $[\IQ^{\text{alg}}:\IQ]\geq n$.
+	Behauptung: $[\IQ(\sqrt[n]{p}): \IQ] = n$. Denn nach Definition des Minimalpolynoms $m_a(t)$ gilt $m_a(t)\mid f(t)$, also $f(t) = m_a(t)q(t)$ für ein $q(t)\in\IQ[t]$. Da $f(t)$ irreduzibel ist, folgt daraus $m_a(t)$ oder $q(t)\in \IQ[t]^{\times} = \IQ^{\times}$. Aber $m_a(t)$ kann keine Einheit sein; also $f(t) = m_a(t)\cdot \epsilon$ mit $\epsilon\in \IQ^{\times}$. Da $f(t)$ aber normiert ist, folgt $\epsilon = 1$. Mit \cref{thm:algebraisch_aequivalenzen} folgt die Behauptung.
+	\item\label{enumi:IQalgkoerp} Betrachte $\IC\sslash \IQ$. Sei $\IQ^{\text{alg}} = \{a\in\IC\mid a\text{ algebraisch über }\IQ\}$. Nach \cref{lem:alguk} ist $\IQ\subseteq\IQ^{\text{alg}}\subseteq \IC$ eine Körpererweiterung, nämliche der größte Unterkörper von $\IC$, der algebraisch über $\IQ$ ist.
+
+	Aber $\IQ^{\text{alg}}$ ist nicht endlich über $\IQ$. Angenommen, $\IQ^{\text{alg}}\sslash \IQ$ wäre endlich, also $[\IQ^{\text{alg}}:\IQ] = m<\infty$. Wähle nun $n>m$. Nach dem ersten Beispiel ist $\sqrt[n]p \in \IQ^{\text{alg}}$ (mit $p$ wie oben) und $[\IQ(\sqrt[n]p) : \IQ] = n > m$. Aber dann folgt $\IQ(\sqrt[n]p)\subseteq \IQ^{\text{alg}}$ und damit $[\IQ^{\text{alg}}:\IQ]\geq n$.
 	\end{enumerate}
 \end{bsp}
 
 Wir haben nun folgende Frage: Mit einem Körper $K$ und $p(t)\in K[t]$, existiert eine Körpererweiterung $L\sslash K$, sodass $p(t)$ eine Nullstelle in $L$ hat?
 
-\begin{satz} \label{thm:15.4}
+\begin{satz} \label{thm:algkeirredpoly}
 	Sei $K$ ein Körper und $f(t)\in K[t]$ irreduzibel. Dann existiert eine algebraische Körpererweiterung $L\sslash K$ mit $[L:K]  = d = \deg(f(t))$, sodass $f(t)$ eine Nullstelle in $L$ hat.
 \end{satz}
 \begin{proof}
 	Da $f(t)$ irreduzibel ist, ist $(f(t))$ ein maximales Ideal in $K[t]$ und $K[t]/(f(t))$ somit ein Körper. Betrachte den Ringhomomorphismus 
 	\begin{eqnarray*}
 	\phi\colon K&\longto& K[t]\longto K[t]/(p(t)) = : L\\
-	\lambda &\longmapsto & \text{konstantes Polynom $\lambda$},
+	\lambda &\longmapsto & \text{konstantes Polynom $\lambda$}
 	\end{eqnarray*}
 	welcher injektiv ist, da $K$ ein Körper ist; wir können $K$ also als Unterkörper von $L$ auffassen. Es gilt $L = K(\overline{t})$ mit $\overline{t}  = \can (t)$. Setzt man $a: = \overline{t}$, so folgt $f(a) = f(\overline{t}) = \overline{f(t)} = \overline{0}\in L$. Es ist $a\in L$ also eine Nullstelle von $f(t)$. Da $f(t)$ irreduzibel ist, ist $f(t) = m_a(t)\epsilon$ für ein geeignetes $\epsilon \in K^{\times}$ (siehe oben). Also gilt $[L:K] = [K(a):K] = \deg(m_a(t)) = \deg(f(t)) = d$.
 \end{proof}	
@@ -2526,11 +2528,13 @@ Wir haben nun folgende Frage: Mit einem Körper $K$ und $p(t)\in K[t]$, existier
 
 \lecture{4. Dezember 2017}
 \begin{bem}
-	Sei $f\in K[t]$ nicht notwendig irreduzibel. Dann können wir \cref{thm:15.4} auf irreduzible Faktoren von $f$, etwa $g\in K[t]$, anwenden. Wir schreiben $f = g\cdot h$ mit $h \in K[t]$. Dann existiert eine Körpererweiterung $L\sslash K$, sodass $g$ in $L$ eine Nullstelle hat, und damit auch $f$. Weiterhin gilt $[L:K] = \deg(g)\leq \deg (f)$.
+	Sei $f\in K[t]$ nicht notwendig irreduzibel. Dann können wir \cref{thm:algkeirredpoly} auf irreduzible Faktoren von $f$, etwa $g\in K[t]$, anwenden. Wir schreiben $f = g\cdot h$ mit $h \in K[t]$. Dann existiert eine Körpererweiterung $L\sslash K$, sodass $g$ in $L$ eine Nullstelle hat, und damit auch $f$. Weiterhin gilt $[L:K] = \deg(g)\leq \deg (f)$.
 \end{bem}
-\begin{bsp} $K = \IR$, $f= t^2-1\in \IR[t]$ nicht irreduzibel, da $f = (t-1)(t+1) = gh$ mit $g = t-1$, $h = t+1\in\IR[t]$. Sei also $L = K = \IR$, und wir erhalten $[L:K] = 1 = \deg(g)<2 = \deg(f)$.
 
-Im Gegensatz dazu sei $f = t^2+1$ (irreduzibel in $\IR[t]$). Mit $L =\IC$ erhält man $[L:K] = [\IC:\IR] = 2 = \deg(f)$.
+\begin{bsp} 
+	Sei $K = \IR$, sei $f= t^2-1\in \IR[t]$. Dann ist $f$ nicht irreduzibel, da $f = (t-1)(t+1) = gh$ mit $g = t-1$ und $h = t+1\in\IR[t]$ gilt. Sei also $L = K = \IR$, und wir erhalten 
+	$[L:K] = 1 = \deg(g)<2 = \deg(f)$.
+	Im Gegensatz dazu sei $f = t^2+1$ (irreduzibel in $\IR[t]$). Mit $L =\IC$ erhält man $[L:K] = [\IC:\IR] = 2 = \deg(f)$.
 \end{bsp}
 	
 \begin{satz}\label{thm:algab}
@@ -2567,7 +2571,7 @@ Im Gegensatz dazu sei $f = t^2+1$ (irreduzibel in $\IR[t]$). Mit $L =\IC$ erhäl
 			\item Sei $\deg (f)\geq 2$. Nach \ref{enumi:algab:2} gilt dann $f = (t-a)g$ für ein $a\in K$ und $g\in K[t]$, wobei $g$ auch normiert ist. Da $(t-a)$ und $g$ aber aus Gradgründen keine Einheiten sind, steht dies im Widerspruch dazu, dass $f$ irreduzibel ist.
 		\end{itemize}
 		\item[\glqq$3\Rightarrow 4$\grqq:] Sei $L\sslash K$ eine algebraische Körpererweiterung und $b\in L$. Dann ist $b$ algebraisch über $K$, es existiert also ein $f\in K[t]\setminus K$ mit $f(b) = 0$. Folglich existiert ein Minimalpolynom $m_b(t)\in K[t]$ mit $m_b(b)= 0$. Nach der Definition des Normalpolynoms ist $m_b(t)$ normiert und irreduzibel. Mit \ref{enumi:algab:3} folgt, dass $m_b(t) = t-a$ für ein $a\in K$. Da $b$ eine Nullstelle von $m_b(t)$ ist, erhalten wir $b = a$ und damit $b\in K$. Somit ist bereits $L = K$.
-		\item[\glqq$4\Rightarrow1$\grqq:] Sei $f\in K[t]\setminus K$. Nach Satz \ref{thm:15.4} existiert eine algebraische Körpererweiterung $L\sslash K$, sodass $f$ in $L$ eine Nullstelle hat. Aber nach Voraussetzung ist $L = K$. 
+		\item[\glqq$4\Rightarrow1$\grqq:] Sei $f\in K[t]\setminus K$. Nach Satz \ref{thm:algkeirredpoly} existiert eine algebraische Körpererweiterung $L\sslash K$, sodass $f$ in $L$ eine Nullstelle hat. Aber nach Voraussetzung ist $L = K$. 
   \qedhere
 	\end{description}
 \end{proof}
@@ -2577,21 +2581,21 @@ Im Gegensatz dazu sei $f = t^2+1$ (irreduzibel in $\IR[t]$). Mit $L =\IC$ erhäl
 	Sei $K$ ein Körper. Dann existiert ein algebraisch abgeschlossener Körper $L$ mit $K\subseteq L$.
 \end{satz}
 
-Zur Erinnerung: Für einen kommutativen Ring $R$ und eine Teilmenge $N\subseteq R$ bezeichnet $(N)$ das von $N$ erzeugte Ideal, also das kleinste Ideal in $R$, das $N$ enthält. Es gilt \[(N) = \left\{\left.\sum_{i = 1}^mr_in_i\right|m\in\IN, n_i\in N, r_i\in R \;\forall i\right\}.\]
+Zur Erinnerung: Für einen kommutativen Ring $R$ und eine Teilmenge $N\subseteq R$ bezeichnet $(N)$ das von $N$ erzeugte Ideal, also das kleinste Ideal in $R$, das $N$ enthält. Es gilt \[(N) = \left\{\sum_{i = 1}^mr_in_i \mathrel{\Big|} m\in\IN, n_i\in N, r_i\in R \;\forall i\right\}.\]
 
 \begin{proof}[Beweis von \cref{thm:alg_ab}]
 	\leavevmode
 	\begin{description}
 		\item[\emph{1. Schritt:}] Wir \glqq bauen\grqq\ eine Körpererweiterung $L_1\sslash K$, sodass jedes $f\in K[t]$ mit $\deg(f)\geq 1$ eine Nullstelle in $L_1$ hat. Sei 
-		\[J = K[t]\setminus K = \{\text{Polynome vom Grad $\geq 1$}\}\]
-		Betrachte $R = K[X_f\mid f\in J]$ (siehe \href{http://www.math.uni-bonn.de/people/palmer/EIDA-Blatt-09.pdf}{Übungsblatt 9} für eine saubere Definition).
+		\[J := K[t]\setminus K = \{\text{Polynome vom Grad $\geq 1$}\}\]
+		Betrachte $R = K\left[X_f\mid f\in J\right]$ (siehe \href{http://www.math.uni-bonn.de/people/palmer/EIDA-Blatt-09.pdf}{Übungsblatt 9} für eine saubere Definition).
 		Das ist ein Polynomring über $K$ in unendlich vielen Variablen.
 		
-		Sei $I \coloneqq (f(X_f)\mid f\in J)\subseteq R$ nach der \hyperref[thm:unieig_polyring]{universellen Eigenschaft von $K[t]$}. Es ist klar, dass $I$ ein Ideal ist; wir behaupten, dass $I$ sogar ein echtes Ideal ist. Der Beweis hierfür folgt weiter unten.
+		Sei $I \coloneqq \left(f(X_f)\mid f\in J\right)\subseteq R$ nach der \hyperref[thm:unieig_polyring]{universellen Eigenschaft von $K[t]$}. Es ist klar, dass $I$ ein Ideal ist; wir behaupten, dass $I$ sogar ein echtes Ideal ist. Der Beweis hierfür folgt weiter unten.
 		
-		Nach \cref{thm:max_ideal_ex} existiert ein maximales Ideal $m\subseteq R$ mit $R\supseteq m \supseteq I$. Damit ist $R/m = L_1 $ ein Körper. Offenbar gilt $K \subseteq R$ und sogar $K \subseteq R/m$ (durch die Abbildung $K\to R\to R/m$). Somit haben wir eine Körpererweiterung $L_1\sslash K$. Sei nun $f\in J = K[t]\setminus K$ mit $f = \sum_{i = 0}^{\infty} b_i t^i$ und fast allen $b_i = 0$. Es ist zu zeigen, dass $f$ eine Nullstelle in $L_1$ hat.
+		Nach \cref{thm:max_ideal_ex} existiert ein maximales Ideal $m\subseteq R$ mit $R\supseteq m \supseteq I$. Damit ist $R/m =: L_1 $ ein Körper. Offenbar gilt $K \subseteq R$ und sogar $K \subseteq R/m$ (durch die Abbildung $K\to R\to R/m$). Somit haben wir eine Körpererweiterung $L_1\sslash K$. Sei nun $f\in J = K[t]\setminus K$ mit $f = \sum_{i = 0}^{\infty} b_i t^i$ und fast allen $b_i = 0$. Es ist zu zeigen, dass $f$ eine Nullstelle in $L_1$ hat.
 		
-		Wir wissen $f(\can(X_f)) = \sum_{i = 0}^{\infty}b_i\ol{X_f}^i$, wobei $b_i\in K$ ist. Also gilt \[f(\can(X_f)) = \sum_{i = 0}^{\infty}\ol{b_i}{X_f}^i = \ol{\sum_{i = 0}^{\infty}g_iX_f^i} = \can(f(X_f)),\] wobei $f(X_f)\in I\subseteq m$, also $f(\can(X_f)) = 0$. Also ist $\can(X_f)\in L_1$ eine Nullstelle von $f(t)$.
+		Wir wissen $f(\can(X_f)) = \sum_{i = 0}^{\infty}b_i\ol{X_f}^i$, wobei $b_i\in K$ ist. Also gilt \[f(\can(X_f)) = \sum_{i = 0}^{\infty}\ol{b_i}{X_f}^i = \ol{\sum_{i = 0}^{\infty}b_iX_f^i} = \can(f(X_f)),\] wobei $f(X_f)\in I\subseteq m$, also $f(\can(X_f)) = 0$. Also ist $\can(X_f)\in L_1$ eine Nullstelle von $f(t)$.
 		
 		\item[\emph{2. Schritt:}] Betrachte den \glqq Turm\grqq\ von Körpererweiterungen $K \coloneqq L_0\subseteq L_1\subseteq L_2\subseteq\dots$, sodass $L_{i+1}\sslash L_{i}$ eine Körpererweiterung ist und jedes $f\in L_i[t]\setminus L_i$ eine Nullstelle in $L_{i+1}$ hat (existiert nach Schritt 1). Setze
 		\[L : = \bigcup\limits_{i\geq 0} L_i, \]
@@ -2600,9 +2604,9 @@ Zur Erinnerung: Für einen kommutativen Ring $R$ und eine Teilmenge $N\subseteq 
 		Sei dafür $g = \sum_{i = 0}^{\infty}a_it^i$ mit nur endlich vielen $a_i\neq 0$. Folglich gibt es ein $n_0\in\IN$ mit $a_i\in L_{n_0}$ für alle $i$. Das heißt aber, dass wir $g$ als Polynom in $L_{n_0}[t]$ auffassen können. Dadurch hat $g(t)$ eine Nullstelle in $L_{n_0+1}\subseteq L$.
 		
 		Somit gibt es einen Körper $L$ mit $K\subseteq L$.
-		\item[\emph{Beweis von $I\neq R$:}] Sei $I = R$, also liegt $1\in I$. Somit existieren gewisse $g_i\in R$ und $f_i\in J$ mit $1 = \sum_{i =1}^{n}g_if(X_{f_i})$. Nach wiederholter Anwendung von \cref{thm:15.4} existiert eine Körpererweiterung $L'\sslash K$, wobei $f_1,\dots, f_m$ Nullstellen in $L'$ haben, sagen wir $a_1,\dots, a_n$. Nach der \hyperref[thm:unieig_polyring]{universellen Eigenschaft für Polynomringe} existiert ein Ringhomomorphismus
+		\item[\emph{Beweis von $I\neq R$:}] Sei $I = R$, also liegt $1\in I$. Somit existieren gewisse $g_i\in R$ und $f_i\in J$ mit $1 = \sum_{i =1}^{n}g_if_i(X_{f_i})$. Nach wiederholter Anwendung von \cref{thm:algkeirredpoly} existiert eine Körpererweiterung $L'\sslash K$, wobei $f_1,\dots, f_n$ Nullstellen in $L'$ haben, sagen wir $a_1,\dots, a_n$. Nach der \hyperref[thm:unieig_polyring]{universellen Eigenschaft für Polynomringe} existiert ein Ringhomomorphismus
 		\begin{eqnarray*}
-			\ev\colon R & \longto & L'[X_f\mid f\in J]
+			\ev\colon R & \longto & L'\left[X_f\mid f\in J\right]
 		\end{eqnarray*}
 		mit \[\ev(X_f) = \begin{cases*} a_i & falls $f=f_i$ für ein $i$\\
 		X_f & sonst
@@ -2625,20 +2629,19 @@ Zur Erinnerung: Für einen kommutativen Ring $R$ und eine Teilmenge $N\subseteq 
 	was nach einem analogen Beweis wie \hyperref[enumi:IQalgkoerp]{hier} ein Körper ist.
 	
 	Nun ist $K\subseteq K^{\text{alg}}$, denn für $b\in K$ ist $b$ eine Nullstelle von $f = t-b\in K[t]$. Also sind $K\subseteq K^{\text{alg}}\subseteq L'$ jeweils Körpererweiterungen.
-	
 	Außerdem ist $K^{\text{alg}}\sslash K$ algebraisch, was nach Definition klar ist, da jedes Element $a\in K^{\text{alg}}$ algebraisch über $K$ ist.
 	
 	Wir zeigen schließlich, dass $K^{\text{alg}}$ algebraisch abgeschlossen ist. Sei nämlich $f\in K^{\text{alg}}[t]\setminus K^{\text{alg}}$. Es ist zu zeigen, dass $f$ eine Nullstelle in $K^{\text{alg}}$ hat. Wir wissen dabei, dass $K^{\text{alg}}\subseteq L'$ und $L'$ algebraisch abgeschlossen ist. Folglich hat $f$ eine Nullstelle $a\in L'$, also ist $a$ algebraisch über $K^{\text{alg}}$. Mit \cref{thm:algebraisch_aequivalenzen} folgt, dass $K^{\text{alg}}(a)\sslash K^{\text{alg}}$ eine algebraische Körpererweiterung ist. Aus der Transitivität von algebraischen Körpererweiterungen (\cref{thm:algebraischekes}) und der Algebraizität von $K^{\text{alg}}\sslash K$ folgt, dass $K^{\text{alg}}(a)\sslash K$  eine algebraische Körpererweiterung ist. Folglich ist jedes Element in $K^{\text{alg}}(a)$ algebraisch über $K$; insbesondere ist $a$ algebraisch über $K$, also $a\in K^{\text{alg}}$.
-	
 	Setze nun $L\coloneqq K^{\text{alg}}$.
 \end{proof}
 
 \begin{defi}
 	Wir nennen den vermöge \cref{thm:algabschexis} existierenden Körper $L$ algebraischen Abschluss von $K$ und bezeichnen ihn oft mit $\overline{K}$.
 \end{defi}
-Wie sieht es nun mit der Eindeutigkeit von $\overline{K}$ aus (bis auf Isomorphie)?
+\bigskip
+\noindent Wie sieht es nun mit der Eindeutigkeit von $\overline{K}$ aus (bis auf Isomorphie)?
 \begin{defi}
-	Sei $K$ ein Körper sowie $L_1\sslash K$ und $L_2, \sslash K$ Körpererweiterungen. Eine Abbildung $\phi\colon L_1\to L_2$ heißt $K$-Homomorphismus, falls $\phi$ ein Ring- und damit ein Körperhomomorphismus und $\phi|_K = \id_K$ ist. $\phi$ heißt $K$-Isomorphismus, falls zusätzlich $\phi$ bijektiv ist. Falls $L_1 = L_2$ und $\phi\colon L_1\to L_2 = L_1$ ein $K$-Isomorphismus ist, dann nennen wir $\phi$ auch $K$-Automorphismus.
+	Sei $K$ ein Körper sowie $L_1\sslash K$ und $L_2 \sslash K$ Körpererweiterungen. Eine Abbildung $\phi\colon L_1\to L_2$ heißt $K$-Homomorphismus, falls $\phi$ ein Ring- und damit ein Körperhomomorphismus und $\phi|_K = \id_K$ ist. $\phi$ heißt $K$-Isomorphismus, falls zusätzlich $\phi$ bijektiv ist. Falls $L_1 = L_2$ und $\phi\colon L_1\to L_2 = L_1$ ein $K$-Isomorphismus ist, dann nennen wir $\phi$ auch $K$-Automorphismus.
 \end{defi}
 
 \begin{bsp}
@@ -2646,7 +2649,9 @@ Wie sieht es nun mit der Eindeutigkeit von $\overline{K}$ aus (bis auf Isomorphi
 \end{bsp}
 
 \begin{defi}
-	Die Menge $\Aut(L\sslash K) = \{\phi\colon L\to L\mid \phi\ K\text{-Automorphismus}\}$ ist eine Gruppe bezüglich der Komposition von Abbildungen (für jede Körpererweiterung $L\sslash K$). Wir nennen sie die Automorphismengruppe von $L\sslash K$.
+	Die Menge 
+	$$\Aut(L\sslash K) := \{\phi\colon L\to L\mid \phi\ K\text{-Automorphismus}\}$$
+	ist eine Gruppe bezüglich der Komposition von Abbildungen (für jede Körpererweiterung $L\sslash K$). Wir nennen sie die Automorphismengruppe von $L\sslash K$.
 \end{defi}
 
 \begin{bsp}
@@ -2663,15 +2668,15 @@ Wie sieht es nun mit der Eindeutigkeit von $\overline{K}$ aus (bis auf Isomorphi
 
 \noindent
 Unser Ziel ist nun:
-\begin{satz}[Eindeutigkeit des algebraischen Abschlusses]\label{thm:16.3}
+\begin{satz}[Eindeutigkeit des algebraischen Abschlusses]\label{thm:algAbEindeutig}
 	Sei $K$ ein Körper sowie $L_1\sslash K$ und $L_2\sslash K$ Körpererweiterungen, sodass $L_1,L_2$ algebraische Abschlüsse von $K$ sind. Dann existiert ein $K$-Isomorphismus $\phi\colon L_1\to L_2$.
 \end{satz}
 
 \begin{bem}
-	Sei $\phi\colon L_1\to L_2$ ein $K$-Homomorphismus und $[L_1:K] = [L_2:K]<\infty$. Dann ist $\phi$ ein $K$-Isomorphismus, da $\phi$ ein Ringhomomorphismus und $L_i$ ein Körper ist, und somit $\phi$ injektiv ist. Außerdem ist $\phi(x+y) = \phi(x)+\phi(y)$ und $\phi(\lambda x) = \phi(\lambda)\phi(x) = \lambda\phi(x)$ für $\lambda\in K$ sowie $x,y\in L_i$. Also ist $\phi$ eine $K$-lineare Abbildung. Damit ist $\phi$ eine $K$-lineare injektive Abbildung zwischen endlichdimensionalen $K$-Vektorräumen der gleichen Dimension, also ist $\phi$ bijektiv und damit ein $K$-Isomorphismus.
+	Sei $\phi\colon L_1\to L_2$ ein $K$-Homomorphismus und $[L_1:K] = [L_2:K]<\infty$. Dann ist $\phi$ ein $K$-Isomorphismus, da $\phi$ ein Ringhomomorphismus und $L_i$ ein Körper ist. Somit ist $\phi$ injektiv. Außerdem ist $\phi(x+y) = \phi(x)+\phi(y)$ und $\phi(\lambda x) = \phi(\lambda)\phi(x) = \lambda\phi(x)$ für $\lambda\in K$ sowie $x,y\in L_i$. Also ist $\phi$ eine $K$-lineare Abbildung. Folglich ist $\phi$ eine $K$-lineare injektive Abbildung zwischen endlichdimensionalen $K$-Vektorräumen der gleichen Dimension, also ist $\phi$ bijektiv und damit ein $K$-Isomorphismus.
 \end{bem}
 
-\paragraph{Übersicht} Sei $L\sslash K$ eine Körpererweiterung. Dann gilt folgendes bezüglich der Teilmengen von $\{\phi\colon L\to L\}$:
+\paragraph{Übersicht.} Sei $L\sslash K$ eine Körpererweiterung. Dann gilt folgendes bezüglich der Teilmengen von $\{\phi\colon L\to L\}$:
 
 \begin{center}
 	\begin{tikzcd}
@@ -2689,8 +2694,6 @@ Sei $f = \sum_{i = 0}^{\infty}b_it^i\in K[t]$ und $a$ eine Nullstelle von $f(t)$
 $\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, also ist $\phi(a)$ eine Nullstelle von $f$.
 \end{proof}
 
-
-
 \begin{lem}
 	Sei $\phi\colon L_1\to L_2$ ein $K$-Homomorphismus. Wenn $a\in L_1$ algebraisch über $K$ ist, ist $\phi(a)$ algebraisch über $K$ und für die Minimalpolynome gilt $m_a(t) = m_{\phi(a)}(t)\in K[t]$.
 \end{lem}
@@ -2702,7 +2705,7 @@ $\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, al
 \end{proof}
 
 \begin{bem}
-	Beachte: $\phi$ bildet algebraische $a\in L_1$ auf Nullstellen von $m_a(t)$ ab\textbf{!!!}
+	Beachte: $\phi$ bildet algebraische $a\in L_1$ auf Nullstellen von $m_a(t)$ ab!
 \end{bem}
 
 \begin{lem}
@@ -2714,7 +2717,7 @@ $\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, al
 		\ev_a\colon K[t]&\longto& L\\
 		p & \longmapsto & p(a).
 	\end{eqnarray*}
-	Dann gilt $m_a(t)\mapsto m_a(a) = 0$, also $m_a(t) \in \ker(\ev_a)$, woraus $(m_a(t))\subseteq \ker(\ev_a)$ folgt. Nach dem \nameref{thm:homsatz_r} existiert genau ein Ringhomomorphismus \[\overline{\ev_a}\colon K[t]/(m_a(t))\to L,\] sodass $\overline{\ev_a}\circ \can = \ev_a$.
+	Dann gilt $m_a(t)\mapsto m_a(a) = 0$, also $m_a(t) \in \ker(\ev_a)$, woraus $(m_a(t))\subseteq \ker(\ev_a)$ folgt. Nach dem \namereff{thm:homsatz_r} existiert genau ein Ringhomomorphismus \[\overline{\ev_a}\colon K[t]/(m_a(t))\to L,\] sodass $\overline{\ev_a}\circ \can = \ev_a$.
 	
 	Es ist klar, dass $\im\ev_a\subseteq K(a)$. Dann gilt auch $\im\overline{\ev_a}\subseteq K(a)$, und wir können $\overline{\ev_a}\colon K[t]/(m_a(t))\to K(a)$ betrachten. Wir wissen (siehe Vergleich transzendent vs. algebraisch), dass $(m_a(t))$ ein maximales Ideal ist. Also ist $K[t]/(m_a(t))$ ein Körper. Damit ist $\overline{\ev_a}$ injektiv und $\im\overline{\ev_a}\subseteq K(a)$. Außerdem ist $\im\overline{\ev_a}$ ein Körper, weil es das Bild eines Körpers unter einem Ringhomomorphismus ist, und $\im\overline{\ev_a}$ enthält offensichtlich $K$ und $a$. Somit gilt $\im(\overline{\ev_a}) = K(a)$. Also ist $\phi_1 = \overline{\ev_a}\colon K[t]/(m_a(t))\to K(a)$ ein Isomorphismus von Körpern. Nach Konstruktion gilt $\phi_1(\overline{t}) = a$ und $\phi_1|_K = \id_K$.
 	
@@ -2746,7 +2749,8 @@ $\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, al
 	\begin{enumerate}
 		\item Betrachte
 		\[Z =\left\{(M, g_M) \middle| \substack{\text{$K\subseteq M\subseteq L$ Zwischenkörper,}\\\text{$g_M\colon M\to L'$ Ringhomo-}\\\text{morphismus, $g_M|_K = f$}}\right\}.\]
-		Nun: \begin{itemize}
+		Nun gilt: 
+		\begin{itemize}
 			\item $Z$ ist nicht leer, da $(K,f)\in Z$.
 			\item Wir definieren auf $Z$ durch $(M, g_M)\leq (M',g_{M'}):\Leftrightarrow M\subseteq M', g_{M'}|_M = g_M$ eine partielle Ordnung. Das Nachprüfen dieser Eigenschaft bleibt dem Leser überlassen.
 			\item Sei $U\subseteq Z$ eine total geordnete Teilmenge. Dann hat $U$ eine obere Schranke $(S, g_S)$ in $Z$ bezüglich obiger Ordnung. Dafür sei $U  = \{(U_i,g_i)\mid i\in I\}\subseteq Z$. Dann setze $S \coloneqq \bigcup_{i\in I} U_i$ und $g_S\colon S\to L'$ definiert durch $g_s(u_i) = g_i(u_i)$, falls $u_i\in U_i$. Nun gilt:
@@ -2776,7 +2780,7 @@ $\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, al
 					Wir erhalten also einen Körper $M_{\max}(a)\subseteq L$ mit $M_{\max}\subsetneq M_{\max}(a)$.
 					
 					Also ist $(M_{\max}, \ev_{a'}\circ \beta)\in Z$, da $\ev_{a'}\circ \beta\colon M_{\max}(a)\to L'$ offensichtlich ein Ringhomomorphismus mit $(\ev_{a'}\circ \beta)|_K = \ev_{a'}|_K = f$ nach Konstruktion ist. Das ist ein Widerspruch zur Maximalität von $(M_{\max}, g_{\max})$. Damit folgt die Behauptung und insgesamt Teil \ref{enumi:forsetz:1} des Satzes.
-        \qedhere
+        			\qedhere
 				\end{itemize}
 			\end{proof}
 		\end{itemize}
@@ -2792,15 +2796,15 @@ $\sum_{i = 0}^{\infty}b_i\phi(a)^i =0$, da $\phi$ ein $K$-Homomorphismus ist, al
 		Also ist $K'\subseteq  \im\hat {\phi}\subseteq \overline{K'}$; da $\im\hat{\phi}$ algebraisch abgeschlossen ist, folgt mit \cref{thm:algab} $\im\hat{\phi} = \overline{K'}$. Folglich haben wir einen Isomorphismus von Körpern
 		\[\hat{\phi}\colon \overline{K}\xrightarrow{\sim} \overline{K'},\]
 		wobei $\hat{\phi}|_K = f|_K = \phi$. Also folgt Teil \ref{enumi:forsetz:2}.
-  \qedhere
+  		\qedhere
 	\end{enumerate}
 \end{proof}
 
-Damit folgt der Eindeutigkeitssatz \ref{thm:16.3}.
+\noindent Damit folgt der Eindeutigkeitssatz \ref{thm:algAbEindeutig}.
 
 \medskip
 
-Wie sehen nun zum Beispiel $\overline{\IQ}$ oder $\overline{\IF_2}$ aus?
+\noindent Wie sehen nun zum Beispiel $\overline{\IQ}$ oder $\overline{\IF_2}$ aus?
 \begin{bem}
 	Wir wissen: $\IQ\subsetneq \overline{\IQ}$, da beispielsweise $t^2-2\in \IQ[t]$ keine Nullstelle in $\IQ$ hat. Wir können $\IQ^{\text{alg}} = \{z\in \IC\mid \text{$z$ algebraisch über $\IQ$}\}\subseteq \IC$ als algebraischen Abschluss nehmen, da $\IC$ algebraisch abgeschlossen ist. \glqq Man\grqq\ weiß, dass $\IQ^{\text{alg}} \subsetneq \IC$, weil es transzendente Zahlen gibt, z.B. $\pi\in\IC\setminus\IQ^{\text{alg}}$.
 	Aus der Konstruktion des algebraischen Abschlusses kann man folgern, dass $\IQ^{\text{alg}}$ abzählbar ist.
@@ -2809,8 +2813,8 @@ Wie sehen nun zum Beispiel $\overline{\IQ}$ oder $\overline{\IF_2}$ aus?
 \end{bem}
 
 \subsection{Endliche Körper}
-Ziel: Gegeben eine Primzahl $p$ und $r\in\IN= \IZ_{>0}$. Dann existiert ein Körper $\IF$ mit $|\IF| = p^r$. Genauer gilt der folgende
-\begin{satz}[Klassifikationssatz endlicher Körper]\label{thm:17.1}
+Ziel: Gegeben eine Primzahl $p$ und $r\in\IN= \IZ_{>0}$. Dann existiert ein Körper $\IF$ mit $|\IF| = p^r$. Genauer gilt der folgende Satz.
+\begin{satz}[Klassifikationssatz endlicher Körper]\label{thm:KlassEndlKoe}
 	Es gibt eine Bijektion
 	\begin{eqnarray*}
 		\Phi\colon\left\{\IF\,\middle|\,\substack{\text{$\IF$ endlicher Körper}\\\text{\textup(bis auf Körperisomorphie\textup)}}\right\}& \xlongleftrightarrow{1:1}& \{p^r\mid \text{$p$ Primzahl}, r\in\IN\}\\
@@ -2868,11 +2872,12 @@ Ziel: Gegeben eine Primzahl $p$ und $r\in\IN= \IZ_{>0}$. Dann existiert ein Kör
 \end{lem}
 
 \begin{proof}
-	$\IF$ hat den Primkörper $\IF_p$ (weil sonst $\IQ \cong \text{Primkörper} \subseteq \IF$, was ein Widerspruch zur Endlichkeit von $\IF$ wäre) für eine eindeutig bestimmte Primzahl $p$. Insbesondere ist $\IF_p\subseteq \IF$ ein Unterkörper. Damit ist $\IF$ ein $\IF_p$-Vektorraum und es gilt $\IF\cong (\IF_p)^n$ für ein $n\in\IN$ (Isomorphismus als $\IF_p$-Vektorraum). Folglich ist $|\IF| = p^n\Rightarrow$; wir setzen also $r = n = \dim_{\IF_p}\IF$.
+	$\IF$ hat den Primkörper $\IF_p$ (weil sonst $\IQ \cong \text{Primkörper} \subseteq \IF$, was ein Widerspruch zur Endlichkeit von $\IF$ wäre) für eine eindeutig bestimmte Primzahl $p$. Insbesondere ist $\IF_p\subseteq \IF$ ein Unterkörper. Damit ist $\IF$ ein $\IF_p$-Vektorraum und es gilt $\IF\cong (\IF_p)^n$ für ein $n\in\IN$ (Isomorphismus als $\IF_p$-Vektorraum). Folglich ist $|\IF| = p^n$; wir setzen also $r = n = \dim_{\IF_p}\IF$.
 \end{proof}
-Also ist $\Phi$ aus \cref{thm:17.1} eine wohldefinierte Abbildung.
+\noindent
+Also ist $\Phi$ aus \cref{thm:KlassEndlKoe} eine wohldefinierte Abbildung.
 
-\begin{satz}\label{thm:17.3}
+\begin{satz}\label{thm:endlKoeZyklMult}
 	Sei $K$ Körper sowie $H<(K^{\times},\cdot)$ eine endliche Untergruppe. Dann ist $H$ zyklisch.
 \end{satz}
 \begin{proof}
@@ -2888,48 +2893,52 @@ Also ist $\Phi$ aus \cref{thm:17.1} eine wohldefinierte Abbildung.
 	\end{description}
 	Damit ist $H$ zyklisch.
 	\begin{description}
-		\item[Beweis 1. Behauptung:] Sei $|G| = p_1^{c_1}\dots p_n^{c_n}$ mit paarweise verschiedenen Primzahlen $p_i$. Nach den \hyperref[thm:sylow]{Sylowsätzen} existiert eine $p_i$-Sylowuntergruppe $G_{p_i}$ von $G$. Diese ist eindeutig, da jede andere $p_i$-Sylowuntergruppe zu dieser konjugiert ist, woraus sogar Gleichheit folgt, da $G$ abelsch ist. Es ist nach dem \nameref{thm:lagrange} klar, dass $G_{p_i}\cap G_{p_j} = \{e\}$ für $i\neq j$ gilt. Betrachte
+		\item[Beweis 1. Behauptung:] Sei $|G| = p_1^{c_1}\dots p_n^{c_n}$ mit paarweise verschiedenen Primzahlen $p_i$. Nach den \hyperreff[thm:sylow]{Sylowsätzen} existiert eine $p_i$-Sylowuntergruppe $G_{p_i}$ von $G$. Diese ist eindeutig, da jede andere $p_i$-Sylowuntergruppe zu dieser konjugiert ist, woraus sogar Gleichheit folgt, da $G$ abelsch ist. Es ist nach dem \namereff{thm:lagrange} klar, dass $G_{p_i}\cap G_{p_j} = \{e\}$ für $i\neq j$ gilt. Betrachte
 		\begin{eqnarray*}
 			f\colon G_{p_1}\times\dots\times G_{p_n} & \longto & G\\
 			(g_1,\dots, g_n) & \longmapsto & g_1\dots g_n.
 		\end{eqnarray*}
 		Im Folgenden seien $(g_1,\dots,g_n),(g'_1,\dots,g'_n)$ immer in $G_{p_1}\times\dots\times G_{p_n}$.
 		\begin{itemize}
-			\item $f$ ist ein Gruppenhomomorphismus, da \begin{align*}&f((g_1,\dots, g_n)(g_1',\dots, g_n')) = f((g_1g_1',\dots, g_ng_n')) = g_1g_1'g_2g_2'\dots g_ng_n'\\ &= g_1g_2\dots g_ng_1'\dots g_n' = f((g_1,\dots, g_n))f((g_1',\dots, g_n'))\end{align*} gilt.
+			\item $f$ ist ein Gruppenhomomorphismus, da 
+			\begin{multline*}
+				f((g_1,\dots, g_n)(g_1',\dots, g_n')) = f((g_1g_1',\dots, g_ng_n')) = g_1g_1'g_2g_2'\dots g_ng_n'\\ = g_1g_2\dots g_ng_1'\dots g_n' = f((g_1,\dots, g_n))f((g_1',\dots, g_n'))
+			\end{multline*} gilt.
 			\item $f$ ist injektiv. Zum Beweis sei $f((g_1,\dots, g_n)) = f((g_1',\dots, g_n'))$. Dann ist $g_1\dots g_n = g_1'\dots g_n'$. Umformen ergibt
 			\[ g_2\dots g_n(g_2'\dots g_n')^{-1} = g_1^{-1}g_1'\enspace,\]
 			wobei $g_2\dots g_n(g_2'\dots g_n')^{-1}  = g_2(g_2')^{-1}\dots g_n(g_n')^{-1}\in f(\{e\}\times G_{p_2}\times \dots \times G_{p_n})$ und $g_1^{-1}g_1'\in f(G_{p_1})$.
 			
-			Sei $\tilde{G} = \{e\}\times G_{p_2}\times\dots\times G_{p_n}$. Nach dem \nameref{thm:homsatz_g} gilt $f(\tilde{G})\cong \tilde {G}/\ker f|_{\tilde{G}}$. Damit folgt $|f(\tilde{G})| = \frac{|\{e\}\times G_{p_2}\times\dots\times G_{p_n}|}{|\ker f|_{\tilde{G}}|}$ nach dem \nameref{thm:lagrange}. $|f(\tilde{G})|$ teilt somit $p_2^{c_2}\dots p_n^{c_n}$. Analog zeigt man, dass $|f(G_{p_1})|$ dann $p_1{c_1}$ teilt. 
+			Sei $\tilde{G} = \{e\}\times G_{p_2}\times\dots\times G_{p_n}$. Nach dem \namereff{thm:homsatz_g} gilt $f(\tilde{G})\cong \tilde {G}/\ker f|_{\tilde{G}}$. Damit folgt 
+			$$|f(\tilde{G})| = \frac{|\{e\}\times G_{p_2}\times\dots\times G_{p_n}|}{\abs{\ker f|_{\tilde{G}}}}$$ nach dem \namereff{thm:lagrange}. $|f(\tilde{G})|$ teilt somit $p_2^{c_2}\dots p_n^{c_n}$. Analog zeigt man, dass $|f(G_{p_1})|$ dann $p_1^{c_1}$ teilt. 
 			
-			$\ord (g_2\dots g_n(g_2'\dots g_n')^{-1})$ teilt also $p_2^{c_2}\dots p_n^{c_n}$ und $\ord(g_1^{-1}g_1')$ teilt $p_1^{c_1}$. Da die $p_i$ paarweise verschieden sind, ist $\ord(g_1^{-1}g_1') = 1$, also $g_1^{-1}g_1' = e$ und schließlich $g_1' = g_1$. Völlig analog folgt $g_i = g_i'$ für alle $1\leq i\leq n$.
+			$\ord (g_2\dots g_n(g_2'\dots g_n')^{-1})$ teilt also $p_2^{c_2}\dots p_n^{c_n}$ und $\ord(g_1^{-1}g_1')$ teilt $p_1^{c_1}$. Da die $p_i$ paarweise verschieden sind, gilt $\ord(g_1^{-1}g_1') \mid \operatorname{ggT}(p_1^{c_1}, p_2^{c_2}\dots p_n^{c_n}) = 1$, also $g_1^{-1}g_1' = e$ und schließlich $g_1' = g_1$. Völlig analog folgt $g_i = g_i'$ für alle $1\leq i\leq n$.
 			\item $f$ ist surjektiv, da $f$ injektiv  ist und $|G_{p_1}\times\dots\times G_{p_n}| = p_1^{c_1}\dots p_n^{c_n} = |G|<\infty$ gilt.
 		\end{itemize}
 	Damit ist $f$ ein bijektiver Ringhomomorphismus und die 1. Behauptung folgt.
 	\item[Beweis 2. Behauptung:] Wir nehmen an, $G_{p_i}$ wäre nicht zyklisch für ein $i=1,\dots,n$. Wir setzen $p = p_i$ und $c = c_i$ ($c_i$ wie oben). Es gilt $|G_p| = p^c$ und nach Annahme $\ord(g)<p^c$ für alle $g\in G_p$. Da $\ord(g)$ die Ordnung der Gruppe $|G_p|$ teilt, folgt $ord(g)\leq p^{c-1}$ und sogar $\ord(g) = p^m$ für ein $m\leq c-1$ für alle $g\in G_p$, wobei $m$ von $g$ abhängig ist.
 	
-	Also ist $g^{p^m} = 1$ und $g$ ist eine Nullstelle des Polynoms $t^{p^m}-1$, und somit auch von $t^{p^{c-1}}-1$. Damit ist $g$ eine Nullstelle von $t^{p^{c-1}}-1$ für alle $g\in G_p$. Aber $t^{p^{c-1}}-1$ hat höchstens $p^{c-1}$ verschiedene Nullstellen, was im Widerspruch dazu, dass $|G_p| = p^c> p^{c-1}$ ist. Also ist $G_{p_i}$ zyklisch für alle $1\leq i\leq n$.
+	Also ist $g^{p^m} = 1$ und $g$ ist eine Nullstelle des Polynoms $t^{p^m}-1$, und somit auch von $t^{p^{c-1}}-1$. Damit ist $g$ eine Nullstelle von $t^{p^{c-1}}-1$ für alle $g\in G_p$. Aber $t^{p^{c-1}}-1$ hat höchstens $p^{c-1}$ verschiedene Nullstellen, was im Widerspruch dazu steht, dass $|G_p| = p^c> p^{c-1}$ ist. Also ist $G_{p_i}$ zyklisch für alle $1\leq i\leq n$.
 	\item[Beweis 3. Behauptung:] Es ist zu zeigen, dass $G_{p_1}\times\dots\times G_{p_n}$ wie in \eqref{eq:h=prodg} zyklisch ist. Nach der 2. Behauptung wissen wir $G_{p_i}\cong \IZ/p_i^{c_i}\IZ$ mit der \nameref{thm:klasszykl}. Es ist also $H\cong \IZ/p_1^{c_1} \IZ\times\dots \times \IZ/p_n^{c_n}\IZ$ als Isomorphismus von Gruppen. Da die $p_i$ paarweise verschiedene Primzahlen sind, existieren $a,b\in\IZ$ so, dass $1 = ap_i^{c_i}+bp_j^{c_j}$ (Euklidischer Algorithmus). Damit ist $1\in p_i^{c_i}\IZ+p_j^{c_j}\IZ$ und wir können den Chinesischen Restsatz anwenden. Dadurch erhalten wir einen Isomorphismus von Ringen
 	$$\IZ/p_1^{c_1}\IZ\times\dots \times\IZ/p_n^{c_n}\IZ \xlongrightarrow{\sim} \IZ/m\IZ$$
-	mit $m = p_1^{c_1}\dots p_n^{c_n}$. Dies ist insbesondere Isomorphismus von Gruppen. Da $\IZ/m\IZ$ zyklisch ist, folgt schließlich, dass $H$ zyklisch ist.
+	mit $m = p_1^{c_1}\dots p_n^{c_n}$. Dies ist insbesondere ein Isomorphismus von Gruppen. Da $\IZ/m\IZ$ zyklisch ist, folgt schließlich, dass $H$ zyklisch ist.
 	\qedhere
 \end{description}
 \end{proof}
 
-\begin{bem} Insbesondere gilt: für endliche Körper $\IF$ ist $(\IF^{\times}, \cdot)$ eine zyklische Gruppe.
+\begin{bem} Insbesondere gilt: Für endliche Körper $\IF$ ist $(\IF^{\times}, \cdot)$ eine zyklische Gruppe.
 \end{bem}
-\begin{lem}\label{lem:17.4}
+\begin{lem}\label{lem:endlKoeIsoF_p}
 	Sei $\IF$ ein endlicher Körper mit $|\IF| = n = p^r$, wobei $p$ eine Primzahl und $r\in\IN$ ist. Dann existiert ein Isomorphismus von Körpern $\IF\cong \IF_p[t]/(p(t))$, wobei $p(t)\in \IF_p[t]$ mit $\deg(p(t)) = r$ und $p(t)\mid t^n-t\in F_p[t]$ sowie irreduzibel ist. Umgekehrt existiert ein solcher Isomorphismus, wenn $p(t)$ soebige Eigenschaften erfüllt.
 \end{lem}
 \begin{proof}
-	$(\IF^{\times}, \cdot)$ ist eine endliche ablesche Gruppe, also nach \cref{thm:17.3} zyklisch mit der Ordnung $n-1$. Folglich existiert ein $a\in\IF^{\times}$ mit $\IF^{\times} = \<a\>$. Insbesondere ist $\ord(a) = n-1$, also $a^{n-1} = 1\in\IF^{\times}\subseteq \IF$. Es gilt sogar $x^{n-1} = 1$ für alle $x\in\<a\> = \IF^{\times}$. Damit ist jedes $x\in \IF$ Nullstelle von $t^n-t\in\IF_p[t]$. Da es höchstens $n$ verschiedene Nullstellen gibt und $|\IF| = n $, folgt 
+	$(\IF^{\times}, \cdot)$ ist eine endliche ablesche Gruppe, also nach \cref{thm:endlKoeZyklMult} zyklisch mit der Ordnung $n-1$. Folglich existiert ein $a\in\IF^{\times}$ mit $\IF^{\times} = \<a\>$. Insbesondere ist $\ord(a) = n-1$, also $a^{n-1} = 1\in\IF^{\times}\subseteq \IF$. Es gilt sogar $x^{n-1} = 1$ für alle $x\in\<a\> = \IF^{\times}$. Damit ist jedes $x\in \IF$ Nullstelle von $t^n-t\in\IF_p[t]$. Da es höchstens $n$ verschiedene Nullstellen gibt und $|\IF| = n $, folgt 
 	\[\IF= \{\text{Nullstellen von $t^n-t\in\IF_p[t]$}\}\]
 	und somit zerfällt $t^n-t$ über $\IF$ vollständig in Linearfaktoren. Sei $p(t)$ wie im Lemma definiert und o.B.d.A. $p(t)$ normiert. Da $x\in\IF^{\times}$ eine Nullstelle von $t^{n}-t$ ist und $p(t)$ das Polynom $t^{n}-t$ teilt, ist $p(t) = m_x(t)$ das Minimalpolynom für ein $x\in\IF^{\times}$, weil $p(t)$ irreduzibel ist. Betrachte nun den Ringhomomorphismus
 	\begin{eqnarray*}
 		\ev_x\colon \IF_p[t] &\longto & \IF\\
 		\sum_{i = 0}^{\infty}b_it^i & \longmapsto & \sum_{i = 0}^{\infty}b_ix^i
 	\end{eqnarray*}
-	Dieser induziert, weil $p(x) = 0$ ist, nach dem \nameref{thm:homsatz_r} einen Ringhomomorphismus
+	Dieser induziert, weil $p(x) = 0$ ist, nach dem \namereff{thm:homsatz_r} einen Ringhomomorphismus
 	\[\overline{\ev_x}\colon \IF_p[t]/(m_x(t)) \to \IF.\]
 	Wir wissen, dass $K \coloneqq\IF_p[t]/(p(t))$ ein Körper ist, weil $p(t)$ irreduzibel ist. Folglich ist $\overline{\ev_x}\colon K\to \IF$ injektiv und nach Konstruktion ein Ringhomomorphismus.
 	
@@ -2941,12 +2950,12 @@ Also ist $\Phi$ aus \cref{thm:17.1} eine wohldefinierte Abbildung.
 \end{proof}
 
 \begin{bem}
-	Wir betrachten das $\Phi$ aus \cref{thm:17.1}. \cref{lem:17.4} besagt insbesondere, dass zwei endliche Körper derselben Kardinalität isomorph sind; $\Phi$ ist also injektiv. Es bleibt zu zeigen, dass $\Phi$ surjektiv ist.
+	Wir betrachten das $\Phi$ aus \cref{thm:KlassEndlKoe}. \cref{lem:endlKoeIsoF_p} besagt insbesondere, dass zwei endliche Körper derselben Kardinalität isomorph sind; $\Phi$ ist also injektiv. Es bleibt zu zeigen, dass $\Phi$ surjektiv ist.
 \end{bem}
 
 \medskip
 
-Beachte: Sei $\IF$ wie im \cref{lem:17.4} definiert. Dann gilt:
+Beachte: Sei $\IF$ wie im \cref{lem:endlKoeIsoF_p} definiert. Dann gilt:
 \begin{enumerate}
 	\item $f(t) = t^n-t\in\IF_p[t]$ zerfällt in Linearfaktoren über $\IF$.
 	\item $\IF= \IF_p(a_1,\dots, a_n)$, wobei $a_1,\dots, a_n$ die Nullstellen von $f(t)$ sind.
@@ -2969,16 +2978,16 @@ Beachte: Sei $\IF$ wie im \cref{lem:17.4} definiert. Dann gilt:
 \end{bsp}
 \paragraph{Existenz von Zerfällungskörpern.} Sei $f(t) \in K[t]$. Betrachte den algebraischen Abschluss $\overline{K}$ von $K$. Dann existieren $a_1,\dots, a_n\in\overline{K}$ und $c\in K$ mit $f(t) = c\prod_{i = 1}^{n}(t-a_i)$. Setze $L: = K(a_1,\dots, a_n)$. Dies ist dann ein Zerfällungskörper von $f(t)\in K[t]$, der in $\overline{K}$ enthaltene Zerfällungskörper.
 
-\lecture{18. Dezember 2017}
-
+\lecture{18. Dezember 2017}\\
+\noindent
 Wir wollen später noch zeigen:
-\begin{satz}\label{thm:18.1}
+\begin{satz}\label{thm:endlKoeEx}
 	Sei $p$ eine Primzahl und $r\in\IN$. Dann existiert ein Körper $\IF$ mit $|\IF| = p^r$.
 \end{satz}
 
 \medskip
 
-Zunächst noch ein {Nachtrag\label{nachtrag zu 17.4}} zu \cref{lem:17.4}. Beim dortigen Beweis bleibt noch zu zeigen, dass ein solches $p(t)$ existiert.
+Zunächst noch ein {Nachtrag\label{nachtrag zu 17.4}} zu \cref{lem:endlKoeIsoF_p}. Beim dortigen Beweis bleibt noch zu zeigen, dass ein solches $p(t)$ existiert.
 \begin{proof}
 	Wir wissen:
 	\begin{itemize}
@@ -2991,9 +3000,9 @@ Zunächst noch ein {Nachtrag\label{nachtrag zu 17.4}} zu \cref{lem:17.4}. Beim d
 		\ev_a\colon \IF_p[t] & \longto & \IF\\
 		\sum_{i = 0}^{\infty} b_it^i & \longmapsto &\sum_{i = 0}^{\infty}b_ia^i.
 	\end{eqnarray*}
-	Klar ist, dass $\im\ev_a = \IF_p(a) = \IF$ gilt; $\ev_a$ ist also surjektiv. Nach dem \nameref{thm:homsatz_r} existiert ein Ringhomomorphismus
+	Klar ist, dass $\im\ev_a = \IF_p(a) = \IF$ gilt; $\ev_a$ ist also surjektiv. Nach dem \namereff{thm:homsatz_r} existiert ein Ringhomomorphismus
 	\[\overline{\ev_a}\colon K \coloneqq \IF_p[t]/(m_a(t))\longto \IF\]
-	mit $\ev_a = \overline{\ev_a}\circ\can$. Dieser ist $\overline{\ev_a}$ surjektiv und auch injektiv, da $K$ ein Körper ist. Somit ist $\overline{\ev_a}$ ist ein Isomorphismus von Körpern.
+	mit $\ev_a = \overline{\ev_a}\circ\can$. $\overline{\ev_a}$ ist surjektiv und auch injektiv, da $K$ ein Körper ist. Somit ist $\overline{\ev_a}$ ist ein Isomorphismus von Körpern.
 	
 	Insbesondere ist $\deg(m_a(t)) = \dim_{\IF_p}K = \dim_{\IF_p}\IF= r$. Klar ist, dass $m_a(t)$ irreduzibel ist und $t^m-t$ teilt. Folglich ist $m_a(t)$ ein gesuchtes Polynom.
 \end{proof}
@@ -3011,7 +3020,7 @@ Zunächst noch ein {Nachtrag\label{nachtrag zu 17.4}} zu \cref{lem:17.4}. Beim d
 Übungsblatt: Die formale Ableitung erfüllt die Produktregel $(fg)' = f'g+fg'$.
 
 \begin{satz}
-	$L\sslash K$ eine Körpererweiterung sowie $f,g\in K[t]$ und $g\neq 0$. Dann:
+	Sei $L\sslash K$ eine Körpererweiterung sowie $f,g\in K[t]$ und $g\neq 0$. Dann:
 	\begin{enumerate}
 		\item Gilt $f = hg+r$ in $L[t]$ mit $\deg(r)<\deg(h)$, dann gilt auch $f = hg+r$ in $K[t]$.
 		\item Falls $g$ das Polynom $f$ in $L[t]$ teilt, dann teilt es es auch in $K[t]$.
@@ -3038,7 +3047,8 @@ Zunächst noch ein {Nachtrag\label{nachtrag zu 17.4}} zu \cref{lem:17.4}. Beim d
 		\item[\glqq$3\Rightarrow 1$\grqq:] Sei $a$ eine gemeinsame Nullstelle von $p$ und $p'$. Also ist $p = (t-a)Q(t)$ mit $Q(t)\in L[t]$. Es folgt $p' = Q(t) + (t-a)Q'(t)$. Da $(t-a)$ das Polynom $p'$ teilt, muss also $(t-a)$ auch $Q(t)$ teilen und somit gilt $(t-a)^2\mid p$. Folglich ist $a$ eine mehrfache Nullstelle von $p$.
 	\end{description}
 \end{proof}
-\begin{kor}
+\begin{kor} \label{cor:irredPolyÄquiv}
+	 %TODO: This makes no sense. Ein nicht konstantes Polynom ist wohl kaum die Charakteristik eines Körpers
 	Sei $K$ ein Körper und $p\in K[t]\setminus K$ irreduzibel. Dann sind äquivalent:
 	\begin{enumerate}
 		\item $p$ hat eine mehrfache Nullstelle im Zerfällungskörper.
@@ -3062,23 +3072,23 @@ Zunächst noch ein {Nachtrag\label{nachtrag zu 17.4}} zu \cref{lem:17.4}. Beim d
 	Sei $K$ ein Körper, $\chr K = p$. Dann ist $\Fr\colon K\to K, a\mapsto a^p$ ein Ringhomomorphismus, der Frobeniushomomorphismus. (Denn $\Fr(xy) = (xy)^p = x^py^p = \Fr(x)\Fr(y)$ und $\Fr(x+y) = (x+y)^p = x^p+y^p = \Fr(x) + \Fr(y)$ für alle $x,y\in K$.)
 \end{defi}
 
-\begin{proof}[Beweis von \cref{thm:18.1}]
+\begin{proof}[Beweis von \cref{thm:endlKoeEx}]
 	Sei $p(t) = t^n-t\in\IF_p[t]$. Sei $L$ ein Zerfällungskörper von $p(t)$ über $\IF_p$. Dann ist $\IF_p\subseteq L$ der Primkörper, also $\chr L = p$. Betrachte $\Fr^r : = \Fr\circ\dots\circ \Fr\colon L\to L$ als den $r$-ten Frobeniushomomorphismus. Sei weiterhin
 	\[L^{\Fr^r} \coloneqq \{x\in L\mid Fr^r(x) = x\} = \{x\in L\mid x^{p^r} = x\} = \{x\in L\mid x^n -x = 0\}\subseteq L.\]
 	Man rechnet leicht nach, dass $L^{\Fr^r}\subseteq L$ ein Unterkörper von $L$ ist. Da $L$ ein Zerfällungskörper von $p(t ) = t^n-t$ ist und andererseits alle Nullstellen von $t^n-t$ schon in $L^{Fr^r}$ liegen, gilt $L^{\Fr^r} = L$. Daher ist $|L|\leq n$, weil $t^n-t$ höchstens $n$ verschiedene Nullstellen hat. Nun reicht es zu zeigen, dass $|L| = n$.
 	
 	Wir behaupten, dass $t^n-t$ genau $n$ verschiedene Nullstellen hat; damit ist dann $\IF \coloneqq L$ der gesuchte Körper. Angenommen, es gibt weniger als $n$ verschiedene Nullstellen; dann existiert eine mehrfache Nullstelle $a$ in $L$, da $L$ ein Zerfällungskörper ist. Dann gilt aber $p'(a) = 0$. Andererseits ist $p'(t) = nt^{n-1}-1 = -1$, da $n = p^r$ und wir mit Charakteristik $p$ rechnen. Folglich ist $p'$ nie $0$ und wir erhalten einen Widerspruch. Also hat $t^n-t$ genau $n$ verschiedene Nullstellen.	
 \end{proof}
-
-Damit ist der \nameref{thm:17.1} gezeigt.
+\noindent
+Damit ist der \namereff{thm:KlassEndlKoe} gezeigt.
 
 \begin{kor}
-	Der Zerfällungskörper von $p(t) = t^n-t\in\IF_p[t]$ \textup(mit $p,n$ wie in \cref{thm:18.1}\textup) ist eindeutig bis auf Isomorphie.
+	Der Zerfällungskörper von $p(t) = t^n-t\in\IF_p[t]$ \textup(mit $p,n$ wie in \cref{thm:endlKoeEx}\textup) ist eindeutig bis auf Isomorphie.
 \end{kor}
 \begin{proof}
 	$\Phi(p^r) \coloneqq \IF$ ist (ein) Zerfällungskörper von $t^n-t$ und ist eindeutig bis auf Isomorphie von Körpern.
 \end{proof}	
-
+\noindent
 Allgemeiner lässt sich der folgende Satz formulieren:
 \begin{satz} \label{thm:18.6}
 	Seien $K$ und $K'$ Körper und $\phi\colon K\to K'$ ein Ringhomomorphismus. Sei $f(t)\in K[t]\setminus K$ und $L$ bzw. $L'$ Zerfällungskörper von $f(t)$ über $K$ bzw. von $\phi_{*}(f)\in K'[t]\setminus K'$, wobei 
@@ -3089,7 +3099,7 @@ Allgemeiner lässt sich der folgende Satz formulieren:
 	Falls $\phi$ ein Isomorphismus ist, dann existiert ein Ringisomorphismus $\hat \phi\colon L\to L'$ mit $\hat\phi|_K = \phi$.
 \end{satz}
 \begin{proof}
-	Wähle den bis auf Isomorphie eindeutigen algebraischen Abschluss $\overline{K}$ bzw. $\overline{K'}$ von $K$ bzw. $K'$ so, dass $K\subseteq L\subseteq \overline{K}$ und $K'\subseteq L'\subseteq \overline{K'}$. Der \nameref{thm:fortsetz} sagt uns nun, dass ein Homomorphismus $\hat\phi\colon \overline{K}\to\overline{K'}$ mit $\hat\phi|_K = \phi$ existiert. Falls $\phi$ ein Isomorphismus ist, dann ist auch $\hat\phi$ Isomorphismus von Körpern.
+	Wähle den bis auf Isomorphie eindeutigen algebraischen Abschluss $\overline{K}$ bzw. $\overline{K'}$ von $K$ bzw. $K'$ so, dass $K\subseteq L\subseteq \overline{K}$ und $K'\subseteq L'\subseteq \overline{K'}$. Der \namereff{thm:fortsetz} sagt uns nun, dass ein Homomorphismus $\hat\phi\colon \overline{K}\to\overline{K'}$ mit $\hat\phi|_K = \phi$ existiert. Falls $\phi$ ein Isomorphismus ist, dann ist auch $\hat\phi$ Isomorphismus von Körpern.
 	
 	Andererseits existieren $a_1,\dots, a_n\in \overline{K}$ und $c\in K$ mit $f(t) = c\prod_{i = 1}^n(t-a_i)$ und damit $\hat\phi(f(t)) = \phi(c)\prod_{i = 1}^n(t-\hat\phi(a_i))$. Also ist $\hat\phi(a_i)$ für $1\leq i\leq n$ eine Nullstelle von $\hat\phi(f(t)) = \phi_{*}(f(t))$. Damit ist $L = K(a_1,\dots, a_n)$, da er ein Zerfällungskörper von $K$ ist, und wird unter $\hat\phi$ auf $L' = K'(\hat\phi(a_1),\dots ,\hat\phi(a_n))$ abgebildet. $\hat{\phi}$ ist offensichtlich surjektiv. Da $\hat{\phi}$ automatisch injektiv ist, ist $\hat\phi$ ein Isomorphismus von Körpern.
 \end{proof}
@@ -3140,7 +3150,7 @@ wobei $\IF^H \coloneqq \{x\in\IF\mid\forall \phi\in H:\phi(x) = x\}$ den Fixkör
 \end{bem}
 Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 \begin{lem} \label{lem:19.2}
-	Gleiche Voraussetzungen wie in \cref{thm:spezielle galoiskorrespondenz}. Dann ist $G = \Gal(\IF/\IF_p)$ zyklisch der Ordnung $r$.
+	Sei $\IF$ ein endlicher Körper mit $|\IF| = n = p^r$ \textup($p$ prim\textup). Dann ist $G = \Gal(\IF/\IF_p)$ zyklisch der Ordnung $r$.
 \end{lem}
 \begin{proof}
 	Wir wissen (nach der Konstruktion endlicher Körper) $\IF = \IF_p(a)$ für ein $a\in \IF$. Nach Bemerkung \ref{bem:galoiskor:2} ist $\phi\in G$ festgelegt durch $\phi(a)$. Sei $m_a(t)\in\IF_p[t]$ das Minimalpolynom von $a$.
@@ -3181,7 +3191,7 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 \end{proof}
 \begin{defi} $L\sslash K$ heißt einfach, falls ein $a\in L$ existiert, sodass $L\cong K(a)$ gilt.
 \end{defi}
-\begin{satz}
+\begin{satz} \label{thm:korrespKHomNstMinPoly}
 	Sei $K(a)\sslash K$ eine einfache, algebraische Körpererweiterung und $M\sslash K$ eine beliebige Körpererweiterung. Dann
 	\begin{eqnarray*}
 		\{K\text{-Homomorphismen } \phi\colon K(a)\to M\} & \xlongleftrightarrow{1:1} & \{\text{Nullstellen von }m_a(t)\in K[t]\text{ in }M\}\\
@@ -3201,7 +3211,7 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 		\end{eqnarray*}
 		Da $z$ eine Nullstelle von $m_a(t)$ ist, induziert $\ev_z$ einen Ringhomomorphismus
 		\[\overline{\ev_z}\colon K[t]/(m_a(t))\longto M,\]
-		wobei $\beta\colon K[t]/(m_a(t)) \xrightarrow{\sim} K(a)\subseteq K$; $K(a)\sslash K$ algebraisch und $\overline{\ev_z}$ ein Körperhomomorphismus mit $\overline{\ev_z}\circ \beta|_K = \id_K$ nach Konstruktion ist. Man setze nun $\phi\coloneqq \overline{\ev_z}\circ\beta$ und $\phi(a) = \overline{\ev_z}\circ\beta(a) = \overline{\ev_z}(\overline{t}) = z$.
+		wobei $\beta\colon K[t]/(m_a(t)) \xrightarrow{\sim} K(a)\subseteq K$, $K(a)\sslash K$ algebraisch und $\overline{\ev_z}$ ein Körperhomomorphismus mit $\overline{\ev_z}\circ \beta|_K = \id_K$ nach Konstruktion ist. Man setze nun $\phi\coloneqq \overline{\ev_z}\circ\beta$ und $\phi(a) = \overline{\ev_z}\circ\beta(a) = \overline{\ev_z}(\overline{t}) = z$.
   \qedhere
 	\end{description}
 \end{proof}
@@ -3220,7 +3230,8 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 		\item $\IQ(\sqrt[3]{2})\sslash \IQ$ ist nicht normal, denn betrachte $f = t^3-2$. Es gilt $\IQ(\sqrt[3]{2})\subseteq \IR$ und $f$ hat Nullstellen $\sqrt[3]{2}\in \IQ(\sqrt[3]{2})$ und $\sqrt[3]{2}\xi, \sqrt[3]{2}\xi^2\notin \IR$, mit $\xi = e^{\frac{2\pi i}{3}}$.
 	\end{enumerate}
 \end{bsp}
-\begin{satz}[Normalität] Sei $L\sslash K$ eine endliche Körpererweiterung. Dann sind äquivalent:
+\begin{satz}[Normalität] \label{thm:normalKeÄquiv}
+	Sei $L\sslash K$ eine endliche Körpererweiterung. Dann sind äquivalent:
 \begin{enumerate}
 	\item $L\sslash K$ ist normal.
 	\item $L$ ist Zerfällungskörper eines Polynoms $f\in K[t]$.
@@ -3263,23 +3274,24 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 \begin{satz}\label{thm:19.7}
 	Sei $L\sslash K$ eine endliche Körpererweiterung. Dann existiert eine endliche Körpererweiterung $M\sslash L$, sodass $M\sslash K$ normal ist.
 \end{satz}
-\begin{kor}
-	Sei $L\sslash K$ Körpererweiterung und $K\subseteq M\subseteq L$ Zwischenkörper mit $M\sslash K$ normal (und endlich, wobei man das nach Bemerkung auch weglassen kann). Dann gilt: $\phi\colon M\to L$ $K$-Homomorphismus. Dann ist $\phi(M) = M$.	
+\begin{kor} \label{cor:zwischenKoeImg}
+	Sei $L\sslash K$ eine Körpererweiterung und $K\subseteq M\subseteq L$ ein Zwischenkörper mit $M\sslash K$ normal (und endlich, wobei man das nach Bemerkung auch weglassen kann). Dann gilt: $\phi\colon M\to L$ ist ein $K$-Homomorphismus. Dann ist $\phi(M) = M$.	
 \end{kor}
 \begin{proof}
-	Betrachte $M\xrightarrow{\phi}L$ und $M\xrightarrow{\id}M\subseteq L$ $K$-Homomorphismen. Da $M\sslash K$ normal ist, gilt nach Satz 19.6 $\im\phi = \im(\id) = M$.
+	Betrachte $M\xrightarrow{\phi}L$ und $M\xrightarrow{\id}M\subseteq L$ $K$-Homomorphismen. Da $M\sslash K$ normal ist, gilt nach \cref{thm:normalKeÄquiv} $\im\phi = \im(\id) = M$.
 \end{proof}
 
 \begin{proof}[Beweis von Satz \ref{thm:19.7}]
-	$L\sslash K$ endlich $\Rightarrow L = K(a_1,\dots, a_n)$ für gewisse $a_1,\dots,a_n\in L$. Sei $f(t) = m_{a_1}(t)\dots m_{a_n}(t)\in K[t]$ mit $m_{a_i}(t)$ Minimalpolynom von $a_i$ Sei $M$ Zerfällungskörper von $f(t)$ über $L$, also auch Zerfällungskörper von $f(t)$ über $K$. Nach satz 19.6 ist $M\sslash K$ normal. Noch zu zeigen: $M\sslash K$ ist endlich. Behauptung: $[M:K]\leq \deg(f(t))$. Damit folgt Satz, Behauptung folgt aus nächstem Lemma.
+	Da $L\sslash K$ endlich ist, gilt $L = K(a_1,\dots, a_n)$ für gewisse $a_1,\dots,a_n\in L$. Sei $f(t) = m_{a_1}(t)\dots m_{a_n}(t)\in K[t]$ mit $m_{a_i}(t)$ Minimalpolynom von $a_i$ Sei $M$ ein Zerfällungskörper von $f(t)$ über $L$, also auch ein Zerfällungskörper von $f(t)$ über $K$. Nach \cref{thm:normalKeÄquiv} ist $M\sslash K$ normal. Noch zu zeigen: $M\sslash K$ ist endlich. Behauptung: $[M:K]\leq \deg(f(t))$. Damit folgt der Satz, die Behauptung folgt aus nächstem Lemma.
 \end{proof}
-\begin{lem} Sei $f(t)\in K[t]$, $K$ Körper, $L$ Zerfällungskörper von $f(t)$. Dann $[L:K]\leq\deg(f(t))$.
+\begin{lem} Sei $f(t)\in K[t]$, $K$ ein Körper, $L$ ein Zerfällungskörper von $f(t)$. Dann gilt $[L:K]\leq\deg(f(t))$.
 \end{lem}
 \begin{proof}
-	Sei $L = K(b_1,\dots, b_n)$, wobei $b_i$ die (verschiedenen) Nullstellen von $f(t)$ sind. Insbesondere teilt $m_{b_i}(t)$ das $f(t)$. $\Rightarrow [K(b_i):K] = \deg m_{b_i}(t)\leq \deg f(t)$. Dann $[L:K] = [L:K(b_1)][K(b_1):K]$. Beachte $L = K(b_1)(b_2,\dots, b_n)$ ist Zerfällungskörper von $f(t)/(t-b_1)$. Mit Induktion $[L_K(b_1)][K(b_1):K]\leq (\deg(f(t)/(t-b_1))!\cdot\deg(f(t)) = (deg(f(t)))!$
+	Sei $L = K(b_1,\dots, b_n)$, wobei $b_i$ die (verschiedenen) Nullstellen von $f(t)$ sind. Insbesondere teilt $m_{b_i}(t)$ das $f(t)$. Folglich gilt $[K(b_i):K] = \deg m_{b_i}(t)\leq \deg f(t)$. Damit folgt $[L:K] = [L:K(b_1)][K(b_1):K]$. $L = K(b_1)(b_2,\dots, b_n)$ ist ein Zerfällungskörper von $f(t)/(t-b_1)$. Mit Induktion ergibt sich
+	$$[L:K(b_1)][K(b_1):K]\leq (\deg(f(t)/(t-b_1))!\cdot\deg(f(t)) = (deg(f(t)))!$$
 \end{proof}
 
-\begin{bem} Sei $L\sslash K$ normale Körpererweiterung; $K\subseteq M\subseteq L$ Zwischenkörper. Dann ist $L$ normale Hülle von $M\sslash K$, falls es keinen Zwischenkörper $M\subseteq N\subseteq L$ mit $N\sslash K$ normal gibt. (Also ist $L$ der kleinste Körper, der $M$ enthält und normal über $K$ ist.) Man kann zeigen: die normale Hülle ist eindeutig bis auf $K$-Isomorphismus.
+\begin{bem} Sei $L\sslash K$ eine normale Körpererweiterung; $K\subseteq M\subseteq L$ ein Zwischenkörper. Dann ist $L$ die normale Hülle von $M\sslash K$, falls es keinen Zwischenkörper $M\subseteq N\subseteq L$ mit $N\sslash K$ normal gibt. (Also ist $L$ der kleinste Körper, der $M$ enthält und normal über $K$ ist.) Man kann zeigen: die normale Hülle ist eindeutig bis auf $K$-Isomorphismus.
 \end{bem}
 
 \begin{defi} Sei $L\sslash K$ eine Körpererweiterung. \begin{enumerate}
@@ -3308,35 +3320,40 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 	\leavevmode
 	\begin{description}
 		\item[1. $\chr K = 0$:] Sei $a\in L$ und $m_a(t) \in K[t]$ Minimalpolynom, insbesondere $m_a(t)$ irreduzibel. Nach Beispiel 19.3 hat $m_a(t)$ keine mehrfachen Nullstellen, also ist $a$ separabel über $K$. Da $a$ beliebig gewählt war, ist $L$ separabel über $K$.
-		\item[2. $\chr K = p>0$:] Sei $a\in L$ und $m_a(t)\in K[t]$ Minimalpolynom. Annahme: $m_a(t)$ hat mehrfache Nullstelle. Mit Satz 18.4 folgt $m_a'(t) = 0$, $m_a(t) = Q(t^p)$ für ein $Q(t)\in K[t]$. Sei $Q(t)  =\sum_{i = 0}^n b_it^i\in K[t]$. Weil $K$ perfekt ist, existieren $a_1, \dots, a_n$ mit $a_i^p = b_i$. Dann: $(\sum_{i = 0}^na_it^i)^p = \sum_{i = 0}^nb_i(t^p)^i = Q(t^p) = m_a(t)$. Das ist ein Widerspruch zu $m_a(t)$ irreduzibel; folglich hat $m_a(t)$ keine mehrfachen Nullstellen. Damit ist $a$ separabel über $K$ für alle $a\in L$; $L\sslash K$ ist folglich separabel.
+		\item[2. $\chr K = p>0$:] Sei $a\in L$ und $m_a(t)\in K[t]$ Minimalpolynom. Annahme: $m_a(t)$ hat eine mehrfache Nullstelle. Mit \cref{cor:irredPolyÄquiv} folgt $m_a'(t) = 0$, $m_a(t) = Q(t^p)$ für ein $Q(t)\in K[t]$. Sei $Q(t)  =\sum_{i = 0}^n b_it^i\in K[t]$. Weil $K$ perfekt ist, existieren $a_1, \dots, a_n$ mit $a_i^p = b_i$. Dann gilt: 
+		$$(\sum_{i = 0}^na_it^i)^p = \sum_{i = 0}^nb_i(t^p)^i = Q(t^p) = m_a(t)$$
+		Das ist ein Widerspruch zu $m_a(t)$ irreduzibel; folglich hat $m_a(t)$ keine mehrfachen Nullstellen. Damit ist $a$ separabel über $K$ für alle $a\in L$; $L\sslash K$ ist folglich separabel.
 	\end{description}
 \end{proof}
 
 \begin{defi}
 	$L\sslash K$ sei eine algebraische Körpererweiterung. Dann definiere den Separabilitätsgrad
-	$$[L:K]_{sep} \coloneqq |\{\phi\colon L\to\overline{K}|\phi K\text{-Homomorphismus}\}$$
+	$$[L:K]_{sep} \coloneqq \abs{\{\phi\colon L\to\overline{K}\mid\phi ~K\text{-Homomorphismus}\}}$$
 	von $L\sslash K$.
 \end{defi}
 
 \begin{bem}\leavevmode\begin{enumerate}
-		\item Separabilitätsgrad ist unabhängig von der Wahl von $\overline{K}$.
-		\item $L_1\sslash K$, $L_2\sslash K$ seien Körpererweiterungen und es existiert $\phi\colon L_1\to L_2$ $K$-Homomorphismsu, der Isomorphismus ist. Dann gilt $[L_1:K]_{sep} = [L_2:K]_{sep}$.
+		\item Der Separabilitätsgrad ist unabhängig von der Wahl von $\overline{K}$.
+		\item $L_1\sslash K$, $L_2\sslash K$ seien Körpererweiterungen und es existiert ein $\phi\colon L_1\to L_2$ $K$-Homomorphismsu, der ein Isomorphismus ist. Dann gilt $[L_1:K]_{sep} = [L_2:K]_{sep}$.
 		\item Wir nennen Elemente $a\in L$ für $L\sslash K$ Körpererweiterung inseparabel, falls es nicht separabel ist.
 	\end{enumerate}
 \end{bem}
 \begin{lem}\label{lem:19.11}
-	Sei $L\sslash K$ algebraische endliche Körpererweiterung. Dann gilt: $[L:K]_{sep}\leq [L:K]$.
+	Sei $L\sslash K$ eine algebraische endliche Körpererweiterung. Dann gilt: $[L:K]_{sep}\leq [L:K]$.
 \end{lem}
 \begin{lem}\label{lem:19.12}
-	Seien $L_1\sslash L_2$ und $L_2\sslash L_3$ Körpererweiterungen. Dann gilt:$[L_1:L_3]_{sep} = [L_1:L_2]_{sep}[L_2:L_3]_{sep}$.
+	Seien $L_1\sslash L_2$ und $L_2\sslash L_3$ Körpererweiterungen. Dann gilt $$[L_1:L_3]_{sep} = [L_1:L_2]_{sep}[L_2:L_3]_{sep}$$.
 \end{lem}
 \begin{bem}
-	Sei $L\sslash K$ endlich, normal. Dann ist $\phi(L) = L$ für jeden $K$-Homomorphismus nach Korollar 19.8. Also $L\sslash K$ normal und $[L:K]_{sep} = \#\{K-\text{Homos }\phi\colon L\to L\} = \#Aut_K(L)$, weil jeder Homomorphismus injektiv ist, also bijektiv, weil $\dim_LK$ endlich.
+	Sei $L\sslash K$ endlich, normal. Dann ist $\phi(L) = L$ für jeden $K$-Homomorphismus nach \cref{cor:zwischenKoeImg}. Also ist $L\sslash K$ normal und es gilt $$[L:K]_{sep} = \#\{K-\text{Homos }\phi\colon L\to L\} = \#Aut_K(L)$$ weil jeder Homomorphismus injektiv ist, also bijektiv, weil $\dim_LK$ endlich.
 \end{bem}
 \begin{proof}[Beweis von \ref{lem:19.12}]
 	Übungsblatt
 \end{proof}
-\begin{proof}[Beweis von \ref{lem:19.11}] Sei $L = K(a_1,\dots, a_n)$ für gewisse $a_1,\dots, a_n\in L$. Sei $L_0 = K$, $L_i = K(a_1,\dots, a_i)$, also $L_i = L_{i-1}(a_i)$. Wir wissen: für einfache algebraische Erweiterung $M(a)\sslash M$ für einen Körper $M$ ist $[M(a):M]_{sep} = |\{\phi\colon M(a)\to \overline{M}|\phi M\text{-Homo}\leq \deg m_a(t)\in M[t]$ nach Satz 19.4, wobei $\deg m_a(t) = [M(a):M]$. Somit $[L:K]_{sep} = \prod_{i = 1}^n[L_i:L_{i-1}]_{sep} \leq \prod_{i = 1}^n[L_i:L_{i-1}] = [L:K]$.	
+\begin{proof}[Beweis von \ref{lem:19.11}] Sei $L = K(a_1,\dots, a_n)$ für gewisse $a_1,\dots, a_n\in L$. Sei $L_0 = K$, $L_i = K(a_1,\dots, a_i)$, also $L_i = L_{i-1}(a_i)$. Wir wissen: für einfache algebraische Erweiterung $M(a)\sslash M$ für einen Körper $M$ ist 
+$$[M(a):M]_{sep} = \abs{\{\phi\colon M(a)\to \overline{M}\mid\phi~ M\text{-Homo}\}}\leq \deg m_a(t)\in M[t]$$
+nach \cref{thm:korrespKHomNstMinPoly}, wobei $\deg m_a(t) = [M(a):M]$. Somit gilt 
+$$[L:K]_{sep} = \prod_{i = 1}^n[L_i:L_{i-1}]_{sep} \leq \prod_{i = 1}^n[L_i:L_{i-1}] = [L:K]$$
 \end{proof}
 
 \lecture{15. Januar 2018}
@@ -3369,7 +3386,7 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 	\end{description}
 \end{proof}
 \begin{satz}[Satz vom primitiven Element]\label{thm:19.14}
-	Sei $L\sslash K$ Körpererweiterung, endlich, separabel. Dann $\exists a\in L$ mit $L = K(a)$. Man nennt $a$ dann primitives Element.
+	Sei $L\sslash K$ eine endliche, separable Körpererweiterung. Dann existiert ein $a\in L$ mit $L = K(a)$. Man nennt $a$ dann primitives Element.
 \end{satz}
 
 \begin{proof}
@@ -3389,11 +3406,11 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 
 \subsection{Galoisgruppen}
 \begin{defi}
-	$L\sslash K$ Körpererweiterung. Dann definiere die Galoisgruppe $$\Gal(L\sslash K) = \{\phi\colon L\to L|\phi\text{ bijektiver Körperhomomorphismus}, \phi|_K = \id_K\}$$
+	$L\sslash K$ Körpererweiterung. Dann definiere die Galoisgruppe $$\Gal(L\sslash K) = \{\phi\colon L\to L \mid \phi\text{ bijektiver Körperhomomorphismus}, \phi|_K = \id_K\}$$
 	von $L\sslash K$. Das ist eine Gruppe bezüglich Komposition von Abbildungen.
 \end{defi}
 \begin{lem}\label{lem:20.1}
-	$\Gal(L\sslash K)\subseteq  A\eqqcolon\{\phi\colon L\to L|\phi\ K\text{-Homomorphismus}\}$. Ist $L\sslash K$ algebraisch, dann gilt sogar Gleichheit.
+	$\Gal(L\sslash K)\subseteq  A\eqqcolon\{\phi\colon L\to L\mid\phi\ K\text{-Homomorphismus}\}$. Ist $L\sslash K$ algebraisch, dann gilt sogar Gleichheit.
 \end{lem}
 \begin{proof}
 	Falls $L\sslash K$ endlich ist, ist für $\phi\in A$ die Abbildung $\phi$ injektiv und, da $L\sslash K$ endlich ist, bijektiv.
@@ -3404,14 +3421,14 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 \end{proof}
 
 \begin{defi}
-	Sei $G$ Gruppe; $X$ Menge und $G\operates X$ eine Operation von $G$ auf $X$. Sie heißt
-	\begin{description}
-		\item[treu,] falls $(g.x = x\forall x\in X)\Rightarrow g = e$
-		\item[transitiv,] falls $\forall x,y\in X\exists g\in G$ mit $g.x = y$
-	\end{description}
+	Sei $G$ eine Gruppe, $X$ eine Menge und $G\operates X$ eine Operation von $G$ auf $X$. Sie heißt
+	\begin{enumerate}
+		\item treu, falls $(g.x = x~\forall x\in X)\Rightarrow g = e$
+		\item transitiv, falls $\forall x,y\in X~\exists g\in G$ mit $g.x = y$
+	\end{enumerate}
 \end{defi}	
-\begin{satz}
-	 Sei $K$ Körper, $f\in K[t]$ irreduzibel. Sei $L$ Zerfällungskörper von $f$ über $K$. Dann operiert $G\eqqcolon \Gal(L\sslash K)$ auf $X\eqqcolon \{\text{Nullstellen von }f\text{ in }L\}$ treu und transitiv durch $\phi.x = \phi(x)$ für $\phi\in G, x\in X$. 
+\begin{satz} \label{thm:grupOpTreuTransGaloisGrup}
+	 Sei $K$ ein Körper, $f\in K[t]$ irreduzibel. Sei $L$ ein Zerfällungskörper von $f$ über $K$. Dann operiert $G\eqqcolon \Gal(L\sslash K)$ auf $X\eqqcolon \{\text{Nullstellen von }f\text{ in }L\}$ treu und transitiv durch $\phi.x = \phi(x)$ für $\phi\in G, x\in X$. 
 \end{satz}	
 \begin{proof}
 	\leavevmode
@@ -3435,9 +3452,8 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 \subsection{Galoiserweiterungen}
 \begin{defi}
 	Eine Körpererweiterung $L\sslash K$ heißt Galoiserweiterung, falls sie normal und separabel ist.
-	
-	In diesem Fall gilt (\ref{lem:20.1}) 
-	$$\Gal (L\sslash K) = \Aut (L\sslash K) =\{\phi\colon L\to L|K\text{-Homomorphismus}\}$$
+	In diesem Fall gilt (\cref{lem:20.1}) 
+	$$\Gal (L\sslash K) = \Aut (L\sslash K) =\{\phi\colon L\to L\mid K\text{-Homomorphismus}\}$$
 \end{defi}
 
 \begin{satz}[Galoiserweiterungen]\label{thm:21.1}
@@ -3445,7 +3461,7 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 	\begin{enumerate}
 		\item $L\sslash K$ ist Galoissch
 		\item $[L:K] = |\Gal(L\sslash K)|$
-		\item $K = L^{\Gal(L\sslash K)}\eqqcolon\{x\in L|\phi(x) = x\forall \phi\in \Gal(L\sslash K)\}$
+		\item $K = L^{\Gal(L\sslash K)}\eqqcolon\{x\in L\mid\phi(x) = x~\forall \phi\in \Gal(L\sslash K)\}$
 		\item für alle $a\in L$ ist $$m_a(t) = \prod_{b\in \Gal(L\sslash K).a}(t-b)$$
 	\end{enumerate}
 \end{satz}
@@ -3471,13 +3487,13 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 
 
 \begin{bsp}[Berechnung der Galoisgruppe]
-	Sei $L$ der Zerfällungskörper von $f = t^3-2\in \IQ[t]$. Sei $K\coloneqq \IQ$. $f$ hat 3 Nullstellen in $L$, nämlich $\sqrt[3]2, \sqrt[3]2\zeta, \sqrt[3]2\zeta^2$, wobei $\zeta = e^{\frac{2\pi i}3}$. Beachte: $\IQ[\sqrt[3]2]\subseteq \IR$. Nach Satz 20.2 ist $\Gal(L\sslash K)\subseteq S_3$. Nun betrachte den surjektiven Ringhomomorphismus 
+	Sei $L$ der Zerfällungskörper von $f = t^3-2\in \IQ[t]$. Sei $K\coloneqq \IQ$. $f$ hat 3 Nullstellen in $L$, nämlich $\sqrt[3]2, \sqrt[3]2\zeta, \sqrt[3]2\zeta^2$, wobei $\zeta = e^{\frac{2\pi i}3}$. Beachte: $\IQ[\sqrt[3]2]\subseteq \IR$. Nach \cref{thm:grupOpTreuTransGaloisGrup} ist $\Gal(L\sslash K)\subseteq S_3$. Nun betrachte den surjektiven Ringhomomorphismus 
 	\begin{eqnarray*}
 		\ev = \ev_{\sqrt[3]2} \colon \IQ[t] &\longto & \IQ[\sqrt[3]2]\\
 		t &\longmapsto &\sqrt[3]2\\
 		g(t) &\longmapsto &g(\sqrt[3]2)
 	\end{eqnarray*}
-	Er induziert einen Ringhomomorphismus $\overline{\ev}\colon \IQ[t]/(t^3-2)\to \IQ(\sqrt[3]2)$ nach Homomorphiesazt immernoch surjektiv. Da $t^3-2$ irreduzibel ist, ist $\IQ[t]/(t^3-2)$ Körper. Damit ist $\overline{\ev}$ injektiv, also bijektiv, also Körperisomorphismus. Folglich ist $[\IQ(\sqrt[3]2):\IQ] = \deg m_{\sqrt[3]2}(t) = 3$. Aber $L$ enthält echte komplexe Zahlen, also $[L:\IQ(\sqrt[3]2)]>1$. Das heißt, dass $[L:\IQ] = [L:\IQ(\sqrt[3]2)][\IQ(\sqrt[3]2):\IQ]\geq 2\cdot 3 = 6$. Dabei ist $L$ Zerfällungskörper von $f$ über $K$, also normal und separabel, da $\chr\IQ= 0$ (und $L\sslash K$ algebraisch). Insgesamt ist $L\sslash K$ Galoissch, und mit \ref{thm:21.1} folgt $6\leq [L:K] = |\Gal(L\sslash K)| \leq 6\Rightarrow \Gal(L\sslash K) \cong S_3$.
+	Er induziert einen Ringhomomorphismus $\overline{\ev}\colon \IQ[t]/(t^3-2)\to \IQ(\sqrt[3]2)$ nach Homomorphiesazt immernoch surjektiv. Da $t^3-2$ irreduzibel ist, ist $\IQ[t]/(t^3-2)$ Körper. Damit ist $\overline{\ev}$ injektiv, also bijektiv, also Körperisomorphismus. Folglich ist $[\IQ(\sqrt[3]2):\IQ] = \deg m_{\sqrt[3]2}(t) = 3$. Aber $L$ enthält echte komplexe Zahlen, also $[L:\IQ(\sqrt[3]2)]>1$. Das heißt, dass $[L:\IQ] = [L:\IQ(\sqrt[3]2)][\IQ(\sqrt[3]2):\IQ]\geq 2\cdot 3 = 6$. Dabei ist $L$ Zerfällungskörper von $f$ über $K$, also normal und separabel, da $\chr\IQ= 0$ (und $L\sslash K$ algebraisch). Insgesamt ist $L\sslash K$ Galoissch, und mit \cref{thm:21.1} folgt $6\leq [L:K] = |\Gal(L\sslash K)| \leq 6\Rightarrow \Gal(L\sslash K) \cong S_3$.
 	
 \end{bsp}
 
@@ -3486,8 +3502,8 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
 	Sei $L\sslash K$ endliche Körpererweiterung, Galoissch, $G \coloneqq \Gal(L\sslash K)$. Dann existiert eine Bijektion:
 	\begin{eqnarray*}
 		\Phi\colon \{\text{Untergruppen }H<G\}&\xlongleftrightarrow{1:1}&\{\text{Zwischenkörper }K\subseteq M\subseteq L\}\\
-		H &\longmapsto & L^H \coloneqq \{x\in L|\phi(x) = x\forall \phi\in H\}\\
-		\{g\in G|g(m) = m\forall m\in M\}\eqqcolon H_M &\longmapsfrom& M
+		H &\longmapsto & L^H \coloneqq \{x\in L\mid\phi(x) = x~\forall \phi\in H\}\\
+		\{g\in G\mid g(m) = m~\forall m\in M\}\eqqcolon H_M &\longmapsfrom& M
 	\end{eqnarray*}
 Dabei entsprechen normale Untergruppen $N\nt G$ genau den Zwischenkörpern $K\subseteq M\subseteq L$ mit $M\sslash K$ normal. Und in diesem Fall gilt dann $\Gal(M\sslash K) = G/N$.
 \end{satz}
@@ -3497,7 +3513,7 @@ Dabei entsprechen normale Untergruppen $N\nt G$ genau den Zwischenkörpern $K\su
 
 \noindent Vorbereitung zum Beweis:
 \begin{satz}\label{thm:22.2}
-	$L$ Körper. $G\subseteq \{\phi\colon L\to L|\phi\text{ bijektiver Körperhomomorphismus}\}$. $G$ sei endliche Gruppe. Dann: $L\sslash L^G$ ist Galoissch und $\Gal(L\sslash L^G) = G$. 
+	Sei $L$ ein Körper. $G\subseteq \{\phi\colon L\to L\mid\phi\text{ bijektiver Körperhomomorphismus}\}$. $G$ sei eine endliche Gruppe. Dann: $L\sslash L^G$ ist galoissch und $\Gal(L\sslash L^G) = G$. 
 \end{satz}
 \begin{proof}
 	Sei $K\coloneqq L^G$ und $n = |G|$. Sei $a\in L\Rightarrow X\coloneqq\{\phi(a)|\phi\in G\}$ endliche Menge, da $|G|$ endlich. Betrachte $f\coloneqq f_a\coloneqq  \prod_{b\in X}(t-b)$. Jedes $\phi\in G$ definiert injektive Abbildung $\phi\colon X\to X$, also bijektiv, wei $X$ endlich. $\Rightarrow \phi_*(f) = \prod_{b\in X} (t-\phi(b)) =\prod_{b\in X}(t-b) = f \Rightarrow f\in L^G[t] = K[t]$. Es gilt $f(a) = 0$ und $f$ separabel (über $K$) und alle Nullstellen in $L\Rightarrow L$ ist Zerfällungskörper von allen $f_a$ ($a\in L$).
@@ -3529,14 +3545,15 @@ Letzter Schritt: $\Gal(L^H\sslash K) \cong G/H$, falls $H\nt G$. Da $L\sslash K$
 	res\colon G &\longto & \Gal(L^H\sslash K)\\
 	g & \longmapsto & g|_{L^H}
 \end{eqnarray*}
-Das ist offensichtlich ein Gruppenhomomorphismus mit $\ker{res} = \{g\in \Gal(L\sslash K)|g|_{L^H} = \id\} = \Psi(L^H) = H$. Wir erhalten also einen induzierten Gruppenhomomorphismus $\overline{res}\colon G/H\to \Gal(L^H\sslash K)$, der nach Konstruktion injektiv ist. Außerdem ist $|\Gal(L^H\sslash K)| = [L^H:K]$ nach \ref{thm:21.1} und $[L:K] = [L:L^H][L^H:K]$, wobei $[L:K] = |G|$ nach Satz \ref{thm:21.1} und $[L:L^H] = |H|$ nach \ref{thm:22.2}; folglich muss gelten: $[L^H:K] = |G/H|$. Also ist $\overline{res}$ ein Gruppenisomorphismus.
+Das ist offensichtlich ein Gruppenhomomorphismus mit $\ker{res} = \{g\in \Gal(L\sslash K)|g|_{L^H} = \id\} = \Psi(L^H) = H$. Wir erhalten also einen induzierten Gruppenhomomorphismus $\overline{res}\colon G/H\to \Gal(L^H\sslash K)$, der nach Konstruktion injektiv ist. Außerdem ist $|\Gal(L^H\sslash K)| = [L^H:K]$ nach \cref{thm:21.1} und $[L:K] = [L:L^H][L^H:K]$, wobei $[L:K] = |G|$ nach Satz \cref{thm:21.1} und $[L:L^H] = |H|$ nach \cref{thm:22.2}; folglich muss gelten: $[L^H:K] = |G/H|$. Also ist $\overline{res}$ ein Gruppenisomorphismus.
 \end{proof}
 
 \lecture{22. Januar 2018}
 
 \begin{bsp}
+	\leavevmode
 	\begin{itemize}
-	\item Sei $\IC/\IR$ eine Galoiserweiterung vom Grad $[\IC:\IR] = 2$. Dann gilt $G = \Gal(\IC/\IR)$. Nach \ref{thm:21.1} ist $|G| = 2\Rightarrow G\cong \IZ/2\IZ$. 
+	\item Sei $\IC/\IR$ eine Galoiserweiterung vom Grad $[\IC:\IR] = 2$. Dann gilt $G = \Gal(\IC/\IR)$. Nach \cref{thm:21.1} ist $|G| = 2\Rightarrow G\cong \IZ/2\IZ$. 
 	\item $f = (t^2-2)(t^2-3)\in \IQ[t]$, $L$ sei der Zerfällungskörper von $f$. Behauptung: $L = \IQ(\sqrt{2}, \sqrt{3})$ hat Basis über $\IQ$: $1, \sqrt{2},\sqrt{3}, \sqrt{6}$ (Übung).
 	\end{itemize}
 \end{bsp}	
@@ -3548,11 +3565,11 @@ Wir wollen nun die Galoiskorrespondenz verwenden, um den Fundamentalsatz der Alg
 	$\IC$ ist algebraisch abgeschlossen.
 \end{satz}
 \begin{proof}
-	Sei $L\sslash \IC$ endliche algebraische Körpererweiterung. Zu zeigen: $L = \IC$. Da $L\sslash \IC$ endlich ist, ist $L\sslash \IR$ ebenfalls endlich. Weil $\chr \IR= 0$ ist, ist $L\sslash \IR$ separabel, o.B.d.A. $L\sslash \IR$ normal (\ref{thm:19.7}). Damit ist $L\sslash \IR$ eine Galoiserweiterung.
+	Sei $L\sslash \IC$ endliche algebraische Körpererweiterung. Zu zeigen: $L = \IC$. Da $L\sslash \IC$ endlich ist, ist $L\sslash \IR$ ebenfalls endlich. Weil $\chr \IR= 0$ ist, ist $L\sslash \IR$ separabel, o.B.d.A. $L\sslash \IR$ normal (\cref{thm:19.7}). Damit ist $L\sslash \IR$ eine Galoiserweiterung.
 	
-	Sei $G:= \Gal(L\sslash \IR)$ und $S\subseteq G$ eine $2$-Sylowgruppe. $L^S\sslash R$ ist eine endliche, algebraische Körpererweiterung. Außerdem gilt: $[L:\IR] = [L:L^S][L^S:\IR]$, wobei $[L:\IR] = |G|$ nach \ref{thm:21.1} und $[L:L^S] = |S|$ nach \ref{thm:22.2}, da $S\subseteq G$ Untergruppe der endlichen Gruppe $G$ ist. Nach \ref{thm:22.2} ist $L\sslash L^S$ außerdem Galoissch. Nun ist $S$ aber eine $2$-Sylowgrppe, folglich ist $[L^S:\IR]$ ungerade. Aus dem Satz vom primitiven Element folgt $L^S = \IR(a)$ mit $\deg(m_a(t))$ ungerade ($m_a(t)\in\IR[t]$). Da es ungeraden Grad hat, hat $m_a(t)$ mindestens eine Nullstelle in $\IR$ (Zwischenwertsatz). Daraus folgt $\deg(m_a(t)) = 1$, weil $m_a(t)\in\IR[t]$ irreduzibel ist. Damit ist $L^S =\IR$ und $G =S$ insbesondere $2$-Gruppe. Da $G$ nun eine $2$-Gruppe ist, existiert nach Satz 6.2 eine Sequenz $\{e\} = G_0\subseteq G_1\subseteq G_2\subseteq\dots\subseteq G_r = G = \Gal(L\sslash \IR)$ von Untergruppen, sodass $G_i/G_{i-1} \cong \IZ/2\IZ$ (für ein geeignetes $r\in\IN$).
+	Sei $G:= \Gal(L\sslash \IR)$ und $S\subseteq G$ eine $2$-Sylowgruppe. $L^S\sslash R$ ist eine endliche, algebraische Körpererweiterung. Außerdem gilt: $[L:\IR] = [L:L^S][L^S:\IR]$, wobei $[L:\IR] = |G|$ nach \cref{thm:21.1} und $[L:L^S] = |S|$ nach \cref{thm:22.2}, da $S\subseteq G$ Untergruppe der endlichen Gruppe $G$ ist. Nach \cref{thm:22.2} ist $L\sslash L^S$ außerdem Galoissch. Nun ist $S$ aber eine $2$-Sylowgrppe, folglich ist $[L^S:\IR]$ ungerade. Aus dem Satz vom primitiven Element folgt $L^S = \IR(a)$ mit $\deg(m_a(t))$ ungerade ($m_a(t)\in\IR[t]$). Da es ungeraden Grad hat, hat $m_a(t)$ mindestens eine Nullstelle in $\IR$ (Zwischenwertsatz). Daraus folgt $\deg(m_a(t)) = 1$, weil $m_a(t)\in\IR[t]$ irreduzibel ist. Damit ist $L^S =\IR$ und $G =S$ insbesondere $2$-Gruppe. Da $G$ nun eine $2$-Gruppe ist, existiert nach Satz 6.2 eine Sequenz $\{e\} = G_0\subseteq G_1\subseteq G_2\subseteq\dots\subseteq G_r = G = \Gal(L\sslash \IR)$ von Untergruppen, sodass $G_i/G_{i-1} \cong \IZ/2\IZ$ (für ein geeignetes $r\in\IN$).
 	
-	Mit der Galoiskorrespondenz (\ref{thm:21.1}) erhalten wir eine Sequenz von Körpererweiterungen $L = L^{\{e\}}\subseteq L^{G_1}\supseteq L^{G_2}\supseteq\dots \supseteq L^{G_r} = L^G = \IR$, wobei die letzte Gleichheit aus \ref{thm:21.1} folgt. Setze $L^{G_i} = L_i$. Damit ist $L_i\sslash L_{i+1}$ Galoissch mit Galoisgruppe $G_{i+1}/G_i$ (Zusatz zur Korrespondenz für Normalteiler). Insgesamt erhalten wir $L$ also aus $\IR$ durch sukzessive endlich viele Körpererweiterungen von Grad 2.
+	Mit der Galoiskorrespondenz (\cref{thm:21.1}) erhalten wir eine Sequenz von Körpererweiterungen $L = L^{\{e\}}\subseteq L^{G_1}\supseteq L^{G_2}\supseteq\dots \supseteq L^{G_r} = L^G = \IR$, wobei die letzte Gleichheit aus \cref{thm:21.1} folgt. Setze $L^{G_i} = L_i$. Damit ist $L_i\sslash L_{i+1}$ Galoissch mit Galoisgruppe $G_{i+1}/G_i$ (Zusatz zur Korrespondenz für Normalteiler). Insgesamt erhalten wir $L$ also aus $\IR$ durch sukzessive endlich viele Körpererweiterungen von Grad 2.
 	
 	Aber jede Körpererweiterung vom Grad 2 ist gegeben durch Adjunktion eines Elementes $a$ mit $\deg(m_a(t)) = 2$. Wir wissen: Jedes quadratische Polynom in $\IC[t]$ hat Nullstelle (sogar 2) Nullstellen in $\IC$. Folglich kann $\IC$ nicht durch quadratische Erweiterungen echt vergrößert werden. Damit ist $L = \IC$ (starte mit $\IR\subseteq \IC = L^{G}$). %TODO: das G im exponenten von L hat irgendeinen Index
 	
@@ -3577,7 +3594,7 @@ Falls $\chr (K) = p>0$ und $n = p^sm$ mit $p\not |m$, dann $f = t^n-1 = t^{mp^s}
 	Sei nun $Z = \{z_1,\dots, z_n\}$ die Menge der Nullstellen von $f\in K[t]$ in $\overline{K}$.
 	\item[2. Behauptung:] $Z\subseteq \overline{K}^{\times}$ ist eine zyklische Untergrupe.
 	\begin{proof}
-		$z_i, z_j\in Z\Rightarrow (z_iz_j)^n-1 = z_i^nz_j^n-1 = 1\cdot 1-1 = 0\Rightarrow z_iz_j\in Z$ und $(z_i^{-1})^n -1 = (z_i^n)^{-1}-1 = 1-1 = 0$; folglich ist $z_i^{-1}\in Z$ (klar: $e  = 1\in Z$). Damit ist $Z$ eine Untergruppe von $\overline{K}^{\times}$. Da $Z<\overline{K}^{\times}$ endlich ist, ist nach \ref{thm:17.3} $Z$ zyklisch. 
+		$z_i, z_j\in Z\Rightarrow (z_iz_j)^n-1 = z_i^nz_j^n-1 = 1\cdot 1-1 = 0\Rightarrow z_iz_j\in Z$ und $(z_i^{-1})^n -1 = (z_i^n)^{-1}-1 = 1-1 = 0$; folglich ist $z_i^{-1}\in Z$ (klar: $e  = 1\in Z$). Damit ist $Z$ eine Untergruppe von $\overline{K}^{\times}$. Da $Z<\overline{K}^{\times}$ endlich ist, ist nach \ref{thm:endlKoeZyklMult} $Z$ zyklisch. 
 	\end{proof}
 \end{description}
 Folglich $Z \cong \IZ/n\IZ$ als Gruppe, weil $|Z| = n$ nach der 1. Behauptung. Damit hat $Z$ genau $\phi(n)$ verschiedene Erzeuger, da $\phi(n) = |\{\overline{m}\in \IZ/n\IZ|ggT (m,n) = 1\}|$. %TODO: ggT als mathoperator hinzufügen
