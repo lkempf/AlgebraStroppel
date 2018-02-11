@@ -890,7 +890,7 @@ Betrachte zu einer Gruppe die abgeleitete Reihe:
 	Nach Satz 5.3 hat man \[ \underbrace{|G|}_{\mathclap{\text{durch $p$ teilbar}}}  = |Z(G)| + \underbrace{\sum_{\substack{i\in I,\\x_i\notin Z(G)}}(G: G_{x_i})}_{A}.\] Nach dem \namereff{thm:lagrange} ist $A$ durch $p$ teilbar oder gleich $1$, weil $G$ eine $p$-Gruppe ist. Letzters kann aber nicht sein, da $(G:G_{x_i}) = 1 \Leftrightarrow G = G_{x_i}\Leftrightarrow x_i\in Z(G)$, Widerspruch. Also sind die Summanden $(G:G_{x_i})$ und somit auch $A$ durch $p$ teilbar. Damit teilt $p$ auch $|Z(G)|\Rightarrow |Z(G)|\geq 2\Rightarrow Z(G)\neq \{e\}$.
 \end{proof}
 
-\begin{satz}
+\begin{satz} \label{thm:p-gruppe aufloesbar}
 	Sei $G$ eine $p$-Gruppe. Dann existiert eine Normalreihe der Form
 	$$ \{e\}\nt G_0\nt\dots\nt G_n = G$$ für ein $n\in\IN$, sodass $G_i/G_{i-1}\cong \IZ/p\IZ$ \textup($1\le i\le n$\textup).
 	Insbesondere ist $G$ auflösbar.
@@ -2364,7 +2364,7 @@ Beachte: $K\subseteq K[\alpha_1,\dots, \alpha_n]\subseteq K(\alpha_1,\dots, \alp
 	\end{enumerate}
 \end{bsp}
 
-\begin{defi}
+\begin{defi} \label{def:endlerz und einfach}
 	Eine Körpererweiterung $L\sslash K$ heißt endlich erzeugt, falls $\alpha_1,\dots, \alpha_n\in L$ existieren, sodass $L = K(\alpha_1,\dots, \alpha_n)$. $L\sslash K$ heißt einfach (oder auch primitiv), falls ein $\alpha\in L$ mit $L = K(\alpha)$ existiert.
 \end{defi}
 
@@ -3190,6 +3190,7 @@ Vorbereitung zum Beweis von \cref{thm:spezielle galoiskorrespondenz}:
   \qedhere
 	\end{enumerate}
 \end{proof}
+Wir rufen uns an dieser Stelle die Definition einer einfachen Körpererweiterungen ins Gedächtnis (siehe \cref{def:endlerz und einfach}).
 \begin{defi} $L\sslash K$ heißt einfach, falls ein $a\in L$ existiert, sodass $L\cong K(a)$ gilt.
 \end{defi}
 \begin{satz} \label{thm:khomo <-> nullstellen}
@@ -3398,7 +3399,7 @@ Sei $L\sslash K$ eine endliche Körpererweiterung. Dann sind äquivalent:
 		\qedhere
 	\end{description}
 \end{proof}
-\begin{satz}[Satz vom primitiven Element]\label{thm:19.14}
+\begin{satz}[Satz vom primitiven Element]\label{thm:primitives element}
 	Sei $L\sslash K$ eine endliche, separable Körpererweiterung. Dann existiert ein $a\in L$ mit $L = K(a)$. Man nennt $a$ dann primitives Element.
 \end{satz}
 
@@ -3470,9 +3471,9 @@ Sei $L\sslash K$ eine endliche Körpererweiterung. Dann sind äquivalent:
 \begin{satz}[Galoiserweiterungen]\label{thm:21.1}
 	Sei $L\sslash K$ endlich. Dann sind äquivalent:
 	\begin{enumerate}
-		\item $L\sslash K$ ist Galoissch.
+		\item $L\sslash K$ ist galois.
 		\item $[L:K] = |\Gal(L\sslash K)|$
-		\item $K = L^{\Gal(L\sslash K)}\eqqcolon\{x\in L\mid\phi(x) = x~\forall \phi\in \Gal(L\sslash K)\}$
+		\item $K = L^{\Gal(L\sslash K)} := \{x\in L\mid \forall \phi\in \Gal(L\sslash K): \phi(x) = x\}$
 		\item Für alle $a\in L$ ist \[m_a(t) = \prod_{\mathclap{b\in \Gal(L\sslash K).a}}(t-b).\]
 	\end{enumerate}
 \end{satz}
@@ -3480,80 +3481,87 @@ Sei $L\sslash K$ eine endliche Körpererweiterung. Dann sind äquivalent:
 
 \lecture{18. Januar 2018}
 \begin{proof}
-	\leavevmode
+	Wir setzen $G := \Gal(L\sslash K)$.
 	\begin{description}
-		\item[$1\Rightarrow2$:] $L\sslash K$ Galoissch, insbesondere separabel. Dann folgt nach dem Satz über separable Erweiterungen: $[L:K]_{\sep} = [L:K]$. Andererseits: $[L:K]_{\sep} = |\{\phi\colon L\to \overline{K}|\phi\ K\text{-Homo}\}|$. Da $L\sslash K$ normal ist, ist $|\{\phi\colon L\to \overline{K}|\phi\ K\text{-Homo}\}| = |\{\phi\colon L\to L|\phi\ K\text{-Homo}\}| = \Gal(L\sslash K)$.
-		\item[$2\Rightarrow 3$:] Setze $G = \Gal(L\sslash K)$. Klar: $K\subseteq L^G\subseteq L$ Zwischenkörper. Dabei $[L:L^G] \geq |\{\phi\colon L\to L|\phi\ L^G\text{-Homo}\}| = |\Gal(L\sslash L^G)|\geq |G| = [L:K]\geq [L:L^G]$. Dabei muss in dieser Ungleichungskette überall Gleichheit gelten. Damit folgt $[L:L^G] = [L:K]$ und $K = L^G$.
-		\item[$3\Rightarrow 4$:] Sei $a\in L$. Dann ist $a$ Nullstelle von $m_a(t)\in K[t]$ Minimalpolynom von $a$. $\Rightarrow \phi(a)$ ist Nullstelle von $m_a(t)$ $\forall \phi\in G$. Also:
-		$$f\coloneqq \prod_{b\in G.a}(t-b)$$
-	 	teilt $m_a(t)\in L[t]$. (Beachte: $G.a = \{\phi(a)|\phi\in G\}$). Sei $f = \sum_{i\geq 0}c_it^i$. Dann sei für $\phi\in G$: $\phi_*(f)\coloneqq \sum_{i\geq 0} \phi(c_i)t^i$. Andererseits ist $\phi_*(f) = \prod_{b\in G.a}(t-\phi(b)) = \prod_{b\in G.a}(t-b) = f$. Also muss $\phi(c_i) = c_i$ für alle $i$ gelten (und zwar für alle $\phi\in G$). Damit ist $c_i\in L^G$ für alle $i$; nach Voraussetzung gilt $f\in K[t]$; $m_a(t)$ teilt folglich $f$. Insgesamt gilt daher $m_a(t) = f$.
+		\item[$1\Rightarrow2$:] Sei $L\sslash K$ galois, also insbesondere separabel. Dann folgt nach der \namereff{lem:separabel}: $[L:K]_{\sep} = [L:K]$. Deshalb gilt mit der Definition des Separabilitätsgrad und aufgrund der Normalität von $L \sslash K$ bereits
+		\begin{align*}
+			[L:K] &= [L:K]_{\sep} = |\{\phi\colon L\to \overline{K}\mid \text{$\phi$ $K$-Homomorphismus}\}| \\
+			&= |\{\phi\colon L\to L\mid \text{$\phi$ $K$-Homomorphismus}\}| \\
+			&= |\Gal(L\sslash K)|.
+		\end{align*}
+		\item[$2\Rightarrow 3$:] Offensichtlich ist $K\subseteq L^G\subseteq L$ ein Zwischenkörper. Dabei gilt nun die Ungleichungskette \begin{align*}[L:L^G] &\ge |\{\phi\colon L\to L\mid \text{$\phi$ $L^G$-Homomorphismus}\}| = |\Gal(L\sslash L^G)|\\&\ge |G| = [L:K]\ge [L:L^G],\end{align*} wobei die erste Ungleichung dem aufmerksamen Leser als Übung überlassen bleibt. Da nun überall Gleichheit folgt, gilt $[L:L^G] = [L:K]$ und somit $K = L^G$.
+		\item[$3\Rightarrow 4$:] Sei $a\in L$. Dann ist $a$ Nullstelle des Minimalpolynoms $m_a(t)\in K[t]$ von $a$, und damit auch $\phi(a)$ für alle $\phi\in G$. Also teilt
+		\[f(t) := \prod_{\mathclap{b\in G.a = \{\phi(a)\mid\phi\in G\}}}(t-b)\]
+	 	dann $m_a(t)\in L[t]$. Sei $f(t) = \sum_{i\ge 0}c_it^i$. Für $\phi\in G$ definieren wir $\phi_*(f) := \sum_{i\ge 0} \phi(c_i)t^i$. Andererseits ist $\phi_*(f) = \prod_{b\in G.a}(t-\phi(b)) = \prod_{b\in G.a}(t-b) = f$. Also muss $\phi(c_i) = c_i$ für alle $i$ gelten (und zwar für alle $\phi\in G$). Damit ist $c_i\in L^G$ für alle $i$; nach Voraussetzung gilt $f\in K[t]$; $m_a(t)$ teilt folglich $f(t)$. Insgesamt gilt daher $m_a(t) = f(t)$.
 		\item[$4\Rightarrow 1$:] Für alle $a$ in $L$ zerfällt $m_a(t)$ nach Voraussetzung in Linearfaktoren über $L$ und hat keine mehrfachen Nullstellen. Also ist $L\sslash K$ separabel.
 		
-		Sei nun $f\in K[t]$ irreduzibel. Sei $f(a) = 0$ für ein $a\in L$. Da $f$ irreduzibel ist und $f(a)=0$, ist $f = \epsilon m_a(t)$ mit $\epsilon\in K^{\times}$. Da $m_a(t)$ in Linearfaktoren zerfällt über $L$, zerfällt auch $f\Rightarrow L\sslash K$ normal. Damit ist $L\sslash K$ Galoissch. 
+		Sei nun $f\in K[t]$ irreduzibel. Sei $f(a) = 0$ für ein $a\in L$. Da $f$ irreduzibel ist und $f(a)=0$, ist $f = \epsilon m_a(t)$ mit $\epsilon\in K^{\times}$. Da $m_a(t)$ über $L$ in Linearfaktoren zerfällt, zerfällt auch $f$; $L\sslash K$  ist also normal. Damit ist $L\sslash K$ galois.
+		\qedhere
 	\end{description}
 
 \end{proof}
 
 \begin{bsp}[Berechnung der Galoisgruppe]
-	Sei $L$ der Zerfällungskörper von $f = t^3-2\in \IQ[t]$. Sei $K\coloneqq \IQ$. $f$ hat 3 Nullstellen in $L$, nämlich $\sqrt[3]2, \sqrt[3]2\zeta, \sqrt[3]2\zeta^2$, wobei $\zeta = e^{\frac{2\pi i}3}$. Beachte: $\IQ[\sqrt[3]2]\subseteq \IR$. Nach \cref{thm:grupOpTreuTransGaloisGrup} ist $\Gal(L\sslash K)\subseteq S_3$. Nun betrachte den surjektiven Ringhomomorphismus 
+	Sei $L$ der Zerfällungskörper von $f(t) = t^3-2\in \IQ[t]$. Sei $K\coloneqq \IQ$. $f$ hat 3 Nullstellen in $L$, nämlich $\sqrt[3]2, \sqrt[3]2\zeta, \sqrt[3]2\zeta^2$, wobei $\zeta = e^{\frac{2\pi i}3}$. Man beachte $\IQ[\sqrt[3]2]\subseteq \IR$. Nach \cref{thm:grupOpTreuTransGaloisGrup} ist $\Gal(L\sslash K)\subseteq S_3$. Nun betrachte den surjektiven Ringhomomorphismus 
 	\begin{eqnarray*}
-		\ev = \ev_{\sqrt[3]2} \colon \IQ[t] &\longto & \IQ[\sqrt[3]2]\\
+		\ev := \ev_{\sqrt[3]2} \colon \IQ[t] &\longto & \IQ[\sqrt[3]2]\\
 		t &\longmapsto &\sqrt[3]2\\
 		g(t) &\longmapsto &g(\sqrt[3]2)
 	\end{eqnarray*}
-	Er induziert einen Ringhomomorphismus $\overline{\ev}\colon \IQ[t]/(t^3-2)\to \IQ(\sqrt[3]2)$ nach Homomorphiesazt immernoch surjektiv. Da $t^3-2$ irreduzibel ist, ist $\IQ[t]/(t^3-2)$ Körper. Damit ist $\overline{\ev}$ injektiv, also bijektiv, also Körperisomorphismus. Folglich ist $[\IQ(\sqrt[3]2):\IQ] = \deg m_{\sqrt[3]2}(t) = 3$. Aber $L$ enthält echte komplexe Zahlen, also $[L:\IQ(\sqrt[3]2)]>1$. Das heißt, dass $[L:\IQ] = [L:\IQ(\sqrt[3]2)][\IQ(\sqrt[3]2):\IQ]\geq 2\cdot 3 = 6$. Dabei ist $L$ Zerfällungskörper von $f$ über $K$, also normal und separabel, da $\chr\IQ= 0$ (und $L\sslash K$ algebraisch). Insgesamt ist $L\sslash K$ Galoissch, und mit \cref{thm:21.1} folgt $6\leq [L:K] = |\Gal(L\sslash K)| \leq 6\Rightarrow \Gal(L\sslash K) \cong S_3$.
+	Er induziert einen Ringhomomorphismus $\overline{\ev}\colon \IQ[t]/(t^3-2)\to \IQ(\sqrt[3]2)$ nach Homomorphiesazt, welcher nachwievor surjektiv ist. Da $t^3-2$ irreduzibel ist, ist $\IQ[t]/(t^3-2)$ ein Körper. Damit ist $\overline{\ev}$ injektiv, also bijektiv und damit ein Körperisomorphismus. Folglich ist $[\IQ(\sqrt[3]2):\IQ] = \deg m_{\sqrt[3]2}(t) = 3$. Aber $L$ enthält echte komplexe Zahlen, also $[L:\IQ(\sqrt[3]2)]>1$. Das heißt, dass $[L:\IQ] = [L:\IQ(\sqrt[3]2)][\IQ(\sqrt[3]2):\IQ]\geq 2\cdot 3 = 6$. Da $L$ Zerfällungskörper von $f$ über $K$ ist, ist $L\sslash K$ also normal und separabel, da $\chr\IQ= 0$ (und $L\sslash K$ algebraisch) ist. Insgesamt ist $L\sslash K$ galois, und mit \cref{thm:21.1} folgt $6\leq [L:K] = |\Gal(L\sslash K)| \leq 6$, also $|\Gal(L \sslash K)| = 6$ und damit $\Gal(L\sslash K) \cong S_3$.
 	
 \end{bsp}
 
 \subsection{Galoiskorrespondenz}
-\begin{satz}[Galoiskorrespondenz]\label{thm:22.1}
-	Sei $L\sslash K$ endliche Körpererweiterung, Galoissch, $G \coloneqq \Gal(L\sslash K)$. Dann existiert eine Bijektion:
+\begin{satz}[Galoiskorrespondenz]\label{thm:galoiskorrespondenz}
+	Sei $L\sslash K$ eine endliche Galoiserweiterung. Wir setzen $G \coloneqq \Gal(L\sslash K)$. Dann existiert eine Bijektion
 	\begin{eqnarray*}
 		\Phi\colon \{\text{Untergruppen }H<G\}&\xlongleftrightarrow{1:1}&\{\text{Zwischenkörper }K\subseteq M\subseteq L\}\\
-		H &\longmapsto & L^H \coloneqq \{x\in L\mid\phi(x) = x~\forall \phi\in H\}\\
-		\{g\in G\mid g(m) = m~\forall m\in M\}\eqqcolon H_M &\longmapsfrom& M
+		H &\longmapsto & L^H := \{x\in L\mid\forall \phi\in H\phi(x) = x\}\\
+		\{g\in G\mid\forall m\in M: g(m) = m\} =: H_M &\longmapsfrom& M.
 	\end{eqnarray*}
-Dabei entsprechen normale Untergruppen $N\nt G$ genau den Zwischenkörpern $K\subseteq M\subseteq L$ mit $M\sslash K$ normal. Und in diesem Fall gilt dann $\Gal(M\sslash K) = G/N$.
+Dabei entsprechen normale Untergruppen $N\nt G$ genau den Zwischenkörpern $K\subseteq M\subseteq L$ mit $M\sslash K$ normal. In diesem Fall gilt dann $\Gal(M\sslash K) \cong G/N$.
 \end{satz}
 \begin{bem}
-	$\Phi$ ist verträglich mit Inklusion in folgender Weise: Seien $H_1, H_2<G$. Dann $H_1\subseteq H_2\Leftrightarrow \Phi(H_1)\supseteq \Phi(H_2)$
+	$\Phi$ ist verträglich mit Inklusion in folgender Weise: Sind $H_1, H_2<G$, so gilt \[H_1\subseteq H_2 \quad\Longleftrightarrow\quad \Phi(H_1)\supseteq \Phi(H_2).\]
 \end{bem}
 
-\noindent Vorbereitung zum Beweis:
+\medskip
+
+Zum Beweis benötigen wir den folgenden
 \begin{satz}\label{thm:22.2}
-	Sei $L$ ein Körper. $G\subseteq \{\phi\colon L\to L\mid\phi\text{ bijektiver Körperhomomorphismus}\}$. $G$ sei eine endliche Gruppe. Dann: $L\sslash L^G$ ist galoissch und $\Gal(L\sslash L^G) = G$. 
+	Sei $L$ ein Körper sowie $G$ eine endliche Gruppe mit $G\subseteq \{\phi\colon L\to L\mid\text{$\phi$ Körperisomorphismus}\}$. Dann ist $L\sslash L^G$ galois und es gilt $\Gal(L\sslash L^G) = G$.
 \end{satz}
 \begin{proof}
-	Sei $K\coloneqq L^G$ und $n = |G|$. Sei $a\in L\Rightarrow X\coloneqq\{\phi(a)|\phi\in G\}$ endliche Menge, da $|G|$ endlich. Betrachte $f\coloneqq f_a\coloneqq  \prod_{b\in X}(t-b)$. Jedes $\phi\in G$ definiert injektive Abbildung $\phi\colon X\to X$, also bijektiv, wei $X$ endlich. $\Rightarrow \phi_*(f) = \prod_{b\in X} (t-\phi(b)) =\prod_{b\in X}(t-b) = f \Rightarrow f\in L^G[t] = K[t]$. Es gilt $f(a) = 0$ und $f$ separabel (über $K$) und alle Nullstellen in $L\Rightarrow L$ ist Zerfällungskörper von allen $f_a$ ($a\in L$).
-	Nach der Bemerkung zum  Satz über normale Körpererweiterungen ist $L\sslash K$ normal und nach Konstruktion separabel. Also ist $L\sslash K = L\sslash L^G$ Galoissch.
+	Sei $K := L^G$ und $n = |G|$. Sei nun $a\in L$. Dann ist $X := \{\phi(a)|\phi\in G\}$ eine endliche Menge, da $|G|$ endlich ist. Betrachte $f := f_a := \prod_{b\in X}(t-b)$. Jedes $\phi\in G$ definiert eine injektive Abbildung $\phi\colon X\to X$, welche aufgrund der Endlichkeit von $X$ schon bijektiv ist. Weiterhin sei $\phi_*(f) := \prod_{b\in X} (t-\phi(b)) =\prod_{b\in X}(t-b) = f$, weshalb $f\in L^G[t] = K[t]$ gilt. Somit ist $a$ Nullstelle von $f$, $f$ separabel (über $K$) und es liegen alle Nullstellen von $f$ in $L$; $L$ ist also Zerfällungskörper von allen $f_a$ mit $a\in L$.
 	
-	Noch zu zeigen: $G = \Gal(L\sslash L^G)$. Wir wissen:
-	\begin{enumerate}
-		\item  für alle $a\in L$ ist $[K(a):K]\leq n$, denn $m_a(t)$ teilt $f_a$ und somit $[K(a):K] = \deg(m_a(t))\geq \deg(f_a)\geq |G| = n$.
-		\item Klar: $G\subseteq Gal(L\sslash L^G)$. 
-	\end{enumerate}
-	Andererseits:$n = |G|\leq |Gal(L\sslash L^G)| = [L:L^G] = [L:K]\leq n$. Folglich sind alle $\leq$ sogar $=$ und $|G| = |\Gal(L\sslash K)|$, woraus folgt $G = \Gal(L\sslash K)$.
+	Nach der \namereff{thm:normalitaet} bzw. der nachfolgenden Bemerkung ist $L\sslash K$ normal und nach Konstruktion separabel. Also ist $L\sslash K = L\sslash L^G$ galois.
+	
+	Es bleibt $G = \Gal(L\sslash L^G)$ zu zeigen. Dabei ist die Inklusion $G \subseteq \Gal(L \sslash L^G)$ trivial. Weiterhin wissen wir, dass $[K(a): K] \le n$ ist, da $f_a$ von $m_a(t)$ geteilt wird und somit $[K(a) : K] = \deg m_a(t) \ge \deg f_a \ge \abs G = n$ gilt. Andererseits haben wir $n = |G|\le |\Gal(L\sslash L^G)| = [L:L^G] = [L:K]\leq n$. Folglich gilt überall Gleichheit und $|G| = |\Gal(L\sslash K)|$, woraus $G = \Gal(L\sslash K)$ folgt.
 \end{proof}
 
-\noindent Nun zu
-\begin{proof}[Beweis von \ref{thm:22.1}]
-$G\coloneqq \Gal(L\sslash K)$. Es gilt: $L\sslash K$ Galoissch $\Rightarrow L\sslash M$ Galoissch für alle Zwischenkörper $K\subseteq M\subseteq L$ (nachprüfen!). Sei $\Psi \colon M\mapsto H_M$ wie im Satz. $\Phi\circ\Psi = \id$, denn $\Phi(\Psi(M)) =\Phi( H_M )= \Phi(\{g\in G|g(m) = m\forall m\in M\} )= \Phi(\Gal(L\sslash M)) = L^{\Gal(L\sslash M)} = M$ nach Satz \ref{thm:22.2}, weil $|G|$ endlich ist, also $|\Gal(L\sslash M)|$ endlich.
-
-Weiterhin ist $\Psi\circ\Phi = \id$, denn $\Psi(\Phi(H)) = \Psi(L^H) =H_{L^H}$ mit $H_{L^H} = \{g\in G|g(x) = x\forall x\in L^H\} = \Gal(L\sslash L^H) = H$ nach Satz \ref{thm:22.2}. Also ist $\Phi$ tatsächlich eine Bijektion.
-
-Noch zu zeigen: Korrespondenz zwischen normalen Untergruppen und normalen Körpererweiterungen. Vorbemerkung dazu: Für $g\in \Gal(L\sslash K)$ gilt $g(L^H) =L^{gHg^{-1}}$ für $H<G$. Denn:
+Nun folgt der
+\begin{proof}[Beweis der \namereff{galoiskorrespondenz}]
+Sei zunächst $G\coloneqq \Gal(L\sslash K)$. Der aufmerksame Leser prüft geschwind nach, dass für eine Galoiserweiterung $L\sslash K$ die Körpererweiterungen $L\sslash M$ galois für alle Zwischenkörper $K\subseteq M\subseteq L$ sind. Sei $\Psi \colon M\mapsto H_M$ wie im Satz definiert.
 \begin{description}
-	\item[\glqq$\subseteq$\grqq:] $x\in g(L^H)\Leftrightarrow x = g(y)$ für ein $y\in L^H \Leftrightarrow x = g(y)$ für ein $y$ mit $\phi(y) = y\forall \phi\in H\Rightarrow (g\circ \phi\circ g^{-1}) (x) = g(\phi(y))  = g(y) = x\forall \phi\in H$.
-	\item[\glqq$\supseteq$\grqq:] Sei $x$ in $L^{gHg^{-1}}\Leftrightarrow g\circ\phi\circ g^{-1}(x) = x\forall \phi\in H\Leftrightarrow g^{-1}(x) = \phi(g^{-1}(x))\forall \phi\in H$. Setze $y\coloneqq g^{-1}(x) = L^H$. Dann $x = g(y)\in g(L^H)$. 
+	\item[$\Phi\circ\Psi = \id$:] Sei $M$ ein Zwischenkörper von $K$ und $L$. Dann gilt $\Phi(\Psi(M)) = \Phi(H_M) = \Phi(\{g\in G\mid \forall m\in M:g(m) = m\}) = \Phi(\Gal(L\sslash M)) = L^{\Gal(L\sslash M)} = M$ nach \cref{thm:22.2}, weil $|G|$ und damit auch $|\Gal(L\sslash M)|$ endlich ist.
+	\item[$\Psi\circ\Phi = \id$:] Sei $H<G$. Dann gilt $\Psi(\Phi(H)) = \Psi(L^H) =H_{L^H}$ mit $H_{L^H} = \{g\in G\mid \forall x\in L^H: g(x) = x\} = \Gal(L\sslash L^H) = H$ nach \cref{thm:22.2}.
 \end{description}
-Sei $H<G$. Dann $L^H\sslash K$ normal $\Leftrightarrow \forall a\in L^H$ sind alle Nullstellen von $m_a(t)\in K[t]$ in $L^H$ enthalten $\Leftrightarrow \forall a\in L^H g(a) \in L^H\forall g\in G$ (weil $G$ transitiv auf den Nullstellen operiert). $\Leftrightarrow \forall g\in G: g(L^H) = L^H$ (weil $[L:K]$ endlich). Nach der Vorbemerkung ist das äquivalent zu: $\forall g\in G: L^H = L^{gHg^{-1}} \Leftrightarrow H = gHg^{-1}\forall g\in G$, da $\Phi$ bijektiv ist $\Leftrightarrow H\nt G$ Normalteiler.
+Also ist $\Phi$ tatsächlich eine Bijektion.
 
-Letzter Schritt: $\Gal(L^H\sslash K) \cong G/H$, falls $H\nt G$. Da $L\sslash K$ separabel nach Voraussetzung ist, ist insbesondere $L^H\sslash K$ separabel. Falls $H\nt G$ gilt (siehe oben) $g(L^H) = L^H\forall g\in G$, also erhalten wir eine wohldefinierte Abbildung
+Es bleibt die Korrespondenz zwischen normalen Untergruppen und normalen Körpererweiterungen zu zeigen. Dazu beweisen wir zunächst, dass für alle $g\in \Gal(L\sslash K)$ dann $g(L^H) =L^{gHg^{-1}}$ für $H<G$ gilt.
+\begin{description}
+	\item[\glqq$\subseteq$\grqq:] Sei $x\in g(L^H)$. Dann existiert ein $y \in L^H$ mit $x = g(y)$. Für alle $\phi \in H$ gilt $\phi(y)=y$, weshalb $(g \circ \phi \circ g^{-1})(x) = g(\phi(g^{-1}(x))) = g(\phi(y)) = g(y) = x$ für alle $\phi \in H$ gilt. Das bedeutet aber gerade $x \in L^{gHg^{-1}}$.
+	\item[\glqq$\supseteq$\grqq:] Sei $x$ in $L^{gHg^{-1}}$; es gilt also $(g\circ\phi\circ g^{-1})(x) = x$ für alle $\phi\in H$, und damit $g^{-1}(x) = \phi(g^{-1}(x))$ für alle $\phi\in H$. Setzt man $y := g^{-1}(x) \in L^H$, so ist $x = g(y)\in g(L^H)$. 
+\end{description}
+Sei $H<G$. Dann ist $L^H\sslash K$ genau dann normal, wenn für alle $a\in L^H$ die Nullstellen von $m_a(t)$ in $K[t]$ enthalten sind. Das ist genau dann der Fall, wenn $g(a) \in L^H$ für alle $a \in L^H$ und $g \in G$ gilt, weil $G$ transitiv auf den Nullstellen operiert. Äquivalent dazu ist $g(L^H) = L^H$ für alle $g\in G$, weil $[L:K]$ endlich ist. Nach der Vorbemerkung wissen wir nun aber, dass genau dann $ L^H = L^{gHg^{-1}}$, also $H = gHg^{-1}$ für alle $g\in G$ gilt, da $\Phi$ bijektiv ist. Das bedeutet aber gerade, dass $H\nt G$ ein Normalteiler ist.
+
+Schließlich zeigen wir $\Gal(L^H\sslash K) \cong G/H$ für $H\nt G$. Da $L\sslash K$ nach Voraussetzung separabel ist, ist insbesondere $L^H\sslash K$ separabel. Da $H\nt G$ gilt, folgt nach dem vorherigen Absatz $g(L^H) = L^H$ für alle $g\in G$, wir erhalten also eine wohldefinierte Abbildung
 \begin{eqnarray*}
-	res\colon G &\longto & \Gal(L^H\sslash K)\\
-	g & \longmapsto & g|_{L^H}
+	\res\colon G &\longto & \Gal(L^H\sslash K)\\
+	g & \longmapsto & g|_{L^H}.
 \end{eqnarray*}
-Das ist offensichtlich ein Gruppenhomomorphismus mit $\ker{res} = \{g\in \Gal(L\sslash K)|g|_{L^H} = \id\} = \Psi(L^H) = H$. Wir erhalten also einen induzierten Gruppenhomomorphismus $\overline{res}\colon G/H\to \Gal(L^H\sslash K)$, der nach Konstruktion injektiv ist. Außerdem ist $|\Gal(L^H\sslash K)| = [L^H:K]$ nach \cref{thm:21.1} und $[L:K] = [L:L^H][L^H:K]$, wobei $[L:K] = |G|$ nach Satz \cref{thm:21.1} und $[L:L^H] = |H|$ nach \cref{thm:22.2}; folglich muss gelten: $[L^H:K] = |G/H|$. Also ist $\overline{res}$ ein Gruppenisomorphismus.
+$\res$ ist offensichtlich ein Gruppenhomomorphismus mit \[\ker{\res} = \{g\in \Gal(L\sslash K)\mid g|_{L^H} = \id_{L^H}\} = \Psi(L^H) = H.\] Wir erhalten also einen induzierten Gruppenhomomorphismus $\overline{\res}\colon G/H\to \Gal(L^H\sslash K)$, der nach Konstruktion injektiv ist. Außerdem ist $|\Gal(L^H\sslash K)| = [L^H:K]$ nach \cref{thm:21.1} und $[L:K] = [L:L^H][L^H:K]$, wobei $[L:K] = |G|$ nach \cref{thm:21.1} und $[L:L^H] = |H|$ nach \cref{thm:22.2}; folglich muss $[L^H:K] = |G/H|$ gelten. Also ist $\overline{\res}$ ein Gruppenisomorphismus zwischen $G/H$ und $\Gal(L^H \sslash K)$.
 \end{proof}
 
 \lecture{22. Januar 2018}
@@ -3568,161 +3576,168 @@ Das ist offensichtlich ein Gruppenhomomorphismus mit $\ker{res} = \{g\in \Gal(L\
 
 
 \subsection{Fundamentalsatz der Algebra}
-Wir wollen nun die Galoiskorrespondenz verwenden, um den Fundamentalsatz der Algebra zu beweisen (mihilfe des Zwischenwertsatzes aus der Analysis).
+Wir wollen nun die Galoiskorrespondenz verwenden, um den \namereff{thm:fundamentalsatz} mithilfe des Zwischenwertsatzes aus der Analysis zu beweisen.
 \begin{satz}[Fundamentalsatz der Algebra]\label{thm:fundamentalsatz}
 	$\IC$ ist algebraisch abgeschlossen.
 \end{satz}
 \begin{proof}
-	Sei $L\sslash \IC$ endliche algebraische Körpererweiterung. Zu zeigen: $L = \IC$. Da $L\sslash \IC$ endlich ist, ist $L\sslash \IR$ ebenfalls endlich. Weil $\chr \IR= 0$ ist, ist $L\sslash \IR$ separabel, o.B.d.A. $L\sslash \IR$ normal (\cref{thm:existenz normaler oberkoerper}). Damit ist $L\sslash \IR$ eine Galoiserweiterung.
+	Sei $L\sslash \IC$ endliche algebraische Körpererweiterung. Es ist $L = \IC$ zu zeigen. Da $L\sslash \IC$ endlich ist, ist $L\sslash \IR$ ebenfalls endlich. Weil $\chr \IR= 0$ ist, ist $L\sslash \IR$ separabel. Nach \cref{thm:existenz normaler oberkoerper} können wir $L\sslash \IR$ als normal voraussetzen. Damit ist $L\sslash \IR$ eine Galoiserweiterung.
 	
-	Sei $G:= \Gal(L\sslash \IR)$ und $S\subseteq G$ eine $2$-Sylowgruppe. $L^S\sslash R$ ist eine endliche, algebraische Körpererweiterung. Außerdem gilt: $[L:\IR] = [L:L^S][L^S:\IR]$, wobei $[L:\IR] = |G|$ nach \cref{thm:21.1} und $[L:L^S] = |S|$ nach \cref{thm:22.2}, da $S\subseteq G$ Untergruppe der endlichen Gruppe $G$ ist. Nach \cref{thm:22.2} ist $L\sslash L^S$ außerdem Galoissch. Nun ist $S$ aber eine $2$-Sylowgrppe, folglich ist $[L^S:\IR]$ ungerade. Aus dem Satz vom primitiven Element folgt $L^S = \IR(a)$ mit $\deg(m_a(t))$ ungerade ($m_a(t)\in\IR[t]$). Da es ungeraden Grad hat, hat $m_a(t)$ mindestens eine Nullstelle in $\IR$ (Zwischenwertsatz). Daraus folgt $\deg(m_a(t)) = 1$, weil $m_a(t)\in\IR[t]$ irreduzibel ist. Damit ist $L^S =\IR$ und $G =S$ insbesondere $2$-Gruppe. Da $G$ nun eine $2$-Gruppe ist, existiert nach Satz 6.2 eine Sequenz $\{e\} = G_0\subseteq G_1\subseteq G_2\subseteq\dots\subseteq G_r = G = \Gal(L\sslash \IR)$ von Untergruppen, sodass $G_i/G_{i-1} \cong \IZ/2\IZ$ (für ein geeignetes $r\in\IN$).
+	Sei $G:= \Gal(L\sslash \IR)$ und $S\subseteq G$ eine $2$-Sylowgruppe. $L^S\sslash R$ ist eine endliche, algebraische Körpererweiterung. Außerdem gilt $[L:\IR] = [L:L^S][L^S:\IR]$, wobei $[L:\IR] = |G|$ nach \cref{thm:21.1} und $[L:L^S] = |S|$ nach \cref{thm:22.2}, da $S\subseteq G$ eine Untergruppe der endlichen Gruppe $G$ ist. Nach \cref{thm:22.2} ist $L\sslash L^S$ außerdem galois. Nun ist $S$ aber eine $2$-Sylowgrppe; folglich ist $[L^S:\IR]$ ungerade. Nach dem \namereff{thm:primitives element} folgt $L^S = \IR(a)$ mit $\deg(m_a(t))$ ungerade ($m_a(t)\in\IR[t]$). Da $m_a(t)$ ungeraden Grad hat, hat $m_a(t)$ nach dem Zwischenwertsatz mindestens eine Nullstelle in $\IR$. Daraus folgt $\deg(m_a(t)) = 1$, weil $m_a(t)\in\IR[t]$ irreduzibel ist. Damit ist $L^S =\IR$ und $G =S$ insbesondere $2$-Gruppe. Da $G$ nun eine $2$-Gruppe ist, existiert nach \cref{thm:p-gruppe aufloesbar} eine Normalreihe $\{e\} = G_0\subseteq G_1\subseteq G_2\subseteq\dots\subseteq G_r = G = \Gal(L\sslash \IR)$ von Untergruppen mit $r \in \IN$, sodass $G_i/G_{i-1} \cong \IZ/2\IZ$ für alle $1 \le i \le r$ gilt.
 	
-	Mit der Galoiskorrespondenz (\cref{thm:21.1}) erhalten wir eine Sequenz von Körpererweiterungen $L = L^{\{e\}}\subseteq L^{G_1}\supseteq L^{G_2}\supseteq\dots \supseteq L^{G_r} = L^G = \IR$, wobei die letzte Gleichheit aus \cref{thm:21.1} folgt. Setze $L^{G_i} = L_i$. Damit ist $L_i\sslash L_{i+1}$ Galoissch mit Galoisgruppe $G_{i+1}/G_i$ (Zusatz zur Korrespondenz für Normalteiler). Insgesamt erhalten wir $L$ also aus $\IR$ durch sukzessive endlich viele Körpererweiterungen von Grad 2.
+	Mit der \namereff{galoiskorrespondenz} erhalten wir eine Sequenz von Körpererweiterungen $L = L^{\{e\}}\supseteq L^{G_1}\supseteq L^{G_2}\supseteq\dots \supseteq L^{G_r} = L^G = \IR$, wobei die letzte Gleichheit aus \cref{thm:21.1} folgt. Setze $L^{G_i} = L_i$. Damit ist $L_i\sslash L_{i+1}$ galois mit der Galoisgruppe $G_{i+1}/G_i$ nach der Korrespondenz von Normalteilern. Insgesamt erhalten wir $L$ also aus $\IR$ sukzessive durch endlich viele Körpererweiterungen von Grad $2$.
 	
-	Aber jede Körpererweiterung vom Grad 2 ist gegeben durch Adjunktion eines Elementes $a$ mit $\deg(m_a(t)) = 2$. Wir wissen: Jedes quadratische Polynom in $\IC[t]$ hat Nullstelle (sogar 2) Nullstellen in $\IC$. Folglich kann $\IC$ nicht durch quadratische Erweiterungen echt vergrößert werden. Damit ist $L = \IC$ (starte mit $\IR\subseteq \IC = L^{G}$). %TODO: das G im exponenten von L hat irgendeinen Index
-	
+	Aber jede Körpererweiterung vom Grad $2$ ist durch Adjunktion eines Elementes $a$ mit $\deg(m_a(t)) = 2$ gegeben. Wir wissen, dass jedes quadratische Polynom in $\IC[t]$ eine Nullstelle (sogar $2$) in $\IC$ hat. Folglich kann $\IC$ nicht durch quadratische Erweiterungen echt vergrößert werden. Damit ist $L = \IC$ (starte mit $\IR\subseteq \IC = L^{G_{r-1}}$).
 \end{proof}
 
 
 \subsection{Zyklotomische Körper}
-Betrachte $f = t^n-1\in K[t]$ (mit $n\in\IZ_{>0}, K$ Körper). Frage: Was ist der Zerfällungskörper von $f$?
+Sei $n \in \IZ_{>0}$ und $K$ ein Körper. Betrachte $f = t^n-1\in K[t]$. Frage: Was ist der Zerfällungskörper $L$ von $f$?
 
-Im Fall $K = \IC$ sind die Nullstellen von $f$ genau die $n$-ten Einheitswurzeln in $\IC$. Also für $K = \IR$, dann $L = \IR(\{\zeta|\zeta\ n\text{-te Einheitswurzel}\})\subseteq \overline{\IR} = \IC$. (Genauso für $K = \IQ$). Was passiert für Körper $K$ mit $\chr K = p > 0$?
+Im Fall $K = \IC$ sind die Nullstellen von $f$ genau die $n$-ten Einheitswurzeln in $\IC$. Für $K = \IR$ gilt also $L = \IR(\{\zeta\mid\text{$\zeta$ $n$-te Einheitswurzel}\})\subseteq \overline{\IR} = \IC$. Der Fall $K= \IQ$ funktioniert genauso. Was passiert für Körper $K$ mit $\chr K = p > 0$?
 
 
-Falls $\chr (K) = p>0$ und $n = p^sm$ mit $p\not |m$, dann $f = t^n-1 = t^{mp^s}-1 = (t^m-1)^{p^s}$. Wir sehen: Der Zerfällungskörper von $f$ ist dasselbe wie der Zerfällungskörper von $t^m-1$. Sei nun o.B.d.A.
+Falls $\chr K = p>0$ und $n = p^sm$ mit $p\nmid m$, dann $f = t^n-1 = t^{mp^s}-1 = (t^m-1)^{p^s}$. Wir sehen: Der Zerfällungskörper von $f$ entspricht dem Zerfällungskörper von $t^m-1$. Sei nun o.B.d.A.
 \begin{equation}
-\chr K = 0\text{ oder }(\chr(K) = p\text{ und }p\not| n)
+\chr K = 0\text{ oder }(\chr K = p\text{ und }p\nmid n) \label{eq:zyklo} \tag{*}
 \end{equation}
 \begin{description}
-	\item[1. Behauptung:] $f = t^n-1\in K[t]$ mit $(2)$ ist separabel.
+	\item[1. Behauptung:\label{beh:zyklo:1}] $f = t^n-1\in K[t]$ mit \eqref{eq:zyklo} ist separabel.
 	\begin{proof}
-		(Klar für $\chr K = 0$.) Es gilt $f' = nt^{n-1}\in K[t]$ hat mit $(2)$ nur $0$ als Nullstelle $\Rightarrow$ $f$ hat keine mehrfachen Nullstellen.
-	\end{proof}
-	Sei nun $Z = \{z_1,\dots, z_n\}$ die Menge der Nullstellen von $f\in K[t]$ in $\overline{K}$.
-	\item[2. Behauptung:] $Z\subseteq \overline{K}^{\times}$ ist eine zyklische Untergrupe.
-	\begin{proof}
-		$z_i, z_j\in Z\Rightarrow (z_iz_j)^n-1 = z_i^nz_j^n-1 = 1\cdot 1-1 = 0\Rightarrow z_iz_j\in Z$ und $(z_i^{-1})^n -1 = (z_i^n)^{-1}-1 = 1-1 = 0$; folglich ist $z_i^{-1}\in Z$ (klar: $e  = 1\in Z$). Damit ist $Z$ eine Untergruppe von $\overline{K}^{\times}$. Da $Z<\overline{K}^{\times}$ endlich ist, ist nach \ref{thm:endlKoeZyklMult} $Z$ zyklisch. 
+		Der Fall $\chr K = 0$ ist trivial. Sei also $\chr K = p$ mit $p \nmid n$. Es gilt $f' = nt^{n-1}\in K[t]$ hat mit $(2)$ nur $0$ als Nullstelle; $f$ somit hat keine mehrfachen Nullstellen.
 	\end{proof}
 \end{description}
-Folglich $Z \cong \IZ/n\IZ$ als Gruppe, weil $|Z| = n$ nach der 1. Behauptung. Damit hat $Z$ genau $\phi(n)$ verschiedene Erzeuger, da $\phi(n) = |\{\overline{m}\in \IZ/n\IZ|ggT (m,n) = 1\}|$. %TODO: ggT als mathoperator hinzufügen
-Wir nennen diese Erzeuger von $Z$ primitive $n$-ten Einheitswurzeln über $K$ (analog zum Fall $K = \IC$). Wähle nun eine solche $n$-te Einheitswurzel $\xi_n$.
+	Sei nun $Z = \{z_1,\dots, z_n\}$ die Menge der Nullstellen von $f\in K[t]$ in $\overline{K}$.
+\begin{description}
+	\item[2. Behauptung:\label{beh:zyklo:2}] $Z\subseteq \overline{K}^{\times}$ ist eine zyklische Untergrupe.
+	\begin{proof}
+		Offensichtlich ist $e = 1 \in Z$. Sind $z_i, z_j\in Z$, so folgt $(z_iz_j)^n-1 = z_i^nz_j^n-1 = 1\cdot 1-1 = 0$, also ist $z_iz_j\in Z$; und es gilt $(z_i^{-1})^n -1 = (z_i^n)^{-1}-1 = 1-1 = 0$; folglich ist auch $z_i^{-1}\in Z$. Damit ist $Z$ eine Untergruppe von $\overline{K}^{\times}$. Da $Z<\overline{K}^{\times}$ endlich ist, ist $Z$ nach \cref{thm:endlKoeZyklMult} zyklisch.
+	\end{proof}
+\end{description}
+Folglich gilt $Z \cong \IZ/n\IZ$ als Gruppe, weil nach der 2. Behauptung $|Z| = n$ ist. Damit hat $Z$ genau $\phi(n)$ verschiedene Erzeuger, da $\phi(n) = |\{\overline{m}\in \IZ/n\IZ\mid\ggT (m,n) = 1\}|$ ist. Wir nennen diese Erzeuger von $Z$ die primitive $n$-ten Einheitswurzeln über $K$ (analog zum Fall $K = \IC$). Wähle nun eine solche $n$-te Einheitswurzel $\xi_n$.
 \begin{lem}
-	Mit $(2)$ gilt: Der Zerfällungskörper von $f = t^n-1\in K[t]$ ist $K(\xi_n)$.
+	 Es gelte \eqref{eq:zyklo}. Der Zerfällungskörper von $f = t^n-1\in K[t]$ ist $K(\xi_n)$.
 \end{lem}
 \begin{proof}
-	Schreibe $\xi  = \xi_n$. Es gilt $\xi^n = 1$ nach Definition und $\xi^i$ sind für $1\leq i \leq n$ paarweise verschieden. Denn sei $\xi^i = \xi^j$ mit $1\leq j<i\leq n$, dann $\xi^{i-j} = 1$. Das ist ein Widerspruch, da $i-j<n$, aber $\xi$ primitive $n$-te Einheitswurzel ist.
+	Sei $\xi  := \xi_n$. Es gilt $\xi^n = 1$ per Definition. Die $\xi^i$ sind für $1\leq i \leq n$ paarweise verschieden, $\xi^i = \xi^j$ mit $1\leq j<i\leq n$ in dem Widerspruch $\xi^{i-j} = 1$ resultiert, da $i-j<n$, aber $\xi$ eine primitive $n$-te Einheitswurzel ist.
 	
-	Außerdem: $(\xi^i)^n-1 = (\xi^n)^i-1 = 1-1 = 0\Rightarrow \xi^i$ ist Nullstelle von $f \Rightarrow K(\xi) =$ Zerfällungskörper von $f$.
+	Außerdem gilt $(\xi^i)^n-1 = (\xi^n)^i-1 = 1-1 = 0$; $\xi^i$ ist also eine Nullstelle von $f$. $K(\xi)$ ist also Zerfällungskörper von $f$.
 \end{proof}
 \begin{defi}
-	Der Zerfällungskörper von $f = t^n-1\in K[t]$ (unter der Annahme $(2)$) heißt zyklomotischer Körper der Ordnung $n$ über $K$.
+	Es gelte \eqref{eq:zyklo}. Der Zerfällungskörper von $f = t^n-1\in K[t]$ heißt zyklotomischer Körper der Ordnung $n$ über $K$.
 \end{defi}
 \begin{lem}\label{lem:24.2}
-	Sei $n\in \IZ_{>0}$, es gelte $(2)$. Sei $f(t) = t^n-1\in K[t]$. Sei $L$ Zerfällungskörper von $f$. Dann gilt: $G = \Gal(L\sslash K)$ ist abelsch und $|G|\ |\phi(n)$.
+	Es gelte \eqref{eq:zyklo}. Sei $f = t^n-1\in K[t]$. Sei $L$ Zerfällungskörper von $f$. Dann ist $G := \Gal(L\sslash K)$ abelsch und $|G|$ teilt $\phi(n)$.
 \end{lem}
 \begin{proof}
 	Wir haben einen Gruppenhomomorphismus
 	\begin{eqnarray*}
-		\phi\colon G & \longto & \Aut(Z) =\{\phi\colon Z\to Z \mid \phi\text{ bijektiver Gruppenhomomorphismus}\}\\
+		\phi\colon G & \longto & \Aut(Z) =\{\phi\colon Z\to Z \mid \text{$\phi$ Gruppenisomorphismus}\}\\
 		g & \longmapsto & g|_Z
 	\end{eqnarray*}
-	wobei $Z$ so ist wie in der 2. Behauptung oben.
+	wobei $Z$ so wie in der 2. Behauptung oben definiert ist.
 	
-	Dieser Gruppenhomomorphismus ist injektiv, weil $g$ bereits eindeutig bestimmt ist durch $g|_Z$, da $L$ der Zerfällungskörper von $f$ ist. Da $Z = \IZ/n\IZ$ (vgl 2. Behauptung), ist $\Aut(Z) \cong \Aut(\IZ/n\IZ)\cong(\IZ/n\IZ)^{\times}$ (vgl. irgendein frühes Übungsblatt). Folglich ist $\Aut (Z)$ abelsch und $\im\phi<\Aut(Z)$ ist abelsch; damit ist $G$ abelsch. Außerdem: $|G| = |Gal(L\sslash K)|$ teilt $|\Aut(\IZ/n\IZ)|$ (nach \ref{thm:lagrange}), und $|\Aut(\IZ/n\IZ)| = |(\IZ/n\IZ)^{\times}| = \phi(n)$.
+	Dieser Gruppenhomomorphismus ist injektiv, weil $g$ bereits durch $g|_Z$ eindeutig bestimmt ist, da $L$ der Zerfällungskörper von $f$ ist. Da $Z = \IZ/n\IZ$ (siehe 2. Behauptung), ist $\Aut(Z) \cong \Aut(\IZ/n\IZ)\cong(\IZ/n\IZ)^{\times}$. Folglich ist $\Aut (Z)$ und $\im\phi<\Aut(Z)$ abelsch; damit ist auch $G$ abelsch. Außerdem teilt $|G| = |\Gal(L\sslash K)|$ dann $|\Aut(\IZ/n\IZ)|$ nach dem \namereff{thm:lagrange}, und es gilt $|\Aut(\IZ/n\IZ)| = |(\IZ/n\IZ)^{\times}| = \phi(n)$.
+	%falls irgendjemand noch das Übungsblatt findet, auf dem Aut(Z/nZ) = (Z/nZ)^\times bewiesen wird, bitte einfügen
 \end{proof}
 \begin{bsp}
 	\leavevmode
 	\begin{itemize}
-	\item $K = \IF_2, f = t^3-1 = (t-1)(t^2+t+1)\in\IF_2[t]$, wobei $(t^2+t+1)$ irreduzibel ist in $\IF_2[t]$. Jede Nullstelle $a\neq 1$ von $f$ in $\overline{\IF_2}$ ist primitive dritte Einheitswurzel. Dann ist $[\IF_2(a):\IF_2] = 2$.
-	\item $f = t^7-1 = (t-1)(t^3+t^2+1)(t^3+t+1)$. Es existieren $6$ primitive $7$-te Einheitswurzeln; $(t^3+t^2+1)$ und $(t^3+t+1)$ treten als Minimalpolynome davon auf. Im Gegensatz zu $K = \IQ$, wo jede primitive $n$-te Einheitswurzel dasselbe Minimalpolynom hat (vgl \ref{thm:24.4})
+	\item Seien $K = \IF_2$ und $f = t^3-1 = (t-1)(t^2+t+1)\in\IF_2[t]$, wobei $(t^2+t+1)$ irreduzibel in $\IF_2[t]$ ist. Jede Nullstelle $a\neq 1$ von $f$ in $\overline{\IF_2}$ ist eine primitive dritte Einheitswurzel. Dann ist $[\IF_2(a):\IF_2] = 2$.
+	\item $f = t^7-1 = (t-1)(t^3+t^2+1)(t^3+t+1)$. Es existieren $6$ primitive $7$-te Einheitswurzeln; $(t^3+t^2+1)$ und $(t^3+t+1)$ treten als Minimalpolynome davon auf; im Gegensatz zu $K = \IQ$, wo jede primitive $n$-te Einheitswurzel dasselbe Minimalpolynom hat (siehe \cref{thm:24.4})
 	\end{itemize}
 \end{bsp}
 
 
 \lecture{25. Januar 2018}
 \begin{lem}\label{lem:24.3}%lohnt sich zu merken
-	Sei $\xi$ primitive $n$-te Einheitwurzel (über $K$), $m\in\IZ$. Dann: $\xi^m$ primitiv $\Leftrightarrow ggt(m,n) = 1$.
+	Sei $\xi$ eine primitive $n$-te Einheitwurzel über $K$ sowie $m\in\IZ$. Dann gilt \[\text{$\xi^m$ primitiv} \quad\Longleftrightarrow \quad \ggT(m,n) = 1.\]
 \end{lem}
 
 \begin{proof}
-	Sei $f = t^n-1\in K[t]$, $Z$ die Menge der Nullstellen von $f$ in $\overline{K}$. $Z$ ist eine zyklische Gruppe bezüglich Multiplikation; Erzeuger sind die primitiven $n$-ten Einheitswurzeln.
+	Sei $f = t^n-1\in K[t]$ sowie $Z$ die Menge der Nullstellen von $f$ in $\overline{K}$. $Z$ ist eine zyklische Gruppe bezüglich Multiplikation; Erzeuger sind die primitiven $n$-ten Einheitswurzeln.
 	
-	Wir haben also einen Isomorphismus von Gruppen:
+	Wir haben also einen Isomorphismus von Gruppen gegeben durch
 	\begin{eqnarray*}
 		\IZ/n\IZ &\longto & Z\\
-		\overline{1}&\longmapsto & \xi
+		\overline{1}&\longmapsto & \xi.
 	\end{eqnarray*}
-	nun ist $\xi^m$ primitiv genau dann, wenn $\ord(\xi^m) = n \Leftrightarrow ord(\overline{m}) = n$ in $\IZ/n\IZ \Leftrightarrow ggT(m,n) = 1$.
+	Nun ist $\xi^m$ primitiv genau dann, wenn $\ord(\xi^m) = n$, also wenn $\ord(\overline{m}) = n$ in $\IZ/n\IZ$, was äquivalent zu $\ggT(m,n) = 1$ ist.
 \end{proof}
 \begin{satz}\label{thm:24.4}
-	Sei $\xi\in\overline{\IQ}$ primitive $n$-te Einheitswurzel (über $\IQ$). Dann ist $\IQ(\xi)\sslash\IQ$ Galoissch und $[\IQ(\xi):\IQ] = \phi(n)$.
+	Sei $\xi\in\overline{\IQ}$ eine primitive $n$-te Einheitswurzel \textup(über $\IQ$\textup). Dann ist $\IQ(\xi)\sslash\IQ$ galois und $[\IQ(\xi):\IQ] = \phi(n)$.
 \end{satz}
 \begin{proof}
-	Nach \ref{lem:24.2} wissen wir, dass $\IQ(\xi)\sslash\IQ$ Galoissch ist und $[\IQ(\xi):\IQ]\leq \phi(n)$. Also bleibt zu zeigen: Für das Minimalpolynom $f = m_{\xi}(t)\in\IQ[t]$ von $\xi$ gilt: $\deg(f) = \phi(n)$.
+	Nach \cref{lem:24.2} wissen wir, dass $\IQ(\xi)\sslash\IQ$ galois ist und $[\IQ(\xi):\IQ]\leq \phi(n)$ gilt. Es bleibt also zu zeigen,dass für das Minimalpolynom $f = m_{\xi}(t)\in\IQ[t]$ von $\xi$ dann $\deg(f) = \phi(n)$ gilt.
 	
-	Dafür reicht es nach Lemma \ref{lem:24.3} zu zeigen: Jede primitive $n$-te Einheitswurzel ist Nullstelle von $f$ (über $\overline{\IQ}$). Klar ist: $f$ teilt $t^n-1$ (nach der Definition des Minimalpolynoms). Folglich gilt $t^n-1 = f\cdot h$ in $\IQ[t]$ mit $h\in \IQ[t]$ normiert. Aus \ref{lem:24.5} folgt $f,h\in\IZ[t]$ (da $f,h$ normiert).
+	Dafür reicht es nach \cref{lem:24.3} zu zeigen, dass jede primitive $n$-te Einheitswurzel eine Nullstelle von $f$ (über $\overline{\IQ}$) ist. Es ist nach der Definition des Minimalpolynoms klar, dass $f \mid t^n-1$ gilt. Folglich gilt $t^n-1 = f\cdot h$ in $\IQ[t]$ mit normiertem $h\in \IQ[t]$. Aus \cref{lem:24.5} folgt $f,h\in\IZ[t]$, da $f$ und $h$ normiert sind.
 	
-	Sei nun $p$ Primzahl, $p\not|n$. Behauptung: $f(\xi^p) = 0$. Falls nicht, dann $h(\xi^p) = 0$, weil $(\xi^p)^n-1 = 0$. Dann ist $\xi$ Nullstelle von $h(t^p)$. Also: $f$ teilt $h(t^p)$ (Definition des Minimalpolynoms und $h$ normiert). Damit folgt $h(t^p) = f\cdot g$ für ein $g\in\IQ[t]$ normiert. Wieder mit \ref{lem:24.5} folgt $f,g\in\IZ[t]$. Betrachte den Ringhomomorphismus
+	Sei nun $p$ prim mit $p\nmid n$. Wir behaupten, dass $f(\xi^p) = 0$ gilt. Ist das nicht der Fall, so folgt $h(\xi^p) = 0$, weil $(\xi^p)^n-1 = 0$ ist. Dann ist $\xi$ eine Nullstelle von $h(t^p)$. Also teilt $f$ schon $h(t^p)$ aufgrund der Definition des Minimalpolynoms und der Normiertheit von $h$. Damit folgt $h(t^p) = f\cdot g$ für ein normiertes $g\in\IQ[t]$. Wieder mit \cref{lem:24.5} folgt $f,g\in\IZ[t]$. Betrachte den Ringhomomorphismus
 	\begin{eqnarray*}
-		\IZ[t] & \longto & \IF_p[t] = \IZ/p\IZ[t]\\
-		\sum_{i\geq0}c_it^i & \longmapsto & \sum_{i\geq 0} \overline{c_i}t^i
+		\IZ[t] & \longto & \IF_p[t] = \IZ[t]/p\IZ[t]\\
+		\sum_{i\geq0}c_it^i & \longmapsto & \sum_{i\geq 0} \overline{c_i}t^i.
 	\end{eqnarray*}
-	Damit: $\overline{h(t^p)} = \overline{f}\overline{g}$, wobei $\overline{h(t^p)} = \overline{h(t)}^p$. Folglich haben $\overline{f(t)}$ und $\overline{h(t)}$ eine gemeinsame Nullstelle (bzw. sind nicht teilerfremd). Damit hat $t^n-1 = \overline{t^n-1} = \overline{f}\overline{h}$ eine mehrfache Nullstelle im Widerspruch zu $p\not|n$. Es folgt sofort $f(\xi^p) = 0$.
+	Damit folgt $\overline{h(t^p)} = \overline{f}\overline{g}$, wobei $\overline{h(t^p)} = \overline{h(t)}^p$ gilt. Folglich haben $\overline{f(t)}$ und $\overline{h(t)}$ eine gemeinsame Nullstelle, sind also nicht teilerfremd. Damit hat $t^n-1 = \overline{t^n-1} = \overline{f}\overline{h}$ eine mehrfache Nullstelle im Widerspruch zu $p\nmid n$. Es folgt sofort $f(\xi^p) = 0$.
 	
-	Sei nun $xi'$ eine beliebige primitive $n$-te Einheitswurzel. Zu zeigen: $f(\xi') = 0$. Sei $\xi' = \xi^m$ ($m\in \IN, ggT(m,n) =1$ nach \ref{lem:24.3}). Also $\xi'  =\xi^{p_1\dots p_r}$ mit $p_1\dots p_r = m$ und $p_i$ Primzahlen mit $p_i\not| n$ für alle $i$. Wende nun obiges Argument wiederholt an und erhalte $f(\xi') = f(\xi{p_1\dots p_r}) = 0$.
+	Sei nun $\xi'$ eine beliebige primitive $n$-te Einheitswurzel. Es ist $f(\xi') = 0$ zu zeigen. Sei $\xi' = \xi^m$ ($m\in \IN$, $\ggT(m,n) =1$ nach \cref{lem:24.3}). Wir erhalten die Darstellung $\xi'  =\xi^{p_1\dots p_r}$ mit $p_1\dots p_r = m$ und primen $p_i$ mit $p_i\nmid n$ für alle $i$. Wende nun obiges Argument wiederholt an und erhalte $f(\xi') = f(\xi^{p_1\dots p_r}) = 0$.
 \end{proof}
 
 \begin{lem}\label{lem:24.5}
-	Seien $\alpha, \beta, \gamma\in\IQ[t], \alpha\in\IZ[t], \alpha = \beta\gamma; \beta,\gamma$ normiert. Dann folgt bereits $\beta, \gamma\in\IZ[t]$.
+	Seien $\beta, \gamma\in\IQ[t]$ und $\alpha\in\IZ[t]$ mit $\alpha = \beta\gamma$, wobei $\beta$ und $\gamma$ normiert sind. Dann folgt bereits $\beta, \gamma\in\IZ[t]$.
 \end{lem}
 \begin{proof}
 	Seien
 	$\beta = \frac1a\tilde{\beta}$ mit $\tilde{\beta}\in\IZ[t], \tilde{\beta} = \sum_{i = 0}^ma_it^i$ und
-	$\gamma = \frac1b\tilde{\gamma}$ mit $\tilde{\gamma}\in\IZ[t], \tilde{\gamma} = \sum_{i = 0}^nb_it^i$ mit $a_m \neq 0, b_n\neq 0$ und $ggT(a_1,\dots, a_m) = 1 = ggT(b_1,\dots, b_n)$.
+	$\gamma = \frac1b\tilde{\gamma}$ mit $\tilde{\gamma}\in\IZ[t], \tilde{\gamma} = \sum_{i = 0}^nb_it^i$ mit $a_m \neq 0, b_n\neq 0$ und $\ggT(a_1,\dots, a_m) = 1 = ggT(b_1,\dots, b_n)$.
 	
-	Damit gilt also $ab\alpha = \tilde{\beta}\tilde{\gamma}$. Zeige: $a = 1-b$. Sei dafür $p$ Primzahl mit $p|ab$. Wende Reduktion modulo $p$ an: $0 = \overline{\beta}\overline{\gamma}$ in $\IF_p[t]\Rightarrow \overline{\tilde{\beta}} = 0$ oder $\overline{\tilde{\gamma}} = 0$.
+	Damit gilt also $ab\alpha = \tilde{\beta}\tilde{\gamma}$. Wir zeigen nun $a = 1-b$. Sei dafür $p$ prim mit $p\mid ab$. Nach Reduktion modulo $p$ ergibt sich $0 = \overline{\beta}\overline{\gamma}$ in $\IF_p[t]$, also $\overline{\tilde{\beta}} = 0$ oder $\overline{\tilde{\gamma}} = 0$.
 	
-	Es folgt $ggT(a_1,\dots,A_m)>1$ oder $ggT(b_1,\dots, b_n)>1$, wobei $a_m = a$, $b_n = b$ nach Voraussetzung. Das ist ein Widerspruch zu obiger Annahme. Folglich existiert kein $p$ mit $p|ab$, also $ab = 1$ und $a = 1-b$.
+	Es folgt $\ggT(a_1,\dots,a_m)>1$ oder $\ggT(b_1,\dots, b_n)>1$, wobei $a_m = a$, $b_n = b$ nach Voraussetzung. Das ist ein Widerspruch zu obiger Annahme. Folglich existiert kein $p$ mit $p\mid ab$, also $ab = 1$ und $a = \frac 1b$, woraus die Aussage mit obiger Darstellung folgt.
 \end{proof}
 
 \begin{defi}
-	Sei $K$ Körper, $n\in\IZ_{>0}$ und $\chr(K)\not| n$. Dann sei
+	Sei $K$ ein Körper, $n\in\IZ_{>0}$ und $\chr(K)\nmid n$. Dann sei
 	$$\Phi_n(t) = \prod_{i = 1}^{\phi(n)}(t-\xi_i)\in\overline{K}[t]\enspace,$$
 	wobei $\xi_1,\dots,\xi_{\phi(n)}$ die primitiven $n$-ten Einheitswurzeln über $K$ sind, das $n$-te Kreisteilungspolynom über $K$.
 \end{defi}
 
 \begin{satz}\label{thm:24.6}
-	Es gelte $(2)$ (also $\chr K = 0$ oder $\chr(K) = p$ und $p\not|n$). Dann gilt:
+	Es gelte \eqref{eq:zyklo}. Dann gilt:
 	\begin{enumerate}
-		\item $\Phi_n(t)\in K[t]$, normiert, separabel und vom Grad $\phi(n)$.
-		\item Für $K = \IQ$ ist $\Phi_n(t)\in\IZ[t]$ und ist irreduzibel in $\IQ[t]$ und $\IZ[t]$.
-		\item $t^n-1 = \prod_{d|n}\Phi_d(t)$
+		\item $\Phi_n(t)\in K[t]$ ist normiert, separabel und vom Grad $\phi(n)$. \label{enumi:24.6:1}
+		\item Für $K = \IQ$ ist $\Phi_n(t)\in\IZ[t]$ und irreduzibel in $\IQ[t]$ und $\IZ[t]$.
+		\item $t^n-1 = \prod_{d|n}\Phi_d(t)$\label{enumi:24.6:3}
 		\item Das $n$-te Kreisteilungspolynom $\Phi_{n,K}(t)$ über $K$ erhält man aus $\Phi_n(t)\in\IZ[t]$ (dem $n$-ten Kreisteilungspolynom über $\IQ$), indem man auf die Koeffizienten den Ringhomomorphismus gegeben durch $\IZ\to K, 1\mapsto 1$ anwendet.
 	\end{enumerate}
 \end{satz}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item normiert, separabel, Grad $= \phi(n)\checkmark$
+		\item Normiertheit, Separabilität und $\deg \Phi_n(t)= \phi(n)$ sind klar.
 		
-		zu zeigen: $\Phi_k(t)\in K[t]$. Sei $L = K(\xi_!,\dots, \xi_{\phi(n)}) = K(\xi_1)$ nach \ref{lem:24.2}. Dann ist $\Phi_n(t)\in L[t]$. Jedes $\phi\in \Gal(L\sslash K)$ bildet primitive $n$-te Einheitswurzeln auf primitive $n$-te Einheitswurzeln ab. Also permutiert $\phi$ die primitiven Einheitswurzeln. Also $\phi_*(\Phi_n(t)) = \Phi_n(t)\forall \phi\in \Gal(L\sslash K)$. Daraus folgt $\Phi_n(t)\in L^{\Gal(L\sslash K)}[t] = K[t]$ nach \ref{thm:21.1}, da $L\sslash K$ Galoissch ist.
+		Es bleibt $\Phi_k(t)\in K[t]$ zu zeigen. Sei $L = K(\xi_1,\dots, \xi_{\phi(n)}) = K(\xi_1)$ nach \cref{lem:24.2}. Dann ist $\Phi_n(t)\in L[t]$. Jedes $\phi\in \Gal(L\sslash K)$ bildet primitive $n$-te Einheitswurzeln auf ebensolche ab und permutiert somit die primitiven Einheitswurzeln. Also gilt $\phi_*(\Phi_n(t)) = \Phi_n(t)$ für alle $\phi\in \Gal(L\sslash K)$. Daraus folgt $\Phi_n(t)\in L^{\Gal(L\sslash K)}[t] = K[t]$ nach \cref{thm:21.1}, da $L\sslash K$ galois ist.
 		
-		\item Sei $K  = \IQ$. Klar: $m_{\xi}(t)\in \IQ[t]$ und $m_{\xi}(t)|\Phi_n(t)$ für jede primitive $n$-te Einheitswurzel $\xi$ nach der Definition des Minimalpolynoms.
+		\item Sei $K  = \IQ$. Offensichtlich gilt $m_{\xi}(t)\in \IQ[t]$ und $m_{\xi}(t)\mid \Phi_n(t)$ für jede primitive $n$-te Einheitswurzel $\xi$ nach der Definition des Minimalpolynoms.
 		
-		Mit \ref{thm:24.4} folgt $\deg(m_\xi(t)) = [\IQ(\xi):\IQ] = \phi(n)$, nach Punkt 1 dieses Satzes gilt also $m_{\xi}(t) = \Phi_n(t)$, da $\Phi_n(t)$ normiert ist. Daher ist $\Phi_n(t)$ irreduzibel in $\IQ[t]$, da $m_{\xi}(t)$ irreduzibel ist.
+		Mit \cref{thm:24.4} folgt $\deg(m_\xi(t)) = [\IQ(\xi):\IQ] = \phi(n)$, nach Punkt \ref{enumi:24.6:1} dieses Satzes gilt also $m_{\xi}(t) = \Phi_n(t)$, da $\Phi_n(t)$ normiert ist. Daher ist $\Phi_n(t)$ irreduzibel in $\IQ[t]$, da $m_{\xi}(t)$ irreduzibel ist.
 		
-		Außerdem teilt $\Phi_n(t)$ das Polynom $t^n-1$ (weil $\Phi_n(t) = m_{\xi}(t)$). $\Rightarrow t^n-1 = \Phi_n(t)\cdot h(t)\in \IQ[t]$ mit $h(t), \Phi_n(t)\in\IQ[t]$ normiert. Aus \ref{lem:24.5} folgt nun $\Phi_n(t), h(t)\in\IZ[t]$ und $\Phi_n(t)\in\IZ[t]$ irreduzibel, weil irreduzibel in $\IQ[t]$ und primitiv. 
-		\item Sei $\mathcal{P}_d  = \{\text{primitive }d\text{-te Einheitswurzel}\}$. Dann ist $Z = \bigcup\limits_{d|n}\mathcal{P}_d$. Also gilt $$t^n-1 = \prod_{d|n}\prod_{\xi\in\mathcal{P}_d}(t-\xi) = \prod_{d|n}(t)$$
-		\item zu zeigen: die kanonische Abbildung
+		Außerdem teilt $\Phi_n(t)$ das Polynom $t^n-1$, weil $\Phi_n(t) = m_{\xi}(t)$ ist. Wir erhalten $t^n-1 = \Phi_n(t)\cdot h(t)\in \IQ[t]$ mit normierten Polynomen $h(t), \Phi_n(t)\in\IQ[t]$. Aus \cref{lem:24.5} folgt nun $\Phi_n(t), h(t)\in\IZ[t]$ und damit die Irreduzibilität von $\Phi_n(t)\in\IZ[t]$, weil $\Phi_n(t)$ in $\IQ[t]$ irreduzibel und primitiv ist. 
+		\item Sei $\mathcal{P}_d$ die Menge der primitiven $d$-ten Einheitswurzeln. Dann ist $Z = \bigcup\limits_{d|n}\mathcal{P}_d$. Also gilt \[t^n-1 = \prod_{d|n}\prod_{\xi\in\mathcal{P}_d}(t-\xi) = \prod_{d|n}\Phi(t).\]
+		\item Es ist zu zeigen, dass die kanonische Abbildung
 		\begin{eqnarray*}
 			\alpha\colon \IZ[t] & \longto & K[t]\\
 			\sum_{i \geq 0}b_it^i & \longmapsto & \sum_{i\geq 0}\can(b_i)t^i
 		\end{eqnarray*}
-		(mit $\can\colon \IZ\to K, 1\mapsto 1$ Ringhomomorphismus) bildet $\Phi_{n,\IQ}(t)$ auf $\Phi_{n, K}(t)$ ab. (Wobei $\Phi_{n, \IQ}(t)\in\IZ[t]$.) Beweis per Induktion:
+		(mit dem Ringhomomorphismus $\can\colon \IZ\to K, 1\mapsto 1$) $\Phi_{n,\IQ}(t)$ auf $\Phi_{n, K}(t)$ abbildet, wobei $\Phi_{n, \IQ}(t)$ in $\IZ[t]$ liegt. Beweis per Induktion:
 		\begin{description}
-			\item[$n = 1$:] $t-1 (\in \IZ[t]) \mapsto t-1 (\in K[t]) \checkmark$.
-			\item[$n>1$:] $t^n-1 = \Phi_{n\IQ}(t)\prod_{d|n, d<n}\Phi_{d,\IQ}(t)$. Nach Induktionsannahme ist $t^n-1  =\alpha(t^n-1) = \alpha(\Phi_{n,\IQ}(t))\prod_{d|n, d<n}\Phi_{d, K}(t)$, andererseits $t^n-1 = \Phi_{n,K}\prod_{d|n, d<n}\Phi_{d, K}(t)$.  Da $K$ nullteilerfrei ist, impliziert das bereits $\Phi_{n,K}(t) = \alpha(\Phi_{n,\IQ}(t))$.
+			\item[$n = 1$:] Offenbar ist $\IZ[t]\ni t-1 \mapsto t-1 \in K[t]$ erfüllt.
+			\item[$n>1$:] Nach Induktionsannahme sowie Teil \ref{enumi:24.6:3} des Satzes folgt
+			\begin{align*}
+				t^n-1 & =\alpha(t^n-1) = \alpha(\Phi_{n,\IQ}(t))\prod_{\substack{d\mid n,\\d<n}}\Phi_{d, K}(t), \\\intertext{andererseits gilt}
+				t^n-1 & = \Phi_{n,K}(t)\prod_{\substack{d\mid n,\\ d<n}}\Phi_{d, K}(t).
+			\end{align*}
+			Da $K$ nullteilerfrei ist, impliziert das bereits $\Phi_{n,K}(t) = \alpha(\Phi_{n,\IQ}(t))$.
+			\qedhere
 		\end{description}
 	\end{enumerate}
 \end{proof}
@@ -3743,105 +3758,108 @@ Wir nennen diese Erzeuger von $Z$ primitive $n$-ten Einheitswurzeln über $K$ (a
 
 
 
-\paragraph{Hintergrund/Ausblick}
-Fermats letzter Satz: Gegeben $n\in\IN, n\neq 0$. Existiert $(x,y,z)\in\IZ^3$ mit $x^n+y^n = z^n$?
+\subsection*{Hintergrund/Ausblick}
+Fermats letzter Satz: Sei $n\in\IN, n\neq 0$. Existiert ein Tripel $(x,y,z)\in\IZ^3$ mit \[x^n+y^n = z^n\;?\]
 
 Für $n=1$ gibt es natürlich unendlich viele Lösungen; für $n=2$ löst jedes pythagoräische Tripel die Gleichung. Da für $u,v\in\IZ$ das Tripel $(u^2-v^2, 2uv, u^2+v^2)$ pythagoräisch ist, gibt es auch für $n = 2$ unendlich viele Lösungen.
 
-Fermat behaupete: $x^n+y^n = z^n$ hat für $n>2$ keine nichttriviale Lösung. (Wurde Ende des 20. Jahrhunderts von Andrew Wiles bewiesen.)
+Fermat behaupete: $x^n+y^n = z^n$ hat für $n>2$ keine nichttriviale Lösung, was gegen Ende des 20. Jahrhunderts von Andrew Wiles bewiesen wurde.
 
-\noindent Wie ist Fermat möglicherweise auf die Idee gekommen, das einfach bewiesen zu haben?
+\medskip
 
-Sei $X,Y\in \IZ$ und $n\in\IZ_{>0}$, $n $ ungerade. Betrachte den Ausdruck $X^n+Y^n\in\IZ[\xi]$, wobei $\xi$ primitive $n$-te Einheitswurzel ist. Behauptung: $X^n+Y^n = (X+Y)(X+\xi Y)\dots(X+\xi^{n-1}Y)$. (Beweis: \ref{lem:24.7}, nachrechnen).
+\emph{Wie ist Fermat möglicherweise auf die Idee gekommen, das einfach bewiesen zu haben?}
 
-Falls nun $X^n+Y^n = Z^n\in\IZ$ gilt, können wir $X^n+Y^n = p_1\dots p_r$ Produkt von Primzahlen schreiben, die sind irreduzibel in $\IZ[\xi]$. Wenn $\IZ[\xi]$ faktoriell ist, dann ist das ein Widerspruch zur eindeutigen Zerlegung in irreduzible Elemente.
+\medskip
+
+Seien $X,Y\in \IZ$ und $n\in\IZ_{>0}$, $n $ ungerade. Betrachte den Ausdruck $X^n+Y^n\in\IZ[\xi]$, wobei $\xi$ eine primitive $n$-te Einheitswurzel ist. Mit \cref{lem:24.7} und durch Nachrechnen erhält man  $X^n+Y^n = (X+Y)(X+\xi Y)\dots(X+\xi^{n-1}Y)$.
+
+Falls nun $X^n+Y^n = Z^n\in\IZ$ gilt, können wir $X^n+Y^n = p_1\dots p_r$ als Produkt von Primzahlen schreiben, welche irreduzibel in $\IZ[\xi]$ sind. Wenn $\IZ[\xi]$ faktoriell wäre (was aber nicht der Fall ist), dann ist das ein Widerspruch zur eindeutigen Zerlegung in irreduzible Elemente.
 
 \lecture{29. Januar 2018}
 \subsection{Inverses Galoisproblem}
-Wir wissen: Wenn $\xi$ eine primtitve $n$-te Einheitswurzel ist (über $\IQ$ in $\IC$), dann ist $\IQ(\xi)\sslash \IQ$ Galoissch und $\Gal(\IQ(\xi)\sslash\IQ)\cong (\IZ/n\IZ)^{\times}$.
+Wir wissen: Wenn $\xi$ eine primtitve $n$-te Einheitswurzel ist (über $\IQ$ in $\IC$), dann ist $\IQ(\xi)\sslash \IQ$ galois und $\Gal(\IQ(\xi)\sslash\IQ)\cong (\IZ/n\IZ)^{\times}$.
 
-Falls $n_1,\dots, n_r\in\IZ_{>0}$ teilerfremd sind und $\epsilon_i$ primitive $n_i$-te Einheitwurzel ist, dann ist $\epsilon = \epsilon_1\dots\epsilon_r$ primitve $n = n_1\dots n_r$-te Einheitwurzel (nachprüfen!), also $\Gal(\IQ(\epsilon)\sslash \IQ)\cong (\IZ/n\IZ)^{\times}\cong (\IZ/n_1\IZ)^{\times}\times\dots\times(\IZ/n_r\IZ)^{\times}$, wobei die letzte Isomorphie noch nachzuprüfen ist.
+Falls $n_1,\dots, n_r\in\IZ_{>0}$ teilerfremd sind und $\epsilon_i$ eine primitive $n_i$-te Einheitwurzel ist, dann ist $\epsilon = \epsilon_1\dots\epsilon_r$ eine primitve $n = n_1\dots n_r$-te Einheitwurzel (nachprüfen!), also $\Gal(\IQ(\epsilon)\sslash \IQ)\cong (\IZ/n\IZ)^{\times}\cong (\IZ/n_1\IZ)^{\times}\times\dots\times(\IZ/n_r\IZ)^{\times}$, wobei die letzte Isomorphie noch nachzuprüfen ist.
 
-Frage: Welche Gruppen treten als $\Gal(L\sslash \IQ)$ auf? (Mit $L\sslash \IQ$ endlich? Galois?) Tritt jede endliche Gruppe auf?
+Frage: Welche Gruppen treten als $\Gal(L\sslash \IQ)$ auf (mit $L\sslash \IQ$ etwa endlich oder galois)? Tritt jede endliche Gruppe auf?
 
-\begin{satz}[Dirichlet]
-	Gegeben $n\in\IZ_{>0}$. Dann existieren unendlich viele Primzahlen $p$ mit $p\equiv 1\pmod n$.
+\begin{satz}[Dirichlet] \label{thm:dirichlet}
+	Sei $n\in\IZ_{>0}$. Dann existieren unendlich viele Primzahlen $p$ mit $p\equiv 1\pmod n$.
 \end{satz}
 \begin{proof}
-	Annahme: es existieren nur endlich viele solche Primzahlen, sagen wir $p_1,\dots,p_r$. Sei $m\coloneqq np_1\dots p_r$. Dann ist \begin{equation}\Phi_m(t) \in \IZ[t]\text{ normiert und }\Phi(0)\neq 0\enspace .
+	Wir nehmen an, es existieren nur endlich viele solche Primzahlen, sagen wir $p_1,\dots,p_r$. Sei $m\coloneqq p_1\dots p_r$. Dann ist \begin{equation}\Phi_m(t) \in \IZ[t]\text{ normiert und }\Phi(0)\neq 0 . \tag{*} \label{eq:25.1}
 	\end{equation}
-	Deswegen $\lim_{z\to\infty}\Phi_m(mz) = \infty$ (wobei $z\in\IN$). Daraus folgt, dass ein $z_0\in\IN$ existiert, sodass $\Phi_m(mz_0)>p_i$ für alle $i$ gilt. Mit $(3)$ folgt, dass eine Primzahl $p$ existiert mit $p|\Phi_m(mz_0)$ und $p\neq p_i\forall i$. Also gilt $p|(mz_0)^m-1$, aber $p\not|(mz_0)^m$, weshalb $\gcd(m,p) = 1$ und $\overline{\Phi_m(mz_0)} = 0\in\IF_p$. Nach \ref{lem:25.2} folgt daraus $p\equiv 1\pmod m$ und mit der Definition von $m$ folgt $p\equiv 1\pmod n$.
+	Deswegen gilt $\lim\limits_{z\to\infty}\Phi_m(mz) = \infty$ (wobei $z\in\IN$). Daraus folgt, dass ein $z_0\in\IN$ existiert, sodass $\Phi_m(mz_0)>p_i$ für alle $i$ gilt. Mit \eqref{eq:25.1} folgt, dass eine Primzahl $p$ mit $p\mid \Phi_m(mz_0)$ und $p\neq p_i$ für alle $i$ existiert. Also gilt $p\mid (mz_0)^m-1$, aber $p\nmid (mz_0)^m$, weshalb $\ggT(m,p) = 1$ und $\overline{\Phi_m(mz_0)} = 0\in\IF_p$. Nach \cref{lem:25.2} folgt daraus $p\equiv 1\pmod m$ und mit der Definition von $m$ folgt $p\equiv 1\pmod n$.
 \end{proof}
 \begin{lem}\label{lem:25.2}
-	Sei $m\in\IZ_{>0}$, $p$ Primzahl, $\gcd(m,p) = 1$ und $\overline{\Phi_m(t)}$ hat Nullstelle $\overline{a}$ in $\IF_p$ ($a\in\IZ$). Dann $p\equiv 1\pmod m$.
+	Sei $m\in\IZ_{>0}$, $p$ prim mit $\ggT(m,p) = 1$, wobei $\overline{\Phi_m(t)}$ eine Nullstelle $\overline{a}$ in $\IF_p$ mit $a\in\IZ$ hat. Dann gilt $p\equiv 1\pmod m$.
 \end{lem}
 \begin{proof}
-	$p|\Phi_m(a)$, da $\overline{\Phi_m(\overline{a})} = 0$ in $\IF_p$. Daraus folgt $p|a^m-1\Rightarrow a^m\equiv 1\pmod p\Rightarrow \overline{a}^m = 1\in\IF_p^{\times}\subseteq \IF_p$, wobei $\IF_p^{\times}$ die zyklische Gruppe der Ordnung $p-1$ ist.
+	$p$ teilt $\Phi_m(a)$, da $\overline{\Phi_m(\overline{a})} = 0$ in $\IF_p$. Daraus folgt $p\mid a^m-1$, also $a^m\equiv 1\pmod p$ und damit $\overline{a}^m = 1\in\IF_p^{\times}\subseteq \IF_p$, wobei $\IF_p^{\times}$ die zyklische Gruppe der Ordnung $p-1$ ist.
 	
-	Behauptung: $\ord(\overline{a}) = m$ in $\IF_p^{\times}$. (Da $\overline{a}^m = 1$ ist, gilt auf jeden Fall $\ord(\overline{a})\leq m$.) Angenommen, $\ord(\overline{a}) = s<m$. (Beachte, dass dann $s|m$ gilt.) Nun gilt $t^m-1 = \prod_{d|m}\Phi_d(t) = \Phi_m(t)\prod{d|m, d<m}\Phi_d(t) = \Phi_m(t) \left(\prod_{d|s}\Phi_d(t)\right) h(t) = \Phi_m(t)(t^s-1)h(t)$ für gewisses $h(t)\in\IZ[t]$.
+	Wir behaupten $\ord(\overline{a}) = m$ in $\IF_p^{\times}$. Da $\overline{a}^m = 1$ ist, gilt auf jeden Fall $\ord(\overline{a})\leq m$. Angenommen, $\ord(\overline{a}) = s<m$, wobei dann $s|m$ gilt. Nun folgt \[t^m-1 = \prod_{d|m}\Phi_d(t) = \Phi_m(t)\prod_{\substack{d|m,\\d<m}}\Phi_d(t) = \Phi_m(t) \left(\prod_{d|s}\Phi_d(t)\right) h(t) = \Phi_m(t)(t^s-1)h(t)\] für ein gewisses $h(t)\in\IZ[t]$.
 		
-	Also $\overline{a}^m-1 = \overline{\Phi_m(\overline{a})}(\overline{a}^s-1)\overline{h(\overline{a})}$, wobei die ersten beiden Faktoren beide $0$ sind. Damit folgt $f(t) = t^m-1\in\IF_p[t]$ hat mehrfache Nullstelle im Widerspruch zu $f'(t) = mt^{m-1}\in\IF_p[t]$, wobei $m\neq 0$ nach Voraussetzung.
+	Also gilt $\overline{a}^m-1 = \overline{\Phi_m(\overline{a})}(\overline{a}^s-1)\overline{h(\overline{a})}$, wobei die ersten beiden Faktoren beide $0$ sind. Somit hat $f(t) = t^m-1\in\IF_p[t]$ eine mehrfache Nullstelle im Widerspruch zu $f'(t) = mt^{m-1}\in\IF_p[t]$, wobei $m\neq 0$ nach Voraussetzung.
 	
-	Folglich gilt die Behauptung; es ist $\ord(\overline{a}) = m$ und mit Lagrange erhalten wir $m|p-1$, also $p\equiv 1\pmod m$.
+	Folglich gilt die Behauptung; es ist $\ord(\overline{a}) = m$ und mit dem \namereff{thm:lagrange} erhalten wir $m\mid p-1$, also $p\equiv 1\pmod m$.
 \end{proof}
 
 \begin{satz}\label{thm:25.3}
-	Jede endliche abelsche Gruppe $G$ ist isomorph zu $\Gal(L\sslash \IQ)$ für eine endliche Körpererweiterung $L\sslash \IQ$, Galoissch.
+	Jede endliche abelsche Gruppe $G$ ist isomorph zu $\Gal(L\sslash \IQ)$ für eine endliche Galoiserweiterung $L\sslash \IQ$.
 \end{satz}
 \begin{proof}
-	Sei $G$ eine endliche abelsche Gruppe. Mit den Sylowsätzen und 11.5 folgt, dass $n_1,\dots, n_r\in\IZ_{>0}$ existieren mit $G\cong \IZ/n_1\IZ\times\dots \times \IZ/n_r\IZ$. Nach Dirichlet finden wir Primzahlen $p_i$ ($1\leq i\leq r$) paarweise verschieden mit $p_i\equiv 1\pmod n_i$. Also $p_i-1 = m_in_i$ für gewisse $m_i\in\IZ$.
+	Sei $G$ eine endliche abelsche Gruppe. Mit den \hyperreff[thm:sylow]{Sylowsätzen} und \cref{???} folgt, dass $n_1,\dots, n_r\in\IZ_{>0}$ mit $G\cong \IZ/n_1\IZ\times\dots \times \IZ/n_r\IZ$ existieren. Nach \namereff{thm:dirichlet} finden wir paarweise verschiedene Primzahlen $p_i$ ($1\leq i\leq r$) mit $p_i\equiv 1\pmod {n_i}$. Es gilt also $p_i-1 = m_in_i$ für gewisse $m_i\in\IZ$. %hier wurde auf 11.5 verwiesen, was allerdings nicht existiert. Bitte suchen!
 	
-	Übung: es existiert eine Untergrupe $H_i<(\IZ/p_i\IZ)^{\times}$ der Ordnung $m_i$ mit $(\IZ/p_i\IZ)^{\times}/H_i = \IZ/n_i\IZ$.
+	Es sei dem aufmerksamen Leser als Übung überlassen, die Existenz einer Untergrupe $H_i<(\IZ/p_i\IZ)^{\times}$ der Ordnung $m_i$ mit $(\IZ/p_i\IZ)^{\times}/H_i = \IZ/n_i\IZ$ zu zeigen.
 	
-	Seien nun $\epsilon_i$ für $1\leq i\leq r$ primitive $p_i$-te Einheitwurzeln. Sei $\epsilon = \epsilon_1\dots \epsilon_r$, also primitive $p_1\dots p_r$-te Einheitswurzel und $\Gal\coloneqq\Gal(\IQ(\epsilon)\sslash \IQ)\cong (\IZ/p_1\IZ)^{\times}\times\dots \times(\IZ/p_r\IZ)^{\times}$.
+	Seien nun $\epsilon_i$ für $1\leq i\leq r$ primitive $p_i$-te Einheitwurzeln. Sei $\epsilon = \epsilon_1\dots \epsilon_r$, also eine primitive $p_1\dots p_r$-te Einheitswurzel und $\Gal\coloneqq\Gal(\IQ(\epsilon)\sslash \IQ)\cong (\IZ/p_1\IZ)^{\times}\times\dots \times(\IZ/p_r\IZ)^{\times}$.
 	Sei $H< \Gal(\IQ(\epsilon)\sslash \IQ)$ die Untergruppe, die $H_1\times\dots\times H_r$ entspricht.
-	Sei $M = L^H$ mit $L = \IQ(\epsilon)$. ($M$ ist ein Zwischenkörper $\IQ\subseteq M\subseteq L$.) Da $\Gal$ abelsch ist, ist $H<\Gal$ automatisch normal. Die Galoiskorrespondenz sagt uns nun, dass $M\sslash \IQ$ normal ist. Da $M\sslash \IQ$ außerdem separabel ist (z.B. weil $\chr\IQ=0$), ist diese Körpererweiterung Galoissch mit
+	Sei $M = L^H$ mit $L = \IQ(\epsilon)$, wobei $M$ ein Zwischenkörper $\IQ\subseteq M\subseteq L$ ist. Da $\Gal$ abelsch ist, ist $H<\Gal$ automatisch normal. Die \namereff{thm:galoiskorrespondenz} sagt uns nun, dass $M\sslash \IQ$ normal ist. Da $M\sslash \IQ$ außerdem separabel ist (da $\chr\IQ=0$), ist diese Körpererweiterung galois mit
 	$\Gal(M\sslash \IQ) = \Gal/H\cong (\IZ/p_1\IZ)^{\times}/H_1\times\dots\times(\IZ/p_r\IZ)^{\times}/H_r\cong \IZ/n_1\IZ\times\dots\times\IZ/n_r\IZ$.
 \end{proof}
 Im Allgemeinen ist das inverse Galoisproblem aber ungelöst!
 
 \subsection{Auflösbarkeit von algebraischen Gleichungen}
-Algebraische Gleichung: $f(t) = t^n+a_{n-1}t^{n-1}+\dots+a_1t+a_0\in\IQ[t]$ (oder $\IR[t],\IC[t]$).
-
-$$ (*)\qquad f(t) = 0$$
+Eine algebraische Gleichung entspricht
+\[ \qquad f(t) = 0\]
+für $f(t) = t^n+a_{n-1}t^{n-1}+\dots+a_1t+a_0\in\IQ[t]$ (oder $\IR[t],\IC[t]$).
 \begin{description}
 	\item[$n = 1$:] $t_1 = -a_0$ (einzige Lösung)
-	\item[$n = 2$:] $t_{1,2} = \frac{-a_1\pm\sqrt{a_1^2-4a_0}}{2}\in\IC$. Schon Babylonier konnten das, allerdings nur geometrisch und nur für bestimmte Werte, weil sie noch nicht so viele Skillz im Wurzelziehen hatten. Im 16. Jahrhundert wurde dann diese allgemeine Formel entdeckt.
-	\item[$n = 3,4$:] auch hier gibt es explizite Formeln (entdeckt circa 1550)
+	\item[$n = 2$:] $t_{1,2} = \frac{-a_1\pm\sqrt{a_1^2-4a_0}}{2}\in\IC$. Schon die Babylonier konnten das, allerdings nur geometrisch und nur für bestimmte Werte, weil sie noch nicht so viele Skillz im Wurzelziehen hatten. Im 16. Jahrhundert wurde dann diese allgemeine Formel entdeckt.
+	\item[$n = 3,4$:] Auch hier gibt es explizite Formeln (entdeckt circa 1550).
 \end{description}
 \begin{defi}
 	Sei $L\sslash K$ eine endliche Körpererweiterung. Sie heißt durch Radikale (von lat.: radix, dt.: Wurzel) auflösbar, falls ein $E\sslash K$ existiert mit $L\subseteq E$ und außerdem Körpererweiterungen
 	$$K = E_0\subset E_1\subset E_2\subset \dots \subset E_r = E$$
 	sodass $E_i = E_{i-1}(a_i)$ für ein $a_i\in E_i$, sodass $a_i$ Nullstelle eines Polynoms $Q(t)\in E_{i-1}[t]$ mit
-	\begin{enumerate}
-		\item $Q(t) = t^n-c$, wobei $\chr K \not|n$ oder
-		\item $Q(t) = t^p-t-c\in E_{n-1}[t]$ mit $\chr K = p>0$
-	\end{enumerate}
+	\begin{itemize}
+		\item $Q(t) = t^n-c$, wobei $\chr K \nmid n$ oder
+		\item $Q(t) = t^p-t-c\in E_{n-1}[t]$ mit $\chr K = p>0$.
+	\end{itemize}
 \end{defi}
 \begin{defi}
-	$L\sslash K$ sei eine endliche Körpererweiterung. Wir nennen $L\sslash K$ auflösbar, falls Körpererweiterungen $K\subseteq L\subseteq E$ existieren mit $E\sslash K$ Galoissch und $\Gal(E\sslash K)$ ist auflösbar (als Gruppe).
+	Sei $L\sslash K$ eine endliche Körpererweiterung. Wir nennen $L\sslash K$ auflösbar, falls Körpererweiterungen $K\subseteq L\subseteq E$ existieren, sodass $E \sslash K$ galois und $\Gal(E \sslash K)$ als Gruppe auflösbar ist.
 \end{defi}
 \begin{lem}
-	Sei $N$ die normale Hülle von $L\sslash K$ in $\overline{K}$. Dann ist $L\sslash K$ auflösbar genau dann, wenn $L\sslash K$ separabel ist und $\Gal(N\sslash K)$ auflösbar ist.
+	Sei $N$ die normale Hülle von $L\sslash K$ in $\overline{K}$. Dann ist $L\sslash K$ genau dann auflösbar, wenn $L\sslash K$ separabel und $\Gal(N\sslash K)$ auflösbar ist.
 \end{lem}
 
-\begin{proof}
+\begin{proof}~
 	\begin{description}
-		\item[\glqq$\Rightarrow$\grqq:] Sei $E$ wie in der Definition, also insbesondere $L\sslash K$ separabel (weil $K\subseteq L\subseteq E$). Nach dem Fortsetzungssatz ist $res\colon\Gal(E\sslash K)\to \Gal(N\sslash K), \phi\mapsto \phi|_N$, wobei das wohldefiniert ist, weil $N$ normal ist, surjektiv.
-		Dabei ist $\Gal(E\sslash K)$ auflösbar nach Voraussetzung. Als Quotient einer auflösbaren Gruppe ist $\Gal(N\sslash K)$ auflösbar.
-		\item[\glqq$\Leftarrow$\grqq:] $N\sslash K$ endlich (nach Definition), Galois mit $\Gal(N\sslash K)$ auflösbar. $E\coloneqq N$.
+		\item[\glqq$\Rightarrow$\grqq:] Sei $E$ wie in der Definition; also ist insbesondere $L\sslash K$ separabel, weil $K\subseteq L\subseteq E$ gilt. Nach dem \namereff{thm:fortsetz} ist $\res\colon\Gal(E\sslash K)\to \Gal(N\sslash K), \phi\mapsto \phi|_N$ (wohldefiniert aufgrund der Normalität von $N$) surjektiv.
+		Dabei ist $\Gal(E\sslash K)$ nach Voraussetzung auflösbar. Als Quotient einer auflösbaren Gruppe ist $\Gal(N\sslash K)$ auflösbar.
+		\item[\glqq$\Leftarrow$\grqq:] Per Definition $N\sslash K$ endlich sowie galois mit $\Gal(N\sslash K)$ auflösbar. Man setze nun $E\coloneqq N$.
 	\end{description}
 \end{proof}
-Insbesondere: $L\sslash K$ endlich Galoissch. Dann ist $L\sslash K$ genau dann auflösbar, wenn $\Gal(L\sslash K)$ auflösbar ist.
+Insbesondere gilt, wenn $L\sslash K$ endlich und galois ist, dass $L\sslash K$ genau dann auflösbar ist, wenn $\Gal(L\sslash K)$ auflösbar ist.
 
 
 \begin{satz}
 	Sei $L\sslash K$ eine endliche Körpererweiterung. Dann sind folgende Aussagen äquivalent:
 	\begin{enumerate}
-		\item $L\sslash K$ durch Radikale auflösbar
-		\item $L\sslash K$ auflösbar
+		\item $L\sslash K$ durch Radikale auflösbar.
+		\item $L\sslash K$ auflösbar.
 	\end{enumerate}
-	Wir wissen bereits: $L\sslash K$ zusätzlich Galoissch. Dann ist $L\sslash K$ genau dann auflösbar, wenn $\Gal(L\sslash K)$ auflösbar ist.
 \end{satz}
 \begin{proof} Bosch: Algebra.
 \end{proof}
@@ -3849,15 +3867,15 @@ Insbesondere: $L\sslash K$ endlich Galoissch. Dann ist $L\sslash K$ genau dann a
 	Jede separable Körpererweiterung vom Grad $[L:K]\leq 4$ ist (durch Radikale) auflösbar.
 \end{kor}
 \begin{proof}
-	Mit dem Satz vom primitiven Element wissen wir $L = K(a)$ für ein $a\in L$. Sei $M$ der Zerfällungskörper von $m_a(t)\in K[t]$. Nun hat $m_a(t)\geq 4$ Nullstellen. Also ist $\Gal(M\sslash K)<S_n$, wobei $N$ die Anzahl der Nullstellen von $m_a(t)$ ist. Da Untergruppen von auflösbaren Gruppen auflösbar sind, reicht es also zu zeigen, dass $S_2, S_3, S_4$ auflösbar sind. Für $S_2, S_3$ wissen wir das; für $S_4$ ist $\{e\}\nt V_4\nt A_4\nt S_4$ eine Normalreihe mit abelschen Quotienten. Folglich ist auch $S_4$ auflösbar.
+	Nach dem \namereff{thm:primitives element} wissen wir $L = K(a)$ für ein $a\in L$. Sei $M$ der Zerfällungskörper von $m_a(t)\in K[t]$. Nun hat $m_a(t)\geq 4$ Nullstellen. Also ist $\Gal(M\sslash K)<S_n$, wobei $N$ die Anzahl der Nullstellen von $m_a(t)$ ist. Da Untergruppen von auflösbaren Gruppen auflösbar sind, reicht es also zu zeigen, dass $S_2, S_3, S_4$ auflösbar sind. Für $S_2, S_3$ wissen wir das; für $S_4$ ist $\{e\}\nt V_4\nt A_4\nt S_4$ eine Normalreihe mit abelschen Quotienten. Folglich ist auch $S_4$ auflösbar.
 \end{proof}
 \begin{satz}[Abel-Ruffini]
-	Im Allgemeinen ist eine Gleichung $f(t) = 0$ 5. Grades nicht auflösbar. (Das heißt der Zerfällungskörper von $f(t)$ ist über $\IQ$ nicht durch Radikale auflösbar.)
+	Im Allgemeinen ist eine Gleichung 5. Grades $f(t) = 0$ nicht auflösbar. (Das heißt, dass der Zerfällungskörper von $f(t)$ über $\IQ$ nicht durch Radikale auflösbar ist.)
 \end{satz}
 \begin{proof}
-	Eine \glqq allgemeine\grqq\ Gleichung $n$-ten Grades hat Galoisgruppe $S_n$ (d.h. es existiert ein $f(t)$ von Grad $n$ wie boen mit $\Gal(\text{ZFK von }f(t)\sslash \IQ)\cong S_n$; einen Beweis für $n =p$ Primzahl findet sich im Bosch). 
+	Eine \glqq allgemeine\grqq\ Gleichung $n$-ten Grades hat Galoisgruppe $S_n$, es existiert also ein $f(t)$ wie eben von Grad $n$ mit $\Gal(L \sslash \IQ) \cong S_n$, wobei $L$ Zerfällungskörper von $f(t)$ ist. Ein Beweis für primes $n$ findet man im Bosch.
 	
-	Für $n = 5$ (man kanns sogar zeigen für $n\geq 5$) ist $S_n$ nicht auflösbar (siehe unten).
+	Für $n = 5$ (man kann sogar zeigen für $n\geq 5$) ist $S_n$ nicht auflösbar (siehe unten).
 \end{proof}
 Es kann also keine allgemeine Lösungsformel mit Wurzelausdrücken für Polynome vom Grad $5$ geben.
 
