@@ -16,7 +16,7 @@ deploy:
   target_branch: gh-pages
   on:
     branch: master
-script: latexmk -pdf -c -outdir=github-pages
+script: latexmk -pdf -c -outdir=github-pages einfalg.tex algebraI.tex
 dist: trusty
 os: linux
 env:
