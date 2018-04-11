@@ -7,8 +7,7 @@
 
 %Hack to also show the subsection
 \renewcommand{\thethmcounter}{\arabic{subsection}.\arabic{thmcounter}}
-\renewcommand{\thedefcounter}{\arabic{subsection}.\arabic{defcounter}}
-\renewcommand{\thebspcounter}{\arabic{subsection}.\arabic{bspcounter}}
+\renewcommand{\thedefcounter}{\arabic{subsection}.\arabic{thedefcounter}}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\arabic{subsection}}
@@ -50,6 +49,10 @@
 \theoremstyle{cdef}
 \newtheorem{bsp}[bspcounter]{Beispiel}
 \crefname{bsp}{Beispiel}{Beispielen}
+
+\theoremstyle{definition}
+\newtheorem*{konv}{Konvention}
+\crefname{konv}{Konvention}{Konventionen}
 
 \theoremstyle{cplain}
 \newtheorem{kor}[thmcounter]{Korollar}

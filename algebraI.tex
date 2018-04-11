@@ -1,0 +1,203 @@
+\documentclass[12pt,a4paper]{scrartcl}
+
+\usepackage{includes}
+\usepackage{shortcuts}
+\usepackage{numbering}
+
+%---------------------------%
+% Franzen-spezifisches Zeug %
+%---------------------------%
+
+% numbering
+\counterwithin{subsection}{section}
+\renewcommand{\thesection}{\arabic{section}}
+\setcounter{section}{-1}
+\setlist[enumerate,1]{label=\textup{\roman*)}}
+\setlist[enumerate,2]{label=\textup{\alph*)}}
+
+\theoremstyle{definition}
+\newtheorem*{bsp*}{Beispiel}
+
+\counterwithout{thmcounter}{subsection}
+\counterwithout{defcounter}{subsection}
+\counterwithin{thmcounter}{section}
+\counterwithin{defcounter}{section}
+\renewcommand{\thethmcounter}{\arabic{section}.\arabic{thmcounter}}
+\renewcommand{\thedefcounter}{\arabic{section}.\arabic{defcounter}}
+
+\makeatletter
+\let\c@thmcounter=\c@defcounter
+\makeatother
+
+% bibliography
+\usepackage[backend=biber,sorting=none]{biblatex}
+\addbibresource{literatur.bib}
+
+
+\author{}
+\title{Algebra I}
+\subtitle{Sommersemester 2018}    
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\noindent
+Dies ist eine Mitschrift der Vorlesung \glqq Algebra I\grqq von Dr. Hans Franzen an der Universität Bonn, gehalten im Sommersemester 2018.
+
+\bigskip
+
+\noindent
+Vorlesungswebsite:\\
+\url{http://www.math.uni-bonn.de/ag/stroppel/Franzen_Algebra_1.htmpl}
+
+\printbibliography
+
+\newpage
+
+\section{Motivation}
+Sei $k=\overline k$ (algebraisch abgeschlossener Körper). Seien $f_1, \dots f_m \in k[t_1,\dots t_n]$. Dann sind \[ V(f_1,\dots, f_m) := \{x=(x_1,\dots, x_n) \in k^n \mid f_i(x)=0 \text{ für alle $1\le i \le m$} \}\] affine algebraische Varietäten.
+
+
+\emph{Beispiel.} Sei $k=\IC$, $n=2$ und $m=1$. Wir erhalten die folgenden Bilder:
+\begin{figure}[h!]
+    \begin{subfigure}[b]{.5\linewidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[width=7cm,xmax=1,xmin=-1,ymax=1,ymin=-1,axis equal,xtick={-1,0,1},ytick={-1,0,1}]
+                \draw (axis cs:0,0) circle[radius=1];
+            \end{axis}
+        \end{tikzpicture}
+        \caption*{$f=x_1^2+x_2^2-1$}
+    \end{subfigure}
+    \begin{subfigure}[b]{.5\linewidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[width=7cm,xmax=1,xmin=-1,ymax=1,ymin=-1,axis equal,xtick={-1,0,1},ytick={-1,0,1}]
+                \addplot[black,samples=100,domain=0:1] {x^(3/2)};
+                \addplot[black,samples=100,domain=0:1] {-x^(3/2)};
+            \end{axis}
+        \end{tikzpicture}
+        \caption*{$f=x_1^3-x_2^2$}
+    \end{subfigure}
+\end{figure}
+\begin{figure}[h!]
+    \begin{subfigure}[b]{.5\linewidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[width=7cm,xmax=1,xmin=-1,ymax=1,ymin=-1,axis equal,xtick={-1,0,1},ytick={-1,0,1}]
+                \addplot[black] coordinates{(-2,0) (2,0)};
+                \addplot[black] coordinates{(0,-2) (0,2)};
+            \end{axis}
+        \end{tikzpicture}
+        \caption*{$f=x_1\cdot x_2$}
+    \end{subfigure}
+    \begin{subfigure}[b]{.5\linewidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[width=7cm,xmax=1,xmin=-1,ymax=1,ymin=-1,axis equal,xtick={-1,0,1},ytick={-1,0,1}]
+                \addplot[black] coordinates{(-2,0) (2,0)};
+                \addplot[black] coordinates{(0,-2) (0,2)};
+            \end{axis}
+        \end{tikzpicture}
+        \caption*{$f=x_1^{21}\cdot x_2^{138}$}
+    \end{subfigure}
+\end{figure}
+
+In der algebraischen Geometrie betrachten wir die folgende Beziehung:
+\begin{eqnarray*}
+    \text{Affine Varietät $X$} & \longleftrightarrow & \text{Ring $A(X)$} \\
+    \text{Studium der Geometrie von $X$} & \cong & \text{Studium des Ringes $A(X)$}
+\end{eqnarray*}
+Hierzu ist das Studium von kommutativer Algebra notwendig.
+\newpage
+
+\section{Primideale und maximale Ideale}
+\subsection{Grundbegriffe}
+\begin{konv}
+	In der gesamten Vorlesung sind Ringe immer kommutativ und haben Eins. Ringhomomorphismen erhalten die Eins.
+\end{konv}
+\begin{defi}
+	Sei $A$ ein Ring und $I\subsetneq A$ ein Ideal.
+	\begin{enumerate}
+        \item $I$ heißt Primideal, falls \begin{enumerate}
+            \item $ab \in A \setminus I$ für alle $a,b \in A \setminus I$ gilt, oder äquivalent
+            \item $A/I$ ein Integritätsbereich ist.
+        \end{enumerate}
+        \item $I$ heißt maximales Ideal, falls \begin{enumerate}
+            \item für jedes Ideal $J \subsetneq A$ aus $I \subset J$ bereits $I=J$ folgt, oder äquivalent
+            \item $A/I$ ein Körper ist.
+        \end{enumerate}
+		\item $\Spec A := \{\fp \mid \fp \subsetneq A \text{ Primideal}\}$
+		\item $\Max A:=\{\fm \mid \fm \subsetneq A \text{ maximales Ideal}\}$
+	\end{enumerate}
+\end{defi}
+\begin{defi} Sei $f: A \to B$ ein Ringhomomorphismus.
+	\begin{enumerate}
+		\item Sei $J \subset B$ ein Ideal. Dann ist $J \cap A:=f^{-1}(J)$ ein Ideal von $A$, genannt \emph{Kontraktion}. Ist $J$ ein Primideal, so ist $J \cap A$ ebenfalls ein Primideal.
+		\item Sei $I \subset A$ ein Ideal. Dann ist $f(I)$ nicht notwendigerweise ein Ideal. Setze $I \cdot B := \left( f(I) \right)$, das von $f(I)$ erzeugtes Ideal. Wir nennen dieses \emph{Ausdehnung} von $I$.
+	\end{enumerate}
+\end{defi}
+\begin{bem}
+	Es kann sein, dass $I \in \Max A$, aber $I \cdot B \notin \Spec B$. Sei dazu $A=\IZ$ und $B=\IZ[i]$. Sei $I=(2) \in \Max(\IZ)$, aber $I \cdot B = (2) \notin \Spec \IZ[i]$, da $2=(1-i)(1+i)$ ist.
+\end{bem}
+\begin{satz} \label{thm:existenz maximaler ideale}
+	Sei $A$ ein Ring und $I \subsetneq A$ ein Ideal. Dann existiert ein $\fm \in \Max A$ mit $I \subset \fm$.
+	\begin{proof}
+		Siehe Vorlesung Einführung in die Algebra, Satz 9.1, oder \cite{atiyah-macdonald}, Theorem 1.3.
+	\end{proof}
+\end{satz}
+\begin{kor} \label{kor:einheiten und maximale ideale}
+    Sei $A$ ein Ring, bez. $A^*=\{\text{Einheiten von }A\}$. Dann gilt \[A^*=A \setminus \bigcup_{\mathclap{\fm \in \Max A}} \fm.\]
+	\begin{proof}
+		Ist $a \in A^*$, so gilt $(a)=(1)=A$ und damit $a \notin \fm$ für alle $\fm \in \Max A$.
+
+		Sei $a \notin \fm$ für alle $\fm \in \Max A$. Dann ist $(a) \subset \fm$ für alle $\fm \in \Max A$; es folgt also $(a)=A=(1)$ mit \cref{thm:existenz maximaler ideale} und damit $a \in A^*$.
+	\end{proof}
+\end{kor}
+\subsection{Lokale Ringe}
+\begin{defi} \label{def1.5}
+	Sei $A$ ein Ring. $A$ heißt \emph{lokal}, falls $A$ genau ein maximales Ideal $\fm$ hat (d.h. $\Max A = \{\fm\}$).
+\end{defi}
+\begin{lem} \label{lem:lokale ringe}
+	Sei $A$ ein Ring.
+	\begin{enumerate}
+		\item Sei $I \subsetneq A$ ein Ideal. Dann sind äquivalent:
+		      \begin{enumerate}
+			      \item $\Max A = \{I\}$
+			      \item $A \setminus I \subset A^*$
+			      \item $A \setminus I = A^*$
+		      \end{enumerate}
+		\item Sei $\fm \in \Max A$. Falls $1+x \in A^*$ für alle $x \in \fm$ gilt, so ist $\Max A=\{ \fm \}$.
+	\end{enumerate}
+    \begin{proof}
+        \leavevmode
+		\begin{enumerate}
+			\item \enquote{a) $\Rightarrow$ b)} folgt aus \cref{kor:einheiten und maximale ideale}. Für \enquote{b) $\Rightarrow$ a)} sei $J \subsetneqq A$ ein Ideal. Dann liegt $J$ in $I$, und es folgt $I \in \Max A$ mit $\Max = \{I\}$.
+			\item Sei $b \in A \setminus \fm$. Es ist $b \in A^*$ zu zeigen. Da $\fm \in \Max A$, gilt $(b)+m=A$, es existieren folglich $a \in A, x\in m$ mit $ab+x=1$. Daraus folgt $ab=1-x \in A^*$ und dann $b \in A^*$.
+        \end{enumerate}
+        \qedhere
+	\end{proof}
+\end{lem}
+\begin{bsp*}
+	\begin{enumerate}
+        \leavevmode
+		\item[0)] Körper sind lokale Ringe.
+        \item Ist $(A,m)$ ein lokaler Ring. Dann ist $A\llbracket t \rrbracket$ ein lokaler Ring. Dabei ist \[ A\llbracket t \rrbracket=\left\{\sum_{i=0}^\infty a_it^i \,\middle|\, a_i \in A\right\} \] der Ring der formalen Potenzreihen mit kanonischer Addition und Multiplikation. Betrachte die Komposition $A\llbracket t \rrbracket \to A \to A/\fm$ gegeben durch $\phi=\can \circ \ev_0$. Diese bildet surjektiv auf den Körper $A/\fm$ ab, also ist $\ker \phi \in \Max A\llbracket t \rrbracket$.
+        
+        Sei $f \in \ker \phi$ und betrachte $1+ f$. Aus $f \in \ker \phi$ folgt $f=\sum_{i=0}^\infty a_it^i$ mit $a_0 \in \fm$. Wir wollen ein $g \in A[[t]]$ mit $g=\sum_{i=0}^\infty b_it^i$ mit $(1+f)g=1$ finden, d.h. $(1+a_0)b_0$ und $(1+a_0)b_n+a_1b_{n-1}+\dots a_nb_0$ für alle $n > 0$. Erstere Gleichung ist lösbar, da $a_0 \in m$ liegt und damit $1+a_0 \in A^*$ folgt. Wir führen nun eine Induktion nach $n$. Nehme an, dass $b_0, \dots b_{n-1}$ bereits bekannt sind. Dann folgt, dass $b_n=-(1+a_0)^{-1}(a_1b_{n-1}+\dots+a_nb_0)$. Nach \cref{lem:lokale ringe} ist $A\llbracket t \rrbracket$ lokal mit dem maximalen Ideal $(t)+\fm$. Der Residuenkörper ist $A[[T]]/((t)+m) \cong A/m$.
+
+        Spezialfall: $k\llbracket t_1,\dots t_n\rrbracket := k\llbracket t_1,\dots,t_{n-1}\rrbracket\llbracket t_n\rrbracket$ lokaler Ring mit maximalen Ideal $(t_1,\dots,t_n)$ und Residuenkörper isomorph zu $k$.
+        
+		\item Sei $X \subset \IR^n$ offen, $0 \in X$. Betrachte Paare $(U,f)$ mit $U \subset X$ offen, $0 \in U$ und $f:U \to R$ stetig. Definiere Äquivalenzklassen durch $(U_1,f_1) \sim (U_2,f_2)$ genau dann, wenn ein offenes $W \subset U_1 \cap U_2$ mit $0 \in W$ und $f_1|_W=f_2|_W$ existiert. Die Äquivalenzklasse $\langle U,f \rangle$ heißt Funktionenkeim. Definiere $A := \{\langle U,f \rangle \mid (U,f) \text{ wie oben}\}$ mit  punktweiser Addition und Multiplikation.
+
+		Wir zeigen nun, dass $A$ ein lokaler Ring ist. Betrachte $\phi: A \to \mathbb{R}, \; \langle U,f \rangle \to f(0)$, einen wohldefinierten Ringhomomorphismus. $\phi$ surjektiv und damit folgt $\ker \phi \in \Max A$.
+
+        Sei $s = \langle U,f \rangle \in \ker \phi$. Es bleibt $1+s \in A^*$ zu zeigen. Da $1+f(0)=1$, existiert eine offene Umgebung $W$ von $0$, sodass $f(x) \neq 0$ für alle $x \in W$ ist. Dann ist $y: W \to \IR, \; x \to \frac{1}{1+f(0)}$ stetig und es gilt $(1+s)\langle W,y \rangle = 1$. Somit ist $A$ ein lokaler Ring.
+        
+		\item Sei $A$ ein Ring und $\fp \in \Spec A$. Dann ist $A_\fp$ (Lokalisation) ein lokaler Ring; das maximale Ideal ist $\fp \cdot A_\fp$.
+	\end{enumerate}
+\end{bsp*}
+
+\end{document}

@@ -1,10 +1,10 @@
 ---
 language: generic
-sudo: true
+sudo: required
 install:
 - sudo apt-get -qq update
 - sudo apt-get install -y wget
-- 'wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu && chmod +x ./install-tl-ubuntu'
+- wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu && chmod +x ./install-tl-ubuntu
 - sudo ./install-tl-ubuntu --profile default.profile
 - sudo apt-get install -y latexmk
 - eval "$(sed 's/^/export /' /etc/environment)"
@@ -16,7 +16,7 @@ deploy:
   target_branch: gh-pages
   on:
     branch: master
-script: latexmk -pdf -quiet -outdir=github-pages einfalg.tex
+script: latexmk -pdf -c -outdir=github-pages
 dist: trusty
 os: linux
 env:

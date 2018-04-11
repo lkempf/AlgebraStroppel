@@ -3,6 +3,8 @@
 \usepackage[ngerman]{babel}
 \usepackage{lmodern}
 \usepackage{microtype}
+\usepackage{csquotes}
+\usepackage{subcaption}
 \setkomafont{sectioning}{\rmfamily\bfseries}
 \usepackage[automark,headsepline]{scrlayer-scrpage}
 \pagestyle{scrheadings}
@@ -17,7 +19,8 @@
 \usepackage[shortlabels]{enumitem}
 \setlist[description]{font=\normalfont\space}
 
-\usepackage{pgf,tikz,tikz-cd}
+\usepackage{pgf,tikz,tikz-cd,pgfplots}
+\pgfplotsset{compat=1.11}
 \usetikzlibrary{positioning,arrows,calc}
 \makeatletter
 \tikzset{
