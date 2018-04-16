@@ -353,4 +353,201 @@ Seien $M$ und $N$ $A$-Moduln. Eine Abbildung $M\rightarrow N$ heißt \emph{$A$-l
 Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f: M\rightarrow N$ ist $A$-linear}\}$.
 \end{defi}
 
+
+\lecture{16. April 2018}
+\begin{bem}
+	\leavevmode
+	\begin{enumerate}
+		\item Seien $M\xrightarrow{f}N\xrightarrow{g}P$ $A$-linear. Dann ist auch $g\circ f$ $A$-linear
+		\item Seien $M,N$ $A$-Moduln. Dann wird $\Hom_A(M,N)$ zu einem $A$-Modul mit
+		\begin{eqnarray*}
+			f+g & \colon & M\to N, x\mapsto f(x) + g(x)\\
+			af & \colon & M\to N, x\mapsto af(x) (= f(ax))
+		\end{eqnarray*}
+		(alle $f,g\in\Hom_A(M,N), a\in A$)
+		
+		Bemerkung: $A$ kommutativer Ring $\Rightarrow$ $af$ ist $A$-linear.
+		\item Sei $\phi\colon A\to B$ Ringhomomorphismus, $f\colon M\to N$ $B$-linear. Dann ist $f\colon {}_AM\to {}_AN$ $A$-linear. Wir erhalten also eine Injektion $\Hom_B(M,N)\to \Hom_A({}_AM,{}_AN)$. %TODO: injektionspfeil
+	\end{enumerate}
+\end{bem}
+\begin{defi}
+	Sei $f\colon M\to N$ eine $A$-lineare Abbildung. $f$ heißt Isomorphismus (von $A$-Moduln), wenn $f$ bijektiv ist.
+\end{defi}
+\begin{bem} Ist $f\colon M\to N$ Isomorphismus von $A$-Moduln, so ist $f^{-1}$ ebenfalls $A$-linear. Das heißt $f$ ist Isomorphismus genau dann, wenn ein $A$-lineares $g\colon N\to M$ existiert, sodass $g\circ f = \id_M$ und $f\circ g = \id_N$.
+\end{bem}
+\begin{bsp}
+	Sei $M$ ein $A$-Modul. Betrachte die Abbildung \begin{eqnarray*}
+		M &\to& \Hom_A(A,M)\\
+		x&\mapsto & [a\mapsto ax]\enspace .
+	\end{eqnarray*}
+	Das ist ein Isomorphismus von $A$-Moduln. Umkehrabbildung:
+	\begin{eqnarray*}
+		\Hom_A(A,M)&\to& M\\
+		f &\mapsto& f(1)
+	\end{eqnarray*}
+\end{bsp}
+%TODO: fix enumeration for bemerkungen (bemerkungen sollen fortlaufend mit allem anderen nummeriert werden)
+\subsection{Untermoduln}
+\begin{defi}
+	Sei $M$ ein $A$-Modul. Eine Teilmenge $M'\subseteq M$ heißt $A$-Untermodul, falls gelten:
+	\begin{enumerate}
+		\item $0\in M'$
+		\item $\forall x, x'\in M': x+x'\in M'$
+		\item $\forall a\in A\forall x\in M': ax\in M'$
+	\end{enumerate}
+	Falls $M'\subseteq M$ ein $A$-Untermodul ist, ist $M'$ mit den Einschränkungen der Addition und der skalaren Multiplikation von $M$ wieder ein $A$-Modul; die Inklusion $M'\to M$ ist $A$-linear.
+	
+	Sei $M'\subseteq M$ ein $A$-Untermodul. Dann ist $M/M'$ (als abelsche Gruppe) mit 
+	\begin{eqnarray*}
+		A\times M/M' & \to & M/M'\\
+		(a, x+M') &\mapsto& ax + M'
+	\end{eqnarray*}
+	ein $A$-Modul. (Wohldefiniertheit nachrechnen.)
+	
+	Die Quotientenabbildung $\pi\colon M\to M/M'$ ist $A$-linear (nach Definition von Skalarmultiplikation).
+\end{defi}
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item Für $M = {}_AA$ sind die $A$-Untermoduln von ${}_AA$ genau die Ideale von $A$.
+		\item Sei $A = k[t]$ und $M$ ein $A$-Modul. Dann ist $M$ eindeutig bestimmt durch $({}_kM, \psi)$, wobei $\psi\in\End_k(M), \psi(x) = tx$. Sei $M'\subseteq M$ eine Teilmenge. Dann ist $M'$ ein $k[t]$-Untermodul genau dann, wenn $M'$ ein $k$-Untervektorraum von ${}_kM$ ist und $\psi(M')\subseteq M'$.
+		\begin{proof}
+		\leavevmode
+		\begin{description}
+			\item[\glqq $\Rightarrow$\grqq:] $\checkmark$
+			\item[\glqq $\Leftarrow$\grqq:]  %TODO: referenzen einfügen für folgendes
+			Axiome (i) und (ii) von Untermoduln erfüllt, da $M'$ Untervektorraum ist. Zu (iii): Sei $x\in M', P\in k[t]$; sei $P(t) = \sum a_vt^v$ mit $a_v\in k$. Dann folgt $P\cdot x = \sum a_v\psi^v(x)\in M'$, da $\psi^v(x) \in M'$ ist.
+		\end{description}
+		\end{proof}
+		\item Sei $I\subseteq A$ ein Ideal, $M$ ein $A$-Modul. Definiere $I\cdot M \coloneqq \{\sum a_ix_i|a_i\in I, x_i\in M\}\subseteq M$. Das ist ein $A$-Untermodul. Beipsielsweise $I = (a)$; dann ist $(a)\cdot M = \{ax|x\in M\}$.
+	\end{enumerate}
+\end{bsp}
+\begin{defi}
+	Sei $f\colon M\to N$ eine $A$-lineare Abbildung. Definiere
+	\begin{itemize}
+		\item $\ker f \coloneqq \{x\in M|f(x) = 0\}$
+		\item $\im f \coloneqq f(M)$
+		\item $coker f\coloneqq N/\im (f)$ %TODO coker
+	\end{itemize}
+	Der Kern und das Bild von $f$ sind dabei Untermoduln von $M$ bzw. $N$.
+\end{defi}
+\begin{lem}
+	Sei $f\colon M\to N$ eine $A$-lineare Abbildung.
+	\begin{enumerate}
+		\item Sei $M'\subseteq M$ ein $A$-Untermodul mit $M'\subseteq \ker f$. Dann $\exists! \overline{f}\colon M/M'\to N$, sodass folgendes Diagramm kommutiert:
+		\begin{tikzcd}
+				M \arrow{r}{f} \arrow{d}{\pi} & N \\
+				M/M' \arrow{ur}{\overline{f}} \\ %TODO: Pfeil gestrichelt machen
+		\end{tikzcd}
+
+	\item Es existiert genau eine $A$-lineare Abbildung $\tilde{f}\colon M/\ker f\to \im f$ mit 
+		\begin{tikzcd}
+			M \arrow{r}{f} \arrow{d}{\pi} & N \\
+			M/\ker f \arrow{r}{\tilde{f}} & \im f \arrow {u} \\ %TODO: Pfeil gestrichelt machen, Inklusionspfeil zu einem Inklusionspfeil machen
+		\end{tikzcd}
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Definiere $\overline{f}\colon M/M'\to N$ durch $\overline{f}(x+M') = f(x)$ (das ist wohldefiniert, da $M'\subseteq \ker f$). Außerdem ist $\overline{f}$ auch $A$-linear: $\overline{f}(ax+M') = f(ax) = a(f(x)) = a\overline{f}(x+M')$.
+		\item Wende (i) auf $M' = \ker f$ an: $\exists! \overline{f}\colon M/\ker f\to N$ mit 
+		\begin{tikzcd}
+			M \arrow{r}{f} \arrow{d}{\pi} & N \\
+			M/\ker f \arrow{ur}{\overline{f}} \\ %TODO: Pfeil gestrichelt machen
+		\end{tikzcd}
+		Da $\im\overline{f} = \im f$ folgt 
+		\begin{tikzcd}
+		 & N  \\
+			M/\ker f \arrow{ur}{\overline{f}}\arrow{r}{\exists!\tilde{f}}	& \im f\arrow{u} %TODO: Pfeil gestrichelt machen, Inklusionspfeil zu einem Inklusionspfeil machen
+		\end{tikzcd}
+		$\tilde{f}$ ist bijektiv
+	\end{enumerate}
+\end{proof}
+
+\begin{bem}
+	Sei $M$ ein $A$-Modul, $M_i\subseteq M$ Untermoduln ($i\in I$)
+	\begin{enumerate}
+		\item $\bigcap\limits_{i\in I} M_i$ ist Untermodul.
+		\item Sei $T\subseteq M$ Teilmenge. Definiere
+		$\<T\> \coloneqq \bigcap\limits_{T\subseteq M'\subseteq M \text{Untermodul}} M'$. Das ist ein Untermodul, er heißt der von $T$ erzeugte Untermodul.
+		\item $sum M_i  \coloneqq \{\sum x_i |x_i\in M_i (\text{ alle }i\in I), \text{ nur endlich viele } x_i\neq 0\}$ ist ein Untermodul.
+	\end{enumerate}
+\end{bem}
+\begin{bem}
+	Seien $M_i (i\in I) A$-Moduln.
+	\begin{enumerate}
+		\item $\prod_{i\in I}\coloneqq \{(x_i)_{i\in I}|x_i\in M_i\}$ ist $A$-Modul mit $a(x_i) = (ax_i)$
+		\item $\bigoplus\limits_{i\in I} M_i\coloneqq \{(x_i)_{i\in I}|\text{nur endlich viele }x_i\neq 0\}\subseteq \prod_{i\in I}M_i$ ist Untermodul.
+		\item Sind $M_i\subseteq M$ Untermoduln und $M_i\cap \sum_{j\neq i} M_j = \{0\}$, so ist $\sum M_i\cong \bigoplus M_i$.
+	\end{enumerate}
+\end{bem}
+
+\subsection{Endlich erzeugte Moduln}
+\begin{defi}
+	Sei $M$ ein $A$-Modul. Sei $\{x_i\}_{i\in I}\subseteq M$. $\{x_i\}$ heißt 
+	\begin{itemize}
+		\item linear unabhängig (linearly independent)
+		\item Erzeugendensystem (generating system)
+		\item Basis
+	\end{itemize}
+	analog zur linearen Algebra.
+	\begin{enumerate}
+		\item $M$ heißt frei $\Leftrightarrow M$ hat eine Basis.
+		
+		Notation: In Bemerkung 2.15, falls $M_i = M$, schreibe $M^I \coloneqq \prod_{i\in I} M_i$, $M^{(I)}\coloneqq \bigoplus\limits_{i\in I}M_i$. Dann ist $M$ frei genau dann, wenn eine Menge $I$ existiert, sodass ein Isomorphismus $A^{(I)}\xrightarrow{\cong}M$ existiert. %TODO: Referenzen einfügen
+		\item $M$ heißt endlich frei $\Leftrightarrow M$ hat endliche Basis $\Leftrightarrow \exists n\geq 0\exists$ Isomorphismus $A^n\xrightarrow{\cong} M$
+		\item $M$ heißt endlich erzeugt $\Leftrightarrow M$ hat endliches Erzeugendensystem $\Leftrightarrow \exists n\geq 0\exists$ surjektive $A$-lineare Abbildung $A^n\to M$ %TODO: Surjektiven Pfeil einfügen
+		\item $M$ heißt endlich präsentiert $\Leftrightarrow \exists n\geq 0 \exists$ surjektive $A$-lineare Abbildung $A^n\xrightarrow{f}M$, sodass $\ker f$ endlich erzeugt ist.
+	\end{enumerate}
+	
+\end{defi}
+\begin{bem}
+	\leavevmode
+	\begin{enumerate}
+		\item endlich frei $\Rightarrow$ endlich präsentiert $\Rightarrow$ endlich erzeugt
+		\item Falls $A = k$ Körper: endlich erzeugt $\Rightarrow$ endlich frei
+		\item Sei $A = \IZ$, $M = \IZ/m\IZ$. $M$ ist präsentiert, aber nicht frei.
+		\item Sei $A = \IZ[T_1,T_2,T_3,\dots]$. Betrachte $\ev_{(T_i = 0)}\colon \IZ[T_1,T_2,\dots]\to \IZ$ und $M = {}_A\IZ$. Dann ist $M$ endlich erzeugt, $M$ nicht endlich präsentiert, denn $\ker(\ev_{(T_i = 0)}= (T_1,T_2,\dots)$ nicht endlich erzeugt.
+	\end{enumerate}
+\end{bem}
+\begin{lem}[Nakayamas Lemma]
+	Sei $M$ endlich erzeugter $A$-Modul, $I\subseteq A$ Ideal mit $I\times M = M$. Dann
+	\begin{enumerate}
+		\item $\exists a\in I: (1+a)\cdot M = \{0\}$ (das heißt für alle $x\in M: (1+a)x = 0$)
+		\item Falls $I\subseteq\Jac(A)\Rightarrow M = 0$.
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Induktion nach $n\coloneqq$ minimale Anzahl der Erzeuger von $M$.
+		
+		$n = 0$: $M = 0 \checkmark$
+		
+		$n-1\to n$: Sei $x_1,\dots, x_n$ ein Erzeugendensystem von $M$. Definiere $N\coloneqq M/\<x_n\>$. Sei $\pi \colon M\to N$ die Quotientenabbildung. $\Rightarrow N = \<\pi(x_1),dots,\pi(x_{n-1})\>$. Nun gilt $I\times N = N$ (Denn: Sei $y\in N\Rightarrow \exists x\in M: \pi(x) = y, x\in I\cdot M\Rightarrow\exists a_i\in I, \tilde{x_i}\in M: x =\sum a_i\pi(\tilde{x_i})\in I\cdot N$)
+		
+		Aus der Induktionsannahme folgt: es existiert ein $b\in I$, sodass $(1+b)\cdot N = \{0\}\subseteq N = M/\<x_n\>$.
+		
+		$\Rightarrow (1+b)M\subseteq \<x_n\>\Rightarrow (1+b)\cdot M = (1+b)\cdot I\cdot M = I\cdot((1+b)\cdot M)\subseteq I \cdot \<x_n\>$
+		
+		$\Rightarrow \exists c\in I: (1+b) x_n = cx_n\Rightarrow (1+b-c)x_n = 0 \Rightarrow (1+b-c)(1+b)M = \{0\}$
+		
+		Dabei ist $(1+b-c)(1+b) = (1+a)$ mit $a = b-c+b^2-bc\in I$.
+		\item Sei $x\in M$. Mit Punkt (i) folgt $\exists a\in I: (1+a)x = 0$, $a\in \Jac(A)$, also folgt nach Proposition 1.14: $1+a\in A^{\times}\Rightarrow x = 0$.
+	\end{enumerate}
+\end{proof}
+
+	
+
 \end{document}
+
+
+%\begin{bsp}
+%	Das hier ist ein Beispiel-Diagramm:
+
+%	\begin{tikzcd}
+%		X \arrow{rd}[swap]{g\circ f} \arrow{r}{f} & Y \arrow{d}{g} \\
+%		W \arrow{u}	& Z \\
+%	\end{tikzcd}
+%\end{bsp}
