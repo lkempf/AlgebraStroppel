@@ -34,6 +34,10 @@
 \newtheorem{prop}[thmcounter]{Proposition}
 \crefname{prop}{Proposition}{Propositionen}
 
+\theoremstyle{cdef}
+\newtheorem{beme}[thmcounter]{Bemerkung}
+\crefname{beme}{Bemerkung}{Bemerkungen}
+
 % bibliography
 \usepackage[backend=biber,sorting=none]{biblatex}
 \addbibresource{literatur.bib}
@@ -71,7 +75,7 @@ Sei $k=\overline k$ (algebraisch abgeschlossener Körper). Seien $f_1, \dots f_m
 
 
 \emph{Beispiel.} Sei $k=\IC$, $n=2$ und $m=1$. Wir erhalten die folgenden Bilder:
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}[b]{.5\linewidth}
         \centering
         \begin{tikzpicture}
@@ -92,7 +96,7 @@ Sei $k=\overline k$ (algebraisch abgeschlossener Körper). Seien $f_1, \dots f_m
         \caption*{$f=x_1^3-x_2^2$}
     \end{subfigure}
 \end{figure}
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{subfigure}[b]{.5\linewidth}
         \centering
         \begin{tikzpicture}
@@ -133,11 +137,11 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 	\begin{enumerate}
         \item $I$ heißt Primideal, falls \begin{enumerate}
             \item $ab \in A \setminus I$ für alle $a,b \in A \setminus I$ gilt, oder äquivalent
-            \item $A/I$ ein Integritätsbereich ist.
+            \item $\fak A I$ ein Integritätsbereich ist.
         \end{enumerate}
         \item $I$ heißt maximales Ideal, falls \begin{enumerate}
             \item für jedes Ideal $J \subsetneq A$ aus $I \subset J$ bereits $I=J$ folgt, oder äquivalent
-            \item $A/I$ ein Körper ist.
+            \item $\fak A I$ ein Körper ist.
         \end{enumerate}
 		\item $\Spec A := \{\fp \mid \fp \subsetneq A \text{ Primideal}\}$
 		\item $\Max A:=\{\fm \mid \fm \subsetneq A \text{ maximales Ideal}\}$
@@ -195,7 +199,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 	\begin{enumerate}
         \leavevmode
 		\item[0)] Körper sind lokale Ringe.
-        \item Ist $(A,m)$ ein lokaler Ring. Dann ist $A\llbracket t \rrbracket$ ein lokaler Ring. Dabei ist \[ A\llbracket t \rrbracket=\left\{\sum_{i=0}^\infty a_it^i \,\middle|\, a_i \in A\right\} \] der Ring der formalen Potenzreihen mit kanonischer Addition und Multiplikation. Betrachte die Komposition $A\llbracket t \rrbracket \to A \to A/\fm$ gegeben durch $\phi=\can \circ \ev_0$. Diese bildet surjektiv auf den Körper $A/\fm$ ab, also ist $\ker \phi \in \Max A\llbracket t \rrbracket$.
+        \item Ist $(A,\fm)$ ein lokaler Ring. Dann ist $A\llbracket t \rrbracket$ ein lokaler Ring. Dabei ist \[ A\llbracket t \rrbracket=\left\{\sum_{i=0}^\infty a_it^i \,\middle|\, a_i \in A\right\} \] der Ring der formalen Potenzreihen mit kanonischer Addition und Multiplikation. Betrachte die Komposition $A\llbracket t \rrbracket \to A \to A/\fm$ gegeben durch $\phi=\can \circ \ev_0$. Diese bildet surjektiv auf den Körper $A/\fm$ ab, also ist $\ker \phi \in \Max A\llbracket t \rrbracket$.
         
         Sei $f \in \ker \phi$ und betrachte $1+ f$. Aus $f \in \ker \phi$ folgt $f=\sum_{i=0}^\infty a_it^i$ mit $a_0 \in \fm$. Wir wollen ein $g \in A\llbracket t\rrbracket$ mit $g=\sum_{i=0}^\infty b_it^i$ mit $(1+f)g=1$ finden, d.h. $(1+a_0)b_0$ und $(1+a_0)b_n+a_1b_{n-1}+\dots a_nb_0$ für alle $n > 0$. Erstere Gleichung ist lösbar, da $a_0 \in m$ liegt und damit $1+a_0 \in A^*$ folgt. Wir führen nun eine Induktion nach $n$. Nehme an, dass $b_0, \dots b_{n-1}$ bereits bekannt sind. Dann folgt, dass $b_n=-(1+a_0)^{-1}(a_1b_{n-1}+\dots+a_nb_0)$. Nach \cref{lem:lokale ringe} ist $A\llbracket t \rrbracket$ lokal mit dem maximalen Ideal $(t)+\fm$. Der Residuenkörper ist $A\llbracket T\rrbracket /((t)+\fm) \cong A/\fm$.
 
@@ -226,7 +230,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
         \item $\sqrt{I}$ ist ein Ideal von $A$.
         \item $I\subset \sqrt{I} = \sqrt{\sqrt{I}}$
         \item $\sqrt{I} = (1) \Leftrightarrow I = (1)$
-        \item $A / \sqrt{I}$ hat keine nilpotente Elemente (außer 0).
+        \item $\fak A{\sqrt{I}}$ hat keine nilpotente Elemente (außer 0).
     \end{enumerate}
     \begin{proof}
         \leavevmode
@@ -236,7 +240,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
             also liegt auch $x+y$ in $I$. Die anderen Eigenschaften sind schnell nachgeprüft.
             \item Da $I\subset \sqrt{I}$, folgt sofort $\sqrt{I} \subset \sqrt{\sqrt{I}}$. Ist nun umgekehrt $x\in \sqrt{\sqrt{I}}$, so existiert ein $n>0$ mit $x^n\in \sqrt{I}$, und dann existiert ein $m>0$ mit $(x^n)^m = x^{nm} \in I$ Also liegt $x$ in $\sqrt{I}$.
             \item Die Rückrichtung ist klar. Sei also $\sqrt I=(1)$. Dann exisitert ein $n>0$ mit $1^n \in I$, also liegt $1$ in $I$.
-            \item Sei $z\in A/\sqrt{I}$ mit $z^n=0$. Schreibe $z=x+\sqrt{I}$ für ein $x\in A$. Dann ist $x^n+\sqrt{I} = 0$, also liegt $x^n$ in $\sqrt{I}$ und es folgt $z=0$.
+            \item Sei $z\in \fak A{\sqrt{I}}$ mit $z^n=0$. Schreibe $z=x+\sqrt{I}$ für ein $x\in A$. Dann ist $x^n+\sqrt{I} = 0$, also liegt $x^n$ in $\sqrt{I}$ und es folgt $z=0$.
             \qedhere
         \end{enumerate}
     \end{proof}
@@ -264,7 +268,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
     \begin{description}
         \item[\enquote{$\subseteq$}] Sei $x\in \sqrt{I}$. Dann existiert ein $n>0$ mit $x^n\in I$.
         Sei $\fp\in \Spec A$ mit $\fp\supset I$. Dann liegt $x^n$ auch in $\fp$, und da $\fp$ ein Primideal ist, folgt $x \in \fp$.
-        \item[\enquote{$\supseteq$}] Sei $x\in \bigcap_{p\in \Spec A, p\supset I}$. Angenommen, $x$ wäre nicht in $\sqrt{I}$; für alle $n>0$ gilt also $x^n\not \in I$.
+        \item[\enquote{$\supseteq$}] Sei $x\in \bigcap_{\fp\in \Spec A, \fp\supset I}\fp$. Angenommen, $x$ wäre nicht in $\sqrt{I}$; für alle $n>0$ gilt also $x^n\not \in I$.
 
         Definiere \[\Sigma := \{J \mid J\subset A \text{ Ideal}, I\subset J,\, \forall n>0: x^n\not \in J\}.\]
         Dann ist $(\Sigma, \subset)$ angeordnet (partiell geordnet).
@@ -290,9 +294,9 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 \end{proof}
 
 \begin{defi}
-    Sei $A$ ein Ring. Dann heißt \[\Jac(A) := \bigcap_{\mathclap{m\in \Max{A}}} m\] das \emph{Jacobson-Radikal} von $A$.
+    Sei $A$ ein Ring. Dann heißt \[\Jac(A) := \bigcap_{\mathclap{\fm\in \Max{A}}} \fm\] das \emph{Jacobson-Radikal} von $A$.
 \end{defi}
-\begin{bsp}
+\begin{beme}
     \leavevmode
     \begin{enumerate}
         \item $\Jac(A)$ ist ein Ideal von $A$.
@@ -300,15 +304,15 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
         
         Beispielsweise ist $k\llbracket t\rrbracket$ ein lokaler Ring mit $\fm=(t)\neq (0)$ und ist nullteilerfrei, da mit $f=\sum_{i=m}^\infty a_it^i,g=\sum_{i=n}^\infty b_it^i \in k\llbracket t\rrbracket$ mit $a_m,b_n \neq 0$ dann \[ fg = \underbrace{a_mb_nt^{m+n}}_{\neq 0} + \text{ Terme höheren Grades} \neq 0 \] gilt.
     \end{enumerate}
-\end{bsp}
-\begin{prop}
+\end{beme}
+\begin{prop} \label{prop:jacobson}
     Sei $A$ ein Ring. Dann gilt $\Jac(A) = \{x\in A \mid \forall a\in A: 1-ax\in A^* \}$.
 \end{prop}
 \begin{proof}
     \leavevmode
     \begin{description}
         \item[\enquote{$\subseteq$}] Sei $x\in \Jac(A)$ und $a\in A$. Angenommen, $1-ax\not \in A^*$. Dann existiert ein $\fm\in \Max(A)$ mit $1-ax\in \fm$, sodass $1=(1-ax)+ax\in \fm$ gilt, Widerspruch.
-        \item[\enquote{$\supseteq$}] Sei $x \in A$ mit $1-ax\in A^*$ für alle $a \in A$ sowie $\fm\in \Max(A)$. Angenommen, $x\not \in \fm$. Dann gilt $(x)+\fm=(1)$, es existieren also $a\in A, y\in \fm$ mit $1=ax+y$. Dann folgt aber $m \ni y = 1-ax \in A^*$, ein Widerspruch.
+        \item[\enquote{$\supseteq$}] Sei $x \in A$ mit $1-ax\in A^*$ für alle $a \in A$ sowie $\fm\in \Max(A)$. Angenommen, $x\not \in \fm$. Dann gilt $(x)+\fm=(1)$, es existieren also $a\in A, y\in \fm$ mit $1=ax+y$. Dann folgt aber $\fm \ni y = 1-ax \in A^*$, ein Widerspruch.
         \qedhere
     \end{description}
 \end{proof}
@@ -331,7 +335,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
         \item Falls $A=k$ Körper: $A$-Modul $=$ $k$-Vektorraum \label{bsp:moduln:i}
         \item $A$ ist selbst ein $A$-Modul, genannt ${}_AA$. \label{bsp:moduln:ii}
         \item Ist $\phi: A\rightarrow B$ ein Ringhomomorphismus, so wird $B$ ein $A$-Modul durch $a\cdot b = \phi(a)\cdot b$.
-        \item Ist $A=\IZ$ $\Rightarrow$, so sind $A$-Moduln abelsche Gruppen (für $n\in \IZ, n>0: nx=\underbrace{x+x+\ldots+x}_{n\text{ mal}}$).
+        \item Ist $A=\IZ$, so sind $A$-Moduln abelsche Gruppen (für $n\in \IZ, n>0: nx=\underbrace{x+x+\ldots+x}_{n\text{ mal}}$).
         \item Sei $A=k[t]$ ($k$ Körper). Sei $V$ ein $k$-Vektorraum und $\psi \in \End_k(V)$. Definiere $k[t] \times V \rightarrow V$ durch $(P,v) \mapsto (P(\psi))v:=\sum_{\nu=0}^n a_\nu(\psi^\nu)(v)$ mit $P(t)=\sum_{\nu=0}^n a_\nu t^\nu$. Dann wird $V$ ein $k[t]$-Modul.
     \end{enumerate}
 \end{bsp}
@@ -348,75 +352,77 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
         Sei $P(t)=\sum_{\nu=0}^n a_\nu t^\nu\in k[t]$. Dann ist $P\cdot y = \sum_{\nu = 0}^n a_\nu \psi^n(y) = \sum_{\nu = 0}^n a_\nu (t\cdot y) = P\cdot y$ und wir erhalten einen $N = $ $k[t]$-Modul entstanden aus $({}_kN, \psi)$.
     \end{enumerate}
 \end{bsp}
-\begin{defi} %2.5
+\begin{defi}
 Seien $M$ und $N$ $A$-Moduln. Eine Abbildung $M\rightarrow N$ heißt \emph{$A$-linear}, wenn $f(x+x')=f(x)+f(x')$ und $f(ax)=af(x)$ für alle $x,x'\in M$ und $a\in A$ gilt.
 Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f: M\rightarrow N$ ist $A$-linear}\}$.
 \end{defi}
 
 
 \lecture{16. April 2018}
-\begin{bem}
+\begin{beme}
 	\leavevmode
 	\begin{enumerate}
-		\item Seien $M\xrightarrow{f}N\xrightarrow{g}P$ $A$-linear. Dann ist auch $g\circ f$ $A$-linear
-		\item Seien $M,N$ $A$-Moduln. Dann wird $\Hom_A(M,N)$ zu einem $A$-Modul mit
+		\item Seien $M\xrightarrow{f}N\xrightarrow{g}P$ $A$-linear. Dann ist auch $g\circ f$ $A$-linear.
+		\item Seien $M$ und $N$ $A$-Moduln. Dann wird $\Hom_A(M,N)$ zu einem $A$-Modul mit
 		\begin{eqnarray*}
-			f+g & \colon & M\to N, x\mapsto f(x) + g(x)\\
-			af & \colon & M\to N, x\mapsto af(x) (= f(ax))
+			f+g & \colon & M\to N,\, x\mapsto f(x) + g(x)\\
+			af & \colon & M\to N,\, x\mapsto af(x)\; (= f(ax))
 		\end{eqnarray*}
-		(alle $f,g\in\Hom_A(M,N), a\in A$)
+		für alle $f,g\in\Hom_A(M,N)$ und $a\in A$.
 		
-		Bemerkung: $A$ kommutativer Ring $\Rightarrow$ $af$ ist $A$-linear.
-		\item Sei $\phi\colon A\to B$ Ringhomomorphismus, $f\colon M\to N$ $B$-linear. Dann ist $f\colon {}_AM\to {}_AN$ $A$-linear. Wir erhalten also eine Injektion $\Hom_B(M,N)\to \Hom_A({}_AM,{}_AN)$. %TODO: injektionspfeil
+		Für die $A$-Linearität von $af$ wird benötigt, dass $A$ ein kommutativer Ring ist.
+		\item Sei $\phi\colon A\to B$ ein Ringhomomorphismus sowie $f\colon M\to N$ $B$-linear. Dann ist $f\colon {}_AM\to {}_AN$ $A$-linear. Wir erhalten also eine Injektion $\Hom_B(M,N)\hookrightarrow \Hom_A({}_AM,{}_AN)$.
 	\end{enumerate}
-\end{bem}
+\end{beme}
 \begin{defi}
-	Sei $f\colon M\to N$ eine $A$-lineare Abbildung. $f$ heißt Isomorphismus (von $A$-Moduln), wenn $f$ bijektiv ist.
+	Sei $f\colon M\to N$ eine $A$-lineare Abbildung. $f$ heißt \emph{Isomorphismus} (von $A$-Moduln), wenn $f$ bijektiv ist.
 \end{defi}
-\begin{bem} Ist $f\colon M\to N$ Isomorphismus von $A$-Moduln, so ist $f^{-1}$ ebenfalls $A$-linear. Das heißt $f$ ist Isomorphismus genau dann, wenn ein $A$-lineares $g\colon N\to M$ existiert, sodass $g\circ f = \id_M$ und $f\circ g = \id_N$.
-\end{bem}
+\begin{beme} Ist $f\colon M\to N$ ein Isomorphismus von $A$-Moduln, so ist $f^{-1}$ ebenfalls $A$-linear. Das heißt, $f$ ist genau dann ein Isomorphismus, wenn ein $A$-lineares $g\colon N\to M$ existiert, sodass $g\circ f = \id_M$ und $f\circ g = \id_N$ gilt.
+\end{beme}
 \begin{bsp}
 	Sei $M$ ein $A$-Modul. Betrachte die Abbildung \begin{eqnarray*}
 		M &\to& \Hom_A(A,M)\\
 		x&\mapsto & [a\mapsto ax]\enspace .
 	\end{eqnarray*}
-	Das ist ein Isomorphismus von $A$-Moduln. Umkehrabbildung:
+	Das ist ein Isomorphismus von $A$-Moduln mit Umkehrabbildung
 	\begin{eqnarray*}
 		\Hom_A(A,M)&\to& M\\
-		f &\mapsto& f(1)
+		f &\mapsto& f(1) \enspace .
 	\end{eqnarray*}
 \end{bsp}
-%TODO: fix enumeration for bemerkungen (bemerkungen sollen fortlaufend mit allem anderen nummeriert werden)
 \subsection{Untermoduln}
 \begin{defi}
-	Sei $M$ ein $A$-Modul. Eine Teilmenge $M'\subseteq M$ heißt $A$-Untermodul, falls gelten:
+	Sei $M$ ein $A$-Modul. Eine Teilmenge $M'\subseteq M$ heißt \emph{$A$-Untermodul}, falls
 	\begin{enumerate}
-		\item $0\in M'$
-		\item $\forall x, x'\in M': x+x'\in M'$
-		\item $\forall a\in A\forall x\in M': ax\in M'$
-	\end{enumerate}
-	Falls $M'\subseteq M$ ein $A$-Untermodul ist, ist $M'$ mit den Einschränkungen der Addition und der skalaren Multiplikation von $M$ wieder ein $A$-Modul; die Inklusion $M'\to M$ ist $A$-linear.
+		\item $0\in M'$ \label{defi:untermodul:i}
+		\item $x+x'\in M'$ \label{defi:untermodul:ii}
+		\item $ax\in M'$ \label{defi:untermodul:iii}
+    \end{enumerate}
+    für alle $x,x' \in M'$ und $a \in A$ gelten.
+
+	Falls $M'\subseteq M$ ein $A$-Untermodul ist, ist $M'$ mit den Einschränkungen der Addition und der skalaren Multiplikation von $M$ wieder ein $A$-Modul; die Inklusion $M'\hookrightarrow M$ ist $A$-linear.
 	
-	Sei $M'\subseteq M$ ein $A$-Untermodul. Dann ist $M/M'$ (als abelsche Gruppe) mit 
+	Sei $M'\subseteq M$ ein $A$-Untermodul. Dann ist $\fak M{M'}$ (als abelsche Gruppe) mit 
 	\begin{eqnarray*}
-		A\times M/M' & \to & M/M'\\
+		A\times \fak M{M'} & \to & \fak M{M'}\\
 		(a, x+M') &\mapsto& ax + M'
 	\end{eqnarray*}
-	ein $A$-Modul. (Wohldefiniertheit nachrechnen.)
+	ein $A$-Modul. Die Wohldefiniertheit ist schnell nachgerechnet.
 	
-	Die Quotientenabbildung $\pi\colon M\to M/M'$ ist $A$-linear (nach Definition von Skalarmultiplikation).
+	Die Quotientenabbildung $\pi\colon M\to \fak M{M'}$ ist $A$-linear (nach der Definition der Skalarmultiplikation).
 \end{defi}
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
 		\item Für $M = {}_AA$ sind die $A$-Untermoduln von ${}_AA$ genau die Ideale von $A$.
-		\item Sei $A = k[t]$ und $M$ ein $A$-Modul. Dann ist $M$ eindeutig bestimmt durch $({}_kM, \psi)$, wobei $\psi\in\End_k(M), \psi(x) = tx$. Sei $M'\subseteq M$ eine Teilmenge. Dann ist $M'$ ein $k[t]$-Untermodul genau dann, wenn $M'$ ein $k$-Untervektorraum von ${}_kM$ ist und $\psi(M')\subseteq M'$.
+		\item Sei $A = k[t]$ und $M$ ein $A$-Modul. Dann ist $M$ eindeutig bestimmt durch $({}_kM, \psi)$, wobei $\psi\in\End_k(M)$ mit $\psi(x) = tx$. Sei $M'\subseteq M$ eine Teilmenge. Dann ist $M'$ genau dann ein $k[t]$-Untermodul, wenn $M'$ ein $k$-Untervektorraum von ${}_kM$ ist und $\psi(M')\subseteq M'$ gilt.
 		\begin{proof}
 		\leavevmode
 		\begin{description}
 			\item[\glqq $\Rightarrow$\grqq:] $\checkmark$
-			\item[\glqq $\Leftarrow$\grqq:]  %TODO: referenzen einfügen für folgendes
-			Axiome (i) und (ii) von Untermoduln erfüllt, da $M'$ Untervektorraum ist. Zu (iii): Sei $x\in M', P\in k[t]$; sei $P(t) = \sum a_vt^v$ mit $a_v\in k$. Dann folgt $P\cdot x = \sum a_v\psi^v(x)\in M'$, da $\psi^v(x) \in M'$ ist.
+			\item[\glqq $\Leftarrow$\grqq:]
+            Die Axiome \ref{defi:untermodul:i} und \ref{defi:untermodul:ii} von Untermoduln sind erfüllt, da $M'$ ein Untervektorraum ist. Für Axiom \ref{defi:untermodul:iii} sei $x\in M'$ und $P\in k[t]$ mit $P(t) = \sum a_\nu t^\nu$ mit $a_\nu\in k$. Dann folgt $P\cdot x = \sum a_\nu\psi^\nu(x)\in M'$, da $\psi^\nu(x)$ in $M'$ liegt.
+            \qedhere
 		\end{description}
 		\end{proof}
 		\item Sei $I\subseteq A$ ein Ideal, $M$ ein $A$-Modul. Definiere $I\cdot M \coloneqq \{\sum a_ix_i|a_i\in I, x_i\in M\}\subseteq M$. Das ist ein $A$-Untermodul. Beipsielsweise $I = (a)$; dann ist $(a)\cdot M = \{ax|x\in M\}$.
@@ -425,63 +431,78 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f: M\rightarrow N$ ist $A$-linear}\}
 \begin{defi}
 	Sei $f\colon M\to N$ eine $A$-lineare Abbildung. Definiere
 	\begin{itemize}
-		\item $\ker f \coloneqq \{x\in M|f(x) = 0\}$
-		\item $\im f \coloneqq f(M)$
-		\item $coker f\coloneqq N/\im (f)$ %TODO coker
+		\item $\ker f \coloneqq \{x\in M\mid f(x) = 0\}$,
+		\item $\im f \coloneqq f(M)$,
+		\item $\coker f\coloneqq N/\im (f)$.
 	\end{itemize}
 	Der Kern und das Bild von $f$ sind dabei Untermoduln von $M$ bzw. $N$.
 \end{defi}
 \begin{lem}
 	Sei $f\colon M\to N$ eine $A$-lineare Abbildung.
 	\begin{enumerate}
-		\item Sei $M'\subseteq M$ ein $A$-Untermodul mit $M'\subseteq \ker f$. Dann $\exists! \overline{f}\colon M/M'\to N$, sodass folgendes Diagramm kommutiert:
-		\begin{tikzcd}
-				M \arrow{r}{f} \arrow{d}{\pi} & N \\
-				M/M' \arrow{ur}{\overline{f}} \\ %TODO: Pfeil gestrichelt machen
-		\end{tikzcd}
-
-	\item Es existiert genau eine $A$-lineare Abbildung $\tilde{f}\colon M/\ker f\to \im f$ mit 
-		\begin{tikzcd}
-			M \arrow{r}{f} \arrow{d}{\pi} & N \\
-			M/\ker f \arrow{r}{\tilde{f}} & \im f \arrow {u} \\ %TODO: Pfeil gestrichelt machen, Inklusionspfeil zu einem Inklusionspfeil machen
-		\end{tikzcd}
+        \item Sei $M'\subseteq M$ ein $A$-Untermodul mit $M'\subseteq \ker f$. Dann existiert genau eine Abbildung $\overline{f}\colon \fak M{M'}\to N$, sodass folgendes Diagramm kommutiert.
+        \begin{figure}[H]
+            \centering
+            \begin{tikzcd}
+                    M \arrow{r}{f} \arrow{d}{\pi} & N \\
+                    \fak M{M'} \arrow[dashrightarrow]{ur}{\overline{f}}
+            \end{tikzcd}
+        \end{figure} \label{lem:homosatz fuer moduln:i}
+        \item Es existiert genau eine $A$-lineare Abbildung $\tilde{f}\colon \fak M{\ker f}\to \im f$, sodass das folgende Diagramm kommutiert.
+        \begin{figure}[H]
+            \centering
+            \begin{tikzcd}
+                M \arrow{r}{f} \arrow{d}{\pi} & N \\
+                \fak M{\ker f} \arrow[dashrightarrow]{r}{\tilde{f}} & \im f \arrow[hookrightarrow]{u}
+            \end{tikzcd}
+        \end{figure}
 	\end{enumerate}
 \end{lem}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item Definiere $\overline{f}\colon M/M'\to N$ durch $\overline{f}(x+M') = f(x)$ (das ist wohldefiniert, da $M'\subseteq \ker f$). Außerdem ist $\overline{f}$ auch $A$-linear: $\overline{f}(ax+M') = f(ax) = a(f(x)) = a\overline{f}(x+M')$.
-		\item Wende (i) auf $M' = \ker f$ an: $\exists! \overline{f}\colon M/\ker f\to N$ mit 
-		\begin{tikzcd}
-			M \arrow{r}{f} \arrow{d}{\pi} & N \\
-			M/\ker f \arrow{ur}{\overline{f}} \\ %TODO: Pfeil gestrichelt machen
-		\end{tikzcd}
-		Da $\im\overline{f} = \im f$ folgt 
-		\begin{tikzcd}
-		 & N  \\
-			M/\ker f \arrow{ur}{\overline{f}}\arrow{r}{\exists!\tilde{f}}	& \im f\arrow{u} %TODO: Pfeil gestrichelt machen, Inklusionspfeil zu einem Inklusionspfeil machen
-		\end{tikzcd}
-		$\tilde{f}$ ist bijektiv
+		\item Definiere $\overline{f}\colon \fak M{M'}\to N$ durch $\overline{f}(x+M') = f(x)$ (wohldefiniert, da $M'\subseteq \ker f$). Außerdem ist $\overline{f}$ auch $A$-linear, da $\overline{f}(ax+M') = f(ax) = a(f(x)) = a\overline{f}(x+M')$ gilt.
+        \item Wenden wir \ref{lem:homosatz fuer moduln:i} auf $M' = \ker f$ an, so erhalten wir eine eindeutige $A$-lineare Abbildung $\overline{f}\colon \fak M{\ker f}\to N$, sodass
+        \begin{figure}[H]
+            \centering
+            \begin{tikzcd}
+                M \arrow{r}{f} \arrow{d}{\pi} & N \\
+                M/\ker f \arrow[dashrightarrow]{ur}{\overline{f}}
+            \end{tikzcd}
+        \end{figure}
+        
+        kommutiert. Da $\im\overline{f} = \im f$, folgt
+        \begin{figure}[H]
+            \centering
+            \begin{tikzcd}
+                & N  \\
+                M/\ker f \arrow{ur}{\overline{f}}\arrow[dashrightarrow]{r}{\exists!\tilde{f}}	& \im f\arrow[hookrightarrow]{u}
+               \end{tikzcd}
+        \end{figure}
+		
+        $\tilde{f}$ ist analog zum Homomorphiesatz für Gruppen bijektiv.
+        \qedhere
 	\end{enumerate}
 \end{proof}
 
-\begin{bem}
-	Sei $M$ ein $A$-Modul, $M_i\subseteq M$ Untermoduln ($i\in I$)
+\begin{beme}
+	Sei $M$ ein $A$-Modul sowie $M_i\subseteq M$ Untermoduln mit $i\in I$.
 	\begin{enumerate}
-		\item $\bigcap\limits_{i\in I} M_i$ ist Untermodul.
-		\item Sei $T\subseteq M$ Teilmenge. Definiere
-		$\<T\> \coloneqq \bigcap\limits_{T\subseteq M'\subseteq M \text{Untermodul}} M'$. Das ist ein Untermodul, er heißt der von $T$ erzeugte Untermodul.
-		\item $sum M_i  \coloneqq \{\sum x_i |x_i\in M_i (\text{ alle }i\in I), \text{ nur endlich viele } x_i\neq 0\}$ ist ein Untermodul.
+		\item $\bigcap\limits_{i\in I} M_i$ ist ein Untermodul.
+		\item Sei $T\subseteq M$ eine Teilmenge. Definiere
+		\[\<T\> \coloneqq \bigcap_{\mathclap{\substack{T\subseteq M'\subseteq M\\\text{$M'$ Untermodul}}}} M'\] als den von $T$ erzeugten Untermodul.
+		\item Die Menge $\sum\limits_{i\in I} M_i  \coloneqq \left\{\sum x_i \,\middle|\, \substack{x_i \in M_i \text{ mit }i\in I,\\\text{ nur endlich viele } x_i\neq 0}\right\}$ ist ein Untermodul.
 	\end{enumerate}
-\end{bem}
-\begin{bem}
-	Seien $M_i (i\in I) A$-Moduln.
+\end{beme}
+\begin{beme}
+	Seien $M_i$ $A$-Moduln mit $i\in I$.
 	\begin{enumerate}
-		\item $\prod_{i\in I}\coloneqq \{(x_i)_{i\in I}|x_i\in M_i\}$ ist $A$-Modul mit $a(x_i) = (ax_i)$
-		\item $\bigoplus\limits_{i\in I} M_i\coloneqq \{(x_i)_{i\in I}|\text{nur endlich viele }x_i\neq 0\}\subseteq \prod_{i\in I}M_i$ ist Untermodul.
-		\item Sind $M_i\subseteq M$ Untermoduln und $M_i\cap \sum_{j\neq i} M_j = \{0\}$, so ist $\sum M_i\cong \bigoplus M_i$.
+		\item $\prod\limits_{i\in I} M_i\coloneqq \{(x_i)_{i\in I}\mid x_i\in M_i\}$ ist ein $A$-Modul mit $a(x_i) = (ax_i)$.
+		\item $\bigoplus\limits_{i\in I} M_i\coloneqq \{(x_i)_{i\in I}\mid\text{nur endlich viele }x_i\neq 0\}\subseteq \prod\limits_{i\in I}M_i$ ist ein Untermodul.
+        \item Sind $M_i\subseteq M$ Untermoduln und $M_i\cap \sum\limits_{j\neq i} M_j = \{0\}$, so ist $\sum\limits_{i\in I} M_i\cong \bigoplus M_i$.
+        \item Falls $M_i = M$ für alle $i \in I$, schreibe $M^I \coloneqq \prod\limits_{i\in I} M_i$ und $M^{(I)}\coloneqq \bigoplus\limits_{i\in I}M_i$.
 	\end{enumerate}
-\end{bem}
+\end{beme}
 
 \subsection{Endlich erzeugte Moduln}
 \begin{defi}
@@ -493,48 +514,60 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f: M\rightarrow N$ ist $A$-linear}\}
 	\end{itemize}
 	analog zur linearen Algebra.
 	\begin{enumerate}
-		\item $M$ heißt frei $\Leftrightarrow M$ hat eine Basis.
-		
-		Notation: In Bemerkung 2.15, falls $M_i = M$, schreibe $M^I \coloneqq \prod_{i\in I} M_i$, $M^{(I)}\coloneqq \bigoplus\limits_{i\in I}M_i$. Dann ist $M$ frei genau dann, wenn eine Menge $I$ existiert, sodass ein Isomorphismus $A^{(I)}\xrightarrow{\cong}M$ existiert. %TODO: Referenzen einfügen
-		\item $M$ heißt endlich frei $\Leftrightarrow M$ hat endliche Basis $\Leftrightarrow \exists n\geq 0\exists$ Isomorphismus $A^n\xrightarrow{\cong} M$
-		\item $M$ heißt endlich erzeugt $\Leftrightarrow M$ hat endliches Erzeugendensystem $\Leftrightarrow \exists n\geq 0\exists$ surjektive $A$-lineare Abbildung $A^n\to M$ %TODO: Surjektiven Pfeil einfügen
-		\item $M$ heißt endlich präsentiert $\Leftrightarrow \exists n\geq 0 \exists$ surjektive $A$-lineare Abbildung $A^n\xrightarrow{f}M$, sodass $\ker f$ endlich erzeugt ist.
+        \item $M$ heißt \emph{frei}, falls eine der folgenden, äquivalenten Aussagen gilt:
+        \begin{itemize}
+            \item $M$ hat eine Basis.
+            \item Es existiert eine Menge $I$, sodass ein Isomorphismus $A^{(I)}\xrightarrow{\cong}M$ existiert.
+        \end{itemize}
+        \item $M$ heißt \emph{endlich frei}, falls eine der folgenden, äquivalenten Aussagen gilt:
+        \begin{itemize}
+            \item $M$ hat eine endliche Basis.
+            \item Es existiert ein $n \ge 0$, sodass ein Isomorphismus $A^{(I)}\xrightarrow{\cong}M$ existiert.
+        \end{itemize}
+        \item $M$ heißt \emph{endlich erzeugt}, falls eine der folgenden, äquivalenten Aussagen gilt:
+        \begin{itemize}
+            \item $M$ hat ein endliches Erzeugendensystem.
+            \item Es existiert ein $n \ge 0$, sodass eine surjektive $A$-lineare Abbildung $A^{(I)}\to M$ existiert.
+        \end{itemize}
+        \item $M$ heißt \emph{endlich präsentiert}, falls ein $n \ge 0$ existiert, sodass eine surjektive $A$-lineare Abbildung $A^{(I)}\xrightarrow{f} M$ existiert, sodass $\ker f$ endlich erzeugt ist.
 	\end{enumerate}
-	
 \end{defi}
 \begin{bem}
 	\leavevmode
 	\begin{enumerate}
 		\item endlich frei $\Rightarrow$ endlich präsentiert $\Rightarrow$ endlich erzeugt
 		\item Falls $A = k$ Körper: endlich erzeugt $\Rightarrow$ endlich frei
-		\item Sei $A = \IZ$, $M = \IZ/m\IZ$. $M$ ist präsentiert, aber nicht frei.
-		\item Sei $A = \IZ[T_1,T_2,T_3,\dots]$. Betrachte $\ev_{(T_i = 0)}\colon \IZ[T_1,T_2,\dots]\to \IZ$ und $M = {}_A\IZ$. Dann ist $M$ endlich erzeugt, $M$ nicht endlich präsentiert, denn $\ker(\ev_{(T_i = 0)}= (T_1,T_2,\dots)$ nicht endlich erzeugt.
+		\item Sei $A = \IZ$, $M = \fak \IZ{m\IZ}$. Dann ist $M$ endlich präsentiert, aber nicht endlich frei.
+		\item Sei $A = \IZ[T_1,T_2,T_3,\dots]$. Betrachte $\ev_{(T_i = 0)}\colon \IZ[T_1,T_2,\dots]\to \IZ$ und $M = {}_A\IZ$. Dann ist $M$ endlich erzeugt, aber nicht endlich präsentiert, denn $\ker\ev_{(T_i = 0)}= (T_1,T_2,\dots)$, was nicht endlich erzeugt ist.
 	\end{enumerate}
 \end{bem}
 \begin{lem}[Nakayamas Lemma]
-	Sei $M$ endlich erzeugter $A$-Modul, $I\subseteq A$ Ideal mit $I\times M = M$. Dann
+	Sei $M$ ein endlich erzeugter $A$-Modul und $I\subseteq A$ ein Ideal mit $I \cdot M = M$.
 	\begin{enumerate}
-		\item $\exists a\in I: (1+a)\cdot M = \{0\}$ (das heißt für alle $x\in M: (1+a)x = 0$)
-		\item Falls $I\subseteq\Jac(A)\Rightarrow M = 0$.
+		\item \label{lem:nakayama:i} Es existiert ein $a\in I$ mit $(1+a)\cdot M = \{0\}$ \textup(das heißt, für alle $x\in M: (1+a)x = 0$\textup)
+		\item Falls $I\subseteq\Jac(A)$, so gilt $M = \{0\}$.
 	\end{enumerate}
 \end{lem}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item Induktion nach $n\coloneqq$ minimale Anzahl der Erzeuger von $M$.
+		\item Induktion nach $n$, der minimalen Anzahl der Erzeuger von $M$.
+        \begin{description}
+            \item[$n = 0$:] $M = 0$, $\checkmark$
+            \item[$n-1\to n$:] Sei $x_1,\dots, x_n$ ein Erzeugendensystem von $M$. Definiere $N\coloneqq \fak M{\<x_n\>}$. Sei $\pi \colon M\to N$ die Quotientenabbildung. Dann folgt $N = \<\pi(x_1),\dots,\pi(x_{n-1})\>$. Nun gilt $I\cdot N = N$, da für $y\in N$ ein $x\in M$ mit $\pi(x) = y$ und $x\in I\cdot M$ existiert, und somit $a_i\in I$ sowie $\tilde{x_i}\in M$ mit $x =\sum a_i\pi(\tilde{x_i})\in I\cdot N$ existieren.
 		
-		$n = 0$: $M = 0 \checkmark$
-		
-		$n-1\to n$: Sei $x_1,\dots, x_n$ ein Erzeugendensystem von $M$. Definiere $N\coloneqq M/\<x_n\>$. Sei $\pi \colon M\to N$ die Quotientenabbildung. $\Rightarrow N = \<\pi(x_1),dots,\pi(x_{n-1})\>$. Nun gilt $I\times N = N$ (Denn: Sei $y\in N\Rightarrow \exists x\in M: \pi(x) = y, x\in I\cdot M\Rightarrow\exists a_i\in I, \tilde{x_i}\in M: x =\sum a_i\pi(\tilde{x_i})\in I\cdot N$)
-		
-		Aus der Induktionsannahme folgt: es existiert ein $b\in I$, sodass $(1+b)\cdot N = \{0\}\subseteq N = M/\<x_n\>$.
-		
-		$\Rightarrow (1+b)M\subseteq \<x_n\>\Rightarrow (1+b)\cdot M = (1+b)\cdot I\cdot M = I\cdot((1+b)\cdot M)\subseteq I \cdot \<x_n\>$
-		
-		$\Rightarrow \exists c\in I: (1+b) x_n = cx_n\Rightarrow (1+b-c)x_n = 0 \Rightarrow (1+b-c)(1+b)M = \{0\}$
-		
-		Dabei ist $(1+b-c)(1+b) = (1+a)$ mit $a = b-c+b^2-bc\in I$.
-		\item Sei $x\in M$. Mit Punkt (i) folgt $\exists a\in I: (1+a)x = 0$, $a\in \Jac(A)$, also folgt nach Proposition 1.14: $1+a\in A^{\times}\Rightarrow x = 0$.
+            Nach der Induktionsannahme existiert ein $b\in I$, sodass $(1+b)\cdot N = \{0\}\subseteq N = \fak M{\<x_n\>}$. Dann gilt
+            \begin{align*}
+                &\phantom{{}\Rightarrow{}}(1+b)\cdot M\subseteq \<x_n\>\\
+                &\Rightarrow (1+b)\cdot M = (1+b)\cdot (I\cdot M) = I\cdot((1+b)\cdot M)\subseteq I \cdot \<x_n\>\\
+                &\Rightarrow \exists c\in I: (1+b) x_n = cx_n \\
+                &\Rightarrow (1+b-c)x_n = 0\\
+                &\Rightarrow (1+b-c)(1+b)M = \{0\}
+            \end{align*}
+            Dabei ist $(1+b-c)(1+b) = (1+a)$ mit $a = b-c+b^2-bc\in I$.
+        \end{description}
+        \item Sei $x\in M$. Nach Punkt \ref{lem:nakayama:i} existiert ein $a\in I$ mit $(1+a)x = 0$. Da $a\in \Jac(A)$, folgt nach \cref{prop:jacobson} dann $1+a\in A^{*}$; also gilt $x = 0$.
+        \qedhere
 	\end{enumerate}
 \end{proof}
 
