@@ -666,6 +666,7 @@ Nachtrag zu Bemerkung \ref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i
 	Diese Abbildung ist bilinear ($\otimes_A$ ist $A$-bilinear, Multiplikation auf $B$ ist $A$-bilinear).
 	
 	\begin{tikzcd}
+		(b,x)\longmapsto & (b'bx)\\ %TODO: FIX THIS!!!
 		B\times M \arrow{r}{}\arrow{d}  & B\times M\arrow{d} \\
 		B\otimes_AM \arrow{r}[swap]{\exists ! m_b A-\text{linear}}	& B\otimes_AM \\
 	\end{tikzcd} %TODO: unteren Pfeil gestrichelt machen
@@ -694,8 +695,100 @@ Nachtrag zu Bemerkung \ref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i
 	$$(\id_B\otimes f)(b'\cdot(\sum b_i\otimes x_i)) = (\id_B\otimes f)(\sum b'b_i\otimes x_i) =\sum \id_B(b'b_i)\otimes f(x_i) = $$
 	$$=\sum b'b_i\otimes f(x_i) = b'(\sum b_i\otimes f(x_i)) = b'(\id_b\otimes f)(\sum b_i\otimes x_i)$$ %TODO: fix this hässlichkeit
 \end{proof}
-\end{document}
 
+
+\begin{satz}[Adjunktion von Skalarerweiterung und Restriktion der Skalare]
+	Sei $B$ eine $A$-Algebra, $M$ ein $A$-Modul, $N$ ein $B$-Modul.
+	\begin{enumerate}
+		\item Sei $f\colon M\to {}_AN$ $A$-linear. Dann existiert genau ein $f_B\colon B\otimes_AM\to N$ $B$-linear mit $f_B(b\otimes x) = bf(x)$
+		\item Die Abbildung $\Phi\colon \Hom_A(M,{}_AN)\to \Hom_B(B\otimes_AM,N), f\mapsto f_B$ ist $A$-linear und bijektiv.
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Betrachte $B\times M\to N, (b,x)\mapsto bf(x)$. Das ist $A$-bilinear ($f$ ist $A$-linear und $B$ ist $A$-Algebra). Folglich kommutiert:
+		\begin{center}
+			\begin{tikzcd}
+				B\times M \arrow{r}\arrow{d}  & N \\
+				B\otimes_AM \arrow{ur}[swap]{\exists! f_B A-\text{linear}}	& \\
+			\end{tikzcd}
+		\end{center}
+		Zeige: $f_B$ ist $B$-linear (so wie in Bemerkung 3.9) %TODO: Referenz einfügen
+		\item Konstruiere Umkehrabbildung $\Psi\colon \Hom_B(B\otimes_AM,N)\to \Hom_A(M,{}_AN)$. Sei $g\colon B\otimes_AM\to N$. Definiere $\Psi(g) \coloneqq g(1\otimes \_)\colon M\to N, x\mapsto g(1\otimes x)$.
+		Dabei ist $g(1\otimes\_)$ tatsächlich $A$-linear: $g(1\otimes ax ) = g(a(1\otimes x)) = ag(1\otimes x)$.
+		
+		Zeige nun noch $(\Psi\circ \Phi)(f) = f$ und $(\Phi\circ\Psi)(g) = g$:
+		$$((\Psi\circ\Phi)(f))(x) = (\Phi(f))(1\otimes x) = f_b(1\otimes x) =1\cdot f(x)$$
+		und
+		$$((\Phi\circ\Psi)(g))(b\otimes x) = (\Psi(g))_B(b\otimes x) = b\cdot (\Psi(g))(x) = b\cdot g(1\otimes x) = g(b\otimes x)$$
+		Kurzes Nachrechnen liefert schließlich, dass $\Phi$ auch $A$-linear ist.
+	\end{enumerate}	
+\end{proof}
+\begin{lem}
+	Sei $B$ eine $A$-Algebra, $N$ ein $B$-Modul, $M$ ein $A$-Modul.
+	\begin{enumerate}
+		\item $N\otimes_AM$ ist ein $B$-Modul via $b\cdot(sum y_i\otimes x_i) = \sum by_i\otimes x_i$.
+		\item $\exists!$ Isomorphismus $N\otimes_AM\to N\otimes_B(B\otimes_AM)$ von $B$-Moduln mit $y\otimes x\mapsto y\otimes (1\otimes x)$.
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item So wie Erweiterung der Skalare
+		\item Übung
+	\end{enumerate}
+\end{proof}
+
+
+\begin{satz}
+	Sei $B$ eine $A$-Algebra, $C$ eine $B$-Algebra und $M$ ein $A$-Modul. Dann existiert genau ein Isomorphismus
+	$$C\otimes_A M  \longmapsto  C\otimes_B(B\otimes_AM)$$
+	von $C$-Moduln mit $c|otimes x\mapsto c\otimes(1\otimes x)$.
+\end{satz}
+\begin{proof}
+	Aus Lemma 3.11 folgt: Es existiert genau ein Isomorphismus von $B$-Moduln
+	$$ f\colon C\otimes_AM\longto C\otimes_B(B\otimes_AM)$$
+	mit $f(c\otimes x) = c\otimes(1\otimes x)$. Zeige nun noch: $f$ ist $C$-linear.
+	
+	Sei $z = \sum c_i\otimes x_i, c\in C$: 
+	$$f(c\sum c_i\otimes x_i) = f(\sum cc_i\otimes x_i ) = \sum f(cc_i\otimes x_i) = \sum cc_i\otimes(1\otimes x_i) = c\sum c_i\otimes(1\otimes x_i)$$
+\end{proof}
+
+\begin{satz}
+	Sei $B$ eine $A$-Algebra, $M$ ein $A$-Modul, $(P)$ eine der folgenden Eigenschaften:
+	\begin{enumerate}
+		\item frei
+		\item endlich erzeugt
+		\item endlich präsentiert
+		\item flach.
+	\end{enumerate}	
+	Dann gilt: Falls $M$ die Eigenschaft $(P)$ als $A$-Modul hat, hat $B\otimes_AM$ die Eigenschaft $(P)$ als $B$-Modul.
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item frei: Sei $M$ freier $A$-Modul $\Rightarrow M \cong \bigoplus\limits_{i\in I}A\Rightarrow B\otimes_AM\cong B\otimes (\bigoplus\limits_{i\in I}A) \cong \bigoplus\limits_{i\in I}(B\otimes_A A) \cong \bigoplus\limits_{i\in I} B$ als $B$-Moduln (Bemerkung 3.9).
+		\item endlich erzeugt: Sei $M$ endliche erzeugter $A$-Modul, das heißt:
+		$$\exists f\colon A^n\to M$$ surjektiv und $A$-linear. Folglich ist
+		$$\id_B\otimes f\colon B\otimes_aA^n\to B\otimes_AM$$ surjektiv nach Proposition 2.31 und $B$-linear nach Bemerkung 3.9. Aber wir haben eben gesehen, dass $B\otimes_AA^n \cong B^n\Rightarrow B\otimes_AM$ endlich erzeugt.
+		\item endlich präsentiert: $M$ endlich präsentiert als $A$-Modul $\Rightarrow\exists$ exakte Sequenz der Form
+		$$A^m \longto A^n \longto M\longto 0$$
+		(Denn aus $M$ endlich präsentiert folgt $\exists f\colon A^n to M$ surjektiv, $\ker f$ endlich erzeugt, also existiert $g\colon A^m\to \ker f$ surjektiv. Betrachte $g'\colon A^m\to \ker g\to A^n$: hier gilt $\im(g') = \ker g$)
+		
+		Aus Satz 2.31 folgt nun, dass es folgende exakte Sequenz gibt:
+		$$B\otimes A^m \longto B\otimes A^n \longto B\otimes_AM\longto 0$$
+		Damit ist auch $B\otimes_AM$ endlich präsentiert als $B$-Modul.
+		\item flach: Übung.
+	\end{enumerate}
+\end{proof}
+
+
+
+
+
+
+\end{document}
 
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
