@@ -532,7 +532,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f: M\rightarrow N$ ist $A$-linear}\}
         \item $M$ heißt \emph{endlich präsentiert}, falls ein $n \ge 0$ existiert, sodass eine surjektive $A$-lineare Abbildung $A^{(I)}\xrightarrow{f} M$ existiert, sodass $\ker f$ endlich erzeugt ist.
 	\end{enumerate}
 \end{defi}
-\begin{beme}
+\begin{beme}\label{bem:2.17}
 	\leavevmode
 	\begin{enumerate}
 		\item endlich frei $\Rightarrow$ endlich präsentiert $\Rightarrow$ endlich erzeugt
@@ -573,7 +573,18 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f: M\rightarrow N$ ist $A$-linear}\}
 
 \lecture{19. April 2018}
 
-INSERT LECTURE HERE
+Nachtrag zu Bemerkung \ref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\colon A\to \IZ$, $M = {}_A\IZ$. Das heißt für $p\in A, z\in\IZ, p\cdot z = p(0,\dots)\cdot z$. Behauptung: $M$ ist endlich erzeugt, aber nicht präsentiert (als $A$-Modul).
+\begin{proof}
+	$M$ ist endlich erzeugt. $\checkmark$
+	
+	Angenommen $M$ ist endlich präsentiert. Dann: $\exists f\colon A^n \to M$ ($A$-linear und surjektiv), sodass $\ker f$ endlich erzeugt ist. %TODO: ersetze pfeil durch surjektionspfeil
+	Sei $e_j = (0,\dots, 1,\dots, 0)\in A^n$, wobei die $1$ im $j$-ten Eintrag steht. Definiere nun $z_j = f(e_j)\in\IZ$.Dann ist $\ker f = \{\underline{p} = (p_1,\dots, p_n)\in A^n|\sum p_j(0)z_j = 0\}$.
+	
+	Aus der Annahme folgt nun: $\exists \underline{p^{(1)}},\dots, \underline{p^{(m)}}\in\ker f$ sodass $\ker f = \<\underline{p^{(1)}},\dots, \underline{p^{(m)}}\>_A$. Schreibe $\underline{p^{(i)}} = (p_1^{(i)}),\dots,p_n^{(i)})$. Wähle $N>0$, sodass $T_N$ taucht in keinem der $p_j^{(i)}$ auf. Betrachte $T_n\cdot e_j\in\ker f\Rightarrow \exists Q^{(i,j)}\in A$ mit $T_N\cdot e_j = \sum_{i = 1}^nQ^{(i,j)}\underline{p^{(i)}}$.
+	
+	Folglich gilt für alle $k\in\{1,\dots, n\}:\sum_{i = 1}^n Q^{(i,j)}\underline{p_k^{(i)}} = \delta_{jk}T_N$
+	
+\end{proof}
 
 \lecture{23. April 2018}
 
