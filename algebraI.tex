@@ -1153,8 +1153,96 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\end{enumerate}
 \end{proof}
 
+\lecture{30. April 2018}
+\begin{satz}
+	Sei $A$ ein Ring, $B$ und $C$ seien $A$-Algebren.
+	\begin{enumerate}
+		\item Es existiert eine eindeutig bestimmte  $A$-bilineare Abbildung
+		$$m\colon B\otimes_A C\times B\otimes_A C\longto B\otimes_A C$$
+		mit $m(b\otimes c, b'\otimes c') = bb'\otimes cc'$.
+		\item $(B\otimes_AC, +, m)$ ist ein Ring (sogar $A$-Algebra)
+		\item Die Abbildungen
+		$
+		\begin{array}{rclrcl}
+			B&\longto& B\otimes_AC,&b&\longmapsto&b\otimes 1\\
+			C&\longto& B\otimes_AC,&c&\longmapsto&1\otimes c
+		\end{array}$
+		sind Ringhomomorphismen.
+		\item Das Diagramm
+		\begin{center}
+		\begin{tikzcd}
+			B\otimes_A C  & B \arrow{l}[swap]{b\mapsto b\otimes 1} \\
+			C \arrow{u}{c\mapsto 1\otimes c}	& A\arrow{l}\arrow{u} \\
+		\end{tikzcd}
+		\end{center}
+		kommutiert.
+		\item Ist $D$ ein Ring und sind $B\xrightarrow{\phi} D, C\xrightarrow{\psi}D$ Ringhomomorphismen, sodass
+		\begin{center}
+		\begin{tikzcd}
+			B\otimes_A C  & B \arrow{l}{\phi} \\
+			C \arrow{u}{\psi}	& A\arrow{l}\arrow{u} \\
+		\end{tikzcd}
+		\end{center}
+		kommutiert, dann existiert genau ein Ringhomomorphismus $\lambda\colon B\otimes_AC\to D$ mit %TODO: insert pushout-diagram here
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Für $(b,c)\in B\times C$ betrachte $B\times C\to B\otimes_AC, (b'c')\longmapsto bb'\otimes cc$ $A$-bilinear,
+		\begin{center}
+			\begin{tikzcd}
+			B\times C\arrow{d}\arrow{r}& B\otimes_AC\\
+			B\otimes_AC\arrow{ru}[swap]{\exists!\phi_{(b,c)} A-\text{linear}}
+			\end{tikzcd}
+		\end{center}
+		Daraus folgt, dass folgendes Diagramm kommutiert:
+			\begin{center}
+					\begin{tikzcd}
+						B\times C\arrow{r}{(b,c)\mapsto \phi_{(b,c)}}& \Hom_A(B\otimes_AC, B\otimes A, C) A-\text{bilinear}\\
+						B\otimes_AC\arrow{ru}[swap]{\exists!\phi A-\text{linear}}
+					\end{tikzcd}
+			\end{center}
+		%TODO: Insert Diagram here
+		
+		Nach Definition von $\Phi$:
+		$$m(b\otimes c, b'\otimes c') = (\phi(b\otimes c))(b'\otimes c') = \phi_{(b,c)}(b'\otimes c') = bb'\otimes cc'$$
+		\item Nachrechnen mit (i) %TODO: insert referenz here
+			und Rechenregeln für $\otimes$ (Beachte $1_{B\otimes_AC}= 1\otimes 1$)
+		\item Die Abbildungen $\phi_B\colon B\to B\otimes_AC, b\mapsto b\otimes 1$ erfüllt $\phi_B(1) = 1$ und $\phi_B(bb') =\phi_B(b)\phi_B(b')$.
+		\item Für $a\in A$ gilt: $a\otimes_A1 = a\cdot(1\otimes_A1) = 1\otimes_A a$.
+		\item Existenz von $\lambda$: Betrachte die Abbildung
+		
+		\begin{eqnarray*}
+			B\times C &\longto & D\\
+			(b,c) &\longmapsto &\phi(b)\cdot \psi(c)
+		\end{eqnarray*}
+	
+		\noindent
+		Sie ist $A$-bilinear und faktorisiert damit über das Tensorprodukt zu $\lambda\colon B\otimes_AC\to D$ $A$-linear. Zeige nun: $\lambda$ ist Ringhomomorphismus. Dazu $b,b'\in B, c,c'\in C$:
+		$$\lambda((b\otimes c)(b'\otimes c')) = \phi(b)\phi(b')\psi(c)\psi(c') = \lambda(b\otimes c)\lambda (b'\otimes c')$$
+		
+		\begin{bem}
+			Seien $R,S$ beide $A$-Algebren, $\lambda\colon R\to S$ sei $A$-linear, sei $\{x_i\}$ Erzeugendensystem von $R$ als $A$-Modul. Falls $\lambda(x_i,x_j) =)\lambda(x_i)\lambda(x_j)$ und $\lambda(1) = 1$, also ist $\lambda$ ein Ringhomomorphismus.
+		\end{bem}
+	
+		Nun zur Eindeutigkeit: Sei $\lambda'$ ein weiterer Ringhomomorphismus wie oben. Dann ist $\lambda'$ $A$-linear, reicht also auf reinen Tensoren zu prüfen.
+		$$\lambda'(b\otimes c) = \lambda'((b\otimes 1)\cdot(1\otimes c)) = \phi(b)\cdot \psi(c) = \lambda(b\otimes c)$$
+		wobei die vorletzte Gleichheit daraus folgt, dass $\lambda'$ Ringhomomorphismus ist, sodass das Diagramm kommutiert.
+	\end{enumerate}
+	
+\end{proof}
 
-
+\begin{bsp}
+	Sei $B$ eine $A$-Algebra und $C= A[t]$. Dann ist $B\otimes_AA[t]\cong B[t]$ (als $A$-Algbetra). Dann:	
+	\begin{center}
+		\begin{tikzcd}
+			B[t]& B\arrow{l}\\
+			A[t]\arrow{u} & A\arrow{l}\arrow{u}
+		\end{tikzcd}
+	\end{center}
+	kommutiert und $B[t]$ ist universell dafür.
+\end{bsp}
 
 
 \end{document}
