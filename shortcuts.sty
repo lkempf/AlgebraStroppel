@@ -37,6 +37,7 @@
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\gen}{\langle}{\rangle}
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\def\given{\;\delimsize\vert\;}#1}
 
 %---- OPERATORS ----%
 \DeclareMathOperator{\GL}{GL}
@@ -69,9 +70,11 @@
 \DeclareMathOperator{\End}{End}
 
 \let\ker\undefined %I want controll
-\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\ker}{ker}
 \DeclareMathOperator{\coker}{coker}
+
+\newcommand{\tp}{\otimes}
 
 %---- ARROWS ----%
 \newcommand{\xto}{\xrightarrow}
@@ -101,3 +104,8 @@
 
 \newcommand{\fp}{\mathfrak{p}}
 \newcommand{\fm}{\mathfrak{m}}
+
+\newcommand{\subrefp}[1]{\textup{(\subref{#1})}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
