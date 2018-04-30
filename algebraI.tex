@@ -1234,7 +1234,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \end{proof}
 
 \begin{bsp}
-	Sei $B$ eine $A$-Algebra und $C= A[t]$. Dann ist $B\otimes_AA[t]\cong B[t]$ (als $A$-Algbetra). Dann:	
+	Sei $B$ eine $A$-Algebra und $C= A[t]$. Dann ist $B\otimes_AA[t]\cong B[t]$ (als $A$-Algebra). Dann:	
 	\begin{center}
 		\begin{tikzcd}
 			B[t]& B\arrow{l}\\
@@ -1244,6 +1244,104 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	kommutiert und $B[t]$ ist universell dafür.
 \end{bsp}
 
+
+\section{Moduln über Hauptidealringen}
+Literatur:\begin{itemize}
+	\item Lang -- Algebra, Chapter 3, Paragraph 7
+	\item Hungerford -- Algebra, Chapter 4, Paragraph 6
+\end{itemize}
+Erinnerung: Sei $A$ Ring. $A$ heißt Hauptidealring (HIR) oder principle ideal domain, falls $A$ Integritätsbereich ist und jedes Ideal ein Hauptideal ist.
+Wir wissen: $A$ Hauptidealring $\Rightarrow$ $A$ ist faktoriell.
+
+Sei $M$ endlich erzeugter $A$-Modul ($A$ HIR). Ziel: Zerlege $M$ als direkte Summe in $A$-Moduln, die sich nicht weiter zerlegen lassen. Unsere Hauptanwendung wird dann sein: Betrachte $A = k[t]$, $k$ Körper, $M=$ Modul assoziiert zu $(V,\psi)$, wobei $V$ ein endlich-dimensionaler $k$-Vektorraum ist und $\psi\in\End_k(V)$.
+
+\subsection{Freie Moduln}
+\begin{beme}
+	Sei $F$ freier $A$-Modul, $\{x_i\}_{i\in I}, \{y\}_{j\in J}$ Basen von $F$. Dann exstiert Bijektion $I\to J$.
+\end{beme}
+\begin{proof}
+	Übung.
+\end{proof}
+
+Wir werden folgende Notation verwenden: $rk F=\# I \in\IZ_{\geq 0}\cup \{\infty\}$ heißt Rang von $F$. %TODO: füge mathoperator für rk hinzu
+
+\begin{satz}
+	Sei $A$ ein Hauptidealring, $F$ freier $A$-Modul, $M\subseteq F$ Untermodul. Dann ist $M$ frei und $rk M\leq rk F$
+\end{satz}
+\begin{proof}
+	Wir beweisen das nur für den Fall $rk F<\infty$ (allgemeiner Fall: Hungerford Theorem 6.1).
+	
+	Sei $\{x_1,\dots, x_n\}$ Basis von $F$ ($rk F = n$). Für $r\in\{1,\dots n\}$ definiere
+	$$M_r\coloneqq \<x_1,\dots, x_r\>_A\cap M$$
+	
+	\noindent
+	Behauptung: $M_r$ ist frei, $rk M_r\leq r$.
+	
+	\noindent Beweis der Behauptung per Induktion nach $r$:
+	\begin{description}
+		\item[$r = 1$:] $M_1 = \<x_1\>_A\cap M$, dabei gilt $\<x_1\>_A\subseteq \<x_1\>$ und es gibt Isomorphismus $\phi\colon A\xrightarrow{\cong} \<x_1\>, a\mapsto ax_1$. Folglich ist $\phi^{-1}(M_1)\subseteq A$ Ideal und es existiert ein $a\in A$ mit $\phi^{-1}(M_1) = (a)$, also gilt $$M_i = \<ax_i\> \cong \begin{cases} A & a\neq 0\\ 0& a= 0\end{cases}$$
+		Beachte dabei: $\{x_1\}$ ist linear unabhängig, also $ax_1\neq 0 \Leftrightarrow a\neq 0$.
+		\item[$r\to r+1$:] Betrachte
+		$$ I = \{a\in A|\exists a_1,\dots, a_r\in A: a_1x_1+\dots a_rx_r+ax_{r+1}\in M\}$$
+		Dabei ist $I\subseteq A$ ein Ideal, also $\exists a_{r+1}\in A$ mit $I = (a_{r+1})$.
+		\begin{description}
+			\item[1. Fall:] $a_{r+1} = 0 \Rightarrow M_{r+1} = M_r$ frei (nach Induktionsannahme), $rk M_{r+1}\leq r$.
+			\item[2. Fall:] $a_{r+1}\neq 0\Rightarrow \exists a_0,\dots, a_r\in A$ mit $w\coloneqq a_1x_1+\dots+a_rx_r+a_{r+1}x_{r+1}\in M$.
+			
+			Nun ist unser Ziel: $M_{r+1} = M_r\oplus \<w\>$.
+			
+			Sei also $x\in M_{r+1}\Rightarrow\exists b_1,\dots, b_{r+1}\in A$, sodass $x = b_1x_1+\dots + b_{r+1}x_{r+1}\Rightarrow b_{r+1}\in I = (a_{r+1})\Rightarrow \exists c\in A: b_{r+1} = ca_{r+1}$. Betrachte nun $v\coloneqq x-cw$. Für $v$ gilt dann:
+			$$ v= \sum_{i = 1}^r (b_i-ca_i)x_i+(b_{r+1}-ca_{r+1})x_{r+1}\in \<x_1,\dots, x_r\> M = M_r$$
+			Also gilt $x = v+cw\in M_r+\<w\>$.
+			
+			Außerdem: $M_r\cap\<w\> = \{0\}$ (weil $a_{r+1}\neq 0$). Denn: Sei $x\in M_r\cap\<w\>\Rightarrow x = bw = ba_1x_1+\dots ba_{r+1}x_{r+1}\xRightarrow{x\in M_r} ba_{r+1} = 0\Rightarrow b = 0$.
+			
+			Insgesamt erhalten wir tatsächlich $M_{r+1} = M_r\oplus \<w\>$ frei vom Rang $\leq r+1$. \qedhere 
+		\end{description}
+	\end{description}
+	
+\end{proof}
+\begin{kor}
+	Sei $A$ Hauptidealring, $M$ endlich erzeugter $A$-Modul, $M'\subseteq M$ Untermodul. Dann ist $M'$ endlich erzeugt.
+\end{kor}
+\begin{proof}
+	Da $M$ endlich erzeugt ist, existiert ein freier $A$-Modul $F$ von $rk F<\infty$ und $f\colon F\to M$ surjektiv. Betrachte $f^{-1}(M')\subseteq F$. Satz 4.2 sagt uns jetzt, dass $F'\coloneqq f^{-1}(M')$ frei ist, $rk F'\leq rk <\infty$ und $f|_{F'}\colon F'\to M'$ ist surjektiv, also ist $M'$ endlich erzeugt.
+\end{proof}
+
+
+\subsection{Zerlegung in freien Anteil und Torsionsanteil}
+\begin{defi}
+	Sei $A$ ein Integritätsbereich, $M$ ein $A$-Modul.
+	\begin{enumerate}
+		\item Sei $x\in M$. $x$ heißt Torsionselement genau dann, wenn es ein $a\in A$ gibt, $a\neq 0$, sodass $ax = 0$.
+		\item $M_{tor} \coloneqq \{x\in M|x \text{ Torsionselement}\}\subseteq M$ ist Untermodul (da $A$ nullteilerfrei ist).
+		\item $M$ heißt Torsionsmodul genau dann, wenn $M = M_{tor}$
+	
+			  $M$ heißt torsionsfrei genau dann, wenn $M_{tor} = \{0\}$
+	\end{enumerate}
+	
+\end{defi}
+
+\begin{lem}
+	Sei $A$ Integritätsbereich, $M$ ein $A$-Modul. Dann ist $\fak{M}{M_{tor}}$ torsionsfrei.
+\end{lem}
+\begin{proof}
+	Sei $x+M_{tor}$ und angenommen $\exists a\in A, a\neq 0$ mit $(x+M_{tor}) = 0+M_{tor}\Rightarrow ax\in M_{tor}\Rightarrow \exists b\in A, b\neq 0\Rightarrow bax = 0$. Da $ba\neq 0$ gilt, muss scho $x\in M_{tor}$ sein.
+\end{proof}
+
+\begin{bem}
+	\leavevmode
+	\begin{enumerate}
+		\item $M$ frei $\Rightarrow M$ torsionsfrei ($A$ Integritätsring)
+		\item $\Leftarrow$ ist im Allgemeinen falsch. Denn: Sei $A$ Integritätsbereich, $I\subseteq A$ Ideal $\Rightarrow I$ torsionsfrei. Aber $I$ ist freier $A$-Modul $\Leftrightarrow I$ ist Hauptideal.
+	
+		(Denn: \glqq$\Rightarrow$\grqq: Sei $I$ frei mit Basis $\{x_i\}_{i\in J}$ und angenommen $\#J\geq 2$. Dann gibt es $i_1\neq i_2\in J$. Wähle $a_1 = x_{i_2}, a_2 = x_{i_1}\Rightarrow a_1x{i_1}+a_2x_{i_2} = 0\Rightarrow x_{i_1}, x_{i_2}$ linear abhängig.)
+	\end{enumerate}
+\end{bem}
+
+\begin{lem}
+	Sei $A$ Hauptidealring. $M$ endlich erzeugter, torsionsfreier $A$-Modul $\Rightarrow M$ ist frei.
+\end{lem}
 
 \end{document}
 
