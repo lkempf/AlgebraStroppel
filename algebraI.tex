@@ -1441,9 +1441,63 @@ Wir werden folgende Notation verwenden: $rk F=\# I \in\IZ_{\geq 0}\cup \{\infty\
 		
 		Da $(a_i,b_i)= (1)\Rightarrow \exists c,d\in A: ca_i+db_i = 1\Rightarrow x = ca_ix+db_ix = 0$.
 	\end{enumerate}
-	
-	
 \end{proof}
+
+\begin{defi}
+	Sei $A$ Hauptidealring, $p\in A$ prim. Definiere
+	$$M(p) = \{x\in M|\exists r\geq 0: p^rx = 0\} = \bigcup\limits_{r\geq 0} M_{p^r}$$
+	$M(p)\subseteq M$ Untermodul. Falls $M$ endlich erzeugt ist, existiert $r\geq 0$ mit $M_{p^r} = M(p)\Rightarrow p^r\in Ann(M)\Rightarrow Ann(M)\supset (p^r)\Rightarrow \exists s\leq r: Ann(M) = (p^s)$ (da $A$ Hauptidealring).
+	
+	Dann gilt $M_{p^{s-1}}\subsetneq M_{p^s} = M(p)$.
+	
+	$M$ heißt primär $\Leftrightarrow \exists p\in A$ prim: $M = M(p)$.
+\end{defi}	
+
+
+\begin{satz}[Primärzerlegung von Torsionsmoduln über Hauptidealringen]
+	Sei $A$ Hauptidealring, $M$ endlich erzeugter Torsionsmodul über $A$. Dann existiert $a\neq 0$ mit $Ann(A) = (a)$. Seien $p_1,\dots, p_n\in A$ prim mit $(p_i, p_j) = (1)$ für alle $i\neq j$ und $r_1,\dots, r_n\geq 1$ mit
+	$$ a = p_1^{r_1}\dots p_n^{r_n}$$
+	Dann gilt:
+	\begin{enumerate}
+		\item $M = M(p_1)\oplus\dots\oplus M(p_n)$
+		\item $Ann(M(p_i)) = (p_i^{r_i})$
+	\end{enumerate}
+\end{satz}
+
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item $p_1^{r_1},\dots, p_n^{r_n}$ paarweise teilerfremd. $\Rightarrow M = M_{p_1^{r_1}}\oplus\dots \oplus M_{p_n^{r_n}}$ nach Lemma 4.12. Zeige nun noch $M_{p_i^{r_i}} = M(p_i)$:
+		\begin{description}
+			\item[\glqq$\subseteq$\grqq :] $\checkmark$
+			\item[\glqq$\supseteq$\grqq :] Sei $x\in M(p_i)\Rightarrow \exists r\geq 0: p_i^r = 0$.
+			
+			1. Fall: $r\subseteq r_i\Rightarrow p_i^{r_i}x = 0\Rightarrow x\in M_{p_i^{r_i}}$
+			
+			2. Fall: $r>r_i\Rightarrow \gcd(p_i^r, a) = p_i^{r_i}\Rightarrow \exists c, d\in A: cp_i^r+da = p_i^{r_i}\Rightarrow p_i^{r_i}x = cp_i^rx+dax = 0$.
+		\end{description}
+		\item $(p_i^{r_i})\subseteq Ann(M_{p_i^{r_i}}) = Ann(M(p_i))$ nach Teil (i). $\Rightarrow Ann(M(p_i)) = (p_i^{s_i})$ für $s_i\leq r_i$. Da $M = M(p_1)\oplus \dots \oplus M(p_n)\Rightarrow Ann(M) = \bigcap Ann(M(p_i))\ni p_i^{s_i}\dots p_n^{s_n}$, aber es gilt auch $Ann(M) = (p_1^{r_1}\dots p_n^{r_n})$.
+		
+		Da $(p_i, p_j) = (1)$ für $i\neq j$, folgt $r_i\leq s$.
+	\end{enumerate}
+\end{proof}
+
+\begin{bem}
+	$M(p_i)$ im Satz ist nach Lemma 4.12 von der Form $b_iM$, wobei $b_i = \frac{a}{p_i^{r_i}}$.
+\end{bem}
+
+\begin{defi}
+	Ein $A$-Modul $M$ heißt zyklisch, wenn $\exists x\in M: M = \<x\>_A$. Übung: $M\cong \fak{A}{Ann(x)}$.
+\end{defi}
+
+\begin{satz}[Zerlegung von primären Moduln in zyklische Moduln]
+	Sei $A$ Hauptidealring. Sei $M$ primär und endlich erzeugt. Sei $p\in A$ mit $Ann(M) = (p^r)$. Dann $\exists 1\leq s_1\leq\dots \leq s_l = r$ und $\exists M_1,\dots, M_l\subseteq M$ Untermoduln:
+	\begin{enumerate}
+		\item $M = M_1\oplus\dots\oplus M_l$
+		\item $M_j$ zyklisch mit $Ann(M_j) =(p^{s_j})$.
+	\end{enumerate}
+	
+\end{satz}
 
 
 
