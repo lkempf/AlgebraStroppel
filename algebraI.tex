@@ -1343,7 +1343,7 @@ Wir werden folgende Notation verwenden: $rk F=\# I \in\IZ_{\geq 0}\cup \{\infty\
 	Sei $x+M_{tor}$ und angenommen $\exists a\in A, a\neq 0$ mit $(x+M_{tor}) = 0+M_{tor}\Rightarrow ax\in M_{tor}\Rightarrow \exists b\in A, b\neq 0\Rightarrow bax = 0$. Da $ba\neq 0$ gilt, muss scho $x\in M_{tor}$ sein.
 \end{proof}
 
-\begin{bem}
+\begin{beme}
 	\leavevmode
 	\begin{enumerate}
 		\item $M$ frei $\Rightarrow M$ torsionsfrei ($A$ Integritätsring)
@@ -1351,11 +1351,105 @@ Wir werden folgende Notation verwenden: $rk F=\# I \in\IZ_{\geq 0}\cup \{\infty\
 	
 		(Denn: \glqq$\Rightarrow$\grqq: Sei $I$ frei mit Basis $\{x_i\}_{i\in J}$ und angenommen $\#J\geq 2$. Dann gibt es $i_1\neq i_2\in J$. Wähle $a_1 = x_{i_2}, a_2 = x_{i_1}\Rightarrow a_1x{i_1}+a_2x_{i_2} = 0\Rightarrow x_{i_1}, x_{i_2}$ linear abhängig.)
 	\end{enumerate}
-\end{bem}
+\end{beme}
 
 \begin{lem}
 	Sei $A$ Hauptidealring. $M$ endlich erzeugter, torsionsfreier $A$-Modul $\Rightarrow M$ ist frei.
 \end{lem}
+
+\lecture{3. Mai 2018}
+
+\begin{proof}
+	Sei $\{x_1,\dots, x_m\}$ ein Erzeugendensystem von $M$. Seien $1\leq i_1<\dots<i_n\leq m$ maximal, sodass $\{x_{i_1},\dots, x_{i_n}\}$ linear unabhängig.
+	
+	Behauptung: für alle $j\in\{1,\dots, m\}$ existiert ein $a_j\in A\setminus \{0\}: a_jx_j\in\<x_{i_1},\dots, x_{i_n}\>$.
+	
+	Beweis der Behauptung: Falls $j\in\{i_1,\dots, i_n\}$: $\checkmark$
+	
+	\noindent Falls $j\notin \{i_1,\dots, i_n\}\Rightarrow \{x_{i_1},\dots x_{i_n}, x_j\}$ linear abhängig. Folglich existieren $a_{i_1},\dots, a_{i_n}, a_j\in A$ sodass $a_{i_1}x_{i_1}+\dots+a_{i_n}x_{i_n}+a_jx_j = 0$, wobei nicht alle $a_i = 0$ sind. Also gilt $a_j\neq 0$ (sonst wären $x_{i_1},\dots x_{i_n}$ linear abhängig).
+	
+	Betrachte $a\coloneqq a_1\dots a_m\in A\setminus\{0\}$. Dann gilt $aM\subseteq\<x_{i_1},\dots, x_{i_n}\>\cong A^n$ (frei). Betrachte
+	
+	\begin{eqnarray*}
+		\phi\colon M & \longto & M\\
+		x & \longmapsto & ax
+	\end{eqnarray*}
+	$\phi$ ist $A$-linear und injektiv ($a\neq 0$, $M$ torsionsfrei). Weiterhin ist $\im\phi = aM\subseteq \<x_{i_1},\dots, x_{i_n}\>$ frei. Folglich gilt $M\cong \im\phi$, wobei letzteres ein Untermodul eines freien Moduls ist $\Rightarrow$ frei.
+	
+\end{proof}
+\begin{lem}
+	Sei $A$ Ring, $f\colon M\to N$ surjektiv, $A$-linear, $N$ frei. Dann existiert $M'\subseteq M$ Untermodul mit $M = \ker f\oplus M'$. Insbesondere ist $M'\hookrightarrow M\xrightarrow{f}N$ Isomorphismus, also ist $M'$ frei.
+\end{lem}
+\begin{proof}
+	Sei $\{y_j\}$ Basis von $N$. Wähle $x_j\in M$ mit $f(x_j) = y_j$. Betrachte $M'= \<x_j\>_A$. Zeige $M = M'\oplus \ker f$: Sei $x\in M$, betrachte $f(x) \Rightarrow \exists a_j\in A: f(x)= \sum a_jy_j$. Dann ist $x'=\sum a_jx_j\in M'$ und $f(x') = \sum a_jy_j = f(x)\Rightarrow x-x'\in \ker f$, also $x = x'+(x-x')\in M'+\ker f$.
+	
+	Zeige noch $M'\cap \ker f = \{0\}$: Sei $x' = \sum a_jx_j\in M'$ mit $f(x') = 0$. Daraus folgt $0 = \sum a_jy_j$, aber die $y_j$ sind linear unabhängig $\Rightarrow$ alle $a_j = 0\Rightarrow x' = 0$.
+	
+	
+\end{proof}
+
+
+
+\begin{satz}
+	Sei $A$ ein Hauptidealring, $M$ endlich erzeugter $A$-Modul. Dann existiert $M'\subseteq M$ Untermodul mit:
+	\begin{itemize}
+		\item $M = M'\oplus M_{tor}$
+		\item $M'\cong \fak{M}{M_{tor}}$ endlich frei.
+	\end{itemize}
+\end{satz}
+\begin{proof}
+	Betrachte $\pi\colon M\to \fak{M}{M_{tor}}$ surjektiv. Nach Lemma 4.5 ist $\fak{M}{M_{tor}}$ torsionsfrei. Mit Lemma 4.7 folgt $\fak{M}{M_tor}$ frei und nach Lemma 4.8 existiert ein $M'\subseteq M$ mit $M = M'\oplus M_{tor}$ (endlich erzeugt).
+\end{proof} %TODO: Referenzen einfügen
+
+\subsection{Primärzerlegung}
+\begin{defi}
+	Sei $A$ Ring, $M$ ein $A$-Modul.
+	\begin{enumerate}
+		\item $Ann_A(M) \coloneqq\{a\in A|\forall x\in M: ax = 0\}\subseteq A$ Ideal heißt Annullator von $M$ (auch Annihilator) %TODO: Annullator als Math operator definieren
+		\item Sei $x\in M$: $Ann_A(x) \coloneqq Ann_A(\<x\>) = \{a\in A|ax = 0\}$
+		\item Sei $a\in A$: Definiere $M_a\coloneqq \{x\in M|ax = 0\}\subseteq M$ Untermodul.
+	\end{enumerate}
+\end{defi}
+
+\begin{lem}
+	Sei $M$ ein $A$-Modul.
+	\begin{enumerate}
+		\item Sei $f\colon M\to N$ $A$-linear. Falls $f$ injektiv ist $\Rightarrow Ann(M)\supset Ann(N)$. Falls $f$ surjektiv ist $\Rightarrow Ann(M)\subset Ann(N)$.
+		\item Sei $M = M'+M''\Rightarrow Ann(M) = Ann(M')\cap Ann(M'')$.
+		\item Sei $A$ Integritätsbereich, $M$ endlich erzeugter Torsionsmodul. Dann ist $Ann(M) \neq (0)$.
+	\end{enumerate}
+\end{lem}
+
+\begin{lem}
+	Sei $A$ ein Hauptidealring, seien $a_1,\dots, a_n\in A$ paarweise teilerfremd (das heißt $(a_i, a_j) = (1)$ für $i \neq j$), $a = a_1\dots a_n$. Sei $M$ $A$-Modul mit $M = M_a$. Dann folt $M_a = M_{a_1}\oplus \dots \oplus M_{a_n}$.
+\end{lem}
+
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Definiere $b_i \coloneqq \frac{a}{a_i} = \prod_{j\neq i} a_j$. Dann gilt bereits $(b_1,\dots, b_n) = (1)$.
+		
+		Denn: Angenommen $\exists p\in A$ prim mit $p$ teilt alle $b_i$. $\Rightarrow p$ teilt $b_1 = \prod_{j = 2}^n a_j\Rightarrow \exists j\geq 2$: $p$ teilt $a_j$. Da $p$ teilt $b_j\Rightarrow \exists k\neq j$ mit $p$ teilt $a$. Widerspruch zu $1 = \gcd(a_j,a_k)$.
+		
+		Es existieren also $d_1,\dots, d_n\in A$ mit $\sum d_ib_i = 1$. Zeige $M = M_{a_i}+\dots +M_{a_n}$.
+		
+		Sei $x\in M$. Betrachte $a_id_ib_ix$.
+		$$a_id_ib_ix = d_iax = 0$$
+		$\Rightarrow d_ib_ix\in M_{a_i}$
+		$$ x = \sum d_ib_ix \in \sum M_{a_i}$$
+		Zeige nun noch $M_{a_i}\cap \sum_{j\neq i}M_{a_j} = \{0\}$. Sei $x\in M_{a_i}\cap\sum_{j \neq i}M_{a_j}$. $\Rightarrow a_ix = 0$ und $b_ix = 0$. (denn $x = \sum_{j \neq i} x_j, x_j\in M_j$).
+		
+		Da $(a_i,b_i)= (1)\Rightarrow \exists c,d\in A: ca_i+db_i = 1\Rightarrow x = ca_ix+db_ix = 0$.
+	\end{enumerate}
+	
+	
+\end{proof}
+
+
+
+
+
+
 
 \end{document}
 
