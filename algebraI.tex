@@ -163,11 +163,11 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 	\end{proof}
 \end{satz}
 \begin{kor} \label{kor:einheiten und maximale ideale}
-    Sei $A$ ein Ring, bez. $A^*=\{\text{Einheiten von }A\}$. Dann gilt \[A^*=A \setminus \bigcup_{\mathclap{\fm \in \Max A}} \fm.\]
+    Sei $A$ ein Ring, bez. $A^{\times}=\{\text{Einheiten von }A\}$. Dann gilt \[A^{\times}=A \setminus \bigcup_{\mathclap{\fm \in \Max A}} \fm.\]
 	\begin{proof}
-		Ist $a \in A^*$, so gilt $(a)=(1)=A$ und damit $a \notin \fm$ für alle $\fm \in \Max A$.
+		Ist $a \in A^{\times}$, so gilt $(a)=(1)=A$ und damit $a \notin \fm$ für alle $\fm \in \Max A$.
 
-		Sei $a \notin \fm$ für alle $\fm \in \Max A$. Dann ist $(a) \subset \fm$ für alle $\fm \in \Max A$; es folgt also $(a)=A=(1)$ mit \cref{thm:existenz maximaler ideale} und damit $a \in A^*$.
+		Sei $a \notin \fm$ für alle $\fm \in \Max A$. Dann ist $(a) \subset \fm$ für alle $\fm \in \Max A$; es folgt also $(a)=A=(1)$ mit \cref{thm:existenz maximaler ideale} und damit $a \in A^{\times}$.
 	\end{proof}
 \end{kor}
 \subsection{Lokale Ringe}
@@ -180,16 +180,16 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 		\item Sei $I \subsetneq A$ ein Ideal. Dann sind äquivalent:
 		      \begin{enumerate}
 			      \item $\Max A = \{I\}$
-			      \item $A \setminus I \subset A^*$
-			      \item $A \setminus I = A^*$
+			      \item $A \setminus I \subset A^{\times}$
+			      \item $A \setminus I = A^{\times}$
 		      \end{enumerate}
-		\item Sei $\fm \in \Max A$. Falls $1+x \in A^*$ für alle $x \in \fm$ gilt, so ist $\Max A=\{ \fm \}$.
+		\item Sei $\fm \in \Max A$. Falls $1+x \in A^{\times}$ für alle $x \in \fm$ gilt, so ist $\Max A=\{ \fm \}$.
 	\end{enumerate}
     \begin{proof}
         \leavevmode
 		\begin{enumerate}
 			\item \enquote{a) $\Rightarrow$ b)} folgt aus \cref{kor:einheiten und maximale ideale}. Für \enquote{b) $\Rightarrow$ a)} sei $J \subsetneq A$ ein Ideal. Dann liegt $J$ in $I$, und es folgt $I \in \Max A$ mit $\Max = \{I\}$.
-			\item Sei $b \in A \setminus \fm$. Es ist $b \in A^*$ zu zeigen. Da $\fm \in \Max A$, gilt $(b)+m=A$, es existieren folglich $a \in A, x\in m$ mit $ab+x=1$. Daraus folgt $ab=1-x \in A^*$ und dann $b \in A^*$.
+			\item Sei $b \in A \setminus \fm$. Es ist $b \in A^{\times}$ zu zeigen. Da $\fm \in \Max A$, gilt $(b)+m=A$, es existieren folglich $a \in A, x\in m$ mit $ab+x=1$. Daraus folgt $ab=1-x \in A^{\times}$ und dann $b \in A^{\times}$.
             \qedhere
         \end{enumerate}
 	\end{proof}
@@ -201,7 +201,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 		\item[0)] Körper sind lokale Ringe.
         \item Ist $(A,\fm)$ ein lokaler Ring. Dann ist $A\llbracket t \rrbracket$ ein lokaler Ring. Dabei ist \[ A\llbracket t \rrbracket=\left\{\sum_{i=0}^\infty a_it^i \,\middle|\, a_i \in A\right\} \] der Ring der formalen Potenzreihen mit kanonischer Addition und Multiplikation. Betrachte die Komposition $A\llbracket t \rrbracket \to A \to A/\fm$ gegeben durch $\phi=\can \circ \ev_0$. Diese bildet surjektiv auf den Körper $A/\fm$ ab, also ist $\ker \phi \in \Max A\llbracket t \rrbracket$.
         
-        Sei $f \in \ker \phi$ und betrachte $1+ f$. Aus $f \in \ker \phi$ folgt $f=\sum_{i=0}^\infty a_it^i$ mit $a_0 \in \fm$. Wir wollen ein $g \in A\llbracket t\rrbracket$ mit $g=\sum_{i=0}^\infty b_it^i$ mit $(1+f)g=1$ finden, d.h. $(1+a_0)b_0$ und $(1+a_0)b_n+a_1b_{n-1}+\dots a_nb_0$ für alle $n > 0$. Erstere Gleichung ist lösbar, da $a_0 \in m$ liegt und damit $1+a_0 \in A^*$ folgt. Wir führen nun eine Induktion nach $n$. Nehme an, dass $b_0, \dots b_{n-1}$ bereits bekannt sind. Dann folgt, dass $b_n=-(1+a_0)^{-1}(a_1b_{n-1}+\dots+a_nb_0)$. Nach \cref{lem:lokale ringe} ist $A\llbracket t \rrbracket$ lokal mit dem maximalen Ideal $(t)+\fm$. Der Residuenkörper ist $A\llbracket T\rrbracket /((t)+\fm) \cong A/\fm$.
+        Sei $f \in \ker \phi$ und betrachte $1+ f$. Aus $f \in \ker \phi$ folgt $f=\sum_{i=0}^\infty a_it^i$ mit $a_0 \in \fm$. Wir wollen ein $g \in A\llbracket t\rrbracket$ mit $g=\sum_{i=0}^\infty b_it^i$ mit $(1+f)g=1$ finden, d.h. $(1+a_0)b_0$ und $(1+a_0)b_n+a_1b_{n-1}+\dots a_nb_0$ für alle $n > 0$. Erstere Gleichung ist lösbar, da $a_0 \in m$ liegt und damit $1+a_0 \in A^{\times}$ folgt. Wir führen nun eine Induktion nach $n$. Nehme an, dass $b_0, \dots b_{n-1}$ bereits bekannt sind. Dann folgt, dass $b_n=-(1+a_0)^{-1}(a_1b_{n-1}+\dots+a_nb_0)$. Nach \cref{lem:lokale ringe} ist $A\llbracket t \rrbracket$ lokal mit dem maximalen Ideal $(t)+\fm$. Der Residuenkörper ist $A\llbracket T\rrbracket /((t)+\fm) \cong A/\fm$.
 
         Spezialfall: $k\llbracket t_1,\dots t_n\rrbracket := k\llbracket t_1,\dots,t_{n-1}\rrbracket\llbracket t_n\rrbracket$ lokaler Ring mit maximalen Ideal $(t_1,\dots,t_n)$ und Residuenkörper isomorph zu $k$.
         
@@ -209,7 +209,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 
 		Wir zeigen nun, dass $A$ ein lokaler Ring ist. Betrachte $\phi: A \to \mathbb{R}, \; \langle U,f \rangle \to f(0)$, einen wohldefinierten Ringhomomorphismus. $\phi$ surjektiv und damit folgt $\ker \phi \in \Max A$.
 
-        Sei $s = \langle U,f \rangle \in \ker \phi$. Es bleibt $1+s \in A^*$ zu zeigen. Da $1+f(0)=1$, existiert eine offene Umgebung $W$ von $0$, sodass $f(x) \neq 0$ für alle $x \in W$ ist. Dann ist $y: W \to \IR, \; x \mapsto \frac{1}{1+f(0)}$ stetig und es gilt $(1+s)\langle W,y \rangle = 1$. Somit ist $A$ ein lokaler Ring.
+        Sei $s = \langle U,f \rangle \in \ker \phi$. Es bleibt $1+s \in A^{\times}$ zu zeigen. Da $1+f(0)=1$, existiert eine offene Umgebung $W$ von $0$, sodass $f(x) \neq 0$ für alle $x \in W$ ist. Dann ist $y: W \to \IR, \; x \mapsto \frac{1}{1+f(0)}$ stetig und es gilt $(1+s)\langle W,y \rangle = 1$. Somit ist $A$ ein lokaler Ring.
         
         \item Sei $A$ ein Ring und $\fp \in \Spec A$. Dann ist $S := A \setminus \fp$ ein multiplikatives System. Wir definieren $A_\fp := S^{-1}A$ (Lokalisation).
         
@@ -306,13 +306,13 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
     \end{enumerate}
 \end{beme}
 \begin{prop} \label{prop:jacobson}
-    Sei $A$ ein Ring. Dann gilt $\Jac(A) = \{x\in A \mid \forall a\in A: 1-ax\in A^* \}$.
+    Sei $A$ ein Ring. Dann gilt $\Jac(A) = \{x\in A \mid \forall a\in A: 1-ax\in A^{\times} \}$.
 \end{prop}
 \begin{proof}
     \leavevmode
     \begin{description}
-        \item[\enquote{$\subseteq$}] Sei $x\in \Jac(A)$ und $a\in A$. Angenommen, $1-ax\not \in A^*$. Dann existiert ein $\fm\in \Max(A)$ mit $1-ax\in \fm$, sodass $1=(1-ax)+ax\in \fm$ gilt, Widerspruch.
-        \item[\enquote{$\supseteq$}] Sei $x \in A$ mit $1-ax\in A^*$ für alle $a \in A$ sowie $\fm\in \Max(A)$. Angenommen, $x\not \in \fm$. Dann gilt $(x)+\fm=(1)$, es existieren also $a\in A, y\in \fm$ mit $1=ax+y$. Dann folgt aber $\fm \ni y = 1-ax \in A^*$, ein Widerspruch.
+        \item[\enquote{$\subseteq$}] Sei $x\in \Jac(A)$ und $a\in A$. Angenommen, $1-ax\not \in A^{\times}$. Dann existiert ein $\fm\in \Max(A)$ mit $1-ax\in \fm$, sodass $1=(1-ax)+ax\in \fm$ gilt, Widerspruch.
+        \item[\enquote{$\supseteq$}] Sei $x \in A$ mit $1-ax\in A^{\times}$ für alle $a \in A$ sowie $\fm\in \Max(A)$. Angenommen, $x\not \in \fm$. Dann gilt $(x)+\fm=(1)$, es existieren also $a\in A, y\in \fm$ mit $1=ax+y$. Dann folgt aber $\fm \ni y = 1-ax \in A^{\times}$, ein Widerspruch.
         \qedhere
     \end{description}
 \end{proof}
@@ -906,7 +906,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\leavevmode
 	\begin{enumerate}
 		\item Sei $f: M\to M'$ eine surjektive $A$-lineare Abbildung. Dann ist $f \tp_A \id_N : M \tp_A N \to M' \tp_ A N $ auch surjektiv.
-		\item Ist $f$ injektiv, so ist $f \tp \id_N$ nicht notwengierweise injektiv. Sei beispielsweise $a \in A \setminus A^*$ kein Nulteiler. Betrachte $f: A \to A, x \mapsto ax$. Da $a$ kein Nullteiler ist, ist $f$ injektiv. Betrachte nun $N = \fak A{(a)}$ und das folgende Diagramm.
+		\item Ist $f$ injektiv, so ist $f \tp \id_N$ nicht notwengierweise injektiv. Sei beispielsweise $a \in A \setminus A^{\times}$ kein Nulteiler. Betrachte $f: A \to A, x \mapsto ax$. Da $a$ kein Nullteiler ist, ist $f$ injektiv. Betrachte nun $N = \fak A{(a)}$ und das folgende Diagramm.
 		\begin{figure}[H]
 			\centering
 			\begin{tikzcd}
@@ -935,7 +935,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 				\end{tikzcd}
 			\end{figure}
 		\end{proof}
-		\item Ist $a \in A \setminus A^*$ kein Nulteiler, so ist $\fak A {(a)}$ nicht flach.
+		\item Ist $a \in A \setminus A^{\times}$ kein Nulteiler, so ist $\fak A {(a)}$ nicht flach.
 	\end{enumerate}
 \end{bsp}
 \begin{prop}
