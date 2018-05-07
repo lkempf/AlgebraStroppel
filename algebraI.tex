@@ -1574,8 +1574,105 @@ Sei $k$ Körper, $V$ ein $k$-Vektorraum, $\dim V<\infty$, $\psi\in \End_k(V), M 
 	$\chi_{C(p)} = p$ (charakteristisches Polynom von $C(p)$ ist $p$)
 	
 \end{beme}
+\begin{lem}
+	Falls $M$ zyklischer $k[t]$-Modul ist:
+	\begin{enumerate}
+		\item $\dim_ V = \deg m_{\psi}$
+		\item Sei $u \coloneqq \deg_(m_{\psi})$ und $v\in V$ mit $M = \<v\>_{k[t]}$. Seien $p_0,\dots, p_{n-1}\in k[t]$ mit $\deg p_i<n$ mit $p_0,\dots, p_{n-1}$ linear unabhängig über $k$. Dann ist $(p_0v, \dots, p_{n-1}v)$ Basis von $V$ über $k$. 
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	Sei $m_{\psi}(t) = t^n+a_{n-1}t^{n-1}+\ldots + a_0$.
+	\begin{enumerate}
+		\item [a)] Zeige $\<v, \psi(v),\dots, \psi^{n-1}(v)\>_k = V$. Denn nach Bemerkung 4.18 gilt $\<v, \psi(v),\psi^2(v),\dots\>_k = V$; Da $m_{\psi}(\psi) = 0$ gilt, ist $\psi^n(v)\in \<v, \psi(v),\dots, \psi^{n-1}(v)\>_k$ und durch Induktion ergibt sich $\psi^{n+i}(v) \in \<v, \psi(v), \dots, \psi^{n-1}(v)\>_k$
+		\item[b)] Zeige $(p_0v,\cdots, p_{n-1}v)$ ist linear unabhängig. Seien $b_0,\dots, b_{n-1}\in k$ mit $0 = \sum b_ip_iv \Rightarrow p \coloneqq \sum b_ip_i\in Ann(v) = Ann(M) = (m_{\psi})$.
+		
+		Da $\deg p_i<\deg m_{\psi}$ ist, folgt $p = 0$ und, da $p_0,\dots, p_{n-1}$ linear unabhängig sind, ist $b_= =\dots = b_{n-1} = 0$.
+		
+		Aus (a) und (b) folgen nun (i) und (ii).
+	\end{enumerate}
+Aus (a) und (b) folgen nun (i) und (ii).
+\end{proof}
 
+\begin{lem} Sei $M$ zyklischer $k[t]$-Modul.
+	\begin{enumerate}
+		\item Es gibt eine Basis $B$ von $V$ mit $M_B(\psi) =C(m_{\psi})$.
+		\item Falls $m_{\psi}(t) = (t-\lambda)^n \Rightarrow \exists$ Basis $B'$ von $V$ mit 
+		$$M_{B'}(\psi) = \left( \begin{array}{cccc}
+		\lambda & 1 &  & 0 \\ 
+		& \lambda & \ddots &  \\ 
+		&  & \ddots & 1 \\ 
+		0 &  &  & \lambda
+		\end{array} \right) = Jn(\lambda)$$
+	\end{enumerate}
+\end{lem}
+\begin{proof} Sei $M = \<v\>_{k[t]}$.
+	\begin{enumerate}
+		\item Definiere $v_i = \psiî(v)$ für $i = 0,\dots, n-1$. Aus Lemma 4.22 folgt $(v_0,\dots, v_{n-1})$ ist Basis von $V$. Dabei gilt $\psi(v_{i} = v_{i+1}$ für $i = 0,\dots, n-2$ und $\psi(v_{n-1}) =\psi^n(v) = -\sum_{i = 0}^{k-1}a_i\psiî(v) = -\sum_{i = 0}^{k-1}a_iv_i$, da $m_{\psi}(\psi) = 0$. Dabei ist $m_{\psi}(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0$.
+		\item Definiere $v_i'\coloneqq (t-\lambda)^{n-i}\cdot v = (\psi-\lambda)^{n-i}(v)$ für $i = 1,\dots, n$.
+		
+		Mit Lemma 4.22 folgt nun, dass $(v_1',\dots, v_n')$ eine Basis von $V$ ist.
+		
+		\begin{eqnarray*}
+			\psi(v_i') & = & t\cdot v_i' = t\cdot(t-\lambda)^{n-1}\cdot v\\
+			 &= & (t-\lambda)^nv + \lambda (t-\lambda)^{n-1}v\\
+			 & =& \lambda v_i'\\
+			 \psi(v_i') & =& (t-\lambda)^{n-i+1}v +\lambda(t-\lambda)^{n-i}v = v_{i-1}' + \lambda v_i'
+		\end{eqnarray*}
+	\end{enumerate}
+\end{proof}
 
+\begin{bem}
+	Umgekehrt gilt: Falls $\exists B$ Basis von $V$, $\exists p\in k[t]$ normiert: $M_B(\psi) =C(p)\Rightarrow M$ zyklisch.
+\end{bem}
+
+\begin{satz}[Rationale Normalform] Sei $V$ ein $k$-Vektorraum, $\dim V <\infty, \psi\in\End(V)$. Sei $m_{\psi} = p_1^{r_1}\cdot\ldots\cdot p_n^{r_n}$ mit $p_i\in k[t]$ irreduzibel (und normiert) mit $p_i\neq p_j$. Dann existieren $1\leq s_{i1}\leq\dots\leq s_{i{l_j}}  = r_i$ und es existiert eine Basis $B$ von $V$, sodass
+	
+	$$ M_B(\psi) = \left(\begin{array}{cccc}
+	C(p_1^{s_{i1}}) &  &  & 0 \\ 
+	& C(p_1^{s_{i2}}) &  &  \\ 
+	&  & \ddots &  \\ 
+	0 &  &  & C(p_n^{s_{i{l_n}}})
+	\end{array} \right)$$%TODO: boxen drumrummachen
+\end{satz}
+\begin{proof}
+	Aus den Sätzen 4.14 und 4.17 folgt, dass es eine Zerlegung $M = \bigoplus_{i = 1}^n\bigoplus_{j = 1}^{l_n} M_{ij}$, wobei $M_{ij}$ zyklisch mit $ann(M_{ij})  = (p_i^{s_{ij}})$. $M_{ij}$ ist Untermodul von $M\Rightarrow {}_k(M_{ij}) \eqqcolon V_{in}\subseteq V$ ist $k$-Untervektorraum und $\psi(V_{ij})\subseteq V_{ij}$
+	
+	Mit Lemma 4.23 folgt daraus, dass $M_{ij}$ zyklisch ist, dass eine Basis $B_{ij}$ von $V_{ij}$ existiert mit $M_{B_{ij}}(\psi|_{V_{ij}}) = C(p_i^{s_{ij}})$. Die Basis $B = B_{11}\cup B_{12}\cup \dots \cup B_{nl_n}$ ist geeignet.
+\end{proof}
+
+\begin{kor} Sei $m_{\psi} = p_1^{r_1}\cdot\ldots\cdot p_n^{r_n}$ mit $p_i\in k[t]$ normiert, irreduzibel, $p_i\neq p_j$ für $i\neq j$. Dann folgt $\exists s_i\geq r_i: \chi_{\psi} = p_1^{s_1}\cdot\ldots\cdot p_n^{s_n}$.
+\end{kor}
+
+\begin{proof}
+	Übung.
+\end{proof}
+
+\begin{kor}[Cayley-Hamilton]
+	$\chi_{\psi}(\psi) = 0$.
+\end{kor}
+
+\begin{satz}[Jordansche Normalform]
+	Sei $V$ ein $k$-Vektorraum, $\dim V<\infty$, $\psi\in\End(V)$. Dann sind äquivalent:
+	\begin{enumerate}
+		\item $m_{\psi}$ zerfällt über $k$
+		\item $\chi_{\psi}$ zerfällt über $k$
+		\item $\exists \lambda_1,\dots, \lambda_n\in k \exists 1\leq s_{i1}\leq\dots\leq s_{il_i}$ und Basis $B'$ von $V$ mit
+		$$M_{B'}(\psi) = \left( \begin{array}{cccc}
+		J_{s_11}(\lambda_1) &  &  & 0 \\ 
+		& J_{s_12}(\lambda_1) &  &  \\ 
+		&  & \ddots &  \\ 
+		0 &  &  & J_{s_{nl_n}}(\lambda_n)
+		\end{array} \right)$$
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\begin{description}
+		\item[i$\Leftrightarrow$ ii:] Folgt aus Korollar 4.25
+		\item[iii$\Rightarrow$ii:] $\checkmark$
+		\item[i$\Rightarrow$ iii:] Beweis wie Beweis von Rationaler Normalform, statt Lemma 4.23 (i) nutze Lemma 4.23 (ii)
+	\end{description}
+\end{proof}
 
 \end{document}
 
