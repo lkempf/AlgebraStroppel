@@ -1496,8 +1496,19 @@ Wir werden folgende Notation verwenden: $rk F=\# I \in\IZ_{\geq 0}\cup \{\infty\
 		\item $M = M_1\oplus\dots\oplus M_l$
 		\item $M_j$ zyklisch mit $Ann(M_j) =(p^{s_j})$.
 	\end{enumerate}
-	
 \end{satz}
+\begin{proof}
+	Sei $n$ die maximale Anzahl von Erzeugern von $M$.
+	\begin{description}
+		\item[$n = 1$:] $\checkmark$
+		\item[$n-1\to n$:] Sei $\{x_1,\dots, x_n\}$ Erzeugendensystem von $M$. Nach Lemma 4.11 ist $(p^r) = Ann(M)  = \bigcap Ann(x_i)$.
+		
+		$\Rightarrow \exists t_i\leq r: Ann(x_i) = (p^{t_i})\Rightarrow \exists x_i: Ann(x_i) = (p_i^r)$. Setze $U\coloneqq \<x_n\>$ und $N = \fak{M}{U}, \pi\colon M\to N$. Da $\pi$ surjektiv: $Ann(M)\subseteq Ann(N)\Rightarrow \exists s\leq r: Ann(N) = (p^s)$.
+		
+		Es gilt $N = \<\pi(x_1),\dots, \pi(x_{n-1})\>$. Nach Induktionsvoraussetzugn existieren $N_1,\dots, N_k\subseteq N$ Untermoduln und $1\leq t_1\leq\dots \leq t_k = s$ mit $N = N_1\oplus \dots \oplus N_k$ und $N_j$ zyklisch mit $Ann(N_j) = (p^{t_j})$.
+	\end{description}
+	
+\end{proof}
 
 
 
