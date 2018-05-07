@@ -1482,9 +1482,9 @@ Wir werden folgende Notation verwenden: $rk F=\# I \in\IZ_{\geq 0}\cup \{\infty\
 	\end{enumerate}
 \end{proof}
 
-\begin{bem}
+\begin{beme}
 	$M(p_i)$ im Satz ist nach Lemma 4.12 von der Form $b_iM$, wobei $b_i = \frac{a}{p_i^{r_i}}$.
-\end{bem}
+\end{beme}
 
 \begin{defi}
 	Ein $A$-Modul $M$ heißt zyklisch, wenn $\exists x\in M: M = \<x\>_A$. Übung: $M\cong \fak{A}{Ann(x)}$.
@@ -1506,13 +1506,74 @@ Wir werden folgende Notation verwenden: $rk F=\# I \in\IZ_{\geq 0}\cup \{\infty\
 		$\Rightarrow \exists t_i\leq r: Ann(x_i) = (p^{t_i})\Rightarrow \exists x_i: Ann(x_i) = (p_i^r)$. Setze $U\coloneqq \<x_n\>$ und $N = \fak{M}{U}, \pi\colon M\to N$. Da $\pi$ surjektiv: $Ann(M)\subseteq Ann(N)\Rightarrow \exists s\leq r: Ann(N) = (p^s)$.
 		
 		Es gilt $N = \<\pi(x_1),\dots, \pi(x_{n-1})\>$. Nach Induktionsvoraussetzugn existieren $N_1,\dots, N_k\subseteq N$ Untermoduln und $1\leq t_1\leq\dots \leq t_k = s$ mit $N = N_1\oplus \dots \oplus N_k$ und $N_j$ zyklisch mit $Ann(N_j) = (p^{t_j})$.
+		
+		\lecture{7. Mai 2018}
+		
+		Fixiere $j\in\{1,\dots, k\}$, sei $y\in N_j$ mit $N_j = \<y\>$. Wähle $xÄ\in M$ mit $\pi(x') = y$. Dann gilt $\pi(p^{t_j}x') = p^{t_j}y = 0$, also $x''\eqqcolon p^{t_j}x'\in U$.
+		
+		Aber $Ann(M) = (p^r) \Rightarrow 0 = p^rx' = p^{r-t_j}x''$
+		
+		Lemma:
+			Sei $L$ zyklischer $A$-Modul, $Ann(L) = (p^r)$, $v\in L$ und $s\leq r$. Falls $p^sv = 0$ gilt, folgt dann $\exists w\in L: v = p^{r-s}w$.
+		
+		Beweis des Lemmas:
+			Sei $z\in L$ mit $L = \<z\> \Rightarrow \exists a \in A: v = az\Rightarrow 0 = p^sv = p^saz\Rightarrow p^sa\in Ann(L) = (p^r)$, also $\exists b\in A: p^sa = p^rb\Rightarrow a = p^{r-s}b\Rightarrow v = p^{r-s}bz$.
+			
+		Wir wenden nun das Lemma an auf $L = U$, $v = x''$, $s = r-t_j$: Dann folgt $\exists x'''\in U: x'' = p^{l_j}x'''$.
+		
+		Definiere nun $x\coloneqq x'-x'''$. Dann gilt:
+		\begin{equation}
+		\pi(x) = \pi(x')-\pi(x'') = y-0\\
+		p^{t_j}x = p^{t_j}x'-p^{t_j}x''' = x''-x'' = 0
+		\end{equation}
+		Definiere $M_j\coloneqq \<x\>$. Dafür gilt $\pi(M_j) = N_j$ und $\ker(\pi|_{M_j}) = \{0\}$. Denn sei $v\in M_j$ mit $\pi(v) = 0$. Es existiert ein $a\in A$ mit $v = ax\Rightarrow 0 = a\pi(x) = ay\Rightarrow a \in Ann(y) = Ann(N_j) = (p^{t_j})\Rightarrow \exists b\in A: a = bp^{t_j}\Rightarrow v = bp^{t_j}x  = 0$, wobei letzteres mit Eigenschaft (2) folgt.
+		
+		Folglich erhalten wir $\pi|_{M_j}\colon M_j\xrightarrow{\cong} N_j$. Zeige $M_j\cap \sum_{j'\neq j} M_j' = \{0\}$: Sei $v\in M_j\cap\sum_{j'\neq j} M_j'$, also $\pi(v) \in N_j\cap\sum_{j'\neq j} N_{j'} = \{0\}\Rightarrow v = 0$.
+		
+		Insgesamt haben wir gezeigt: $\sum M_j = \bigoplus M_j \eqqcolon M'$ und $\pi|_{M'}\colon M'\xrightarrow{\cong} N$ (das gilt auf allen direkten Summanden). $\Rightarrow M = M'\oplus U$.
+	.
+		Wähle $l = k+1, s_j  = t_j (j = 1,\dots, k), s_l = r$ und $M_j = N_j (j = 1,\dots, k), M_l = U$
 	\end{description}
 	
 \end{proof}
 
+Zusammenfassung: Sei $A$ Hauptidealring, $M$ endlich erzeugter $A$-Modul. Dann gibt es $r\geq 0$ sowie $p_1,\dots, p_n\in A$ prim, sodass gilt:
+$\forall i \exists 1\leq s_{i_1}\leq\dots\leq s_{i_{l_i}}$ mit
+$$M\cong A^r\oplus \bigoplus_{i = 1}^n\bigoplus_{j = 1}^{l_i} \fak{A}{(P_i^{s_{i_j}})}$$
 
+\subsection{Anwendung auf Matrizen}
+Sei $k$ Körper, $V$ ein $k$-Vektorraum, $\dim V<\infty$, $\psi\in \End_k(V), M = k[t]$-Modul zu $(V,\psi)$
 
+\begin{beme}
+	\leavevmode
+	\begin{enumerate}
+		\item $M$ ist Torsionsmodul (denn sonst hätte $M$ torsionsfreien Anteil, der insbesondere frei ist über $k[t]$ und damit unendlichdimensional über $k$)
+		\item $M$ zyklisch: $\exists u\in V: \<u, \psi(u), \psi^2(u),\dots\>_k = V$
+	\end{enumerate}
+\end{beme}
+\begin{beme}
+	$Ann(M) = \{p\in k[t]|p(\psi) = 0$ in $\End(V)\} = (m_{\psi})$, wobei $m_{\psi}$ das Minimalpolynom von $\psi$ ist-
+\end{beme}
 
+\begin{defi}
+	Sei $p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0\in k[t]$. Definiere $C(p) \in M_{n\times n}(k)$ durch 
+	\begin{description}
+		\item[$n = 1$] $$C(p) = (-a_0)$$
+		\item[$n > 1$] $$C(p) =
+		\left(\begin{array}{cccc}
+			0 & \cdots & 0 & -a_0 \\ 
+			1 & \ddots & \vdots & -a_1 \\ 
+			& \ddots & 0 & \vdots \\ 
+			0 &  & 1 & -a_{n-1}
+		\end{array} \right)$$
+		
+	\end{description}
+	heißt Begleitmatrix zu $p$ (\glqq companion matrix\grqq)
+\end{defi}
+\begin{beme}
+	$\chi_{C(p)} = p$ (charakteristisches Polynom von $C(p)$ ist $p$)
+	
+\end{beme}
 
 
 
