@@ -39,13 +39,13 @@
 \crefname{beme}{Bemerkung}{Bemerkungen}
 
 % bibliography
-\usepackage[backend=biber,sorting=none]{biblatex}
+\usepackage[backend=biber,sorting=none,style=alphabetic]{biblatex}
 \addbibresource{literatur.bib}
 
 
 \author{}
 \title{Algebra I}
-\subtitle{Sommersemester 2018}    
+\subtitle{Sommersemester 2018}
 
 \begin{document}
 \maketitle
@@ -64,7 +64,12 @@ Vorlesungswebsite:\\
 \nocite{atiyah-macdonald}
 \nocite{eisenbud}
 \nocite{matsumura}
-\printbibliography
+\printbibliography[notkeyword=moduln-hir,title=Allgemeine Literatur]
+
+\nocite{lang}
+\nocite{hungerford}
+\printbibliography[keyword=moduln-hir,title=Literatur zu \cref{sec:moduln ueber hir}]
+
 
 \newpage
 
@@ -807,11 +812,13 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\end{figure}
 		Nun gilt
 		\begin{align*}
-			\lambda'(x \tp z, y \tp z') &= \lambda'(x \tp z,0)+ \lambda'(0,y \tp z') = \lambda'(i_{M \tp_A P}(x \tp z))+ \lambda'(i_{N \tp_A P}(y \tp z')) \\
-			&= (i_M \tp \id_P)(x \tp z) + (i_N \tp \id_P)(y \tp z') = (x,0) \tp z + (0,y) \tp z',
+			\lambda'(x \tp z, y \tp z') &= \lambda'(x \tp z,0)+ \lambda'(0,y \tp z') \\
+			&= \lambda'(i_{M \tp_A P}(x \tp z))+ \lambda'(i_{N \tp_A P}(y \tp z')) \\
+			&= (i_M \tp \id_P)(x \tp z) + (i_N \tp \id_P)(y \tp z') \\
+			&= (x,0) \tp z + (0,y) \tp z',
 		\end{align*}
-		also folgt aufgrnd der Bilinearität des Tensorprodukts \[ (\lambda \circ \lambda')((x,y)\tp z) = \lambda'(x \tp z, y \tp z) = (x,0) \tp z + (0,y) \tp z = (x,y)\tp z .\]
-		Genauso erhalten wir $(\lambda circ \lambda')(x \tp z,y \tp z') = (x\tp z, y \tp z')$, also folgt $\lambda' \circ \lambda = \id$ und $\lambda \circ \lambda' = \id$.
+		also folgt aufgrund der Bilinearität des Tensorprodukts \[ (\lambda \circ \lambda')((x,y)\tp z) = \lambda'(x \tp z, y \tp z) = (x,0) \tp z + (0,y) \tp z = (x,y)\tp z .\]
+		Genauso erhalten wir $(\lambda \circ \lambda')(x \tp z,y \tp z') = (x\tp z, y \tp z')$, also folgt $\lambda' \circ \lambda = \id$ und $\lambda \circ \lambda' = \id$.
 		\qedhere
 	\end{description}
 \end{proof}
@@ -1081,16 +1088,17 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \end{satz}
 \begin{proof}
 	\leavevmode
-	\begin{description}
-		\item[\ref{thm:scalarerweiterung:i}] Betrachte $B\times M\to N, (b,x)\mapsto bf(x)$. Diese Abbildung ist $A$-bilinear, da $f$ $A$-linear und $B$ eine $A$-Algebra ist. Folglich kommutiert:
+	\begin{enumerate}[label=\ref{thm:scalarerweiterung:\roman*}]
+		\item Betrachte $B\times M\to N, (b,x)\mapsto bf(x)$. Diese Abbildung ist $A$-bilinear, da $f$ $A$-linear und $B$ eine $A$-Algebra ist. Folglich kommutiert
 		\begin{center}
 			\begin{tikzcd}
 				B\times M \arrow{r}\arrow{d}  & N \\
 				B\tp_AM \arrow{ur}[swap]{\exists! f_B \text{ $A$-linear}} &
 			\end{tikzcd}
+			. % TODO: punkt
 		\end{center}
 		Es verbleibt die $B$-Linearität von $f_B$ zu zeigen, was analog zu \cref{bem:3.9} geschieht.
-		\item[\ref{thm:scalarerweiterung:ii}] Wir konstruieren eine Umkehrabbildung $\Psi\colon \Hom_B(B\tp_AM,N)\to \Hom_A(M,{}_AN)$. Sei $g\colon B\tp_AM\to N$. Definiere $\Psi(g) \coloneqq g(1\tp \_)\colon M\to N, x\mapsto g(1\tp x)$.
+		\item Wir konstruieren eine Umkehrabbildung $\Psi\colon \Hom_B(B\tp_AM,N)\to \Hom_A(M,{}_AN)$. Sei $g\colon B\tp_AM\to N$. Definiere $\Psi(g) \coloneqq g(1\tp \_)\colon M\to N, x\mapsto g(1\tp x)$.
 		Dabei ist $g(1\tp\_)$ tatsächlich $A$-linear, da $g(1\tp ax ) = g(a(1\tp x)) = ag(1\tp x)$ gilt.
 		
 		Zeige nun noch $(\Psi\circ \Phi)(f) = f$ und $(\Phi\circ\Psi)(g) = g$. Hierzu gilt
@@ -1101,19 +1109,19 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\end{align*}
 		Kurzes Nachrechnen liefert schließlich, dass $\Phi$ auch $A$-linear ist.
 		\qedhere
-	\end{description}	
+	\end{enumerate}	
 \end{proof}
 \begin{lem} \label{lem:3.11}
 	Sei $B$ eine $A$-Algebra, $N$ ein $B$-Modul und $M$ ein $A$-Modul.
 	\begin{enumerate}
-		\item $N\tp_AM$ ist ein $B$-Modul via $b\cdot(\sum y_i\tp x_i) = \sum by_i\tp x_i$.
-		\item Es existiert ein eindeutiger Isomorphismus $N\tp_AM\to N\tp_B(B\tp_AM)$ von $B$-Moduln mit $y\tp x\mapsto y\tp (1\tp x)$.
+		\item $N\tp_AM$ ist ein $B$-Modul via $b\cdot(\sum y_i\tp x_i) = \sum by_i\tp x_i$. \label{lem:311:i}
+		\item Es existiert ein eindeutiger Isomorphismus $N\tp_AM\to N\tp_B(B\tp_AM)$ von $B$-Moduln mit $y\tp x\mapsto y\tp (1\tp x)$. \label{lem:311:ii}
 	\end{enumerate}
 \end{lem}
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}
-		\item So wie der Erweiterung der Skalare.
+	\begin{enumerate}[label=\ref{lem:311:\roman*}]
+		\item So wie bei der Erweiterung der Skalare.
 		\item Übung. \qedhere
 	\end{enumerate}
 \end{proof}
@@ -1136,26 +1144,26 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \begin{satz}
 	Sei $B$ eine $A$-Algebra, $M$ ein $A$-Modul sowie $(P)$ eine der folgenden Eigenschaften:
 	\begin{enumerate}
-		\item frei \label{thm:tensorieren erhaelt eigenschaften:frei}
-		\item endlich erzeugt \label{thm:tensorieren erhaelt eigenschaften:endl erz}
-		\item endlich präsentiert \label{thm:tensorieren erhaelt eigenschaften:endl praes}
-		\item flach \label{thm:tensorieren erhaelt eigenschaften:flach}
+		\item frei \label{thm:tensorieren erhaelt eigenschaften:i}
+		\item endlich erzeugt \label{thm:tensorieren erhaelt eigenschaften:ii}
+		\item endlich präsentiert \label{thm:tensorieren erhaelt eigenschaften:iii}
+		\item flach \label{thm:tensorieren erhaelt eigenschaften:iv}
 	\end{enumerate}	
 	Dann gilt: Falls $M$ die Eigenschaft $(P)$ als $A$-Modul hat, hat $B\tp_AM$ die Eigenschaft $(P)$ als $B$-Modul.
 \end{satz}
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}
-		\item[\ref{thm:tensorieren erhaelt eigenschaften:frei}] Sei $M$ ein freier $A$-Modul. Folglich gilt $M \cong \bigoplus_{i\in I}A$ und wir erhalten \[B\tp_AM\cong B\tp \left(\bigoplus_{i\in I}A\right) \cong \bigoplus_{i\in I}(B\tp_A A) \cong \bigoplus_{i\in I} B\] als $B$-Moduln mit \cref{bem:3.9}.
-		\item[\ref{thm:tensorieren erhaelt eigenschaften:endl erz}] Sei $M$ ein endlich erzeugter $A$-Modul. Dann existiert eine surjektive, $A$-lineare Abbildung $f\colon A^n\to M$. Folglich ist
+	\begin{enumerate}[label=\ref{thm:tensorieren erhaelt eigenschaften:\roman*}]
+		\item Sei $M$ ein freier $A$-Modul. Folglich gilt $M \cong \bigoplus_{i\in I}A$ und wir erhalten \[B\tp_AM\cong B\tp \left(\bigoplus_{i\in I}A\right) \cong \bigoplus_{i\in I}(B\tp_A A) \cong \bigoplus_{i\in I} B\] als $B$-Moduln mit \cref{bem:3.9}.
+		\item Sei $M$ ein endlich erzeugter $A$-Modul. Dann existiert eine surjektive, $A$-lineare Abbildung $f\colon A^n\to M$. Folglich ist
 		$$\id_B\tp f\colon B\tp_AA^n\to B\tp_AM$$ surjektiv nach \cref{prop:exaktheit tensorieren} und $B$-linear nach \cref{bem:3.9}. Aber wir haben eben gesehen, dass $B\tp_AA^n \cong B^n\Rightarrow B\tp_AM$ endlich erzeugt ist.
-		\item[\ref{thm:tensorieren erhaelt eigenschaften:endl praes}] Sei $M$ als $A$-Modul endlich präsentiert. Dann existiert eine surjektive Abbildung $A^n \to M$ mit endlich erzeugtem Kern, weshalb wiederum eine surjektive Abbildung $A^m \to \ker f$ existiert. Betrachte nun $A^m \to \ker g \to A^n$, hierbei gilt $\im g' = \ker$. Somit existiert eine exakte Sequenz der Form
+		\item Sei $M$ als $A$-Modul endlich präsentiert. Dann existiert eine surjektive Abbildung $A^n \to M$ mit endlich erzeugtem Kern, weshalb wiederum eine surjektive Abbildung $A^m \to \ker f$ existiert. Betrachte nun $A^m \to \ker g \to A^n$, hierbei gilt $\im g' = \ker$. Somit existiert eine exakte Sequenz der Form
 		\[ A^m \longto A^n \longto M\longto 0. \]
 		
 		Aus \cref{prop:exaktheit tensorieren} folgt nun, dass es die folgende exakte Sequenz gibt:
-		$$B\tp A^m \longto B\tp A^n \longto B\tp_AM\longto 0$$
+		\[B\tp A^m \longto B\tp A^n \longto B\tp_AM\longto 0\]
 		Damit ist auch $B\tp_AM$ endlich präsentiert als $B$-Modul.
-		\item[\ref{thm:tensorieren erhaelt eigenschaften:flach}] \href{http://www.math.uni-bonn.de/ag/stroppel/Franzen_Algebra_1_Uebung/Blatt3.pdf}{Übungsblatt 3}.
+		\item \href{http://www.math.uni-bonn.de/ag/stroppel/Franzen_Algebra_1_Uebung/Blatt3.pdf}{Übungsblatt 3}.
 		\qedhere
 	\end{enumerate}
 \end{proof}
@@ -1166,8 +1174,8 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\begin{enumerate}
 		\item Es existiert eine eindeutig bestimmte $A$-bilineare Abbildung
 		\[ m\colon B\otimes_A C\times B\otimes_A C\longto B\otimes_A C \]
-		mit $m(b\otimes c, b'\otimes c') = bb'\otimes cc'$.
-		\item $(B\otimes_AC, +, m)$ ist ein Ring (und sogar eine $A$-Algebra).
+		mit $m(b\otimes c, b'\otimes c') = bb'\otimes cc'$. \label{thm:314:i}
+		\item $(B\otimes_A, +, m)$ ist ein Ring (und sogar eine $A$-Algebra). \label{thm:314:ii}
 		\item Die Abbildungen
 		\begin{align*}
 			\begin{array}{rcl}
@@ -1179,17 +1187,17 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 				c &\longmapsto& 1 \tp c
 			\end{array}
 		\end{align*}
-		sind Ringhomomorphismen.
+		sind Ringhomomorphismen. \label{thm:314:iii}
 		\item Das Diagramm
 		\begin{figure}[H]
 			\centering
 			\begin{tikzcd}
-				B\otimes_A C  & B \arrow{l}[swap]{b\mapsto b\otimes 1} \\
-				C \arrow{u}{c\mapsto 1\otimes c}	& A\arrow{l}\arrow{u}
+				B\otimes_A C & B \arrow{l}[swap]{b\mapsto b\otimes 1} \\
+				C \arrow{u}{c\mapsto 1\otimes c} & A\arrow{l}\arrow{u}
 			\end{tikzcd}
 		\end{figure}
-		kommutiert.
-		\item Ist $D$ ein Ring und sind $B\xrightarrow{\phi} D, C\xrightarrow{\psi}D$ Ringhomomorphismen, sodass
+		kommutiert. \label{thm:314:iv}
+		\item Sei $D$ ein Ring sowie $B\xrightarrow{\phi} D$ und $C\xrightarrow{\psi}D$ Ringhomomorphismen, sodass
 		\begin{figure}[H]
 			\centering
 			\begin{tikzcd}
@@ -1197,32 +1205,43 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 				C \arrow{u}{\psi}	& A\arrow{l}\arrow{u}
 			\end{tikzcd}
 		\end{figure}
-		kommutiert, dann existiert genau ein Ringhomomorphismus $\lambda\colon B\otimes_AC\to D$ mit %TODO: insert pushout-diagram here
+		kommutiert, dann existiert genau ein Ringhomomorphismus $\lambda\colon B\otimes_AC\to D$ mit
+		\begin{figure}[H]
+			\centering
+			\begin{tikzcd}[sep=1cm]
+				D \\
+				& B \tp_A C \arrow[dashrightarrow]{lu}{\exists! \lambda} & B \arrow{l} \arrow[bend right]{llu}[swap]{\phi} \\
+				& C \arrow[bend left]{luu}{\psi} \arrow{u}
+			\end{tikzcd}
+			. % TODO: punkt
+		\end{figure} \label{thm:314:v}
 	\end{enumerate}
 \end{satz}
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}
-		\item Für $(b,c)\in B\times C$ betrachte $B\times C\to B\otimes_AC, (b'c')\longmapsto bb'\otimes cc$ $A$-bilinear,
+	\begin{enumerate}[label=\ref{thm:314:\roman*}]
+		\item Betrachte für $(b,c)\in B\times C$ die $A$-bilineare Abbildung $B\times C\to B\otimes_AC, (b'c')\mapsto bb'\otimes cc$ mit
 		\begin{center}
 			\begin{tikzcd}
-			B\times C\arrow{d}\arrow{r}& B\otimes_AC\\
-			B\otimes_AC\arrow{ru}[swap]{\exists!\phi_{(b,c)} A-\text{linear}}
+				B\times C\arrow{d}\arrow{r}& B\otimes_AC\\
+				B\otimes_AC\arrow[dashrightarrow]{ru}[swap]{\exists!\phi_{(b,c)} \text{ $A$-linear}}
+			\end{tikzcd}
+			. % TODO: punkt
+		\end{center}
+		Daraus folgt, dass das Diagramm
+		\begin{center}
+			\begin{tikzcd}[column sep=2cm]
+				B\times C\arrow{r}{(b,c)\mapsto \phi_{(b,c)}}& \Hom_A(B\otimes_AC, B\otimes A, C) A-\text{bilinear}\\
+				B\otimes_AC\arrow[dashrightarrow]{ru}[swap]{\exists!\phi\text{ $A$-linear}}
+				% TODO: verstehen, was Notation rechts oben bedeuten soll
 			\end{tikzcd}
 		\end{center}
-		Daraus folgt, dass folgendes Diagramm kommutiert:
-			\begin{center}
-					\begin{tikzcd}
-						B\times C\arrow{r}{(b,c)\mapsto \phi_{(b,c)}}& \Hom_A(B\otimes_AC, B\otimes A, C) A-\text{bilinear}\\
-						B\otimes_AC\arrow{ru}[swap]{\exists!\phi A-\text{linear}}
-					\end{tikzcd}
-			\end{center}
+		kommutiert.
 		%TODO: Insert Diagram here
 		
-		Nach Definition von $\Phi$:
-		$$m(b\otimes c, b'\otimes c') = (\phi(b\otimes c))(b'\otimes c') = \phi_{(b,c)}(b'\otimes c') = bb'\otimes cc'$$
-		\item Nachrechnen mit (i) %TODO: insert referenz here
-			und Rechenregeln für $\otimes$ (Beachte $1_{B\otimes_AC}= 1\otimes 1$)
+		Nach Definition von $\Phi$ gilt nun
+		\[m(b\otimes c, b'\otimes c') = (\phi(b\otimes c))(b'\otimes c') = \phi_{(b,c)}(b'\otimes c') = bb'\otimes cc'.\]
+		\item Nachrechnen mit \ref{thm:314:i} und Rechenregeln für $\otimes$, wobei $1_{B\otimes_AC}= 1\otimes 1$ zu beachten ist.
 		\item Die Abbildungen $\phi_B\colon B\to B\otimes_AC, b\mapsto b\otimes 1$ erfüllt $\phi_B(1) = 1$ und $\phi_B(bb') =\phi_B(b)\phi_B(b')$.
 		\item Für $a\in A$ gilt: $a\otimes_A1 = a\cdot(1\otimes_A1) = 1\otimes_A a$.
 		\item Existenz von $\lambda$: Betrachte die Abbildung
@@ -1260,55 +1279,53 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 
 
 \section{Moduln über Hauptidealringen}
-Literatur:\begin{itemize}
-	\item Lang -- Algebra, Chapter 3, Paragraph 7
-	\item Hungerford -- Algebra, Chapter 4, Paragraph 6
-\end{itemize}
-Erinnerung: Sei $A$ Ring. $A$ heißt Hauptidealring (HIR) oder principle ideal domain, falls $A$ Integritätsbereich ist und jedes Ideal ein Hauptideal ist.
-Wir wissen: $A$ Hauptidealring $\Rightarrow$ $A$ ist faktoriell.
+\label{sec:moduln ueber hir}
 
-Sei $M$ endlich erzeugter $A$-Modul ($A$ HIR). Ziel: Zerlege $M$ als direkte Summe in $A$-Moduln, die sich nicht weiter zerlegen lassen. Unsere Hauptanwendung wird dann sein: Betrachte $A = k[t]$, $k$ Körper, $M=$ Modul assoziiert zu $(V,\psi)$, wobei $V$ ein endlich-dimensionaler $k$-Vektorraum ist und $\psi\in\End_k(V)$.
+Es sei an dieser Stelle nochmals auf folgende Literatur verwiesen:
+
+\printbibliography[keyword=moduln-hir,heading=none]
+
+Zur Erinnerung: Sei $A$ ein Ring. $A$ heißt Hauptidealring (\enquote{principle ideal domain}), falls $A$ ein Integritätsbereich und jedes Ideal ein Hauptideal ist. Wir wissen, dass jeder Hauptidealring faktoriell ist.
+
+Sei $M$ endlich erzeugter $A$-Modul. Unser Ziel ist es, $M$ als direkte Summe in $A$-Moduln, die sich nicht weiter zerlegen lassen, zu zerlegen. Unsere Hauptanwendung wird dann sein: Betrachte $A = k[t]$, $k$ Körper, $M=$ Modul assoziiert zu $(V,\psi)$, wobei $V$ ein endlich-dimensionaler $k$-Vektorraum ist und $\psi\in\End_k(V)$.
 
 \subsection{Freie Moduln}
 \begin{beme}
-	Sei $F$ freier $A$-Modul, $\{x_i\}_{i\in I}, \{y\}_{j\in J}$ Basen von $F$. Dann exstiert Bijektion $I\to J$.
+	Sei $F$ ein freier $A$-Modul und $\{x_i\}_{i\in I}, \{y\}_{j\in J}$ Basen von $F$. Dann existiert eine Bijektion zwischen $I$ und $J$.
 \end{beme}
 \begin{proof}
 	\href{http://www.math.uni-bonn.de/ag/stroppel/Franzen_Algebra_1_Uebung/Blatt3.pdf}{Übungsblatt 3}.
 \end{proof}
 
-Wir werden folgende Notation verwenden: $rk F=\# I \in\IZ_{\geq 0}\cup \{\infty\}$ heißt Rang von $F$. %TODO: füge mathoperator für rk hinzu
+Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\geq 0}\cup \{\infty\}$ heißt \emph{Rang von $F$}.
 
-\begin{satz}
-	Sei $A$ ein Hauptidealring, $F$ freier $A$-Modul, $M\subseteq F$ Untermodul. Dann ist $M$ frei und $rk M\leq rk F$
+\begin{satz} \label{thm:untermoduln freier moduln in hir}
+	Sei $A$ ein Hauptidealring, $F$ freier $A$-Modul, $M\subseteq F$ Untermodul. Dann ist $M$ frei und $\rk M\leq \rk F$.
 \end{satz}
 \begin{proof}
-	Wir beweisen das nur für den Fall $rk F<\infty$ (allgemeiner Fall: Hungerford Theorem 6.1).
+	Wir beweisen das nur für den Fall $\rk F<\infty$ (siehe \cite[Theorem 6.1]{hungerford} für den allgemeinen Fall).
 	
-	Sei $\{x_1,\dots, x_n\}$ Basis von $F$ ($rk F = n$). Für $r\in\{1,\dots n\}$ definiere
-	$$M_r\coloneqq \<x_1,\dots, x_r\>_A\cap M$$
+	Sei $\{x_1,\dots, x_n\}$ Basis von $F$ ($\rk F = n$). Für $r\in\{1,\dots n\}$ definiere
+	\[M_r\coloneqq \<x_1,\dots, x_r\>_A\cap M.\]
 	
-	\noindent
-	Behauptung: $M_r$ ist frei, $rk M_r\leq r$.
-	
-	\noindent Beweis der Behauptung per Induktion nach $r$:
+	Wir behaupten, dass $M_r$ frei und $\rk M_r \le r$ ist. Wir beweisen dies per Induktion nach $r$:
 	\begin{description}
-		\item[$r = 1$:] $M_1 = \<x_1\>_A\cap M$, dabei gilt $\<x_1\>_A\subseteq \<x_1\>$ und es gibt Isomorphismus $\phi\colon A\xrightarrow{\cong} \<x_1\>, a\mapsto ax_1$. Folglich ist $\phi^{-1}(M_1)\subseteq A$ Ideal und es existiert ein $a\in A$ mit $\phi^{-1}(M_1) = (a)$, also gilt $$M_i = \<ax_i\> \cong \begin{cases} A & a\neq 0\\ 0& a= 0\end{cases}$$
+		\item[$r = 1$:] Wir haben $M_1 = \<x_1\>_A\cap M$; dabei gilt $\<x_1\>_A\subseteq \<x_1\>$ und es gibt Isomorphismus $\phi\colon A\xrightarrow{\cong} \<x_1\>, a\mapsto ax_1$. Folglich ist $\phi^{-1}(M_1)\subseteq A$ ein Ideal und es existiert ein $a\in A$ mit $\phi^{-1}(M_1) = (a)$, also folgt also \[M_i = \<ax_i\> \cong \begin{cases} A & a\neq 0,\\ 0& a= 0.\end{cases}\]
 		Beachte dabei: $\{x_1\}$ ist linear unabhängig, also $ax_1\neq 0 \Leftrightarrow a\neq 0$.
 		\item[$r\to r+1$:] Betrachte
-		$$ I = \{a\in A|\exists a_1,\dots, a_r\in A: a_1x_1+\dots a_rx_r+ax_{r+1}\in M\}$$
-		Dabei ist $I\subseteq A$ ein Ideal, also $\exists a_{r+1}\in A$ mit $I = (a_{r+1})$.
+		\[ I = \set{a\in A \given \exists a_1,\dots, a_r\in A: a_1x_1+\dots a_rx_r+ax_{r+1}\in M}. \]
+		Dabei ist $I\subseteq A$ ein Ideal, es existiert also ein $a_{r+1}\in A$ mit $I = (a_{r+1})$.
 		\begin{description}
-			\item[1. Fall:] $a_{r+1} = 0 \Rightarrow M_{r+1} = M_r$ frei (nach Induktionsannahme), $rk M_{r+1}\leq r$.
-			\item[2. Fall:] $a_{r+1}\neq 0\Rightarrow \exists a_0,\dots, a_r\in A$ mit $w\coloneqq a_1x_1+\dots+a_rx_r+a_{r+1}x_{r+1}\in M$.
+			\item[1. Fall:] $a_{r+1} = 0$. Dann ist $M_{r+1} = M_r$ frei (nach Induktionsannahme) sowie $\rk M_{r+1}\leq r$.
+			\item[2. Fall:] $a_{r+1}\neq 0$. Es existieren also $a_0,\dots, a_r\in A$ mit $w\coloneqq a_1x_1+\dots+a_rx_r+a_{r+1}x_{r+1}\in M$.
 			
-			Nun ist unser Ziel: $M_{r+1} = M_r\oplus \<w\>$.
+			Nun ist unser Ziel, $M_{r+1} = M_r\oplus \<w\>$ zu zeigen.
 			
-			Sei also $x\in M_{r+1}\Rightarrow\exists b_1,\dots, b_{r+1}\in A$, sodass $x = b_1x_1+\dots + b_{r+1}x_{r+1}\Rightarrow b_{r+1}\in I = (a_{r+1})\Rightarrow \exists c\in A: b_{r+1} = ca_{r+1}$. Betrachte nun $v\coloneqq x-cw$. Für $v$ gilt dann:
-			$$ v= \sum_{i = 1}^r (b_i-ca_i)x_i+(b_{r+1}-ca_{r+1})x_{r+1}\in \<x_1,\dots, x_r\> M = M_r$$
+			Sei also $x\in M_{r+1}$. Somit existieren $b_1,\dots, b_{r+1}\in A$, sodass $x = b_1x_1+\dots + b_{r+1}x_{r+1}$. Dann folgt $b_{r+1}\in I = (a_{r+1})$, es existiert also ein $c\in A$ mit $b_{r+1} = ca_{r+1}$. Betrachte nun $v\coloneqq x-cw$. Für $v$ gilt dann
+			\[v= \sum_{i = 1}^r (b_i-ca_i)x_i+(b_{r+1}-ca_{r+1})x_{r+1}\in \<x_1,\dots, x_r\> M = M_r.\]
 			Also gilt $x = v+cw\in M_r+\<w\>$.
 			
-			Außerdem: $M_r\cap\<w\> = \{0\}$ (weil $a_{r+1}\neq 0$). Denn: Sei $x\in M_r\cap\<w\>\Rightarrow x = bw = ba_1x_1+\dots ba_{r+1}x_{r+1}\xRightarrow{x\in M_r} ba_{r+1} = 0\Rightarrow b = 0$.
+			Schließlich gilt $M_r\cap\<w\> = \{0\}$, da für $x\in M_r\cap\<w\>$ dann $x = bw = ba_1x_1+\dots ba_{r+1}x_{r+1}\xRightarrow{x\in M_r} ba_{r+1} = 0$ folgt, also $b = 0$ gilt, da $a_{r+1} \neq 0$.
 			
 			Insgesamt erhalten wir tatsächlich $M_{r+1} = M_r\oplus \<w\>$ frei vom Rang $\leq r+1$. \qedhere 
 		\end{description}
@@ -1316,45 +1333,48 @@ Wir werden folgende Notation verwenden: $rk F=\# I \in\IZ_{\geq 0}\cup \{\infty\
 	
 \end{proof}
 \begin{kor}
-	Sei $A$ Hauptidealring, $M$ endlich erzeugter $A$-Modul, $M'\subseteq M$ Untermodul. Dann ist $M'$ endlich erzeugt.
+	Sei $A$ Hauptidealring, $M$ endlich erzeugter $A$-Modul und $M'\subseteq M$ Untermodul. Dann ist $M'$ endlich erzeugt.
 \end{kor}
 \begin{proof}
-	Da $M$ endlich erzeugt ist, existiert ein freier $A$-Modul $F$ von $rk F<\infty$ und $f\colon F\to M$ surjektiv. Betrachte $f^{-1}(M')\subseteq F$. Satz 4.2 sagt uns jetzt, dass $F'\coloneqq f^{-1}(M')$ frei ist, $rk F'\leq rk <\infty$ und $f|_{F'}\colon F'\to M'$ ist surjektiv, also ist $M'$ endlich erzeugt.
+	Da $M$ endlich erzeugt ist, existiert ein freier $A$-Modul $F$ mit $\rk F<\infty$ und eine surjektive, $A$-lineare Abbildung $f\colon F\to M$. Betrachte $f^{-1}(M')\subseteq F$. Nach \cref{thm:untermoduln freier moduln in hir} ist $F'\coloneqq f^{-1}(M')$ nun frei und es gilt $\rk F'\leq \rk F <\infty$ und $f|_{F'}\colon F'\to M'$ ist somit surjektiv, also ist $M'$ endlich erzeugt.
 \end{proof}
 
 
 \subsection{Zerlegung in freien Anteil und Torsionsanteil}
 \begin{defi}
-	Sei $A$ ein Integritätsbereich, $M$ ein $A$-Modul.
+	Sei $A$ ein Integritätsbereich und $M$ ein $A$-Modul.
 	\begin{enumerate}
-		\item Sei $x\in M$. $x$ heißt Torsionselement genau dann, wenn es ein $a\in A$ gibt, $a\neq 0$, sodass $ax = 0$.
-		\item $M_{tor} \coloneqq \{x\in M|x \text{ Torsionselement}\}\subseteq M$ ist Untermodul (da $A$ nullteilerfrei ist).
-		\item $M$ heißt Torsionsmodul genau dann, wenn $M = M_{tor}$
-	
-			  $M$ heißt torsionsfrei genau dann, wenn $M_{tor} = \{0\}$
+		\item Sei $x\in M$. $x$ heißt \emph{Torsionselement} genau dann, wenn es ein $a\in A\setminus\{0\}$ gibt, sodass $ax = 0$ gilt.
+		\item $M_{\tor} \coloneqq \set{x\in M \given x \text{ ist ein Torsionselement}}\subseteq M$ ist ein Untermodul, da $A$ nullteilerfrei ist.
+		\item $M$ heißt \emph{Torsionsmodul }genau dann, wenn $M = M_{\tor}$.
+			  $M$ heißt \emph{torsionsfrei} genau dann, wenn $M_{\tor} = \{0\}$.
 	\end{enumerate}
 	
 \end{defi}
 
 \begin{lem}
-	Sei $A$ Integritätsbereich, $M$ ein $A$-Modul. Dann ist $\fak{M}{M_{tor}}$ torsionsfrei.
+	Sei $A$ Integritätsbereich und $M$ ein $A$-Modul. Dann ist $\fak{M}{M_{\tor}}$ torsionsfrei.
 \end{lem}
 \begin{proof}
-	Sei $x+M_{tor}$ und angenommen $\exists a\in A, a\neq 0$ mit $(x+M_{tor}) = 0+M_{tor}\Rightarrow ax\in M_{tor}\Rightarrow \exists b\in A, b\neq 0\Rightarrow bax = 0$. Da $ba\neq 0$ gilt, muss scho $x\in M_{tor}$ sein.
+	Sei $x+M_{tor}$. Angenommen, es existiert ein $a\in A, a\neq 0$ mit $x+M_{\tor} = 0+M_{tor}$. Dann folgt $ax\in M_{tor}$, es existiert also ein $b\in A, b\neq 0$ mit $bax = 0$. Da $ba\neq 0$ gilt, muss schon $x\in M_{\tor}$ gelten.
 \end{proof}
 
 \begin{beme}
 	\leavevmode
 	\begin{enumerate}
-		\item $M$ frei $\Rightarrow M$ torsionsfrei ($A$ Integritätsring)
-		\item $\Leftarrow$ ist im Allgemeinen falsch. Denn: Sei $A$ Integritätsbereich, $I\subseteq A$ Ideal $\Rightarrow I$ torsionsfrei. Aber $I$ ist freier $A$-Modul $\Leftrightarrow I$ ist Hauptideal.
+		\item Sei $M$ ein Modul über einem Integritätsbereich. Ist $M$ frei, so ist $M$ auch torsionsfrei.
+		\item Die Umkehrung ist im Allgemeinen falsch. Dazu sei $A$ ein Integritätsbereich und $I\subseteq A$ ein Ideal. Dann ist $I$ torsionsfrei (klar), aber nur genau dann ein freier $A$-Modul, wenn $I$ ein Hauptideal ist.
 	
-		(Denn: \glqq$\Rightarrow$\grqq: Sei $I$ frei mit Basis $\{x_i\}_{i\in J}$ und angenommen $\#J\geq 2$. Dann gibt es $i_1\neq i_2\in J$. Wähle $a_1 = x_{i_2}, a_2 = x_{i_1}\Rightarrow a_1x{i_1}+a_2x_{i_2} = 0\Rightarrow x_{i_1}, x_{i_2}$ linear abhängig.)
+		\begin{proof}
+			Für die Hinrichtung sei $I$ frei mit $\{x_i\}_{i \in J}$. Angenommen, $\abs J \ge 2$. Dann existieren $i_1\neq i_2 \in J$. Mit $a_1 = x_{i_2}$ und $a_2 = x_{i_1}$ gilt $a_1x_{i_1} + a_2x_{i_2} = 0$; $x_{i_1}$ und $x_{i_2}$ sind also linear abhängig.
+
+			Für die Rückrichtung betrachten wir das folgende Lemma.
+		\end{proof}
 	\end{enumerate}
 \end{beme}
 
 \begin{lem}
-	Sei $A$ Hauptidealring. $M$ endlich erzeugter, torsionsfreier $A$-Modul $\Rightarrow M$ ist frei.
+	Sei $A$ ein Hauptidealring. Ist $M$ ein endlich erzeugter, torsionsfreier $A$-Modul, so ist $M$ frei.
 \end{lem}
 
 \lecture{3. Mai 2018}
