@@ -527,14 +527,14 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f: M\rightarrow N$ ist $A$-linear}\}
         \item $M$ heißt \emph{endlich frei}, falls eine der folgenden, äquivalenten Aussagen gilt:
         \begin{itemize}
             \item $M$ hat eine endliche Basis.
-            \item Es existiert ein $n \ge 0$, sodass ein Isomorphismus $A^{(I)}\xrightarrow{\cong}M$ existiert.
+            \item Es existiert ein $n \ge 0$, sodass ein Isomorphismus $A^{n}\xrightarrow{\cong}M$ existiert.
         \end{itemize}
         \item $M$ heißt \emph{endlich erzeugt}, falls eine der folgenden, äquivalenten Aussagen gilt:
         \begin{itemize}
             \item $M$ hat ein endliches Erzeugendensystem.
-            \item Es existiert ein $n \ge 0$, sodass eine surjektive $A$-lineare Abbildung $A^{(I)}\to M$ existiert.
+            \item Es existiert ein $n \ge 0$, sodass eine surjektive $A$-lineare Abbildung $A^{n}\to M$ existiert.
         \end{itemize}
-        \item $M$ heißt \emph{endlich präsentiert}, falls ein $n \ge 0$ existiert, sodass eine surjektive $A$-lineare Abbildung $A^{(I)}\xrightarrow{f} M$ existiert, sodass $\ker f$ endlich erzeugt ist.
+        \item $M$ heißt \emph{endlich präsentiert}, falls ein $n \ge 0$ existiert, sodass eine surjektive $A$-lineare Abbildung $A^{n}\xrightarrow{f} M$ existiert, sodass $\ker f$ endlich erzeugt ist.
 	\end{enumerate}
 \end{defi}
 \begin{beme}\label{bem:2.17}
@@ -836,7 +836,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\end{eqnarray*}
 \end{prop}
 \begin{proof}
-	$\Phi$ ist wohldefiniert und $A$-linear. Wir suchen nun eine Umkehrfunktion $\Psi : \Hom_A(M, \Hom_A(N, P)) \to \Hom_A (M \tp_A , P )$. Sei $g \in \Hom_A(M, \Hom_A(N,P))$. Betrachte
+	$\Phi$ ist wohldefiniert und $A$-linear. Wir suchen nun eine Umkehrfunktion $\Psi : \Hom_A(M, \Hom_A(N, P)) \to \Hom_A (M \tp_A N, P )$. Sei $g \in \Hom_A(M, \Hom_A(N,P))$. Betrachte
 	\begin{figure}[H]
 		\centering
 		\begin{tikzcd}
@@ -949,7 +949,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	Sei $N$ ein $A$-Modul. Dann sind äquivalent:
 	\begin{enumerate}
 		\item $N$ ist flach. \label{prop:flach:i}
-		\item Falls \[ 0 \longrightarrow M' \longrightarrow M \longrightarrow M'' \longrightarrow 0 \] exakt ist, so ist auch \[ 0 \longrightarrow M' \tp_A N \longrightarrow M \tp_a N \longrightarrow M'' \tp_A N \longrightarrow 0 \] exakt. \label{prop:flach:ii}
+		\item Falls \[ 0 \longrightarrow M' \longrightarrow M \longrightarrow M'' \longrightarrow 0 \] exakt ist, so ist auch \[ 0 \longrightarrow M' \tp_A N \longrightarrow M \tp_A N \longrightarrow M'' \tp_A N \longrightarrow 0 \] exakt. \label{prop:flach:ii}
 		\item Falls \[ \ldots \longrightarrow M_{i-1} \xlongrightarrow{f_{i-1}} M_i \xlongrightarrow{f_{i}} M_{i+1} \longrightarrow \ldots \] exakt ist, so ist auch \[ \ldots \longrightarrow M_{i-1}\tp_A N \xlongrightarrow{f_{i-1}\tp\id} M_i\tp_A N \xlongrightarrow{f_{i}\tp\id} M_{i+1}\tp_A N \longrightarrow \ldots \] exakt. \label{prop:flach:iii}
 	\end{enumerate}
 \end{prop}
@@ -1175,7 +1175,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\item Es existiert eine eindeutig bestimmte $A$-bilineare Abbildung
 		\[ m\colon B\otimes_A C\times B\otimes_A C\longto B\otimes_A C \]
 		mit $m(b\otimes c, b'\otimes c') = bb'\otimes cc'$. \label{thm:314:i}
-		\item $(B\otimes_A, +, m)$ ist ein Ring (und sogar eine $A$-Algebra). \label{thm:314:ii}
+		\item $(B\otimes_AC, +, m)$ ist ein Ring (und sogar eine $A$-Algebra). \label{thm:314:ii}
 		\item Die Abbildungen
 		\begin{align*}
 			\begin{array}{rcl}
@@ -1262,8 +1262,8 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		Nun zur Eindeutigkeit: Sei $\lambda'$ ein weiterer Ringhomomorphismus wie oben. Dann ist $\lambda'$ $A$-linear, reicht also auf reinen Tensoren zu prüfen.
 		$$\lambda'(b\otimes c) = \lambda'((b\otimes 1)\cdot(1\otimes c)) = \phi(b)\cdot \psi(c) = \lambda(b\otimes c)$$
 		wobei die vorletzte Gleichheit daraus folgt, dass $\lambda'$ Ringhomomorphismus ist, sodass das Diagramm kommutiert.
+		\qedhere
 	\end{enumerate}
-	
 \end{proof}
 
 \begin{bsp}
@@ -1352,11 +1352,11 @@ Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\geq 0}\cup
 	
 \end{defi}
 
-\begin{lem}
+\begin{lem} \label{lem:torsionsquotient torsionsfrei}
 	Sei $A$ Integritätsbereich und $M$ ein $A$-Modul. Dann ist $\fak{M}{M_{\tor}}$ torsionsfrei.
 \end{lem}
 \begin{proof}
-	Sei $x+M_{tor}$. Angenommen, es existiert ein $a\in A, a\neq 0$ mit $x+M_{\tor} = 0+M_{tor}$. Dann folgt $ax\in M_{tor}$, es existiert also ein $b\in A, b\neq 0$ mit $bax = 0$. Da $ba\neq 0$ gilt, muss schon $x\in M_{\tor}$ gelten.
+	Sei $x+M_{\tor}$. Angenommen, es existiert ein $a\in A, a\neq 0$ mit $x+M_{\tor} = 0+M_{\tor}$. Dann folgt $ax\in M_{\tor}$, es existiert also ein $b\in A, b\neq 0$ mit $bax = 0$. Da $ba\neq 0$ gilt, muss schon $x\in M_{\tor}$ gelten.
 \end{proof}
 
 \begin{beme}
@@ -1373,297 +1373,257 @@ Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\geq 0}\cup
 	\end{enumerate}
 \end{beme}
 
-\begin{lem}
+\begin{lem} \label{lem:4.7}
 	Sei $A$ ein Hauptidealring. Ist $M$ ein endlich erzeugter, torsionsfreier $A$-Modul, so ist $M$ frei.
 \end{lem}
 
 \lecture{3. Mai 2018}
 
 \begin{proof}
-	Sei $\{x_1,\dots, x_m\}$ ein Erzeugendensystem von $M$. Seien $1\leq i_1<\dots<i_n\leq m$ maximal, sodass $\{x_{i_1},\dots, x_{i_n}\}$ linear unabhängig.
+	Sei $\{x_1,\dots, x_m\}$ ein Erzeugendensystem von $M$. Seien $1\leq i_1<\dots<i_n\leq m$ maximal, sodass $\{x_{i_1},\dots, x_{i_n}\}$ linear unabhängig ist.
 	
-	Behauptung: für alle $j\in\{1,\dots, m\}$ existiert ein $a_j\in A\setminus \{0\}: a_jx_j\in\<x_{i_1},\dots, x_{i_n}\>$.
+	Wir behaupten, dass für alle $j\in\{1,\dots, m\}$ ein $a_j\in A\setminus \{0\}$ existiert, sodass $a_jx_j\in\<x_{i_1},\dots, x_{i_n}\>$. Der Fall $j \in \set{i_1,\ldots,i_n}$ ist klar. Sei also $j\notin \{i_1,\dots, i_n\}$. Dann ist $\{x_{i_1},\dots x_{i_n}, x_j\}$ linear abhängig. Folglich existieren $a_{i_1},\dots, a_{i_n}, a_j\in A$ sodass $a_{i_1}x_{i_1}+\dots+a_{i_n}x_{i_n}+a_jx_j = 0$, wobei nicht alle $a_i = 0$ sind. Also gilt $a_j\neq 0$ (sonst wären $x_{i_1},\dots x_{i_n}$ linear abhängig).
 	
-	Beweis der Behauptung: Falls $j\in\{i_1,\dots, i_n\}$: $\checkmark$
-	
-	\noindent Falls $j\notin \{i_1,\dots, i_n\}\Rightarrow \{x_{i_1},\dots x_{i_n}, x_j\}$ linear abhängig. Folglich existieren $a_{i_1},\dots, a_{i_n}, a_j\in A$ sodass $a_{i_1}x_{i_1}+\dots+a_{i_n}x_{i_n}+a_jx_j = 0$, wobei nicht alle $a_i = 0$ sind. Also gilt $a_j\neq 0$ (sonst wären $x_{i_1},\dots x_{i_n}$ linear abhängig).
-	
-	Betrachte $a\coloneqq a_1\dots a_m\in A\setminus\{0\}$. Dann gilt $aM\subseteq\<x_{i_1},\dots, x_{i_n}\>\cong A^n$ (frei). Betrachte
-	
+	Betrachte $a := a_1\dots a_m\in A\setminus\{0\}$. Dann gilt $aM\subseteq\<x_{i_1},\dots, x_{i_n}\>\cong A^n$ (frei). Betrachte
 	\begin{eqnarray*}
-		\phi\colon M & \longto & M\\
-		x & \longmapsto & ax
+		\phi\colon M & \longto & M,\\
+		x & \longmapsto & ax.
 	\end{eqnarray*}
-	$\phi$ ist $A$-linear und injektiv ($a\neq 0$, $M$ torsionsfrei). Weiterhin ist $\im\phi = aM\subseteq \<x_{i_1},\dots, x_{i_n}\>$ frei. Folglich gilt $M\cong \im\phi$, wobei letzteres ein Untermodul eines freien Moduls ist $\Rightarrow$ frei.
-	
+	$\phi$ ist $A$-linear und injektiv, da $a \neq 0$ und $M$ torsionsfrei ist. Weiterhin ist $\im\phi = aM\subseteq \<x_{i_1},\dots, x_{i_n}\>$ frei. Folglich gilt $M\cong \im\phi$, wobei letzteres ein Untermodul eines freien Moduls, also nach \cref{thm:untermoduln freier moduln in hir} selber frei ist.
 \end{proof}
-\begin{lem}
-	Sei $A$ Ring, $f\colon M\to N$ surjektiv, $A$-linear, $N$ frei. Dann existiert $M'\subseteq M$ Untermodul mit $M = \ker f\oplus M'$. Insbesondere ist $M'\hookrightarrow M\xrightarrow{f}N$ Isomorphismus, also ist $M'$ frei.
+\begin{lem} \label{lem:4.8}
+	Sei $A$ ein Ring und $f\colon M\to N$ eine surjektive, $A$-lineare Abbildung mit $N$ frei. Dann existiert ein Untermodul $M'\subseteq M$ mit $M = \ker f\oplus M'$. Insbesondere ist $M'\hookrightarrow M\xrightarrow{f}N$ ein Isomorphismus, also ist $M'$ frei.
 \end{lem}
 \begin{proof}
-	Sei $\{y_j\}$ Basis von $N$. Wähle $x_j\in M$ mit $f(x_j) = y_j$. Betrachte $M'= \<x_j\>_A$. Zeige $M = M'\oplus \ker f$: Sei $x\in M$, betrachte $f(x) \Rightarrow \exists a_j\in A: f(x)= \sum a_jy_j$. Dann ist $x'=\sum a_jx_j\in M'$ und $f(x') = \sum a_jy_j = f(x)\Rightarrow x-x'\in \ker f$, also $x = x'+(x-x')\in M'+\ker f$.
+	Sei $\{y_j\}$ ene Basis von $N$. Wähle $x_j\in M$ mit $f(x_j) = y_j$. Betrachte $M'= \<x_j\>_A$. Es gilt $M = M' + \ker f$. Dazu sei $x\in M$. Dann existieren $a_j\in A$ mit $f(x)= \sum a_jy_j$. Dann ist $x'=\sum a_jx_j\in M'$ und $f(x') = \sum a_jy_j = f(x)$, also liegt $x-x'\in \ker f$ und es folgt $x = x'+(x-x')\in M'+\ker f$.
 	
-	Zeige noch $M'\cap \ker f = \{0\}$: Sei $x' = \sum a_jx_j\in M'$ mit $f(x') = 0$. Daraus folgt $0 = \sum a_jy_j$, aber die $y_j$ sind linear unabhängig $\Rightarrow$ alle $a_j = 0\Rightarrow x' = 0$.
-	
-	
+	Es verbleibt, $M'\cap \ker f = \{0\}$ zu zeigen. Sei $x' = \sum a_jx_j\in M'$ mit $f(x') = 0$. Daraus folgt $0 = \sum a_jy_j$, aber da die $y_j$ sind linear unabhängig, sind alle $a_j = 0$ und es folgt $x' = 0$.
 \end{proof}
-
-
-
 \begin{satz}
-	Sei $A$ ein Hauptidealring, $M$ endlich erzeugter $A$-Modul. Dann existiert $M'\subseteq M$ Untermodul mit:
+	Sei $A$ ein Hauptidealring, $M$ endlich erzeugter $A$-Modul. Dann existiert ein Untermodul $M'\subseteq M$ mit:
 	\begin{itemize}
-		\item $M = M'\oplus M_{tor}$
-		\item $M'\cong \fak{M}{M_{tor}}$ endlich frei.
+		\item $M = M'\oplus M_{\tor}$
+		\item $M'\cong \fak{M}{M_{\tor}}$ ist endlich frei.
 	\end{itemize}
 \end{satz}
 \begin{proof}
-	Betrachte $\pi\colon M\to \fak{M}{M_{tor}}$ surjektiv. Nach Lemma 4.5 ist $\fak{M}{M_{tor}}$ torsionsfrei. Mit Lemma 4.7 folgt $\fak{M}{M_tor}$ frei und nach Lemma 4.8 existiert ein $M'\subseteq M$ mit $M = M'\oplus M_{tor}$ (endlich erzeugt).
+	Betrachte $\pi\colon M\to \fak{M}{M_{\tor}}$ (surjektiv). Nach \cref{lem:torsionsquotient torsionsfrei} ist $\fak{M}{M_{\tor}}$ torsionsfrei. Mit \cref{lem:4.7} folgt $\fak{M}{M_{\tor}}$ frei und nach \cref{lem:4.8} existiert ein $M'\subseteq M$ mit $M = M'\oplus M_{\tor}$ (endlich erzeugt).
 \end{proof} %TODO: Referenzen einfügen
 
 \subsection{Primärzerlegung}
 \begin{defi}
-	Sei $A$ Ring, $M$ ein $A$-Modul.
+	Sei $A$ ein Ring sowie $M$ ein $A$-Modul.
 	\begin{enumerate}
-		\item $Ann_A(M) \coloneqq\{a\in A|\forall x\in M: ax = 0\}\subseteq A$ Ideal heißt Annullator von $M$ (auch Annihilator) %TODO: Annullator als Math operator definieren
-		\item Sei $x\in M$: $Ann_A(x) \coloneqq Ann_A(\<x\>) = \{a\in A|ax = 0\}$
-		\item Sei $a\in A$: Definiere $M_a\coloneqq \{x\in M|ax = 0\}\subseteq M$ Untermodul.
+		\item $\Ann_A(M) := \set{a\in A\given\forall x\in M: ax = 0}\subseteq A$ (ein Ideal) heißt der \emph{Annullator} von $M$ (auch Annihilator)
+		\item Für $x\in M$ sei $\Ann_A(x) := \Ann_A(\<x\>) = \set{a\in A\given ax = 0}$.
+		\item Sei $a\in A$. Definiere $M_a := \set{x\in M\given ax = 0}\subseteq M$ (ein Untermodul).
 	\end{enumerate}
 \end{defi}
 
-\begin{lem}
+\begin{lem} \label{lem:annullator}
 	Sei $M$ ein $A$-Modul.
 	\begin{enumerate}
-		\item Sei $f\colon M\to N$ $A$-linear. Falls $f$ injektiv ist $\Rightarrow Ann(M)\supset Ann(N)$. Falls $f$ surjektiv ist $\Rightarrow Ann(M)\subset Ann(N)$.
-		\item Sei $M = M'+M''\Rightarrow Ann(M) = Ann(M')\cap Ann(M'')$.
-		\item Sei $A$ Integritätsbereich, $M$ endlich erzeugter Torsionsmodul. Dann ist $Ann(M) \neq (0)$.
+		\item Sei $f\colon M\to N$ $A$-linear. Falls $f$ injektiv ist, so gilt $\Ann(M)\supseteq \Ann(N)$. Falls $f$ surjektiv ist, so gilt $\Ann(M)\subseteq \Ann(N)$.
+		\item Sei $M = M'+M''$. Dann gilt $\Ann(M) = \Ann(M')\cap \Ann(M'')$.
+		\item Sei $A$ ein Integritätsbereich und $M$ ein endlich erzeugter Torsionsmodul. Dann ist $\Ann(M) \neq (0)$.
 	\end{enumerate}
 \end{lem}
-
-\begin{lem}
-	Sei $A$ ein Hauptidealring, seien $a_1,\dots, a_n\in A$ paarweise teilerfremd (das heißt $(a_i, a_j) = (1)$ für $i \neq j$), $a = a_1\dots a_n$. Sei $M$ $A$-Modul mit $M = M_a$. Dann folt $M_a = M_{a_1}\oplus \dots \oplus M_{a_n}$.
-\end{lem}
-
 \begin{proof}
-	\leavevmode
-	\begin{enumerate}
-		\item Definiere $b_i \coloneqq \frac{a}{a_i} = \prod_{j\neq i} a_j$. Dann gilt bereits $(b_1,\dots, b_n) = (1)$.
-		
-		Denn: Angenommen $\exists p\in A$ prim mit $p$ teilt alle $b_i$. $\Rightarrow p$ teilt $b_1 = \prod_{j = 2}^n a_j\Rightarrow \exists j\geq 2$: $p$ teilt $a_j$. Da $p$ teilt $b_j\Rightarrow \exists k\neq j$ mit $p$ teilt $a$. Widerspruch zu $1 = \gcd(a_j,a_k)$.
-		
-		Es existieren also $d_1,\dots, d_n\in A$ mit $\sum d_ib_i = 1$. Zeige $M = M_{a_i}+\dots +M_{a_n}$.
-		
-		Sei $x\in M$. Betrachte $a_id_ib_ix$.
-		$$a_id_ib_ix = d_iax = 0$$
-		$\Rightarrow d_ib_ix\in M_{a_i}$
-		$$ x = \sum d_ib_ix \in \sum M_{a_i}$$
-		Zeige nun noch $M_{a_i}\cap \sum_{j\neq i}M_{a_j} = \{0\}$. Sei $x\in M_{a_i}\cap\sum_{j \neq i}M_{a_j}$. $\Rightarrow a_ix = 0$ und $b_ix = 0$. (denn $x = \sum_{j \neq i} x_j, x_j\in M_j$).
-		
-		Da $(a_i,b_i)= (1)\Rightarrow \exists c,d\in A: ca_i+db_i = 1\Rightarrow x = ca_ix+db_ix = 0$.
-	\end{enumerate}
+	Siehe \href{http://www.math.uni-bonn.de/ag/stroppel/Franzen_Algebra_1_Uebung/Blatt4.pdf}{Übungsblatt 4}.
+\end{proof}
+
+\begin{lem} \label{lem:zerlegung ueber hir}
+	Sei $A$ ein Hauptidealring und seien $a_1,\dots, a_n\in A$ paarweise teilerfremd (also $(a_i, a_j) = (1)$ für $i \neq j$) sowie $a = a_1\dots a_n$. Sei $M$ der $A$-Modul mit $M = M_a$. Dann folgt $M_a = M_{a_1}\oplus \dots \oplus M_{a_n}$.
+\end{lem}
+\begin{proof}
+	Definiere $b_i \coloneqq \frac{a}{a_i} = \prod_{j\neq i} a_j$. Dann gilt bereits $(b_1,\dots, b_n) = (1)$. Denn sonst würde ein primes $p\in A$ existieren, welches alle $b_i$ teilt. $p$ teilt also insbesondere $b_1 = \prod_{j = 2}^n a_j$, es existiert also ein $j\geq 2$ mit $p \mid a_j$. Da $p \mid b_j$, existiert ein $k\neq j$ mit $p \mid a_k$, was ein Widerspruch zu $1 = \gcd(a_j,a_k)$ ist.
+	
+	Es existieren also $d_1,\dots, d_n\in A$ mit $\sum d_ib_i = 1$. Wir zeigen nun $M = M_{a_1}+\dots +M_{a_n}$. Sei $x\in M$. Betrachte $a_id_ib_ix$. Es gilt $a_id_ib_ix = d_iax = 0$, also $d_ib_ix\in M_{a_i}$. Wir erhalten folglich \[ x = \sum d_ib_ix \in \sum M_{a_i}. \]
+	Zeige nun noch $M_{a_i}\cap \sum_{j\neq i}M_{a_j} = \{0\}$. Sei $x\in M_{a_i}\cap\sum_{j \neq i}M_{a_j}$. Dann gilt $a_ix = 0$ und $b_ix = 0$, da $x = \sum_{j \neq i} x_j$ mit $x_j\in M_j$).
+	
+	Da $(a_i,b_i)= (1)$, existieren $c,d\in A$ mit $ca_i+db_i = 1$, also $x = ca_ix+db_ix = 0$.
 \end{proof}
 
 \begin{defi}
-	Sei $A$ Hauptidealring, $p\in A$ prim. Definiere
-	$$M(p) = \{x\in M|\exists r\geq 0: p^rx = 0\} = \bigcup\limits_{r\geq 0} M_{p^r}$$
-	$M(p)\subseteq M$ Untermodul. Falls $M$ endlich erzeugt ist, existiert $r\geq 0$ mit $M_{p^r} = M(p)\Rightarrow p^r\in Ann(M)\Rightarrow Ann(M)\supset (p^r)\Rightarrow \exists s\leq r: Ann(M) = (p^s)$ (da $A$ Hauptidealring).
+	Sei $A$ ein Hauptidealring und $p\in A$ prim. Definiere
+	\[M(p) := \set{x\in M \given \exists r\geq 0: p^rx = 0} = \bigcup\limits_{r\geq 0} M_{p^r}, \]
+	einen Untermodul von $M$. Falls $M$ endlich erzeugt ist, existiert ein $r\geq 0$ mit $M_{p^r} = M(p)$. Es folgt $p^r\in \Ann(M)$, also $\Ann(M)\supseteq (p^r)$, und es existiert ein $s\leq r$ mit $\Ann(M) = (p^s)$, da $A$ ein Hauptidealring ist. In diesem Fall gilt $M_{p^{s-1}}\subsetneq M_{p^s} = M(p)$.
 	
-	Dann gilt $M_{p^{s-1}}\subsetneq M_{p^s} = M(p)$.
-	
-	$M$ heißt primär $\Leftrightarrow \exists p\in A$ prim: $M = M(p)$.
+	$M$ heißt \emph{primär}, falls ein primes $p\in A$ mit $M = M(p)$ existiert.
 \end{defi}	
 
 
-\begin{satz}[Primärzerlegung von Torsionsmoduln über Hauptidealringen]
-	Sei $A$ Hauptidealring, $M$ endlich erzeugter Torsionsmodul über $A$. Dann existiert $a\neq 0$ mit $Ann(A) = (a)$. Seien $p_1,\dots, p_n\in A$ prim mit $(p_i, p_j) = (1)$ für alle $i\neq j$ und $r_1,\dots, r_n\geq 1$ mit
-	$$ a = p_1^{r_1}\dots p_n^{r_n}$$
-	Dann gilt:
+\begin{satz}[Primärzerlegung von Torsionsmoduln über Hauptidealringen] \label{thm:primaerzerlegung}
+	Sei $A$ ein Hauptidealring und $M$ endlich erzeugter Torsionsmodul über $A$. Dann existiert ein $a\neq 0$ mit $\Ann(A) = (a)$. Seien $p_1,\dots, p_n\in A$ prim mit $(p_i, p_j) = (1)$ für alle $i\neq j$ und $r_1,\dots, r_n\geq 1$ mit $ a = p_1^{r_1}\dots p_n^{r_n} $. Dann gilt
 	\begin{enumerate}
-		\item $M = M(p_1)\oplus\dots\oplus M(p_n)$
-		\item $Ann(M(p_i)) = (p_i^{r_i})$
+		\item $M = M(p_1)\oplus\dots\oplus M(p_n)$ \label{thm:primaerzerlegung:i}
+		\item $\Ann(M(p_i)) = (p_i^{r_i})$ \label{thm:primaerzerlegung:ii}
 	\end{enumerate}
 \end{satz}
-
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}
-		\item $p_1^{r_1},\dots, p_n^{r_n}$ paarweise teilerfremd. $\Rightarrow M = M_{p_1^{r_1}}\oplus\dots \oplus M_{p_n^{r_n}}$ nach Lemma 4.12. Zeige nun noch $M_{p_i^{r_i}} = M(p_i)$:
+	\begin{enumerate}[label=\ref{thm:primaerzerlegung:\roman*}]
+		\item Da die $p_1^{r_1},\dots, p_n^{r_n}$ paarweise teilerfremd sind, folgt $M = M_{p_1^{r_1}}\oplus\dots \oplus M_{p_n^{r_n}}$ nach \cref{lem:zerlegung ueber hir}. Es bleibt $M_{p_i^{r_i}} = M(p_i)$ zu zeigen.
 		\begin{description}
-			\item[\glqq$\subseteq$\grqq :] $\checkmark$
-			\item[\glqq$\supseteq$\grqq :] Sei $x\in M(p_i)\Rightarrow \exists r\geq 0: p_i^r = 0$.
-			
-			1. Fall: $r\subseteq r_i\Rightarrow p_i^{r_i}x = 0\Rightarrow x\in M_{p_i^{r_i}}$
-			
-			2. Fall: $r>r_i\Rightarrow \gcd(p_i^r, a) = p_i^{r_i}\Rightarrow \exists c, d\in A: cp_i^r+da = p_i^{r_i}\Rightarrow p_i^{r_i}x = cp_i^rx+dax = 0$.
+			\item[\glqq$\subseteq$\grqq :] Klar.
+			\item[\glqq$\supseteq$\grqq :] Sei $x\in M(p_i)$; es existiert also ein $r\geq 0$ mit $p_i^r = 0$. Ist $r \le r_i$, so gilt $p_i^{r_i}x = 0$, also $x \in M_{p_i^{r_i}}$. Sei umgekehrt $r>r_i$. Dann gilt $\gcd(p_i^r, a) = p_i^{r_i}$, es existieren also $c, d\in A$ mit $cp_i^r+da = p_i^{r_i}$. Damit folgt $p_i^{r_i}x = cp_i^rx+dax = 0$, also auch hier $x \in M_{p_i^{r_i}}$.
 		\end{description}
-		\item $(p_i^{r_i})\subseteq Ann(M_{p_i^{r_i}}) = Ann(M(p_i))$ nach Teil (i). $\Rightarrow Ann(M(p_i)) = (p_i^{s_i})$ für $s_i\leq r_i$. Da $M = M(p_1)\oplus \dots \oplus M(p_n)\Rightarrow Ann(M) = \bigcap Ann(M(p_i))\ni p_i^{s_i}\dots p_n^{s_n}$, aber es gilt auch $Ann(M) = (p_1^{r_1}\dots p_n^{r_n})$.
+		\item Es gilt $(p_i^{r_i})\subseteq \Ann(M_{p_i^{r_i}}) = \Ann(M(p_i))$ nach Teil \ref{thm:primaerzerlegung:i}. Somit gilt $\Ann(M(p_i)) = (p_i^{s_i})$ für $s_i\leq r_i$. Da $M = M(p_1)\oplus \dots \oplus M(p_n)$, gilt $\Ann(M) = \bigcap \Ann(M(p_i))\ni p_i^{s_i}\dots p_n^{s_n}$, aber es gilt auch $\Ann(M) = (p_1^{r_1}\dots p_n^{r_n})$.
 		
-		Da $(p_i, p_j) = (1)$ für $i\neq j$, folgt $r_i\leq s$.
+		Da $(p_i, p_j) = (1)$ für $i\neq j$, folgt $r_i\leq s_i$.
+		\qedhere
 	\end{enumerate}
 \end{proof}
 
 \begin{beme}
-	$M(p_i)$ im Satz ist nach Lemma 4.12 von der Form $b_iM$, wobei $b_i = \frac{a}{p_i^{r_i}}$.
+	$M(p_i)$ im Satz ist nach \cref{lem:zerlegung ueber hir} von der Form $b_iM$, wobei $b_i = \frac{a}{p_i^{r_i}}$.
 \end{beme}
 
 \begin{defi}
-	Ein $A$-Modul $M$ heißt zyklisch, wenn $\exists x\in M: M = \<x\>_A$. Übung: $M\cong \fak{A}{Ann(x)}$.
+	Ein $A$-Modul $M$ heißt \emph{zyklisch}, wenn ein $x\in M$ mit $M = \<x\>_A$. Es gilt $M\cong \fak{A}{\Ann(x)}$ (siehe \href{http://www.math.uni-bonn.de/ag/stroppel/Franzen_Algebra_1_Uebung/Blatt4.pdf}{Übungsblatt 4}).
 \end{defi}
 
-\begin{satz}[Zerlegung von primären Moduln in zyklische Moduln]
-	Sei $A$ Hauptidealring. Sei $M$ primär und endlich erzeugt. Sei $p\in A$ mit $Ann(M) = (p^r)$. Dann $\exists 1\leq s_1\leq\dots \leq s_l = r$ und $\exists M_1,\dots, M_l\subseteq M$ Untermoduln:
+\begin{satz}[Zerlegung von primären Moduln in zyklische Moduln] \label{thm:zerlegung primaer zyklisch}
+	Sei $A$ ein Hauptidealring sowie $M$ ein primärer, endlich erzeugter $A$-Modul. Sei $p\in A$ mit $\Ann(M) = (p^r)$. Dann existieren Elemente $1\leq s_1\leq\dots \leq s_l = r$ und  Untermoduln $M_1,\dots, M_l\subseteq M$ mit
 	\begin{enumerate}
-		\item $M = M_1\oplus\dots\oplus M_l$
-		\item $M_j$ zyklisch mit $Ann(M_j) =(p^{s_j})$.
+		\item $M = M_1\oplus\dots\oplus M_l$ und
+		\item $M_j$ zyklisch mit $\Ann(M_j) =(p^{s_j})$.
 	\end{enumerate}
 \end{satz}
 \begin{proof}
 	Sei $n$ die maximale Anzahl von Erzeugern von $M$.
 	\begin{description}
-		\item[$n = 1$:] $\checkmark$
-		\item[$n-1\to n$:] Sei $\{x_1,\dots, x_n\}$ Erzeugendensystem von $M$. Nach Lemma 4.11 ist $(p^r) = Ann(M)  = \bigcap Ann(x_i)$.
+		\item[$n = 1$:] Klar.
+		\item[$n-1\to n$:] Sei $\{x_1,\dots, x_n\}$ ein Erzeugendensystem von $M$. Nach \cref{lem:annullator} ist $(p^r) = \Ann(M)  = \bigcap \Ann(x_i)$. Es existieren also Elemente $t_i\leq r$ mit $\Ann(x_i) = (p^{t_i})$, weshalb wiederum $x_i$ mit $\Ann(x_i) = (p_i^r)$ existieren. Setze $U := \<x_n\>$ und $N = \fak{M}{U}$. Betrachte $\pi\colon M\to N$. Da $\pi$ surjektiv ist, gilt $\Ann(M)\subseteq \Ann(N)$, und wir erhalten ein $s\leq r$ mit $\Ann(N) = (p^s)$.
 		
-		$\Rightarrow \exists t_i\leq r: Ann(x_i) = (p^{t_i})\Rightarrow \exists x_i: Ann(x_i) = (p_i^r)$. Setze $U\coloneqq \<x_n\>$ und $N = \fak{M}{U}, \pi\colon M\to N$. Da $\pi$ surjektiv: $Ann(M)\subseteq Ann(N)\Rightarrow \exists s\leq r: Ann(N) = (p^s)$.
-		
-		Es gilt $N = \<\pi(x_1),\dots, \pi(x_{n-1})\>$. Nach Induktionsvoraussetzugn existieren $N_1,\dots, N_k\subseteq N$ Untermoduln und $1\leq t_1\leq\dots \leq t_k = s$ mit $N = N_1\oplus \dots \oplus N_k$ und $N_j$ zyklisch mit $Ann(N_j) = (p^{t_j})$.
+		Es gilt $N = \<\pi(x_1),\dots, \pi(x_{n-1})\>$. Nach Induktionsvoraussetzugn existieren Untermoduln $N_1,\dots, N_k\subseteq N$ und Elemente $1\leq t_1\leq\dots \leq t_k = s$ mit $N = N_1\oplus \dots \oplus N_k$ und $N_j$ zyklisch mit $\Ann(N_j) = (p^{t_j})$.
 		
 		\lecture{7. Mai 2018}
 		
-		Fixiere $j\in\{1,\dots, k\}$, sei $y\in N_j$ mit $N_j = \<y\>$. Wähle $xÄ\in M$ mit $\pi(x') = y$. Dann gilt $\pi(p^{t_j}x') = p^{t_j}y = 0$, also $x''\eqqcolon p^{t_j}x'\in U$.
+		Fixiere $j\in\{1,\dots, k\}$ und sei $y\in N_j$ mit $N_j = \<y\>$. Wähle $x\in M$ mit $\pi(x') = y$. Dann gilt $\pi(p^{t_j}x') = p^{t_j}y = 0$, also $x'' := p^{t_j}x'\in U$. Da aber $\Ann(M) = (p^r)$, folgt $0 = p^rx' = p^{r-t_j}x''$.
 		
-		Aber $Ann(M) = (p^r) \Rightarrow 0 = p^rx' = p^{r-t_j}x''$
-		
-		Lemma:
-			Sei $L$ zyklischer $A$-Modul, $Ann(L) = (p^r)$, $v\in L$ und $s\leq r$. Falls $p^sv = 0$ gilt, folgt dann $\exists w\in L: v = p^{r-s}w$.
-		
-		Beweis des Lemmas:
-			Sei $z\in L$ mit $L = \<z\> \Rightarrow \exists a \in A: v = az\Rightarrow 0 = p^sv = p^saz\Rightarrow p^sa\in Ann(L) = (p^r)$, also $\exists b\in A: p^sa = p^rb\Rightarrow a = p^{r-s}b\Rightarrow v = p^{r-s}bz$.
+		\textbf{Lemma.} Sei $L$ ein zyklischer $A$-Modul mit $\Ann(L) = (p^r)$, $v\in L$ und $s\le r$. Falls $p^sv = 0$ gilt, so existiert ein $w\in L$ mit $v = p^{r-s}w$.
+		\begin{proof}
+			Sei $z\in L$ mit $L = \<z\>$ Dann existiert ein $a \in A$ mit $v = az$; es gilt also $0 = p^sv = p^saz$. Wir erhalten $p^sa\in \Ann(L) = (p^r)$, also existiert ein $b\in A$ mit $p^sa = p^rb$, woraus $a = p^{r-s}b$ und schließlich $v = p^{r-s}bz$ folgt.
+		\end{proof}
 			
-		Wir wenden nun das Lemma an auf $L = U$, $v = x''$, $s = r-t_j$: Dann folgt $\exists x'''\in U: x'' = p^{l_j}x'''$.
+		Wir wenden nun das Lemma auf $L = U$, $v = x''$ und $s = r-t_j$ an. Folglich existier ein $x'''\in U$ mit $x'' = p^{l_j}x'''$.
 		
-		Definiere nun $x\coloneqq x'-x'''$. Dann gilt:
-		\begin{equation}
-		\pi(x) = \pi(x')-\pi(x'') = y-0\\
-		p^{t_j}x = p^{t_j}x'-p^{t_j}x''' = x''-x'' = 0
-		\end{equation}
-		Definiere $M_j\coloneqq \<x\>$. Dafür gilt $\pi(M_j) = N_j$ und $\ker(\pi|_{M_j}) = \{0\}$. Denn sei $v\in M_j$ mit $\pi(v) = 0$. Es existiert ein $a\in A$ mit $v = ax\Rightarrow 0 = a\pi(x) = ay\Rightarrow a \in Ann(y) = Ann(N_j) = (p^{t_j})\Rightarrow \exists b\in A: a = bp^{t_j}\Rightarrow v = bp^{t_j}x  = 0$, wobei letzteres mit Eigenschaft (2) folgt.
+		Definiere nun $x := x'-x'''$. Dann gilt.
+		\begin{gather*}
+			\pi(x) = \pi(x')-\pi(x'') = y-0 \\
+			p^{t_j}x = p^{t_j}x'-p^{t_j}x''' = x''-x'' = 0 \tag{*} \label{thm:zerlegung primaer zyklisch:eq}
+		\end{gather*}
+		Definiere $M_j\coloneqq \<x\>$. Dafür gilt $\pi(M_j) = N_j$ und $\ker(\pi|_{M_j}) = \{0\}$. Denn sei $v\in M_j$ mit $\pi(v) = 0$. Es existiert ein $a\in A$ mit $v = ax$, also $0 = a\pi(x) = ay$ und damit $a \in \Ann(y) = \Ann(N_j) = (p^{t_j})$. Also existiert ein $b\in A$ mit $a = bp^{t_j}$ und somit $v = bp^{t_j}x  = 0$, wobei letzteres mit Eigenschaft \eqref{thm:zerlegung primaer zyklisch:eq} folgt.
 		
-		Folglich erhalten wir $\pi|_{M_j}\colon M_j\xrightarrow{\cong} N_j$. Zeige $M_j\cap \sum_{j'\neq j} M_j' = \{0\}$: Sei $v\in M_j\cap\sum_{j'\neq j} M_j'$, also $\pi(v) \in N_j\cap\sum_{j'\neq j} N_{j'} = \{0\}\Rightarrow v = 0$.
+		Folglich erhalten wir $\pi|_{M_j}\colon M_j\xrightarrow{\cong} N_j$. Wir zeigen nun $M_j\cap \sum_{j'\neq j} M_j' = \{0\}$. Sei hierzu $v\in M_j\cap\sum_{j'\neq j} M_j'$, also $\pi(v) \in N_j\cap\sum_{j'\neq j} N_{j'} = \{0\}$, also $v = 0$.
 		
-		Insgesamt haben wir gezeigt: $\sum M_j = \bigoplus M_j \eqqcolon M'$ und $\pi|_{M'}\colon M'\xrightarrow{\cong} N$ (das gilt auf allen direkten Summanden). $\Rightarrow M = M'\oplus U$.
-	.
-		Wähle $l = k+1, s_j  = t_j (j = 1,\dots, k), s_l = r$ und $M_j = N_j (j = 1,\dots, k), M_l = U$
+		Insgesamt haben wir gezeigt, dass $\sum M_j = \bigoplus M_j \eqqcolon M'$ und $\pi|_{M'}\colon M'\xrightarrow{\cong} N$ (das gilt auf allen direkten Summanden). Daraus folgt $M = M'\oplus U$. Wähle nun $l = k+1$, $s_j  = t_j$ ( für $j = 1,\dots, k$), $s_l = r$, $M_j = N_j$ (für $j = 1,\dots, k$) und $M_l = U$.
+		\qedhere
 	\end{description}
-	
 \end{proof}
 
-Zusammenfassung: Sei $A$ Hauptidealring, $M$ endlich erzeugter $A$-Modul. Dann gibt es $r\geq 0$ sowie $p_1,\dots, p_n\in A$ prim, sodass gilt:
-$\forall i \exists 1\leq s_{i_1}\leq\dots\leq s_{i_{l_i}}$ mit
-$$M\cong A^r\oplus \bigoplus_{i = 1}^n\bigoplus_{j = 1}^{l_i} \fak{A}{(P_i^{s_{i_j}})}$$
+Zusammenfassung: Sei $A$ ein Hauptidealring und $M$ endlich erzeugter $A$-Modul. Dann gibt es ein $r\ge 0$ sowie prime $p_1,\dots, p_n\in A$, sodass für alle $1 \le i \le n$ Zahlen $1 \le s_{i_1} \le \dots \le s_{i_{l_i}}$ mit
+\[M\cong A^r\oplus \bigoplus_{i = 1}^n\bigoplus_{j = 1}^{l_i} \fak{A}{\left(P_i^{s_{i_j}}\right)}\]
+existieren.
 
 \subsection{Anwendung auf Matrizen}
-Sei $k$ Körper, $V$ ein $k$-Vektorraum, $\dim V<\infty$, $\psi\in \End_k(V), M = k[t]$-Modul zu $(V,\psi)$
-
-\begin{beme}
+Sei $k$ ein Körper, $V$ ein $k$-Vektorraum, $\dim V<\infty$, $\psi\in \End_k(V)$ und $M$ ein $k[t]$-Modul zu $(V,\psi)$.
+\begin{beme} \label{bem:4.18}
 	\leavevmode
 	\begin{enumerate}
-		\item $M$ ist Torsionsmodul (denn sonst hätte $M$ torsionsfreien Anteil, der insbesondere frei ist über $k[t]$ und damit unendlichdimensional über $k$)
-		\item $M$ zyklisch: $\exists u\in V: \<u, \psi(u), \psi^2(u),\dots\>_k = V$
+		\item $M$ ist ein Torsionsmodul (denn sonst hätte $M$ einen torsionsfreien Anteil, der insbesondere frei über $k[t]$ und damit unendlichdimensional über $k$ wäre).
+		\item $M$ ist zyklisch, da ein $u\in V$ mit $\<u, \psi(u), \psi^2(u),\dots\>_k = V$ existiert.
 	\end{enumerate}
 \end{beme}
 \begin{beme}
-	$Ann(M) = \{p\in k[t]|p(\psi) = 0$ in $\End(V)\} = (m_{\psi})$, wobei $m_{\psi}$ das Minimalpolynom von $\psi$ ist-
+	$\Ann(M) = \set{p\in k[t] \given p(\psi) = 0 \text{ in } \End(V)} = (m_{\psi})$, wobei $m_{\psi}$ das Minimalpolynom von $\psi$ ist.
 \end{beme}
-
 \begin{defi}
-	Sei $p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0\in k[t]$. Definiere $C(p) \in M_{n\times n}(k)$ durch 
-	\begin{description}
-		\item[$n = 1$] $$C(p) = (-a_0)$$
-		\item[$n > 1$] $$C(p) =
-		\left(\begin{array}{cccc}
-			0 & \cdots & 0 & -a_0 \\ 
-			1 & \ddots & \vdots & -a_1 \\ 
-			& \ddots & 0 & \vdots \\ 
-			0 &  & 1 & -a_{n-1}
-		\end{array} \right)$$
-		
-	\end{description}
-	heißt Begleitmatrix zu $p$ (\glqq companion matrix\grqq)
+	Sei $p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0\in k[t]$. Definiere $C(p) \in \M_{n\times n}(k)$ durch \[
+		C(P) = \begin{cases*}
+			(-a_0) & für $n = 1$, \\
+			\begin{pmatrix}
+				0 & \cdots & 0 & -a_0 \\ 
+				1 & \ddots & \vdots & -a_1 \\ 
+				& \ddots & 0 & \vdots \\ 
+				0 &  & 1 & -a_{n-1}
+			\end{pmatrix} & für $n > 1$.
+		\end{cases*}
+	\]
+	$C(P)$ heißt \emph{Begleitmatrix} zu $p$ (\enquote{companion matrix}).
 \end{defi}
 \begin{beme}
-	$\chi_{C(p)} = p$ (charakteristisches Polynom von $C(p)$ ist $p$)
-	
+	$\chi_{C(p)} = p$ (charakteristisches Polynom von $C(p)$ ist $p$).
 \end{beme}
-\begin{lem}
-	Falls $M$ zyklischer $k[t]$-Modul ist:
+\begin{lem} \label{lem:4.22}
+	Sei $M$ ein zyklischer $k[t]$-Modul.
 	\begin{enumerate}
-		\item $\dim_ V = \deg m_{\psi}$
-		\item Sei $u \coloneqq \deg_(m_{\psi})$ und $v\in V$ mit $M = \<v\>_{k[t]}$. Seien $p_0,\dots, p_{n-1}\in k[t]$ mit $\deg p_i<n$ mit $p_0,\dots, p_{n-1}$ linear unabhängig über $k$. Dann ist $(p_0v, \dots, p_{n-1}v)$ Basis von $V$ über $k$. 
+		\item $\dim V = \deg m_{\psi}$ \label{lem:4.22:i}
+		\item Sei $u \coloneqq \deg(m_{\psi})$ und $v\in V$ mit $M = \<v\>_{k[t]}$. Seien $p_0,\dots, p_{n-1}\in k[t]$ mit $\deg p_i<n$ und $p_0,\dots, p_{n-1}$ linear unabhängig über $k$. Dann ist $(p_0v, \dots, p_{n-1}v)$ eine Basis von $V$ über $k$. \label{lem:4.22:ii}
 	\end{enumerate}
 \end{lem}
 \begin{proof}
 	Sei $m_{\psi}(t) = t^n+a_{n-1}t^{n-1}+\ldots + a_0$.
-	\begin{enumerate}
-		\item [a)] Zeige $\<v, \psi(v),\dots, \psi^{n-1}(v)\>_k = V$. Denn nach Bemerkung 4.18 gilt $\<v, \psi(v),\psi^2(v),\dots\>_k = V$; Da $m_{\psi}(\psi) = 0$ gilt, ist $\psi^n(v)\in \<v, \psi(v),\dots, \psi^{n-1}(v)\>_k$ und durch Induktion ergibt sich $\psi^{n+i}(v) \in \<v, \psi(v), \dots, \psi^{n-1}(v)\>_k$
-		\item[b)] Zeige $(p_0v,\cdots, p_{n-1}v)$ ist linear unabhängig. Seien $b_0,\dots, b_{n-1}\in k$ mit $0 = \sum b_ip_iv \Rightarrow p \coloneqq \sum b_ip_i\in Ann(v) = Ann(M) = (m_{\psi})$.
+	\begin{enumerate}[label=\alph*)]
+		\item Wir zeigen $\<v, \psi(v),\dots, \psi^{n-1}(v)\>_k = V$. Nach \cref{bem:4.18} gilt \[\<v, \psi(v),\psi^2(v),\dots\>_k = V.\] Da $m_{\psi}(\psi) = 0$, ist $\psi^n(v)\in \<v, \psi(v),\dots, \psi^{n-1}(v)\>_k$ und durch Induktion ergibt sich $\psi^{n+i}(v) \in \<v, \psi(v), \dots, \psi^{n-1}(v)\>_k$. \label{lem:4.22:a}
+		\item Wir zeigen, dass $(p_0v,\cdots, p_{n-1}v)$ linear unabhängig ist. Seien $b_0,\dots, b_{n-1}\in k$ mit $0 = \sum b_ip_iv$. Dann ist $p := \sum b_ip_i\in \Ann(v) = \Ann(M) = (m_{\psi})$.
 		
-		Da $\deg p_i<\deg m_{\psi}$ ist, folgt $p = 0$ und, da $p_0,\dots, p_{n-1}$ linear unabhängig sind, ist $b_= =\dots = b_{n-1} = 0$.
-		
-		Aus (a) und (b) folgen nun (i) und (ii).
+		Da $\deg p_i<\deg m_{\psi}$ ist, folgt $p = 0$ und, da die $p_0,\dots, p_{n-1}$ linear unabhängig sind, ist $b_1 =\dots = b_{n-1} = 0$. \label{lem:4.22:b}
 	\end{enumerate}
-Aus (a) und (b) folgen nun (i) und (ii).
+Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{lem:4.22:ii}.
 \end{proof}
-
-\begin{lem} Sei $M$ zyklischer $k[t]$-Modul.
+\begin{lem} \label{lem:4.23}
+	Sei $M$ ein zyklischer $k[t]$-Modul.
 	\begin{enumerate}
-		\item Es gibt eine Basis $B$ von $V$ mit $M_B(\psi) =C(m_{\psi})$.
-		\item Falls $m_{\psi}(t) = (t-\lambda)^n \Rightarrow \exists$ Basis $B'$ von $V$ mit 
-		$$M_{B'}(\psi) = \left( \begin{array}{cccc}
+		\item Es gibt eine Basis $B$ von $V$ mit $\M_B(\psi) =C(m_{\psi})$. \label{lem:4.23:i}
+		\item Falls $m_{\psi}(t) = (t-\lambda)^n$, so existiert eine Basis $B'$ von $V$ mit 
+		\[\M_{B'}(\psi) = \begin{pmatrix}
 		\lambda & 1 &  & 0 \\ 
 		& \lambda & \ddots &  \\ 
 		&  & \ddots & 1 \\ 
 		0 &  &  & \lambda
-		\end{array} \right) = Jn(\lambda)$$
+		\end{pmatrix} = \Jn(\lambda)\] \label{lem:4.23:ii}
 	\end{enumerate}
 \end{lem}
-\begin{proof} Sei $M = \<v\>_{k[t]}$.
-	\begin{enumerate}
-		\item Definiere $v_i = \psiî(v)$ für $i = 0,\dots, n-1$. Aus Lemma 4.22 folgt $(v_0,\dots, v_{n-1})$ ist Basis von $V$. Dabei gilt $\psi(v_{i} = v_{i+1}$ für $i = 0,\dots, n-2$ und $\psi(v_{n-1}) =\psi^n(v) = -\sum_{i = 0}^{k-1}a_i\psiî(v) = -\sum_{i = 0}^{k-1}a_iv_i$, da $m_{\psi}(\psi) = 0$. Dabei ist $m_{\psi}(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0$.
+\begin{proof}
+	Sei $M = \<v\>_{k[t]}$.
+	\begin{enumerate}[label=\ref{lem:4.23:\roman*}]
+		\item Definiere $v_i = \psi^i(v)$ für $i = 0,\dots, n-1$. Nach \cref{lem:4.22} ist $(v_0,\dots, v_{n-1})$ eine Basis von $V$. Dabei gilt $\psi(v_{i}) = v_{i+1}$ für $i = 0,\dots, n-2$ und $\psi(v_{n-1}) =\psi^n(v) = -\sum_{i = 0}^{k-1}a_i\psi^i(v) = -\sum_{i = 0}^{k-1}a_iv_i$, da $m_{\psi}(\psi) = 0$. Dabei ist $m_{\psi}(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0$.
 		\item Definiere $v_i'\coloneqq (t-\lambda)^{n-i}\cdot v = (\psi-\lambda)^{n-i}(v)$ für $i = 1,\dots, n$.
 		
-		Mit Lemma 4.22 folgt nun, dass $(v_1',\dots, v_n')$ eine Basis von $V$ ist.
-		
-		\begin{eqnarray*}
-			\psi(v_i') & = & t\cdot v_i' = t\cdot(t-\lambda)^{n-1}\cdot v\\
-			 &= & (t-\lambda)^nv + \lambda (t-\lambda)^{n-1}v\\
-			 & =& \lambda v_i'\\
-			 \psi(v_i') & =& (t-\lambda)^{n-i+1}v +\lambda(t-\lambda)^{n-i}v = v_{i-1}' + \lambda v_i'
-		\end{eqnarray*}
+		Mit \cref{lem:4.22} folgt nun, dass $(v_1',\dots, v_n')$ eine Basis von $V$ ist.
+		\begin{align*}
+			\psi(v_i') &= t\cdot v_i' = t\cdot(t-\lambda)^{n-1}\cdot v\\
+			&= (t-\lambda)^nv + \lambda (t-\lambda)^{n-1}v\\
+			&= \lambda v_i'\\
+			&= (t-\lambda)^{n-i+1}v +\lambda(t-\lambda)^{n-i}v = v_{i-1}' + \lambda v_i'
+			\qedhere
+		\end{align*}
 	\end{enumerate}
 \end{proof}
 
 \begin{bem}
-	Umgekehrt gilt: Falls $\exists B$ Basis von $V$, $\exists p\in k[t]$ normiert: $M_B(\psi) =C(p)\Rightarrow M$ zyklisch.
+	Umgekehrt gilt: Falls eine Basis $B$ von $V$ sowie ein normiertes $p\in k[t]$ mit $\M_B(\psi) =C(p)$ existiert, so ist $M$ zyklisch.
 \end{bem}
 
-\begin{satz}[Rationale Normalform] Sei $V$ ein $k$-Vektorraum, $\dim V <\infty, \psi\in\End(V)$. Sei $m_{\psi} = p_1^{r_1}\cdot\ldots\cdot p_n^{r_n}$ mit $p_i\in k[t]$ irreduzibel (und normiert) mit $p_i\neq p_j$. Dann existieren $1\leq s_{i1}\leq\dots\leq s_{i{l_j}}  = r_i$ und es existiert eine Basis $B$ von $V$, sodass
-	
-	$$ M_B(\psi) = \left(\begin{array}{cccc}
+\begin{satz}[Rationale Normalform] Sei $V$ ein $k$-Vektorraum, $\dim V <\infty$ und $\psi\in\End_k(V)$. Sei $m_{\psi} = p_1^{r_1}\cdot\ldots\cdot p_n^{r_n}$ mit $p_i\in k[t]$ irreduzibel (und normiert) mit $p_i\neq p_j$. Dann existieren $1\leq s_{i1}\le\dots\le s_{i{l_j}}  = r_i$ sowie eine Basis $B$ von $V$, sodass
+	\[ \M_B(\psi) = \begin{pmatrix}
 	C(p_1^{s_{i1}}) &  &  & 0 \\ 
 	& C(p_1^{s_{i2}}) &  &  \\ 
 	&  & \ddots &  \\ 
 	0 &  &  & C(p_n^{s_{i{l_n}}})
-	\end{array} \right)$$%TODO: boxen drumrummachen
+	\end{pmatrix}. \]
 \end{satz}
 \begin{proof}
-	Aus den Sätzen 4.14 und 4.17 folgt, dass es eine Zerlegung $M = \bigoplus_{i = 1}^n\bigoplus_{j = 1}^{l_n} M_{ij}$, wobei $M_{ij}$ zyklisch mit $ann(M_{ij})  = (p_i^{s_{ij}})$. $M_{ij}$ ist Untermodul von $M\Rightarrow {}_k(M_{ij}) \eqqcolon V_{in}\subseteq V$ ist $k$-Untervektorraum und $\psi(V_{ij})\subseteq V_{ij}$
+	Aus den \cref{thm:primaerzerlegung,thm:zerlegung primaer zyklisch} folgt, dass es eine Zerlegung $M = \bigoplus_{i = 1}^n\bigoplus_{j = 1}^{l_n} M_{ij}$, wobei $M_{ij}$ zyklisch mit $\Ann(M_{ij})  = (p_i^{s_{ij}})$. Da $M_{ij}$ ein Untermodul von $M$ ist, folgt ${}_k(M_{ij}) =: V_{ij}\subseteq V$ ist $k$-Untervektorraum und $\psi(V_{ij})\subseteq V_{ij}$.
 	
-	Mit Lemma 4.23 folgt daraus, dass $M_{ij}$ zyklisch ist, dass eine Basis $B_{ij}$ von $V_{ij}$ existiert mit $M_{B_{ij}}(\psi|_{V_{ij}}) = C(p_i^{s_{ij}})$. Die Basis $B = B_{11}\cup B_{12}\cup \dots \cup B_{nl_n}$ ist geeignet.
+	Mit \cref{lem:4.23} folgt daraus, dass $M_{ij}$ zyklisch ist und dass eine Basis $B_{ij}$ von $V_{ij}$ mit $M_{B_{ij}}(\psi|_{V_{ij}}) = C(p_i^{s_{ij}})$ existiert. Die Basis $B = B_{11}\cup B_{12}\cup \dots \cup B_{nl_n}$ ist nun eine geeignete Wahl.
 \end{proof}
 
-\begin{kor} Sei $m_{\psi} = p_1^{r_1}\cdot\ldots\cdot p_n^{r_n}$ mit $p_i\in k[t]$ normiert, irreduzibel, $p_i\neq p_j$ für $i\neq j$. Dann folgt $\exists s_i\geq r_i: \chi_{\psi} = p_1^{s_1}\cdot\ldots\cdot p_n^{s_n}$.
+\begin{kor}
+	Sei $m_{\psi} = p_1^{r_1}\cdot\ldots\cdot p_n^{r_n}$ mit normiertem und irreduziblem $p_i\in k[t]$ sowie $p_i\neq p_j$ für $i\neq j$. Dann existiert ein $s_i\ge r_i$ mit $\chi_{\psi} = p_1^{s_1}\cdot\ldots\cdot p_n^{s_n}$.
 \end{kor}
-
 \begin{proof}
 	Übung.
 \end{proof}
@@ -1673,24 +1633,26 @@ Aus (a) und (b) folgen nun (i) und (ii).
 \end{kor}
 
 \begin{satz}[Jordansche Normalform]
-	Sei $V$ ein $k$-Vektorraum, $\dim V<\infty$, $\psi\in\End(V)$. Dann sind äquivalent:
+	Sei $V$ ein $k$-Vektorraum, $\dim V<\infty$ und $\psi\in\End(V)$. Dann sind äquivalent:
 	\begin{enumerate}
-		\item $m_{\psi}$ zerfällt über $k$
-		\item $\chi_{\psi}$ zerfällt über $k$
-		\item $\exists \lambda_1,\dots, \lambda_n\in k \exists 1\leq s_{i1}\leq\dots\leq s_{il_i}$ und Basis $B'$ von $V$ mit
-		$$M_{B'}(\psi) = \left( \begin{array}{cccc}
+		\item $m_{\psi}$ zerfällt über $k$. \label{thm:jordan normalform:i}
+		\item $\chi_{\psi}$ zerfällt über $k$. \label{thm:jordan normalform:ii}
+		\item Es existieren $\lambda_1,\dots, \lambda_n\in k$ und $1\leq s_{i1}\leq\dots\leq s_{il_i}$ und eine Basis $B'$ von $V$ mit
+		\[\M_{B'}(\psi) = \begin{pmatrix}
 		J_{s_11}(\lambda_1) &  &  & 0 \\ 
 		& J_{s_12}(\lambda_1) &  &  \\ 
 		&  & \ddots &  \\ 
-		0 &  &  & J_{s_{nl_n}}(\lambda_n)
-		\end{array} \right)$$
+		0 &  &  & J_{s_{n}l_n}(\lambda_n)
+		\end{pmatrix}.\] \label{thm:jordan normalform:iii}
 	\end{enumerate}
 \end{satz}
 \begin{proof}
+	\leavevmode
 	\begin{description}
-		\item[i$\Leftrightarrow$ ii:] Folgt aus Korollar 4.25
-		\item[iii$\Rightarrow$ii:] $\checkmark$
-		\item[i$\Rightarrow$ iii:] Beweis wie Beweis von Rationaler Normalform, statt Lemma 4.23 (i) nutze Lemma 4.23 (ii)
+		\item[\ref{thm:jordan normalform:i} $\Leftrightarrow$ \ref{thm:jordan normalform:ii}:] Folgt aus Korollar 4.25
+		\item[\ref{thm:jordan normalform:iii} $\Rightarrow$ \ref{thm:jordan normalform:ii}:] Klar.
+		\item[\ref{thm:jordan normalform:i} $\Rightarrow$ \ref{thm:jordan normalform:iii}:] Beweis analog zum Beweis der rationalen Normalform, statt \cref{lem:4.23} \ref{lem:4.23:i} nutze \cref{lem:4.23} \ref{lem:4.23:ii}.
+		\qedhere
 	\end{description}
 \end{proof}
 
@@ -1701,6 +1663,6 @@ Aus (a) und (b) folgen nun (i) und (ii).
 
 %	\begin{tikzcd}
 %		X \arrow{rd}[swap]{g\circ f} \arrow{r}{f} & Y \arrow{d}{g} \\
-%		W \arrow{u}	& Z \\
+%		W \arrow{u}	& Z
 %	\end{tikzcd}
 %\end{bsp}
