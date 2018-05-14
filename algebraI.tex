@@ -1656,6 +1656,146 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 	\end{description}
 \end{proof}
 
+
+\lecture{14. Mai 2018}
+\section{Lokalisation}
+\begin{defi}
+	Sei $A$ Ring. $S\subseteq A$ heißt multiplikative Teilmenge, wenn:
+	\begin{itemize}
+		\item $1\in S$
+		\item Falls $a,b\in S\Rightarrow a\cdot b \in S$
+	\end{itemize}
+	Definiere auf $S\times A$ Äquivalenzrelation durch
+	$$(s,a) \sim (t,b) \Leftrightarrow \exists u\in S: u(ta-sb) = 0$$
+	Definiere $S^{-1}A = (S\times A)/\sim$. Das wird zu einem Ring durch (definiere $\frac as \coloneqq$ Äquivalenzklasse von $(s,a)$)
+	$$\frac as+\frac bt = \frac {ta+sb}{st},\qquad \frac as\cdot \frac bt = \frac{ab}{st}$$
+	(Wohldefiniertheit siehe Einführung in die Algebra.)
+	
+	Es gibt eine Abbildung $f\colon A\to S^{-1}A, a\mapsto \frac a1$; diese ist ein Ringhomomorphismus.
+\end{defi}
+\begin{bem}
+	\leavevmode
+	\begin{enumerate}
+		\item $f(s)\in (S^{-1}A)^{\times}$ für alle $s\in S$
+		\item $\frac as = 0$ in $S^{-1}A\Leftrightarrow \exists u\in S: ua = 0$
+		\item $\frac{ta}{ts} = \frac as$ (alle $a\in A, s,t\in S$).
+	\end{enumerate}
+	
+\end{bem}
+\begin{satz}
+	Sei $S\subseteq A$ multiplikative Teilmenge, sei $g\colon A\to B$ Ringhomomorphismus mit $g(S) \in B^{\times}$. Dann kommutiert folgendes Diagramm:
+	
+	\begin{center}
+	\begin{tikzcd}
+		A \arrow{d}[swap]{f} \arrow{r}{g} & B \\
+		S^{-1}A \arrow{ur}[swap]{\exists! g' \text{ Ringhomomorphismus}}	& 
+	\end{tikzcd}
+	\end{center}
+\end{satz}
+\begin{proof}
+	Einführung in die Algebra oder Atiyah-Macdonald Proposition 3.1
+\end{proof}
+
+\begin{bsp}
+	Sei $A$ Ring.
+	\begin{enumerate}
+		\item Sei $p\in \operatorname{Spec} A \Rightarrow S\coloneqq A\setminus p$ ist multiplikative Teilmenge. Definiere $A_p \coloneqq S^{-1}A$.
+		
+		Spezialfall: $A$ Integritätsbereich $\Rightarrow p\coloneqq (0)\in\Spec A\Rightarrow A_p = \operatorname{Quot}(A)$.
+		\item Sei $t\in A\Rightarrow S\coloneqq \{t^n|n\in\IZ_{\geq 0}\}$ ist eine multiplikative Teilmenge. Definiere $A[t^{-1}] \coloneqq S^{-1}A$ (bei Atiyah-Macdonald heißt das $A_t$).
+	\end{enumerate}
+	
+\end{bsp}
+\begin{defi}
+	Sei $S\subseteq A$ multiplikative Teilmenge, sei $M$ ein $A$-Modul. Definiere auf $S\times M$ Äquivalenzrelation durch
+	$$(s,x)\sim (t,y) \Leftrightarrow \exists u\in S: u(tx-sy) =0$$
+	Definiere damit $S^{-1}M\coloneqq (S\times M)/\sim$; $\frac xs\coloneqq$ Äquivalenklasse von $(s,x)$. Dann wird $S^{-1}M$ zu $S^{-1}A$-Modul via
+	$$\frac cs +\frac yt \coloneqq \frac{tx+sy}{st},\qquad \frac{a}{s}\cdot \frac{y}{t}\coloneqq \frac{ay}{st}$$
+	(Wohldefiniertheit und Modulaxiome gelten genauso wie für $S^{-1}A$.)
+\end{defi}
+
+\begin{bem}
+	Diese Konstruktion ist natürlich: Sei $f\colon M\to N$ eine $A$-lineare Abbildung. Wir erhalten eine Abbildung $S^{-1}f\colon S^{-1}M\to S^{-1}N$ definiert durch
+	$$S^{-1}f(\frac{x}{s}) \coloneqq \frac{f(x)}{s}$$
+	Das ist wohldefiniert und $S^{-1}A$-linear.
+	\begin{proof}
+		Wir beweisen beispielhaft die Wohldefiniertheit: Sei $\frac xs = \frac yt$ in $S^{-1}M$, das heißt $\exists u\in S$ mit $u(tx-sy) = 0$. Also gilt $0 = f(u(tx-sy)) = u(tf(x)-sf(y))$, also $\frac{f(x)}{s} = \frac{f(y)}{s}$.
+	\end{proof}
+	Es gilt für $M\xrightarrow{f}N\xrightarrow{g}P$ mit $f,g$ beide $A$-linear: $S^{-1}(g\circ f) = (S^{-1}g)\circ(S^{-1}f)$.
+\end{bem}
+\begin{satz}
+	Sei $M\xrightarrow{f}N\xrightarrow{g}P$ mit $f,g$ beide $A$-linear. Falls $\ker g = \im f$ gilt, dann ist $\ker(S^{-1}g) = \im (S^{-1}f)$.
+\end{satz}
+\begin{proof}
+	Sei $\ker g = \im f$.
+	\begin{description}
+		\item[\glqq$\supseteq$\grqq:] $(S^{-1}g)\circ(S^{-1}f) = S^{-1}(g\circ f) = S^{-1}0 = 0$.
+		\item[\glqq$\subseteq$\grqq:] Sei $\frac yt\in \ker(S^{-1}g)$. Das heißt, $0 = (S^{-1}g)(\frac yt) = \frac{g(y)}t$.
+		
+		Also gibt es ein $u\in S$ mit $ug(y) = 0$. Damit wissen wir, dass $uy\in\ker g = \im f$ gilt. Wir finden folglich ein $x\in M$ mit $f(x) = uy$. Betrachte $\frac x{ut}$. Dafür gilt $(S^{-1}f)(\frac x{ut}) = \frac{f(x)}{ut} = \frac{uy}{ut} = \frac yt$.
+	\end{description}
+	
+\end{proof}
+
+\begin{kor}
+	Sei $\ldots\to M_{i-1}\to M_i\to M_{i+1}\to\ldots$ eine exakte Sequenz von $A$-Moduln. Dann ist auch 
+	$$\ldots \to S^{-1}M_{i-1}\to S^{-1}M_i\to S^{-1}M_{i+1}\to \ldots$$
+	eine exakte Sequenz von $S^{-1}A$-Moduln.
+\end{kor}
+\begin{kor}
+	Seien $M',M''\subseteq M$ Untermoduln. Dann ist $S^{-1}M'\hookrightarrow S^{-1}M$, also können wir $S^{-1}M'$ als $S^{-1}A$-Untermodul von $S^{-1}M$ auffassen.
+	\begin{enumerate}
+		\item $S^{-1}(M'+M'') = S^{-1}M'+S^{-1}M''$
+		\item $S^{-1}(M'\cap M'') = S^{-1}M'\cap S^{-1}M''$
+		\item $S^{-1}(\fak{M}{M'}) \cong \fak{S^{-1}M}{S^{-1}M'}$
+	\end{enumerate}
+\end{kor}
+\begin{proof} Übung. (Nutze maßgeblich die Exaktheit.)
+\end{proof}
+\begin{satz}
+	Sei $S\subseteq A$ multiplikative Teilmenge und $M$ ein $A$-Modul. Dann gibt es genau einen Isomorphismus von $S^{-1}A$-Moduln
+	$$ S^{-1}A\otimes_AM\xlongrightarrow{\phi} S^{-1}M$$
+	mit $\phi(\frac as \otimes x) = \frac{ax}s$.
+\end{satz}
+\begin{proof}
+	Betrachte $$S^{-1}A\times M\to S^{-1}M, (\frac as,x)\mapsto \frac{ax}s$$
+	Das ist wohldefiniert und $A$-bilinear. Also erhalten wir folgendes kommutatives Diagramm:
+	\begin{center}
+	\begin{tikzcd}
+		S^{-1}A\times M \arrow{r} \arrow{d}& S^{-1}M  \\
+		S^{-1}A\otimes_AM\arrow{ru}[swap]{\exists!\phi A-\text{linear}} 
+	\end{tikzcd}
+	\end{center}
+	Rechne nach: $\phi$ ist $S^{-1}A$-linear. Sei dazu $\frac bt \in S^{-1}A$, $z\in S^{-1}A\otimes_A M\Rightarrow z = \sum \frac {a_i}{s_i}\otimes x_i$ für $a_i\in A, s_i\in S, x_i\in M$. Wir erhalten also
+	$$\phi(\frac{bt}\cdot z) =\phi(\sum\frac{ba_i}{ts_i}\otimes x_i ) = \sum\phi(\frac{ba_i}{ts_i}\otimes x_i) = \sum \frac{ba_ix_i}{ts_i} = \frac{b}{t} \cdot \sum \frac{a_ix_i}{s_i} = \frac bt \cdot \phi(\sum\frac{a_i}{s_i}\otimes x_i)$$
+	Damit ist $\phi$ tatsächlich $S^{-1}A$-linear.
+	
+	Zeige noch: $\phi$ ist Isomorphismus.
+	\begin{itemize}
+		\item $\phi$ surjektiv: $\checkmark$
+		\item $\phi$ injektiv:
+		
+		Behauptung: für alle $z\in S^{-1}A\otimes_AM$ existieren $x\in M, s\in S$, sodass $z = \frac 1s\otimes x$.
+		
+		Beweis der Behauptung: $\exists a_i\in A, s_i\in S, x_i\in M: z = \sum\frac{a_i}{s_i}\otimes x_i$. Definiere $s = \prod_i s_i, t_i = \prod {j \neq i} s_j$. Damit folgt
+		$$ z = \sum \frac{a_it_i}{s}\otimes x_i = \sum \frac 1s \otimes a_it_ix_i = \frac{1}{s}\otimes\sum a_it_ix_i$$
+		
+		Zurück zur Injektivität: Sei $z\in S^{-1}A\otimes_AM$ mit $\phi(z) = 0$. Wähle $s,x$ mit $z = \frac 1s\otimes z$. Also haben wir $0 = \frac xs \Rightarrow \exists u\in S$ mit $ux = 0$. Damit gilt auch $0 = \frac 1{su}\otimes ux = \frac{u}{su}\otimes x = \frac{1}{s}\otimes x = z$.
+	\end{itemize}
+\end{proof}
+\begin{kor}
+	$S^{-1}A$ ist flach als $A$-Modul.
+\end{kor}
+\begin{proof}
+	Proposition 5.8 und Korollar 5.6
+\end{proof}
+
+
+
+
+
+
+
 \end{document}
 
 %\begin{bsp}
