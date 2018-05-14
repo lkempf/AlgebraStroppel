@@ -1790,9 +1790,101 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 	Proposition 5.8 und Korollar 5.6
 \end{proof}
 
+\begin{satz}
+	Seien $M,N$ zwei $A$-Moduln, $S\subseteq A$ multiplikative Teilmenge. Dann existiert genau ein Isomorphismus von $S^{-1}A$-Moduln
+	$$\phi\colon S^{-1}M\otimes_{S^{-1}A}S^{-1}N\longto S^{-1}(M\otimes_AN)$$
+	mit $\phi(\frac xs\otimes \frac yt) = \frac{x\otimes y}{st}$.
+\end{satz}
+\begin{proof}
+	$\begin{array}{rcll}
+		S^{-1}M\otimes_{S^{-1}A}S^{-1}N &\cong& S^{-1}M \otimes_{S^{-1}A}(S^{-1}A\otimes_AN) &\text{(Prop. 5.8)} \\
+		&\cong& S^{-1}M\otimes_A N &\text{(Lemma 3.11)}\\
+		&\cong& S^{-1}A\otimes_AM\otimes_AN& \\ 
+		&\cong& S^{-1}(M\otimes_AN)&
+	\end{array}$
+	Verfolgen der Bilder von $\frac xs\otimes \frac yt$ unter Komposition liefert tatsächlich $\phi(\frac xs\otimes \frac yt) = \frac{x\otimes y}{st}$.
+\end{proof}
+
+\subsection{Lokal-global Prinzipien}
+\begin{satz} Sei $M$ ein $A$-Modul. Dann sind äquivalent:
+	\begin{enumerate}
+		\item $M = 0$
+		\item Für alle $ p\in \Spec A$ gilt $M_p = 0$
+		\item Für alle $m \in\Max A$ gilt $M_m = 0$.
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[i$\Rightarrow$ ii:] $\checkmark$
+		\item[ii$\Rightarrow$ iii:] $\checkmark$
+		\item[iii$\Rightarrow$ i:] Angenommen $M \neq 0$. Sei $x\in M, x \neq 0$. Dann ist $\Ann(x) \neq (1)$, also existiert ein $m\in \Max A$ mit $Ann(x)\subseteq m$. Aus (iii) folgt dann, dass $M_m = 0$ ist, also $\frac x1 = 0$ in $M_m$; folglich gibt es$n\in A\setminus m$ mit $ nx = 0\Rightarrow n\in Ann(x)\subseteq m$, was ein Widerspruch ist.
+	\end{description}
+\end{proof}
+
+\begin{satz} Sei $f\colon M\to N$ eine $A$-lineare Abbildung. Dann sind äquivalent:
+	\begin{enumerate}
+		\item $f$ ist injektiv respektive surjektiv
+		\item Für alle $p\in \Spec A$ gilt $f_p\colon M_p\to N_p$ ist injektiv respektive surjektiv
+		\item Für alle $m\in \Max A$ gilt: $f_m\colon M_m\to N_m$ ist injektiv respektive surjektiv
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[i$\Rightarrow$ ii:] Folgt aus Exaktheit (Korollar 5.6)
+		\item[ii$\Rightarrow$ iii:] $\checkmark$
+		\item[iii$\Rightarrow$ i:] Betrachte folgende exakte Sequenz
+		$$0\longrightarrow \ker f \longrightarrow M \xlongrightarrow{f} N\longrightarrow \operatorname{coker} f \longrightarrow 0$$
+		(von $A$-Moduln). Sei $m\in \Max A$. Dann ist 
+		$$0\longrightarrow (\ker f)_m \longrightarrow M_m \xlongrightarrow{f_m} N_m\longrightarrow (\operatorname{coker} f)_m \longrightarrow 0$$
+		exakt nach Korollar 5.6. Also ist $\ker(f_m) \cong (\ker f)_m$, genauso $\operatorname{coker}(f_m)\cong (\operatorname{coker} f)_m$.
+		
+		Da $f_m$ injektiv ist, ist $\ker (f_m) = 0$. Das impliziert, dass für alle $m\in \Max A$ gilt: $(\ker f)_m = 0$, und mit Proposition 5.11 folgt $\ker f = 0$, also $f$ injektiv.
+		
+		Genauso für surjektiv.\qedhere
+	\end{description}
+\end{proof}
+
+\begin{satz}
+	Sei $M$ ein $A$-Modul. Dann sind äquivalent:
+	\begin{enumerate}
+		\item $M$ ist flacher $A$-Modul.
+		\item Für alle $p\in\Spec A$ ist $M_p$ flacher $A_p$-Modul
+		\item Für alle $p\in\Spec A$ ist $M_p$ flacher $A$-Modul
+		\item Für alle $m\in\Max A$ ist $M_m$ flacher $A_m$-Modul
+		\item Für alle $m\in\Max A$ ist $M_m$ flacher $A$-Modul.
+	\end{enumerate}
+	
+\end{satz}
+\begin{proof}
+	Übung.
+\end{proof}
 
 
-
+\subsection{Idealkorrespondenz}
+Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt
+\begin{itemize}
+	\item $J\subseteq B$ Ideal: $J\cap A = f^{-1}(J)\subseteq A$ Ideal
+	
+	$J\in \Spec B \Rightarrow J\cap A \in \Spec A$
+	\item $I\subseteq A$ Ideal: $I\cdot B \coloneqq (f(I)) \subseteq B$ Ideal
+	\item $I \subseteq (I\cdot B) \cap A$, $J \supseteq (J\cap A)\cdot B$
+\end{itemize}
+\begin{satz}
+	Sei $S\subseteq A$ multiplikative Teilmenge.
+	\begin{itemize}
+		\item Sei $I\subseteq A$: $I\cdots S^{-1}A : \{\frac{a}{s}|a\in I, s\in S\}$ und $(I\cdot S^{-1}A)\cap A = \{a\in A|\exists n\in S: na \in I\}$.
+		
+		Insbesondere: $I\cdot S^{-1}A = (1)\Leftrightarrow I\cap S\neq \emptyset$.
+		\item Sei $J\subseteq S^{-1}A$ Ideal: $(J\cap A)\cdot S^{-1}A = J$
+		\item Falls $p\in\Spec A$ mit $p\cap S = \emptyset$: $p\cdot S^{-1}A\in \Spec (S^{-1}A)$ und $(p\cdot S^{-1}A)\cap A = p$
+		\item Die Abbildungen 
+		$$\Spec(S^{-1}A) \xlongleftrightarrow{1:1} \{p\in \Spec A|, p\cap S = \emptyset\}$$
+		mit $q\mapsto q\cap A$, $p\cdot S^{-1}A\leftarrow p$ sind wohldefiniert, zueinander inverse Bijektionen und %TODO: ersetze leftarrow
+		 inklusionserhaltend (das heißt: falls $p\subseteq p' \Rightarrow p\cdot S^{-1}A\subseteq p'\cdot p'S^{-1}A$ und falls $q\subseteq q'\Rightarrow q\cap A\subseteq q'\cap A$).
+	\end{itemize}
+\end{satz}
 
 
 
