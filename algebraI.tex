@@ -751,8 +751,8 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 
 		Sei beispielsweise $M=\IZ$, $N= \fak \IZ{2\IZ}$, $A = \IZ$ und $M' = 2 \IZ$. Betrachte $x=2$ und $y=1$. Dann gilt $2 \tp 1 = 0$ in $\IZ \tp_\IZ \fak \IZ{2\IZ}$, denn $2 \tp 1 = 2 \cdot 1 \tp 1 = 1 \tp 2 \dot 1 = 0$, aber $2 \tp 1 \neq 0$ in $2\IZ \tp_\IZ \fak \IZ{2 \IZ}$, da $[2,1] \in D \setminus U$. Schönere Begründung (derzeit noch heuristisch): $2\IZ \cong \IZ$ via $2 \mapsto 1$, und somit
 		\begin{alignat*}{5}
-			&2\IZ \tp \fak \IZ{2\IZ} &&\cong &&\IZ \otimes \fak \IZ{2\IZ} &&\cong &&\fak \IZ{2\IZ}, \\
-			&2 \otimes 1 &&\mapsto\; &&1 \tp 1 &&\mapsto\; &&1.
+			&2\IZ \tp \fak \IZ{2\IZ} &&\cong &&\IZ \tp \fak \IZ{2\IZ} &&\cong &&\fak \IZ{2\IZ}, \\
+			&2 \tp 1 &&\mapsto\; &&1 \tp 1 &&\mapsto\; &&1.
 		\end{alignat*}
 		\item Die Abbildung $M \times N \xrightarrow{h} M \tp_A N$ ist im Allgemeinen nicht surjektiv, aber $\gen{\im h}_A = M \tp_A N$.
 	\end{enumerate}
@@ -1173,9 +1173,9 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	Seien $A$ ein Ring sowie $B$ und $C$ $A$-Algebren.
 	\begin{enumerate}
 		\item Es existiert eine eindeutig bestimmte $A$-bilineare Abbildung
-		\[ m\colon B\otimes_A C\times B\otimes_A C\longto B\otimes_A C \]
-		mit $m(b\otimes c, b'\otimes c') = bb'\otimes cc'$. \label{thm:314:i}
-		\item $(B\otimes_AC, +, m)$ ist ein Ring (und sogar eine $A$-Algebra). \label{thm:314:ii}
+		\[ m\colon B\tp_A C\times B\tp_A C\longto B\tp_A C \]
+		mit $m(b\tp c, b'\tp c') = bb'\tp cc'$. \label{thm:314:i}
+		\item $(B\tp_AC, +, m)$ ist ein Ring (und sogar eine $A$-Algebra). \label{thm:314:ii}
 		\item Die Abbildungen
 		\begin{align*}
 			\begin{array}{rcl}
@@ -1192,8 +1192,8 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\begin{figure}[H]
 			\centering
 			\begin{tikzcd}
-				B\otimes_A C & B \arrow{l}[swap]{b\mapsto b\otimes 1} \\
-				C \arrow{u}{c\mapsto 1\otimes c} & A\arrow{l}\arrow{u}
+				B\tp_A C & B \arrow{l}[swap]{b\mapsto b\tp 1} \\
+				C \arrow{u}{c\mapsto 1\tp c} & A\arrow{l}\arrow{u}
 			\end{tikzcd}
 		\end{figure}
 		kommutiert. \label{thm:314:iv}
@@ -1201,11 +1201,11 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\begin{figure}[H]
 			\centering
 			\begin{tikzcd}
-				B\otimes_A C  & B \arrow{l}{\phi} \\
+				B\tp_A C  & B \arrow{l}{\phi} \\
 				C \arrow{u}{\psi}	& A\arrow{l}\arrow{u}
 			\end{tikzcd}
 		\end{figure}
-		kommutiert, dann existiert genau ein Ringhomomorphismus $\lambda\colon B\otimes_AC\to D$ mit
+		kommutiert, dann existiert genau ein Ringhomomorphismus $\lambda\colon B\tp_AC\to D$ mit
 		\begin{figure}[H]
 			\centering
 			\begin{tikzcd}[sep=1cm]
@@ -1220,19 +1220,19 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}[label=\ref{thm:314:\roman*}]
-		\item Betrachte für $(b,c)\in B\times C$ die $A$-bilineare Abbildung $B\times C\to B\otimes_AC, (b'c')\mapsto bb'\otimes cc$ mit
+		\item Betrachte für $(b,c)\in B\times C$ die $A$-bilineare Abbildung $B\times C\to B\tp_AC, (b'c')\mapsto bb'\tp cc$ mit
 		\begin{center}
 			\begin{tikzcd}
-				B\times C\arrow{d}\arrow{r}& B\otimes_AC\\
-				B\otimes_AC\arrow[dashrightarrow]{ru}[swap]{\exists!\phi_{(b,c)} \text{ $A$-linear}}
+				B\times C\arrow{d}\arrow{r}& B\tp_AC\\
+				B\tp_AC\arrow[dashrightarrow]{ru}[swap]{\exists!\phi_{(b,c)} \text{ $A$-linear}}
 			\end{tikzcd}
 			. % TODO: punkt
 		\end{center}
 		Daraus folgt, dass das Diagramm
 		\begin{center}
 			\begin{tikzcd}[column sep=2cm]
-				B\times C\arrow{r}{(b,c)\mapsto \phi_{(b,c)}}& \Hom_A(B\otimes_AC, B\otimes A, C) A-\text{bilinear}\\
-				B\otimes_AC\arrow[dashrightarrow]{ru}[swap]{\exists!\phi\text{ $A$-linear}}
+				B\times C\arrow{r}{(b,c)\mapsto \phi_{(b,c)}}& \Hom_A(B\tp_AC, B\tp A, C) A-\text{bilinear}\\
+				B\tp_AC\arrow[dashrightarrow]{ru}[swap]{\exists!\phi\text{ $A$-linear}}
 				% TODO: verstehen, was Notation rechts oben bedeuten soll
 			\end{tikzcd}
 		\end{center}
@@ -1240,10 +1240,10 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		%TODO: Insert Diagram here
 		
 		Nach Definition von $\Phi$ gilt nun
-		\[m(b\otimes c, b'\otimes c') = (\phi(b\otimes c))(b'\otimes c') = \phi_{(b,c)}(b'\otimes c') = bb'\otimes cc'.\]
-		\item Nachrechnen mit \ref{thm:314:i} und Rechenregeln für $\otimes$, wobei $1_{B\otimes_AC}= 1\otimes 1$ zu beachten ist.
-		\item Die Abbildungen $\phi_B\colon B\to B\otimes_AC, b\mapsto b\otimes 1$ erfüllt $\phi_B(1) = 1$ und $\phi_B(bb') =\phi_B(b)\phi_B(b')$.
-		\item Für $a\in A$ gilt: $a\otimes_A1 = a\cdot(1\otimes_A1) = 1\otimes_A a$.
+		\[m(b\tp c, b'\tp c') = (\phi(b\tp c))(b'\tp c') = \phi_{(b,c)}(b'\tp c') = bb'\tp cc'.\]
+		\item Nachrechnen mit \ref{thm:314:i} und Rechenregeln für $\tp$, wobei $1_{B\tp_AC}= 1\tp 1$ zu beachten ist.
+		\item Die Abbildungen $\phi_B\colon B\to B\tp_AC, b\mapsto b\tp 1$ erfüllt $\phi_B(1) = 1$ und $\phi_B(bb') =\phi_B(b)\phi_B(b')$.
+		\item Für $a\in A$ gilt: $a\tp_A1 = a\cdot(1\tp_A1) = 1\tp_A a$.
 		\item Existenz von $\lambda$: Betrachte die Abbildung
 		
 		\begin{eqnarray*}
@@ -1252,22 +1252,22 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\end{eqnarray*}
 	
 		\noindent
-		Sie ist $A$-bilinear und faktorisiert damit über das Tensorprodukt zu $\lambda\colon B\otimes_AC\to D$ $A$-linear. Zeige nun: $\lambda$ ist Ringhomomorphismus. Dazu $b,b'\in B, c,c'\in C$:
-		$$\lambda((b\otimes c)(b'\otimes c')) = \phi(b)\phi(b')\psi(c)\psi(c') = \lambda(b\otimes c)\lambda (b'\otimes c')$$
+		Sie ist $A$-bilinear und faktorisiert damit über das Tensorprodukt zu $\lambda\colon B\tp_AC\to D$ $A$-linear. Zeige nun: $\lambda$ ist Ringhomomorphismus. Dazu $b,b'\in B, c,c'\in C$:
+		$$\lambda((b\tp c)(b'\tp c')) = \phi(b)\phi(b')\psi(c)\psi(c') = \lambda(b\tp c)\lambda (b'\tp c')$$
 		
 		\begin{bem}
 			Seien $R,S$ beide $A$-Algebren, $\lambda\colon R\to S$ sei $A$-linear, sei $\{x_i\}$ Erzeugendensystem von $R$ als $A$-Modul. Falls $\lambda(x_i,x_j) =)\lambda(x_i)\lambda(x_j)$ und $\lambda(1) = 1$, also ist $\lambda$ ein Ringhomomorphismus.
 		\end{bem}
 	
 		Nun zur Eindeutigkeit: Sei $\lambda'$ ein weiterer Ringhomomorphismus wie oben. Dann ist $\lambda'$ $A$-linear, reicht also auf reinen Tensoren zu prüfen.
-		$$\lambda'(b\otimes c) = \lambda'((b\otimes 1)\cdot(1\otimes c)) = \phi(b)\cdot \psi(c) = \lambda(b\otimes c)$$
+		$$\lambda'(b\tp c) = \lambda'((b\tp 1)\cdot(1\tp c)) = \phi(b)\cdot \psi(c) = \lambda(b\tp c)$$
 		wobei die vorletzte Gleichheit daraus folgt, dass $\lambda'$ Ringhomomorphismus ist, sodass das Diagramm kommutiert.
 		\qedhere
 	\end{enumerate}
 \end{proof}
 
 \begin{bsp}
-	Sei $B$ eine $A$-Algebra und $C= A[t]$. Dann ist $B\otimes_AA[t]\cong B[t]$ (als $A$-Algebra). Dann:	
+	Sei $B$ eine $A$-Algebra und $C= A[t]$. Dann ist $B\tp_AA[t]\cong B[t]$ (als $A$-Algebra). Dann:	
 	\begin{center}
 		\begin{tikzcd}
 			B[t]& B\arrow{l}\\
@@ -1656,90 +1656,87 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 	\end{description}
 \end{proof}
 
-
 \lecture{14. Mai 2018}
+
 \section{Lokalisation}
 \begin{defi}
-	Sei $A$ Ring. $S\subseteq A$ heißt multiplikative Teilmenge, wenn:
+	Sei $A$ ein Ring. $S\subseteq A$ heißt \emph{multiplikative Teilmenge}, wenn
 	\begin{itemize}
-		\item $1\in S$
-		\item Falls $a,b\in S\Rightarrow a\cdot b \in S$
+		\item $1\in S$ und
+		\item aus $a,b\in S$ dann $a\cdot b \in S$ folgt.
 	\end{itemize}
-	Definiere auf $S\times A$ Äquivalenzrelation durch
-	$$(s,a) \sim (t,b) \Leftrightarrow \exists u\in S: u(ta-sb) = 0$$
-	Definiere $S^{-1}A = (S\times A)/\sim$. Das wird zu einem Ring durch (definiere $\frac as \coloneqq$ Äquivalenzklasse von $(s,a)$)
-	$$\frac as+\frac bt = \frac {ta+sb}{st},\qquad \frac as\cdot \frac bt = \frac{ab}{st}$$
-	(Wohldefiniertheit siehe Einführung in die Algebra.)
+	Definiere auf $S\times A$ eine Äquivalenzrelation durch
+	\[(s,a) \sim (t,b) \quad \Longleftrightarrow \quad \exists u\in S: u(ta-sb) = 0.\]
+	Definiere $S^{-1}A = (S\times A)/\sim$. Dies wird zu einem Ring durch (definiere $\frac as \coloneqq$ Äquivalenzklasse von $(s,a)$)
+	\[\frac as+\frac bt = \frac {at+bs}{st},\qquad \frac as\cdot \frac bt = \frac{ab}{st}\]
+	(zur Wohldefiniertheit siehe Einführung in die Algebra).
 	
-	Es gibt eine Abbildung $f\colon A\to S^{-1}A, a\mapsto \frac a1$; diese ist ein Ringhomomorphismus.
+	Die Abbildung $f\colon A\to S^{-1}A, a\mapsto \frac a1$ ist ein Ringhomomorphismus.
 \end{defi}
 \begin{bem}
 	\leavevmode
 	\begin{enumerate}
-		\item $f(s)\in (S^{-1}A)^{\times}$ für alle $s\in S$
+		\item $f(s)\in (S^{-1}A)^{\times}$ für alle $s\in S$.
 		\item $\frac as = 0$ in $S^{-1}A\Leftrightarrow \exists u\in S: ua = 0$
-		\item $\frac{ta}{ts} = \frac as$ (alle $a\in A, s,t\in S$).
+		\item $\frac{ta}{ts} = \frac as$ für alle $a\in A, s,t\in S$.
 	\end{enumerate}
-	
 \end{bem}
 \begin{satz}
-	Sei $S\subseteq A$ multiplikative Teilmenge, sei $g\colon A\to B$ Ringhomomorphismus mit $g(S) \in B^{\times}$. Dann kommutiert folgendes Diagramm:
-	
+	Sei $S\subseteq A$ eine multiplikative Teilmenge, sei $g\colon A\to B$ ein Ringhomomorphismus mit $g(S) \in B^{\times}$. Dann kommutiert das folgende Diagramm.
 	\begin{center}
 	\begin{tikzcd}
 		A \arrow{d}[swap]{f} \arrow{r}{g} & B \\
-		S^{-1}A \arrow{ur}[swap]{\exists! g' \text{ Ringhomomorphismus}}	& 
+		S^{-1}A \arrow[dashrightarrow]{ur}[swap]{\exists! g'}
 	\end{tikzcd}
 	\end{center}
 \end{satz}
 \begin{proof}
-	Einführung in die Algebra oder Atiyah-Macdonald Proposition 3.1
+	Siehe Einführung in die Algebra oder \cite[Proposition 3.1]{atiyah-macdonald}.
 \end{proof}
 
 \begin{bsp}
-	Sei $A$ Ring.
+	Sei $A$ ein Ring.
 	\begin{enumerate}
-		\item Sei $p\in \operatorname{Spec} A \Rightarrow S\coloneqq A\setminus p$ ist multiplikative Teilmenge. Definiere $A_p \coloneqq S^{-1}A$.
+		\item Ist $\fp\in \Spec A$, so ist $S := A\setminus \fp$ ist multiplikative Teilmenge. Definiere $A_\fp := S^{-1}A$.
 		
-		Spezialfall: $A$ Integritätsbereich $\Rightarrow p\coloneqq (0)\in\Spec A\Rightarrow A_p = \operatorname{Quot}(A)$.
-		\item Sei $t\in A\Rightarrow S\coloneqq \{t^n|n\in\IZ_{\geq 0}\}$ ist eine multiplikative Teilmenge. Definiere $A[t^{-1}] \coloneqq S^{-1}A$ (bei Atiyah-Macdonald heißt das $A_t$).
+		Spezialfall: Für einen Integritätsbereich $A$ gilt für $\fp = (0) \in \Spec A$ dann $A \fp = \Quot(A)$.
+		\item Für $t\in A$ ist $S := \set{t^n\given n\in\IZ_{\geq 0}}$ eine multiplikative Teilmenge. Definiere $A[t^{-1}] := S^{-1}A$ (in \cite{atiyah-macdonald} heißt dies $A_t$).
 	\end{enumerate}
-	
 \end{bsp}
+
 \begin{defi}
-	Sei $S\subseteq A$ multiplikative Teilmenge, sei $M$ ein $A$-Modul. Definiere auf $S\times M$ Äquivalenzrelation durch
-	$$(s,x)\sim (t,y) \Leftrightarrow \exists u\in S: u(tx-sy) =0$$
-	Definiere damit $S^{-1}M\coloneqq (S\times M)/\sim$; $\frac xs\coloneqq$ Äquivalenklasse von $(s,x)$. Dann wird $S^{-1}M$ zu $S^{-1}A$-Modul via
-	$$\frac cs +\frac yt \coloneqq \frac{tx+sy}{st},\qquad \frac{a}{s}\cdot \frac{y}{t}\coloneqq \frac{ay}{st}$$
+	Sei $S\subseteq A$ eine multiplikative Teilmenge sowie $M$ ein $A$-Modul. Definiere auf $S\times M$ Äquivalenzrelation durch
+	\[(s,x)\sim (t,y) \quad \Longleftrightarrow \quad \exists u\in S: u(tx-sy) =0.\]
+	Definiere damit $S^{-1}M := (S\times M)/\sim$ bezeichne die Äquivalenklasse von $(s,x)$ mit $\frac xs$. Dann wird $S^{-1}M$ zu einem $S^{-1}A$-Modul via
+	\[\frac cs +\frac yt := \frac{tx+sy}{st},\qquad \frac{a}{s}\cdot \frac{y}{t} := \frac{ay}{st}.\]
 	(Wohldefiniertheit und Modulaxiome gelten genauso wie für $S^{-1}A$.)
 \end{defi}
 
 \begin{bem}
 	Diese Konstruktion ist natürlich: Sei $f\colon M\to N$ eine $A$-lineare Abbildung. Wir erhalten eine Abbildung $S^{-1}f\colon S^{-1}M\to S^{-1}N$ definiert durch
-	$$S^{-1}f(\frac{x}{s}) \coloneqq \frac{f(x)}{s}$$
-	Das ist wohldefiniert und $S^{-1}A$-linear.
+	\[S^{-1}f\left(\frac{x}{s}\right) := \frac{f(x)}{s}\]
+	Das ist $S^{-1}f$ wohldefiniert und $S^{-1}A$-linear.
 	\begin{proof}
-		Wir beweisen beispielhaft die Wohldefiniertheit: Sei $\frac xs = \frac yt$ in $S^{-1}M$, das heißt $\exists u\in S$ mit $u(tx-sy) = 0$. Also gilt $0 = f(u(tx-sy)) = u(tf(x)-sf(y))$, also $\frac{f(x)}{s} = \frac{f(y)}{s}$.
+		Wir beweisen beispielhaft die Wohldefiniertheit: Sei $\frac xs = \frac yt$ in $S^{-1}M$, es existiert also ein $u\in S$ mit $u(tx-sy) = 0$. Also gilt $0 = f(u(tx-sy)) = u(tf(x)-sf(y))$, also $\frac{f(x)}{s} = \frac{f(y)}{s}$.
 	\end{proof}
-	Es gilt für $M\xrightarrow{f}N\xrightarrow{g}P$ mit $f,g$ beide $A$-linear: $S^{-1}(g\circ f) = (S^{-1}g)\circ(S^{-1}f)$.
+	Für $A$-lineare Abbildungen $M\xrightarrow{f}N\xrightarrow{g}P$ gilt $S^{-1}(g\circ f) = (S^{-1}g)\circ(S^{-1}f)$.
 \end{bem}
+
 \begin{satz}
-	Sei $M\xrightarrow{f}N\xrightarrow{g}P$ mit $f,g$ beide $A$-linear. Falls $\ker g = \im f$ gilt, dann ist $\ker(S^{-1}g) = \im (S^{-1}f)$.
+	Seien $M\xrightarrow{f}N\xrightarrow{g}P$ beide $A$-linear. Falls $\ker g = \im f$ gilt, dann ist $\ker(S^{-1}g) = \im (S^{-1}f)$.
 \end{satz}
 \begin{proof}
 	Sei $\ker g = \im f$.
 	\begin{description}
 		\item[\glqq$\supseteq$\grqq:] $(S^{-1}g)\circ(S^{-1}f) = S^{-1}(g\circ f) = S^{-1}0 = 0$.
-		\item[\glqq$\subseteq$\grqq:] Sei $\frac yt\in \ker(S^{-1}g)$. Das heißt, $0 = (S^{-1}g)(\frac yt) = \frac{g(y)}t$.
-		
-		Also gibt es ein $u\in S$ mit $ug(y) = 0$. Damit wissen wir, dass $uy\in\ker g = \im f$ gilt. Wir finden folglich ein $x\in M$ mit $f(x) = uy$. Betrachte $\frac x{ut}$. Dafür gilt $(S^{-1}f)(\frac x{ut}) = \frac{f(x)}{ut} = \frac{uy}{ut} = \frac yt$.
+		\item[\glqq$\subseteq$\grqq:] Sei $\frac yt\in \ker(S^{-1}g)$, also $0 = (S^{-1}g)\left(\frac yt\right) = \frac{g(y)}t$. Es gibt also ein $u\in S$ mit $ug(y) = 0$. Damit wissen wir, dass $uy\in\ker g = \im f$ gilt. Wir finden folglich ein $x\in M$ mit $f(x) = uy$. Betrachte $\frac x{ut}$. Dafür gilt $(S^{-1}f)\left(\frac x{ut}\right) = \frac{f(x)}{ut} = \frac{uy}{ut} = \frac yt$.
+		\qedhere
 	\end{description}
-	
 \end{proof}
 
-\begin{kor}
-	Sei $\ldots\to M_{i-1}\to M_i\to M_{i+1}\to\ldots$ eine exakte Sequenz von $A$-Moduln. Dann ist auch 
-	$$\ldots \to S^{-1}M_{i-1}\to S^{-1}M_i\to S^{-1}M_{i+1}\to \ldots$$
+\begin{kor} \label{kor:lokalisation erhaelt exaktheit}
+	Sei \[\ldots\to M_{i-1}\to M_i\to M_{i+1}\to\ldots\] eine exakte Sequenz von $A$-Moduln. Dann ist auch 
+	\[\ldots \to S^{-1}M_{i-1}\to S^{-1}M_i\to S^{-1}M_{i+1}\to \ldots\]
 	eine exakte Sequenz von $S^{-1}A$-Moduln.
 \end{kor}
 \begin{kor}
@@ -1752,108 +1749,110 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 \end{kor}
 \begin{proof} Übung. (Nutze maßgeblich die Exaktheit.)
 \end{proof}
-\begin{satz}
-	Sei $S\subseteq A$ multiplikative Teilmenge und $M$ ein $A$-Modul. Dann gibt es genau einen Isomorphismus von $S^{-1}A$-Moduln
-	$$ S^{-1}A\otimes_AM\xlongrightarrow{\phi} S^{-1}M$$
-	mit $\phi(\frac as \otimes x) = \frac{ax}s$.
-\end{satz}
+\begin{prop} \label{prop:5.8}
+	Sei $S\subseteq A$ eine multiplikative Teilmenge und $M$ ein $A$-Modul. Dann gibt es genau einen Isomorphismus von $S^{-1}A$-Moduln
+	\begin{eqnarray*}
+		\phi: S^{-1}A\tp_AM &\longto& S^{-1}M \\
+		\frac as \tp x\right &\longmapsto& \frac{ax}s.
+	\end{eqnarray*}
+\end{prop}
 \begin{proof}
-	Betrachte $$S^{-1}A\times M\to S^{-1}M, (\frac as,x)\mapsto \frac{ax}s$$
-	Das ist wohldefiniert und $A$-bilinear. Also erhalten wir folgendes kommutatives Diagramm:
+	Die Abbildung \[S^{-1}A\times M\to S^{-1}M, \left(\frac as,x\right)\mapsto \frac{ax}s\]
+	ist wohldefiniert und $A$-bilinear. Also erhalten wir das folgende kommutative Diagramm.
 	\begin{center}
 	\begin{tikzcd}
 		S^{-1}A\times M \arrow{r} \arrow{d}& S^{-1}M  \\
-		S^{-1}A\otimes_AM\arrow{ru}[swap]{\exists!\phi A-\text{linear}} 
+		S^{-1}A\tp_AM\arrow[dashrightarrow]{ru}[swap]{\exists!\phi \text{ $A$-linear}} 
 	\end{tikzcd}
 	\end{center}
-	Rechne nach: $\phi$ ist $S^{-1}A$-linear. Sei dazu $\frac bt \in S^{-1}A$, $z\in S^{-1}A\otimes_A M\Rightarrow z = \sum \frac {a_i}{s_i}\otimes x_i$ für $a_i\in A, s_i\in S, x_i\in M$. Wir erhalten also
-	$$\phi(\frac{bt}\cdot z) =\phi(\sum\frac{ba_i}{ts_i}\otimes x_i ) = \sum\phi(\frac{ba_i}{ts_i}\otimes x_i) = \sum \frac{ba_ix_i}{ts_i} = \frac{b}{t} \cdot \sum \frac{a_ix_i}{s_i} = \frac bt \cdot \phi(\sum\frac{a_i}{s_i}\otimes x_i)$$
+	Wir rechnen nach, dass $\phi$ $S^{-1}A$-linear ist. Sei dazu $\frac bt \in S^{-1}A$ und $z\in S^{-1}A\tp_A M$. Dann gilt $z = \sum \frac {a_i}{s_i}\tp x_i$ für $a_i\in A, s_i\in S, x_i\in M$. Wir erhalten also
+	\begin{align*}
+		\phi\left(\frac{bt} z\right) &=\phi\left(\sum\frac{ba_i}{ts_i}\tp x_i \right) = \sum\phi(\frac{ba_i}{ts_i}\tp x_i) = \sum \frac{ba_ix_i}{ts_i} = \frac{b}{t} \cdot \sum \frac{a_ix_i}{s_i} \\
+		&= \frac bt \cdot \phi\left(\sum\frac{a_i}{s_i}\tp x_i\right).
+	\end{align*}
 	Damit ist $\phi$ tatsächlich $S^{-1}A$-linear.
 	
-	Zeige noch: $\phi$ ist Isomorphismus.
-	\begin{itemize}
-		\item $\phi$ surjektiv: $\checkmark$
-		\item $\phi$ injektiv:
-		
-		Behauptung: für alle $z\in S^{-1}A\otimes_AM$ existieren $x\in M, s\in S$, sodass $z = \frac 1s\otimes x$.
-		
-		Beweis der Behauptung: $\exists a_i\in A, s_i\in S, x_i\in M: z = \sum\frac{a_i}{s_i}\otimes x_i$. Definiere $s = \prod_i s_i, t_i = \prod {j \neq i} s_j$. Damit folgt
-		$$ z = \sum \frac{a_it_i}{s}\otimes x_i = \sum \frac 1s \otimes a_it_ix_i = \frac{1}{s}\otimes\sum a_it_ix_i$$
-		
-		Zurück zur Injektivität: Sei $z\in S^{-1}A\otimes_AM$ mit $\phi(z) = 0$. Wähle $s,x$ mit $z = \frac 1s\otimes z$. Also haben wir $0 = \frac xs \Rightarrow \exists u\in S$ mit $ux = 0$. Damit gilt auch $0 = \frac 1{su}\otimes ux = \frac{u}{su}\otimes x = \frac{1}{s}\otimes x = z$.
-	\end{itemize}
+	Es bleibt zu zeigen, dass $\phi$ ein Isomorphismus ist. Die Surjektivität ist klar. Für die Injektivität zeigen wir zunächst, dass für alle $z\in S^{-1}A\tp_AM$ dann $x\in M, s\in S$ mit $z = \frac 1s\tp x$ existieren. Denn seien $a_i\in A, s_i\in S, x_i\in M$ mit $z = \sum\frac{a_i}{s_i}\tp x_i$, so definieren wir $s = \prod_i s_i, t_i = \prod_{j \neq i} s_j$, woraus \[z = \sum \frac{a_it_i}{s}\tp x_i = \sum \frac 1s \tp a_it_ix_i = \frac{1}{s}\tp\sum a_it_ix_i\]
+	folgt. Sei nun $z\in S^{-1}A\tp_AM$ mit $\phi(z) = 0$. Wähle $s,x$ mit $z = \frac 1s\tp z$. Also gilt $0 = \frac xs$, und es exisiert somit ein $u\in S$ mit $ux = 0$. Damit gilt auch $0 = \frac 1{su}\tp ux = \frac{u}{su}\tp x = \frac{1}{s}\tp x = z$.
 \end{proof}
 \begin{kor}
 	$S^{-1}A$ ist flach als $A$-Modul.
 \end{kor}
 \begin{proof}
-	Proposition 5.8 und Korollar 5.6
+	Dies folgt aus \cref{prop:5.8,kor:lokalisation erhaelt exaktheit}.
 \end{proof}
 
 \begin{satz}
-	Seien $M,N$ zwei $A$-Moduln, $S\subseteq A$ multiplikative Teilmenge. Dann existiert genau ein Isomorphismus von $S^{-1}A$-Moduln
-	$$\phi\colon S^{-1}M\otimes_{S^{-1}A}S^{-1}N\longto S^{-1}(M\otimes_AN)$$
-	mit $\phi(\frac xs\otimes \frac yt) = \frac{x\otimes y}{st}$.
+	Seien $M,N$ zwei $A$-Moduln sowie $S\subseteq A$ eine multiplikative Teilmenge. Dann existiert genau ein Isomorphismus von $S^{-1}A$-Moduln
+	\begin{eqnarray*}
+		\phi\colon S^{-1}M\tp_{S^{-1}A}S^{-1}N &\longto& S^{-1}(M\tp_AN) \\
+		\frac xs\tp \frac yt &\longmapsto& \frac{x\tp y}{st}.
+	\end{eqnarray*}
 \end{satz}
 \begin{proof}
-	$\begin{array}{rcll}
-		S^{-1}M\otimes_{S^{-1}A}S^{-1}N &\cong& S^{-1}M \otimes_{S^{-1}A}(S^{-1}A\otimes_AN) &\text{(Prop. 5.8)} \\
-		&\cong& S^{-1}M\otimes_A N &\text{(Lemma 3.11)}\\
-		&\cong& S^{-1}A\otimes_AM\otimes_AN& \\ 
-		&\cong& S^{-1}(M\otimes_AN)&
-	\end{array}$
-	Verfolgen der Bilder von $\frac xs\otimes \frac yt$ unter Komposition liefert tatsächlich $\phi(\frac xs\otimes \frac yt) = \frac{x\otimes y}{st}$.
+	Es gilt
+	\begin{align*}
+		S^{-1}M\tp_{S^{-1}A}S^{-1}N &\cong S^{-1}M \tp_{S^{-1}A}(S^{-1}A\tp_AN) \tag{\cref{prop:5.8}} \\
+		&\cong S^{-1}M\tp_A N \tag{\cref{lem:3.11}} \\
+		&\cong S^{-1}A\tp_AM\tp_AN& \\ 
+		&\cong S^{-1}(M\tp_AN)&
+	\end{align*}
+	Verfolgen der Bilder von $\frac xs\tp \frac yt$ unter Komposition liefert tatsächlich $\phi\left(\frac xs\tp \frac yt\right) = \frac{x\tp y}{st}$.
 \end{proof}
 
-\subsection{Lokal-global Prinzipien}
-\begin{satz} Sei $M$ ein $A$-Modul. Dann sind äquivalent:
+\subsection{Lokal-Global-Prinzipien}
+\begin{satz} \label{thm:lokalglobal}
+	Sei $M$ ein $A$-Modul. Dann sind äquivalent:
 	\begin{enumerate}
-		\item $M = 0$
-		\item Für alle $ p\in \Spec A$ gilt $M_p = 0$
-		\item Für alle $m \in\Max A$ gilt $M_m = 0$.
+		\item $M = 0$ \label{thm:lokalglobal:i}
+		\item Für alle $\fp\in \Spec A$ gilt $M_\fp = 0$. \label{thm:lokalglobal:ii}
+		\item Für alle $\fm\in\Max A$ gilt $M_\fm = 0$. \label{thm:lokalglobal:iii}
 	\end{enumerate}
 \end{satz}
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[i$\Rightarrow$ ii:] $\checkmark$
-		\item[ii$\Rightarrow$ iii:] $\checkmark$
-		\item[iii$\Rightarrow$ i:] Angenommen $M \neq 0$. Sei $x\in M, x \neq 0$. Dann ist $\Ann(x) \neq (1)$, also existiert ein $m\in \Max A$ mit $Ann(x)\subseteq m$. Aus (iii) folgt dann, dass $M_m = 0$ ist, also $\frac x1 = 0$ in $M_m$; folglich gibt es$n\in A\setminus m$ mit $ nx = 0\Rightarrow n\in Ann(x)\subseteq m$, was ein Widerspruch ist.
+		\item[\ref{thm:lokalglobal:i} $\Rightarrow$ \ref{thm:lokalglobal:ii}:] Klar.
+		\item[\ref{thm:lokalglobal:ii} $\Rightarrow$ \ref{thm:lokalglobal:ii}:] Klar.
+		\item[\ref{thm:lokalglobal:iii} $\Rightarrow$ \ref{thm:lokalglobal:i}:] Angenommen, $M \neq 0$. Sei $x\in M\setminus \{0\}$. Dann ist $\Ann(x) \neq (1)$, es existiert also ein $\fm\in \Max A$ mit $\Ann(x)\subseteq \fm$. Aus \ref{thm:lokalglobal:iii} folgt dann, dass $M_\fm = 0$ ist, also $\frac x1 = 0$ in $M_\fm$; folglich gibt es ein $n\in A\setminus \fm$ mit $ nx = 0$ Dann folgt aber $n\in \Ann(x)\subseteq \fm$, was ein Widerspruch ist.
+		\qedhere
 	\end{description}
 \end{proof}
 
-\begin{satz} Sei $f\colon M\to N$ eine $A$-lineare Abbildung. Dann sind äquivalent:
+\begin{satz}
+	Sei $f\colon M\to N$ eine $A$-lineare Abbildung. Dann sind äquivalent:
 	\begin{enumerate}
-		\item $f$ ist injektiv respektive surjektiv
-		\item Für alle $p\in \Spec A$ gilt $f_p\colon M_p\to N_p$ ist injektiv respektive surjektiv
-		\item Für alle $m\in \Max A$ gilt: $f_m\colon M_m\to N_m$ ist injektiv respektive surjektiv
+		\item $f$ ist injektiv respektive surjektiv. \label{thm:lokal-global-injsur:i}
+		\item Für alle $\fp\in \Spec A$ gilt $f_\fp\colon M_\fp\to N_\fp$ ist injektiv respektive surjektiv. \label{thm:lokal-global-injsur:ii}
+		\item Für alle $\fm\in \Max A$ gilt: $f_\fm\colon M_\fm\to N_\fm$ ist injektiv respektive surjektiv. \label{thm:lokal-global-injsur:iii}
 	\end{enumerate}
 \end{satz}
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[i$\Rightarrow$ ii:] Folgt aus Exaktheit (Korollar 5.6)
-		\item[ii$\Rightarrow$ iii:] $\checkmark$
-		\item[iii$\Rightarrow$ i:] Betrachte folgende exakte Sequenz
-		$$0\longrightarrow \ker f \longrightarrow M \xlongrightarrow{f} N\longrightarrow \operatorname{coker} f \longrightarrow 0$$
-		(von $A$-Moduln). Sei $m\in \Max A$. Dann ist 
-		$$0\longrightarrow (\ker f)_m \longrightarrow M_m \xlongrightarrow{f_m} N_m\longrightarrow (\operatorname{coker} f)_m \longrightarrow 0$$
-		exakt nach Korollar 5.6. Also ist $\ker(f_m) \cong (\ker f)_m$, genauso $\operatorname{coker}(f_m)\cong (\operatorname{coker} f)_m$.
+		\item[\ref{thm:lokal-global-injsur:i} $\Rightarrow$ \ref{thm:lokal-global-injsur:ii}:] Folgt aus Exaktheit (\cref{kor:lokalisation erhaelt exaktheit}).
+		\item[\ref{thm:lokal-global-injsur:ii} $\Rightarrow$ \ref{thm:lokal-global-injsur:iii}:] Klar. \label{thm:lokal-global-injsur:i}
+		\item[\ref{thm:lokal-global-injsur:iii} $\Rightarrow$ \ref{thm:lokal-global-injsur:i}:] Betrachte die folgende exakte Sequenz
+		\[0\longrightarrow \ker f \longrightarrow M \xlongrightarrow{f} N\longrightarrow \coker f \longrightarrow 0\]
+		von $A$-Moduln. Sei $\fm\in \Max A$. Dann ist 
+		\[0\longrightarrow (\ker f)_\fm \longrightarrow M_\fm \xlongrightarrow{f_\fm} N_\fm\longrightarrow (\coker f)_\fm \longrightarrow 0\]
+		exakt nach \cref{kor:lokalisation erhaelt exaktheit}. Also ist $\ker(f_\fm) \cong (\ker f)_\fm$, und genauso folgt $\coker(f_\fm)\cong (\coker f)_\fm$.
 		
-		Da $f_m$ injektiv ist, ist $\ker (f_m) = 0$. Das impliziert, dass für alle $m\in \Max A$ gilt: $(\ker f)_m = 0$, und mit Proposition 5.11 folgt $\ker f = 0$, also $f$ injektiv.
+		Da $f_\fm$ injektiv ist, ist $\ker (f_\fm) = 0$. Das impliziert, dass für alle $\fm\in \Max A$ gilt: $(\ker f)_\fm = 0$, und mit \cref{thm:lokalglobal} folgt $\ker f = 0$, also ist $f$ injektiv.
 		
-		Genauso für surjektiv.\qedhere
+		Der Beweis für Surjektivität verläuft analog.
+		\qedhere
 	\end{description}
 \end{proof}
 
 \begin{satz}
 	Sei $M$ ein $A$-Modul. Dann sind äquivalent:
 	\begin{enumerate}
-		\item $M$ ist flacher $A$-Modul.
-		\item Für alle $p\in\Spec A$ ist $M_p$ flacher $A_p$-Modul
-		\item Für alle $p\in\Spec A$ ist $M_p$ flacher $A$-Modul
-		\item Für alle $m\in\Max A$ ist $M_m$ flacher $A_m$-Modul
-		\item Für alle $m\in\Max A$ ist $M_m$ flacher $A$-Modul.
+		\item $M$ ist ein flacher $A$-Modul.
+		\item Für alle $\fp\in\Spec A$ ist $M_\fp$ flacher $A_\fp$-Modul
+		\item Für alle $\fp\in\Spec A$ ist $M_\fp$ flacher $A$-Modul
+		\item Für alle $\fm\in\Max A$ ist $M_\fm$ flacher $A_\fm$-Modul
+		\item Für alle $\fm\in\Max A$ ist $M_\fm$ flacher $A$-Modul.
 	\end{enumerate}
 	
 \end{satz}
@@ -1863,26 +1862,29 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 
 
 \subsection{Idealkorrespondenz}
-Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt
+Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 \begin{itemize}
 	\item $J\subseteq B$ Ideal: $J\cap A = f^{-1}(J)\subseteq A$ Ideal
 	
 	$J\in \Spec B \Rightarrow J\cap A \in \Spec A$
-	\item $I\subseteq A$ Ideal: $I\cdot B \coloneqq (f(I)) \subseteq B$ Ideal
+	\item $I\subseteq A$ Ideal: $I\cdot B := (f(I)) \subseteq B$ Ideal
 	\item $I \subseteq (I\cdot B) \cap A$, $J \supseteq (J\cap A)\cdot B$
 \end{itemize}
 \begin{satz}
-	Sei $S\subseteq A$ multiplikative Teilmenge.
+	Sei $A$ ein Ring und $S\subseteq A$ multiplikative Teilmenge.
 	\begin{itemize}
-		\item Sei $I\subseteq A$: $I\cdots S^{-1}A : \{\frac{a}{s}|a\in I, s\in S\}$ und $(I\cdot S^{-1}A)\cap A = \{a\in A|\exists n\in S: na \in I\}$.
+		\item Sei $I\subseteq A$ ein Ideal. Dann gilt $I\cdot S^{-1}A = \set*{\frac{a}{s}\given a\in I, s\in S}$ und $(I\cdot S^{-1}A)\cap A = \set{a\in A\given \exists n\in S: na \in I}$.
 		
-		Insbesondere: $I\cdot S^{-1}A = (1)\Leftrightarrow I\cap S\neq \emptyset$.
-		\item Sei $J\subseteq S^{-1}A$ Ideal: $(J\cap A)\cdot S^{-1}A = J$
-		\item Falls $p\in\Spec A$ mit $p\cap S = \emptyset$: $p\cdot S^{-1}A\in \Spec (S^{-1}A)$ und $(p\cdot S^{-1}A)\cap A = p$
-		\item Die Abbildungen 
-		$$\Spec(S^{-1}A) \xlongleftrightarrow{1:1} \{p\in \Spec A|, p\cap S = \emptyset\}$$
-		mit $q\mapsto q\cap A$, $p\cdot S^{-1}A\leftarrow p$ sind wohldefiniert, zueinander inverse Bijektionen und %TODO: ersetze leftarrow
-		 inklusionserhaltend (das heißt: falls $p\subseteq p' \Rightarrow p\cdot S^{-1}A\subseteq p'\cdot p'S^{-1}A$ und falls $q\subseteq q'\Rightarrow q\cap A\subseteq q'\cap A$).
+		Insbesondere gilt $I\cdot S^{-1}A = (1)\Leftrightarrow I\cap S\neq \emptyset$.
+		\item Ist $J\subseteq S^{-1}A$ ein Ideal, so folgt $(J\cap A)\cdot S^{-1}A = J$
+		\item Falls $\fp\in\Spec A$ mit $\fp\cap S = \emptyset$, so gilt $\fp\cdot S^{-1}A\in \Spec (S^{-1}A)$ und $(\fp\cdot S^{-1}A)\cap A = \fp$.
+		\item Die Abbildungen
+		\begin{eqnarray*}
+			\Spec(S^{-1}A) &\xlongleftrightarrow{1:1}& \set{\fp\in \Spec A \given \fp\cap S = \emptyset} \\
+			\fq &\longmapsto& \fq\cap A \\
+			\fp\cdot S^{-1}A &\longmapsfrom& \fp
+		\end{eqnarray*}
+		sind wohldefiniert und zueinander inverse Bijektionen sowie inklusionserhaltend (für $\fp\subseteq \fp'$ gilt also $\fp\cdot S^{-1}A\subseteq \fp'\cdot \fp'S^{-1}A$ und für $\fq\subseteq \fq'$ gilt $\fq\cap A\subseteq \fq'\cap A$).
 	\end{itemize}
 \end{satz}
 
