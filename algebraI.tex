@@ -1872,7 +1872,7 @@ Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 \end{itemize}
 \begin{satz}
 	Sei $A$ ein Ring und $S\subseteq A$ multiplikative Teilmenge.
-	\begin{itemize}
+	\begin{enumerate}
 		\item Sei $I\subseteq A$ ein Ideal. Dann gilt $I\cdot S^{-1}A = \set*{\frac{a}{s}\given a\in I, s\in S}$ und $(I\cdot S^{-1}A)\cap A = \set{a\in A\given \exists n\in S: na \in I}$.
 		
 		Insbesondere gilt $I\cdot S^{-1}A = (1)\Leftrightarrow I\cap S\neq \emptyset$.
@@ -1885,10 +1885,106 @@ Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 			\fp\cdot S^{-1}A &\longmapsfrom& \fp
 		\end{eqnarray*}
 		sind wohldefiniert und zueinander inverse Bijektionen sowie inklusionserhaltend (für $\fp\subseteq \fp'$ gilt also $\fp\cdot S^{-1}A\subseteq \fp'\cdot \fp'S^{-1}A$ und für $\fq\subseteq \fq'$ gilt $\fq\cap A\subseteq \fq'\cap A$).
-	\end{itemize}
+	\end{enumerate}
 \end{satz}
 
+\lecture{17. Mai 2018}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Zeige $I\cdot S^{-1}A = \{\frac as | a\in I, s\in S\}$
+		\begin{description}
+			\item[\glqq $\supseteq$\grqq:] Sei $a\in I, s\in S\Rightarrow \frac as = \frac 1s\cdot \frac a1\in I\cdot S^{-1}A$, denn für $f\colon A\to S^{-1}A$ ist $\frac a1 = f(a) \in f(I)$.
+			\item[\glqq$\subseteq$\grqq:] Sei $x\in I\cdot S^{-1}A\Rightarrow$ es existieren $a_i\in I, b_i\in A, s_i\in S_i$ mit $x = \sum \frac {b_{i}}{s_{i}}\cdot \frac{a_i}1$. Definiere nun $s\coloneqq \prod s_i, a\coloneqq \sum_ib_i\prod_{j\neq i}s_ja_i\in I$. Damit ist $x = \frac a s$.
+		\end{description}
+		Zeige nun noch, dass $(I\cdot S^{-1}A)\cap A = \{a\in A|\exists n\in S: na\in I\}$. Sei $a\in A$.
+		\begin{eqnarray*}
+			a\in (I\cdot S^{-1}A)\cap A &\Leftrightarrow & \frac a1\in I\cdot S^{-1}A\\
+			&\Leftrightarrow& \exists b \in I, t\in S: \frac a1 = \frac bt\\
+			&\Leftrightarrow& \exists b\in I, t\in S: \exists s\in S: s(ta-b) =0\\
+			&\Leftrightarrow& \exists u\in S: ua\in I
+		\end{eqnarray*}
+		Dabei gilt die letzte Äquivalenz, denn:
+		\begin{description}
+			\item[\glqq$\Rightarrow$\grqq:] $sta = sb\in I\Rightarrow u\coloneqq  st$
+			\item[\glqq$\Leftarrow$\grqq:] $t\coloneqq u, s = 1, b = ua$
+		\end{description}
+		\item Zeige $J\subseteq (J\cap A)\cdot S^{-1}A$ (die andere Inklusion gilt ohnehin immer).
+		
+		Sei $x\in J$, schreibe $x = \frac as$. Damit haben wir $\frac a1 = \frac s1\cdot \frac as \in J$. Folglich ist $a\in J\cap A$; das bedeutet (nach Punkt (i)), dass $\frac as \in (J\cap a)\cdot S^{-1}A$ gilt.
+		\item Sei $\fp\in\Spec A$ mit $\fp\cap S=\emptyset$. Seien $\frac as, \frac bt\in S^{-1}A$ mit $\frac as,bt\notin \fp\cdot S^{-1}A$. Zeige, dass dann auch $\frac as\cdot \frac bt\notin\fp\cdot S^{-1}A$.
+		
+		Es gilt $a,b\notin \fp$ (wegen (i)). Folglich haben wir $ab\notin \fp$. Angenommen $\frac{ab}{st}\in\fp\cdot S^{-1}A\Rightarrow \exists c\in \fp\exists u\in S: \frac{ab}{st} = \frac cu$.
+		
+		Das bedeutet jetzt aber, dass es ein $v\in S$ gibt, sodass $v(uab-stc) = 0$, also $vuab = vstc\in \fp$. Da $ab\notin \fp$, muss $vu\in\fp$ gelten. Aber: $vu\in S$ und $S\cap\fp = \emptyset$. Das ist ein Widerspruch.
+		
+		Zeige noch $(\fp\cdot S^{-1}A)\cap  A = \fp$. Wegen (i) gilt $(p\cdot S^{-1}A)\cap A = \{a\in A|\exists u\in S: na \in \fp\} = \fp$, da $na\in \fp\Leftrightarrow a \in \fp$.
+		\item Nichts zu zeigen.
+	\end{enumerate}
+\end{proof}
 
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item Sei $\fp\in\Spec A$. Dann gibt es eine Bijektion
+		$$\Spec A_{\fp} \xlongleftrightarrow{1:1} \{\fp'\in \Spec a|\fp'\cap(A\setminus \fp) = \emptyset\}  = \{\fp'\in \Spec A|\fp'\subseteq \fp\}$$
+		
+		Damit folgt $A_{\fp}$ ist lokaler Ring mit maximalem Ideal $\fp\cdot A_{\fp}$.
+		\item Sei $t\in A$. Dann erhalten wir die Bijektion
+		$$\Spec A[t^{-1}] \xlongleftrightarrow{1:1}\{\fp\in \Spec A\fp\cap\{t^0, t^1,\dots\} = \emptyset\} = \{\fp\in \Spec A|\fp\not \ni t\}$$
+	\end{enumerate}
+\end{bsp}
+
+
+\subsection{Lokalisation von Algebren}
+\begin{beme}
+	Sei $f\colon A\to B$ Ringhomomorphismus, sei $S\subseteq A$ multiplikative Teilmenge.
+	\begin{enumerate}
+		\item Da $S^{-1}B (= S^{-1}({}_AB))\cong S^{-1}A\otimes_A B$ nach Satz 5.8 gilt, ist $S^{-1}B$ ein Ring, sogar eine $S^{-1}A$-Algebra.
+		\item $f(S)\subseteq B$ ist multiplikative Teilmenge.
+		\item Sei $s\in S$ und betrachte $f(s)$. Sei $g\colon B\to S^{-1}B$. Dann ist $g(f(s)) = \frac{f(s)}{1} \in (S^{-1}B)^{\times}$. Denn: Es gilt 
+		$$\frac{f(s)}{1} \cdot \frac{1}{s} = 1$$
+		in $S^{-1}B$, denn 
+		$$\frac{f(s)}{s} = \frac{f(s)}{1}\cdot \frac 1s = 1 = \frac{1_b}{1_A} \Longleftrightarrow \exists u\in S: u(f(s)-s\cdot 1_B) = 0$$
+		Letzteres gilt aber, denn $s\cdot 1_B = f(s)\cdot 1_B$.
+		
+		Also gilt: $g(f(s)) \subseteq (S^{-1}B)^{\times}$. Damit kommutiert folgendes Diagramm:
+		\begin{center}
+		\begin{tikzcd}
+			B \arrow{d} \arrow{r}{g} & S^{-1}B \\
+			f(S)^{-1}B \arrow{ur}[swap]{\exists!\phi\text{ Ringhom.}}	& 
+		\end{tikzcd}
+		\end{center}
+		Es gilt: für $x = \frac{b}{f(s)}\in f(S)^{-1}B$ ist 
+		$$\phi(\frac{b}{f(s)}) = \frac{b}{s}$$
+		$f(S)^{-1}B$ ist $S^{-1}A$-Algebra via
+		\begin{center}
+			\begin{tikzcd}
+				A \arrow{d} \arrow{r}{f} & B\arrow{d} \\
+				f(S)^{-1}a\arrow{r}	& f(S)^{-1}B
+			\end{tikzcd}
+		\end{center}
+		Nachrechnen: $\phi$ ist Homomorphismus von $S^{-1}A$-Algebren.
+		\item $\phi$ ist Isomorphismus von $S^{-1}A$-Algebren.
+		\begin{proof}
+			Die Surjektivität ist klar nach der Definition von $\phi$. Weiterhin ist $\phi$ injektiv: Sei $x = \frac{b}{f(s)}\in f(S)^{-1}B$ mit $\phi(x) = 0$. Also haben wir $0 = \frac bs \Rightarrow \exists u\in S: 0  = ub = f(u)\cdot b \Rightarrow \frac{b}{f(s)} = 0$.
+		\end{proof}
+	\end{enumerate}	
+\end{beme}
+\begin{kor}
+	Sei $I\subseteq A$ Ideal und $S\subseteq A$ multiplikative Teilmenge mit $I\cap S = \emptyset$. Sei $\pi\colon A \to \fak{A}{I}$. Dann existiert ein Isomorphismus
+	$$\fak{S^{-1}A}{I\cdot S^{-1}A} \xlongrightarrow{\cong} \pi(S)^{-1}(\fak{A}{I})$$
+	von $A$-Algebren.
+\end{kor}
+\begin{proof}
+	$$\pi(S)^{-1}(\fak{A}{I}) \cong S^{-1}(\fak AI) \cong S^{-1}A\otimes_a(\fak AI) \cong \fak{S^{-1}A}{IS^{-1}A}$$
+	wobei der letzte Isomorphismus sogar Isomorphismus von $A$-Algebren ist.
+\end{proof}
+\begin{kor}
+	Sei $\fp\in \Spec A$ und $S = A\setminus \fp$. Dann
+	$$\fak{A_{\fp}}{\fp\cdot A_{\fp}}\cong \pi(A\setminus \fp)^{-1}(\fak{A}{\fp}) = \operatorname{Quot}(\fak{A}{\fp}) \eqqcolon \kappa(\fp)$$
+	
+\end{kor}
 
 \end{document}
 
