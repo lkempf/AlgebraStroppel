@@ -1985,6 +1985,83 @@ Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 	$$\fak{A_{\fp}}{\fp\cdot A_{\fp}}\cong \pi(A\setminus \fp)^{-1}(\fak{A}{\fp}) = \operatorname{Quot}(\fak{A}{\fp}) \eqqcolon \kappa(\fp)$$
 	
 \end{kor}
+\begin{kor}
+Sei $f\colon A\to B$ Ringhomomorphismus, $S\subseteq A$ multiplikative Teilmenge. Dann haben wir folgende Bijektion:
+\begin{eqnarray*}
+	\Spec S^{-1}B & \longleftrightarrow & \{\fq \in \Spec B| (\fq \cap A)\cap S = \emptyset\}\\
+	\fq' & \longmapsto & \fq'\cap B\\
+	\fq S^{-1}B & \longmapsfrom & \fq
+\end{eqnarray*}
+\end{kor}
+\begin{proof}
+	$$\Spec S^{-1}B = \Spec f(S)^{-1}B \xleftrightarrow{1:1} \{\fq \in \Spec B|\fq\cap f(S) = \emptyset\}
+	 = \{\fq \in \Spec B|(\fq \cap A)\cap S = \emptyset\}$$
+	 denn $\fq\cap f(S) = \emptyset \Leftrightarrow f^{-1}(\fq)\cap S = \emptyset$.
+\end{proof}
+Sei $f\colon A \to B$ Ringhomomorphismus. Betrachte $f^{*}\colon \Spec B \to \Spec A, f^{*}(\fq) = \fq\cap A$. Wir können mit den Resultaten von eben die Faser $(f^{*})^{-1}(\{\fp\})$ beschreiben:
+\begin{kor}
+	Sei $f\colon A \to B$, sei $\fp\in \Spec A$. Dann haben wir
+	$$\{\fq\in \Spec B|\fq\cap A = \fp\}\xlongleftrightarrow{1:1}\Spec(B\otimes_A\kappa(\fp))$$
+\end{kor}
+\begin{proof}
+	$$\Spec(B\otimes_A\kappa(\fp)) = \Spec(B\otimes_A(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec((B\otimes_A A_{\fp}) \otimes_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}}))$$
+	nach Propositio 3.12, wobei
+	$$B\otimes_A A_{\fp} = (A\setminus \fp)^{-1}B = B\fp$$
+	also erhalten wir
+	$$\Spec((B\otimes_A A_{\fp}) \otimes_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec(B_{\fp}\otimes_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec(\fak{B_{\fp}}{(\fp A_{\fp})\cdot B_{\fp}})$$
+	Dabei ist $(\fp A_{\fp})\cdot B_{\fp} = \fp B_{\fp}$, folgich haben wir eine 1:1-Korrespondenz zu
+	$$\{\fq'\in \Spec B_{\fp}|\fq'\supseteq \fp B_{\fp}\} \xleftrightarrow{1:1} \{\fq \in \Spec B|\fq\cap A \supseteq \fp, \fq \cap A \subseteq \fp\}$$
+	(Denn $\Spec B_{\fp} \xleftrightarrow{1:1} \{q\in \Spec B| (q\cap A)\cap(A\setminus \fp) = \emptyset\} , \fq'\mapsto \fq'\cap B$, für $\fq' in \Spec B_{\fp}$ gilt
+	$$\fq' \supseteq \fp B_{\fp} \Leftrightarrow \fq'\cap B \supseteq \fp B \Leftrightarrow \fq' \cap A \supseteq \fp \qquad \text{)}$$
+	Damit erhalten wir
+	$$\Spec(B\otimes_A\kappa(\fp)) \xlongleftrightarrow{1:1} \{\fq\in \Spec B|\fq\cap  A = \fp\}$$
+\end{proof}
+
+
+
+\section{Ganze Ringerweiterungen}
+Sei $B$ eine $A$-Algebra.
+\begin{defi}
+	\leavevmode
+	\begin{enumerate}
+		\item Sei $b\in B$. $b$ heißt ganz (\glqq integral\grqq) über $A$, wenn $\exists p(t)\in A[t]$, $p$ normiert (\glqq monic\grqq) mit $p(b) = 0$.
+		\item $\{b\in B|b \text{ ganz über } A\}$ heißt ganzer Abschluss (\glqq integral closure\grqq) von $A$ in $B$.
+		\item $B$ heißt ganz über $A$, wenn jedes $b\in B$ ganz über $A$ ist.
+		\item $A$ heißt ganz abgeschlossen in $B$, wenn für alle $b\in B$ gilt: $b$ ganz über $A\Leftrightarrow b\in\im (A\to B)$.
+	\end{enumerate}
+\end{defi}
+\begin{bsp}
+	Sei $A = \IZ$, $B = \IQ$. Sei $x = \frac rs\in \IQ$ ganz über $\IZ$ und sei $(r,s) = (1)$. Dann existiert $p(t) = t^{n}+a_{n-1}t^{n-1}+\dots + a_0\in\IZ[t]$ mit 
+	\begin{eqnarray*}
+		 0 &=& p(x) = \frac{r^n}{s^n}+a_{n-1}\frac{r^{n-1}}{s^{n-1}}+\dots+a_0\\
+		 \Leftarrow 0 &=& r^k + a_{n-1}r^{n-1}s+\dots+ a_0s^{n}
+	\end{eqnarray*}
+	Folglich: $s$ teilt $r^n$; damit ist $s\in \IZ^{times}$ und $x\in\IZ$.
+\end{bsp}
+Bezeichnungen: Sei $A\to B$ Ringhomomorphismus.
+\begin{enumerate}
+	\item Seien $b_1,\dots,b_n\in B$. Definiere $A[b_1,\dots, b_n]\coloneqq$ kleinste $A$-Unteralgebra, die $b_1,\dots, b_n$ enthält; also $A[b_1,\dots, b_n] = \im (\ev_{(b_1,\dots, b_n)}\colon A[t_1,\dots, t_n]\to B)$.
+	\item $A\to B$ heißt endlich genau dann, wenn ${}_AB$ endlich erzeugter $A$-Modul ist.
+\end{enumerate}
+
+
+\begin{lem}
+	Sei $A\to B$ Ringhomomorphismus, $b\in B$. Dann sind äquivalent:
+	\begin{enumerate}
+		\item $b$ ganz über $A$
+		\item $A[b]$ ist endlich über $A$
+		\item Es gibt $C\subseteq B$ endliche $A$-Unteralgebra mit $b\in C$.
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[i$\Rightarrow$ii:] Sei $p\in A[t]$
+		... to be continued
+	\end{description}
+\end{proof}
+
+
 
 \end{document}
 
