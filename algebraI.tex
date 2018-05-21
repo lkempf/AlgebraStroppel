@@ -1977,7 +1977,7 @@ Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 	von $A$-Algebren.
 \end{kor}
 \begin{proof}
-	$$\pi(S)^{-1}(\fak{A}{I}) \cong S^{-1}(\fak AI) \cong S^{-1}A\otimes_a(\fak AI) \cong \fak{S^{-1}A}{IS^{-1}A}$$
+	$$\pi(S)^{-1}(\fak{A}{I}) \cong S^{-1}(\fak AI) \cong S^{-1}A\otimes_A(\fak AI) \cong \fak{S^{-1}A}{IS^{-1}A}$$
 	wobei der letzte Isomorphismus sogar Isomorphismus von $A$-Algebren ist.
 \end{proof}
 \begin{kor}
@@ -2005,13 +2005,13 @@ Sei $f\colon A \to B$ Ringhomomorphismus. Betrachte $f^{*}\colon \Spec B \to \Sp
 \end{kor}
 \begin{proof}
 	$$\Spec(B\otimes_A\kappa(\fp)) = \Spec(B\otimes_A(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec((B\otimes_A A_{\fp}) \otimes_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}}))$$
-	nach Propositio 3.12, wobei
+	nach Proposition 3.12, wobei
 	$$B\otimes_A A_{\fp} = (A\setminus \fp)^{-1}B = B\fp$$
 	also erhalten wir
 	$$\Spec((B\otimes_A A_{\fp}) \otimes_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec(B_{\fp}\otimes_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec(\fak{B_{\fp}}{(\fp A_{\fp})\cdot B_{\fp}})$$
-	Dabei ist $(\fp A_{\fp})\cdot B_{\fp} = \fp B_{\fp}$, folgich haben wir eine 1:1-Korrespondenz zu
+	Dabei ist $(\fp A_{\fp})\cdot B_{\fp} = \fp B_{\fp}$, folglich haben wir eine 1:1-Korrespondenz zu
 	$$\{\fq'\in \Spec B_{\fp}|\fq'\supseteq \fp B_{\fp}\} \xleftrightarrow{1:1} \{\fq \in \Spec B|\fq\cap A \supseteq \fp, \fq \cap A \subseteq \fp\}$$
-	(Denn $\Spec B_{\fp} \xleftrightarrow{1:1} \{q\in \Spec B| (q\cap A)\cap(A\setminus \fp) = \emptyset\} , \fq'\mapsto \fq'\cap B$, für $\fq' in \Spec B_{\fp}$ gilt
+	(Denn $\Spec B_{\fp} \xleftrightarrow{1:1} \{q\in \Spec B| (q\cap A)\cap(A\setminus \fp) = \emptyset\} , \fq'\mapsto \fq'\cap B$, für $\fq' \in \Spec B_{\fp}$ gilt
 	$$\fq' \supseteq \fp B_{\fp} \Leftrightarrow \fq'\cap B \supseteq \fp B \Leftrightarrow \fq' \cap A \supseteq \fp \qquad \text{)}$$
 	Damit erhalten wir
 	$$\Spec(B\otimes_A\kappa(\fp)) \xlongleftrightarrow{1:1} \{\fq\in \Spec B|\fq\cap  A = \fp\}$$
@@ -2036,7 +2036,7 @@ Sei $B$ eine $A$-Algebra.
 		 0 &=& p(x) = \frac{r^n}{s^n}+a_{n-1}\frac{r^{n-1}}{s^{n-1}}+\dots+a_0\\
 		 \Leftarrow 0 &=& r^k + a_{n-1}r^{n-1}s+\dots+ a_0s^{n}
 	\end{eqnarray*}
-	Folglich: $s$ teilt $r^n$; damit ist $s\in \IZ^{times}$ und $x\in\IZ$.
+	Folglich: $s$ teilt $r^n$; damit ist $s\in \IZ^{\times}$ und $x\in\IZ$.
 \end{bsp}
 Bezeichnungen: Sei $A\to B$ Ringhomomorphismus.
 \begin{enumerate}
