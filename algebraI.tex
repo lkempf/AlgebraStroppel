@@ -2135,7 +2135,93 @@ Bezeichnungen: Sei $A\to B$ Ringhomomorphismus.
 	mit $q(t)\in A[t]$, $a\in A$. Insbesondere ist $q\neq 0$. Wähle $p$ von minimalem Grad. Dann folgt $\deg q < \deg p$, also $q(b) \neq 0$. Das bedeutet $0 = bq(b)+a$, wenn wir in obige Gleichung $b$ einsetzen, also $b\cdot q(b)  = -a$, wobei $b\cdot q(b) \neq 0$, da $B$ Integritätsbereich ist. Andererseits ist $b\cdot q(b) \in A$ und damit $b\cdot q(b) \in A^{\times}\subseteq B^{\times}$, also $b\in B^{\times}$.
 \end{description}	
 \end{proof}
+Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung $f^* \Spec B\to Spec A, q\mapsto q\cap A$.
+\begin{satz}
+	Sei $A\xto{f} B$ ganz.
+	\begin{enumerate}
+		\item Sei $q\in \Spec B$. Dann $q\in \Max B \Leftrightarrow q\cap A\in \Max A$
+		\item Sei $f$ injektiv. Dann: $\forall p \in\Spec A\exists q \in Spec B$ mit $q\cap A = p$.
+		\item Seien $q_1,q_2\in\Spec B$ mit $q_1\subseteq q_2$ und $q_1\cap A = q_2\cap A$, dann folgt bereits $q_1 = q_2$.
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Betrachte $A\to B$. wir erhalten $\fak{A}{q\cap A}\hookrightarrow \fak{B}{q}$ ganz.
+		
+		\begin{center}
+			\begin{tikzcd}
+				A \arrow{r}{f\text{ ganz}} \arrow{d}& B \arrow{d}[swap]{\text{ganz}} \\
+				\fak{A}{q\cap A} \arrow{r}	& \fak{B}{q}
+			\end{tikzcd}
+		\end{center}
+		Mit Lemma 6.7 folgt die Behauptung.
+		\item Sei $p\in\Spec A$. Betrachte $A\hookrightarrow B$. Dann ist $A_p\to B_p$ ganz. Also kommutiert
+		
+		\begin{center}
+			\begin{tikzcd}
+				A \arrow{r} \arrow{d}& B \arrow{d} \\
+				A_p \arrow{r}	& B_p
+				\end{tikzcd}
+			\end{center}
+		Wir beweisen noch folgendes Lemma: Sei $A\to B$ ein Ringhomomorphismus, $S\subseteq A$ multiplikative Teilmenge. Falls $A\to B$ gnaz ist, dann ist $S^{-1}A\to S^{-1}B$ ganz.
+		
+		Beweis: Sei $\frac{b}{s}\in S^{-1}B$. Dann ist $b$ ganz über $A$, es gibt also $a_0,\dots, a_{n-1}$ mit $b^n + a_{n-1}b^{n-1}+\dots + a_0 = 0\Rightarrow 0 = \frac{b^n}{s^n}+\frac{a_{n-1}}{s}\cdot \frac{b^{n-1}}{s^{n-1}}+\dots+\frac {a_0}{s^n}$. Damit folgt das Lemma.
+		
+		Es gilt $B_p \neq 0$, denn $B_p\cong f(A\setminus p)^{-1}B$ und $f(A\setminus p)\not \ni 0$ (da $f$ injektiv). Da $B_p\neq 0$ ist, gibt es $n\in \Max B_p$. Nach (i) ist $n\cap A_p \in \Max(A_p)$, da wir eine ganze Ringerweiterung haben.
+		
+		Da $A_p$ lokaler Ring ist, ist $n\cap A_p = p\cdot A_p$. Definiere $q = n\cap B$. Also haben wir 
+		$$q\cap A = (n\cap B)\cap A = (n\cap A_p)\cap A = (p\cdot A_p)\cap A = p$$
+		wobei die letzte Gleichheit aus Lemma 5.14 folgt.
+		\item 	Sei $p\coloneqq q_1\cap A = q_2\cap A$. Betrachte
+		\begin{center}
+		\begin{tikzcd}
+			A \arrow{r}{f\text{ ganz}} \arrow{d}& B \arrow{d} \\
+			A_p \arrow{r}{\text{ganz}}	& B_p
+		\end{tikzcd}
+		\end{center}
+		Definiere $q_i'\coloneqq q_i\cdot B_p\in \Spec B_p$ für $i = 1,2$. (denn $q_i\cap f(A\setminus p) = \emptyset$)
+	
+		Es gilt \begin{eqnarray*}(q_i'\cap A_p)\cap A &=& (q_i'\cap B) \cap A \\
+									   &=& ((q_i\cdot B_p)\cap B)\cap A\\
+									   &=& q_i \cap A = p
+		\end{eqnarray*}
+		Also erhalten wir $p\cdot A_p = ((q_i'\cap A_p)\cap A)\cdot A_p = q_i'\cap A_p$ nach Primidealkorrespondenz (Lemma 5.14).
+		Dabei ist $p\cdot A_p\in \Max(A_p)$. Mit (i) können wir folglich $q_i'\cdot q_2'\in \Max(B_p)$ folgern. Da $q_1'\subseteq q_2'$ ist, muss damit bereits $q_1' = q_2'$ gelten.
+		
+		Wieder mit Lemma 5.14 kännen wir schreiben
+		$$q_1 = (q_1\cdot B_p)\cap B = q_1'\cap B = q_2'\cap B = q_2$$
+	\end{enumerate}
+\end{proof}
 
+\begin{satz}[Going up] Sei $A\to B$ ganz. Seien $p_1,p_2\in \Spec A$ mit $p_1\subseteq p_2$ und $q_1\in \Spec B$ mit $q_1\cap A = p_1$. Dann existiert $q_2\in \Spec B$ mit $q_2\cap A = p_2$ und $q_1\subseteq q_2$.
+
+Merkbild: %TODO: Merkbild hier einfügen
+\end{satz}
+\begin{proof}
+	Betrachte \begin{center}
+		\begin{tikzcd}
+			A \arrow{r}{f\text{ ganz}} \arrow{d}{\tilde{\pi}}& B \arrow{d}{\pi} \\
+			\fak{A}{p_1} \arrow{r}{\text{ganz}}	& \fak{B}{q_1}
+		\end{tikzcd}
+	\end{center}
+	Es existiert $q_2'\in\Spec (\fak{B}{q_1})$ mit $q_2'\cap(\fak{A}{p_1}) = \fak{p_2}{p_1}$.
+	
+	Definiere $q_2\coloneqq \pi^{-1}(q_2') = q_2'\cap B$. Dann gilt $q_1\subseteq q_2$ und
+	$$q_2\cap A = \tilde{\pi}^{-1}(q_2'\cap \fak{A}{p_1}) = \tilde{\pi}^{-1}(\fak{p_2}{p_1}) = p_2$$
+\end{proof}
+
+\subsection{Going down}
+\begin{defi} Sei $A\to B$ Ringhomomorphismus, sei $I\subseteq A$ Ideal. Sei $b\in B$.$b$ heißt ganz über $I$, wenn es ein normiertes Polynom $p(t)$ gibt mit
+	$$p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0\in A[t]$$
+sodass $p(b) = 0$ und $a_0,\dots, a_{n-1}\in I$.
+\end{defi}
+\begin{lem} Sei $A\to B$ Ringhomomorphismus. Sei $C\coloneqq$ ganzer Abschluss von $A$ i $B$. Sei $I\subseteq A$ Ideal, $b\in B$. Äquivalent sind dann:
+	\begin{enumerate}
+		\item $b$ ganz über $I$
+		\item $b\in \sqrt{I\cdot C}$
+	\end{enumerate}
+\end{lem}
 \end{document}
 
 %\begin{bsp}
