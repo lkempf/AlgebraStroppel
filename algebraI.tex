@@ -2053,15 +2053,88 @@ Bezeichnungen: Sei $A\to B$ Ringhomomorphismus.
 		\item Es gibt $C\subseteq B$ endliche $A$-Unteralgebra mit $b\in C$.
 	\end{enumerate}
 \end{lem}
+
+\lecture{28. Mai 2018}
+
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[i$\Rightarrow$ii:] Sei $p\in A[t]$
-		... to be continued
+		\item[i$\Rightarrow$ii:] Seien $a_0,\dots, a_{n-1}\in A$ mit $b^n = -(a_{n-1}b^{n-1}+\dots+a_0)$. Sei $p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0$.
+		
+		Wir wissen $A[b] = \{q(b)|q\in A[t]\}$.
+	
+		Sei also nun $q\in A[t]$. Es existieren folglich $c,r\in A[t]$ mit $q = c\cdot p +r $ und $\deg r < \deg p$. Also ist $A[b] = \{r(b)|r\in A[t], \deg r <n\} = \<1, b, b^2,\dots, b^{n-1}\>_A$.
+		
+		\item[ii$\Rightarrow$iii:] Klar.
+		\item[iii$\Rightarrow$i:] Sei $C = \<b_1, \dots, b_n\>_A$. Betrachte die $A$-lineare Abbildung $C\to C, c\mapsto bc$. Wähle $a_{ij}\in A$ mit 
+		$$b\cdot b_j = \sum_{i=1}^{n}a_{ij}b_i$$
+		Betrachte $M = (b\cdot \delta_{ij}-a_{ij})$. Dann ist $M\cdot (b_1,\dots, b_n)^{\operatorname{T}} = 0$. Wir multiplizieren mit der adjunkten Matrix zu $M$:
+		$$\det M\cdot E_n = M^{ad} M \cdot (b_1,\dots, b_n)^{\operatorname{T}} = 0$$
+		Wir erhalten also $(\det M)b_j = 0$ für alle $j\in\{1,\dots, n\}$; insbesondere $(\det M)c = 0$ für alle $c\in C$. Es gilt folglich $\det M  = 0$.
+		
+		Definiere nun $p(t) \coloneqq \chi_{(a_{ij})}(t) = \det (t\cdot \delta_{ij}-a_{ij})$. Dann ist $p(t)\in A[t]$ normiert und $p(b) = 0$. Folglich ist $b$ ganz über $A$.
 	\end{description}
 \end{proof}
 
+\begin{lem}
+	Seien $A\to B\to C$ Rinhomomorphismen.
+	\begin{enumerate}
+		\item Ist $B$ endliche $A$-Algebra und $C$ endliche $B$-Algebra, dann ist $C$ endliche $A$-Algebra.
+		\item Ist $B$ ganz über $A$, $C$ ganz über $B\Rightarrow C$ ganz über $A$.
+	\end{enumerate}	
+\end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Folgt sofort aus Lemma 3.7 %TODO: Referenz einfügen
+		\item Sei $c\in C$. Da $c$ ganz über $B$ ist, existieren $b_0, \dot, b_{n-1}\in B$ mit $c^n+b_{n-1}c^{n-1}+\dots +b_0 = 0$. Da $b_0, \dots, b_{n-1}$ ganz über $A$ sind, ist $A[b_1,\dots, b_{n-1}]$ endlich über $A$.
+		
+		(Denn $b_i$ ist ganz über $A[b_0,\dots, b_{i-1}]$. Induktiv folgt mit (i), dass $A[b_0, \dots, b_{n-1}]$ endlich über $a$ ist. Dann ist $c$ ganz über $A[b_1,\dots, b_{n-1}]$. Also ist $A[b_0,\dots, b_{n-1}, c]\subseteq C$ endlich über $A$ und enthält $c$. Nach Lemma 6.3 ist $c$ ganz über $A$.)
+		
+	\end{enumerate}
+	
+\end{proof}
 
+\begin{kor}
+	Sei $A\to B$ Ringhomomorphismus. Dann sind äquivalent:
+	\begin{enumerate}
+		\item $B$ ist endliche $A$-Algebra
+		\item es gibt $b_1,\dots, b_n\in B$, $b_i$ ganz über $A$, mit $B = A[b_1,\dots, b_n]$
+		\item $B$ ist endlich erzeugt und ganz über $A$.
+	\end{enumerate}
+\end{kor}
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[iii$\Rightarrow$ii:] $\checkmark$
+		\item[ii$\Rightarrow$i:] Lemma 6.4 und Lemma 6.3
+		\item[i$\Rightarrow$iii:] endliche Algebren sind insbesondere endlich erzeugt und außerdem ganz nach Lemma 6.3
+	\end{description}
+\end{proof}
+
+\begin{kor}
+	Sei $A\to B$ Ringhomomorphismus. Sei $\overline{A}$ der ganze Abschluss von $A$ in $B$. Dann ist $\overline{A}$ Unteralgebra von $B$.
+\end{kor}
+\begin{proof}
+	Seien $b, b'\in B$ ganz über $A$. Zu zeigen: $b+b', b\cdot b'$ ganz über $A$. Aber $b+b', b\cdot b'\in A[b, b']$, wobei letzteres ganz ist.
+\end{proof}
+
+\subsection{Going up}
+\begin{lem} Sei $A\hookrightarrow B$ ganze Ringerweiterung (das heißt injektiver Ringhomomorphismus). $A, B$ Integritätsbereiche. Dann gilt: 
+	$$B \text{ Körper}\Longleftrightarrow A\text{ Körper}$$
+\end{lem}
+\begin{proof} Sei ohne Einschränkung $A\subseteq B$.
+\begin{description}
+	\item[\glqq$\Rightarrow$\grqq:] Sei $a\in A\setminus \{0\}$. Dann ist $a\in B\setminus\{0\} = B^{\times}$. Also gibt es ein $b\in B$ mit $ab = 1$. Da $b$ ganz über $A$ ist, gibt es $a_0,\dots, a_{n-1}\in A$, sodass
+	$$b^n = \sum_{i = 0}^{n-1}a_ib^i$$
+	Also gilt
+	$$ b = a^{n-1}b^n = \sum_{i = 1}^{n-1} a_ia^{n-1}b^i = \sum_{i = 1}^{n-1-i}\in A$$
+	Folglich gilt $b\in A$ und damit $a\in A^{\times}$.
+	\item[\glqq$\Leftarrow$\grqq:] Sei $b\in B\setminus\{0\}$. Es gibt also $p(t) \in A[t]$ normiert mit $p(b) = 0$. Schreibe
+	$$p(t) = t\cdot q(t) + a$$
+	mit $q(t)\in A[t]$, $a\in A$. Insbesondere ist $q\neq 0$. Wähle $p$ von minimalem Grad. Dann folgt $\deg q < \deg p$, also $q(b) \neq 0$. Das bedeutet $0 = bq(b)+a$, wenn wir in obige Gleichung $b$ einsetzen, also $b\cdot q(b)  = -a$, wobei $b\cdot q(b) \neq 0$, da $B$ Integritätsbereich ist. Andererseits ist $b\cdot q(b) \in A$ und damit $b\cdot q(b) \in A^{\times}\subseteq B^{\times}$, also $b\in B^{\times}$.
+\end{description}	
+\end{proof}
 
 \end{document}
 
