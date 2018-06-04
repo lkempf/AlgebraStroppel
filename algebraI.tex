@@ -2222,6 +2222,143 @@ sodass $p(b) = 0$ und $a_0,\dots, a_{n-1}\in I$.
 		\item $b\in \sqrt{I\cdot C}$
 	\end{enumerate}
 \end{lem}
+
+\lecture{4. Juni 2018}
+
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[i$\Rightarrow$ii:] Sei $b^n = a_{n-1}b^{n-1}+\dots+a_0$ mit $a_0,\dots, a_{n-1}\in I$. Da $b$ ganz über $I$ ist, ist $b$ insbesondere ganz über $A$. Folglich gilt $b\in C$ und damit auch $b^0,\dots, b^{n-1}\in C$. Also ist $b^n\in I\cdot C$ und $b\in\sqrt{I\cdot C}$.
+		\item[ii$\Rightarrow$i:] Sei $b\in\sqrt{I\cdot C}$. Nach Definition gibt es $n>0$ sodass $b^n\in I\cdot C$. Das bedeutet, es existieren $a_1,\dots, a_r\in I$, $c_1,\dots, c_r\in C$ mit $b^n = a_1c_1+\dots+a_rc_r$. Da $c_1,\dots, c_r$ ganz über $A$ sind, ist $A[c_1,\dots, c_r] = C'$ endlich erzeugt als $A$-Modul (Korollar 6.5).
+		
+		Sei $\<b_1,\dots, b_m\>_A = C'$. Betrachte folgende $A$-lineare Abbildung:
+		$$\phi\colon C'\longto C', c'\mapsto b^n\cdot c'$$
+		Es gilt $\im\phi\subseteq I\cdot C'$. Also gibt es $a_{ij}\in I$ mit
+		$$b^n\cdot b_j = \sum_{i = 1}^{n}a_{ij}b_i\enspace .$$
+		Definiere $p(t) = \chi_{(a_{ij})}= \det(t\delta_{ij}-a_{ij})$ normiert und es gilt (vgl. Beweis von Lemma 6.3) $p(b^n) = 0$. Außerdem $p(t) -t^n \in I[t]$. Damit ist $b^n$ aber ganz über $I$, also ist auch schon $b$ ganz über $I$.
+	\end{description}
+\end{proof}
+
+\begin{defi}
+	Sei $A$ Integritätsbereich. $A$ heißt normal genau dann, wenn $A$ ganz abgeschlossen in $\Quot(A)$ ist.
+\end{defi}
+\begin{lem} 
+	Sei $A\subseteq B$ Ringerweiterung, $A$, $B$ Integritätsbereiche, $A$ normal, $I\subseteq A$ Ideal. Sei $b\in B$ ganz über $I$. Sei
+	$$m_b(t) = t^n+a_{n-1}t^{n-1}+\dots +a_0\in K[t]$$
+	das Minimalpolynom von $b$ über $K\coloneqq \Quot(A)$. Dann gilt $a_0,\dots, a_{n-1}\in\sqrt{I}$.
+\end{lem}
+
+\begin{proof}
+	Sei $L/K$ eine Erweiterung von $K$, sodass $\exists y_1,\dots, y_n\in L$ mit $m_b(t) = (t-y_1)\dots(t-y_n)$. Sei $f\in A[t]$ normiert mit $f(t) -t^{\deg(f)}\in I[t]$, sodass $f(b) = 0$. Dann ist $f$ Vielfaches von $m_b = m_{y_i}$. Also $f(y_i= 0)$ und damit sind $y_1,\dots, y_n$ ganz über $I$.
+	
+	Sei $C$ der ganze Abschluss von $A$ in $B$. Nach Lemma 6.11 ist $y_i\in\sqrt{I\cdot C}$.
+	$$a_{n-k} = (-1)^k\sum_{1\leq i_1<\dots <i_k\leq n}y_{i_1}\dots y_{i_k}\in \sqrt{I\cdot C} \qquad (k = 1,\dots, n)$$
+	Nach Lemma 6.11 sind damit auch $a_0,\dots, a_{n-1}$ ganz über $I$. Insbesondere sind $a_0,\dots, a_{n-1}$ ganz über $A$. Da $A$ normal ist, müssen $a_0,\dots, a_{n-1}\in A$. Wende nun Lemma 6.11 mit $B = K$ an und erhalte $a_0,\dots, a_{n-1}\in \sqrt{I}$.
+\end{proof}
+
+\begin{satz}[Going down]
+	Sei $A\subseteq B$ ganze Ringerweiterung. $A$ und $B$ seien dabei Integritätsbereiche, $A$ normal.
+	
+	Seien $p_1,p_2\in \Spec A$ mit $p_1\subseteq p_2$ und sei $q_2\in\Spec B$ mit $q_2\cap A = p_2$. Dann gibt es $q_1\in\Spec B$ mit $q_1\cap A = p_1$ und $q_1\subseteq q_2$.
+	
+	Merkbild: %TODO: Insert merkbild here
+	
+\end{satz}
+\begin{proof}
+	Es genügt zu zeigen: \begin{equation}(p_1\cdot B_{q_2})\cap A = p_1\end{equation}
+	
+	(Denn: Sei $(p_1\cdot B_q)\cap A = p_1$. Dann folgt aus einer Übung: $\exists q_1' \in \Spec B_{q_2}$ mit $q_1'\cap A = p_1$. Definiere $q_1 \coloneqq q_1'\cap B\in\Spec B\Rightarrow q_1\cap A = (q_1'\cap B)\cap A = p_1$ und $q_1\subseteq q_2$.)
+	
+	\noindent
+	Zeige (1): \begin{description}
+		\item[\glqq$\supseteq$\grqq:] $\checkmark$
+		\item[\glqq$\subseteq$\grqq:] Sei $x\in (p_1\cdot B_{q_2})\cap A$ und angenommen $x\notin p_1$. Da $x\in p_1\cdot B_{q_2} = (p_1\cdot B)\cdot B_{q_2}$, gibt es $y\in p_1\cdot B$, $s\in B-q_2$ mit $x = \frac ys$. Mit Lemma 6.11 (setze $C = B$) ist $y$ ganz über $p_1$. Sei $K\coloneqq \Quot(A)$. Betrachte das Minimalpolynom $m_y(t) \in K[t]$ von $y$ über $K$. Wir schreiben 
+		$$m_y(t) = t^n+a_{n-1}t^{n-1}+\dots+a_0$$
+		Dann folgt mit Lemma 6.13, dass $a_0,\dots, a_{n-1}\in\sqrt{p_1} = p_1$.
+		
+		Da $x = \frac ys\in A\setminus\{0\}$, ist $s = \frac yx$ (in $\Quot(B))$ und $\frac 1x \in K$. Damit gilt
+		$$m_s(t) = t^n+\frac{a_{n-1}}xt^{n-1}+\dots + \frac {a_0}{x^n}$$
+		ist das Minimalpolynom von $s$ über $K$. Definiere $\tilde{a_i}\coloneqq \frac{1}{x^{n-i}}a_i$. Es gilt $s\in B-q_2\subseteq B\Rightarrow$ $s$ ganz über $A$; also folgt mit Lemma 6.13 (mit $I = A$), dass $\tilde{a_0},\dots, \tilde{a_{n-1}}\in A$.
+		
+		Nach Annahme ist $x\notin p_1$. Aber $\tilde{a_i}\cdot x^{n-1} = a_i\in p_1$. Da $x^{n-1}$ nicht in $p_1$ ist, muss $\tilde{a_i}\in p_1$ gelten. Daraus folgt nun
+		$$s^n = -(\tilde{a_{n.1}}s^{n-1}+\dots+\tilde{a_1})\in p_1B\subseteq p_2\cdot B\subseteq q_2$$
+		im Widerspruch zu $s\notin q_2$.
+	\end{description}
+\end{proof}
+
+\section{Kettenbedingungen}
+\begin{defi}
+	Sei $(I, \leq)$ angeordnete Menge.
+	\begin{enumerate}
+		\item Man sagt $(I,\leq)$ erfüllt aufsteigende Kettenbedingung (\glqq ascending chain condition\grqq, acc), wenn für jede Kette
+		$$i_1\leq i_2\leq i_3\leq \dots$$
+		mit $i_j\in I$ für $j\in \IN$ ein $n\geq 1$ existiert, sodass für alle $m\geq n$ gilt: $i_m = i_n$.
+		\item $(I,\leq)$ hat absteigende Kettenbedingung (dcc), wenn für alle Ketten
+		$$i_1\geq i_2\geq \dots $$
+		ein $n\geq 1$ existiert, sodass für alle $m\geq n$ gilt: $i_m = i_n$ (also acc für $(I,\geq)$).
+	\end{enumerate}
+\end{defi}
+\begin{lem}
+	Sei $(I,\leq)$ angeordnet. Dann sind äquivalent:
+	\begin{enumerate}
+		\item $(I,\leq)$ hat acc
+		\item $\forall \emptyset\neq J\subseteq I$ hat $J$ maximales Element.
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[i$\Rightarrow$ii:] Angenommen $\exists \emptyset J\subseteq I$ ohne maximales Element. Da $J\neq \emptyset \exists i_1\in J$, $i_1$ nicht maximal $\Rightarrow \exists i_2\in J: i_2>i_1$, usw. (Widerspruch zu acc)
+		\item[ii$\Rightarrow$i:] Sei $i_1\leq i_2\leq\dots$ Kette. Die Menge $\{i_n\}_{n\geq 1}$ hat ein maximales Element.
+	\end{description}
+\end{proof}
+\begin{defi}
+	Sei $A$ ein Ring, $M$ ein $A$-Modul. Definiere
+	$$\mathcal{U}(M) = \{N|N\text{ ist }A\text{-Untermodul von }M\}$$
+	$(\mathcal{U}, \subseteq)$ ist angeordnet.
+	\begin{enumerate}
+		\item $M$ heißt noethersch: $(\mathcal{U}(M),\subseteq)$ hat acc
+		\item $M$ heißt artinsch: $(\mathcal{U}(M), \subseteq)$ hat dcc
+		\item $A$ heißt noethersch/artinsch: ${}_AA$ ist noethersch/artinsch
+	\end{enumerate}
+\end{defi}
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item $A$ Körper $\Rightarrow A$ noethersch und artinsch
+		\item $k$ Körper, $A = k[t] \Rightarrow A$ noethersch, $A$ nicht artinsch.
+		\item $A = \IZ\Rightarrow A$ noethersch, nicht artinsch.
+		\item $A = k[t_1,t_2,\dots]\Rightarrow A$ weder noethersch noch artinsch
+	\end{enumerate}
+\end{bsp}
+\begin{beme}
+	\leavevmode
+	\begin{enumerate}
+		\item $A$ artinsch impliziert $A$ noethersch (aus Zeitgründen können wir hier keinen Beweis geben)
+		\item In der Vorlesung werden wir uns auf noethersche Ringe beschränken. (Mehr zu artinschen Ringen : Atiyah-Macdonald Kapitel 8)
+	\end{enumerate}
+\end{beme}
+\subsection{Noethersche Ringe und Moduln}
+\begin{satz}
+	Sei $A$ ein Ring und $M$ ein $A$-Modul. Dann sind äquivalent:
+	\begin{enumerate}
+		\item $M$ noethersch
+		\item $\forall N\subseteq M$ $A$-Untermodul $\Rightarrow N$ endlich erzeugt. (Insbesondere $M$ noethersch $\Rightarrow M$ endlich erzeugt.)
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[i$\Rightarrow$ii:] Sei $N\subseteq M$ ein $A$-Untermodul. Definiere $$\Sigma \coloneqq \{N'\subseteq N| N'\text{ ist }A\text{-Untermodul, }N'\text{ endlich erzeugt}\}\subseteq \mathcal{U}(M)$$
+		Da $\Sigma \neq \emptyset \Rightarrow \exists N'\in \Sigma$ maximal. Sei $x\in N\Rightarrow N'\subseteq N'+\<x\>_a\subseteq N$ und $N'+\<x\>$ endlich erzeugt $\Rightarrow x\in N'$. Da $N'$ maximal gewählt war, ist $N = N'$ und $N$ ist endlich erzeugt.
+		\item[ii$\Rightarrow$i:] Sei $N_1\subseteq N_2\subseteq \dots$ Kette in $\mathcal{U}(M)$. Definiere
+		$$N = \bigcup\limits_{i = 1}^{\infty}N_i$$
+		$N$ ist Untermodul. $\Rightarrow N = \<x_1,\dots, x_n\>$. $\Rightarrow \forall i\exists m_i$ mit $x_i \in N_{m_i}$. Wähle $m\geq \max\{m_1,\dots, m_n\}$. Dann folgt
+		$$ N = \<x_1,\dots, x_n\>\subseteq N_m\subseteq N$$
+	\end{description}
+\end{proof}
+
+
 \end{document}
 
 %\begin{bsp}
