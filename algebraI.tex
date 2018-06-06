@@ -1868,7 +1868,7 @@ Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 	\item $I\subseteq A$ Ideal: $I\cdot B := (f(I)) \subseteq B$ Ideal
 	\item $I \subseteq (I\cdot B) \cap A$, $J \supseteq (J\cap A)\cdot B$
 \end{itemize}
-\begin{satz}
+\begin{satz} \label{thm:spektrumkorrespondenz}
 	Sei $A$ ein Ring und $S\subseteq A$ multiplikative Teilmenge.
 	\begin{enumerate}
 		\item Sei $I\subseteq A$ ein Ideal. Dann gilt $I\cdot S^{-1}A = \set*{\frac{a}{s}\given a\in I, s\in S}$ und $(I\cdot S^{-1}A)\cap A = \set{a\in A\given \exists n\in S: na \in I}$.
@@ -2057,8 +2057,8 @@ Bezeichnungen. Sei $A\to B$ ein Ringhomomorphismus.
 		\item[\ref{lem:ganzheit:ii} $\Rightarrow$ \ref{lem:ganzheit:iii}:] Klar.
 		\item[\ref{lem:ganzheit:iii} $\Rightarrow$ \ref{lem:ganzheit:i}:] Sei $C = \<b_1, \dots, b_n\>_A$. Betrachte die $A$-lineare Abbildung $C\to C, c\mapsto bc$. Wähle $a_{ij}\in A$ mit 
 		\[b\cdot b_j = \sum_{i=1}^{n}a_{ij}b_i.\]
-		Betrachte $M = (b\cdot \delta_{ij}-a_{ij})$. Dann ist $M\cdot (b_1,\dots, b_n)^{\TT} = 0$. Wir multiplizieren mit der adjunkten Matrix zu $M$ und erhalten
-		\[\det M\cdot E_n = M^{\ad} M \cdot (b_1,\dots, b_n)^{\TT} = 0.\]
+		Betrachte $M = (b\cdot \delta_{ij}-a_{ij})$. Dann ist $M\cdot (b_1,\dots, b_n)^T = 0$. Wir multiplizieren mit der adjunkten Matrix zu $M$ und erhalten
+		\[M^{\ad} M \cdot (b_1,\ldots,b_n)^T = \det M \cdot E_n \cdot (b_1,\dots, b_n)^T = 0.\]
 		Wir erhalten also $(\det M)b_j = 0$ für alle $j\in\{1,\dots, n\}$; insbesondere $(\det M)c = 0$ für alle $c\in C$. Es gilt folglich $\det M  = 0$.
 		
 		Definiere nun $p(t) \coloneqq \chi_{(a_{ij})}(t) = \det (t\cdot \delta_{ij}-a_{ij})$. Dann ist $p(t)\in A[t]$ normiert und $p(b) = 0$. Folglich ist $b$ ganz über $A$.
@@ -2084,20 +2084,20 @@ Bezeichnungen. Sei $A\to B$ ein Ringhomomorphismus.
 	\end{enumerate}
 \end{proof}
 
-\begin{kor}
+\begin{kor} \label{kor:endl algebra}
 	Sei $A\to B$ eine Ringhomomorphismus. Dann sind äquivalent:
 	\begin{enumerate}
-		\item $B$ ist eine endliche $A$-Algebra. \label{lem:endl algebra:i}
-		\item Es existieren $b_1,\dots, b_n\in B$, welche ganz über $A$ sind, mit $B = A[b_1,\dots, b_n]$. \label{lem:endl algebra:ii}
-		\item $B$ ist endlich erzeugt und ganz über $A$. \label{lem:endl algebra:iii}
+		\item $B$ ist eine endliche $A$-Algebra. \label{kor:endl algebra:i}
+		\item Es existieren $b_1,\dots, b_n\in B$, welche ganz über $A$ sind, mit $B = A[b_1,\dots, b_n]$. \label{kor:endl algebra:ii}
+		\item $B$ ist endlich erzeugt und ganz über $A$. \label{kor:endl algebra:iii}
 	\end{enumerate}
 \end{kor}
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[\ref{lem:endl algebra:iii} $\Rightarrow$ \ref{lem:endl algebra:ii}:] Klar.
-		\item[\ref{lem:endl algebra:ii} $\Rightarrow$ \ref{lem:endl algebra:i}:] Siehe \cref{lem:ganzheit} und \cref{lem:ganzheit2}.
-		\item[\ref{lem:endl algebra:i} $\Rightarrow$ \ref{lem:endl algebra:iii}:] Endliche Algebren sind insbesondere endlich erzeugt und außerdem ganz nach \cref{lem:ganzheit}.
+		\item[\ref{kor:endl algebra:iii} $\Rightarrow$ \ref{kor:endl algebra:ii}:] Klar.
+		\item[\ref{kor:endl algebra:ii} $\Rightarrow$ \ref{kor:endl algebra:i}:] Siehe \cref{lem:ganzheit} und \cref{lem:ganzheit2}.
+		\item[\ref{kor:endl algebra:i} $\Rightarrow$ \ref{kor:endl algebra:iii}:] Endliche Algebren sind insbesondere endlich erzeugt und außerdem ganz nach \cref{lem:ganzheit}.
 		\qedhere
 	\end{description}
 \end{proof}
@@ -2110,106 +2110,119 @@ Bezeichnungen. Sei $A\to B$ ein Ringhomomorphismus.
 \end{proof}
 
 \subsection{Going up}
-\begin{lem} Sei $A\hookrightarrow B$ eine ganze Ringerweiterung (also ein injektiver Ringhomomorphismus) sowie $A$ und $B$ Integritätsbereiche. Dann gilt: 
+\begin{lem} \label{lem:6.7}
+	Sei $A\hookrightarrow B$ eine ganze Ringerweiterung (also ein injektiver Ringhomomorphismus) sowie $A$ und $B$ Integritätsbereiche. Dann gilt: 
 	\[B \text{ Körper}\Longleftrightarrow A\text{ Körper}.\]
 \end{lem}
 \begin{proof} Sei ohne Einschränkung $A\subseteq B$.
 \begin{description}
-	\item[\glqq$\Rightarrow$\grqq:] Sei $a\in A\setminus \{0\}$. Dann ist $a\in B\setminus\{0\} = B^{\times}$. Also gibt es ein $b\in B$ mit $ab = 1$. Da $b$ ganz über $A$ ist, gibt es $a_0,\dots, a_{n-1}\in A$, sodass
-	$$b^n = \sum_{i = 0}^{n-1}a_ib^i$$
-	Also gilt
-	$$ b = a^{n-1}b^n = \sum_{i = 1}^{n-1} a_ia^{n-1}b^i = \sum_{i = 1}^{n-1-i}\in A$$
+	\item[\glqq$\Rightarrow$\grqq:] Sei $a\in A\setminus \{0\}$. Dann ist $a\in B\setminus\{0\} = B^{\times}$. Also gibt es ein $b\in B$ mit $ab = 1$. Da $b$ ganz über $A$ ist, gibt es $a_0,\dots, a_{n-1}\in A$, sodass $b^n = \sum_{i = 0}^{n-1}a_ib^i$ gilt. Also folgt
+	\[ b = a^{n-1}b^n = \sum_{i = 0}^{n-1} a_ia^{n-1}b^i = \sum_{i = 0}^{n-1-i}\in A. \]
 	Folglich gilt $b\in A$ und damit $a\in A^{\times}$.
 	\item[\glqq$\Leftarrow$\grqq:] Sei $b\in B\setminus\{0\}$. Es gibt also $p(t) \in A[t]$ normiert mit $p(b) = 0$. Schreibe
 	$$p(t) = t\cdot q(t) + a$$
-	mit $q(t)\in A[t]$, $a\in A$. Insbesondere ist $q\neq 0$. Wähle $p$ von minimalem Grad. Dann folgt $\deg q < \deg p$, also $q(b) \neq 0$. Das bedeutet $0 = bq(b)+a$, wenn wir in obige Gleichung $b$ einsetzen, also $b\cdot q(b)  = -a$, wobei $b\cdot q(b) \neq 0$, da $B$ Integritätsbereich ist. Andererseits ist $b\cdot q(b) \in A$ und damit $b\cdot q(b) \in A^{\times}\subseteq B^{\times}$, also $b\in B^{\times}$.
+	mit $q(t)\in A[t]$, $a\in A$. Insbesondere ist $q\neq 0$. Wähle $p$ von minimalem Grad. Dann folgt $\deg q < \deg p$, also $q(b) \neq 0$. Das bedeutet $0 = bq(b)+a$, wenn wir in obige Gleichung $b$ einsetzen, also $b\cdot q(b)  = -a$, wobei $b\cdot q(b) \neq 0$, da $B$ ein Integritätsbereich ist. Andererseits ist $b\cdot q(b) \in A$ und damit $b\cdot q(b) \in A^{\times}\subseteq B^{\times}$, also $b\in B^{\times}$.
+	\qedhere
 \end{description}	
 \end{proof}
-Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung $f^* \Spec B\to Spec A, q\mapsto q\cap A$.
+Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^*: \Spec B\to \Spec A, \quad \fq\mapsto \fq\cap A.\]
 \begin{satz}
 	Sei $A\xto{f} B$ ganz.
 	\begin{enumerate}
-		\item Sei $q\in \Spec B$. Dann $q\in \Max B \Leftrightarrow q\cap A\in \Max A$
-		\item Sei $f$ injektiv. Dann: $\forall p \in\Spec A\exists q \in Spec B$ mit $q\cap A = p$.
-		\item Seien $q_1,q_2\in\Spec B$ mit $q_1\subseteq q_2$ und $q_1\cap A = q_2\cap A$, dann folgt bereits $q_1 = q_2$.
+		\item Sei $\fq\in \Spec B$. Dann gilt $\fq\in \Max B \Leftrightarrow \fq\cap A\in \Max A$. \label{thm:6.8:i}
+		\item Sei $f$ injektiv. Dann existiert ein $\fq \in \Spec B$ mit $\fq\cap A = \fp$ für jedes $\fp \in \Spec A$. \label{thm:6.8:ii}
+		\item Seien $\fq_1,\fq_2\in\Spec B$ mit $\fq_1\subseteq \fq_2$ und $\fq_1\cap A = \fq_2\cap A$. Dann folgt bereits $\fq_1 = \fq_2$. \label{thm:6.8:iii}
 	\end{enumerate}
 \end{satz}
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}
-		\item Betrachte $A\to B$. wir erhalten $\fak{A}{q\cap A}\hookrightarrow \fak{B}{q}$ ganz.
-		
+	\begin{enumerate}[label=\ref{thm:6.8:\roman*}]
+		\item Betrachte $A\to B$. Dann erhalten wir vermöge des folgenden Diagramms $\fak{A}{\fq\cap A}\hookrightarrow \fak{B}{\fq}$ ganz.
 		\begin{center}
 			\begin{tikzcd}
 				A \arrow{r}{f\text{ ganz}} \arrow{d}& B \arrow{d}[swap]{\text{ganz}} \\
-				\fak{A}{q\cap A} \arrow{r}	& \fak{B}{q}
+				\fak{A}{\fq\cap A} \arrow[hookrightarrow]{r}	& \fak{B}{\fq}
 			\end{tikzcd}
 		\end{center}
-		Mit Lemma 6.7 folgt die Behauptung.
-		\item Sei $p\in\Spec A$. Betrachte $A\hookrightarrow B$. Dann ist $A_p\to B_p$ ganz. Also kommutiert
-		
+		Mit \cref{lem:6.7} folgt die Behauptung.
+		\item Sei $\fp\in\Spec A$. Betrachte $A\hookrightarrow B$. Dann ist $A_\fp\to B_\fp$ ganz. Also kommutiert das folgende Diagramm.
 		\begin{center}
 			\begin{tikzcd}
 				A \arrow{r} \arrow{d}& B \arrow{d} \\
-				A_p \arrow{r}	& B_p
+				A_\fp \arrow{r}	& B_\fp
 				\end{tikzcd}
 			\end{center}
-		Wir beweisen noch folgendes Lemma: Sei $A\to B$ ein Ringhomomorphismus, $S\subseteq A$ multiplikative Teilmenge. Falls $A\to B$ gnaz ist, dann ist $S^{-1}A\to S^{-1}B$ ganz.
+
+		Wir beweisen zunächst das folgende
 		
-		Beweis: Sei $\frac{b}{s}\in S^{-1}B$. Dann ist $b$ ganz über $A$, es gibt also $a_0,\dots, a_{n-1}$ mit $b^n + a_{n-1}b^{n-1}+\dots + a_0 = 0\Rightarrow 0 = \frac{b^n}{s^n}+\frac{a_{n-1}}{s}\cdot \frac{b^{n-1}}{s^{n-1}}+\dots+\frac {a_0}{s^n}$. Damit folgt das Lemma.
+		\textbf{Lemma.} Sei $A\to B$ ein Ringhomomorphismus, $S\subseteq A$ eine multiplikative Teilmenge. Falls $A\to B$ ganz ist, dann ist $S^{-1}A\to S^{-1}B$ ganz.
+		\begin{proof}
+			Sei $\frac{b}{s}\in S^{-1}B$. Dann ist $b$ ganz über $A$, es gibt also $a_0,\dots, a_{n-1}$ mit $b^n + a_{n-1}b^{n-1}+\dots + a_0 = 0$ Nun folgt $0 = \frac{b^n}{s^n}+\frac{a_{n-1}}{s}\cdot \frac{b^{n-1}}{s^{n-1}}+\dots+\frac {a_0}{s^n}$, also ist $\frac bs$ ganz über $S^{-1}A$.
+		\end{proof}
 		
-		Es gilt $B_p \neq 0$, denn $B_p\cong f(A\setminus p)^{-1}B$ und $f(A\setminus p)\not \ni 0$ (da $f$ injektiv). Da $B_p\neq 0$ ist, gibt es $n\in \Max B_p$. Nach (i) ist $n\cap A_p \in \Max(A_p)$, da wir eine ganze Ringerweiterung haben.
+		Es gilt $B_\fp \neq 0$, denn $B_\fp\cong f(A\setminus \fp)^{-1}B$ und $f(A\setminus \fp)\not \ni 0$ (da $f$ injektiv). Da $B_\fp\neq 0$ ist, gibt es $n\in \Max B_\fp$. Nach \ref{thm:6.8:i} ist $n\cap A_\fp \in \Max(A_\fp)$, da wir eine ganze Ringerweiterung haben.
 		
-		Da $A_p$ lokaler Ring ist, ist $n\cap A_p = p\cdot A_p$. Definiere $q = n\cap B$. Also haben wir 
-		$$q\cap A = (n\cap B)\cap A = (n\cap A_p)\cap A = (p\cdot A_p)\cap A = p$$
-		wobei die letzte Gleichheit aus Lemma 5.14 folgt.
-		\item 	Sei $p\coloneqq q_1\cap A = q_2\cap A$. Betrachte
+		Da $A_\fp$ lokaler Ring ist, ist $n\cap A_\fp = \fp\cdot A_\fp$. Definiere $\fq = n\cap B$. Also haben wir 
+		\[\fq\cap A = (n\cap B)\cap A = (n\cap A_\fp)\cap A = (\fp\cdot A_\fp)\cap A = \fp,\]
+		wobei die letzte Gleichheit aus \cref{thm:spektrumkorrespondenz} folgt.
+		\item Sei $\fp\coloneqq \fq_1\cap A = \fq_2\cap A$. Betrachte
 		\begin{center}
 		\begin{tikzcd}
 			A \arrow{r}{f\text{ ganz}} \arrow{d}& B \arrow{d} \\
-			A_p \arrow{r}{\text{ganz}}	& B_p
+			A_\fp \arrow{r}{\text{ganz}}	& B_\fp
 		\end{tikzcd}
+		% TODO: punkt?
 		\end{center}
-		Definiere $q_i'\coloneqq q_i\cdot B_p\in \Spec B_p$ für $i = 1,2$. (denn $q_i\cap f(A\setminus p) = \emptyset$)
-	
-		Es gilt \begin{eqnarray*}(q_i'\cap A_p)\cap A &=& (q_i'\cap B) \cap A \\
-									   &=& ((q_i\cdot B_p)\cap B)\cap A\\
-									   &=& q_i \cap A = p
-		\end{eqnarray*}
-		Also erhalten wir $p\cdot A_p = ((q_i'\cap A_p)\cap A)\cdot A_p = q_i'\cap A_p$ nach Primidealkorrespondenz (Lemma 5.14).
-		Dabei ist $p\cdot A_p\in \Max(A_p)$. Mit (i) können wir folglich $q_i'\cdot q_2'\in \Max(B_p)$ folgern. Da $q_1'\subseteq q_2'$ ist, muss damit bereits $q_1' = q_2'$ gelten.
+		Definiere $\fq_i'\coloneqq \fq_i\cdot B_\fp\in \Spec B_\fp$ für $i = 1,2$ (denn $\fq_i\cap f(A\setminus \fp) = \emptyset$). Es gilt \begin{align*}(\fq_i'\cap A_\fp)\cap A &= (\fq_i'\cap B) \cap A \\
+									   &= ((\fq_i\cdot B_\fp)\cap B)\cap A\\
+									   &= \fq_i \cap A = \fp.
+		\end{align*}
+		Also erhalten wir $\fp\cdot A_\fp = ((\fq_i'\cap A_\fp)\cap A)\cdot A_\fp = \fq_i'\cap A_\fp$ nach Primidealkorrespondenz (\cref{thm:spektrumkorrespondenz}).
+		Dabei ist $\fp\cdot A_\fp\in \Max(A_\fp)$. Mit \ref{thm:6.8:i} können wir folglich $\fq_i'\cdot \fq_2'\in \Max(B_\fp)$ folgern. Da $\fq_1'\subseteq \fq_2'$ ist, muss damit bereits $\fq_1' = \fq_2'$ gelten.
 		
-		Wieder mit Lemma 5.14 kännen wir schreiben
-		$$q_1 = (q_1\cdot B_p)\cap B = q_1'\cap B = q_2'\cap B = q_2$$
+		Wieder mit \cref{thm:spektrumkorrespondenz} können wir schließlich
+		\[\fq_1 = (\fq_1\cdot B_\fp)\cap B = \fq_1'\cap B = \fq_2'\cap B = \fq_2\]
+		schreiben.
+		\qedhere
 	\end{enumerate}
 \end{proof}
 
-\begin{satz}[Going up] Sei $A\to B$ ganz. Seien $p_1,p_2\in \Spec A$ mit $p_1\subseteq p_2$ und $q_1\in \Spec B$ mit $q_1\cap A = p_1$. Dann existiert $q_2\in \Spec B$ mit $q_2\cap A = p_2$ und $q_1\subseteq q_2$.
+\begin{satz}[Going up]
+	Sei $A\to B$ ganz. Seien $\fp_1,\fp_2\in \Spec A$ mit $\fp_1\subseteq \fp_2$ und $\fq_1\in \Spec B$ mit $\fq_1\cap A = \fp_1$. Dann existiert ein $\fq_2\in \Spec B$ mit $\fq_2\cap A = \fp_2$ und $\fq_1\subseteq \fq_2$.
 
-Merkbild: %TODO: Merkbild hier einfügen
+	Merkbild:
+	\begin{center}
+		\begin{tikzcd}
+			B & \fq_1 \arrow[mapsto]{d} \arrow[Subseteq]{r} & \exists\fq_2 \arrow[mapsto]{d} \\
+			A \arrow{u}[swap]{\textup{ganz}} & \fp_1 \arrow[Subseteq]{r} & \fp_2
+		\end{tikzcd}
+	\end{center}
 \end{satz}
 \begin{proof}
 	Betrachte \begin{center}
 		\begin{tikzcd}
-			A \arrow{r}{f\text{ ganz}} \arrow{d}{\tilde{\pi}}& B \arrow{d}{\pi} \\
-			\fak{A}{p_1} \arrow{r}{\text{ganz}}	& \fak{B}{q_1}
+			A \arrow{r}{\text{ganz}} \arrow{d}{\tilde{\pi}}& B \arrow{d}{\pi} \\
+			\fak{A}{\fp_1} \arrow{r}{\text{ganz}}	& \fak{B}{\fq_1}
 		\end{tikzcd}
+		% TODO: Punkt?
 	\end{center}
-	Es existiert $q_2'\in\Spec (\fak{B}{q_1})$ mit $q_2'\cap(\fak{A}{p_1}) = \fak{p_2}{p_1}$.
+	Es existiert $\fq_2'\in\Spec (\fak{B}{\fq_1})$ mit $\fq_2'\cap(\fak{A}{\fp_1}) = \fak{\fp_2}{\fp_1}$.
 	
-	Definiere $q_2\coloneqq \pi^{-1}(q_2') = q_2'\cap B$. Dann gilt $q_1\subseteq q_2$ und
-	$$q_2\cap A = \tilde{\pi}^{-1}(q_2'\cap \fak{A}{p_1}) = \tilde{\pi}^{-1}(\fak{p_2}{p_1}) = p_2$$
+	Definiere $\fq_2 := \pi^{-1}(\fq_2') = \fq_2'\cap B$. Dann gilt $\fq_1\subseteq \fq_2$ und
+	\[\fq_2\cap A = \tilde{\pi}^{-1}(\fq_2'\cap \fak{A}{\fp_1}) = \tilde{\pi}^{-1}(\fak{\fp_2}{\fp_1}) = \fp_2.\qedhere\]
 \end{proof}
 
 \subsection{Going down}
-\begin{defi} Sei $A\to B$ Ringhomomorphismus, sei $I\subseteq A$ Ideal. Sei $b\in B$.$b$ heißt ganz über $I$, wenn es ein normiertes Polynom $p(t)$ gibt mit
+\begin{defi}
+	Sei $A\to B$ ein Ringhomomorphismus und $I\subseteq A$ Ideal. Sei $b\in B$. $b$ heißt \emph{ganz über $I$}, wenn es ein normiertes Polynom $p(t)$ mit
 	$$p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0\in A[t]$$
-sodass $p(b) = 0$ und $a_0,\dots, a_{n-1}\in I$.
+	gibt, sodass $p(b) = 0$ und $a_0,\dots, a_{n-1}\in I$.
 \end{defi}
-\begin{lem} Sei $A\to B$ Ringhomomorphismus. Sei $C\coloneqq$ ganzer Abschluss von $A$ i $B$. Sei $I\subseteq A$ Ideal, $b\in B$. Äquivalent sind dann:
+\begin{lem} \label{lem:6.11}
+	Sei $A\to B$ ein Ringhomomorphismus. Sei $C$ der ganze Abschluss von $A$ in $B$. Sei $I\subseteq A$ ein Ideal sowie $b\in B$. Äquivalent sind dann:
 	\begin{enumerate}
-		\item $b$ ganz über $I$
-		\item $b\in \sqrt{I\cdot C}$
+		\item $b$ ist ganz über $I$. \label{lem:6.11:i}
+		\item $b\in \sqrt{I\cdot C}$ \label{lem:6.11:ii}
 	\end{enumerate}
 \end{lem}
 
@@ -2218,61 +2231,66 @@ sodass $p(b) = 0$ und $a_0,\dots, a_{n-1}\in I$.
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[i$\Rightarrow$ii:] Sei $b^n = a_{n-1}b^{n-1}+\dots+a_0$ mit $a_0,\dots, a_{n-1}\in I$. Da $b$ ganz über $I$ ist, ist $b$ insbesondere ganz über $A$. Folglich gilt $b\in C$ und damit auch $b^0,\dots, b^{n-1}\in C$. Also ist $b^n\in I\cdot C$ und $b\in\sqrt{I\cdot C}$.
-		\item[ii$\Rightarrow$i:] Sei $b\in\sqrt{I\cdot C}$. Nach Definition gibt es $n>0$ sodass $b^n\in I\cdot C$. Das bedeutet, es existieren $a_1,\dots, a_r\in I$, $c_1,\dots, c_r\in C$ mit $b^n = a_1c_1+\dots+a_rc_r$. Da $c_1,\dots, c_r$ ganz über $A$ sind, ist $A[c_1,\dots, c_r] = C'$ endlich erzeugt als $A$-Modul (Korollar 6.5).
+		\item[\ref{lem:6.11:i} $\Rightarrow$ \ref{lem:6.11:ii}:] Sei $b^n = a_{n-1}b^{n-1}+\dots+a_0$ mit $a_0,\dots, a_{n-1}\in I$. Da $b$ ganz über $I$ ist, ist $b$ insbesondere ganz über $A$. Folglich gilt $b\in C$ und damit auch $b^0,\dots, b^{n-1}\in C$. Also ist $b^n\in I\cdot C$ und $b\in\sqrt{I\cdot C}$.
+		\item[\ref{lem:6.11:ii} $\Rightarrow$ \ref{lem:6.11:i}:] Sei $b\in\sqrt{I\cdot C}$. Nach Definition gibt es ein $n>0$, sodass $b^n\in I\cdot C$. Das bedeutet, es existieren $a_1,\dots, a_r\in I$, $c_1,\dots, c_r\in C$ mit $b^n = a_1c_1+\dots+a_rc_r$. Da $c_1,\dots, c_r$ ganz über $A$ sind, ist $A[c_1,\dots, c_r] = C'$ als $A$-Modul endlich erzeugt (\cref{kor:endl algebra}).
 		
-		Sei $\<b_1,\dots, b_m\>_A = C'$. Betrachte folgende $A$-lineare Abbildung:
-		$$\phi\colon C'\longto C', c'\mapsto b^n\cdot c'$$
+		Sei $\<b_1,\dots, b_m\>_A = C'$. Betrachte die folgende $A$-lineare Abbildung
+		\[\phi\colon C'\longto C', c'\mapsto b^n\cdot c'.\]
 		Es gilt $\im\phi\subseteq I\cdot C'$. Also gibt es $a_{ij}\in I$ mit
-		$$b^n\cdot b_j = \sum_{i = 1}^{n}a_{ij}b_i\enspace .$$
-		Definiere $p(t) = \chi_{(a_{ij})}= \det(t\delta_{ij}-a_{ij})$ normiert und es gilt (vgl. Beweis von Lemma 6.3) $p(b^n) = 0$. Außerdem $p(t) -t^n \in I[t]$. Damit ist $b^n$ aber ganz über $I$, also ist auch schon $b$ ganz über $I$.
+		\[b^n\cdot b_j = \sum_{i = 1}^{n}a_{ij}b_i .\]
+		Definiere $p(t) = \chi_{(a_{ij})}= \det(t\delta_{ij}-a_{ij})$ (normiert). Es gilt (vgl. Beweis von \cref{lem:ganzheit}) $p(b^n) = 0$. Außerdem ist $p(t) -t^n \in I[t]$. Damit ist $b^n$ aber ganz über $I$, also ist auch schon $b$ ganz über $I$.
+		\qedhere
 	\end{description}
 \end{proof}
 
 \begin{defi}
-	Sei $A$ Integritätsbereich. $A$ heißt normal genau dann, wenn $A$ ganz abgeschlossen in $\Quot(A)$ ist.
+	Sei $A$ ein Integritätsbereich. $A$ heißt \emph{normal} genau dann, wenn $A$ ganz abgeschlossen in $\Quot(A)$ ist.
 \end{defi}
-\begin{lem} 
-	Sei $A\subseteq B$ Ringerweiterung, $A$, $B$ Integritätsbereiche, $A$ normal, $I\subseteq A$ Ideal. Sei $b\in B$ ganz über $I$. Sei
+\begin{lem} \label{lem:6.13}
+	Sei $A\subseteq B$ eine Ringerweiterung, $A$ und $B$ Integritätsbereiche, $A$ normal und $I\subseteq A$ ein Ideal. Sei $b\in B$ ganz über $I$. Sei
 	$$m_b(t) = t^n+a_{n-1}t^{n-1}+\dots +a_0\in K[t]$$
-	das Minimalpolynom von $b$ über $K\coloneqq \Quot(A)$. Dann gilt $a_0,\dots, a_{n-1}\in\sqrt{I}$.
+	das Minimalpolynom von $b$ über $K := \Quot(A)$. Dann gilt $a_0,\dots, a_{n-1}\in\sqrt{I}$.
 \end{lem}
 
 \begin{proof}
-	Sei $L/K$ eine Erweiterung von $K$, sodass $\exists y_1,\dots, y_n\in L$ mit $m_b(t) = (t-y_1)\dots(t-y_n)$. Sei $f\in A[t]$ normiert mit $f(t) -t^{\deg(f)}\in I[t]$, sodass $f(b) = 0$. Dann ist $f$ Vielfaches von $m_b = m_{y_i}$. Also $f(y_i= 0)$ und damit sind $y_1,\dots, y_n$ ganz über $I$.
+	Sei $L/K$ eine Erweiterung von $K$, sodass $y_1,\dots, y_n\in L$ mit $m_b(t) = (t-y_1)\dots(t-y_n)$ existieren. Sei $f\in A[t]$ normiert mit $f(t) -t^{\deg(f)}\in I[t]$, sodass $f(b) = 0$. Dann ist $f$ ein Vielfaches von $m_b = m_{y_i}$. Also $f(y_i= 0)$ und damit sind $y_1,\dots, y_n$ ganz über $I$.
 	
-	Sei $C$ der ganze Abschluss von $A$ in $B$. Nach Lemma 6.11 ist $y_i\in\sqrt{I\cdot C}$.
-	$$a_{n-k} = (-1)^k\sum_{1\leq i_1<\dots <i_k\leq n}y_{i_1}\dots y_{i_k}\in \sqrt{I\cdot C} \qquad (k = 1,\dots, n)$$
-	Nach Lemma 6.11 sind damit auch $a_0,\dots, a_{n-1}$ ganz über $I$. Insbesondere sind $a_0,\dots, a_{n-1}$ ganz über $A$. Da $A$ normal ist, müssen $a_0,\dots, a_{n-1}\in A$. Wende nun Lemma 6.11 mit $B = K$ an und erhalte $a_0,\dots, a_{n-1}\in \sqrt{I}$.
+	Sei $C$ der ganze Abschluss von $A$ in $B$. Nach \cref{lem:6.11} ist $y_i\in\sqrt{I\cdot C}$.
+	Sodann folgt \[a_{n-k} = (-1)^k\sum_{\mathclap{1\le i_1<\dots <i_k\le n}}y_{i_1}\dots y_{i_k}\in \sqrt{I\cdot C}\] für $k = 1,\dots, n$.
+	Nach \cref{lem:6.11} sind damit auch $a_0,\dots, a_{n-1}$ ganz über $I$. Insbesondere sind $a_0,\dots, a_{n-1}$ ganz über $A$. Da $A$ normal ist, folgt bereits $a_0,\dots, a_{n-1}\in A$. Wende nun \cref{lem:6.11} mit $B = K$ an und erhalte $a_0,\dots, a_{n-1}\in \sqrt{I}$.
 \end{proof}
 
 \begin{satz}[Going down]
-	Sei $A\subseteq B$ ganze Ringerweiterung. $A$ und $B$ seien dabei Integritätsbereiche, $A$ normal.
+	Sei $A\subseteq B$ eine ganze Ringerweiterung. $A$ und $B$ seien dabei Integritätsbereiche sowie $A$ normal.
 	
-	Seien $p_1,p_2\in \Spec A$ mit $p_1\subseteq p_2$ und sei $q_2\in\Spec B$ mit $q_2\cap A = p_2$. Dann gibt es $q_1\in\Spec B$ mit $q_1\cap A = p_1$ und $q_1\subseteq q_2$.
+	Seien $\fp_1,\fp_2\in \Spec A$ mit $\fp_1\subseteq \fp_2$ und sei $\fq_2\in\Spec B$ mit $\fq_2\cap A = \fp_2$. Dann gibt es $\fq_1\in\Spec B$ mit $\fq_1\cap A = \fp_1$ und $\fq_1\subseteq \fq_2$.
 	
-	Merkbild: %TODO: Insert merkbild here
-	
+	Merkbild:
+	\begin{center}
+		\begin{tikzcd}
+			B & \exists\fq_1 \arrow[mapsto]{d} \arrow[Subseteq]{r} & \fq_2 \arrow[mapsto]{d} \\
+			A \arrow{u}[swap]{\textup{ganz}} & \fp_1 \arrow[Subseteq]{r} & \fp_2
+		\end{tikzcd}
+	\end{center}
 \end{satz}
 \begin{proof}
-	Es genügt zu zeigen: \begin{equation}(p_1\cdot B_{q_2})\cap A = p_1\end{equation}
+	Es genügt, \begin{equation}(p_1\cdot B_{q_2})\cap A = p_1 \tag{*}\label{eq:goingdown}\end{equation} zu zeigen, da daraus nach einer Übung ein $\fq_1' \in \Spec B_{\fq_2}$ mit $\fq_1'\cap A = \fp_1$ existiert und wir dann $\fq_1 := \fq_1'\cap B\in\Spec B$ mit $\fq_1\cap A = (\fq_1'\cap B)\cap A = \fp_1$ und $\fq_1\subseteq \fq_2$ definieren können.
 	
-	(Denn: Sei $(p_1\cdot B_q)\cap A = p_1$. Dann folgt aus einer Übung: $\exists q_1' \in \Spec B_{q_2}$ mit $q_1'\cap A = p_1$. Definiere $q_1 \coloneqq q_1'\cap B\in\Spec B\Rightarrow q_1\cap A = (q_1'\cap B)\cap A = p_1$ und $q_1\subseteq q_2$.)
-	
-	\noindent
-	Zeige (1): \begin{description}
-		\item[\glqq$\supseteq$\grqq:] $\checkmark$
-		\item[\glqq$\subseteq$\grqq:] Sei $x\in (p_1\cdot B_{q_2})\cap A$ und angenommen $x\notin p_1$. Da $x\in p_1\cdot B_{q_2} = (p_1\cdot B)\cdot B_{q_2}$, gibt es $y\in p_1\cdot B$, $s\in B-q_2$ mit $x = \frac ys$. Mit Lemma 6.11 (setze $C = B$) ist $y$ ganz über $p_1$. Sei $K\coloneqq \Quot(A)$. Betrachte das Minimalpolynom $m_y(t) \in K[t]$ von $y$ über $K$. Wir schreiben 
-		$$m_y(t) = t^n+a_{n-1}t^{n-1}+\dots+a_0$$
-		Dann folgt mit Lemma 6.13, dass $a_0,\dots, a_{n-1}\in\sqrt{p_1} = p_1$.
+	Wir zeigen nun also \eqref{eq:goingdown}.
+	\begin{description}
+		\item[\glqq$\supseteq$\grqq:] Klar.
+		\item[\glqq$\subseteq$\grqq:] Sei $x\in (\fp_1\cdot B_{\fq_2})\cap A$. Angenommen, $x\notin \fp_1$. Da $x\in \fp_1\cdot B_{\fq_2} = (\fp_1\cdot B)\cdot B_{\fq_2}$, gibt es $y\in \fp_1\cdot B$, $s\in B\setminus \fq_2$ mit $x = \frac ys$. Mit \cref{lem:6.11} (setze $C = B$) ist $y$ ganz über $\fp_1$. Sei $K := \Quot(A)$. Betrachte das Minimalpolynom $m_y(t) \in K[t]$ von $y$ über $K$. Wir schreiben 
+		\[m_y(t) = t^n+a_{n-1}t^{n-1}+\dots+a_0.\]
+		Dann folgt mit \cref{lem:6.13}, dass $a_0,\dots, a_{n-1}\in\sqrt{\fp_1} = \fp_1$.
 		
-		Da $x = \frac ys\in A\setminus\{0\}$, ist $s = \frac yx$ (in $\Quot(B))$ und $\frac 1x \in K$. Damit gilt
-		$$m_s(t) = t^n+\frac{a_{n-1}}xt^{n-1}+\dots + \frac {a_0}{x^n}$$
-		ist das Minimalpolynom von $s$ über $K$. Definiere $\tilde{a_i}\coloneqq \frac{1}{x^{n-i}}a_i$. Es gilt $s\in B-q_2\subseteq B\Rightarrow$ $s$ ganz über $A$; also folgt mit Lemma 6.13 (mit $I = A$), dass $\tilde{a_0},\dots, \tilde{a_{n-1}}\in A$.
+		Da $x = \frac ys\in A\setminus\{0\}$, ist $s = \frac yx$ (in $\Quot(B))$ und $\frac 1x \in K$. Damit ist
+		\[m_s(t) = t^n+\frac{a_{n-1}}xt^{n-1}+\dots + \frac {a_0}{x^n}\]
+		das Minimalpolynom von $s$ über $K$. Definiere $\tilde{a}_i := \frac{1}{x^{n-i}}a_i$. Es gilt $s\in B\setminus \fq_2\subseteq B$, also ist $s$ ganz über $A$; also folgt mit \cref{lem:6.13} (mit $I = A$), dass $\tilde{a}_0,\dots, \tilde{a}_{n-1}\in A$.
 		
-		Nach Annahme ist $x\notin p_1$. Aber $\tilde{a_i}\cdot x^{n-1} = a_i\in p_1$. Da $x^{n-1}$ nicht in $p_1$ ist, muss $\tilde{a_i}\in p_1$ gelten. Daraus folgt nun
-		$$s^n = -(\tilde{a_{n.1}}s^{n-1}+\dots+\tilde{a_1})\in p_1B\subseteq p_2\cdot B\subseteq q_2$$
-		im Widerspruch zu $s\notin q_2$.
+		Nach Annahme ist $x\notin p_1$. Aber $\tilde{a}_i\cdot x^{n-1} = a_i\in \fp_1$. Da $x^{n-1}$ nicht in $\fp_1$ ist, muss $\tilde{a_i}\in \fp_1$ gelten. Daraus folgt nun
+		\[s^n = -(\tilde{a}_{n.1}s^{n-1}+\dots+\tilde{a}_1)\in \fp_1B\subseteq \fp_2\cdot B\subseteq \fq_2\]
+		im Widerspruch zu $s\notin \fq_2$.
+		\qedhere
 	\end{description}
 \end{proof}
 
