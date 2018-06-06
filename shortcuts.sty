@@ -73,6 +73,8 @@
 \DeclareMathOperator{\Ann}{Ann}
 \DeclareMathOperator{\M}{M}
 \DeclareMathOperator{\Jn}{Jn}
+\DeclareMathOperator{\TT}{T}
+\DeclareMathOperator{\ad}{ad}
 
 \let\ker\undefined %I want controll
 \DeclareMathOperator{\im}{im}
@@ -115,3 +117,6 @@
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\verteq}{\rotatebox{90}{$\,=$}}
+\newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}

@@ -1028,7 +1028,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	Sei $B$ eine $A$-Algebra. Falls ${}_AB$ ein endlich erzeugter $A$-Modul ist, dann ist $B$ eine endlich erzeugte $A$-Algebra; die Umkehrung ist im Allgemeinen falsch (Gegenbeispiel ist z.B. der Polymomring).
 \end{beme}
 
-\begin{lem}
+\begin{lem} \label{lem:endl erz transitiv}
 	Sei $B$ eine $A$-Algebra und $N$ ein $B$-Modul. Falls $N$ ein endlich erzeugter $B$-Modul und ${}_AB$ endlich erzeugt als $A$-Modul ist, dann ist ${}_AN$ endlich erzeugt als $A$-Modul.
 \end{lem}
 \begin{proof}
@@ -1126,11 +1126,11 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\end{enumerate}
 \end{proof}
 
-\begin{satz}
+\begin{prop} \label{prop:3.12}
 	Sei $B$ eine $A$-Algebra, $C$ eine $B$-Algebra und $M$ ein $A$-Modul. Dann existiert genau ein Isomorphismus
 	$$C\tp_A M  \longmapsto  C\tp_B(B\tp_AM)$$
 	von $C$-Moduln mit $c\tp x\mapsto c\tp(1\tp x)$.
-\end{satz}
+\end{prop}
 \begin{proof}
 	Nach \cref{lem:3.11} existiert genau ein Isomorphismus von $B$-Moduln
 	\[ f\colon C\tp_AM\longto C\tp_B(B\tp_AM)\]
@@ -1839,10 +1839,8 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 		exakt nach \cref{kor:lokalisation erhaelt exaktheit}. Also ist $\ker(f_\fm) \cong (\ker f)_\fm$, und genauso folgt $\coker(f_\fm)\cong (\coker f)_\fm$.
 		
 		Da $f_\fm$ injektiv ist, ist $\ker (f_\fm) = 0$. Das impliziert, dass für alle $\fm\in \Max A$ gilt: $(\ker f)_\fm = 0$, und mit \cref{thm:lokalglobal} folgt $\ker f = 0$, also ist $f$ injektiv.
-		
-		Der Beweis für Surjektivität verläuft analog.
-		\qedhere
 	\end{description}
+	Der Beweis für Surjektivität verläuft analog.
 \end{proof}
 
 \begin{satz}
@@ -1857,7 +1855,7 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 	
 \end{satz}
 \begin{proof}
-	Übung.
+	\href{http://www.math.uni-bonn.de/ag/stroppel/Franzen_Algebra_1_Uebung/Blatt6a.pdf}{Übungsblatt 6}.
 \end{proof}
 
 
@@ -1875,29 +1873,29 @@ Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 	\begin{enumerate}
 		\item Sei $I\subseteq A$ ein Ideal. Dann gilt $I\cdot S^{-1}A = \set*{\frac{a}{s}\given a\in I, s\in S}$ und $(I\cdot S^{-1}A)\cap A = \set{a\in A\given \exists n\in S: na \in I}$.
 		
-		Insbesondere gilt $I\cdot S^{-1}A = (1)\Leftrightarrow I\cap S\neq \emptyset$.
-		\item Ist $J\subseteq S^{-1}A$ ein Ideal, so folgt $(J\cap A)\cdot S^{-1}A = J$
-		\item Falls $\fp\in\Spec A$ mit $\fp\cap S = \emptyset$, so gilt $\fp\cdot S^{-1}A\in \Spec (S^{-1}A)$ und $(\fp\cdot S^{-1}A)\cap A = \fp$.
+		Insbesondere gilt $I\cdot S^{-1}A = (1)\Leftrightarrow I\cap S\neq \emptyset$. \label{thm:idealkorr:i}
+		\item Ist $J\subseteq S^{-1}A$ ein Ideal, so folgt $(J\cap A)\cdot S^{-1}A = J$. \label{thm:idealkorr:ii}
+		\item \label{thm:idealkorr:iii} Falls $\fp\in\Spec A$ mit $\fp\cap S = \emptyset$, so gilt $\fp\cdot S^{-1}A\in \Spec (S^{-1}A)$ und $(\fp\cdot S^{-1}A)\cap A = \fp$.
 		\item Die Abbildungen
 		\begin{eqnarray*}
 			\Spec(S^{-1}A) &\xlongleftrightarrow{1:1}& \set{\fp\in \Spec A \given \fp\cap S = \emptyset} \\
 			\fq &\longmapsto& \fq\cap A \\
 			\fp\cdot S^{-1}A &\longmapsfrom& \fp
 		\end{eqnarray*}
-		sind wohldefiniert und zueinander inverse Bijektionen sowie inklusionserhaltend (für $\fp\subseteq \fp'$ gilt also $\fp\cdot S^{-1}A\subseteq \fp'\cdot \fp'S^{-1}A$ und für $\fq\subseteq \fq'$ gilt $\fq\cap A\subseteq \fq'\cap A$).
+		sind wohldefiniert und zueinander inverse Bijektionen sowie inklusionserhaltend (für $\fp\subseteq \fp'$ gilt also $\fp\cdot S^{-1}A\subseteq \fp'\cdot \fp'S^{-1}A$ und für $\fq\subseteq \fq'$ gilt $\fq\cap A\subseteq \fq'\cap A$). \label{thm:idealkorr:iv}
 	\end{enumerate}
 \end{satz}
 
 \lecture{17. Mai 2018}
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}
-		\item Zeige $I\cdot S^{-1}A = \{\frac as | a\in I, s\in S\}$
+	\begin{enumerate}[label=\ref{thm:idealkorr:\roman*}]
+		\item Wir zeigen zunächst $I\cdot S^{-1}A = \set*{\frac{a}{s}\given a\in I, s\in S}$.
 		\begin{description}
-			\item[\glqq $\supseteq$\grqq:] Sei $a\in I, s\in S\Rightarrow \frac as = \frac 1s\cdot \frac a1\in I\cdot S^{-1}A$, denn für $f\colon A\to S^{-1}A$ ist $\frac a1 = f(a) \in f(I)$.
-			\item[\glqq$\subseteq$\grqq:] Sei $x\in I\cdot S^{-1}A\Rightarrow$ es existieren $a_i\in I, b_i\in A, s_i\in S_i$ mit $x = \sum \frac {b_{i}}{s_{i}}\cdot \frac{a_i}1$. Definiere nun $s\coloneqq \prod s_i, a\coloneqq \sum_ib_i\prod_{j\neq i}s_ja_i\in I$. Damit ist $x = \frac a s$.
+			\item[\glqq $\supseteq$\grqq:] Sei $a\in I, s\in S$. Dann ist $\frac as = \frac 1s\cdot \frac a1\in I\cdot S^{-1}A$, denn für $f\colon A\to S^{-1}A$ ist $\frac a1 = f(a) \in f(I)$.
+			\item[\glqq$\subseteq$\grqq:] Sei $x\in I\cdot S^{-1}A$. Somit existieren $a_i\in I, b_i\in A, s_i\in S_i$ mit $x = \sum \frac {b_{i}}{s_{i}}\cdot \frac{a_i}1$. Definiere nun $s := \prod s_i$ sowie $a := \sum_ib_i\prod_{j\neq i}s_ja_i\in I$. Damit ist $x = \frac a s$.
 		\end{description}
-		Zeige nun noch, dass $(I\cdot S^{-1}A)\cap A = \{a\in A|\exists n\in S: na\in I\}$. Sei $a\in A$.
+		Wir zeigen nun noch, dass $(I\cdot S^{-1}A)\cap A = \set{a\in A \given \exists n\in S: na\in I}$. Sei $a\in A$.
 		\begin{eqnarray*}
 			a\in (I\cdot S^{-1}A)\cap A &\Leftrightarrow & \frac a1\in I\cdot S^{-1}A\\
 			&\Leftrightarrow& \exists b \in I, t\in S: \frac a1 = \frac bt\\
@@ -1906,20 +1904,14 @@ Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 		\end{eqnarray*}
 		Dabei gilt die letzte Äquivalenz, denn:
 		\begin{description}
-			\item[\glqq$\Rightarrow$\grqq:] $sta = sb\in I\Rightarrow u\coloneqq  st$
-			\item[\glqq$\Leftarrow$\grqq:] $t\coloneqq u, s = 1, b = ua$
+			\item[\glqq$\Rightarrow$\grqq:] $sta = sb\in I\Rightarrow u :=  st$
+			\item[\glqq$\Leftarrow$\grqq:] $t := u, s = 1, b = ua$
 		\end{description}
-		\item Zeige $J\subseteq (J\cap A)\cdot S^{-1}A$ (die andere Inklusion gilt ohnehin immer).
+		\item Es genügt, $J\subseteq (J\cap A)\cdot S^{-1}A$ zu zeigen, da die andere Inklusion trivial gilt. Sei also $x = \frac as\in J$. Damit haben wir $\frac a1 = \frac s1\cdot \frac as \in J$. Folglich ist $a\in J\cap A$; das bedeutet aber nach \ref{thm:idealkorr:i}, dass $\frac as \in (J\cap a)\cdot S^{-1}A$ gilt.
+		\item Sei $\fp\in\Spec A$ mit $\fp\cap S=\emptyset$. Seien $\frac as, \frac bt\in S^{-1}A\setminus (\fp\cdot S^{-1}A)$. Wir zeigen, dass dann auch $\frac as\cdot \frac bt\notin\fp\cdot S^{-1}A$ folgt. Es gilt $a,b\notin \fp$ nach \ref{thm:idealkorr:i}. Folglich haben wir $ab\notin \fp$. Angenommen $\frac{ab}{st}\in\fp\cdot S^{-1}A$, so existieren $c\in \fp,u\in S$ mit $\frac{ab}{st} = \frac cu$. Das bedeutet widerum, dass es ein $v\in S$ gibt, sodass $v(uab-stc) = 0$, also $vuab = vstc\in \fp$. Da $ab\notin \fp$, muss $vu\in\fp$ gelten. Es gilt aber $vu\in S$ und $S\cap\fp = \emptyset$. Das ist ein Widerspruch.
 		
-		Sei $x\in J$, schreibe $x = \frac as$. Damit haben wir $\frac a1 = \frac s1\cdot \frac as \in J$. Folglich ist $a\in J\cap A$; das bedeutet (nach Punkt (i)), dass $\frac as \in (J\cap a)\cdot S^{-1}A$ gilt.
-		\item Sei $\fp\in\Spec A$ mit $\fp\cap S=\emptyset$. Seien $\frac as, \frac bt\in S^{-1}A$ mit $\frac as,bt\notin \fp\cdot S^{-1}A$. Zeige, dass dann auch $\frac as\cdot \frac bt\notin\fp\cdot S^{-1}A$.
-		
-		Es gilt $a,b\notin \fp$ (wegen (i)). Folglich haben wir $ab\notin \fp$. Angenommen $\frac{ab}{st}\in\fp\cdot S^{-1}A\Rightarrow \exists c\in \fp\exists u\in S: \frac{ab}{st} = \frac cu$.
-		
-		Das bedeutet jetzt aber, dass es ein $v\in S$ gibt, sodass $v(uab-stc) = 0$, also $vuab = vstc\in \fp$. Da $ab\notin \fp$, muss $vu\in\fp$ gelten. Aber: $vu\in S$ und $S\cap\fp = \emptyset$. Das ist ein Widerspruch.
-		
-		Zeige noch $(\fp\cdot S^{-1}A)\cap  A = \fp$. Wegen (i) gilt $(p\cdot S^{-1}A)\cap A = \{a\in A|\exists u\in S: na \in \fp\} = \fp$, da $na\in \fp\Leftrightarrow a \in \fp$.
-		\item Nichts zu zeigen.
+		Es verbleibt, $(\fp\cdot S^{-1}A)\cap  A = \fp$ zu zeigen. Wegen \ref{thm:idealkorr:i} gilt $(p\cdot S^{-1}A)\cap A = \set{a\in A\given\exists u\in S: na \in \fp} = \fp$, da $na\in \fp\Leftrightarrow a \in \fp$.
+		\item Nichts zu zeigen. \qedhere
 	\end{enumerate}
 \end{proof}
 
@@ -1927,94 +1919,93 @@ Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 	\leavevmode
 	\begin{enumerate}
 		\item Sei $\fp\in\Spec A$. Dann gibt es eine Bijektion
-		$$\Spec A_{\fp} \xlongleftrightarrow{1:1} \{\fp'\in \Spec A|\fp'\cap(A\setminus \fp) = \emptyset\}  = \{\fp'\in \Spec A|\fp'\subseteq \fp\}$$
+		\[\Spec A_{\fp} \xlongleftrightarrow{1:1} \set{\fp'\in \Spec A\given\fp'\cap(A\setminus \fp) = \emptyset}  = \set{\fp'\in \Spec A\given\fp'\subseteq \fp}.\]
 		
-		Damit folgt $A_{\fp}$ ist lokaler Ring mit maximalem Ideal $\fp\cdot A_{\fp}$.
+		Damit folgt, dass $A_{\fp}$ ein lokaler Ring mit dem maximalem Ideal $\fp\cdot A_{\fp}$ ist.
 		\item Sei $t\in A$. Dann erhalten wir die Bijektion
-		$$\Spec A[t^{-1}] \xlongleftrightarrow{1:1}\{\fp\in \Spec A\fp\cap\{t^0, t^1,\dots\} = \emptyset\} = \{\fp\in \Spec A|\fp\not \ni t\}$$
+		\[\Spec A[t^{-1}] \xlongleftrightarrow{1:1}\set{\fp\in \Spec A\given\fp\cap\{t^0, t^1,\dots\} = \emptyset} = \set{\fp\in \Spec A\given\fp\not \ni t}. \]
 	\end{enumerate}
 \end{bsp}
 
 
 \subsection{Lokalisation von Algebren}
 \begin{beme}
-	Sei $f\colon A\to B$ Ringhomomorphismus, sei $S\subseteq A$ multiplikative Teilmenge.
+	Sei $f\colon A\to B$ ein Ringhomomorphismus sowie sei $S\subseteq A$ eine multiplikative Teilmenge.
 	\begin{enumerate}
-		\item Da $S^{-1}B (= S^{-1}({}_AB))\cong S^{-1}A\otimes_A B$ nach Satz 5.8 gilt, ist $S^{-1}B$ ein Ring, sogar eine $S^{-1}A$-Algebra.
-		\item $f(S)\subseteq B$ ist multiplikative Teilmenge.
-		\item Sei $s\in S$ und betrachte $f(s)$. Sei $g\colon B\to S^{-1}B$. Dann ist $g(f(s)) = \frac{f(s)}{1} \in (S^{-1}B)^{\times}$. Denn: Es gilt 
-		$$\frac{f(s)}{1} \cdot \frac{1}{s} = 1$$
-		in $S^{-1}B$, denn 
-		$$\frac{f(s)}{s} = \frac{f(s)}{1}\cdot \frac 1s = 1 = \frac{1_b}{1_A} \Longleftrightarrow \exists u\in S: u(f(s)-s\cdot 1_B) = 0$$
-		Letzteres gilt aber, denn $s\cdot 1_B = f(s)\cdot 1_B$.
+		\item Da $S^{-1}B = S^{-1}({}_AB) \cong S^{-1}A\tp_A B$ nach \cref{prop:5.8} gilt, ist $S^{-1}B$ ein Ring und sogar eine $S^{-1}A$-Algebra.
+		\item $f(S)\subseteq B$ ist eine multiplikative Teilmenge.
+		\item Sei $s\in S$ und betrachte $f(s)$. Sei $g\colon B\to S^{-1}B$. Dann ist $g(f(s)) = \frac{f(s)}{1} \in (S^{-1}B)^{\times}$, da $\frac{f(s)}{1} \cdot \frac{1}{s} = 1$
+		in $S^{-1}B$, da dies genau dann der Fall ist, wenn ein $u\in S$ mit $u(f(s)-s\cdot 1_B) = 0$ existiert. Letzteres gilt aber, denn $s\cdot 1_B = f(s)\cdot 1_B$.
 		
-		Also gilt: $g(f(s)) \subseteq (S^{-1}B)^{\times}$. Damit kommutiert folgendes Diagramm:
+		Also gilt $g(f(s)) \subseteq (S^{-1}B)^{\times}$. Damit kommutiert folgendes Diagramm.
 		\begin{center}
 		\begin{tikzcd}
 			B \arrow{d} \arrow{r}{g} & S^{-1}B \\
-			f(S)^{-1}B \arrow{ur}[swap]{\exists!\phi\text{ Ringhom.}}	& 
+			f(S)^{-1}B \arrow[dashrightarrow]{ur}[swap]{\exists!\phi\text{ Ringhom.}}	& 
 		\end{tikzcd}
 		\end{center}
-		Es gilt: für $x = \frac{b}{f(s)}\in f(S)^{-1}B$ ist 
-		$$\phi(\frac{b}{f(s)}) = \frac{b}{s}$$
-		$f(S)^{-1}B$ ist $S^{-1}A$-Algebra via
+		Für $x = \frac{b}{f(s)}\in f(S)^{-1}B$ folgt $\phi\left(\frac{b}{f(s)}\right) = \frac{b}{s}$.
+		$f(S)^{-1}B$ ist eine $S^{-1}A$-Algebra via
 		\begin{center}
 			\begin{tikzcd}
 				A \arrow{d} \arrow{r}{f} & B\arrow{d} \\
-				f(S)^{-1}a\arrow{r}	& f(S)^{-1}B
+				S^{-1}A\arrow{r}	& f(S)^{-1}B
 			\end{tikzcd}
+			% TODO: Punkt nach dem Diagramm
 		\end{center}
-		Nachrechnen: $\phi$ ist Homomorphismus von $S^{-1}A$-Algebren.
+		Man rechnet schnell nach, dass $\phi$ Homomorphismus von $S^{-1}A$-Algebren ist.
 		\item $\phi$ ist Isomorphismus von $S^{-1}A$-Algebren.
 		\begin{proof}
-			Die Surjektivität ist klar nach der Definition von $\phi$. Weiterhin ist $\phi$ injektiv: Sei $x = \frac{b}{f(s)}\in f(S)^{-1}B$ mit $\phi(x) = 0$. Also haben wir $0 = \frac bs \Rightarrow \exists u\in S: 0  = ub = f(u)\cdot b \Rightarrow \frac{b}{f(s)} = 0$.
+			Die Surjektivität ist klar nach der Definition von $\phi$. Weiterhin ist $\phi$ injektiv, denn sei $x = \frac{b}{f(s)}\in f(S)^{-1}B$ mit $\phi(x) = 0$. Dann erhalten wir $0 = \frac bs$; es existiert also ein $u\in S$ mit $0 = ub = f(u)\cdot b$, woraus $\frac{b}{f(s)} = 0$ folgt.
 		\end{proof}
 	\end{enumerate}	
 \end{beme}
 \begin{kor}
-	Sei $I\subseteq A$ Ideal und $S\subseteq A$ multiplikative Teilmenge mit $I\cap S = \emptyset$. Sei $\pi\colon A \to \fak{A}{I}$. Dann existiert ein Isomorphismus
-	$$\fak{S^{-1}A}{I\cdot S^{-1}A} \xlongrightarrow{\cong} \pi(S)^{-1}(\fak{A}{I})$$
+	Sei $I\subseteq A$ ein Ideal und $S\subseteq A$ eine multiplikative Teilmenge mit $I\cap S = \emptyset$. Sei $\pi\colon A \to \fak{A}{I}$. Dann existiert ein Isomorphismus
+	\[\fak{S^{-1}A}{I\cdot S^{-1}A} \xlongrightarrow{\cong} \pi(S)^{-1}(\fak{A}{I})\]
 	von $A$-Algebren.
 \end{kor}
 \begin{proof}
-	$$\pi(S)^{-1}(\fak{A}{I}) \cong S^{-1}(\fak AI) \cong S^{-1}A\otimes_A(\fak AI) \cong \fak{S^{-1}A}{IS^{-1}A}$$
-	wobei der letzte Isomorphismus sogar Isomorphismus von $A$-Algebren ist.
+	Es gilt
+	\[\pi(S)^{-1}(\fak{A}{I}) \cong S^{-1}(\fak AI) \cong S^{-1}A\tp_A(\fak AI) \cong \fak{S^{-1}A}{IS^{-1}A},\]
+	wobei der letzte Isomorphismus sogar in Isomorphismus von $A$-Algebren ist.
 \end{proof}
-\begin{kor}
-	Sei $\fp\in \Spec A$ und $S = A\setminus \fp$. Dann
-	$$\fak{A_{\fp}}{\fp\cdot A_{\fp}}\cong \pi(A\setminus \fp)^{-1}(\fak{A}{\fp}) = \operatorname{Quot}(\fak{A}{\fp}) \eqqcolon \kappa(\fp)$$
-	
+\begin{kor} \label{kor:5.18}
+	Sei $\fp\in \Spec A$ und $S = A\setminus \fp$. Dann gilt
+	\[\fak{A_{\fp}}{\fp\cdot A_{\fp}}\cong \pi(A\setminus \fp)^{-1}(\fak{A}{\fp}) = \operatorname{Quot}(\fak{A}{\fp}) =: \kappa(\fp).\]
 \end{kor}
-\begin{kor}
-Sei $f\colon A\to B$ Ringhomomorphismus, $S\subseteq A$ multiplikative Teilmenge. Dann haben wir folgende Bijektion:
+\begin{kor} \label{kor:5.19}
+Sei $f\colon A\to B$ ein Ringhomomorphismus und $S\subseteq A$ eine multiplikative Teilmenge. Dann erhalten wir die folgende Bijektion:
 \begin{eqnarray*}
-	\Spec S^{-1}B & \longleftrightarrow & \{\fq \in \Spec B| (\fq \cap A)\cap S = \emptyset\}\\
+	\Spec S^{-1}B & \xlongleftrightarrow{1:1} & \set{\fq \in \Spec B \given (\fq \cap A)\cap S = \emptyset}\\
 	\fq' & \longmapsto & \fq'\cap B\\
 	\fq S^{-1}B & \longmapsfrom & \fq
 \end{eqnarray*}
 \end{kor}
 \begin{proof}
-	$$\Spec S^{-1}B = \Spec f(S)^{-1}B \xleftrightarrow{1:1} \{\fq \in \Spec B|\fq\cap f(S) = \emptyset\}
-	 = \{\fq \in \Spec B|(\fq \cap A)\cap S = \emptyset\}$$
+	Es gilt \[
+		\equalto{\Spec S^{-1}B}{\Spec f(S)^{-1}B} 
+		\xleftrightarrow{1:1} 
+		\equalto{\set{\fq \in \Spec B\given\fq\cap f(S) = \emptyset}}{\set{\fq \in \Spec B\given(\fq \cap A)\cap S = \emptyset}},
+	\]
 	 denn $\fq\cap f(S) = \emptyset \Leftrightarrow f^{-1}(\fq)\cap S = \emptyset$.
 \end{proof}
-Sei $f\colon A \to B$ Ringhomomorphismus. Betrachte $f^{*}\colon \Spec B \to \Spec A, f^{*}(\fq) = \fq\cap A$. Wir können mit den Resultaten von eben die Faser $(f^{*})^{-1}(\{\fp\})$ beschreiben:
+Sei $f\colon A \to B$ ein Ringhomomorphismus. Betrachte $f^{*}\colon \Spec B \to \Spec A, f^{*}(\fq) = \fq\cap A$. Wir können mit den Resultaten von eben die Faser $(f^{*})^{-1}(\{\fp\})$ beschreiben.
 \begin{kor}
-	Sei $f\colon A \to B$, sei $\fp\in \Spec A$. Dann haben wir
-	$$\{\fq\in \Spec B|\fq\cap A = \fp\}\xlongleftrightarrow{1:1}\Spec(B\otimes_A\kappa(\fp))$$
+	Sei $f\colon A \to B$, sei $\fp\in \Spec A$. Dann gilt
+	\[\set{\fq\in \Spec B\given\fq\cap A = \fp}\xlongleftrightarrow{1:1}\Spec(B\tp_A\kappa(\fp)).\]
 \end{kor}
 \begin{proof}
-	$$\Spec(B\otimes_A\kappa(\fp)) = \Spec(B\otimes_A(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec((B\otimes_A A_{\fp}) \otimes_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}}))$$
-	nach Proposition 3.12, wobei
-	$$B\otimes_A A_{\fp} = (A\setminus \fp)^{-1}B = B\fp$$
-	also erhalten wir
-	$$\Spec((B\otimes_A A_{\fp}) \otimes_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec(B_{\fp}\otimes_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec(\fak{B_{\fp}}{(\fp A_{\fp})\cdot B_{\fp}})$$
-	Dabei ist $(\fp A_{\fp})\cdot B_{\fp} = \fp B_{\fp}$, folglich haben wir eine 1:1-Korrespondenz zu
-	$$\{\fq'\in \Spec B_{\fp}|\fq'\supseteq \fp B_{\fp}\} \xleftrightarrow{1:1} \{\fq \in \Spec B|\fq\cap A \supseteq \fp, \fq \cap A \subseteq \fp\}$$
-	(Denn $\Spec B_{\fp} \xleftrightarrow{1:1} \{q\in \Spec B| (q\cap A)\cap(A\setminus \fp) = \emptyset\} , \fq'\mapsto \fq'\cap B$, für $\fq' \in \Spec B_{\fp}$ gilt
-	$$\fq' \supseteq \fp B_{\fp} \Leftrightarrow \fq'\cap B \supseteq \fp B \Leftrightarrow \fq' \cap A \supseteq \fp \qquad \text{)}$$
+	Es gilt
+	\[\Spec(B\tp_A\kappa(\fp)) = \Spec(B\tp_A(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec((B\tp_A A_{\fp}) \tp_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}}))\]
+	nach \cref{kor:5.18,prop:3.12}. Wegen $B\tp_A A_{\fp} = (A\setminus \fp)^{-1}B = B_\fp$ erhalten wir also
+	\[\Spec((B\tp_A A_{\fp}) \tp_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec(B_{\fp}\tp_{A_{\fp}}(\fak{A_{\fp}}{\fp A_{\fp}})) = \Spec(\fak{B_{\fp}}{(\fp A_{\fp})\cdot B_{\fp}})\]
+	Dabei ist $(\fp A_{\fp})\cdot B_{\fp} = \fp B_{\fp}$, folglich haben wir eine Bijektion
+	\[\set{\fq'\in \Spec B_{\fp}\given \fq'\supseteq \fp B_{\fp}} \xleftrightarrow{1:1} \set{\fq \in \Spec B\given\fq\cap A \supseteq \fp, \fq \cap A \subseteq \fp},\]
+	da, unter Beachtung der Bijektion $\Spec B_{\fp} \xleftrightarrow{1:1} \set{q\in \Spec B\given (q\cap A)\cap(A\setminus \fp) = \emptyset} , \fq'\mapsto \fq'\cap B$ aus \cref{kor:5.19}, für $\fq' \in \Spec B_{\fp}$ dann $\fq' \supseteq \fp B_{\fp}$ genau dann gilt, wenn $\fq'\cap B \supseteq \fp B$, also genau dann, wenn $\fq' \cap A \supseteq \fp$.
+
 	Damit erhalten wir
-	$$\Spec(B\otimes_A\kappa(\fp)) \xlongleftrightarrow{1:1} \{\fq\in \Spec B|\fq\cap  A = \fp\}$$
+	\[\Spec(B\tp_A\kappa(\fp)) \xlongleftrightarrow{1:1} \set{\fq\in \Spec B\given\fq\cap  A = \fp}.\qedhere\]
 \end{proof}
 
 
@@ -2024,33 +2015,35 @@ Sei $B$ eine $A$-Algebra.
 \begin{defi}
 	\leavevmode
 	\begin{enumerate}
-		\item Sei $b\in B$. $b$ heißt ganz (\glqq integral\grqq) über $A$, wenn $\exists p(t)\in A[t]$, $p$ normiert (\glqq monic\grqq) mit $p(b) = 0$.
-		\item $\{b\in B|b \text{ ganz über } A\}$ heißt ganzer Abschluss (\glqq integral closure\grqq) von $A$ in $B$.
-		\item $B$ heißt ganz über $A$, wenn jedes $b\in B$ ganz über $A$ ist.
-		\item $A$ heißt ganz abgeschlossen in $B$, wenn für alle $b\in B$ gilt: $b$ ganz über $A\Leftrightarrow b\in\im (A\to B)$.
+		\item Sei $b\in B$. $b$ heißt \emph{ganz} (\enquote{integral}) über $A$, wenn ein normiertes (\enquote{monic}) $p(t)\in A[t]$ mit $p(b) = 0$ existiert.
+		\item Die Menge $\set{b\in B\given \text{$b$ ganz über $A$}}$ heißt \emph{ganzer Abschluss} (\enquote{integral closure}) von $A$ in $B$.
+		\item $B$ heißt \emph{ganz} über $A$, wenn jedes $b\in B$ ganz über $A$ ist.
+		\item $A$ heißt \emph{ganz abgeschlossen} in $B$, wenn $b\in B$ genau dann ganz ist, wenn  $b$ in $\im (A\to B)$ liegt.
 	\end{enumerate}
 \end{defi}
 \begin{bsp}
 	Sei $A = \IZ$, $B = \IQ$. Sei $x = \frac rs\in \IQ$ ganz über $\IZ$ und sei $(r,s) = (1)$. Dann existiert $p(t) = t^{n}+a_{n-1}t^{n-1}+\dots + a_0\in\IZ[t]$ mit 
-	\begin{eqnarray*}
-		 0 &=& p(x) = \frac{r^n}{s^n}+a_{n-1}\frac{r^{n-1}}{s^{n-1}}+\dots+a_0\\
-		 \Leftarrow 0 &=& r^k + a_{n-1}r^{n-1}s+\dots+ a_0s^{n}
-	\end{eqnarray*}
-	Folglich: $s$ teilt $r^n$; damit ist $s\in \IZ^{\times}$ und $x\in\IZ$.
+	\begin{align*}
+		 0 &= p(x) = \frac{r^n}{s^n}+a_{n-1}\frac{r^{n-1}}{s^{n-1}}+\dots+a_0\\
+		 \Leftrightarrow \quad 0 &= r^n + a_{n-1}r^{n-1}s+\dots+ a_0s^{n}.
+	\end{align*}
+	Folglich gilt $s \mid r^n$; damit folgt $s\in \IZ^{\times}$ und $x\in\IZ$.
 \end{bsp}
-Bezeichnungen: Sei $A\to B$ Ringhomomorphismus.
+
+\medskip
+
+Bezeichnungen. Sei $A\to B$ ein Ringhomomorphismus.
 \begin{enumerate}
-	\item Seien $b_1,\dots,b_n\in B$. Definiere $A[b_1,\dots, b_n]\coloneqq$ kleinste $A$-Unteralgebra, die $b_1,\dots, b_n$ enthält; also $A[b_1,\dots, b_n] = \im (\ev_{(b_1,\dots, b_n)}\colon A[t_1,\dots, t_n]\to B)$.
-	\item $A\to B$ heißt endlich genau dann, wenn ${}_AB$ endlich erzeugter $A$-Modul ist.
+	\item Seien $b_1,\dots,b_n\in B$. Definiere $A[b_1,\dots, b_n]$ als die kleinste $A$-Unteralgebra, die $b_1,\dots, b_n$ enthält; also $A[b_1,\dots, b_n] = \im (\ev_{(b_1,\dots, b_n)}\colon A[t_1,\dots, t_n]\to B)$.
+	\item $A\to B$ heißt endlich genau dann, wenn ${}_AB$ ein endlich erzeugter $A$-Modul ist.
 \end{enumerate}
 
-
-\begin{lem}
-	Sei $A\to B$ Ringhomomorphismus, $b\in B$. Dann sind äquivalent:
+\begin{lem} \label{lem:ganzheit}
+	Sei $A\to B$ ein Ringhomomorphismus sowie $b\in B$. Dann sind äquivalent:
 	\begin{enumerate}
-		\item $b$ ganz über $A$
-		\item $A[b]$ ist endlich über $A$
-		\item Es gibt $C\subseteq B$ endliche $A$-Unteralgebra mit $b\in C$.
+		\item $b$ ist ganz über $A$. \label{lem:ganzheit:i}
+		\item $A[b]$ ist endlich über $A$. \label{lem:ganzheit:ii}
+		\item Es gibt eine endliche $A$-Unteralgebra $C\subseteq B$ mit $b\in C$. \label{lem:ganzheit:iii}
 	\end{enumerate}
 \end{lem}
 
@@ -2059,69 +2052,66 @@ Bezeichnungen: Sei $A\to B$ Ringhomomorphismus.
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[i$\Rightarrow$ii:] Seien $a_0,\dots, a_{n-1}\in A$ mit $b^n = -(a_{n-1}b^{n-1}+\dots+a_0)$. Sei $p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0$.
+		\item[\ref{lem:ganzheit:i} $\Rightarrow$ \ref{lem:ganzheit:ii}:] Seien $a_0,\dots, a_{n-1}\in A$ mit $b^n = -(a_{n-1}b^{n-1}+\dots+a_0)$. Sei $p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0$. Per Definition gilt $A[b] = \set{q(b)\given q\in A[t]}$. Sei also nun $q\in A[t]$. Es existieren folglich $c,r\in A[t]$ mit $q = c\cdot p +r $ und $\deg r < \deg p$. Also ist $A[b] = \set{r(b)\given r\in A[t], \deg r <n} = \<1, b, b^2,\dots, b^{n-1}\>_A$.
 		
-		Wir wissen $A[b] = \{q(b)|q\in A[t]\}$.
-	
-		Sei also nun $q\in A[t]$. Es existieren folglich $c,r\in A[t]$ mit $q = c\cdot p +r $ und $\deg r < \deg p$. Also ist $A[b] = \{r(b)|r\in A[t], \deg r <n\} = \<1, b, b^2,\dots, b^{n-1}\>_A$.
-		
-		\item[ii$\Rightarrow$iii:] Klar.
-		\item[iii$\Rightarrow$i:] Sei $C = \<b_1, \dots, b_n\>_A$. Betrachte die $A$-lineare Abbildung $C\to C, c\mapsto bc$. Wähle $a_{ij}\in A$ mit 
-		$$b\cdot b_j = \sum_{i=1}^{n}a_{ij}b_i$$
-		Betrachte $M = (b\cdot \delta_{ij}-a_{ij})$. Dann ist $M\cdot (b_1,\dots, b_n)^{\operatorname{T}} = 0$. Wir multiplizieren mit der adjunkten Matrix zu $M$:
-		$$\det M\cdot E_n = M^{ad} M \cdot (b_1,\dots, b_n)^{\operatorname{T}} = 0$$
+		\item[\ref{lem:ganzheit:ii} $\Rightarrow$ \ref{lem:ganzheit:iii}:] Klar.
+		\item[\ref{lem:ganzheit:iii} $\Rightarrow$ \ref{lem:ganzheit:i}:] Sei $C = \<b_1, \dots, b_n\>_A$. Betrachte die $A$-lineare Abbildung $C\to C, c\mapsto bc$. Wähle $a_{ij}\in A$ mit 
+		\[b\cdot b_j = \sum_{i=1}^{n}a_{ij}b_i.\]
+		Betrachte $M = (b\cdot \delta_{ij}-a_{ij})$. Dann ist $M\cdot (b_1,\dots, b_n)^{\TT} = 0$. Wir multiplizieren mit der adjunkten Matrix zu $M$ und erhalten
+		\[\det M\cdot E_n = M^{\ad} M \cdot (b_1,\dots, b_n)^{\TT} = 0.\]
 		Wir erhalten also $(\det M)b_j = 0$ für alle $j\in\{1,\dots, n\}$; insbesondere $(\det M)c = 0$ für alle $c\in C$. Es gilt folglich $\det M  = 0$.
 		
 		Definiere nun $p(t) \coloneqq \chi_{(a_{ij})}(t) = \det (t\cdot \delta_{ij}-a_{ij})$. Dann ist $p(t)\in A[t]$ normiert und $p(b) = 0$. Folglich ist $b$ ganz über $A$.
+		\qedhere
 	\end{description}
 \end{proof}
 
-\begin{lem}
+\begin{lem} \label{lem:ganzheit2}
 	Seien $A\to B\to C$ Rinhomomorphismen.
 	\begin{enumerate}
-		\item Ist $B$ endliche $A$-Algebra und $C$ endliche $B$-Algebra, dann ist $C$ endliche $A$-Algebra.
-		\item Ist $B$ ganz über $A$, $C$ ganz über $B\Rightarrow C$ ganz über $A$.
+		\item Ist $B$ eine endliche $A$-Algebra und $C$ eine endliche $B$-Algebra, so ist $C$ eine endliche $A$-Algebra. \label{lem:ganzheit2:i}
+		\item Ist $B$ ganz über $A$ und $C$ ganz über $B$, so ist $C$ ganz über $A$. \label{lem:ganzheit2:ii}
 	\end{enumerate}	
 \end{lem}
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}
-		\item Folgt sofort aus Lemma 3.7 %TODO: Referenz einfügen
-		\item Sei $c\in C$. Da $c$ ganz über $B$ ist, existieren $b_0, \dot, b_{n-1}\in B$ mit $c^n+b_{n-1}c^{n-1}+\dots +b_0 = 0$. Da $b_0, \dots, b_{n-1}$ ganz über $A$ sind, ist $A[b_1,\dots, b_{n-1}]$ endlich über $A$.
+	\begin{enumerate}[label=\ref{lem:ganzheit2:\roman*}]
+		\item Folgt sofort aus \cref{lem:endl erz transitiv}.
+		\item Sei $c\in C$. Da $c$ ganz über $B$ ist, existieren $b_0, \dots, b_{n-1}\in B$ mit $c^n+b_{n-1}c^{n-1}+\dots +b_0 = 0$. Da die $b_0, \dots, b_{n-1}$ ganz über $A$ sind, ist $A[b_1,\dots, b_{n-1}]$ endlich über $A$, da die $b_i$ ganz über $A[b_0,\ldots,b_{n-1}]$ sind und dies dann mit \ref{lem:ganzheit2:i} induktiv folgt.
 		
-		(Denn $b_i$ ist ganz über $A[b_0,\dots, b_{i-1}]$. Induktiv folgt mit (i), dass $A[b_0, \dots, b_{n-1}]$ endlich über $a$ ist. Dann ist $c$ ganz über $A[b_1,\dots, b_{n-1}]$. Also ist $A[b_0,\dots, b_{n-1}, c]\subseteq C$ endlich über $A$ und enthält $c$. Nach Lemma 6.3 ist $c$ ganz über $A$.)
-		
+		Dann ist $c$ ganz über $A[b_1,\dots, b_{n-1}]$. Also ist $A[b_0,\dots, b_{n-1}, c]\subseteq C$ endlich über $A$ und enthält $c$. Nach \cref{lem:ganzheit} ist $c$ ganz über $A$.
+		\qedhere
 	\end{enumerate}
-	
 \end{proof}
 
 \begin{kor}
-	Sei $A\to B$ Ringhomomorphismus. Dann sind äquivalent:
+	Sei $A\to B$ eine Ringhomomorphismus. Dann sind äquivalent:
 	\begin{enumerate}
-		\item $B$ ist endliche $A$-Algebra
-		\item es gibt $b_1,\dots, b_n\in B$, $b_i$ ganz über $A$, mit $B = A[b_1,\dots, b_n]$
-		\item $B$ ist endlich erzeugt und ganz über $A$.
+		\item $B$ ist eine endliche $A$-Algebra. \label{lem:endl algebra:i}
+		\item Es existieren $b_1,\dots, b_n\in B$, welche ganz über $A$ sind, mit $B = A[b_1,\dots, b_n]$. \label{lem:endl algebra:ii}
+		\item $B$ ist endlich erzeugt und ganz über $A$. \label{lem:endl algebra:iii}
 	\end{enumerate}
 \end{kor}
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[iii$\Rightarrow$ii:] $\checkmark$
-		\item[ii$\Rightarrow$i:] Lemma 6.4 und Lemma 6.3
-		\item[i$\Rightarrow$iii:] endliche Algebren sind insbesondere endlich erzeugt und außerdem ganz nach Lemma 6.3
+		\item[\ref{lem:endl algebra:iii} $\Rightarrow$ \ref{lem:endl algebra:ii}:] Klar.
+		\item[\ref{lem:endl algebra:ii} $\Rightarrow$ \ref{lem:endl algebra:i}:] Siehe \cref{lem:ganzheit} und \cref{lem:ganzheit2}.
+		\item[\ref{lem:endl algebra:i} $\Rightarrow$ \ref{lem:endl algebra:iii}:] Endliche Algebren sind insbesondere endlich erzeugt und außerdem ganz nach \cref{lem:ganzheit}.
+		\qedhere
 	\end{description}
 \end{proof}
 
 \begin{kor}
-	Sei $A\to B$ Ringhomomorphismus. Sei $\overline{A}$ der ganze Abschluss von $A$ in $B$. Dann ist $\overline{A}$ Unteralgebra von $B$.
+	Sei $A\to B$ ein Ringhomomorphismus. Sei $\overline{A}$ der ganze Abschluss von $A$ in $B$. Dann ist $\overline{A}$ eine Unteralgebra von $B$.
 \end{kor}
 \begin{proof}
-	Seien $b, b'\in B$ ganz über $A$. Zu zeigen: $b+b', b\cdot b'$ ganz über $A$. Aber $b+b', b\cdot b'\in A[b, b']$, wobei letzteres ganz ist.
+	Seien $b, b'\in B$ ganz über $A$. Es ist zu zeigen, dass $b+b'$ und $b\cdot b'$ ganz über $A$ sind. Es gilt aber $b+b', b\cdot b'\in A[b, b']$, wobei letzteres ganz ist.
 \end{proof}
 
 \subsection{Going up}
-\begin{lem} Sei $A\hookrightarrow B$ ganze Ringerweiterung (das heißt injektiver Ringhomomorphismus). $A, B$ Integritätsbereiche. Dann gilt: 
-	$$B \text{ Körper}\Longleftrightarrow A\text{ Körper}$$
+\begin{lem} Sei $A\hookrightarrow B$ eine ganze Ringerweiterung (also ein injektiver Ringhomomorphismus) sowie $A$ und $B$ Integritätsbereiche. Dann gilt: 
+	\[B \text{ Körper}\Longleftrightarrow A\text{ Körper}.\]
 \end{lem}
 \begin{proof} Sei ohne Einschränkung $A\subseteq B$.
 \begin{description}
