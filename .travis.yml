@@ -1,5 +1,5 @@
 ---
-language: python
+language: generic
 sudo: required
 install:
 - sudo apt-get -qq update
@@ -8,6 +8,7 @@ install:
 - sudo ./install-tl-ubuntu --profile default.profile --repository http://ctan.mirrors.hoobly.com/systems/texlive/tlnet
 - sudo apt-get install -y latexmk
 - eval "$(sed 's/^/export /' /etc/environment)"
+- source ~/virtualenv/python3.6/bin/activate
 deploy:
   provider: pages
   skip_cleanup: true
