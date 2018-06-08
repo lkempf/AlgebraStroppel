@@ -16,7 +16,7 @@ deploy:
   target_branch: gh-pages
   on:
     branch: master
-script: python3 build.py
+script: python build.py
 python:
   - "3.6"
 dist: trusty
