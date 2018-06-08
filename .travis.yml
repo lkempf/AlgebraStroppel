@@ -1,5 +1,5 @@
 ---
-language: generic
+language: python
 sudo: required
 install:
 - sudo apt-get -qq update
