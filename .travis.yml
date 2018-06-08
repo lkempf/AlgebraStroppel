@@ -12,13 +12,13 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: github-pages/
+  local_dir: out/
   target_branch: gh-pages
   on:
     branch: master
-script: 
-  - latexmk -pdf -outdir=github-pages einfalg.tex algebraI.tex
-  - latexmk -outdir=github-pages -c
+script: python build.py
+python:
+  - "3.6"
 dist: trusty
 os: linux
 env:
