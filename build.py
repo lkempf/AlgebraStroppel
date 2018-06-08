@@ -6,7 +6,7 @@ import os.path
 
 for f in glob.glob("*.tex"):
     print("Building file '{}'".format(f))
-    date = subprocess.run(["git", "log", "-1", "--format=\"%ai\"", f], stdout=subprocess.PIPE)
+    date = subprocess.call(["git", "log", "-1", "--format=\"%ai\"", f], stdout=subprocess.PIPE)
     date = date.stdout.decode("utf-8").split(" ")[0][1:]
 
     lines = []
