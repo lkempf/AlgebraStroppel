@@ -2340,13 +2340,13 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 		\item $A = k[t_1,t_2,\dots]\Rightarrow A$ weder noethersch noch artinsch
 	\end{enumerate}
 \end{bsp}
-\begin{beme}
+\begin{bem}
 	\leavevmode
 	\begin{enumerate}
 		\item $A$ artinsch impliziert $A$ noethersch (aus Zeitgründen können wir hier keinen Beweis geben)
 		\item In der Vorlesung werden wir uns auf noethersche Ringe beschränken. (Mehr zu artinschen Ringen : Atiyah-Macdonald Kapitel 8)
 	\end{enumerate}
-\end{beme}
+\end{bem}
 \subsection{Noethersche Ringe und Moduln}
 \begin{satz}
 	Sei $A$ ein Ring und $M$ ein $A$-Modul. Dann sind äquivalent:
@@ -2366,6 +2366,146 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 		$$ N = \<x_1,\dots, x_n\>\subseteq N_m\subseteq N$$
 	\end{description}
 \end{proof}
+
+\lecture{7. Juni 2018}
+
+\begin{satz}
+	Sei $A$ Ring.
+	\begin{enumerate}
+		\item Sei $0\to M'\xto{i} M\xto{\pi} M''\to 0$ kurze exakte Sequenz von $A$-Moduln. Dann gilt:
+		$$M\text{ noethersch}\Longleftrightarrow M'\text{ und }M''\text{ noethersch}$$
+		\item Sei $A$ noethersch, $M$ endlich erzeugter $A$-Modul $\Rightarrow M$ noethersch.
+	\end{enumerate}
+	
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item \begin{description}
+			\item[\glqq$\Rightarrow$\grqq:] Sei $M_1''\subseteq M_2''\subseteq \dots$ eine Kette von Untermoduln von $M''$. Dann ist $\pi^{-1}(M_1'')\subseteq \pi^{-1}(M_2'')\subseteq \dots$ Kette in $M$. Also existiert $n$, sodass für alle $m\geq n$ gilt: $\pi^{-1}(M_m'') = \pi^{-1}(M_n'')$. Da $\ker\pi\subseteq M_n''\subseteq M_m''$ ist, folgt $M_m'' = M_n''$. Für $M'$ ähnlich.
+			\item[\glqq$\Leftarrow$\grqq:] Sei $M_1\subseteq M_2\subseteq\dots$ Kette in $M$. Betrachte die Ketten
+			$$i^{-1}(M_1)\subseteq i^{-1}M_2\subseteq\dots\qquad \text{in }M'$$
+			und
+			$$\pi(M_1)\subseteq \pi(M_2)\subseteq \dots \qquad \text{in }M''$$
+			Es gibt also ein $n$, sodass für alle $m\geq n$ gilt: $i^{-1}(M_m) = i^{-1}(M_n)$ und $\pi(M_m) = \pi(M_n)$.
+			
+			Damit gilt bereits $M_m = M_n$, denn: Sei $x\in M_m$. Dann ist $\pi(x) \in \pi(M_m) = \pi(M_n)\Rightarrow \exists x'\in M_n$ mit $\pi(x) = \pi(x') \Rightarrow x-x'\in\ker \pi = \im  i \Rightarrow \exists y \in M'$ mit $i(y) = x-x'\in M_m\Rightarrow y\in i^{-1}(M_m) = i^{-1}(M_n)$, also $x = i(y) +x' \in M_n$.
+		\end{description}
+		\item $M$ endlich erzeugter $A$-Modul $\Rightarrow \exists \phi\colon A^n\to M$ $A$-linear und surjektiv. $A^n$ ist noethersch (verwende kurze exakte Sequenz $0\to A^{n-1}\to A^n\to A \to 0$, nutze Induktion). Nach (i) ist $M$ damit auch noethersch.
+	\end{enumerate}
+\end{proof}
+
+\begin{satz}
+	Sei $A$ Ring.
+	\begin{enumerate}
+		\item Falls $A$ noethersch, $I\subseteq A$ Ideal $\Rightarrow \fak{A}{I}$ ist noethersch.
+		\item Falls $A$ noethersch, $S\subseteq A$ multiplikative Teilmenge $\Rightarrow S^{-1}A$ noethersch.
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Folgt sofort aus Satz 7.6 (i)
+		\item $J\subseteq S^{-1}A \Rightarrow (J\cap A) \cdot S^{-1}A = J$. 
+	\end{enumerate}
+\end{proof}
+\begin{satz}[Hilberts Basissatz]
+	Sei $A$ noetherscher Ring. Dann ist $A[t_1,\dots, t_n]$ noethersch.
+\end{satz}
+\begin{proof}
+	Ohne Einschränkung $n = 1$. Zeige, dass jedes Ideal $J\subseteq A[t]$ endlich erzeugt ist.
+	
+	Angenommen $J\subseteq A[t]$ Ideal ist nicht endlich erzeugt. Wähle $f_1\in J\setminus\set{0}$ mit $d_1 \coloneqq \deg f_1$ minimal. Dabei gilt $(f_1) \subsetneq J$. Wähle $f_2\in J\setminus (f_1)$ von minimalem Grad $d_2$\dots
+	
+	Erhalte Folge $f_1,f_2,f_3,\dots \in J$ mit $f_n\notin (f_1,\dots, f_{n-1})$ und $d_n = \deg f_n$ ist minimal. Insbesondere gilt
+	$$d_1\leq d_2\leq d_3 \leq \dots$$
+	Sei $a_n\in A$ mit $f_n(t) = a_nt^{d_n}+$ Terme kleineren Grades.
+	Definiere $I \coloneqq (a_1,\dots, a_2)$. Da $A$ noethersch ist, ist $I$ endlich erzeugt. Folglich existiert ein $n$, sodass $I = (a_1,\dots, a_n)$.
+	
+	Betrachte nun $a_{n+1} \in (a_1,\dots, a_n)$. Also gibt es $u_i$, sodass $a_{n+1} = \sum_{i = 1}^n u_ia_i$. Definiere nun
+	$$ g\coloneqq \sum_{i = 1}^n u_if_it^{d_{n+1}-d_i} \in J$$
+	Damit gilt $\deg g = d_{n+1} = \deg f_{n+1}$ und der Leitkoeffizient von $g$ ist $\sum_{i = 1}^n u_ia_i = a_{n+1}$.
+	Wir haben $f_{n+1}\notin (f_1,\dots, f_n)\ni g$, also $f_{n+1}-g\notin (f_1,\dots, f_n)$ und $\deg(f_{n+1}-g)<d_{n+1}$ im Widerspruch zur Konstruktion.
+\end{proof}
+
+\subsection{Minimale Primideale}
+\begin{defi} Sei $A$ Ring. $\fp\in \Spec A$ heißt minimales Primideal, wenn gilt: $\forall \fp'\in Spec A$ mit $\fp'\subseteq \fp \Rightarrow \fp' = \fp$. Wir bezeichnen die Menge aller minimalen Primideale mit $\operatorname{MinSpec}A\coloneqq \set{\fp\in\Spec A\given \fp\text{ minimal}}$.
+\end{defi}
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item Falls $A$ Integritätsbereich $\Rightarrow \operatorname{MinSpec} (A) = \set 0$.
+		\item Sei $k$ Körper. Betrachte $A = \fak{k[x,y]}{(xy)}$. Dann $\operatorname{MinSpec}(a) = \set {(x), (y)}$.
+		
+		Denn: $$\Spec A \xlongrightarrow{1:1}\set {\fp\in\Spec k[x,y]\given p\supseteq (xy)}$$
+		Für $\fp\in \Spec k[x,y]$ mit $\fp\supseteq (xy)$ folgt aus  $xy\in \fp$ aber $ x\in \fp$ oder $y \in\fp$, also $(x)subseteq \fp$ oder $(y)\subseteq \fp$. Falls $\fp$ minimal ist, dann $(x) = \fp$ oder $(y) = \fp$.
+	\end{enumerate}
+\end{bsp}
+\begin{satz}
+	Sei $A$ neoterscher Ring. Dann ist $\#\operatorname{MinSpec}(A)<\infty$.
+\end{satz}
+\begin{proof}
+	Sei $\Sigma = \set{I\given I\subsetneq A\text{ Ideal}, \#\operatorname{MinSpec}(\fak{A}{I}) = \infty}$. Zeige $\Sigma = \emptyset$. Angenommen, $\Sigma \neq \emptyset$. Da $A$ noethersch ist, existiert $I\in \Sigma, I$ maximal in $\Sigma$. Also $I\notin \Spec A$ (sonst $\operatorname{MinSpec}(\fak{A}I) = \set {(0)}$). 
+	
+	Also existieren $a,b\in A\setminus I$ mit $ab\in I$. Folglich gilt $I+(a), I+(b)\supsetneq I$, also $I+(a), I+(b)\notin \Sigma$. Damit folgt, dass $\operatorname{MinSpec}(\fak A{I+(a)}), \operatorname{MinSpec}(\fak A{I+(b)})$ endlich sind.
+	
+	Sei $\fq\in\operatorname{MinSpec}(\fak AI)\Rightarrow \pi^{-1}(\fq)\in \Spec A$ mit $I\subseteq \pi^{-1}(\fq)$, also $ab\in \pi^{-1}(\fq) \eqqcolon \fp$. Also gilt $a\in \fp$ oder $b\in \fp$; sei ohne Einschränkung $a\in \fp\Rightarrow \fp\supseteq I+(a)\Rightarrow \pi_a(\fp) \in\Spec(\fak{A}{I+(a)})$, sogar $\pi_{a}(\fp) \in \operatorname{MinSpec}(\fak A{I+(a)})$ (wobei $\pi_a\colon A\to \fak A{I+(a)}$ ist).
+	
+	Also haben wir
+	INSERT \glqq DIAGRAMM\grqq\ HIER
+	
+	Das ist ein Widerspruch.
+\end{proof}
+
+\subsection{Transzendenzbasen}
+\begin{defi} Sei $K\subseteq L$ eine Körpererweiterung. Eine Familie $(x_i)_{i\in I}$. in $L$ heißt Transzendenzbasis von $L$ über $K$, falls
+\begin{enumerate}
+	\item $(x_i)_{i\in I}$ ist algebraisch unabhänig über $K$
+	\item $K(x_i)_{i\in I}\subseteq L$ ist algebraisch.
+\end{enumerate}
+\end{defi}
+\begin{satz}
+	Sei $K\subseteq L$ Körpererweiterung, seien $x_i\in L$ ($i\in I$).
+	\begin{enumerate}
+		\item Ist $(x_i)_{i\in I}$ algebraisch unabhängig und maximal $\Rightarrow (x_i)_{i\in I}$ ist Transzendenzbasis
+		\item Ist $K(x_i)_{i\in I}\subseteq L$ algebraisch und $(x_i)_{i\in I}$ minimal mit dieser Eigenschaft $\Rightarrow (x_i)_{i\in I}$ ist Transzendenbasis. 
+		\item $K\subseteq L$ hat eine Transzendenbasis.
+	\end{enumerate}
+\end{satz}
+\begin{proof} Ähnlich wie Basen von Vektorräumen über Körpern.
+\end{proof}
+
+\begin{satz}
+	Seien $(x_i)_{i\in I}$, $(y_j)_{j\in J}$ Transzendenbasen von $K\subseteq L$. Dann existiert eine Bijektion $I\to J$.
+\end{satz}
+\begin{proof}
+	Wir beweisen nur den Fall $\#I, \#J <\infty$. Es genügt zu zeigen: Seien $(x_1,\dots, x_m)$ algebraisch unabhängig über $K$ und $(y_1,\dots, y_n)$ mit $K(y_1,\dots, y_n)\subseteq L$ algebraisch, dann ist $m\leq n$ und $\exists 1\leq j_{m+1}<\dots < j_n\leq n$ mit $K(x_1,\dots, x_m, y_{j_{m+1}},\dots, y_{j_n})\subseteq L$ algebraisch. Beweis per Induktion nach $m$:
+	\begin{description}
+		\item[$m = 1$:] Wähle $s$ minimal, sodass $\exists 1\leq i_1<\dots <i_s\leq n$ und $f(t_0,t_{i_1}, \dots, t_{i_j})\in K[t_0, t_{i_1},\dots, t_{i_j}]\setminus \set 0$ mit $f(x_1, y_{i_1}, \dots, y_{i_j}) = 0$. Es gilt $s\geq 1$ (da $x_1$ transzendent). Schreibe
+		$$f(t_0, t_{i_1},\dots, t_{i_j}) = \sum_{d\geq 0} f_d(t_0, t_{i_2}, \dots, t_{i_j})t_{i_1}^d$$
+		Es existiert also ein $d\geq 1$ mit $f_d \neq 0$ (sonst $f = f_0\Rightarrow$ Widerspruch zur Minimalität von $s$) und $f_d(x_1, y_{i_1},\dots, y_{i_j}) \neq 0$ (wieder Minimalität von $s$). Damit ist $y_{i_1}$ algebraisch über $K(x_1, y_{i_2},\dot, y_{i_j})\subseteq K(x_1,y_1,\dots, \hat{y_{i_1}},\dots, y_n)$.
+		\item[$m-1\to m$:] Insbesondere $(x_1,\dots, x_{m-1})$ algebraisch unabhängig. Nach Induktionsvoraussetzung ist $m-1\leq n$ und ohne Einschränkung $K(x_1,\dots, x_{m-1}, y_m,\dots, y_n)\subseteq L$ algebraisch. Außerdem $x_m$ transzendent über $K(x_1,\dots, x_{m-1})$. Nach dem Induktionsanfang ist $1\leq n-m+1$ und (nach eventuell umnummerieren) $K(x_1,\dots, x_{m-1})(y_m, y_{m+1}, \dots , y_n)\subseteq L$ algebraisch.
+	\end{description}
+\end{proof}
+\begin{defi}
+	Sei $K\subseteq L$ Körpererweiterung. Sei $(x_i)_{i\in I}$ Transzendenzbasis von $L$ über $K$. 
+	$$\operatorname{trdeg}(L|K) \coloneqq \# I\in\IZ_{\geq 0}\cup \{\infty\}$$
+	heißt Transzendenzgrad von $K\subseteq L$.
+\end{defi}
+
+\subsection{Noether-Normalisierung}
+\begin{satz}[Noether-Normalisierung]
+	Sei $k$ ein Körper, sei $A$ endlich erzeugte $k$-Algebra. Seien $I_1\subseteq \dots \subseteq I_m\subsetneq A$ Ideale. Dann exsitert $n\geq 0$ und $a_1,\dots, a_n\in A$ sowie $0\leq h_1\leq\dots \leq d_m\leq n$ sodass 
+	\begin{enumerate}
+		\item $a_1,\dots, a_n$ algebraisch unabhängig über $k$
+		\item $k[a_1,\dots, a_n]\subseteq A$ endlich ($\Leftrightarrow$ ganz)
+		\item $I_l\cap k[a_1,\dots, a_n] = (a_1,\dots, a_{h_l})$
+	\end{enumerate}
+	Zusatz: 
+	$$n = \max\limits_{\fp\in\Spec A} \operatorname{trdeg}(Q(A/\fp)|k) = \max\limits_{\fp \in \operatorname{MinSpec}(A)}\operatorname{trdeg}(Q(A/\fp)|k)$$
+\end{satz}
+
+
 
 
 \end{document}
