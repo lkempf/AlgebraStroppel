@@ -2495,7 +2495,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 
 \subsection{Noether-Normalisierung}
 \begin{satz}[Noether-Normalisierung]
-	Sei $k$ ein Körper, sei $A$ endlich erzeugte $k$-Algebra. Seien $I_1\subseteq \dots \subseteq I_m\subsetneq A$ Ideale. Dann exsitert $n\geq 0$ und $a_1,\dots, a_n\in A$ sowie $0\leq h_1\leq\dots \leq d_m\leq n$ sodass 
+	Sei $k$ ein Körper, sei $A$ endlich erzeugte $k$-Algebra. Seien $I_1\subseteq \dots \subseteq I_m\subsetneq A$ Ideale. Dann existiert $n\geq 0$ und $a_1,\dots, a_n\in A$ sowie $0\leq h_1\leq\dots \leq d_m\leq n$ sodass 
 	\begin{enumerate}
 		\item $a_1,\dots, a_n$ algebraisch unabhängig über $k$
 		\item $k[a_1,\dots, a_n]\subseteq A$ endlich ($\Leftrightarrow$ ganz)
@@ -2505,6 +2505,99 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 	$$n = \max\limits_{\fp\in\Spec A} \operatorname{trdeg}(Q(A/\fp)|k) = \max\limits_{\fp \in \operatorname{MinSpec}(A)}\operatorname{trdeg}(Q(A/\fp)|k)$$
 \end{satz}
 
+\lecture{11. Juni 2018}
+
+\begin{proof}
+	\begin{description}
+		\item[Schritt 1:] Sei $A = k[t_1,\dots, t_n]$ Polynomring. Sei $a\in A\setminus(A^{\times}\cup \{0\})$. Behauptung: es existieren $a_2,\dots, a_n\in A$ mit $k[a, a_2,\dots, a_n]\subseteq A$ endlich.
+		
+		Beweis: Für $\lambda = (\lambda_1,\dots, \lambda_n)\in\IZ_{\geq 0}^n$ schreibe $t^{\lambda} = t_1^{\lambda_1}\dots t_n^{\lambda_n}$. Schreibe $a = \sum_{\lambda\in\IZ_{\geq 0}^n} c_{\lambda}t^{\lambda}$ für gewisse $c_{\lambda}\in k$. Definiere
+		$$\Lambda_a \coloneqq \set{\lambda\in\IZ_{\geq 0}^n \given c_{\lambda}\neq 0}$$
+		Es gibt also $r_2,\dots, r_n\in\IZ_{\geq 0}$, sodass für alle $\lambda, \mu\in Lambda_a$, $\lambda\neq \mu$ gilt:
+		$$\lambda_1+r_2\lambda_2+\dots +r_n\lambda_n\neq \mu_1+r_2\mu s_2+\dots + r_n\mu_n$$
+		
+		(Denn: Setze 
+		$$R\coloneqq \max\limits_{\lambda\in\Lambda_a}\max_{i = 1,\dots, n}\lambda _i$$
+		Definiere $r_i\coloneqq (R+1)^{i-1}$. Seien $\lambda, \mu\in \Lambda_a$ mit $\lambda\neq \mu$. Definiere $m\coloneqq \max\set{i\in\set{1,\dots, n}\given \lambda_m \neq \mu_m}$, also insbesondere $m\geq 1$. Ohne Einschränkung sei $\lambda_m<\mu_m$. Betrachte %TODO: overfull hbox fixen
+		$$\sum_{i = 1}^nr_i\mu_i-r_i\lambda_i = r_m(\mu_m-\lambda_m)+\sum_{i = 1}^{m-1}r_i(\mu_i-\lambda_i)\geq r_m-\sum_{i = 1}^{m-1}r_iR = (R+1)^{m-1}-\sum_{i = 1}^{m-1} R(R+1)^{i-1} = 1\neq 0$$
+		)
+		
+		Definiere $a_i = t_i-t_i^{r_i}$ für $i = 2, \dots, n$. Es gilt $k[a,a_2,\dots, a_n][t_1] = k[t_1,\dots, t_n]$. Genügt zu zeigen, dass $t_1$ ganz über $k[a,a_2,\dots, a_n]$ ist. Sei $\mu\in\Lambda_a$ das eindeutig bestimmte Element, sodass
+		$$\mu_1+r_2\mu_2+\dots+r_k\mu_k = \max\limits_{\lambda\in\Lambda_a}(\lambda_1+r_2\lambda_2+\dots+r_n\lambda_n) \eqqcolon s$$
+		Es gilt 
+		$$0 = a-a = \sum_{\lambda\in\Lambda_a}c_{\lambda}t^{\lambda}-a = \sum c_{\lambda}t_1^{\lambda_1}(a_2+t_!^{r_2})^{\lambda_2}\dots (a_n+t_n^{r_n})^{\lambda_n} -a = b_st_i^s+b_{s-1}t_1^{s-1}+\dots +b_0$$
+		für gewisse $b_0,\dots, b_s\in k[a, a_2,\dots, a_n]$ und $b_s = c_{\mu} \in k\setminus \set{0} = A^{\times}$.
+		
+		Damit ist $t_1$ ganz über $k[a, a_2,\dots, a_n]$.
+		\item[Schritt 2:] Der Satz ist richtig für $A = k[t_1,\dots, t_n]$ und $m = 1$.
+		
+		Beweis: Induktion nach $n$ ($I = I_1)$: Der Fall $n = 0$ ist klar.
+		
+		Induktionsschritt von $n-1$ nach $n$: Falls $I = (0)$ ist die Aussage klar. Sei $I \neq (0)$. Sei $a_1\in I\setminus\set{0}$. Dann ist aber $a_1\notin A^{\times}\cup\{0\}$. Nach Schritt 1 existieren $a_2', \dots, a_n'\in A$ mit $k[a_1, a_2',\dots, a_n']\subseteq A$ endlich $\Rightarrow a_1, a_2',\dots, a_n'$ algebraisch unabhängig über $k$ (denn $\operatorname{trdeg}(k[a_1,a_2',\dots, a_n']|k) = n$). Damit ist $k[a_1, a_2',\dots, a_n']$ Polynomring. Betrachte $I' = I\cap k[a_2',\dots, a_n']$. Nach Induktionsvoraussetzung gibt es $a_2,\dots, a_n\in k[a_2',\dots, a_n']$ und $h \in \set{0,\dots, n}$ mit $k[a_2,\dots, a_n]\subseteq k[a_2',\dots, a_n']$ ganz (endlich) und $I'\cap k[a_2,\dots, a_n] = (a_2,\dots, a_h)$.
+		Automatisch sind $a_2,\dots, a_n$ algebraisch unabhängig über $k$.
+		$$\Rightarrow k[a_1,a_2,\dots, a_n]\subseteq k[a_1,a_2',\dots, a_n']\subseteq A$$
+		wobei beide Inklusionen ganz sind. Außerdem gilt
+		$$I\cap k[a_1,a_2,\dots, a_n] = (I\cap k[a_2,\dots, a_n]) + (a_i) = (a_2, \dots, a_k) + (a_1) = (a_1,\dots, a_k)$$
+		(da $a_i\in I$)
+		
+		(Denn: Sei $A$ eine $k$-Algebra, $x,y\in A$, $I\subseteq A$ Ideal mit $x\in I$. Dann gilt $I\cap k[x,y] = (x) + (I\cap k[y])$: \glqq$\supseteq$\grqq\ ist dabei klar. Zu \glqq$\subseteq$\grqq: Sei $f\in I\cap k[x,y]$. Dann gibt es $a_{ij}\in k$ mit
+		$$f = \sum_{i,j\geq 0}a_{ij}x^iy^j = \sum_{i>0, j\geq0}a_{ij}x^{i}y^j + \sum_{j\geq 0} a_{0j}y^j$$
+		und damit ist $\sum_{j\geq 0}a_{0j}y^j\in I\cap k[y]$.)
+		
+		\item[Schritt 3:] Satz ist richtig für $ A = k[t_1,\dots, t_n]$.
+		
+		Beweis per Induktion nach $m$: $m = 1$ ist Schritt 2.
+		
+		Induktionsschritt von $m-1$ nach $m$: Betrachte die Idealkette $I_1\subseteq\dots\subseteq I_{m-1}$. Nach Induktionsvoraussetzung gibt es $b_1,\dots, b_n\in A$ und $0\leq h_1\leq\dots\leq h_{m-1}\leq n$ mit $k[b_1,\dots, b_n]\subseteq A$ ganz und $I_l\cap k[b_1,\dots, b_n] = (b_1,\dots, b_{n_l})$ für $l = 1,\dots, m-1$. Definiere $s\coloneqq h_{m-1}$ und $J\coloneqq I_m\cap k[b_{s+1},\dots, b_n] (\subsetneq k[b_{s+1},\dots, k_n])$. Aus Schritt 2 folgt, dass $a_{s+1}, \dots, a_n\in k[b_{2+1},\dots, b_n]$ und $h_m\in \{s,\dots, n\}$ existieren, sodass $k[a_{s+1},\dots, a_n]\subseteq k[b_{s+1},\dots, b_n]$ ganz und $J\cap k[a_{s+1},\dots, a_n] = (a_s+1,\dots, a_{h_m})$. Definiere nun $a_i\coloneqq b_i$ für $i = 1,\dots, s$. Dann folgt:
+		$$k[a_1,\dots, a_n] \subseteq k[b_1,\dots, b_n]\subseteq A$$
+		wobei beide Inklusionen ganz sind. Außerdem gilt
+		$$I_l\cap k[a_1,\dots, a_n] = (I_l\cap k[b_1,\dots, b_n])\cap k[b_1,\dots, b_s, a_{s+1},\dots, a_n] = (b_1,\dots, b_{h_l})$$
+		für $l = 1,\dots, m-1$. Weiterhin haben wir 
+		$$I_m\cap k[a_1,\dots, a_n] = (a_1,\dots, a_s)+(I_k\cap k[a_{s+1},\dots, a_n]) = (a_1,\dots, a_{h_l})$$
+		
+		\item[Schritt 4:] Der Satz gilt allgemein.
+		
+		Beweis: $A$ ist eine endlich erzeugte $k$-Algebra. Es existiert also ein surjektiver $k$-Algebrenhomomorphismus
+		$$f\colon k[t_1,\dots, t_N]\longto A$$
+		Betrachte die Idealkette 
+		$$J_0\coloneqq \ker f\subseteq J_1\coloneqq f^{-1}(I_1)\subseteq\dots \subseteq dots J_m\coloneqq f^{-1}(I_m)\subseteq k[t_1,\dots, t_N]$$
+		Aus Schritt 3 folgt, dass $b_1,\dots, b_N\in k[t_1,\dots, t_N]$ und $0\leq j_1\leq\dots\leq j_m\leq N$ existieren mit $k[b_1,\dots, b_N]\subseteq k[t_1,\dots, t_N]$ ganz und $J_l\cap k[b_1,\dots, b_N] = (b_1,\dots, b_{j_l})$ für $l = 0,\dots, m$.
+		
+		Definiere $a_1 = f(b_{j_0+1}),\dots, a_n = f(b_{N})$ mit $n = N-j_0$. Dann sind $a_1,\dots, a_n$ algebraisch unabhängig über $k$.
+		
+		(Denn: \begin{center}
+			\begin{tikzcd}
+				k[t_{j_0+1},\dots, t_N] \arrow{r}{t_i\mapsto b_i}\arrow{d}{\ev_{a_i}} & k[t_1,\dots, t_N] \arrow{dl}{f} \\
+				A	& 
+			\end{tikzcd}
+		\end{center}
+		kommutiert und $\ker f = (b_1,\dots, b_{j_0}) \Rightarrow \ev_{(a_i)}$ injektiv.)
+		
+		Außerdem $k[a_1,\dots, a_n]\subseteq A$ endlich:
+		
+		INSERT DIAGRAMM HERE
+		
+		$\Rightarrow k[a_1,\dots, a_n]\subseteq A$ ganz. Es gilt, da $J_l\supseteq \ker f$:
+		$$I_l\cap k[a_1,\dots, a_n] = \overline{f}(\overline{f}^{-1}(I_1\cap k[a_1,\dots, a_n])) = \overline{f}(J_l\cap k[b_1,\dots, b_N]) = \overline{f}(b_1,\dots, b_{j_l}) = (a_1,\dots, a_{h_l})$$
+		wobei $h_l = j_l-j_0$.
+		
+		\item[Schritt 5:] Wir zeigen nun noch den Zusatz: Definiere
+		$$m_1 = \max_{\fp\in \Spec A}\operatorname{trdeg}(Q(A/\fp)|k)$$
+		und
+		$$m_2 = \max{\fp\in\operatorname{MinSpec} A} \operatorname{trdeg}(Q(A/\fp)|k)$$
+		Zeige $n\geq m_1\geq m_2\geq n$.
+		\begin{itemize}
+			\item Definiere $B = k[a_1,\dots, a_n] \subseteq A$. Dann ist $B\subseteq A$ endlich. Sei $\fp\in\Spec A \Rightarrow Q(B/\fp\cap B)\hookrightarrow Q(A/\fp)$ algebraische Körpererweiterung. Dann ist
+			$$\operatorname{trdeg}(Q(B/\fp\cap B)|k) = \operatorname{trdeg}(Q(A/\fp)|k)$$
+			$Q(B/\fp\cap B) = k(\overline{a_1},\dots, \overline{a_n})\Rightarrow \operatorname{trdeg}(Q(B/\fp\cap B))\leq n$, also $m_1\leq n$
+			\item $m_2\leq m_1$ ist klar.
+			\item Sei $\{\fp_1,\dots , \fp_r\} = \operatorname{MinSpec}A$. Da $B\subseteq A$ ganz ist und $B$ Integritätsbereich ist, folgt mit Satz 6.8: Es gibt $\fp\in \Spec A$ mit $\fp\cap B = (0)$. Insbesondere gibt es $\fp_i$ mit $\fp_i\cap B = (0)$. Das bedeutet, dass
+			$$Q(B) = Q(B/\fp_i\cap B)\subseteq Q(A/\fp_i)$$
+			wobei die letze Erweiterung algebraisch ist. Dadurch erhalten wir
+			$$ n = \operatorname{trdeg}(Q(B)|k) = \operatorname{trdeg}(Q(A/\fp_i)|k) \leq m_2$$
+		\end{itemize}
+	\end{description}
+\end{proof}
 
 
 
