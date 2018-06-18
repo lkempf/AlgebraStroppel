@@ -2127,14 +2127,14 @@ Bezeichnungen. Sei $A\to B$ ein Ringhomomorphismus.
 \end{description}	
 \end{proof}
 Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^*: \Spec B\to \Spec A, \quad \fq\mapsto \fq\cap A.\]
-\begin{satz}
+\begin{prop} \label{prop:6.8}
 	Sei $A\xto{f} B$ ganz.
 	\begin{enumerate}
 		\item Sei $\fq\in \Spec B$. Dann gilt $\fq\in \Max B \Leftrightarrow \fq\cap A\in \Max A$. \label{thm:6.8:i}
 		\item Sei $f$ injektiv. Dann existiert ein $\fq \in \Spec B$ mit $\fq\cap A = \fp$ für jedes $\fp \in \Spec A$. \label{thm:6.8:ii}
 		\item Seien $\fq_1,\fq_2\in\Spec B$ mit $\fq_1\subseteq \fq_2$ und $\fq_1\cap A = \fq_2\cap A$. Dann folgt bereits $\fq_1 = \fq_2$. \label{thm:6.8:iii}
 	\end{enumerate}
-\end{satz}
+\end{prop}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}[label=\ref{thm:6.8:\roman*}]
@@ -2188,7 +2188,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 	\end{enumerate}
 \end{proof}
 
-\begin{satz}[Going up]
+\begin{satz}[Going up] \label{thm:going up}
 	Sei $A\to B$ ganz. Seien $\fp_1,\fp_2\in \Spec A$ mit $\fp_1\subseteq \fp_2$ und $\fq_1\in \Spec B$ mit $\fq_1\cap A = \fp_1$. Dann existiert ein $\fq_2\in \Spec B$ mit $\fq_2\cap A = \fp_2$ und $\fq_1\subseteq \fq_2$.
 
 	Merkbild:
@@ -2219,7 +2219,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 	$$p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0\in A[t]$$
 	gibt, sodass $p(b) = 0$ und $a_0,\dots, a_{n-1}\in I$.
 \end{defi}
-o\begin{lem} \label{lem:6.11}
+\begin{lem} \label{lem:6.11}
 	Sei $A\to B$ ein Ringhomomorphismus. Sei $C$ der ganze Abschluss von $A$ in $B$. Sei $I\subseteq A$ ein Ideal sowie $b\in B$. Äquivalent sind dann:
 	\begin{enumerate}
 		\item $b$ ist ganz über $I$. \label{lem:6.11:i}
@@ -2261,7 +2261,7 @@ o\begin{lem} \label{lem:6.11}
 	Nach \cref{lem:6.11} sind damit auch $a_0,\dots, a_{n-1}$ ganz über $I$. Insbesondere sind $a_0,\dots, a_{n-1}$ ganz über $A$. Da $A$ normal ist, folgt bereits $a_0,\dots, a_{n-1}\in A$. Wende nun \cref{lem:6.11} mit $B = K$ an und erhalte $a_0,\dots, a_{n-1}\in \sqrt{I}$.
 \end{proof}
 
-\begin{satz}[Going down]
+\begin{satz}[Going down] \label{thm:going down}
 	Sei $A\subseteq B$ eine ganze Ringerweiterung. $A$ und $B$ seien dabei Integritätsbereiche sowie $A$ normal.
 	
 	Seien $\fp_1,\fp_2\in \Spec A$ mit $\fp_1\subseteq \fp_2$ und sei $\fq_2\in\Spec B$ mit $\fq_2\cap A = \fp_2$. Dann gibt es $\fq_1\in\Spec B$ mit $\fq_1\cap A = \fp_1$ und $\fq_1\subseteq \fq_2$.
@@ -2297,235 +2297,239 @@ o\begin{lem} \label{lem:6.11}
 
 \section{Kettenbedingungen}
 \begin{defi}
-	Sei $(I, \leq)$ angeordnete Menge.
+	Sei $(I, \le)$ eine angeordnete Menge.
 	\begin{enumerate}
-		\item Man sagt $(I,\leq)$ erfüllt aufsteigende Kettenbedingung (\glqq ascending chain condition\grqq, acc), wenn für jede Kette
-		$$i_1\leq i_2\leq i_3\leq \dots$$
-		mit $i_j\in I$ für $j\in \IN$ ein $n\geq 1$ existiert, sodass für alle $m\geq n$ gilt: $i_m = i_n$.
-		\item $(I,\leq)$ hat absteigende Kettenbedingung (dcc), wenn für alle Ketten
-		$$i_1\geq i_2\geq \dots $$
-		ein $n\geq 1$ existiert, sodass für alle $m\geq n$ gilt: $i_m = i_n$ (also acc für $(I,\geq)$).
+		\item $(I,\leq)$ erfüllt die \emph{aufsteigende Kettenbedingung} (\enquote{ascending chain condition}), wenn für jede Kette
+		\[i_1\leq i_2\leq i_3\leq \dots\]
+		mit $i_j\in I$ für $j\in \IN$ ein $n\geq 1$ existiert, sodass $i_m = i_n$ für alle $m\geq n$ gilt:.
+		\item Analog erfüllt $(I,\leq)$ die \emph{absteigende Kettenbedingung} (\enquote{descending chain condition}), wenn für alle Ketten
+		\[i_1\geq i_2\geq \dots \]
+		ein $n\geq 1$ existiert, sodass $i_m = i_n$ für alle $m\geq n$ gilt ($(I,\geq)$ erfüllt also die aufsteigende Kettenbedingung).
 	\end{enumerate}
 \end{defi}
-\begin{lem}
+\begin{lem} \label{lem:acc}
 	Sei $(I,\leq)$ angeordnet. Dann sind äquivalent:
 	\begin{enumerate}
-		\item $(I,\leq)$ hat acc
-		\item $\forall \emptyset\neq J\subseteq I$ hat $J$ maximales Element.
+		\item $(I,\leq)$ erfüllt die aufsteigende Kettenbedingung. \label{lem:acc:i}
+		\item Sei $J\subseteq I$ nicht leer. Dann hat $J$ ein maximales Element. \label{lem:acc:ii}
 	\end{enumerate}
 \end{lem}
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[i$\Rightarrow$ii:] Angenommen $\exists \emptyset J\subseteq I$ ohne maximales Element. Da $J\neq \emptyset \exists i_1\in J$, $i_1$ nicht maximal $\Rightarrow \exists i_2\in J: i_2>i_1$, usw. (Widerspruch zu acc)
-		\item[ii$\Rightarrow$i:] Sei $i_1\leq i_2\leq\dots$ Kette. Die Menge $\{i_n\}_{n\geq 1}$ hat ein maximales Element.
+		\item[\ref{lem:acc:i} $\Rightarrow$ \ref{lem:acc:ii}:] Angenommen, es existiert ein nicht leeres $J\subseteq I$ ohne maximales Element. Dann existiert ein nicht maximales Element $i_1\in J$, weshalb wieder um ein $i_2\in J$ mit $i_2>i_1$ existiert. Induktiv erhalten wir einen Widerspruch zur aufsteigenden Kettenbedingung.
+		\item[\ref{lem:acc:ii} $\Rightarrow$ \ref{lem:acc:i}:] Sei $i_1\leq i_2\leq\dots$ eine aufsteigende Kette. Die Menge $\{i_n\}_{n\geq 1}$ hat dann ein maximales Element.
+		\qedhere
 	\end{description}
 \end{proof}
 \begin{defi}
-	Sei $A$ ein Ring, $M$ ein $A$-Modul. Definiere
-	$$\mathcal{U}(M) = \{N|N\text{ ist }A\text{-Untermodul von }M\}$$
+	Sei $A$ ein Ring und $M$ ein $A$-Modul. Definiere
+	\[\mathcal{U}(M) = \set{N\given \text{$N$ ist $A$-Untermodul von $M$}}.\]
 	$(\mathcal{U}, \subseteq)$ ist angeordnet.
 	\begin{enumerate}
-		\item $M$ heißt noethersch: $(\mathcal{U}(M),\subseteq)$ hat acc
-		\item $M$ heißt artinsch: $(\mathcal{U}(M), \subseteq)$ hat dcc
-		\item $A$ heißt noethersch/artinsch: ${}_AA$ ist noethersch/artinsch
+		\item $M$ heißt \emph{noethersch}, wenn $(\mathcal{U}(M),\subseteq)$ die aufsteigende Kettenbedingung erfüllt.
+		\item $M$ heißt \emph{artinsch}, wenn $(\mathcal{U}(M), \subseteq)$ die absteigende Kettenbedingung erfüllt.
+		\item $A$ heißt noethersch bzw. artinsch, wenn ${}_AA$ noethersch bzw. artinsch ist.
 	\end{enumerate}
 \end{defi}
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-		\item $A$ Körper $\Rightarrow A$ noethersch und artinsch
-		\item $k$ Körper, $A = k[t] \Rightarrow A$ noethersch, $A$ nicht artinsch.
-		\item $A = \IZ\Rightarrow A$ noethersch, nicht artinsch.
-		\item $A = k[t_1,t_2,\dots]\Rightarrow A$ weder noethersch noch artinsch
+		\item Jeder Körper ist noethersch und artinsch.
+		\item Für einen Körper $k$ ist $A = k[t]$ noethersch, aber nicht artinsch.
+		\item $\IZ$ ist noethersch, aber nicht artinsch.
+		\item $k[t_1,t_2,\dots]$ ist weder noethersch noch artinsch.
 	\end{enumerate}
 \end{bsp}
 \begin{bem}
 	\leavevmode
 	\begin{enumerate}
-		\item $A$ artinsch impliziert $A$ noethersch (aus Zeitgründen können wir hier keinen Beweis geben)
-		\item In der Vorlesung werden wir uns auf noethersche Ringe beschränken. (Mehr zu artinschen Ringen : Atiyah-Macdonald Kapitel 8)
+		\item Artinsche Ringe sind noethersch; aus Zeitgründen können wir hier keinen Beweis geben.
+		\item In der Vorlesung werden wir uns auf noethersche Ringe beschränken. Mehr zu artinschen Ringen findet man etwa in \cite[Kapitel 8]{atiyah-macdonald}.
 	\end{enumerate}
 \end{bem}
 \subsection{Noethersche Ringe und Moduln}
-\begin{satz}
+\begin{satz}\label{thm:noethersch}
 	Sei $A$ ein Ring und $M$ ein $A$-Modul. Dann sind äquivalent:
 	\begin{enumerate}
-		\item $M$ noethersch
-		\item $\forall N\subseteq M$ $A$-Untermodul $\Rightarrow N$ endlich erzeugt. (Insbesondere $M$ noethersch $\Rightarrow M$ endlich erzeugt.)
+		\item $M$ ist noethersch. \label{thm:noethersch:i}
+		\item Alle $A$-Untermoduln von $M$ sind endlich erzeugt. \label{thm:noethersch:ii}
 	\end{enumerate}
+	Insbesondere ist also jeder noethersche Modul endlich erzeugt.
 \end{satz}
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[i$\Rightarrow$ii:] Sei $N\subseteq M$ ein $A$-Untermodul. Definiere $$\Sigma \coloneqq \{N'\subseteq N| N'\text{ ist }A\text{-Untermodul, }N'\text{ endlich erzeugt}\}\subseteq \mathcal{U}(M)$$
-		Da $\Sigma \neq \emptyset \Rightarrow \exists N'\in \Sigma$ maximal. Sei $x\in N\Rightarrow N'\subseteq N'+\<x\>_a\subseteq N$ und $N'+\<x\>$ endlich erzeugt $\Rightarrow x\in N'$. Da $N'$ maximal gewählt war, ist $N = N'$ und $N$ ist endlich erzeugt.
-		\item[ii$\Rightarrow$i:] Sei $N_1\subseteq N_2\subseteq \dots$ Kette in $\mathcal{U}(M)$. Definiere
-		$$N = \bigcup\limits_{i = 1}^{\infty}N_i$$
-		$N$ ist Untermodul. $\Rightarrow N = \<x_1,\dots, x_n\>$. $\Rightarrow \forall i\exists m_i$ mit $x_i \in N_{m_i}$. Wähle $m\geq \max\{m_1,\dots, m_n\}$. Dann folgt
-		$$ N = \<x_1,\dots, x_n\>\subseteq N_m\subseteq N$$
+		\item[\ref{thm:noethersch:i} $\Rightarrow$ \ref{thm:noethersch:ii}:] Sei $N\subseteq M$ ein $A$-Untermodul. Definiere \[\Sigma := \set{N'\subseteq N \given \text{$N'$ ist $A$-Untermodul und endlich erzeugt} }\subseteq \mathcal{U}(M).\]
+		Da $\Sigma \neq \emptyset$ existiert ein maximales $N'\in \Sigma$. Sei $x\in N$. Dann gilt $N'\subseteq N'+\<x\>_A\subseteq N$ und $N'+\<x\>_A$ ist endlich erzeugt. Damit folgt $x\in N'$. Da $N'$ maximal gewählt war, ist $N = N'$ und $N$ ist endlich erzeugt.
+		\item[\ref{thm:noethersch:ii} $\Rightarrow$ \ref{thm:noethersch:i}:] Sei $N_1\subseteq N_2\subseteq \dots$ eine aufsteigende Kette in $\mathcal{U}(M)$. Definiere
+		\[N = \bigcup\limits_{i = 1}^{\infty}N_i.\]
+		$N$ ist ein Untermodul, es sei also etwa $N = \<x_1,\dots, x_n\>$. Für jedes $i$ existiert nun ein $m_i$ mit $x_i \in N_{m_i}$. Wähle $m\ge \max\{m_1,\dots, m_n\}$. Dann folgt
+		$N = \<x_1,\dots, x_n\>\subseteq N_m\subseteq N$.
+		\qedhere
 	\end{description}
 \end{proof}
 
 \lecture{7. Juni 2018}
 
-\begin{satz}
+\begin{satz} \label{thm:7.6}
 	Sei $A$ Ring.
 	\begin{enumerate}
-		\item Sei $0\to M'\xto{i} M\xto{\pi} M''\to 0$ kurze exakte Sequenz von $A$-Moduln. Dann gilt:
-		$$M\text{ noethersch}\Longleftrightarrow M'\text{ und }M''\text{ noethersch}$$
-		\item Sei $A$ noethersch, $M$ endlich erzeugter $A$-Modul $\Rightarrow M$ noethersch.
+		\item \label{thm:7.6:i} Sei $0\to M'\xto{\iota} M\xto{\pi} M''\to 0$ eine kurze exakte Sequenz von $A$-Moduln. Dann gilt:
+		\[\text{$M$ ist noethersch.} \quad \Longleftrightarrow\quad \text{$M'$ und $M''$ sind noethersch.}\]
+		\item Sei $A$ noethersch und $M$ ein endlich erzeugter $A$-Modul. Dann ist $M$ noethersch.\label{thm:7.6:ii}
 	\end{enumerate}
-	
 \end{satz}
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}
+	\begin{enumerate}[label=\ref{thm:7.6:\roman*}]
 		\item \begin{description}
-			\item[\glqq$\Rightarrow$\grqq:] Sei $M_1''\subseteq M_2''\subseteq \dots$ eine Kette von Untermoduln von $M''$. Dann ist $\pi^{-1}(M_1'')\subseteq \pi^{-1}(M_2'')\subseteq \dots$ Kette in $M$. Also existiert $n$, sodass für alle $m\geq n$ gilt: $\pi^{-1}(M_m'') = \pi^{-1}(M_n'')$. Da $\ker\pi\subseteq M_n''\subseteq M_m''$ ist, folgt $M_m'' = M_n''$. Für $M'$ ähnlich.
-			\item[\glqq$\Leftarrow$\grqq:] Sei $M_1\subseteq M_2\subseteq\dots$ Kette in $M$. Betrachte die Ketten
-			$$i^{-1}(M_1)\subseteq i^{-1}M_2\subseteq\dots\qquad \text{in }M'$$
+			\item[\glqq$\Rightarrow$\grqq:] Sei $M_1''\subseteq M_2''\subseteq \dots$ eine Kette von Untermoduln von $M''$. Dann ist $\pi^{-1}(M_1'')\subseteq \pi^{-1}(M_2'')\subseteq \dots$ eine Kette in $M$. Es existiert also ein $n$, sodass $\pi^{-1}(M_m'') = \pi^{-1}(M_n'')$ für alle $m\geq n$ gilt. Da $\ker\pi\subseteq M_n''\subseteq M_m''$ ist, folgt $M_m'' = M_n''$. Für $M'$ ist der Beweis ähnlich.
+			\item[\glqq$\Leftarrow$\grqq:] Sei $M_1\subseteq M_2\subseteq\dots$ eine Kette in $M$. Betrachte die Ketten
+			\[\iota^{-1}(M_1)\subseteq \iota^{-1}M_2\subseteq\dots\qquad \text{in }M'\]
 			und
-			$$\pi(M_1)\subseteq \pi(M_2)\subseteq \dots \qquad \text{in }M''$$
+			\[\pi(M_1)\subseteq \pi(M_2)\subseteq \dots \qquad \text{in }M''.\]
 			Es gibt also ein $n$, sodass für alle $m\geq n$ gilt: $i^{-1}(M_m) = i^{-1}(M_n)$ und $\pi(M_m) = \pi(M_n)$.
 			
-			Damit gilt bereits $M_m = M_n$, denn: Sei $x\in M_m$. Dann ist $\pi(x) \in \pi(M_m) = \pi(M_n)\Rightarrow \exists x'\in M_n$ mit $\pi(x) = \pi(x') \Rightarrow x-x'\in\ker \pi = \im  i \Rightarrow \exists y \in M'$ mit $i(y) = x-x'\in M_m\Rightarrow y\in i^{-1}(M_m) = i^{-1}(M_n)$, also $x = i(y) +x' \in M_n$.
+			Damit gilt bereits $M_m = M_n$. Zum Beweis sei $x\in M_m$. Dann ist $\pi(x) \in \pi(M_m) = \pi(M_n)$, es existiert also ein $x'\in M_n$ mit $\pi(x) = \pi(x')$. Somit liegt $x-x'$ in $\ker \pi = \im  \iota$, weshalb wiederum ein $y \in M'$ mit $\iota(y) = x-x'\in M_m$ existiert. Daraus folgt $y\in \iota^{-1}(M_m) = \iota^{-1}(M_n)$, also $x = \iota(y) +x' \in M_n$.
 		\end{description}
-		\item $M$ endlich erzeugter $A$-Modul $\Rightarrow \exists \phi\colon A^n\to M$ $A$-linear und surjektiv. $A^n$ ist noethersch (verwende kurze exakte Sequenz $0\to A^{n-1}\to A^n\to A \to 0$, nutze Induktion). Nach (i) ist $M$ damit auch noethersch.
+		\item Ist $M$ ein endlich erzeugter $A$-Modul, so existiert eine $A$-lineare surjektive Abbildung $\phi\colon A^n\to M$. $A^n$ ist noethersch (verwende die kurze exakte Sequenz $0\to A^{n-1}\to A^n\to A \to 0$ sowie Induktion). Nach \ref{thm:7.6:i} ist $M$ damit auch noethersch.
+		\qedhere
 	\end{enumerate}
 \end{proof}
 
 \begin{satz}
-	Sei $A$ Ring.
+	Sei $A$ ein noetherscher Ring.
 	\begin{enumerate}
-		\item Falls $A$ noethersch, $I\subseteq A$ Ideal $\Rightarrow \fak{A}{I}$ ist noethersch.
-		\item Falls $A$ noethersch, $S\subseteq A$ multiplikative Teilmenge $\Rightarrow S^{-1}A$ noethersch.
+		\item Für ein Ideal $I\subseteq A$ ist $\fak{A}{I}$ noethersch.
+		\item Für eine multiplikative Teilmenge $S\subseteq A$ ist $S^{-1}A$ noethersch.
 	\end{enumerate}
 \end{satz}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item Folgt sofort aus Satz 7.6 (i)
-		\item $J\subseteq S^{-1}A \Rightarrow (J\cap A) \cdot S^{-1}A = J$. 
+		\item Folgt sofort aus \cref{thm:7.6} \ref{thm:7.6:i}.
+		\item Für ein Ideal $J\subseteq S^{-1}A$ gilt $(J\cap A) \cdot S^{-1}A = J$.
+		\qedhere
 	\end{enumerate}
 \end{proof}
 \begin{satz}[Hilberts Basissatz]
-	Sei $A$ noetherscher Ring. Dann ist $A[t_1,\dots, t_n]$ noethersch.
+	Sei $A$ ein noetherscher Ring. Dann ist auch $A[t_1,\dots, t_n]$ noethersch.
 \end{satz}
 \begin{proof}
-	Ohne Einschränkung $n = 1$. Zeige, dass jedes Ideal $J\subseteq A[t]$ endlich erzeugt ist.
+	Wir können ohne Einschränkung $n = 1$ annehmen. Wir zeigen, dass jedes Ideal $J\subseteq A[t]$ endlich erzeugt ist.
 	
-	Angenommen $J\subseteq A[t]$ Ideal ist nicht endlich erzeugt. Wähle $f_1\in J\setminus\set{0}$ mit $d_1 \coloneqq \deg f_1$ minimal. Dabei gilt $(f_1) \subsetneq J$. Wähle $f_2\in J\setminus (f_1)$ von minimalem Grad $d_2$\dots
+	Angenommen, ein Ideal $J\subseteq A[t]$ ist nicht endlich erzeugt. Wähle $f_1\in J\setminus\set{0}$ mit $d_1 := \deg f_1$ minimal. Dabei gilt $(f_1) \subsetneq J$. Wähle $f_2\in J\setminus (f_1)$ von minimalem Grad $d_2$ usw.
 	
-	Erhalte Folge $f_1,f_2,f_3,\dots \in J$ mit $f_n\notin (f_1,\dots, f_{n-1})$ und $d_n = \deg f_n$ ist minimal. Insbesondere gilt
-	$$d_1\leq d_2\leq d_3 \leq \dots$$
-	Sei $a_n\in A$ mit $f_n(t) = a_nt^{d_n}+$ Terme kleineren Grades.
-	Definiere $I \coloneqq (a_1,\dots, a_2)$. Da $A$ noethersch ist, ist $I$ endlich erzeugt. Folglich existiert ein $n$, sodass $I = (a_1,\dots, a_n)$.
+	Wir erhalten eine Folge $f_1,f_2,f_3,\dots \in J$ mit $f_n\notin (f_1,\dots, f_{n-1})$ und minimalem $d_n = \deg f_n$. Insbesondere gilt
+	\[d_1\leq d_2\leq d_3 \leq \dots.\]
+	Sei $a_n\in A$ der Leitkoeffizient von $f_n$.
+	Definiere $I := (a_1,a_2,\dots)$. Da $A$ noethersch ist, ist $I$ endlich erzeugt. Folglich existiert ein $n$, sodass $I = (a_1,\dots, a_n)$.
 	
-	Betrachte nun $a_{n+1} \in (a_1,\dots, a_n)$. Also gibt es $u_i$, sodass $a_{n+1} = \sum_{i = 1}^n u_ia_i$. Definiere nun
-	$$ g\coloneqq \sum_{i = 1}^n u_if_it^{d_{n+1}-d_i} \in J$$
+	Betrachte nun $a_{n+1} \in (a_1,\dots, a_n)$. Es existieren folglich Elemente $u_i$ mit $a_{n+1} = \sum_{i = 1}^n u_ia_i$. Definiere nun
+	\[g := \sum_{i = 1}^n u_if_it^{d_{n+1}-d_i} \in J.\]
 	Damit gilt $\deg g = d_{n+1} = \deg f_{n+1}$ und der Leitkoeffizient von $g$ ist $\sum_{i = 1}^n u_ia_i = a_{n+1}$.
 	Wir haben $f_{n+1}\notin (f_1,\dots, f_n)\ni g$, also $f_{n+1}-g\notin (f_1,\dots, f_n)$ und $\deg(f_{n+1}-g)<d_{n+1}$ im Widerspruch zur Konstruktion.
 \end{proof}
 
 \subsection{Minimale Primideale}
-\begin{defi} Sei $A$ Ring. $\fp\in \Spec A$ heißt minimales Primideal, wenn gilt: $\forall \fp'\in Spec A$ mit $\fp'\subseteq \fp \Rightarrow \fp' = \fp$. Wir bezeichnen die Menge aller minimalen Primideale mit $\operatorname{MinSpec}A\coloneqq \set{\fp\in\Spec A\given \fp\text{ minimal}}$.
+\begin{defi} Sei $A$ ein Ring. $\fp\in \Spec A$ heißt \emph{minimales Primideal}, wenn für alle $\fp'\in Spec A$ mit $\fp'\subseteq \fp$ schon $\fp' = \fp$ gilt. Wir bezeichnen die Menge aller minimalen Primideale mit \[\MinSpec A \coloneqq \set{\fp\in\Spec A\given \text{$\fp$ minimal}}.\]
 \end{defi}
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-		\item Falls $A$ Integritätsbereich $\Rightarrow \operatorname{MinSpec} (A) = \set 0$.
-		\item Sei $k$ Körper. Betrachte $A = \fak{k[x,y]}{(xy)}$. Dann $\operatorname{MinSpec}(a) = \set {(x), (y)}$.
+		\item Falls $A$ ein Integritätsbereich ist, so gilt $ \MinSpec A = \set 0$.
+		\item Sei $k$ ein Körper. Betrachte $A = \fak{k[x,y]}{(xy)}$. Dann gilt $\MinSpec A = \set{(x), (y)}$.
 		
-		Denn: $$\Spec A \xlongrightarrow{1:1}\set {\fp\in\Spec k[x,y]\given p\supseteq (xy)}$$
-		Für $\fp\in \Spec k[x,y]$ mit $\fp\supseteq (xy)$ folgt aus  $xy\in \fp$ aber $ x\in \fp$ oder $y \in\fp$, also $(x)subseteq \fp$ oder $(y)\subseteq \fp$. Falls $\fp$ minimal ist, dann $(x) = \fp$ oder $(y) = \fp$.
+		Denn wir haben die Bijektion \[\Spec A \xlongleftrightarrow{1:1}\set {\fp\in\Spec k[x,y]\given p\supseteq (xy)}.\]
+		Für $\fp\in \Spec k[x,y]$ mit $\fp\supseteq (xy)$ folgt aus  $xy\in \fp$ aber $ x\in \fp$ oder $y \in\fp$, also $(x)\subseteq \fp$ oder $(y)\subseteq \fp$. Falls $\fp$ minimal ist, so folgt $(x) = \fp$ oder $(y) = \fp$.
 	\end{enumerate}
 \end{bsp}
 \begin{satz}
-	Sei $A$ neoterscher Ring. Dann ist $\#\operatorname{MinSpec}(A)<\infty$.
+	Sei $A$ ein noetherscher Ring. Dann ist $\abs{\MinSpec A}<\infty$.
 \end{satz}
 \begin{proof}
-	Sei $\Sigma = \set{I\given I\subsetneq A\text{ Ideal}, \#\operatorname{MinSpec}(\fak{A}{I}) = \infty}$. Zeige $\Sigma = \emptyset$. Angenommen, $\Sigma \neq \emptyset$. Da $A$ noethersch ist, existiert $I\in \Sigma, I$ maximal in $\Sigma$. Also $I\notin \Spec A$ (sonst $\operatorname{MinSpec}(\fak{A}I) = \set {(0)}$). 
+	Sei \[\Sigma = \set{I\given \text{$I \subset A$ Ideal, $\MinSpec(\fak AI) = \emptyset$}}.\] Es genügt, $\Sigma = \emptyset$ zu zeigen. Angenommen, $\Sigma \neq \emptyset$. Da $A$ noethersch ist, existiert ein maximales $I\in \Sigma$. Es gilt also $I\notin \Spec A$, da sonst $\MinSpec(\fak{A}I) = \set {(0)}$ gelten würde. 
 	
-	Also existieren $a,b\in A\setminus I$ mit $ab\in I$. Folglich gilt $I+(a), I+(b)\supsetneq I$, also $I+(a), I+(b)\notin \Sigma$. Damit folgt, dass $\operatorname{MinSpec}(\fak A{I+(a)}), \operatorname{MinSpec}(\fak A{I+(b)})$ endlich sind.
+	Also existieren $a,b\in A\setminus I$ mit $ab\in I$. Folglich gilt $I+(a), I+(b)\supset I$, also $I+(a), I+(b)\notin \Sigma$. Damit folgt, dass $\MinSpec(\fak A{I+(a)})$ und $ \MinSpec(\fak A{I+(b)})$ endlich sind.
 	
-	Sei $\fq\in\operatorname{MinSpec}(\fak AI)\Rightarrow \pi^{-1}(\fq)\in \Spec A$ mit $I\subseteq \pi^{-1}(\fq)$, also $ab\in \pi^{-1}(\fq) \eqqcolon \fp$. Also gilt $a\in \fp$ oder $b\in \fp$; sei ohne Einschränkung $a\in \fp\Rightarrow \fp\supseteq I+(a)\Rightarrow \pi_a(\fp) \in\Spec(\fak{A}{I+(a)})$, sogar $\pi_{a}(\fp) \in \operatorname{MinSpec}(\fak A{I+(a)})$ (wobei $\pi_a\colon A\to \fak A{I+(a)}$ ist).
+	Sei $\fq\in\MinSpec(\fak AI)$. Dann gilt $\pi^{-1}(\fq)\in \Spec A$ mit $I\subseteq \pi^{-1}(\fq)$, also $ab\in \pi^{-1}(\fq) =: \fp$. Also gilt $a\in \fp$ oder $b\in \fp$; sei ohne Einschränkung $a\in \fp$. Es folgt $\fp\supseteq I+(a)$, also $\pi_a(\fp) \in\Spec(\fak{A}{I+(a)})$ und sogar $\pi_{a}(\fp) \in \MinSpec(\fak A{I+(a)})$ (wobei $\pi_a\colon A\to \fak A{I+(a)}$ ist).
 	
 	Also haben wir
-	INSERT \glqq DIAGRAMM\grqq\ HIER
+	INSERT \glqq DIAGRAMM\grqq\ (spuriöse Anführungszeichen) HIER.
 	
 	Das ist ein Widerspruch.
 \end{proof}
 
 \subsection{Transzendenzbasen}
-\begin{defi} Sei $K\subseteq L$ eine Körpererweiterung. Eine Familie $(x_i)_{i\in I}$. in $L$ heißt Transzendenzbasis von $L$ über $K$, falls
+\begin{defi} Sei $K\subseteq L$ eine Körpererweiterung. Eine Familie $(x_i)_{i\in I}$. in $L$ heißt \emph{Transzendenzbasis} von $L$ über $K$, falls
 \begin{enumerate}
-	\item $(x_i)_{i\in I}$ ist algebraisch unabhänig über $K$
-	\item $K(x_i)_{i\in I}\subseteq L$ ist algebraisch.
+	\item $(x_i)_{i\in I}$ algebraisch unabhängig über $K$ und
+	\item $K(x_i)_{i\in I}\subseteq L$ algebraisch ist.
 \end{enumerate}
 \end{defi}
 \begin{satz}
-	Sei $K\subseteq L$ Körpererweiterung, seien $x_i\in L$ ($i\in I$).
+	Sei $K\subseteq L$ Körpererweiterung, seien $x_i\in L$ mit $i\in I$.
 	\begin{enumerate}
-		\item Ist $(x_i)_{i\in I}$ algebraisch unabhängig und maximal $\Rightarrow (x_i)_{i\in I}$ ist Transzendenzbasis
-		\item Ist $K(x_i)_{i\in I}\subseteq L$ algebraisch und $(x_i)_{i\in I}$ minimal mit dieser Eigenschaft $\Rightarrow (x_i)_{i\in I}$ ist Transzendenbasis. 
+		\item Ist $(x_i)_{i\in I}$ algebraisch unabhängig und maximal, so ist $(x_i)_{i\in I}$ eine Transzendenzbasis.
+		\item Ist $K(x_i)_{i\in I}\subseteq L$ algebraisch und $(x_i)_{i\in I}$ minimal mit dieser Eigenschaft, so ist $(x_i)_{i\in I}$ eine Transzendenbasis. 
 		\item $K\subseteq L$ hat eine Transzendenbasis.
 	\end{enumerate}
 \end{satz}
-\begin{proof} Ähnlich wie Basen von Vektorräumen über Körpern.
+\begin{proof} Ähnlich wie bei Basen von Vektorräumen über Körpern.
 \end{proof}
 
 \begin{satz}
-	Seien $(x_i)_{i\in I}$, $(y_j)_{j\in J}$ Transzendenbasen von $K\subseteq L$. Dann existiert eine Bijektion $I\to J$.
+	Seien $(x_i)_{i\in I}$, $(y_j)_{j\in J}$ Transzendenbasen von $K\subseteq L$. Dann existiert eine Bijektion zwischen $I$ und $J$.
 \end{satz}
 \begin{proof}
-	Wir beweisen nur den Fall $\#I, \#J <\infty$. Es genügt zu zeigen: Seien $(x_1,\dots, x_m)$ algebraisch unabhängig über $K$ und $(y_1,\dots, y_n)$ mit $K(y_1,\dots, y_n)\subseteq L$ algebraisch, dann ist $m\leq n$ und $\exists 1\leq j_{m+1}<\dots < j_n\leq n$ mit $K(x_1,\dots, x_m, y_{j_{m+1}},\dots, y_{j_n})\subseteq L$ algebraisch. Beweis per Induktion nach $m$:
+	Wir beweisen nur den Fall $\abs I, \abs J <\infty$. Es genügt zu zeigen, dass für über $K$ algebraisch unabhängige $(x_1,\dots, x_m)$ und algebraische $(y_1,\dots, y_n)$ mit $K(y_1,\dots, y_n)\subseteq L$ dann $m\leq n$ gilt und Elemente $1\leq j_{m+1}<\dots < j_n\leq n$ mit $K(x_1,\dots, x_m, y_{j_{m+1}},\dots, y_{j_n})\subseteq L$ algebraisch existieren. Dies beweisen wir per Induktion nach $m$.
 	\begin{description}
-		\item[$m = 1$:] Wähle $s$ minimal, sodass $\exists 1\leq i_1<\dots <i_s\leq n$ und $f(t_0,t_{i_1}, \dots, t_{i_j})\in K[t_0, t_{i_1},\dots, t_{i_j}]\setminus \set 0$ mit $f(x_1, y_{i_1}, \dots, y_{i_j}) = 0$. Es gilt $s\geq 1$ (da $x_1$ transzendent). Schreibe
-		$$f(t_0, t_{i_1},\dots, t_{i_j}) = \sum_{d\geq 0} f_d(t_0, t_{i_2}, \dots, t_{i_j})t_{i_1}^d$$
-		Es existiert also ein $d\geq 1$ mit $f_d \neq 0$ (sonst $f = f_0\Rightarrow$ Widerspruch zur Minimalität von $s$) und $f_d(x_1, y_{i_1},\dots, y_{i_j}) \neq 0$ (wieder Minimalität von $s$). Damit ist $y_{i_1}$ algebraisch über $K(x_1, y_{i_2},\dot, y_{i_j})\subseteq K(x_1,y_1,\dots, \hat{y_{i_1}},\dots, y_n)$.
-		\item[$m-1\to m$:] Insbesondere $(x_1,\dots, x_{m-1})$ algebraisch unabhängig. Nach Induktionsvoraussetzung ist $m-1\leq n$ und ohne Einschränkung $K(x_1,\dots, x_{m-1}, y_m,\dots, y_n)\subseteq L$ algebraisch. Außerdem $x_m$ transzendent über $K(x_1,\dots, x_{m-1})$. Nach dem Induktionsanfang ist $1\leq n-m+1$ und (nach eventuell umnummerieren) $K(x_1,\dots, x_{m-1})(y_m, y_{m+1}, \dots , y_n)\subseteq L$ algebraisch.
+		\item[$m = 1$:] Wähle $s$ minimal, sodass $1\leq i_1<\dots <i_s\leq n$ und $f(t_0,t_{i_1}, \dots, t_{i_j})\in K[t_0, t_{i_1},\dots, t_{i_j}]\setminus \set 0$ mit $f(x_1, y_{i_1}, \dots, y_{i_j}) = 0$ existieren. Es gilt $s\geq 1$ (da $x_1$ transzendent). Schreibe
+		\[f(t_0, t_{i_1},\dots, t_{i_j}) = \sum_{d\geq 0} f_d(t_0, t_{i_2}, \dots, t_{i_j})t_{i_1}^d.\]
+		Es existiert also ein $d\geq 1$ mit $f_d \neq 0$ (sonst wäre $f = f_0$, ein Widerspruch zur Minimalität von $s$) und $f_d(x_1, y_{i_1},\dots, y_{i_j}) \neq 0$ (wieder aufgrund der Minimalität von $s$). Damit ist $y_{i_1}$ algebraisch über $K(x_1, y_{i_2},\dot, y_{i_j})\subseteq K(x_1,y_1,\dots, \hat{y_{i_1}},\dots, y_n)$.
+		\item[$m-1\to m$:] Insbesondere ist $(x_1,\dots, x_{m-1})$ algebraisch unabhängig. Nach Induktionsvoraussetzung ist $m-1\leq n$ und ohne Einschränkung $K(x_1,\dots, x_{m-1}, y_m,\dots, y_n)\subseteq L$ algebraisch. Außerdem ist $x_m$ transzendent über $K(x_1,\dots, x_{m-1})$. Nach dem Induktionsanfang ist $1\leq n-m+1$ und (nach eventuellem Umnummerieren) $K(x_1,\dots, x_{m-1})(y_m, y_{m+1}, \dots , y_n)\subseteq L$ algebraisch.
+		\qedhere
 	\end{description}
 \end{proof}
 \begin{defi}
-	Sei $K\subseteq L$ Körpererweiterung. Sei $(x_i)_{i\in I}$ Transzendenzbasis von $L$ über $K$. 
-	$$\operatorname{trdeg}(L|K) \coloneqq \# I\in\IZ_{\geq 0}\cup \{\infty\}$$
-	heißt Transzendenzgrad von $K\subseteq L$.
+	Sei $K\subseteq L$ Körpererweiterung. Sei $(x_i)_{i\in I}$ eine Transzendenzbasis von $L$ über $K$. Dann heißt 
+	\[\trdeg(L\mid K) := \abs I\in\IZ_{\geq 0}\cup \{\infty\}\]
+	der \emph{Transzendenzgrad} von $K\subseteq L$.
 \end{defi}
 
 \subsection{Noether-Normalisierung}
-\begin{satz}[Noether-Normalisierung]
-	Sei $k$ ein Körper, sei $A$ endlich erzeugte $k$-Algebra. Seien $I_1\subseteq \dots \subseteq I_m\subsetneq A$ Ideale. Dann existiert $n\geq 0$ und $a_1,\dots, a_n\in A$ sowie $0\leq h_1\leq\dots \leq d_m\leq n$ sodass 
+\begin{satz}[Noether-Normalisierung] \label{thm:noether-normalisierung}
+	Sei $k$ ein Körper und $A$ eine endlich erzeugte $k$-Algebra. Seien $I_1\subseteq \dots \subseteq I_m\subset A$ Ideale. Dann existiert ein $n\geq 0$ und $a_1,\dots, a_n\in A$ sowie $0\leq h_1\leq\dots \leq h_m\leq n$, sodass die folgenden Aussagen gelten. 
 	\begin{enumerate}
-		\item $a_1,\dots, a_n$ algebraisch unabhängig über $k$
-		\item $k[a_1,\dots, a_n]\subseteq A$ endlich ($\Leftrightarrow$ ganz)
+		\item $a_1,\dots, a_n$ sind algebraisch unabhängig über $k$.
+		\item $k[a_1,\dots, a_n]\subseteq A$ endlich (hier äquivalent zur Ganzheit).
 		\item $I_l\cap k[a_1,\dots, a_n] = (a_1,\dots, a_{h_l})$
 	\end{enumerate}
-	Zusatz: 
-	$$n = \max\limits_{\fp\in\Spec A} \operatorname{trdeg}(Q(A/\fp)|k) = \max\limits_{\fp \in \operatorname{MinSpec}(A)}\operatorname{trdeg}(Q(A/\fp)|k)$$
+	Zusätzlich gilt
+	\[n = \max_{\mathclap{\fp\in\Spec A}} \trdeg(\Quot(A/\fp)\mid k) = \max_{\mathclap{\fp \in \MinSpec A}}\trdeg(\Quot(A/\fp)\mid k).\]
 \end{satz}
 
 \lecture{11. Juni 2018}
 
 \begin{proof}
+	\leavevmode
 	\begin{description}
-		\item[Schritt 1:] Sei $A = k[t_1,\dots, t_n]$ Polynomring. Sei $a\in A\setminus(A^{\times}\cup \{0\})$. Behauptung: es existieren $a_2,\dots, a_n\in A$ mit $k[a, a_2,\dots, a_n]\subseteq A$ endlich.
+		\item[Schritt 1:] Sei $A = k[t_1,\dots, t_n]$ der Polynomring. Sei $a\in A\setminus(A^{\times}\cup \{0\})$. Wir beweisen nun, dass Elemente $a_2,\dots, a_n\in A$ mit $k[a, a_2,\dots, a_n]\subseteq A$ endlich existieren.
 		
 		Beweis: Für $\lambda = (\lambda_1,\dots, \lambda_n)\in\IZ_{\geq 0}^n$ schreibe $t^{\lambda} = t_1^{\lambda_1}\dots t_n^{\lambda_n}$. Schreibe $a = \sum_{\lambda\in\IZ_{\geq 0}^n} c_{\lambda}t^{\lambda}$ für gewisse $c_{\lambda}\in k$. Definiere
-		$$\Lambda_a \coloneqq \set{\lambda\in\IZ_{\geq 0}^n \given c_{\lambda}\neq 0}$$
-		Es gibt also $r_2,\dots, r_n\in\IZ_{\geq 0}$, sodass für alle $\lambda, \mu\in Lambda_a$, $\lambda\neq \mu$ gilt:
-		$$\lambda_1+r_2\lambda_2+\dots +r_n\lambda_n\neq \mu_1+r_2\mu s_2+\dots + r_n\mu_n$$
+		\[\Lambda_a := \set*{\lambda\in\IZ_{\geq 0}^n \given c_{\lambda}\neq 0}.\]
+		Es gibt also $r_2,\dots, r_n\in\IZ_{\geq 0}$, sodass für alle $\lambda, \mu\in \Lambda_a$ mit $\lambda\neq \mu$ dann
+		\[\lambda_1+r_2\lambda_2+\dots +r_n\lambda_n\neq \mu_1+r_2\mu s_2+\dots + r_n\mu_n\]
+		gilt. Dazu setzen wir \[R := \max\limits_{\lambda\in\Lambda_a}\max_{i = 1,\dots, n}\lambda _i\] und definieren $r_i := (R+1)^{i-1}$. Seien also $\lambda,\mu \in \Lambda_a$ mit $\lambda\neq\mu$. Sei $m := \max\set{1\le i \le n \given \lambda_i \neq \mu_i}$, also insbesondere $m\ge 1$. Wir nehmen ohne Einschränkung $\lambda_m < \mu_m$. Betrachte nun \begin{align*}
+			\sum_{i = 1}^nr_i\mu_i-r_i\lambda_i &= r_m(\mu_m-\lambda_m)+\sum_{i = 1}^{m-1}r_i(\mu_i-\lambda_i)\geq r_m-\sum_{i = 1}^{m-1}r_iR \\ &= (R+1)^{m-1}-\sum_{i = 1}^{m-1} R(R+1)^{i-1} = 1\neq 0
+		\end{align*}
 		
-		(Denn: Setze 
-		$$R\coloneqq \max\limits_{\lambda\in\Lambda_a}\max_{i = 1,\dots, n}\lambda _i$$
-		Definiere $r_i\coloneqq (R+1)^{i-1}$. Seien $\lambda, \mu\in \Lambda_a$ mit $\lambda\neq \mu$. Definiere $m\coloneqq \max\set{i\in\set{1,\dots, n}\given \lambda_m \neq \mu_m}$, also insbesondere $m\geq 1$. Ohne Einschränkung sei $\lambda_m<\mu_m$. Betrachte %TODO: overfull hbox fixen
-		$$\sum_{i = 1}^nr_i\mu_i-r_i\lambda_i = r_m(\mu_m-\lambda_m)+\sum_{i = 1}^{m-1}r_i(\mu_i-\lambda_i)\geq r_m-\sum_{i = 1}^{m-1}r_iR = (R+1)^{m-1}-\sum_{i = 1}^{m-1} R(R+1)^{i-1} = 1\neq 0$$
-		)
-		
-		Definiere $a_i = t_i-t_i^{r_i}$ für $i = 2, \dots, n$. Es gilt $k[a,a_2,\dots, a_n][t_1] = k[t_1,\dots, t_n]$. Genügt zu zeigen, dass $t_1$ ganz über $k[a,a_2,\dots, a_n]$ ist. Sei $\mu\in\Lambda_a$ das eindeutig bestimmte Element, sodass
-		$$\mu_1+r_2\mu_2+\dots+r_k\mu_k = \max\limits_{\lambda\in\Lambda_a}(\lambda_1+r_2\lambda_2+\dots+r_n\lambda_n) \eqqcolon s$$
-		Es gilt 
-		$$0 = a-a = \sum_{\lambda\in\Lambda_a}c_{\lambda}t^{\lambda}-a = \sum c_{\lambda}t_1^{\lambda_1}(a_2+t_!^{r_2})^{\lambda_2}\dots (a_n+t_n^{r_n})^{\lambda_n} -a = b_st_i^s+b_{s-1}t_1^{s-1}+\dots +b_0$$
+		Definiere nun $a_i = t_i-t_i^{r_i}$ für $i = 2, \dots, n$. Es gilt $k[a,a_2,\dots, a_n][t_1] = k[t_1,\dots, t_n]$. Es genügt zu zeigen, dass $t_1$ ganz über $k[a,a_2,\dots, a_n]$ ist. Sei $\mu\in\Lambda_a$ das eindeutig bestimmte Element, für welches
+		\[\mu_1+r_2\mu_2+\dots+r_k\mu_k = \max\limits_{\lambda\in\Lambda_a}(\lambda_1+r_2\lambda_2+\dots+r_n\lambda_n) =: s\] gilt.
+		Es folgt \begin{align*}
+			0 &= a-a = \sum_{\lambda\in\Lambda_a}c_{\lambda}t^{\lambda}-a = \sum c_{\lambda}t_1^{\lambda_1}(a_2+t_2^{r_2})^{\lambda_2}\dots (a_n+t_n^{r_n})^{\lambda_n} -a \\ &= b_st_i^s+b_{s-1}t_{i-1}^{s-1}+\dots +b_0
+		\end{align*}
 		für gewisse $b_0,\dots, b_s\in k[a, a_2,\dots, a_n]$ und $b_s = c_{\mu} \in k\setminus \set{0} = A^{\times}$.
 		
 		Damit ist $t_1$ ganz über $k[a, a_2,\dots, a_n]$.
@@ -2597,23 +2601,110 @@ o\begin{lem} \label{lem:6.11}
 			$$ n = \operatorname{trdeg}(Q(B)|k) = \operatorname{trdeg}(Q(A/\fp_i)|k) \leq m_2$$
 		\end{itemize}
 	\end{description}
-
-
 \end{proof}
 
 \lecture{14. Juni 2018}
 
-INSERT LECTURE HERE
+\begin{kor} \label{kor:7.17}
+	Sei $A \subseteq B$ eine endlich erzeugte Ringerweiterung sowie $A$ ein Integritätsbereich. Dann gilt: 
+	\begin{enumerate}
+		\item \label{kor:7.17:i} Es existieren $s \in A \setminus \{0\}$ und $b_1, \dots , b_n \in B$ mit
+		\begin{itemize}
+			\item $b_1, \dots , b_n$ algebraisch unabhängig über $\Quot(A)$ und
+			\item $A[s^{-1}][b_1,\dots , b_n] \subseteq B[s^{-1}]$ endlich.\footnote{Man beachte $A[b_1, \dots b_n][s^{-1}]=A[s^{-1}][b_1, \dots , b_n]$.}
+		\end{itemize}
+		\item Für alle $\fp\in\Spec A [s^{-1}]$ existiert ein $\fq \in \Spec B[s^{-1}]$ mit $\fq \cap A[s^{-1}]=\fp$. \label{kor:7.17:ii}
+		\item $\Quot\left( \fak A {\fp \cap A} \right)=\Quot \left( \fak {A[s^{-1}]}\fp \right) \subseteq \Quot(\fak{B[s^{-1}]}\fq)=\Quot(\fak B {\fq \cap B})$ \label{kor:7.17:iii}
+	\end{enumerate}
+\end{kor}
 \begin{proof}
 	\leavevmode
+	\begin{enumerate}[label=\ref{kor:7.17:\roman*}]
+		\item Sei $S := A \setminus \{0\}$. Erhalte $\Quot(A)=S^{-1}A \subseteq S^{-1}B$ endlich erzeugt. Nach der \namereff{thm:noether-normalisierung} existieren über $\Quot A =: K$ algebraisch unabhängige $b_1',\dots , b_n' \in S^{-1}B$ mit $K[b_1', \dots b_n'] \subseteq S^{-1}B$ ganz. 
+		
+		Wir schreiben $b_i'=\frac{b_i}{s_i}$ mit $b_i \in B,s_i \in S$. Dann sind die $b_1, \dots , b_n$ ebenfalls algebraisch unabhängig über $K$ und es gilt $K[b_1, \dots , b_n] = K[b_1', \dots , b_n']$.
+		
+		Seien $c_1, \dots c_N \in B$ mit $B=A[c_1, \dots c_N]$. Da $S^{-1}B$ ganz über $K[b_1, b_n]$ ist, existieren normierte $f_i \in K[b_1, \dots b_n][t]$ mit $f_i(\frac{c_i}{1})=0$. Wähle $u \in S$ so, dass die Koeffizienten aller $f_1, \dots , f_N$ im Bild von $A[u^{-1}][b_1, \dots , b_n] \to K[b_1, \dots , b_n]$ liegen, und wähle dann normierte $g_i \in A[u^{-1}][b_1, \dots , b_n]$ als Urbilder der $f_i$. Betrachte $g_i(c_i) \in B[u^{-1}]$. Dann gilt $g_i(c_i) \in \ker(B[u^{-1}] \to S^{-1}B)$ (denn $g_i(c_i) \mapsto f_i(c_i)=0$). 
+		
+		Somit existieren $v_i \in A \setminus \{0\}$ mit $v_i \cdot g_i(c_i)=0 \in B[u^{-1}]$. Definiere $v := v_1 \dots v_n \in A \setminus \{0\}$. Wir setzen $s := uv$. Betrachte nun die Bilder $h_i$ von $g_i$ unter $A[u^{-1}][b_1, \dots , b_n][t] \to A[s^{-1}][b_1, \dots b_n][t]$.
+		
+		Es ist $h_i(c_i)=0$ (denn $v \cdot h_i(c_i) = 0$ in $B[s^{-1}]$). Außerdem sind die $h_i$ normiert, da die $g_i$ normiert sind. Also sind die $c_i$ ganz über $A[s^{-1}][b_1, \dots b_n]$ und somit ist $A[s^{-1}][b_1, \dots , b_n] \subseteq B[s^{-1}]$ endlich. 
+		\item Da die $b_1, \dots b_n$ algebraisch unabhängig über $A[s^{-1}]$ sind, ist $A[s^{-1}][b_1, \dots , b_n]$ isomorph zum Polynomring. Sei $\fp \in \Spec A[s^{-1}]$, betrachte $\fp' \in \fp \cdot A[s^{-1}][b_1, \dots , b_n]+(b_1, \dots , b_n)$. Dann ist $\fp' \cap A = \fp$. Außerdem ist $\fak{A[s^{-1}][b_1, \dots , b_n]}{\fp'} \cong \fak{A[s^{-1}]}\fp$. Also ist $\fp' \in \Spec (A[s^{-1}][b_1, \dots , b_n])$.  
+		
+		Nach \cref{prop:6.8} existiert ein $\fq \in \Spec B[s^{-1}]$ mit $\fq \cap A[s^{-1}][b_1, \dots , b_n]=\fp'$, woraus $\fq \cap A[s^{-1}]=\fp' \cap A[s^{-1}]=\fp$ folgt.
+		\item Wir betrachten das folgende Diagramm.
+		\begin{center}
+			\begin{tikzcd} 
+				A[s^{-1}][b_1, \dots , b_n] \arrow{d} \arrow[Subseteq]{r}{\text{endlich}} & B[s^{-1}] \arrow{d} \\ % TODO: spacing
+				\fak{A[s^{-1}]}\fp \cong \fak{A[s^{-1}][b_1, \dots b_n]}{\fp'} \arrow[hookrightarrow]{r} & \fak{B[s^{-1}]}\fq
+			\end{tikzcd}
+		\end{center}
+		Also ist auch $\fak{A[s^{-1}]}\fp \hookrightarrow \fak{B[s^{-1}]}\fq$ endlich.
+		
+		Außerdem ist damit $\Quot(A[s^{-1}]) \hookrightarrow \Quot(B[s^{-1}]/q)$ eine endliche Körpererweiterung. Zum Beweis sei $R := \fak{A[s^{-1}]}\fp$ und $S := \fak{B[s^{-1}]}\fq$ (Integritätsbereiche). Dann ist $R \subseteq S$ endlich, und $\Quot R \subseteq \Quot S$ ist endlich erzeugt. Sei nun $T := R \setminus \set 0$. Es ist $T^{-1}R \hookrightarrow T^{-1}S$ ganz. Also ist $T^{-1}S$ ein Körper und es folgt $T^{-1}S = \Quot S$. Dann ist $\Quot R \hookrightarrow \Quot S$ algebraisch.
+		
+		Schließlich gilt $\Quot(\fak{A[s^{-1}]}\fp) \cong \Quot(\fak A{\fp \cap A})$ wegen $s \notin \fp \cap A$ und \[\Quot(\fak{A[s^{-1}]}\fp) \cong \fak{A[s^{-1}]\fp}{\fp \cdot A[s^{-1}]\fp} \cong \fak{A_{\fp \cap A}}{\fp \cap A} \cdot A_{\fp \cap A} \cong \Quot(\fak A{\fp \cap A}). \qedhere \]
+	\end{enumerate}
+\end{proof}
+
+\subsection{Jacobson-Ringe}
+\begin{defi}
+	Ein Ring $A$ heißt \emph{Jacobson-Ring}, wenn \[\fp = \bigcap_{\mathclap{\substack{\fm \in \Max A,\\ \fm \supseteq \fp}}} \fm\] für alle $\fp \in \Spec A$ gilt.
+\end{defi}
+\begin{beme} \label{bem7.19}
+	Sei $A$ ein Ring. Dann sind äquivalent:
 	\begin{enumerate}
-		\item 
+		\item $A$ ist Jacobson.
+		\item Für alle $\fp \in \Spec A$ und $a \in A \setminus \fp$ existiert ein $\fm \in \Max A$ mit $\fp \subseteq \fm$ und $a \notin \fm$.
+		\item Für alle Ideale $I$ in $A$ gilt \[\sqrt{I}=\bigcap_{\mathclap{\substack{\fm \in \Max A,\\ \fm \supseteq I}}} \fm.\]
+	\end{enumerate}
+\end{beme}
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item Jeder Körper ist Jacobson.
+		\item $\IZ$ ist Jacobson
+		\item $\IZ_{(p)}$ für $p$ prim ist nicht Jacobson. Allgemeiner sind lokale Ringe, die ein Integritätsbereich, aber kein Körper sind, nicht Jacobson.
+	\end{enumerate}
+\end{bsp}
+\begin{prop}
+	Sei $A$ ein Jacobson-Ring sowie $B$ ganz über $A$. Dann ist $B$ Jacobson.
+\end{prop}
+\begin{proof}
+	Sei $\fq \in \Spec B$ und definiere \[J := \bigcap_{\mathclap{\substack{\fn \in \Max B,\\ \fn \supseteq \fq}}} \fn \supseteq \fq.\] Wir zeigen nun $\fq=J\cap A$. Definiere $\fq \cap A =: \fp \in \Spec A$. Per Definition gilt $\fp=\bigcap_{\fm \in \Max A, \fm \supset \fp} \fm$. Sei also $\fm \in \Max A$ mit $\fm \supseteq \fp$. Nach \namereff{thm:going up} existiert ein $\fn \in \Spec B$ mit $\fn \cap A = \fm$ und $\fn \supseteq \fq$. Mit \cref{prop:6.8} folgt $\fn \in \Max B$. Da $\fm$ beliebig war, gilt $J \cap A=\fp$.
+	
+	Wir betrachten den Ringhomomorphismus $A_\fp \to B_\fp$. Dann ist $\fq \cdot B_\fp \in \Spec B_\fp$, da $\fq \cap A = \fp$. Außerdem $\fq \cdot B_\fp \cap A_\fp = \fp \cdot A_\fp \in \Max(A_\fp)$. Nach \cref{prop:6.8} gilt dann $\fq \cdot B_\fp \in \Max(B_\fp)$, da $A_\fp \to B_\fp$ ganz.
+	
+	Da $(J \cap A)  \cap (A \cap \fp)= \emptyset$, haben wir $J \cdot B_\fp \subset B_\fp$. Andererseits gilt $J \supseteq \fq$, also $J \cdot B_\fp \supseteq \fq \cdot B_\fp$ und damit $J \cdot B_\fp = \fq \cdot B_\fp$. Es folgt $J \subseteq (J \cdot B_\fp) \cap B = (\fq \cdot B_\fp) \cap B = \fq$.
+\end{proof}
+\begin{satz}
+	Sei $A$ ein Jacobson-Ring und $B$ endlich erzeugte $A$-Algebra. Dann ist $B$ Jacobson.
+	
+	Für alle $\fn \in \Max B$ gilt zusätzlich $\fn \cap A \in \Max A$ und $\fak A{\fn \cap A} \hookrightarrow \fak B\fn$ endlich.
+\end{satz}
+\begin{proof}
+	Wir zeigen zunächst, dass $B$ Jacobson ist. Sei dazu $\fq \in \Spec B$ und $b \in B \setminus \fq$. Es ist zu zeigen, dass ein $\fn \in \Max B$ mit $\fq \subseteq \fn$ und $b \notin \fn$.
+	
+	Wir betrachten die Ringerweiterung $A' := \fak A{\fq \cap A} \hookrightarrow \fak B\fq \hookrightarrow (\fak B \fq)[b^{-1}] =: B'$. Es ist $A'$ ein Integritätsbereich und $B'$ eine endlich erzeugte $A'$-Algebra. Nach \cref{kor:7.17} existiert ein $s' \in A' \setminus \{0\}$ mit der folgenden Eigenschaft: Für alle $\fp' \in \Spec A'$ und $s' \notin \fp'$ existiert ein $\fq' \in \Spec B'$, sodass $\fq' \cap A' = \fp'$ gilt und $\Quot(\fak{A'}{\fp'}) \hookrightarrow \Quot(\fak{B'}{\fq'})$ endlich ist.
+	
+	Wähle ein Urbild $s$ von $s'$ unter $A \to A' = \fak A{\fq \cap A}$, also $s \notin \fq \cap A$. Da $A$ Jacobson ist, existiert ein $\fm \in \Max A$ mit $\fq \cap A \subseteq \fm$ und $s \notin \fm$. Dann ist $s' \notin \fm \cdot A' =: M' \in \Max A'$. Wir wenden nun die obige Eigenschaft auf $\fp'=\fm'$ an und erhalten ein $\fn' \in \Spec B'$ mit $\fn' \cap A = \fm'$ sowie 
+	\begin{center}
+		\begin{tikzcd}
+			\Quot(\fak{A'}{\fm'}) \arrow[equal]{d}[swap]{\fm' \in \Max A'} \arrow[hookrightarrow]{r}{\text{endl.}} & \Quot(\fak{B'}{\fn'}) \arrow[equal]{d} \\
+			\fak{A'}{\fm'} \arrow[equal]{d}  & \Quot(\fak B\fn) \arrow[equal]{d} \\
+			\fak A\fm \arrow[hookrightarrow]{r} & \fak B\fn
+		\end{tikzcd} % TODO: komma
+	\end{center} wobei $\fn := \fn' \cap B \in \Spec B$. Also ist $\fak B\fn$ ein Körper nach \cref{lem:6.7} und $\fn \in \Max B$.
+	Es gilt $\fq \subseteq \fn$ (da $\fn \cap A = \fm \supseteq \fq \cap A$) und $b \notin \fn$, da wir die folgende Bijektion haben. \begin{eqnarray*}
+		\Spec((\fak B\fq)[b^{-1}]) &\xlongleftrightarrow{1:1}& \set{\tilde \fq \in \Spec B \given \fq \subseteq \tilde \fq \text{ und } b \notin \tilde \fq} \\
+		\fq'& \mapsto &\fq' \cap B
+	\end{eqnarray*}
+
 \lecture{18. Juni 2018}
 
-		\item Wähle $\fq\in\Max B$ und $b = 1$. Wende Konstruktion aus (i) an. Dann folgt, dass ein $m\in\Max A, m\supseteq q\cap A$ und $n\in \Max B$, $n\cap A = m, n\supseteq \fq$ existieren. Da $\fq$ maximal ist, ist $\fq = u$. Also gilt $m\supseteq \fq\cap A = n\cap A = m\in\Max A$. 
-		
-		Außerdem ist $Q(A'/m')\hookrightarrow Q(B'/n')$ eine endliche Körpererweiterung, aber $Q(A'/m') = A/m = A/\fq\cap A$ und $Q(B'/n') = B/n = B/\fq$.
-	\end{enumerate}
+	Nun zum Beweis des Zusatzes. Wähle $\fq\in\Max B$ und $b = 1$. Wende die Konstruktion von eben an. Dann folgt, dass ein $\fm\in\Max A$ mit $\fm\supseteq \fq\cap A$ und ein $\fn\in \Max B$ mit $\fn\cap A = \fm$ sowie $\fn\supseteq \fq$ existieren. Da $\fq$ maximal ist, ist $\fq = \fn$. Also gilt $\fm\supseteq \fq\cap A = \fn\cap A = \fm\in\Max A$. 
+
+	Außerdem ist $\Quot(\fak{A'}{\fm'})\hookrightarrow \Quot(\fak{B'}{\fn'})$ eine endliche Körpererweiterung, aber es gilt $\Quot(\fak{A'}{\fm'}) = \fak A\fm = \fak A{\fq\cap A}$ und $\Quot(\fak{B'}{\fn'}) = \fak B\fn = \fak B\fq$.
 \end{proof}
 \begin{kor}
 	Sei $k$ Körper, $A$ endlich erzeugte $k$-Algebra. Dann gilt:
