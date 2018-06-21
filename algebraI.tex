@@ -2614,7 +2614,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 			\item $A[s^{-1}][b_1,\dots , b_n] \subseteq B[s^{-1}]$ endlich.\footnote{Man beachte $A[b_1, \dots b_n][s^{-1}]=A[s^{-1}][b_1, \dots , b_n]$.}
 		\end{itemize}
 		\item Für alle $\fp\in\Spec A [s^{-1}]$ existiert ein $\fq \in \Spec B[s^{-1}]$ mit $\fq \cap A[s^{-1}]=\fp$. \label{kor:7.17:ii}
-		\item $\Quot\left( \fak A {\fp \cap A} \right)=\Quot \left( \fak {A[s^{-1}]}\fp \right) \subseteq \Quot(\fak{B[s^{-1}]}\fq)=\Quot(\fak B {\fq \cap B})$ \label{kor:7.17:iii}
+		\item  Für dieses $\fp$ und $\fq$ gilt $\Quot\left( \fak A {\fp \cap A} \right)=\Quot \left( \fak {A[s^{-1}]}\fp \right) \subseteq \Quot(\fak{B[s^{-1}]}\fq)=\Quot(\fak B {\fq \cap B})$ \label{kor:7.17:iii}
 	\end{enumerate}
 \end{kor}
 \begin{proof}
@@ -2823,13 +2823,15 @@ Sei $k$ ein algebraisch abgeschlossener Körper (im ganzen Kapitel 8).
 		\item $I(Y_1\cup y_2) = I(Y_1)\cap I(Y_2)$
 	\end{enumerate}
 \end{beme}
-\begin{bsp}
+
+\noindent
+\textbf{Beispiel.}
 	Betrachte $\IA^2 \supseteq Y = \set {(x_1,x_2)\given x_1 = 0\text{ oder } x_2 = 0} = Z(t_1\cdot t_2) = Z(t_1^it_2^j)$ für $i,j>0$.
 	
 	Was ist $I(Y)$? Sei $f\in I(Y)\subseteq k[t_1,t_2]$, schreibe $f(t_1,t_2) = \sum_{i,j\geq 0}a_{ij}t_1^it_2^j$. Es gilt für alle $x\in k$ nun $0 = f(x,0) = \sum_{i\geq0}a_{i0}x^i$ und $0 = f(0,x) = \sum_{j\geq 0} a_{0j}x^j$. Da $\#k = \infty $ ist, folgt $f(0,t_2) = f(t_1,0) = 0$. Damit erhalten wir
 	$$f(t_1,t_2) = \sum_{i,j>0}a_{ij}t_1^it_2^j\in (t_1\cdot t_2)$$
 	Andererseits $t_1\cdot t_2\in I(Y) \Rightarrow (t_1\cdot t_2)\subseteq I(Y)\Rightarrow I(Y) = (t_1\cdot t_2)$.
-\end{bsp}
+
 \begin{lem}
 	Sei $Y\subseteq \IA^n$ Teilmenge. Dann ist $Z(I(Y)) = \overline{Y}$ (Abschluss in $\IA^n$).
 \end{lem}
@@ -2843,6 +2845,71 @@ Sei $k$ ein algebraisch abgeschlossener Körper (im ganzen Kapitel 8).
 \begin{satz}[Hilberts Nullstellensatz]
 	Sei $I\subseteq k[t_1,\dots, t_n]$ ein Ideal. Dann ist $I(Z(I)) = \sqrt{I}$. 
 \end{satz}
+\lecture{21. Juni 2018}
+
+\begin{proof}
+	$Z(I) = \set{x\in\IA^n\given \forall f\in I: f(x) = 0}$. Dabei ist $f(x) = 0\Leftrightarrow f\in \ker(\ev_x\colon k[t_1,\dots, t_n]\to k) = m_x$. Also können wir auch schreiben:
+	$$Z(I) = \set{x\in\IA^n\given I\subseteq m_x}$$
+	Das bedeutet nun, dass $I(Z(I)) = \set{f\in k[t_1,\dots, t_n]\given \forall x \in Z(I): f(x) = 0} = \set{f\in k[t_1,\dots, t_n] \given \forall x\in\IA^n: \text{ falls }I\subseteq m_x\Rightarrow f\in m_x} = \bigcap\limits_{x\in\IA^n, I\subseteq m_x}m_x$.
+	
+	Nach dem schwachen Nullstellensatz gilt dabei
+	$$\bigcap\limits_{x\in\IA^n, I\subseteq m_x}m_x = \bigcap\limits_{m\in \Max k[t_1,\dots, t_n], I\subseteq m} m$$
+	Da $k[t_1,\dots, t_n]$ Jacobson ist, ist ferner
+	$$\bigcap\limits_{m\in \Max k[t_1,\dots, t_n], I\subseteq m} m = \bigcap\limits_{\fp\in\Spec k[t_1,\dots, t_n], I\subseteq \fp} \fp = \sqrt{I}$$
+\end{proof}
+
+\begin{bem}
+	Sei $I\subsetneqq k[t_1,\dots, t_n]\Rightarrow Z(I)\neq \emptyset$. Denn $\sqrt{I}\subsetneqq k[t_1,\dots, t_n]\Rightarrow \exists m\in\Max k[t_1,\dots, t_n]$ mit $\sqrt{I} \subseteq m \Rightarrow \exists x\in\IA^n$ mit $m = m_x$. (Wobei wir hier nur den schwachen Nullstellensatz verwenden.) Daraus folgt
+	$$\set{x} = Z(m_x) \subseteq Z(\sqrt{I}) \subseteq Z(I)$$
+	wobei im letzten Schritt schon Gleichheit gilt, denn: Sei $y\in Z(I)$, $f\in\sqrt {I}\Rightarrow \exists n>0$ mit $f^n\in I\Rightarrow 0 = f^n(y) = f(y)^n \Rightarrow f(y) = 0$
+\end{bem}
+\begin{kor}
+	\leavevmode
+	\begin{enumerate}
+		\item Die Abbildungen
+		$$\set{\text{Algebraische Teilmengen }Y\subseteq \IA^n}\xlongleftrightarrow{1:1}\set{I\subseteq k[t_1,\dots, t_n]\given I\text{ Ideal}, I = \sqrt{I}}$$
+		gegeben durch $Y\mapsto I(Y)$ und $Z(I) \mapsfrom I$ sind zueinander inverse Bijektionen, inklusionsumkehrend (\glqq inclusion reversing\grqq)
+		\item Die Bijektionen beschränken sich zu:
+		$$ \set{\text{Abgeschlossene irreduzible Teilmengen }Y\subseteq A^n}  \xlongleftrightarrow{1:1}\Spec k[t_1,\dots, t_n]$$
+		bzw. zu 
+		$$\set{\set{x}\given x\in\IA^n}\xlongleftrightarrow{1:1}\Max k[t_1,\dots, t_n]$$
+	\end{enumerate}
+	
+\end{kor}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item $\checkmark$ (Nullstellensatz und Lemma 8.12)
+		\item Sei $Y\subseteq \IA^n$ abgeschlossene irreduzible Teilmenge. Seien $f,g\in k[t_1,\dots, t_n]$ mit $f,g\notin I(Y)$ und $f\cdot g \in I(Y)$. Dann folgt, dass $Z(I(Y)+(f)), Z(I(Y)+(g))\subsetneqq Y$ (angenommen $Z(I(Y)+(f)) = Y\Rightarrow \forall y\in Y$ ist $f(y) = 0\Rightarrow f\in I(Y)$). Dann folgt, da $Y$ irreduzibel ist:
+		$$Z(I(Y)+(f)) \cup Z(I(Y)+(g)) \subsetneqq Y\enspace ,$$
+		wobei $Z(I(Y)+(f))\cup Z(I(Y)+(g)) = Z((I(Y)+(f))\cdot (I(Y)+(g)))$. Andererseits
+		$$(I(Y)+(f))\cdot (I(Y)+f(g))\subseteq I(Y)+(fg)= I(Y)$$
+		nach Annahme. Das heißt, dass $Y\supsetneqq Z(I(Y)+(f))\cup Z(I(Y)+(g))\supseteq Z(I(Y)+(fg)) = Z(I(Y)) = Y$, was ein Widerspruch ist. Also ist $I(Y)$ prim.
+		
+		Umgekehrt: Sei $\fp \in \Spec k[t_1,\dots, t_n]$. Seien $Z_1,Z_2\subseteq Z(\fp)$ abgeschlossen mit $Z_1\cup Z_2 = Z(\fp)$. Schreibe $Z_i = Z(I_i)$ ($i= 1,2$) für Ideale $I_i\subseteq k[t_1,\dots, t_n]$ mit $\fp\subseteq I_i$.
+		$$Z(\fp) = Z(I_1)\cap Z(I_2) = Z(I_1\cdot I_2)$$
+		Wir wenden (i) an und erhalten $ \fp = \sqrt{\fp} = \sqrt{I_1\cdot I_2}\supseteq I_1\cdot I_2$ und mit einer Übungsaufgabe (prime avoidance) folgt $\fp \supseteq I_1$ oder $\fp\supseteq I_2$. Dann ist aber $Z(\fp) \subseteq Z(I_1)$ oder $Z(\fp)\subseteq Z(I_2)$, wobei jedes Mal bereits Gleichheit gälte. Damit ist $Z(\fp)$ irreduzibel.
+		
+		Zu den maximalen Idealen: Für $m\in\Max k[t_1,\dots, t_n]$ ist $m = m_x$ für ein $x\in\IA^n$. $Z(m_x) = \set{x}$ (für $y\in Z(m_x)$ gilt $f(y) = 0$ für alle $f\in m_x$, also insbesondere $f(y) = 0$ für $f = t_i-x_i\Rightarrow y_i = x_i\Rightarrow y = x$). Andersherum ist für $x\in\IA^n$ dann $I(\set{x}) = \set{f\in k[t_1,\dots, t_n]\given f(x) = 0} = m_x$.
+	\end{enumerate}	
+\end{proof}
+
+\begin{defi}
+	Sei $X\subseteq \IA^n$ algebraische Teilmenge. Der Ring
+	$$A(X)\coloneqq \fak{k[t_1,\dots, t_n]}{I(X)}$$
+	heißt affiner Koordinatenring von $X$.
+	
+\end{defi}
+\begin{beme}
+	Sei $X\subseteq \IA^n$ algebraische Teilmenge.
+	\begin{enumerate}
+		\item $A(X)$ ist reduziert (d.h. $\forall f\in A(X)$ falls $\exists n$ mit $f^n = 0$, dann ist bereits $f = 0$)
+		
+		$A(X)$ endlich erzeugte $k$-Algebra
+		\item $X$ irreduzibel $\Leftrightarrow A(X)$ Integritätsbereich.
+	\end{enumerate}
+\end{beme}
+
 \end{document}
 
 %\begin{bsp}
