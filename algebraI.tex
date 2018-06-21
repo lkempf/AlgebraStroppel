@@ -2825,7 +2825,7 @@ Sei $k$ ein algebraisch abgeschlossener Körper (im ganzen Kapitel 8).
 \end{beme}
 
 \noindent
-\textbf{Beispiel.}
+\paragraph{Beispiel.}
 	Betrachte $\IA^2 \supseteq Y = \set {(x_1,x_2)\given x_1 = 0\text{ oder } x_2 = 0} = Z(t_1\cdot t_2) = Z(t_1^it_2^j)$ für $i,j>0$.
 	
 	Was ist $I(Y)$? Sei $f\in I(Y)\subseteq k[t_1,t_2]$, schreibe $f(t_1,t_2) = \sum_{i,j\geq 0}a_{ij}t_1^it_2^j$. Es gilt für alle $x\in k$ nun $0 = f(x,0) = \sum_{i\geq0}a_{i0}x^i$ und $0 = f(0,x) = \sum_{j\geq 0} a_{0j}x^j$. Da $\#k = \infty $ ist, folgt $f(0,t_2) = f(t_1,0) = 0$. Damit erhalten wir
@@ -2909,7 +2909,93 @@ Sei $k$ ein algebraisch abgeschlossener Körper (im ganzen Kapitel 8).
 		\item $X$ irreduzibel $\Leftrightarrow A(X)$ Integritätsbereich.
 	\end{enumerate}
 \end{beme}
+\begin{defi}
+	Sei $X\subseteq \IA^n$ algebraische Teilmenge. Versehe $X$ mit der Relativtopologie von $\IA^n$. Diese Topologie auf $X$ heißt die Zariski-Topologie.
+\end{defi}
+\begin{kor}
+	Sei $X\subseteq\IA^n$ algebraische Teilmenge. Dann induzieren $Z$ und $I$ aus Korollar 8.14 zueinander inverse Bijektionen
+	\begin{eqnarray*}
+		\set{\text{Abgeschlossene Teilmengen }Y\subseteq X} &\xlongleftrightarrow{1:1}&\set{I\subseteq A(X) \text{ Ideal}\given \sqrt{I} = I}\\
+		\set{\text{Abgeschlossene irred. Teilmengen }Y\subseteq X}&\xlongleftrightarrow{1:1}&\Spec A(X)\\
+		\set{\set{x}\given x\in X}&\xlongleftrightarrow{1:1}&\Max A(X)
+	\end{eqnarray*}
+\end{kor}
+\qedhere
+\begin{defi}
+	Sei $X$ topologischer Raum. Abgeschlossene irreduzible Teilmengen $C\subseteq X$ heißt irreduzible Komponente von $X$ genau dann, wenn $\forall Z\subseteq X, Z$ abgeschlossen irreduzibel aus $C\subseteq Z$ bereits $C = Z$ folgt.
+\end{defi}
+\begin{kor}
+	Sei $X\subseteq \IA^n$ algebraische Teilmenge Dann liefern $Z, I$ Bijektionen
+	$$\set{\text{irreduzible Komponenten }C\subseteq X}\xlongleftrightarrow{1:1} \operatorname{MinSpec}A(X)$$
+	Insbesondere: $X$ hat nur endlich viele irreduzible Komponenten (da $A(X)$ noethersch), und mindestens eine.
+\end{kor}
+\qedhere
+\paragraph{Beispiel.}
+	Betrachte $X = Z(t_1t_2)\subseteq \IA^2$. Dann ist $A(X) = \fak{k[t_1,t_2]}{t_1t_2}$ und $\operatorname{MinSpec}A(X) = \set{(t_1),(t_2)}$. Damit ist $\set{\text{irreduzible Komponenten}} = \set{Z(t_1) = t_2\text{-Achse}, Z(t_2) = t_1\text{-Achse}}$.
+	
+	
+\subsection{Morphismen}
+\begin{defi}
+	Seien $X\subseteq \IA^n$, $Y\subseteq \IA^m$ algebraische Teilmengen. Eine Abbildung $f\colon X\to Y$ heißt Morphismus von algebraischen Teilmengen, falls es $f_1,\dots, f_m\in k[t_1,\dots, t_n]$ gibt, sodass für alle $x = (x_1,\dots, x_n)\in X$ gilt:
+	$$f(x) = (f_1(x),\dots, f_m(x))$$
+	Also:
+	\begin{center}
+		\begin{tikzcd}
+			\IA^m \arrow{r}{\exists(f_1,\dots, f_m)} &\IA^n\\
+			X\arrow[Subseteq]{u}\arrow{r}{f} & Y \arrow[Subseteq]{u} 
+		\end{tikzcd}
+	\end{center}
+	Notation: $\Hom(X,Y) = \set{f\colon X\to Y\given f\text{ Morphismus}}$
+\end{defi}
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item Sei $X=  Z(t_1^3-t_2^2)\subseteq \IA^2$ %TODO: hier und unten skizzen einfügen
+		
+		Betrachte Abbildung $f\colon \IA^1\to X, x\mapsto (x^2,x^3)$. $f$ ist ein Morphismus. (denn
+		\begin{center}
+			\begin{tikzcd}
+				\IA^1 \arrow{r}{(x^2,x^3)} &\IA^2\\
+				\IA^1\arrow[Subseteq]{u}\arrow{r}{f} & X \arrow[Subseteq]{u} 
+			\end{tikzcd}
+		\end{center})
+		$f$ ist bijektiv
+		\item Sei $Y = Z(t_1^2-t_2)\subseteq \IA^2$
+		
+		Betrachte Abbildungen $g\colon \IA^1\to Y, x\mapsto(x, x^2)$ und $g'\colon Y\to \IA^1, (x_1, x_2)\mapsto x_1$. Beides sind Morphismen (klar) und $g'\circ g = \id_{\IA^1}$, $g\circ g' = \id _Y$
+	\end{enumerate}
+\end{bsp}
+\begin{beme}
+	Sei $X\subseteq \IA^n$ algebraische Teilmenge. Dann ist 
+	$$\Hom(X, \IA^1)\subseteq \operatorname{Abb}(X,k)\coloneqq \set{f\colon X\to k\given f\text{ Abbildung}}$$
+	ein Unterring.
+	
+	(Ringstruktur: $(f+g)(x) = f(x) +g(x)$. Falls $f,g\in\Hom(X,\IA^1)$, dann auch $f+g,f\cdot g\in\Hom(X,\IA^1)$.)
+	
+	Betrachte die Abbildung
+	$$k[t_1,\dots, t_n]\xlongrightarrow{\alpha}\operatorname{Abb}(X,k), f\longmapsto \alpha(f)\colon X\to k, x\mapsto f(x)$$
+	$\alpha$ ist Ringhomomorphismus. Es gilt
+	\begin{eqnarray*}
+		\im \alpha &=& \Hom(X,\IA^1)\\
+		\ker \alpha &=& I(X)
+	\end{eqnarray*}
+	$\Rightarrow \alpha$ induziert Isomorphismus $\beta$:
+	\begin{center}
+		\begin{tikzcd}
+			k[t_1,\dots, t_n] \arrow{r}{\alpha}\arrow{d} &\operatorname{Abb}(X,k)\\
+			A(X)\arrow{r}{\beta}[swap]{\cong} & \Hom(X,\IA^1) \arrow[Subseteq]{u} 
+		\end{tikzcd}
+	\end{center}
+	Notation: Für $f\in A(X)$ schreibe für $x\in X$: $f(x)\coloneqq (\beta(f))(x)$
+\end{beme}
+\begin{beme}
+	Seien $X\subseteq \IA^n, Y\subseteq \IA^m, Z\subseteq \IA^l$ algebraische Teilmengen, Seien $X\xto{f}Y\xto{g}Z$ Morphismen. Dann ist $g\circ f\colon X\to Z$ ein Morphismus. Außerdem: $\id_X\colon X\to X$ ist ein Morphismus.
+\end{beme}
+\begin{defi}
+	Ein Morphismus $f\colon X\to Y$ zwischen algebraischen Teilmengen $X\subseteq \IA^n, Y\subseteq \IA^m$ heißt Isomorphismus genau dann, wenn es einen Morphismus $g\colon Y\to X$ gibt mit $g\circ f = \id_X, f\circ g = \id_Y$.
+\end{defi}
 
+Nächstes Mal: $\Hom(X,Y)\xleftrightarrow{1:1}\Hom_{k-\text{Alg}}(A(Y),A(X))$. Es bleibt also spannend, bleibt dran!
 \end{document}
 
 %\begin{bsp}
