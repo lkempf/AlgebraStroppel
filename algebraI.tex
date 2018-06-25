@@ -2996,6 +2996,89 @@ Sei $k$ ein algebraisch abgeschlossener Körper (im ganzen Kapitel 8).
 \end{defi}
 
 Nächstes Mal: $\Hom(X,Y)\xleftrightarrow{1:1}\Hom_{k-\text{Alg}}(A(Y),A(X))$. Es bleibt also spannend, bleibt dran!
+
+
+\lecture{25. Juni 2018}
+
+\begin{bem} Sei $X\subseteq \IA^n$ algebraische Teilmenge, $A\coloneqq A(X)$. Haben Zariski-Topologie auf $X$:
+	
+	$$\set{\text{abg. Teilmengen von } X} = \set{Z(J)\given I(X) \subseteq J\subseteq k[t_1,\dots, t_n]}$$
+und Zariski-Topologie auf $\Spec A$
+	$$\set{\text{abg. Teilmengen von }\Spec A} = \set{V(I)\given I\subseteq A \text{ Ideal}}$$
+wobei $V(I) = \set{\fp\in \Spec A\given I\subseteq \fp}$.
+Betrachte die bijektive Abbildung
+\begin{eqnarray*}
+	X & \xlongrightarrow{\phi} &\Max A \subseteq \Spec A\\
+	x & \longmapsto & m_x/I(X)
+\end{eqnarray*}
+Betrachte algebraische Teilmenge $Z(J)\subseteq X$. Dann ist
+	$$\phi(Z(J)) = \set{m_x/I(X)\given \forall f\in J: f(x) = 0}$$
+wobei $\forall f\in J: f(x) = 0$ äquivalent ist zu $J\subseteq m_x$. Mit dem schwachen Nullstellensatz folgt:
+\begin{eqnarray*}
+	\phi(Z(J)) &=& \set{m/I(X)\given J\subseteq m\in\Max k[t_1,\dots, t_n]}\\
+	&=& \set{ n \given n\in \Max A, n\supseteq J/I(X)}\\
+	&=& V(J/I(X))\cap \Max A
+\end{eqnarray*}
+Also: Die Topologie auf $\Max A$, die von $X$ gegeben ist (via $\phi$) ist dieselbe wie die Relativtopologie von $\Spec A$ auf $\Max A$.
+\end{bem}
+
+Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten 
+	\begin{center}
+	\begin{tikzcd}
+		k[t_1,\dots, t_n] \arrow{r}{\alpha_X}\arrow{d} &\operatorname{Abb}(X,k)\\
+		A(X)\arrow{r}{\beta_X}[swap]{\cong} & \Hom(X,\IA^1) \arrow[Subseteq]{u} 
+	\end{tikzcd}
+	\end{center} 
+
+\begin{beme}\leavevmode \begin{enumerate}
+	\item
+		Seien $X\subseteq \IA^n$, $Y\subseteq \IA^m$ algebraische Teilmengen. Sei $f\colon X\to Y$ Morphismus. Definiere $f^*\colon A(Y)\to A(X)$.
+		$$\begin{array}{ccccccc}
+		A(Y) & \xrightarrow {\beta_Y} & \Hom(Y,\IA^1) & \to & Hom(X,\IA^1) & \xto{\beta^{-1}_X} & A(X)\\
+		&&h&\mapsto &h\circ f&&
+		\end{array}$$
+		$f^*$ ist Ringhomomorphismus, denn $h\mapsto h\circ f$ ist Ringhomomorphismus (sogar $k$-Algebrenhomomorphismus). Es gilt für $Y\xto{g} Z$ Morphismus: $(g\circ f)^* = f^*\circ g^*$.
+	\item
+		Sei $\phi\colon A(Y)\to A(X)$ $k$-Algebrenhomomorphismus. Dann:
+		\begin{center}
+			\begin{tikzcd}
+				k[s_1,\dots, s_m] \arrow{r}{\exists \Phi}\arrow{d} &k[t_1,\dots, t_n]\arrow{d}\\
+				A(Y)\arrow{r}{\phi} & A(X)
+			\end{tikzcd} %TODO: die pfeile nach unten sollen surjektionen darstellen
+		\end{center}
+		wobei $\Phi$ $k$-Algebrenhomomorphismus ist.
+		
+		(Denn: Betrachte Bild $\overline{f_i}$ von $s_i$ unter $k[s_1,\dots, s_m]\to A(Y)\xto{\phi}A(X)$. Wähle Urbild $f_i$ von $\overline{f_i}$ unter $k[t_1,\dots, t_n]\to A(X)$. Definiere $\Phi\coloneqq \ev_(f_1,\dots, f_m)$. (nicht eindeutig bestimmt!))
+		
+		Betrachte $F\colon \IA^n\to \IA^m, x = (x_1,\dots, x_n)\mapsto (f_1(x),\dots, f_m(x))$. Zeige $F(X)\subseteq Y$. Sei $x\in X$ und $g\in I(Y)$. 
+		$$g(F(x)) = g(f_1(x),\dots, f_m(x)) \xeq{!} g(f_1,\dots, f_m)(x)$$
+		
+		(Denn:
+		\begin{center}
+			\begin{tikzcd}
+				k[s_1,\dots, s_m]\arrow{r}{\ev_{(f_1,\dots, f_m)}}\arrow{rd}{\ev_{(f_1(x),\dots, f_m(x))}}& k[t_1,\dots, t_n]\arrow{d}{\ev_{(x_1,\dots, x_n)}}\\
+							& k\\
+			\end{tikzcd}
+		\end{center})
+		kommutiert:
+		$$\ev_{(x_1,\dots, x_n)}\circ \ev_{(f_1,\dots, f_m)}(s_i) = \ev_{(x_1,\dots, x_n)}(f_i) = f_i(x_1,\dots, x_n) = f_i(x) = \ev_{(f_1(x), \dots, f_m(x))}(s_i)$$
+		Also haben wir $g(F(x)) = (g(f_1,\dots, f_m))(x)$, wobei $(g(f_1,\dots, f_m)) = \ev_{(f_1,\dots, f_m)}(g) = \Phi(g)$ ist, also $g(F(x)) = (\Phi(g))(x) = 0$, da $\Phi(I(Y))\subseteq I(X)$. Das bedeutet nun:
+		\begin{center}
+			\begin{tikzcd}
+				\IA^n \arrow{r}{F}&\IA^m\\
+				X\arrow[Subseteq]{u}\arrow{r}{\exists !f} & Y \arrow[Subseteq]{u} 
+			\end{tikzcd}
+		\end{center}
+		Nach Konstruktion von $F$ ist $f$ Morphismus. Zeige nun noch, dass $f$ unabhängig von den Wahlen der $f_i$ ist.
+		
+		Seien dazu $f_i'$ weitere Urbilder von $\overline{f_i}$. Dann gilt insbesondere $f_i-f_i'\in I(X)$. Daraus folgt nun:
+		$\forall x \in X: f_i(x) = f_i'(x)$, also $F(x) = F'(x) \coloneqq (f_1'(x),\dots, f_m'(x))$. Damit ist $f$ tatsächlich unabhängig von diesen Wahlen.
+		
+		Notation: $\phi^{\#} \coloneqq f$. Es gilt: für $k$-Algebrenhomomorphismen: $A(Z)\xto{\psi} A(Y)$ ist $(\phi\circ \psi)^{\#} = \psi^{\#}\circ \phi ^{\#}$
+		
+	\end{enumerate}
+\end{beme}
+
 \end{document}
 
 %\begin{bsp}
