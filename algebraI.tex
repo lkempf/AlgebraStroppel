@@ -3056,12 +3056,12 @@ Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten
 		(Denn:
 		\begin{center}
 			\begin{tikzcd}
-				k[s_1,\dots, s_m]\arrow{r}{\ev_{(f_1,\dots, f_m)}}\arrow{rd}{\ev_{(f_1(x),\dots, f_m(x))}}& k[t_1,\dots, t_n]\arrow{d}{\ev_{(x_1,\dots, x_n)}}\\
+				k[s_1,\dots, s_m]\arrow{r}{\ev_{(f_1,\dots, f_m)}}\arrow{rd}[swap]{\ev_{(f_1(x),\dots, f_m(x))}}& k[t_1,\dots, t_n]\arrow{d}{\ev_{(x_1,\dots, x_n)}}\\
 							& k\\
 			\end{tikzcd}
-		\end{center})
+		\end{center}
 		kommutiert:
-		$$\ev_{(x_1,\dots, x_n)}\circ \ev_{(f_1,\dots, f_m)}(s_i) = \ev_{(x_1,\dots, x_n)}(f_i) = f_i(x_1,\dots, x_n) = f_i(x) = \ev_{(f_1(x), \dots, f_m(x))}(s_i)$$
+		$$\ev_{(x_1,\dots, x_n)}\circ \ev_{(f_1,\dots, f_m)}(s_i) = \ev_{(x_1,\dots, x_n)}(f_i) = f_i(x_1,\dots, x_n) = f_i(x) = \ev_{(f_1(x), \dots, f_m(x))}(s_i)$$)
 		Also haben wir $g(F(x)) = (g(f_1,\dots, f_m))(x)$, wobei $(g(f_1,\dots, f_m)) = \ev_{(f_1,\dots, f_m)}(g) = \Phi(g)$ ist, also $g(F(x)) = (\Phi(g))(x) = 0$, da $\Phi(I(Y))\subseteq I(X)$. Das bedeutet nun:
 		\begin{center}
 			\begin{tikzcd}
@@ -3078,6 +3078,74 @@ Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten
 		
 	\end{enumerate}
 \end{beme}
+
+\begin{prop}
+	\leavevmode
+	\begin{enumerate}
+		\item Seien $X\subseteq \IA^n, Y\subseteq \IA^m$ algebraische Teilmengen. Dann sind
+		\begin{eqnarray*}
+			f & \longmapsto f^*\\
+			\Hom(X,Y) & \longleftrightarrow & \Hom_{k\text{-Alg}}(A(Y),A(X))\\
+			\phi^{\#}&\longmapsfrom & \phi
+		\end{eqnarray*}
+		zueinander inverse Bijektionen.
+		\item Zu jeder endlich erzeugten, reduzierten $k$-Algebra $A$ existiert eine algebraische Teilmenge $X\subseteq \IA^n$ mit $A(X)\cong A$. $X$ ist bis auf Isomorphie eindeutig bestimmt und $A$ ist Integritätsbereich genau dann, wenn $X$ Varietät ist.
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Sei $f\in\Hom(X,Y)$. Zeige $(f^*)^{\#} = f$. Definiere $\phi\coloneqq f^*$. Betrachte Diagramm (*)
+		\begin{center}
+			\begin{tikzcd}
+				k[s_1,\dots, s_m]\arrow{r}{\Phi}\arrow{d}& k[t_1,\dots, t_n]\arrow{d}\\
+				A(Y)\arrow{r}{\phi}& A(X)
+			\end{tikzcd}
+		\end{center}
+		(das heißt wähle $\Phi$, sodass (*) kommutiert.)
+		
+		Sei $F\colon \IA^n\to \IA^m$ die Abbildung konstruiert wie in Bemerkung 8.26 (ii). Es gilt $\phi^{\#}(x) = F(x)$ für alle $x\in X$. Wende $\beta$ auf das Diagramm (*) an. Erhalte (**):
+		
+		(**) INSERT DIAGRAM HERE
+		
+		Alle Teildiagramme in (**) kommtuieren. Also auch der äußere Weg in (**). Das bedeutet, dass für alle $h\in \Hom(\IA^m, \IA^1)$ gilt: 
+		$$(h\circ F)|_X = (h|_Y)\circ f$$
+		also für alle $h\in\Hom(\IA^m, \IA^1)$ und all $x\in X$ haben wir $h(F(x)) = h(f(x))$. 
+		
+		Wähle $h\colon \IA^m\to \IA^1, (y_1,\dots, y_m)\mapsto y_i$. Damit folgt $F(x)_i = i$-te Koordinate von $F(X) = f(x)_i$. Da $i$ beliebig ist, gilt schon $F(x) = f(x)$. Umgekehrt: Sei $\phi\colon A(Y)\to A(X)$ Homomorphismus von $k$-Algebren. Wähle Lift, sodass Diagramm (*) kommutiert. Erhalte $F\colon \IA^n\to \IA^m$. Es gilt $\phi^{\#}(x) = F(x)$ für alle $x\in X$. Reicht zu zeigen, dass
+		\begin{center}
+			\begin{tikzcd}
+				\Hom(Y,\IA^1)\arrow{r}{h\mapsto h\circ \phi^{\#}}& \Hom(X,\IA^1)\\
+				A(Y)\arrow{u}{\cong}[swap]{\beta_Y}\arrow{r}{\phi} & A(X) \arrow{u}{\cong}[swap]{\beta_X}
+			\end{tikzcd}
+		\end{center}
+		kommutiert. Sei $g\in A(Y), x\in X$. Zeige $(\beta_Y(g)\circ\phi^{\#})(x) = (\beta_X(\phi(g)))(x)$. 
+		$$
+			(\beta_Y(g)\circ\phi^{\#})(x)  =  (\beta_Y(g))(\phi^{\#}(x))
+		$$
+		Wähle Urbild $\overline{g}$ von $g$ unter $k[s_1,\dots, s_m]\to A(Y)$. Dann ist
+		$$(\beta_Y(g))(\phi^{\#}(x)) = \overline{g}(\phi^{\#}(x)) = \overline{g}(F(x)) = (\Phi(\overline{g}))(x)$$
+		Wähle $\overline{\phi(g)}$ Urbild von $\phi(g)$ unter $k[t_1,\dots, t_n]\to A(X)$. Dann ist
+		$$(\Phi(\overline{g}))(x) = (\overline{\phi(g)})(x) = (\beta_Y(\phi(g)))(x)$$
+		
+		\item Sei $A$ reduzierte, endlich erzuegte $k$-Algebra. Wähle Surjektion $k[t_1,\dots, t_n]\xto{\phi}A$ von $k$-Algebren. Definiere $X\coloneqq Z(\ker\phi)\subseteq \IA^n$ algebraisch. Dann ist $A(X) = \fak{k[t_1,\dots, t_n]}{I(Z(\ker\phi))} = \fak{k[t_1,\dots, t_n]}{\sqrt{\ker\phi}}$. Da $A$ reduziert ist, ist $\fak{k[t_1,\dots, t_n]}{\sqrt{\ker\phi}} = \fak{k[t_1,\dots, t_n]}{\ker \phi} \cong A$.
+	\end{enumerate}
+\end{proof}
+
+\begin{lem}
+	Seien $X\subseteq \IA^n, Y\subseteq \IA^m$ algebraische Teilmengen, $f\colon X \to Y$ Morphismus. Sei $x\in X$ und $m_x\in\Max A(X)$ das zuegehörige maximale Ideal. Dann ist $m_x\cap A(Y) = m_{f(x)}$ (via $f^*\colon A(Y)\to A(X)$). 
+\end{lem}
+\begin{proof}
+	Unter $\beta_X\colon A(X)\xto{\cong}\Hom(X, \IA^1)$ ist $\beta_X(m_x) = \set{h\in\Hom(X,\IA^1)\given h(x) =0}$. Betrachte das kommutative Diagramm:
+	\begin{center}
+		\begin{tikzcd}
+			A(Y) \arrow{r}{f^*}\arrow{d}{\beta_Y}[swap]{\cong} & A(X)\arrow{d}{\beta_X}[swap]{\cong}\\
+			\Hom(Y,\IA^1)\arrow{r}{\Phi}[swap]{h\mapsto h\circ f} & \Hom(X,\IA^1)
+		\end{tikzcd}
+	\end{center}
+	Es gilt
+	$$\Phi^{-1}(\beta_X(m_x)) = \set{h\in \Hom(Y,\IA^1\given h\circ f \in\beta_X(m_x)} = \set{h\in\Hom(Y,\IA^1)\given h(f(x)) = 0} = \beta_Y(m_{f(x)})$$
+\end{proof}
 
 \end{document}
 
