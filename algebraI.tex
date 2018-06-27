@@ -2766,7 +2766,7 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 	Wir betrachten $\IA^2$. Es gilt:
 	\begin{enumerate}
 		\item $Z(t_1^2+t_2^2-1) = \set{(x_1,x_2)\in k^2 \given x_1^2+x_2^2 = 1}$
-		\item $Z(t_1, t_2) = \set{(x_1,x_2)\in k^2\given x_1 = 0\text{ oder }x_2 = 0}$
+		\item $Z(t_1\cdot t_2) = \set{(x_1,x_2)\in k^2\given x_1 = 0\text{ oder }x_2 = 0}$
 		\item $Z(t_1^2\cdot t_2^2) = \set{(x_1,x_2)\in k^2\given x_1 = 0\text{ oder }x_2 = 0}$
 		\item $Z(t_1-x, t_2-y) = \set{(x,y)}$
 	\end{enumerate}
@@ -2777,14 +2777,14 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 \end{bsp}
 \begin{lem} \label{lem:8.5}
 	Seien $I,J, I_{\nu}\subseteq k[t_1,\dots, t_n]$ mit $\nu\in V$ Ideale. Dann gilt
-	\begin{enumerate}
-		\item $Z(\sum I_{\nu}) = \bigcap Z(I_{\nu})$ und \label{lem:8.5:i}
-		\item $Z(I\cdot J) = Z(I\cap J) = Z(I)\cup Z(J)$. \label{lem:8.5:ii}
-	\end{enumerate}
+	\begin{align*}
+		Z\left(\sum_{\nu\in V} I_{\nu}\right) &= \bigcap_{\nu\in V} Z(I_{\nu}) \tag{i}\label{lem:8.5:i} \\\intertext{und}
+		Z(I\cdot J) &= Z(I\cap J) = Z(I)\cup Z(J) \tag{ii}\label{lem:8.5:ii}
+	\end{align*}
 \end{lem}
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}[label=\ref{lem:8.5:\roman*}]
+	\begin{enumerate}[label=\eqref{lem:8.5:\roman*}]
 		\item $Z(\sum I_{\nu}) \subseteq \bigcap Z(I_{\nu})$ ist klar nach \cref{bem:8.2} \ref{bem:8.2:i}. Für die andere Inklusion sei $x\in\bigcap Z(I_{\nu})$. Für $f\in\sum I_{\nu}$. Dann gibt es Elemente $f_{\nu}\in I_{\nu}$ (nur endlich viele ungleich $0$) mit $f = \sum f_{\nu}$, woraus $f(x) = \sum f_{\nu}(x) = 0$, also $f\in Z(\sum I_{\nu})$ folgt.
 		\item Nach \cref{bem:8.2} \ref{bem:8.2:i} ist $Z(I\cdot J) \supseteq Z(I\cap J)\supseteq Z(I)\cup Z(J)$. Sei $x\in Z(I\cdot J)$ und angenommen, $x\notin Z(I)$. Dann existiert ein $f\in I$ mit $f(x) \neq 0$. Sei $g\in J$. Dann ist $fg\in I\cdot J$, also $0 = f(x)\cdot g(x)$, wobei $f(x)\neq 0$, also $g(x) = 0$ und damit $x \in Z(J)$.
 		\qedhere
@@ -2797,7 +2797,7 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 \begin{defi}
 	Sei $X$ ein topologischer Raum.
 	\begin{enumerate}
-		\item $X$ heißt \emph{irreduzibel}, falls für alle abgeschlossenen $Y_1, Y_2\subset X$ dann $Y_1\cup Y_1\subset X$ folgt.
+		\item $X$ heißt \emph{irreduzibel}, falls für alle abgeschlossenen $Y_1, Y_2\subset X$ dann $Y_1\cup Y_2 \neq X$ folgt.
 		\item Sei $Y\subseteq X$ eine Teilmenge. $Y$ heißt irreduzibel, wenn $Y$ mit der Relativtopologie irreduzibel ist. 
 	\end{enumerate}
 \end{defi}
@@ -2812,7 +2812,7 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 \subsection{Hilberts Nullstellensatz}
 \begin{defi}
 	Sei $Y\subseteq \IA^n$ eine Teilmenge. Definiere
-	\[I(Y) := \set{f+k[t_1,\dots, t_n]\given \forall x\in Y: f(x) = 0}.\]
+	\[I(Y) := \set{f\in k[t_1,\dots, t_n]\given \forall x\in Y: f(x) = 0}.\]
 \end{defi}
 \begin{beme}
 	\leavevmode
