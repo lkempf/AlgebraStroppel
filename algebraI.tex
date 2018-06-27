@@ -77,7 +77,7 @@ Vorlesungswebsite:\\
 \lecture{9. April 2018}
 
 \section{Motivation}
-Sei $k=\overline k$ (algebraisch abgeschlossener Körper). Seien $f_1, \dots f_m \in k[t_1,\dots t_n]$. Dann sind \[ V(f_1,\dots, f_m) := \{x=(x_1,\dots, x_n) \in k^n \mid f_i(x)=0 \text{ für alle $1\le i \le m$} \}\] affine algebraische Varietäten.
+Sei $k=\overline k$ (algebraisch abgeschlossener Körper). Seien $f_1, \dots f_m \in k[t_1,\dots t_n]$. Dann sind \[ \Z(f_1,\dots, f_m) := \{x=(x_1,\dots, x_n) \in k^n \mid f_i(x)=0 \text{ für alle $1\le i \le m$} \}\] affine algebraische Varietäten.
 
 
 \emph{Beispiel.} Sei $k=\IC$, $n=2$ und $m=1$. Wir erhalten die folgenden Bilder:
@@ -127,8 +127,8 @@ Sei $k=\overline k$ (algebraisch abgeschlossener Körper). Seien $f_1, \dots f_m
 
 In der algebraischen Geometrie betrachten wir die folgende Beziehung:
 \begin{eqnarray*}
-    \text{Affine Varietät $X$} & \longleftrightarrow & \text{Ring $A(X)$} \\
-    \text{Studium der Geometrie von $X$} & \cong & \text{Studium des Ringes $A(X)$}
+    \text{Affine Varietät $X$} & \longleftrightarrow & \text{Ring $\A(X)$} \\
+    \text{Studium der Geometrie von $X$} & \cong & \text{Studium des Ringes $\A(X)$}
 \end{eqnarray*}
 Hierzu ist das Studium von kommutativer Algebra notwendig.
 \newpage
@@ -146,7 +146,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
             \item $\fak A I$ ein Integritätsbereich ist.
         \end{enumerate}
         \item $I$ heißt maximales Ideal, falls \begin{enumerate}
-            \item für jedes Ideal $J \subsetneq A$ aus $I \subset J$ bereits $I=J$ folgt, oder äquivalent
+            \item für jedes Ideal $J \subsetneq A$ aus $I \subseteq J$ bereits $I=J$ folgt, oder äquivalent
             \item $\fak A I$ ein Körper ist.
         \end{enumerate}
 		\item $\Spec A := \{\fp \mid \fp \subsetneq A \text{ Primideal}\}$
@@ -155,15 +155,15 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 \end{defi}
 \begin{defi} Sei $f: A \to B$ ein Ringhomomorphismus.
 	\begin{enumerate}
-		\item Sei $J \subset B$ ein Ideal. Dann ist $J \cap A:=f^{-1}(J)$ ein Ideal von $A$, genannt \emph{Kontraktion}. Ist $J$ ein Primideal, so ist $J \cap A$ ebenfalls ein Primideal.
-		\item Sei $I \subset A$ ein Ideal. Dann ist $f(I)$ nicht notwendigerweise ein Ideal. Setze $I \cdot B := \left( f(I) \right)$, das von $f(I)$ erzeugtes Ideal. Wir nennen dieses \emph{Ausdehnung} von $I$.
+		\item Sei $J \subseteq B$ ein Ideal. Dann ist $J \cap A:=f^{-1}(J)$ ein Ideal von $A$, genannt \emph{Kontraktion}. Ist $J$ ein Primideal, so ist $J \cap A$ ebenfalls ein Primideal.
+		\item Sei $I \subseteq A$ ein Ideal. Dann ist $f(I)$ nicht notwendigerweise ein Ideal. Setze $I \cdot B := \left( f(I) \right)$, das von $f(I)$ erzeugtes Ideal. Wir nennen dieses \emph{Ausdehnung} von $I$.
 	\end{enumerate}
 \end{defi}
 \begin{bem}
 	Es kann sein, dass $I \in \Max A$, aber $I \cdot B \notin \Spec B$. Sei dazu $A=\IZ$ und $B=\IZ[i]$. Sei $I=(2) \in \Max(\IZ)$, aber $I \cdot B = (2) \notin \Spec \IZ[i]$, da $2=(1-i)(1+i)$ ist.
 \end{bem}
 \begin{satz} \label{thm:existenz maximaler ideale}
-	Sei $A$ ein Ring und $I \subsetneq A$ ein Ideal. Dann existiert ein $\fm \in \Max A$ mit $I \subset \fm$.
+	Sei $A$ ein Ring und $I \subsetneq A$ ein Ideal. Dann existiert ein $\fm \in \Max A$ mit $I \subseteq \fm$.
 	\begin{proof}
 		Siehe Vorlesung Einführung in die Algebra, Satz 9.1, oder \cite{atiyah-macdonald}, Theorem 1.3.
 	\end{proof}
@@ -173,7 +173,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 	\begin{proof}
 		Ist $a \in A^{\times}$, so gilt $(a)=(1)=A$ und damit $a \notin \fm$ für alle $\fm \in \Max A$.
 
-		Sei $a \notin \fm$ für alle $\fm \in \Max A$. Dann ist $(a) \subset \fm$ für alle $\fm \in \Max A$; es folgt also $(a)=A=(1)$ mit \cref{thm:existenz maximaler ideale} und damit $a \in A^{\times}$.
+		Sei $a \notin \fm$ für alle $\fm \in \Max A$. Dann ist $(a) \nsubseteq \fm$ für alle $\fm \in \Max A$; es folgt also $(a)=A=(1)$ mit \cref{thm:existenz maximaler ideale} und damit $a \in A^{\times}$.
 	\end{proof}
 \end{kor}
 \subsection{Lokale Ringe}
@@ -186,7 +186,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 		\item Sei $I \subsetneq A$ ein Ideal. Dann sind äquivalent:
 		      \begin{enumerate}
 			      \item $\Max A = \{I\}$
-			      \item $A \setminus I \subset A^{\times}$
+			      \item $A \setminus I \subseteq A^{\times}$
 			      \item $A \setminus I = A^{\times}$
 		      \end{enumerate}
 		\item Sei $\fm \in \Max A$. Falls $1+x \in A^{\times}$ für alle $x \in \fm$ gilt, so ist $\Max A=\{ \fm \}$.
@@ -211,7 +211,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 
         Spezialfall: $k\llbracket t_1,\dots t_n\rrbracket := k\llbracket t_1,\dots,t_{n-1}\rrbracket\llbracket t_n\rrbracket$ lokaler Ring mit maximalen Ideal $(t_1,\dots,t_n)$ und Residuenkörper isomorph zu $k$.
         
-		\item Sei $X \subset \IR^n$ offen, $0 \in X$. Betrachte Paare $(U,f)$ mit $U \subset X$ offen, $0 \in U$ und $f:U \to R$ stetig. Definiere Äquivalenzklassen durch $(U_1,f_1) \sim (U_2,f_2)$ genau dann, wenn ein offenes $W \subset U_1 \cap U_2$ mit $0 \in W$ und $f_1|_W=f_2|_W$ existiert. Die Äquivalenzklasse $\langle U,f \rangle$ heißt Funktionenkeim. Definiere $A := \{\langle U,f \rangle \mid (U,f) \text{ wie oben}\}$ mit  punktweiser Addition und Multiplikation.
+		\item Sei $X \subseteq \IR^n$ offen, $0 \in X$. Betrachte Paare $(U,f)$ mit $U \subseteq X$ offen, $0 \in U$ und $f:U \to R$ stetig. Definiere Äquivalenzklassen durch $(U_1,f_1) \sim (U_2,f_2)$ genau dann, wenn ein offenes $W \subseteq U_1 \cap U_2$ mit $0 \in W$ und $f_1|_W=f_2|_W$ existiert. Die Äquivalenzklasse $\langle U,f \rangle$ heißt Funktionenkeim. Definiere $A := \{\langle U,f \rangle \mid (U,f) \text{ wie oben}\}$ mit  punktweiser Addition und Multiplikation.
 
 		Wir zeigen nun, dass $A$ ein lokaler Ring ist. Betrachte $\phi: A \to \mathbb{R}, \; \langle U,f \rangle \to f(0)$, einen wohldefinierten Ringhomomorphismus. $\phi$ surjektiv und damit folgt $\ker \phi \in \Max A$.
 
@@ -227,30 +227,30 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 
 \subsection{Nilradikal und Jacobson-Radikal}
 \begin{defi}
-    Sei $A$ ein Ring sowie $I\subset A$ ein Ideal. Definiere das \emph{Radikal} von $I$ durch \[\sqrt{I} := \{x\in A \mid \exists n>0: x^n\in I\}.\]
-    $\Nil(A) := \sqrt{0}$ heißt \emph{Nilradikal} von $A$.
+    Sei $A$ ein Ring sowie $I\subseteq A$ ein Ideal. Definiere das \emph{Radikal} von $I$ durch \[\sqrt{I} := \{x\in A \mid \exists n>0: x^n\in I\}.\]
+    $\Nil A := \sqrt{0}$ heißt \emph{Nilradikal} von $A$.
 \end{defi}
 \begin{lem}
     \leavevmode
     \begin{enumerate}
         \item $\sqrt{I}$ ist ein Ideal von $A$.
-        \item $I\subset \sqrt{I} = \sqrt{\sqrt{I}}$
+        \item $I\subseteq \sqrt{I} = \sqrt{\sqrt{I}}$
         \item $\sqrt{I} = (1) \Leftrightarrow I = (1)$
         \item $\fak A{\sqrt{I}}$ hat keine nilpotente Elemente (außer 0).
     \end{enumerate}
-    \begin{proof}
-        \leavevmode
-        \begin{enumerate}
-            \item Seien $x, y\in \sqrt{I}$, es existieren also $m, n > 0$ mit $x^m, y^n\in I$. Dann gilt
-            \[(x+y)^{m+n-1}=\sum_{r=0}^{m+n-1}{m+n-1 \choose r}\overbrace{x^r}^{\in I \text{ falls } r\geq m}\underbrace{y^{n+m-1-r}}_{\in I \text{ falls } r<m},\]
-            also liegt auch $x+y$ in $I$. Die anderen Eigenschaften sind schnell nachgeprüft.
-            \item Da $I\subset \sqrt{I}$, folgt sofort $\sqrt{I} \subset \sqrt{\sqrt{I}}$. Ist nun umgekehrt $x\in \sqrt{\sqrt{I}}$, so existiert ein $n>0$ mit $x^n\in \sqrt{I}$, und dann existiert ein $m>0$ mit $(x^n)^m = x^{nm} \in I$ Also liegt $x$ in $\sqrt{I}$.
-            \item Die Rückrichtung ist klar. Sei also $\sqrt I=(1)$. Dann exisitert ein $n>0$ mit $1^n \in I$, also liegt $1$ in $I$.
-            \item Sei $z\in \fak A{\sqrt{I}}$ mit $z^n=0$. Schreibe $z=x+\sqrt{I}$ für ein $x\in A$. Dann ist $x^n+\sqrt{I} = 0$, also liegt $x^n$ in $\sqrt{I}$ und es folgt $z=0$.
-            \qedhere
-        \end{enumerate}
-    \end{proof}
 \end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Seien $x, y\in \sqrt{I}$, es existieren also $m, n > 0$ mit $x^m, y^n\in I$. Dann gilt
+		\[(x+y)^{m+n-1}=\sum_{r=0}^{m+n-1}{m+n-1 \choose r}\overbrace{x^r}^{\in I \text{ falls } r\geq m}\underbrace{y^{n+m-1-r}}_{\in I \text{ falls } r<m},\]
+		also liegt auch $x+y$ in $I$. Die anderen Eigenschaften sind schnell nachgeprüft.
+		\item Da $I\subseteq \sqrt{I}$, folgt sofort $\sqrt{I} \subseteq \sqrt{\sqrt{I}}$. Ist nun umgekehrt $x\in \sqrt{\sqrt{I}}$, so existiert ein $n>0$ mit $x^n\in \sqrt{I}$, und dann existiert ein $m>0$ mit $(x^n)^m = x^{nm} \in I$ Also liegt $x$ in $\sqrt{I}$.
+		\item Die Rückrichtung ist klar. Sei also $\sqrt I=(1)$. Dann exisitert ein $n>0$ mit $1^n \in I$, also liegt $1$ in $I$.
+		\item Sei $z\in \fak A{\sqrt{I}}$ mit $z^n=0$. Schreibe $z=x+\sqrt{I}$ für ein $x\in A$. Dann ist $x^n+\sqrt{I} = 0$, also liegt $x^n$ in $\sqrt{I}$ und es folgt $z=0$.
+		\qedhere
+	\end{enumerate}
+\end{proof}
 \begin{bsp}
     Sei $A=\IZ$ und $I=(a)$. Was ist $\sqrt{(a)}$?
 
@@ -260,29 +260,29 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
         \leavevmode
         \begin{description}
             \item[\enquote{$\subseteq$}] Ist $x\in \sqrt{(a)}$, so existiert ein $n>0$ mit $x^n \in (a)$. $a$ teilt also $x^n$, weshalb jedes $p_i$ und somit auch ihr Produkt $x$ teilt, woraus $x \in (p_1\ldots p_l)$ folgt.
-            \item[\enquote{$\supseteq$}] Ist $x \in (p_1\ldots p_l)$, so wähle $n \ge \max\{m_1,\ldots,m_l\}$. Dann liegt $x^n$ in $(p_1^n\ldots p_l^n \subset (p_1^{m_1}\ldots p_l^{m_l}) = (a)$.
+            \item[\enquote{$\supseteq$}] Ist $x \in (p_1\ldots p_l)$, so wähle $n \ge \max\{m_1,\ldots,m_l\}$. Dann liegt $x^n$ in $(p_1^n\ldots p_l^n) \subseteq (p_1^{m_1}\ldots p_l^{m_l}) = (a)$.
             \qedhere
         \end{description}
     \end{proof}
 \end{bsp}
 \begin{prop}
     Sei $A$ ein Ring und $I$ ein Ideal in $A$. Dann gilt
-    \[\sqrt{I} = \bigcap_{\mathclap{\substack{\fp\in \Spec A,\\ \fp\supset I}}} \fp.\]
+    \[\sqrt{I} = \bigcap_{\mathclap{\substack{\fp\in \Spec A,\\ \fp\supseteq I}}} \fp.\]
 \end{prop}
 \begin{proof}
     \leavevmode
     \begin{description}
         \item[\enquote{$\subseteq$}] Sei $x\in \sqrt{I}$. Dann existiert ein $n>0$ mit $x^n\in I$.
-        Sei $\fp\in \Spec A$ mit $\fp\supset I$. Dann liegt $x^n$ auch in $\fp$, und da $\fp$ ein Primideal ist, folgt $x \in \fp$.
-        \item[\enquote{$\supseteq$}] Sei $x\in \bigcap_{\fp\in \Spec A, \fp\supset I}\fp$. Angenommen, $x$ wäre nicht in $\sqrt{I}$; für alle $n>0$ gilt also $x^n\not \in I$.
+        Sei $\fp\in \Spec A$ mit $\fp\supseteq I$. Dann liegt $x^n$ auch in $\fp$, und da $\fp$ ein Primideal ist, folgt $x \in \fp$.
+        \item[\enquote{$\supseteq$}] Sei $x\in \bigcap_{\fp\in \Spec A, \fp\supseteq I}\fp$. Angenommen, $x$ wäre nicht in $\sqrt{I}$; für alle $n>0$ gilt also $x^n\not \in I$.
 
-        Definiere \[\Sigma := \{J \mid J\subset A \text{ Ideal}, I\subset J,\, \forall n>0: x^n\not \in J\}.\]
-        Dann ist $(\Sigma, \subset)$ angeordnet (partiell geordnet).
+        Definiere \[\Sigma := \{J \mid J\subseteq A \text{ Ideal}, I\subseteq J,\, \forall n>0: x^n\not \in J\}.\]
+        Dann ist $(\Sigma, \subseteq)$ angeordnet (partiell geordnet).
         
         Wir wollen das \textsc{Lemma von Zorn} anwenden.
         \begin{itemize}
             \item $\Sigma \neq \emptyset$ (da $I\in \Sigma$)
-            \item Sei $(J_t)_{t\in T}$ mit $T \neq \emptyset$ eine Kette in $\Sigma$, es gilt also $J_t \in \Sigma$ sowie $J_t \subset J_{t'}$ oder $J_t \supset J_{t'}$ für alle $t,t'\in T$.
+            \item Sei $(J_t)_{t\in T}$ mit $T \neq \emptyset$ eine Kette in $\Sigma$, es gilt also $J_t \in \Sigma$ sowie $J_t \subseteq J_{t'}$ oder $J_t \supseteq J_{t'}$ für alle $t,t'\in T$.
             Dann ist $\bigcup_{t\in T} J_t$ ein Ideal in $A$ und enthält $I$, aber kein $x^n$ mit $n>0$. Also liegt $\bigcup_{t\in T} J_t$ in $\Sigma$.
         \end{itemize}
         
@@ -431,15 +431,15 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f: M\rightarrow N$ ist $A$-linear}\}
             \qedhere
 		\end{description}
 		\end{proof}
-		\item Sei $I\subseteq A$ ein Ideal, $M$ ein $A$-Modul. Definiere $I\cdot M \coloneqq \{\sum a_ix_i|a_i\in I, x_i\in M\}\subseteq M$. Das ist ein $A$-Untermodul. Beipsielsweise $I = (a)$; dann ist $(a)\cdot M = \{ax|x\in M\}$.
+		\item Sei $I\subseteq A$ ein Ideal, $M$ ein $A$-Modul. Definiere $I\cdot M  := \{\sum a_ix_i|a_i\in I, x_i\in M\}\subseteq M$. Das ist ein $A$-Untermodul. Beipsielsweise $I = (a)$; dann ist $(a)\cdot M = \{ax|x\in M\}$.
 	\end{enumerate}
 \end{bsp}
 \begin{defi}
 	Sei $f\colon M\to N$ eine $A$-lineare Abbildung. Definiere
 	\begin{itemize}
-		\item $\ker f \coloneqq \{x\in M\mid f(x) = 0\}$,
-		\item $\im f \coloneqq f(M)$,
-		\item $\coker f\coloneqq N/\im (f)$.
+		\item $\ker f := \{x\in M\mid f(x) = 0\}$,
+		\item $\im f := f(M)$,
+		\item $\coker f := N/\im (f)$.
 	\end{itemize}
 	Der Kern und das Bild von $f$ sind dabei Untermoduln von $M$ bzw. $N$.
 \end{defi}
@@ -496,17 +496,17 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f: M\rightarrow N$ ist $A$-linear}\}
 	\begin{enumerate}
 		\item $\bigcap\limits_{i\in I} M_i$ ist ein Untermodul.
 		\item Sei $T\subseteq M$ eine Teilmenge. Definiere
-		\[\<T\> \coloneqq \bigcap_{\mathclap{\substack{T\subseteq M'\subseteq M\\\text{$M'$ Untermodul}}}} M'\] als den von $T$ erzeugten Untermodul.
-		\item Die Menge $\sum\limits_{i\in I} M_i  \coloneqq \left\{\sum x_i \,\middle|\, \substack{x_i \in M_i \text{ mit }i\in I,\\\text{ nur endlich viele } x_i\neq 0}\right\}$ ist ein Untermodul.
+		\[\<T\> := \bigcap_{\mathclap{\substack{T\subseteq M'\subseteq M\\\text{$M'$ Untermodul}}}} M'\] als den von $T$ erzeugten Untermodul.
+		\item Die Menge $\sum\limits_{i\in I} M_i  := \left\{\sum x_i \,\middle|\, \substack{x_i \in M_i \text{ mit }i\in I,\\\text{ nur endlich viele } x_i\neq 0}\right\}$ ist ein Untermodul.
 	\end{enumerate}
 \end{beme}
 \begin{beme}
 	Seien $M_i$ $A$-Moduln mit $i\in I$.
 	\begin{enumerate}
-		\item $\prod\limits_{i\in I} M_i\coloneqq \{(x_i)_{i\in I}\mid x_i\in M_i\}$ ist ein $A$-Modul mit $a(x_i) = (ax_i)$.
-		\item $\bigoplus\limits_{i\in I} M_i\coloneqq \{(x_i)_{i\in I}\mid\text{nur endlich viele }x_i\neq 0\}\subseteq \prod\limits_{i\in I}M_i$ ist ein Untermodul.
+		\item $\prod\limits_{i\in I} M_i := \{(x_i)_{i\in I}\mid x_i\in M_i\}$ ist ein $A$-Modul mit $a(x_i) = (ax_i)$.
+		\item $\bigoplus\limits_{i\in I} M_i := \{(x_i)_{i\in I}\mid\text{nur endlich viele }x_i\neq 0\}\subseteq \prod\limits_{i\in I}M_i$ ist ein Untermodul.
         \item Sind $M_i\subseteq M$ Untermoduln und $M_i\cap \sum\limits_{j\neq i} M_j = \{0\}$, so ist $\sum\limits_{i\in I} M_i\cong \bigoplus\limits_{i\in I} M_i$.
-        \item Falls $M_i = M$ für alle $i \in I$, schreibe $M^I \coloneqq \prod\limits_{i\in I} M_i$ und $M^{(I)}\coloneqq \bigoplus\limits_{i\in I}M_i$.
+        \item Falls $M_i = M$ für alle $i \in I$, schreibe $M^I := \prod\limits_{i\in I} M_i$ und $M^{(I)} := \bigoplus\limits_{i\in I}M_i$.
 	\end{enumerate}
 \end{beme}
 
@@ -560,7 +560,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f: M\rightarrow N$ ist $A$-linear}\}
 		\item Induktion nach $n$, der minimalen Anzahl der Erzeuger von $M$.
         \begin{description}
             \item[$n = 0$:] $M = 0$, $\checkmark$
-            \item[$n-1\to n$:] Sei $x_1,\dots, x_n$ ein Erzeugendensystem von $M$. Definiere $N\coloneqq \fak M{\<x_n\>}$. Sei $\pi \colon M\to N$ die Quotientenabbildung. Dann folgt $N = \<\pi(x_1),\dots,\pi(x_{n-1})\>$. Nun gilt $I\cdot N = N$, da für $y\in N$ ein $x\in M$ mit $\pi(x) = y$ und $x\in I\cdot M$ existiert, und somit $a_i\in I$ sowie $\tilde{x_i}\in M$ mit $x =\sum a_i\pi(\tilde{x_i})\in I\cdot N$ existieren.
+            \item[$n-1\to n$:] Sei $x_1,\dots, x_n$ ein Erzeugendensystem von $M$. Definiere $N := \fak M{\<x_n\>}$. Sei $\pi \colon M\to N$ die Quotientenabbildung. Dann folgt $N = \<\pi(x_1),\dots,\pi(x_{n-1})\>$. Nun gilt $I\cdot N = N$, da für $y\in N$ ein $x\in M$ mit $\pi(x) = y$ und $x\in I\cdot M$ existiert, und somit $a_i\in I$ sowie $\tilde{x_i}\in M$ mit $x =\sum a_i\pi(\tilde{x_i})\in I\cdot N$ existieren.
 		
             Nach der Induktionsannahme existiert ein $b\in I$, sodass $(1+b)\cdot N = \{0\}\subseteq N = \fak M{\<x_n\>}$. Dann gilt
             \begin{align*}
@@ -1099,7 +1099,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 			. % TODO: punkt
 		\end{center}
 		Es verbleibt die $B$-Linearität von $f_B$ zu zeigen, was analog zu \cref{bem:3.9} geschieht.
-		\item Wir konstruieren eine Umkehrabbildung $\Psi\colon \Hom_B(B\tp_AM,N)\to \Hom_A(M,{}_AN)$. Sei $g\colon B\tp_AM\to N$. Definiere $\Psi(g) \coloneqq g(1\tp \_)\colon M\to N, x\mapsto g(1\tp x)$.
+		\item Wir konstruieren eine Umkehrabbildung $\Psi\colon \Hom_B(B\tp_AM,N)\to \Hom_A(M,{}_AN)$. Sei $g\colon B\tp_AM\to N$. Definiere $\Psi(g) := g(1\tp \_)\colon M\to N, x\mapsto g(1\tp x)$.
 		Dabei ist $g(1\tp\_)$ tatsächlich $A$-linear, da $g(1\tp ax ) = g(a(1\tp x)) = ag(1\tp x)$ gilt.
 		
 		Zeige nun noch $(\Psi\circ \Phi)(f) = f$ und $(\Phi\circ\Psi)(g) = g$. Hierzu gilt
@@ -1307,7 +1307,7 @@ Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\geq 0}\cup
 	Wir beweisen das nur für den Fall $\rk F<\infty$ (siehe \cite[Theorem 6.1]{hungerford} für den allgemeinen Fall).
 	
 	Sei $\{x_1,\dots, x_n\}$ Basis von $F$ ($\rk F = n$). Für $r\in\{1,\dots n\}$ definiere
-	\[M_r\coloneqq \<x_1,\dots, x_r\>_A\cap M.\]
+	\[M_r := \<x_1,\dots, x_r\>_A\cap M.\]
 	
 	Wir behaupten, dass $M_r$ frei und $\rk M_r \le r$ ist. Wir beweisen dies per Induktion nach $r$:
 	\begin{description}
@@ -1318,11 +1318,11 @@ Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\geq 0}\cup
 		Dabei ist $I\subseteq A$ ein Ideal, es existiert also ein $a_{r+1}\in A$ mit $I = (a_{r+1})$.
 		\begin{description}
 			\item[1. Fall:] $a_{r+1} = 0$. Dann ist $M_{r+1} = M_r$ frei (nach Induktionsannahme) sowie $\rk M_{r+1}\leq r$.
-			\item[2. Fall:] $a_{r+1}\neq 0$. Es existieren also $a_0,\dots, a_r\in A$ mit $w\coloneqq a_1x_1+\dots+a_rx_r+a_{r+1}x_{r+1}\in M$.
+			\item[2. Fall:] $a_{r+1}\neq 0$. Es existieren also $a_0,\dots, a_r\in A$ mit $w := a_1x_1+\dots+a_rx_r+a_{r+1}x_{r+1}\in M$.
 			
 			Nun ist unser Ziel, $M_{r+1} = M_r\oplus \<w\>$ zu zeigen.
 			
-			Sei also $x\in M_{r+1}$. Somit existieren $b_1,\dots, b_{r+1}\in A$, sodass $x = b_1x_1+\dots + b_{r+1}x_{r+1}$. Dann folgt $b_{r+1}\in I = (a_{r+1})$, es existiert also ein $c\in A$ mit $b_{r+1} = ca_{r+1}$. Betrachte nun $v\coloneqq x-cw$. Für $v$ gilt dann
+			Sei also $x\in M_{r+1}$. Somit existieren $b_1,\dots, b_{r+1}\in A$, sodass $x = b_1x_1+\dots + b_{r+1}x_{r+1}$. Dann folgt $b_{r+1}\in I = (a_{r+1})$, es existiert also ein $c\in A$ mit $b_{r+1} = ca_{r+1}$. Betrachte nun $v := x-cw$. Für $v$ gilt dann
 			\[v= \sum_{i = 1}^r (b_i-ca_i)x_i+(b_{r+1}-ca_{r+1})x_{r+1}\in \<x_1,\dots, x_r\> M = M_r.\]
 			Also gilt $x = v+cw\in M_r+\<w\>$.
 			
@@ -1337,7 +1337,7 @@ Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\geq 0}\cup
 	Sei $A$ Hauptidealring, $M$ endlich erzeugter $A$-Modul und $M'\subseteq M$ Untermodul. Dann ist $M'$ endlich erzeugt.
 \end{kor}
 \begin{proof}
-	Da $M$ endlich erzeugt ist, existiert ein freier $A$-Modul $F$ mit $\rk F<\infty$ und eine surjektive, $A$-lineare Abbildung $f\colon F\to M$. Betrachte $f^{-1}(M')\subseteq F$. Nach \cref{thm:untermoduln freier moduln in hir} ist $F'\coloneqq f^{-1}(M')$ nun frei und es gilt $\rk F'\leq \rk F <\infty$ und $f|_{F'}\colon F'\to M'$ ist somit surjektiv, also ist $M'$ endlich erzeugt.
+	Da $M$ endlich erzeugt ist, existiert ein freier $A$-Modul $F$ mit $\rk F<\infty$ und eine surjektive, $A$-lineare Abbildung $f\colon F\to M$. Betrachte $f^{-1}(M')\subseteq F$. Nach \cref{thm:untermoduln freier moduln in hir} ist $F' := f^{-1}(M')$ nun frei und es gilt $\rk F'\leq \rk F <\infty$ und $f|_{F'}\colon F'\to M'$ ist somit surjektiv, also ist $M'$ endlich erzeugt.
 \end{proof}
 
 
@@ -1346,7 +1346,7 @@ Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\geq 0}\cup
 	Sei $A$ ein Integritätsbereich und $M$ ein $A$-Modul.
 	\begin{enumerate}
 		\item Sei $x\in M$. $x$ heißt \emph{Torsionselement} genau dann, wenn es ein $a\in A\setminus\{0\}$ gibt, sodass $ax = 0$ gilt.
-		\item $M_{\tor} \coloneqq \set{x\in M \given x \text{ ist ein Torsionselement}}\subseteq M$ ist ein Untermodul, da $A$ nullteilerfrei ist.
+		\item $M_{\tor} := \set{x\in M \given x \text{ ist ein Torsionselement}}\subseteq M$ ist ein Untermodul, da $A$ nullteilerfrei ist.
 		\item $M$ heißt \emph{Torsionsmodul }genau dann, wenn $M = M_{\tor}$.
 			  $M$ heißt \emph{torsionsfrei} genau dann, wenn $M_{\tor} = \{0\}$.
 	\end{enumerate}
@@ -1437,7 +1437,7 @@ Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\geq 0}\cup
 	Sei $A$ ein Hauptidealring und seien $a_1,\dots, a_n\in A$ paarweise teilerfremd (also $(a_i, a_j) = (1)$ für $i \neq j$) sowie $a = a_1\dots a_n$. Sei $M$ der $A$-Modul mit $M = M_a$. Dann folgt $M_a = M_{a_1}\oplus \dots \oplus M_{a_n}$.
 \end{lem}
 \begin{proof}
-	Definiere $b_i \coloneqq \frac{a}{a_i} = \prod_{j\neq i} a_j$. Dann gilt bereits $(b_1,\dots, b_n) = (1)$. Denn sonst würde ein primes $p\in A$ existieren, welches alle $b_i$ teilt. $p$ teilt also insbesondere $b_1 = \prod_{j = 2}^n a_j$, es existiert also ein $j\geq 2$ mit $p \mid a_j$. Da $p \mid b_j$, existiert ein $k\neq j$ mit $p \mid a_k$, was ein Widerspruch zu $1 = \gcd(a_j,a_k)$ ist.
+	Definiere $b_i := \frac{a}{a_i} = \prod_{j\neq i} a_j$. Dann gilt bereits $(b_1,\dots, b_n) = (1)$. Denn sonst würde ein primes $p\in A$ existieren, welches alle $b_i$ teilt. $p$ teilt also insbesondere $b_1 = \prod_{j = 2}^n a_j$, es existiert also ein $j\geq 2$ mit $p \mid a_j$. Da $p \mid b_j$, existiert ein $k\neq j$ mit $p \mid a_k$, was ein Widerspruch zu $1 = \gcd(a_j,a_k)$ ist.
 	
 	Es existieren also $d_1,\dots, d_n\in A$ mit $\sum d_ib_i = 1$. Wir zeigen nun $M = M_{a_1}+\dots +M_{a_n}$. Sei $x\in M$. Betrachte $a_id_ib_ix$. Es gilt $a_id_ib_ix = d_iax = 0$, also $d_ib_ix\in M_{a_i}$. Wir erhalten folglich \[ x = \sum d_ib_ix \in \sum M_{a_i}. \]
 	Zeige nun noch $M_{a_i}\cap \sum_{j\neq i}M_{a_j} = \{0\}$. Sei $x\in M_{a_i}\cap\sum_{j \neq i}M_{a_j}$. Dann gilt $a_ix = 0$ und $b_ix = 0$, da $x = \sum_{j \neq i} x_j$ mit $x_j\in M_j$).
@@ -1515,7 +1515,7 @@ Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\geq 0}\cup
 			\pi(x) = \pi(x')-\pi(x'') = y-0 \\
 			p^{t_j}x = p^{t_j}x'-p^{t_j}x''' = x''-x'' = 0 \tag{*} \label{thm:zerlegung primaer zyklisch:eq}
 		\end{gather*}
-		Definiere $M_j\coloneqq \<x\>$. Dafür gilt $\pi(M_j) = N_j$ und $\ker(\pi|_{M_j}) = \{0\}$. Denn sei $v\in M_j$ mit $\pi(v) = 0$. Es existiert ein $a\in A$ mit $v = ax$, also $0 = a\pi(x) = ay$ und damit $a \in \Ann(y) = \Ann(N_j) = (p^{t_j})$. Also existiert ein $b\in A$ mit $a = bp^{t_j}$ und somit $v = bp^{t_j}x  = 0$, wobei letzteres mit Eigenschaft \eqref{thm:zerlegung primaer zyklisch:eq} folgt.
+		Definiere $M_j := \<x\>$. Dafür gilt $\pi(M_j) = N_j$ und $\ker(\pi|_{M_j}) = \{0\}$. Denn sei $v\in M_j$ mit $\pi(v) = 0$. Es existiert ein $a\in A$ mit $v = ax$, also $0 = a\pi(x) = ay$ und damit $a \in \Ann(y) = \Ann(N_j) = (p^{t_j})$. Also existiert ein $b\in A$ mit $a = bp^{t_j}$ und somit $v = bp^{t_j}x  = 0$, wobei letzteres mit Eigenschaft \eqref{thm:zerlegung primaer zyklisch:eq} folgt.
 		
 		Folglich erhalten wir $\pi|_{M_j}\colon M_j\xrightarrow{\cong} N_j$. Wir zeigen nun $M_j\cap \sum_{j'\neq j} M_j' = \{0\}$. Sei hierzu $v\in M_j\cap\sum_{j'\neq j} M_j'$, also $\pi(v) \in N_j\cap\sum_{j'\neq j} N_{j'} = \{0\}$, also $v = 0$.
 		
@@ -1561,7 +1561,7 @@ Sei $k$ ein Körper, $V$ ein $k$-Vektorraum, $\dim V<\infty$, $\psi\in \End_k(V)
 	Sei $M$ ein zyklischer $k[t]$-Modul.
 	\begin{enumerate}
 		\item $\dim V = \deg m_{\psi}$ \label{lem:4.22:i}
-		\item Sei $u \coloneqq \deg(m_{\psi})$ und $v\in V$ mit $M = \<v\>_{k[t]}$. Seien $p_0,\dots, p_{n-1}\in k[t]$ mit $\deg p_i<n$ und $p_0,\dots, p_{n-1}$ linear unabhängig über $k$. Dann ist $(p_0v, \dots, p_{n-1}v)$ eine Basis von $V$ über $k$. \label{lem:4.22:ii}
+		\item Sei $u := \deg(m_{\psi})$ und $v\in V$ mit $M = \<v\>_{k[t]}$. Seien $p_0,\dots, p_{n-1}\in k[t]$ mit $\deg p_i<n$ und $p_0,\dots, p_{n-1}$ linear unabhängig über $k$. Dann ist $(p_0v, \dots, p_{n-1}v)$ eine Basis von $V$ über $k$. \label{lem:4.22:ii}
 	\end{enumerate}
 \end{lem}
 \begin{proof}
@@ -1591,7 +1591,7 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 	Sei $M = \<v\>_{k[t]}$.
 	\begin{enumerate}[label=\ref{lem:4.23:\roman*}]
 		\item Definiere $v_i = \psi^i(v)$ für $i = 0,\dots, n-1$. Nach \cref{lem:4.22} ist $(v_0,\dots, v_{n-1})$ eine Basis von $V$. Dabei gilt $\psi(v_{i}) = v_{i+1}$ für $i = 0,\dots, n-2$ und $\psi(v_{n-1}) =\psi^n(v) = -\sum_{i = 0}^{k-1}a_i\psi^i(v) = -\sum_{i = 0}^{k-1}a_iv_i$, da $m_{\psi}(\psi) = 0$. Dabei ist $m_{\psi}(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0$.
-		\item Definiere $v_i'\coloneqq (t-\lambda)^{n-i}\cdot v = (\psi-\lambda)^{n-i}(v)$ für $i = 1,\dots, n$.
+		\item Definiere $v_i' := (t-\lambda)^{n-i}\cdot v = (\psi-\lambda)^{n-i}(v)$ für $i = 1,\dots, n$.
 		
 		Mit \cref{lem:4.22} folgt nun, dass $(v_1',\dots, v_n')$ eine Basis von $V$ ist.
 		\begin{align*}
@@ -2062,7 +2062,7 @@ Bezeichnungen. Sei $A\to B$ ein Ringhomomorphismus.
 		\[M^{\ad} M \cdot (b_1,\ldots,b_n)^T = \det M \cdot E_n \cdot (b_1,\dots, b_n)^T = 0.\]
 		Wir erhalten also $(\det M)b_j = 0$ für alle $j\in\{1,\dots, n\}$; insbesondere $(\det M)c = 0$ für alle $c\in C$. Es gilt folglich $\det M  = 0$.
 		
-		Definiere nun $p(t) \coloneqq \chi_{(a_{ij})}(t) = \det (t\cdot \delta_{ij}-a_{ij})$. Dann ist $p(t)\in A[t]$ normiert und $p(b) = 0$. Folglich ist $b$ ganz über $A$.
+		Definiere nun $p(t) := \chi_{(a_{ij})}(t) = \det (t\cdot \delta_{ij}-a_{ij})$. Dann ist $p(t)\in A[t]$ normiert und $p(b) = 0$. Folglich ist $b$ ganz über $A$.
 		\qedhere
 	\end{description}
 \end{proof}
@@ -2166,7 +2166,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 		Da $A_\fp$ lokaler Ring ist, ist $n\cap A_\fp = \fp\cdot A_\fp$. Definiere $\fq = n\cap B$. Also haben wir 
 		\[\fq\cap A = (n\cap B)\cap A = (n\cap A_\fp)\cap A = (\fp\cdot A_\fp)\cap A = \fp,\]
 		wobei die letzte Gleichheit aus \cref{thm:spektrumkorrespondenz} folgt.
-		\item Sei $\fp\coloneqq \fq_1\cap A = \fq_2\cap A$. Betrachte
+		\item Sei $\fp := \fq_1\cap A = \fq_2\cap A$. Betrachte
 		\begin{center}
 		\begin{tikzcd}
 			A \arrow{r}{f\text{ ganz}} \arrow{d}& B \arrow{d} \\
@@ -2174,7 +2174,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 		\end{tikzcd}
 		% TODO: punkt?
 		\end{center}
-		Definiere $\fq_i'\coloneqq \fq_i\cdot B_\fp\in \Spec B_\fp$ für $i = 1,2$ (denn $\fq_i\cap f(A\setminus \fp) = \emptyset$). Es gilt \begin{align*}(\fq_i'\cap A_\fp)\cap A &= (\fq_i'\cap B) \cap A \\
+		Definiere $\fq_i' := \fq_i\cdot B_\fp\in \Spec B_\fp$ für $i = 1,2$ (denn $\fq_i\cap f(A\setminus \fp) = \emptyset$). Es gilt \begin{align*}(\fq_i'\cap A_\fp)\cap A &= (\fq_i'\cap B) \cap A \\
 									   &= ((\fq_i\cdot B_\fp)\cap B)\cap A\\
 									   &= \fq_i \cap A = \fp.
 		\end{align*}
@@ -2433,7 +2433,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 \end{proof}
 
 \subsection{Minimale Primideale}
-\begin{defi} Sei $A$ ein Ring. $\fp\in \Spec A$ heißt \emph{minimales Primideal}, wenn für alle $\fp'\in Spec A$ mit $\fp'\subseteq \fp$ schon $\fp' = \fp$ gilt. Wir bezeichnen die Menge aller minimalen Primideale mit \[\MinSpec A \coloneqq \set{\fp\in\Spec A\given \text{$\fp$ minimal}}.\]
+\begin{defi} Sei $A$ ein Ring. $\fp\in \Spec A$ heißt \emph{minimales Primideal}, wenn für alle $\fp'\in Spec A$ mit $\fp'\subseteq \fp$ schon $\fp' = \fp$ gilt. Wir bezeichnen die Menge aller minimalen Primideale mit \[\MinSpec A := \set{\fp\in\Spec A\given \text{$\fp$ minimal}}.\]
 \end{defi}
 \begin{bsp}
 	\leavevmode
@@ -2449,9 +2449,9 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 	Sei $A$ ein noetherscher Ring. Dann ist $\abs{\MinSpec A}<\infty$.
 \end{satz}
 \begin{proof}
-	Sei \[\Sigma = \set{I\given \text{$I \subset A$ Ideal, $\MinSpec(\fak AI) = \emptyset$}}.\] Es genügt, $\Sigma = \emptyset$ zu zeigen. Angenommen, $\Sigma \neq \emptyset$. Da $A$ noethersch ist, existiert ein maximales $I\in \Sigma$. Es gilt also $I\notin \Spec A$, da sonst $\MinSpec(\fak{A}I) = \set {(0)}$ gelten würde. 
+	Sei \[\Sigma = \set{I\given \text{$I \subsetneq A$ Ideal, $\MinSpec(\fak AI) = \emptyset$}}.\] Es genügt, $\Sigma = \emptyset$ zu zeigen. Angenommen, $\Sigma \neq \emptyset$. Da $A$ noethersch ist, existiert ein maximales $I\in \Sigma$. Es gilt also $I\notin \Spec A$, da sonst $\MinSpec(\fak{A}I) = \set {(0)}$ gelten würde. 
 	
-	Also existieren $a,b\in A\setminus I$ mit $ab\in I$. Folglich gilt $I+(a), I+(b)\supset I$, also $I+(a), I+(b)\notin \Sigma$. Damit folgt, dass $\MinSpec(\fak A{I+(a)})$ und $ \MinSpec(\fak A{I+(b)})$ endlich sind.
+	Also existieren $a,b\in A\setminus I$ mit $ab\in I$. Folglich gilt $I+(a), I+(b)\supsetneq I$, also $I+(a), I+(b)\notin \Sigma$. Damit folgt, dass $\MinSpec(\fak A{I+(a)})$ und $ \MinSpec(\fak A{I+(b)})$ endlich sind.
 	
 	Sei $\fq\in\MinSpec(\fak AI)$. Dann gilt $\pi^{-1}(\fq)\in \Spec A$ mit $I\subseteq \pi^{-1}(\fq)$, also $ab\in \pi^{-1}(\fq) =: \fp$. Also gilt $a\in \fp$ oder $b\in \fp$; sei ohne Einschränkung $a\in \fp$. Es folgt $\fp\supseteq I+(a)$, also $\pi_a(\fp) \in\Spec(\fak{A}{I+(a)})$ und sogar $\pi_{a}(\fp) \in \MinSpec(\fak A{I+(a)})$ (wobei $\pi_a\colon A\to \fak A{I+(a)}$ ist).
 	
@@ -2500,7 +2500,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 
 \subsection{Noether-Normalisierung}
 \begin{satz}[Noether-Normalisierung] \label{thm:noether-normalisierung}
-	Sei $k$ ein Körper und $A$ eine endlich erzeugte $k$-Algebra. Seien $I_1\subseteq \dots \subseteq I_m\subset A$ Ideale. Dann existiert ein $n\geq 0$ und $a_1,\dots, a_n\in A$ sowie $0\leq h_1\leq\dots \leq h_m\leq n$, sodass die folgenden Aussagen gelten. 
+	Sei $k$ ein Körper und $A$ eine endlich erzeugte $k$-Algebra. Seien $I_1\subseteq \dots \subseteq I_m\subsetneq A$ Ideale. Dann existiert ein $n\geq 0$ und $a_1,\dots, a_n\in A$ sowie $0\leq h_1\leq\dots \leq h_m\leq n$, sodass die folgenden Aussagen gelten. 
 	\begin{enumerate}
 		\item $a_1,\dots, a_n$ sind algebraisch unabhängig über $k$.
 		\item $k[a_1,\dots, a_n]\subseteq A$ endlich (hier äquivalent zur Ganzheit).
@@ -2552,7 +2552,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 		
 		Beweis per Induktion nach $m$: $m = 1$ ist Schritt 2.
 		
-		Induktionsschritt von $m-1$ nach $m$: Betrachte die Idealkette $I_1\subseteq\dots\subseteq I_{m-1}$. Nach Induktionsvoraussetzung gibt es $b_1,\dots, b_n\in A$ und $0\leq h_1\leq\dots\leq h_{m-1}\leq n$ mit $k[b_1,\dots, b_n]\subseteq A$ ganz und $I_l\cap k[b_1,\dots, b_n] = (b_1,\dots, b_{n_l})$ für $l = 1,\dots, m-1$. Definiere $s\coloneqq h_{m-1}$ und $J\coloneqq I_m\cap k[b_{s+1},\dots, b_n] (\subsetneq k[b_{s+1},\dots, k_n])$. Aus Schritt 2 folgt, dass $a_{s+1}, \dots, a_n\in k[b_{2+1},\dots, b_n]$ und $h_m\in \{s,\dots, n\}$ existieren, sodass $k[a_{s+1},\dots, a_n]\subseteq k[b_{s+1},\dots, b_n]$ ganz und $J\cap k[a_{s+1},\dots, a_n] = (a_s+1,\dots, a_{h_m})$. Definiere nun $a_i\coloneqq b_i$ für $i = 1,\dots, s$. Dann folgt:
+		Induktionsschritt von $m-1$ nach $m$: Betrachte die Idealkette $I_1\subseteq\dots\subseteq I_{m-1}$. Nach Induktionsvoraussetzung gibt es $b_1,\dots, b_n\in A$ und $0\leq h_1\leq\dots\leq h_{m-1}\leq n$ mit $k[b_1,\dots, b_n]\subseteq A$ ganz und $I_l\cap k[b_1,\dots, b_n] = (b_1,\dots, b_{n_l})$ für $l = 1,\dots, m-1$. Definiere $s := h_{m-1}$ und $J := I_m\cap k[b_{s+1},\dots, b_n] (\subsetneq k[b_{s+1},\dots, k_n])$. Aus Schritt 2 folgt, dass $a_{s+1}, \dots, a_n\in k[b_{2+1},\dots, b_n]$ und $h_m\in \{s,\dots, n\}$ existieren, sodass $k[a_{s+1},\dots, a_n]\subseteq k[b_{s+1},\dots, b_n]$ ganz und $J\cap k[a_{s+1},\dots, a_n] = (a_s+1,\dots, a_{h_m})$. Definiere nun $a_i := b_i$ für $i = 1,\dots, s$. Dann folgt:
 		$$k[a_1,\dots, a_n] \subseteq k[b_1,\dots, b_n]\subseteq A$$
 		wobei beide Inklusionen ganz sind. Außerdem gilt
 		$$I_l\cap k[a_1,\dots, a_n] = (I_l\cap k[b_1,\dots, b_n])\cap k[b_1,\dots, b_s, a_{s+1},\dots, a_n] = (b_1,\dots, b_{h_l})$$
@@ -2564,7 +2564,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 		Beweis: $A$ ist eine endlich erzeugte $k$-Algebra. Es existiert also ein surjektiver $k$-Algebrenhomomorphismus
 		$$f\colon k[t_1,\dots, t_N]\longto A$$
 		Betrachte die Idealkette 
-		$$J_0\coloneqq \ker f\subseteq J_1\coloneqq f^{-1}(I_1)\subseteq\dots \subseteq dots J_m\coloneqq f^{-1}(I_m)\subseteq k[t_1,\dots, t_N]$$
+		$$J_0 := \ker f\subseteq J_1 := f^{-1}(I_1)\subseteq\dots \subseteq dots J_m := f^{-1}(I_m)\subseteq k[t_1,\dots, t_N]$$
 		Aus Schritt 3 folgt, dass $b_1,\dots, b_N\in k[t_1,\dots, t_N]$ und $0\leq j_1\leq\dots\leq j_m\leq N$ existieren mit $k[b_1,\dots, b_N]\subseteq k[t_1,\dots, t_N]$ ganz und $J_l\cap k[b_1,\dots, b_N] = (b_1,\dots, b_{j_l})$ für $l = 0,\dots, m$.
 		
 		Definiere $a_1 = f(b_{j_0+1}),\dots, a_n = f(b_{N})$ mit $n = N-j_0$. Dann sind $a_1,\dots, a_n$ algebraisch unabhängig über $k$.
@@ -2671,11 +2671,11 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 	Sei $A$ ein Jacobson-Ring sowie $B$ ganz über $A$. Dann ist $B$ Jacobson.
 \end{prop}
 \begin{proof}
-	Sei $\fq \in \Spec B$ und definiere \[J := \bigcap_{\mathclap{\substack{\fn \in \Max B,\\ \fn \supseteq \fq}}} \fn \supseteq \fq.\] Wir zeigen nun $\fq=J\cap A$. Definiere $\fq \cap A =: \fp \in \Spec A$. Per Definition gilt $\fp=\bigcap_{\fm \in \Max A, \fm \supset \fp} \fm$. Sei also $\fm \in \Max A$ mit $\fm \supseteq \fp$. Nach \namereff{thm:going up} existiert ein $\fn \in \Spec B$ mit $\fn \cap A = \fm$ und $\fn \supseteq \fq$. Mit \cref{prop:6.8} folgt $\fn \in \Max B$. Da $\fm$ beliebig war, gilt $J \cap A=\fp$.
+	Sei $\fq \in \Spec B$ und definiere \[J := \bigcap_{\mathclap{\substack{\fn \in \Max B,\\ \fn \supseteq \fq}}} \fn \supseteq \fq.\] Wir zeigen nun $\fq=J\cap A$. Definiere $\fq \cap A =: \fp \in \Spec A$. Per Definition gilt $\fp=\bigcap_{\fm \in \Max A, \fm \supseteq \fp} \fm$. Sei also $\fm \in \Max A$ mit $\fm \supseteq \fp$. Nach \namereff{thm:going up} existiert ein $\fn \in \Spec B$ mit $\fn \cap A = \fm$ und $\fn \supseteq \fq$. Mit \cref{prop:6.8} folgt $\fn \in \Max B$. Da $\fm$ beliebig war, gilt $J \cap A=\fp$.
 	
 	Wir betrachten den Ringhomomorphismus $A_\fp \to B_\fp$. Dann ist $\fq \cdot B_\fp \in \Spec B_\fp$, da $\fq \cap A = \fp$. Außerdem $\fq \cdot B_\fp \cap A_\fp = \fp \cdot A_\fp \in \Max(A_\fp)$. Nach \cref{prop:6.8} gilt dann $\fq \cdot B_\fp \in \Max(B_\fp)$, da $A_\fp \to B_\fp$ ganz.
 	
-	Da $(J \cap A)  \cap (A \cap \fp)= \emptyset$, haben wir $J \cdot B_\fp \subset B_\fp$. Andererseits gilt $J \supseteq \fq$, also $J \cdot B_\fp \supseteq \fq \cdot B_\fp$ und damit $J \cdot B_\fp = \fq \cdot B_\fp$. Es folgt $J \subseteq (J \cdot B_\fp) \cap B = (\fq \cdot B_\fp) \cap B = \fq$.
+	Da $(J \cap A)  \cap (A \cap \fp)= \emptyset$, haben wir $J \cdot B_\fp \subsetneq B_\fp$. Andererseits gilt $J \supseteq \fq$, also $J \cdot B_\fp \supseteq \fq \cdot B_\fp$ und damit $J \cdot B_\fp = \fq \cdot B_\fp$. Es folgt $J \subseteq (J \cdot B_\fp) \cap B = (\fq \cdot B_\fp) \cap B = \fq$.
 \end{proof}
 \begin{satz} \label{thm:7.22}
 	Sei $A$ ein Jacobson-Ring und $B$ endlich erzeugte $A$-Algebra. Dann gilt:
@@ -2731,7 +2731,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 		\qedhere
 	\end{enumerate}
 \end{proof}
-\begin{kor}[Schwacher Nullstellensatz]
+\begin{kor}[Schwacher Nullstellensatz] \label{thm:schwacher nullstellensatz}
 	Sei $k$ ein algebraisch abgeschlossener Körper. Betrachte den Polynomring $k[t_1,\dots, t_n]$. Für $x = (x_1,\dots, x_n)\in k^n$ definiere $\fm_x := (t_1-x_1,\dots, t_n-x_n)$. Dann ist $\fm_x\in \Max k[t_1,\dots, t_n]$ und die Abbildung
 	\[k^n\longto \Max k[t_1,\dots, t_n],\quad x\longmapsto \fm_x\]
 	ist bijektiv.
@@ -2748,56 +2748,56 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 	\begin{enumerate}
 		\item Sei $n\geq 0$. $\IA^n= \IA^n (k) := k^n$ heißt \emph{$n$-dimensionaler affiner Raum}.
 		\item Sei $T\subseteq k[t_1,\dots, t_n]$ eine Teilmenge. Definiere 
-		\[Z(T) := \set{x = (x_1,\dots, x_n)\in\IA^n\given \forall f\in T: f(x_1,\dots, x_n) = 0}.\]
-		Eine Teilmenge der Form $Z(T)$ heißt \emph{algebraische Teilmenge} von $\IA^n$. 
+		\[\Z(T) := \set{x = (x_1,\dots, x_n)\in\IA^n\given \forall f\in T: f(x_1,\dots, x_n) = 0}.\]
+		Eine Teilmenge der Form $\Z(T)$ heißt \emph{algebraische Teilmenge} von $\IA^n$. 
 	\end{enumerate}
 \end{defi}
 \begin{beme} \label{bem:8.2}
 	\leavevmode
 	\begin{enumerate}
-		\item Seien $T_1\subseteq T_2\subseteq k[t_1,\dots, t_n]$. Dann ist $Z(T_1)\supseteq Z(T_2)$. \label{bem:8.2:i}
-		\item Sei $T\subseteq k[t_1,\dots, t_n]$ und $I := (T)$. Dann folgt $Z(T) = Z(I)$. \label{bem:8.2:ii}
+		\item Seien $T_1\subseteq T_2\subseteq k[t_1,\dots, t_n]$. Dann ist $\Z(T_1)\supseteq \Z(T_2)$. \label{bem:8.2:i}
+		\item Sei $T\subseteq k[t_1,\dots, t_n]$ und $I := (T)$. Dann folgt $\Z(T) = \Z(I)$. \label{bem:8.2:ii}
 		\begin{proof}
-			Die Inklusion $Z(T) \supseteq Z(I)$ ist klar. Sei umgekehrt $x \in Z(T)$ und $f\in I$. Dann gibt es Elemente $g_i \in k[t_1,\ldots,t_n]$ und $h_i\in T$ mit $f=\sum g_ih_i$. Es folgt $f(x) = \sum g_i(x)h_i(x) = 0$. Da $k[t_1,\ldots,t_n]$ nach \namereff{thm:hilberts basissatz} noethersch ist, existieren schließlich $f_1,\ldots,f_m \in I$ mit $Z(T) = Z(I) = Z(\set{f_1,\ldots,f_m})$.
+			Die Inklusion $\Z(T) \supseteq \Z(I)$ ist klar. Sei umgekehrt $x \in \Z(T)$ und $f\in I$. Dann gibt es Elemente $g_i \in k[t_1,\ldots,t_n]$ und $h_i\in T$ mit $f=\sum g_ih_i$. Es folgt $f(x) = \sum g_i(x)h_i(x) = 0$. Da $k[t_1,\ldots,t_n]$ nach \namereff{thm:hilberts basissatz} noethersch ist, existieren schließlich $f_1,\ldots,f_m \in I$ mit $\Z(T) = \Z(I) = \Z(\set{f_1,\ldots,f_m})$.
 		\end{proof}
 	\end{enumerate}
 \end{beme}
 \begin{bsp}
 	Wir betrachten $\IA^2$. Es gilt:
 	\begin{enumerate}
-		\item $Z(t_1^2+t_2^2-1) = \set{(x_1,x_2)\in k^2 \given x_1^2+x_2^2 = 1}$
-		\item $Z(t_1\cdot t_2) = \set{(x_1,x_2)\in k^2\given x_1 = 0\text{ oder }x_2 = 0}$
-		\item $Z(t_1^2\cdot t_2^2) = \set{(x_1,x_2)\in k^2\given x_1 = 0\text{ oder }x_2 = 0}$
-		\item $Z(t_1-x, t_2-y) = \set{(x,y)}$
+		\item $\Z(t_1^2+t_2^2-1) = \set{(x_1,x_2)\in k^2 \given x_1^2+x_2^2 = 1}$
+		\item $\Z(t_1\cdot t_2) = \set{(x_1,x_2)\in k^2\given x_1 = 0\text{ oder }x_2 = 0}$
+		\item $\Z(t_1^2\cdot t_2^2) = \set{(x_1,x_2)\in k^2\given x_1 = 0\text{ oder }x_2 = 0}$
+		\item $\Z(t_1-x, t_2-y) = \set{(x,y)}$
 	\end{enumerate}
 \end{bsp}
 \begin{bsp} 
-	Betrachte $\IA^1$. Was sind die algebraische Teilmengen? Sei $I\subseteq k[t]$ ein Ideal. Falls $I = (0)$, dann ist $Z(I) = \IA^1$. Sei also $I\neq 0$. Sei $f\in k[t]$ mit $I = (f)$. Dann ist $Z(I) = Z(f) = \set{x\in k\given f(x) = 0}$. Da $f$ etwa zu $f(t) = c(t-x_1)\dots (t-x_n)$ für gewisse $c \neq 0, x_i\in k$ faktorisiert, folgt $Z(f) = \set{x_1,\dots, x_n}$. Damit erhalten wir
+	Betrachte $\IA^1$. Was sind die algebraischen Teilmengen? Sei $I\subseteq k[t]$ ein Ideal. Falls $I = (0)$, dann ist $\Z(I) = \IA^1$. Sei also $I\neq 0$. Sei $f\in k[t]$ mit $I = (f)$. Dann ist $\Z(I) = \Z(f) = \set{x\in k\given f(x) = 0}$. Da $f$ etwa zu $f(t) = c(t-x_1)\dots (t-x_n)$ für gewisse $c \neq 0, x_i\in k$ faktorisiert, folgt $\Z(f) = \set{x_1,\dots, x_n}$. Damit erhalten wir
 	\[\set{\text{Algebraische Teilmengen von }\IA^1} = \set{\text{Endliche Teilmengen von $\IA^1$}}\cup \set{\IA^1}.\]
 \end{bsp}
 \begin{lem} \label{lem:8.5}
 	Seien $I,J, I_{\nu}\subseteq k[t_1,\dots, t_n]$ mit $\nu\in V$ Ideale. Dann gilt
 	\begin{align*}
-		Z\left(\sum_{\nu\in V} I_{\nu}\right) &= \bigcap_{\nu\in V} Z(I_{\nu}) \tag{i}\label{lem:8.5:i} \\\intertext{und}
-		Z(I\cdot J) &= Z(I\cap J) = Z(I)\cup Z(J) \tag{ii}\label{lem:8.5:ii}
+		\Z\left(\sum_{\nu\in V} I_{\nu}\right) &= \bigcap_{\nu\in V} \Z(I_{\nu}) \tag{i}\label{lem:8.5:i} \\\intertext{und}
+		\Z(I\cdot J) &= \Z(I\cap J) = \Z(I)\cup Z(J) \tag{ii}\label{lem:8.5:ii}
 	\end{align*}
 \end{lem}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}[label=\eqref{lem:8.5:\roman*}]
-		\item $Z(\sum I_{\nu}) \subseteq \bigcap Z(I_{\nu})$ ist klar nach \cref{bem:8.2} \ref{bem:8.2:i}. Für die andere Inklusion sei $x\in\bigcap Z(I_{\nu})$. Für $f\in\sum I_{\nu}$. Dann gibt es Elemente $f_{\nu}\in I_{\nu}$ (nur endlich viele ungleich $0$) mit $f = \sum f_{\nu}$, woraus $f(x) = \sum f_{\nu}(x) = 0$, also $f\in Z(\sum I_{\nu})$ folgt.
-		\item Nach \cref{bem:8.2} \ref{bem:8.2:i} ist $Z(I\cdot J) \supseteq Z(I\cap J)\supseteq Z(I)\cup Z(J)$. Sei $x\in Z(I\cdot J)$ und angenommen, $x\notin Z(I)$. Dann existiert ein $f\in I$ mit $f(x) \neq 0$. Sei $g\in J$. Dann ist $fg\in I\cdot J$, also $0 = f(x)\cdot g(x)$, wobei $f(x)\neq 0$, also $g(x) = 0$ und damit $x \in Z(J)$.
+		\item $\Z(\sum I_{\nu}) \subseteq \bigcap \Z(I_{\nu})$ ist klar nach \cref{bem:8.2} \ref{bem:8.2:i}. Für die andere Inklusion sei $x\in\bigcap \Z(I_{\nu})$. Für $f\in\sum I_{\nu}$. Dann gibt es Elemente $f_{\nu}\in I_{\nu}$ (nur endlich viele ungleich $0$) mit $f = \sum f_{\nu}$, woraus $f(x) = \sum f_{\nu}(x) = 0$, also $f\in \Z(\sum I_{\nu})$ folgt.
+		\item Nach \cref{bem:8.2} \ref{bem:8.2:i} ist $\Z(I\cdot J) \supseteq \Z(I\cap J)\supseteq \Z(I)\cup \Z(J)$. Sei $x\in \Z(I\cdot J)$ und angenommen, $x\notin \Z(I)$. Dann existiert ein $f\in I$ mit $f(x) \neq 0$. Sei $g\in J$. Dann ist $fg\in I\cdot J$, also $0 = f(x)\cdot g(x)$, wobei $f(x)\neq 0$, also $g(x) = 0$ und damit $x \in \Z(J)$.
 		\qedhere
 	\end{enumerate}
 \end{proof}
 \begin{prop} Es ist
-	\[\set{\IA^n\setminus Z(T)\given T\subseteq k[t_1,\dots, t_n]}\]
+	\[\set{\IA^n\setminus \Z(T)\given T\subseteq k[t_1,\dots, t_n]}\]
 	eine Topologie auf $\IA^n$, genannt \emph{Zariski-Topologie}.
 \end{prop}
 \begin{defi}
 	Sei $X$ ein topologischer Raum.
 	\begin{enumerate}
-		\item $X$ heißt \emph{irreduzibel}, falls für alle abgeschlossenen $Y_1, Y_2\subset X$ dann $Y_1\cup Y_2 \neq X$ folgt.
+		\item $X$ heißt \emph{irreduzibel}, falls für alle abgeschlossenen $Y_1, Y_2\subsetneq X$ dann $Y_1\cup Y_2 \neq X$ folgt.
 		\item Sei $Y\subseteq X$ eine Teilmenge. $Y$ heißt irreduzibel, wenn $Y$ mit der Relativtopologie irreduzibel ist. 
 	\end{enumerate}
 \end{defi}
@@ -2812,212 +2812,220 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 \subsection{Hilberts Nullstellensatz}
 \begin{defi}
 	Sei $Y\subseteq \IA^n$ eine Teilmenge. Definiere
-	\[I(Y) := \set{f\in k[t_1,\dots, t_n]\given \forall x\in Y: f(x) = 0}.\]
+	\[\I(Y) := \set{f\in k[t_1,\dots, t_n]\given \forall x\in Y: f(x) = 0}.\]
 \end{defi}
 \begin{beme}
 	\leavevmode
 	\begin{enumerate} 
-		\item $I(Y) \subseteq k[t_1,\dots, t_n]$ ist ein Ideal.
-		\item Aus $Y_1\subseteq Y_2$ folgt $I(Y_1)\supseteq I(Y_2)$.
-		\item $I(Y_1\cup Y_2) = I(Y_1)\cap I(Y_2)$
+		\item $\I(Y) \subseteq k[t_1,\dots, t_n]$ ist ein Ideal.
+		\item Aus $Y_1\subseteq Y_2$ folgt $\I(Y_1)\supseteq \I(Y_2)$.
+		\item $\I(Y_1\cup Y_2) = \I(Y_1)\cap \I(Y_2)$
 	\end{enumerate}
 \end{beme}
 
 \noindent
 \paragraph{Beispiel.}
-	Betrachte $\IA^2 \supseteq Y = \set {(x_1,x_2)\given x_1 = 0\text{ oder } x_2 = 0} = Z(t_1\cdot t_2) = Z(t_1^it_2^j)$ für $i,j>0$. Was ist dann $I(Y)$?
+	Betrachte $\IA^2 \supseteq Y = \set {(x_1,x_2)\given x_1 = 0\text{ oder } x_2 = 0} = \Z(t_1\cdot t_2) = \Z(t_1^it_2^j)$ für $i,j>0$. Was ist dann $\I(Y)$?
 	
-	Sei $f\in I(Y)\subseteq k[t_1,t_2]$, schreibe $f(t_1,t_2) = \sum_{i,j\geq 0}a_{ij}t_1^it_2^j$. Es gilt für alle $x\in k$ nun $0 = f(x,0) = \sum_{i\geq0}a_{i0}x^i$ und $0 = f(0,x) = \sum_{j\geq 0} a_{0j}x^j$. Da $\abs k = \infty $ ist, folgt $f(0,t_2) = f(t_1,0) = 0$. Damit erhalten wir
+	Sei $f\in \I(Y)\subseteq k[t_1,t_2]$, schreibe $f(t_1,t_2) = \sum_{i,j\geq 0}a_{ij}t_1^it_2^j$. Es gilt für alle $x\in k$ nun $0 = f(x,0) = \sum_{i\geq0}a_{i0}x^i$ und $0 = f(0,x) = \sum_{j\geq 0} a_{0j}x^j$. Da $\abs k = \infty $ ist, folgt $f(0,t_2) = f(t_1,0) = 0$. Damit erhalten wir
 	\[f(t_1,t_2) = \sum_{i,j>0}a_{ij}t_1^it_2^j\in (t_1\cdot t_2).\]
-	Andererseits folgt aus $t_1\cdot t_2\in I(Y)$ dann $(t_1\cdot t_2)\subseteq I(Y)$; und es gilt $I(Y) = (t_1\cdot t_2)$.
+	Andererseits folgt aus $t_1\cdot t_2\in \I(Y)$ dann $(t_1\cdot t_2)\subseteq \I(Y)$; und es gilt $\I(Y) = (t_1\cdot t_2)$.
 
-\begin{lem}
-	Sei $Y\subseteq \IA^n$ eine Teilmenge. Dann ist $Z(I(Y)) = \ol{Y}$ (Abschluss in $\IA^n$).
+\begin{lem} \label{lem:8.12}
+	Sei $Y\subseteq \IA^n$ eine Teilmenge. Dann ist $\Z(\I(Y)) = \ol{Y}$ \textup(Abschluss in $\IA^n$\textup).
 \end{lem}
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[\glqq$\supseteq$\grqq:] Es gilt $Y\subseteq Z(I(Y))$, da für $x\in Y$ und $f\in I(Y)$ dann $f(x) = 0$ folgt. Zusammen mit der Abgeschlossenheit von $Z(I(Y))$ folgt $\ol{Y}\subseteq Z(I(Y))$.
-		\item[\glqq$\subseteq$\grqq:] Da $\ol{Y}$ abgeschlossen ist, existiert ein Ideal $\ol{I}\subseteq k[t_1,\dots, t_n]$ mit $Z(\ol{I}) = \ol{Y}$. Da $Y\subseteq \ol{Y} = Z(\ol{I})$, gilt für alle $x\in Y$ und alle $f\in\ol{I}$ dann $f(x) = 0$. Deshalb ist $\ol{I}\subseteq I(Y)$ und es folgt $\ol{Y} = Z(\ol{I}) \supseteq Z(I(Y))$.
+		\item[\glqq$\supseteq$\grqq:] Es gilt $Y\subseteq \Z(\I(Y))$, da für $x\in Y$ und $f\in \I(Y)$ dann $f(x) = 0$ folgt. Zusammen mit der Abgeschlossenheit von $\Z(\I(Y))$ folgt $\ol{Y}\subseteq \Z(\I(Y))$.
+		\item[\glqq$\subseteq$\grqq:] Da $\ol{Y}$ abgeschlossen ist, existiert ein Ideal $\ol{I}\subseteq k[t_1,\dots, t_n]$ mit $\Z(\ol{I}) = \ol{Y}$. Da $Y\subseteq \ol{Y} = \Z(\ol{I})$, gilt für alle $x\in Y$ und alle $f\in\ol{I}$ dann $f(x) = 0$. Deshalb ist $\ol{I}\subseteq \I(Y)$ und es folgt $\ol{Y} = \Z(\ol{I}) \supseteq \Z(\I(Y))$.
 		\qedhere
 	\end{description}
 \end{proof}
-\begin{satz}[Hilberts Nullstellensatz]
-	Sei $I\subseteq k[t_1,\dots, t_n]$ ein Ideal. Dann gilt \[I(Z(I)) = \sqrt{I}.\]
+\begin{satz}[Hilberts Nullstellensatz] \label{thm:hilberts nullstellensatz}
+	Sei $I\subseteq k[t_1,\dots, t_n]$ ein Ideal. Dann gilt \[\I(\Z(I)) = \sqrt{I}.\]
 \end{satz}
 \lecture{21. Juni 2018}
 
 \begin{proof}
-	$Z(I) = \set{x\in\IA^n\given \forall f\in I: f(x) = 0}$. Dabei ist $f(x) = 0\Leftrightarrow f\in \ker(\ev_x\colon k[t_1,\dots, t_n]\to k) = m_x$. Also können wir auch schreiben:
-	$$Z(I) = \set{x\in\IA^n\given I\subseteq m_x}$$
-	Das bedeutet nun, dass $I(Z(I)) = \set{f\in k[t_1,\dots, t_n]\given \forall x \in Z(I): f(x) = 0} = \set{f\in k[t_1,\dots, t_n] \given \forall x\in\IA^n: \text{ falls }I\subseteq m_x\Rightarrow f\in m_x} = \bigcap\limits_{x\in\IA^n, I\subseteq m_x}m_x$.
-	
-	Nach dem schwachen Nullstellensatz gilt dabei
-	$$\bigcap\limits_{x\in\IA^n, I\subseteq m_x}m_x = \bigcap\limits_{m\in \Max k[t_1,\dots, t_n], I\subseteq m} m$$
-	Da $k[t_1,\dots, t_n]$ Jacobson ist, ist ferner
-	$$\bigcap\limits_{m\in \Max k[t_1,\dots, t_n], I\subseteq m} m = \bigcap\limits_{\fp\in\Spec k[t_1,\dots, t_n], I\subseteq \fp} \fp = \sqrt{I}$$
+	Nach Definition gilt $\Z(I) = \set{x\in\IA^n\given \forall f\in I: f(x) = 0}$. Dabei ist $f(x) = 0$ genau dann, wenn $f\in \ker(\ev_x\colon k[t_1,\dots, t_n]\to k) =: \fm_x$ gilt. Also können wir auch \[\Z(I) = \set{x\in\IA^n\given I\subseteq m_x}\] schreiben. Daraus folgt nun
+	\begin{align*}
+		\I(\Z(I)) &= \set{f\in k[t_1,\dots, t_n]\given \forall x \in \Z(I): f(x) = 0} \\
+		&= \set{f\in k[t_1,\dots, t_n] \given \forall x\in\IA^n: I\subseteq \fm_x\Rightarrow f\in \fm_x}\\
+		&= \bigcap_{\mathclap{\substack{x\in\IA^n,\\I\subseteq \fm_x}}}\fm_x. \\
+	\intertext{Nach dem \hyperreff[thm:schwacher nullstellensatz]{schwachen Nullstellensatz} gilt dabei weiter}
+		&= \bigcap_{\mathclap{\substack{\fm\in\Max k[t_1,\dots,t_n],\\I\subseteq \fm}}}\fm \\
+	\intertext{Da $k[t_1,\dots, t_n]$ Jacobson ist, folgt ferner}
+		&= \bigcap_{\mathclap{\substack{\fp\in\Spec k[t_1,\dots,t_n],\\I\subseteq \fp}}}\fp = \sqrt I.
+		&\qedhere
+	\end{align*}
 \end{proof}
 
 \begin{bem}
-	Sei $I\subsetneqq k[t_1,\dots, t_n]\Rightarrow Z(I)\neq \emptyset$. Denn $\sqrt{I}\subsetneqq k[t_1,\dots, t_n]\Rightarrow \exists m\in\Max k[t_1,\dots, t_n]$ mit $\sqrt{I} \subseteq m \Rightarrow \exists x\in\IA^n$ mit $m = m_x$. (Wobei wir hier nur den schwachen Nullstellensatz verwenden.) Daraus folgt
-	$$\set{x} = Z(m_x) \subseteq Z(\sqrt{I}) \subseteq Z(I)$$
-	wobei im letzten Schritt schon Gleichheit gilt, denn: Sei $y\in Z(I)$, $f\in\sqrt {I}\Rightarrow \exists n>0$ mit $f^n\in I\Rightarrow 0 = f^n(y) = f(y)^n \Rightarrow f(y) = 0$
+	Sei $I\subsetneq k[t_1,\dots, t_n]$. Dann gilt $\Z(I)\neq \emptyset$.
+	\begin{proof}
+		Wir haben $\sqrt{I}\subsetneq k[t_1,\dots, t_n]$, also existiert ein $\fm\in\Max k[t_1,\dots, t_n]$ mit $\sqrt{I} \subseteq \fm$. Weiter existiert ein $x\in\IA^n$ mit $\fm = \fm_x$, wobei wir hierbei nur den \hyperreff[thm:schwacher nullstellensatz]{schwachen Nullstellensatz} verwenden.  Daraus folgt
+		\[\set{x} = \Z(\fm_x) \subseteq \Z(\sqrt{I}) \subseteq \Z(I),\]
+		wobei im letzten Schritt schon Gleichheit gilt, denn für $y\in \Z(I)$ und $f\in\sqrt {I}$ existiert ein $n>0$ mit $f^n\in I$, und es folgt $0 = f^n(y) = f(y)^n$, also $f(y) = 0$.
+	\end{proof}
 \end{bem}
-\begin{kor}
+\begin{kor} \label{kor:8.14}
 	\leavevmode
 	\begin{enumerate}
-		\item Die Abbildungen
-		$$\set{\text{Algebraische Teilmengen }Y\subseteq \IA^n}\xlongleftrightarrow{1:1}\set{I\subseteq k[t_1,\dots, t_n]\given I\text{ Ideal}, I = \sqrt{I}}$$
-		gegeben durch $Y\mapsto I(Y)$ und $Z(I) \mapsfrom I$ sind zueinander inverse Bijektionen, inklusionsumkehrend (\glqq inclusion reversing\grqq)
-		\item Die Bijektionen beschränken sich zu:
-		$$ \set{\text{Abgeschlossene irreduzible Teilmengen }Y\subseteq A^n}  \xlongleftrightarrow{1:1}\Spec k[t_1,\dots, t_n]$$
+		\item \label{kor:8.14:i} Die Abbildung
+		\begin{eqnarray*}
+			\set{\text{Algebraische Teilmengen }Y\subseteq \IA^n}&\xlongleftrightarrow{1:1}&\set{I\subseteq k[t_1,\dots, t_n]\given I\text{ Ideal}, I = \sqrt{I}} \\
+			Y &\longmapsto& \I(Y) \\
+			\Z(I) &\longmapsfrom& I
+		\end{eqnarray*}
+		ist eine inklusionsumkehrende \textup(\enquote{inclusion reversing}\textup) Bijektion.
+		\item \label{kor:8.14:ii} Die Bjektion beschränkt sich sich zu
+		\[\set{\text{Abgeschlossene irreduzible Teilmengen }Y\subseteq A^n}  \xlongleftrightarrow{1:1}\Spec k[t_1,\dots, t_n]\]
 		bzw. zu 
-		$$\set{\set{x}\given x\in\IA^n}\xlongleftrightarrow{1:1}\Max k[t_1,\dots, t_n]$$
+		\[\set{\set{x}\given x\in\IA^n}\xlongleftrightarrow{1:1}\Max k[t_1,\dots, t_n].\]
 	\end{enumerate}
-	
 \end{kor}
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}
-		\item $\checkmark$ (Nullstellensatz und Lemma 8.12)
-		\item Sei $Y\subseteq \IA^n$ abgeschlossene irreduzible Teilmenge. Seien $f,g\in k[t_1,\dots, t_n]$ mit $f,g\notin I(Y)$ und $f\cdot g \in I(Y)$. Dann folgt, dass $Z(I(Y)+(f)), Z(I(Y)+(g))\subsetneqq Y$ (angenommen $Z(I(Y)+(f)) = Y\Rightarrow \forall y\in Y$ ist $f(y) = 0\Rightarrow f\in I(Y)$). Dann folgt, da $Y$ irreduzibel ist:
-		$$Z(I(Y)+(f)) \cup Z(I(Y)+(g)) \subsetneqq Y\enspace ,$$
-		wobei $Z(I(Y)+(f))\cup Z(I(Y)+(g)) = Z((I(Y)+(f))\cdot (I(Y)+(g)))$. Andererseits
-		$$(I(Y)+(f))\cdot (I(Y)+f(g))\subseteq I(Y)+(fg)= I(Y)$$
-		nach Annahme. Das heißt, dass $Y\supsetneqq Z(I(Y)+(f))\cup Z(I(Y)+(g))\supseteq Z(I(Y)+(fg)) = Z(I(Y)) = Y$, was ein Widerspruch ist. Also ist $I(Y)$ prim.
+	\begin{enumerate}[label=\ref{kor:8.14:\roman*}]
+		\item Klar nach \namereff{thm:hilberts nullstellensatz} und \cref{lem:8.12}.
+		\item Sei $Y\subseteq \IA^n$ eine abgeschlossene irreduzible Teilmenge. Seien $f,g\in k[t_1,\dots, t_n]$ mit $f,g\notin \I(Y)$ und $f\cdot g \in \I(Y)$. Dann folgt $\Z(\I(Y)+(f))\supsetneq Y \subsetneq \Z(\I(Y)+(g))$, da aus $\Z(\I(Y)+(f)) = Y$ dann $f(y) = 0$ für alle $y \in Y$, also $f\in \I(Y)$ gelten würde. Aufgrund der Irreduzibilität von $Y$ folgt weiter
+		\[\Z(\I(Y)+(f)) \cup \Z(\I(Y)+(g)) \subsetneqq Y,\]
+		wobei $\Z(\I(Y)+(f))\cup \Z(\I(Y)+(g)) = \Z((\I(Y)+(f))\cdot (\I(Y)+(g)))$ ist. Andererseits gilt
+		\[(\I(Y)+(f))\cdot (\I(Y)+f(g))\subseteq \I(Y)+(fg)= \I(Y)\]
+		nach Annahme. Das heißt, dass $Y\supsetneq \Z(\I(Y)+(f))\cup \Z(\I(Y)+(g))\supseteq \Z(\I(Y)+(fg)) = \Z(\I(Y)) = Y$, was ein Widerspruch ist. Also ist $\I(Y)$ prim.
 		
-		Umgekehrt: Sei $\fp \in \Spec k[t_1,\dots, t_n]$. Seien $Z_1,Z_2\subseteq Z(\fp)$ abgeschlossen mit $Z_1\cup Z_2 = Z(\fp)$. Schreibe $Z_i = Z(I_i)$ ($i= 1,2$) für Ideale $I_i\subseteq k[t_1,\dots, t_n]$ mit $\fp\subseteq I_i$.
-		$$Z(\fp) = Z(I_1)\cap Z(I_2) = Z(I_1\cdot I_2)$$
-		Wir wenden (i) an und erhalten $ \fp = \sqrt{\fp} = \sqrt{I_1\cdot I_2}\supseteq I_1\cdot I_2$ und mit einer Übungsaufgabe (prime avoidance) folgt $\fp \supseteq I_1$ oder $\fp\supseteq I_2$. Dann ist aber $Z(\fp) \subseteq Z(I_1)$ oder $Z(\fp)\subseteq Z(I_2)$, wobei jedes Mal bereits Gleichheit gälte. Damit ist $Z(\fp)$ irreduzibel.
+		Für die umgekehrte Richtung sei $\fp \in \Spec k[t_1,\dots, t_n]$. Seien $Z_1,Z_2\subseteq \Z(\fp)$ abgeschlossen mit $Z_1\cup Z_2 = \Z(\fp)$. Schreibe $Z_i = \Z(I_i)$ ($i= 1,2$) für Ideale $I_i\subseteq k[t_1,\dots, t_n]$ mit $\fp\subseteq I_i$. Dann gilt
+		\[\Z(\fp) = \Z(I_1)\cap \Z(I_2) = \Z(I_1\cdot I_2).\]
+		Wir wenden \ref{kor:8.14:i} an und erhalten $\fp = \sqrt{\fp} = \sqrt{I_1\cdot I_2}\supseteq I_1\cdot I_2$ und mit Aufgabe 3 von \href{http://www.math.uni-bonn.de/ag/stroppel/Franzen_Algebra_1_Uebung/Blatt7b.pdf}{Übungsblatt 7} (\enquote{prime avoidance}) folgt $\fp \supseteq I_1$ oder $\fp\supseteq I_2$. Dann ist aber $\Z(\fp) \subseteq \Z(I_1)$ oder $\Z(\fp)\subseteq \Z(I_2)$, wobei jedes Mal bereits Gleichheit gälte. Damit ist $\Z(\fp)$ irreduzibel.
 		
-		Zu den maximalen Idealen: Für $m\in\Max k[t_1,\dots, t_n]$ ist $m = m_x$ für ein $x\in\IA^n$. $Z(m_x) = \set{x}$ (für $y\in Z(m_x)$ gilt $f(y) = 0$ für alle $f\in m_x$, also insbesondere $f(y) = 0$ für $f = t_i-x_i\Rightarrow y_i = x_i\Rightarrow y = x$). Andersherum ist für $x\in\IA^n$ dann $I(\set{x}) = \set{f\in k[t_1,\dots, t_n]\given f(x) = 0} = m_x$.
+		Zu den maximalen Idealen: Für $\fm\in\Max k[t_1,\dots, t_n]$ ist $\fm = \fm_x$ für ein $x\in\IA^n$. Es gilt $\Z(\fm_x) = \set{x}$, da für $y\in \Z(\fm_x)$ dann $f(y) = 0$ für alle $f\in \fm_x$, also insbesondere $f(y) = 0$ für $f = t_i-x_i$ gilt, und demnach $y_i = x_i$, also $y = x$ folgt. Andersherum ist für $x\in\IA^n$ dann $\I(\set{x}) = \set{f\in k[t_1,\dots, t_n]\given f(x) = 0} = \fm_x$.
+		\qedhere
 	\end{enumerate}	
 \end{proof}
 
 \begin{defi}
-	Sei $X\subseteq \IA^n$ algebraische Teilmenge. Der Ring
-	$$A(X)\coloneqq \fak{k[t_1,\dots, t_n]}{I(X)}$$
-	heißt affiner Koordinatenring von $X$.
+	Sei $X\subseteq \IA^n$ eine algebraische Teilmenge. Der Ring
+	\[\A(X) := \fak{k[t_1,\dots, t_n]}{\I(X)}\]
+	heißt \emph{affiner Koordinatenring} von $X$.
 	
 \end{defi}
 \begin{beme}
-	Sei $X\subseteq \IA^n$ algebraische Teilmenge.
+	Sei $X\subseteq \IA^n$ eine algebraische Teilmenge.
 	\begin{enumerate}
-		\item $A(X)$ ist reduziert (d.h. $\forall f\in A(X)$ falls $\exists n$ mit $f^n = 0$, dann ist bereits $f = 0$)
+		\item $\A(X)$ ist \emph{reduziert}, für alle $f\in \A(X)$ bedeutet die Existenz eines $n\ge 0$ mit $f^n = 0$ also bereits $f = 0$.
 		
-		$A(X)$ endlich erzeugte $k$-Algebra
-		\item $X$ irreduzibel $\Leftrightarrow A(X)$ Integritätsbereich.
+		$\A(X)$ endlich erzeugte $k$-Algebra.
+		\item $X$ ist genau dann irreduzibel, wenn $\A(X)$ ein Integritätsbereich ist.
 	\end{enumerate}
 \end{beme}
 \begin{defi}
-	Sei $X\subseteq \IA^n$ algebraische Teilmenge. Versehe $X$ mit der Relativtopologie von $\IA^n$. Diese Topologie auf $X$ heißt die Zariski-Topologie.
+	Sei $X\subseteq \IA^n$ eine algebraische Teilmenge. Versehe $X$ mit der Relativtopologie von $\IA^n$. Diese Topologie auf $X$ heißt die \emph{Zariski-Topologie}.
 \end{defi}
 \begin{kor}
-	Sei $X\subseteq\IA^n$ algebraische Teilmenge. Dann induzieren $Z$ und $I$ aus Korollar 8.14 zueinander inverse Bijektionen
+	Sei $X\subseteq\IA^n$ eine algebraische Teilmenge. Dann induzieren $\Z$ und $\I$ aus \cref{kor:8.14} die folgenden Bijektionen.
 	\begin{eqnarray*}
-		\set{\text{Abgeschlossene Teilmengen }Y\subseteq X} &\xlongleftrightarrow{1:1}&\set{I\subseteq A(X) \text{ Ideal}\given \sqrt{I} = I}\\
-		\set{\text{Abgeschlossene irred. Teilmengen }Y\subseteq X}&\xlongleftrightarrow{1:1}&\Spec A(X)\\
-		\set{\set{x}\given x\in X}&\xlongleftrightarrow{1:1}&\Max A(X)
+		\set{\text{Abgeschlossene Teilmengen }Y\subseteq X} &\xlongleftrightarrow{1:1}&\set{I\subseteq \A(X) \text{ Ideal}\given \sqrt{I} = I}\\
+		\set{\text{Abgeschlossene irreduzible Teilmengen }Y\subseteq X}&\xlongleftrightarrow{1:1}&\Spec \A(X)\\
+		\set{\set{x}\given x\in X}&\xlongleftrightarrow{1:1}&\Max \A(X)
 	\end{eqnarray*}
 \end{kor}
-\qedhere
 \begin{defi}
-	Sei $X$ topologischer Raum. Abgeschlossene irreduzible Teilmengen $C\subseteq X$ heißt irreduzible Komponente von $X$ genau dann, wenn $\forall Z\subseteq X, Z$ abgeschlossen irreduzibel aus $C\subseteq Z$ bereits $C = Z$ folgt.
+	Sei $X$ ein topologischer Raum. Eine abgeschlossene irreduzible Teilmenge $C\subseteq X$ heißt \emph{irreduzible Komponente} von $X$, wenn für alle abgeschlossenen, irreduziblen $Z\subseteq X$ aus $C\subseteq Z$ bereits $C = Z$ folgt.
 \end{defi}
 \begin{kor}
-	Sei $X\subseteq \IA^n$ algebraische Teilmenge Dann liefern $Z, I$ Bijektionen
-	$$\set{\text{irreduzible Komponenten }C\subseteq X}\xlongleftrightarrow{1:1} \operatorname{MinSpec}A(X)$$
-	Insbesondere: $X$ hat nur endlich viele irreduzible Komponenten (da $A(X)$ noethersch), und mindestens eine.
+	Sei $X\subseteq \IA^n$ eine algebraische Teilmenge Dann liefern $\Z$ und $\I$ die Bijektion
+	\[\set{\text{Irreduzible Komponenten }C\subseteq X}\xlongleftrightarrow{1:1} \operatorname{MinSpec}\A(X).\]
+	Insbesondere hat $X$ nur endlich viele irreduzible Komponenten (da $\A(X)$ noethersch), aber mindestens eine.
 \end{kor}
-\qedhere
+
 \paragraph{Beispiel.}
-	Betrachte $X = Z(t_1t_2)\subseteq \IA^2$. Dann ist $A(X) = \fak{k[t_1,t_2]}{t_1t_2}$ und $\operatorname{MinSpec}A(X) = \set{(t_1),(t_2)}$. Damit ist $\set{\text{irreduzible Komponenten}} = \set{Z(t_1) = t_2\text{-Achse}, Z(t_2) = t_1\text{-Achse}}$.
-	
-	
+Betrachte $X = \Z(t_1t_2)\subseteq \IA^2$. Dann gilt \[\A(X) = \fak{k[t_1,t_2]}{(t_1t_2)}\quad\text{und}\quad\MinSpec\A(X) = \set{(t_1),(t_2)}.\] Damit folgt \[\set{\text{Irreduzible Komponenten}} = \set{\Z(t_1) = \text{$t_2$-Achse, } \Z(t_2) = \text{$t_1$-Achse}}.\]
+
+
 \subsection{Morphismen}
 \begin{defi}
-	Seien $X\subseteq \IA^n$, $Y\subseteq \IA^m$ algebraische Teilmengen. Eine Abbildung $f\colon X\to Y$ heißt Morphismus von algebraischen Teilmengen, falls es $f_1,\dots, f_m\in k[t_1,\dots, t_n]$ gibt, sodass für alle $x = (x_1,\dots, x_n)\in X$ gilt:
-	$$f(x) = (f_1(x),\dots, f_m(x))$$
-	Also:
+	Seien $X\subseteq \IA^n$ und $Y\subseteq \IA^m$ algebraische Teilmengen. Eine Abbildung $f\colon X\to Y$ heißt \emph{Morphismus von algebraischen Teilmengen}, falls es $f_1,\dots, f_m\in k[t_1,\dots, t_n]$ gibt, sodass \[f(x) = (f_1(x),\dots, f_m(x)) \] für alle $x = (x_1,\dots, x_n)\in X$ gilt. Wir erhalten also das folgende Diagramm.
 	\begin{center}
-		\begin{tikzcd}
+		\begin{tikzcd}[column sep=large]
 			\IA^m \arrow{r}{\exists(f_1,\dots, f_m)} &\IA^n\\
 			X\arrow[Subseteq]{u}\arrow{r}{f} & Y \arrow[Subseteq]{u} 
 		\end{tikzcd}
 	\end{center}
-	Notation: $\Hom(X,Y) = \set{f\colon X\to Y\given f\text{ Morphismus}}$
+	Wir schreiben $\Hom(X,Y) := \set{f\colon X\to Y\given f\text{ Morphismus}}$.
 \end{defi}
 \begin{bsp}
 	\leavevmode
 	\begin{enumerate}
-		\item Sei $X=  Z(t_1^3-t_2^2)\subseteq \IA^2$ %TODO: hier und unten skizzen einfügen
+		\item Sei $X=  \Z(t_1^3-t_2^2)\subseteq \IA^2$ %TODO: hier und unten skizzen einfügen
 		
-		Betrachte Abbildung $f\colon \IA^1\to X, x\mapsto (x^2,x^3)$. $f$ ist ein Morphismus. (denn
+		Betrachte Abbildung $f\colon \IA^1\to X, x\mapsto (x^2,x^3)$. $f$ ist ein Morphismus, da
 		\begin{center}
 			\begin{tikzcd}
 				\IA^1 \arrow{r}{(x^2,x^3)} &\IA^2\\
 				\IA^1\arrow[Subseteq]{u}\arrow{r}{f} & X \arrow[Subseteq]{u} 
 			\end{tikzcd}
-		\end{center})
-		$f$ ist bijektiv
-		\item Sei $Y = Z(t_1^2-t_2)\subseteq \IA^2$
+		\end{center}
+		gilt. $f$ ist bijektiv.
+		\item Sei $Y = \Z(t_1^2-t_2)\subseteq \IA^2$.
 		
-		Betrachte Abbildungen $g\colon \IA^1\to Y, x\mapsto(x, x^2)$ und $g'\colon Y\to \IA^1, (x_1, x_2)\mapsto x_1$. Beides sind Morphismen (klar) und $g'\circ g = \id_{\IA^1}$, $g\circ g' = \id _Y$
+		Betrachte Abbildungen $g\colon \IA^1\to Y, x\mapsto(x, x^2)$ und $g'\colon Y\to \IA^1, (x_1, x_2)\mapsto x_1$. Beides sind Morphismen (klar) und $g'\circ g = \id_{\IA^1}$, $g\circ g' = \id _Y$.
 	\end{enumerate}
 \end{bsp}
 \begin{beme}
 	Sei $X\subseteq \IA^n$ algebraische Teilmenge. Dann ist 
-	$$\Hom(X, \IA^1)\subseteq \operatorname{Abb}(X,k)\coloneqq \set{f\colon X\to k\given f\text{ Abbildung}}$$
-	ein Unterring.
-	
-	(Ringstruktur: $(f+g)(x) = f(x) +g(x)$. Falls $f,g\in\Hom(X,\IA^1)$, dann auch $f+g,f\cdot g\in\Hom(X,\IA^1)$.)
+	\[\Hom(X, \IA^1)\subseteq \Abb(X,k) := \set{f\colon X\to k\given f\text{ Abbildung}}\]
+	ein Unterring, wobei die Ringstruktur durch $(f+g)(x) = f(x) +g(x)$ und $(f\cdot g)(x) = f(x) \cdot g(x)$ gegeben ist. Falls $f,g\in\Hom(X,\IA^1)$, sind dann auch $f+g,f\cdot g\in\Hom(X,\IA^1)$.
 	
 	Betrachte die Abbildung
-	$$k[t_1,\dots, t_n]\xlongrightarrow{\alpha}\operatorname{Abb}(X,k), f\longmapsto \alpha(f)\colon X\to k, x\mapsto f(x)$$
-	$\alpha$ ist Ringhomomorphismus. Es gilt
 	\begin{eqnarray*}
-		\im \alpha &=& \Hom(X,\IA^1)\\
-		\ker \alpha &=& I(X)
+		\alpha: k[t_1,\dots, t_n] &\longrightarrow& \Abb(X,k), \\
+		f &\longmapsto& \alpha(f)\colon X\to k, x\mapsto f(x).
 	\end{eqnarray*}
-	$\Rightarrow \alpha$ induziert Isomorphismus $\beta$:
+	$\alpha$ ist ein Ringhomomorphismus. Es gilt
+	\begin{align*}
+		\im \alpha = \Hom(X,\IA^1) \quad\text{und}\quad \ker \alpha = \I(X).
+	\end{align*}
+	Somit induziert $\alpha$ einen Isomorphismus $\beta$.
 	\begin{center}
 		\begin{tikzcd}
-			k[t_1,\dots, t_n] \arrow{r}{\alpha}\arrow{d} &\operatorname{Abb}(X,k)\\
-			A(X)\arrow{r}{\beta}[swap]{\cong} & \Hom(X,\IA^1) \arrow[Subseteq]{u} 
+			k[t_1,\dots, t_n] \arrow{r}{\alpha}\arrow{d} &\Abb(X,k)\\
+			\A(X)\arrow{r}{\beta}[swap]{\cong} & \Hom(X,\IA^1) \arrow[Subseteq]{u} 
 		\end{tikzcd}
 	\end{center}
-	Notation: Für $f\in A(X)$ schreibe für $x\in X$: $f(x)\coloneqq (\beta(f))(x)$
+	Für $f\in \A(X)$ schreiben wir $f(x) := (\beta(f))(x)$ für $x\in X$.
 \end{beme}
 \begin{beme}
 	Seien $X\subseteq \IA^n, Y\subseteq \IA^m, Z\subseteq \IA^l$ algebraische Teilmengen, Seien $X\xto{f}Y\xto{g}Z$ Morphismen. Dann ist $g\circ f\colon X\to Z$ ein Morphismus. Außerdem: $\id_X\colon X\to X$ ist ein Morphismus.
 \end{beme}
 \begin{defi}
-	Ein Morphismus $f\colon X\to Y$ zwischen algebraischen Teilmengen $X\subseteq \IA^n, Y\subseteq \IA^m$ heißt Isomorphismus genau dann, wenn es einen Morphismus $g\colon Y\to X$ gibt mit $g\circ f = \id_X, f\circ g = \id_Y$.
+	Ein Morphismus $f\colon X\to Y$ zwischen algebraischen Teilmengen $X\subseteq \IA^n, Y\subseteq \IA^m$ heißt \emph{Isomorphismus}, wenn es einen Morphismus $g\colon Y\to X$ mit $g\circ f = \id_X$ und $f\circ g = \id_Y$ gibt.
 \end{defi}
 
-Nächstes Mal: $\Hom(X,Y)\xleftrightarrow{1:1}\Hom_{k-\text{Alg}}(A(Y),A(X))$. Es bleibt also spannend, bleibt dran!
+\medskip
 
+In der nächsten Vorlesung betrachten wir $\Hom(X,Y)\xleftrightarrow{1:1}\Hom_{k-\text{Alg}}(\A(Y),\A(X))$. Es bleibt also spannend, bleibt dran!
 
 \lecture{25. Juni 2018}
 
-\begin{bem} Sei $X\subseteq \IA^n$ algebraische Teilmenge, $A\coloneqq A(X)$. Haben Zariski-Topologie auf $X$:
+\begin{bem} Sei $X\subseteq \IA^n$ algebraische Teilmenge, $A := \A(X)$. Haben Zariski-Topologie auf $X$:
 	
-	$$\set{\text{abg. Teilmengen von } X} = \set{Z(J)\given I(X) \subseteq J\subseteq k[t_1,\dots, t_n]}$$
+	$$\set{\text{abg. Teilmengen von } X} = \set{\Z(J)\given \I(X) \subseteq J\subseteq k[t_1,\dots, t_n]}$$
 und Zariski-Topologie auf $\Spec A$
 	$$\set{\text{abg. Teilmengen von }\Spec A} = \set{V(I)\given I\subseteq A \text{ Ideal}}$$
 wobei $V(I) = \set{\fp\in \Spec A\given I\subseteq \fp}$.
 Betrachte die bijektive Abbildung
 \begin{eqnarray*}
 	X & \xlongrightarrow{\phi} &\Max A \subseteq \Spec A\\
-	x & \longmapsto & m_x/I(X)
+	x & \longmapsto & m_x/\I(X)
 \end{eqnarray*}
-Betrachte algebraische Teilmenge $Z(J)\subseteq X$. Dann ist
-	$$\phi(Z(J)) = \set{m_x/I(X)\given \forall f\in J: f(x) = 0}$$
+Betrachte algebraische Teilmenge $\Z(J)\subseteq X$. Dann ist
+	$$\phi(\Z(J)) = \set{m_x/\I(X)\given \forall f\in J: f(x) = 0}$$
 wobei $\forall f\in J: f(x) = 0$ äquivalent ist zu $J\subseteq m_x$. Mit dem schwachen Nullstellensatz folgt:
 \begin{eqnarray*}
-	\phi(Z(J)) &=& \set{m/I(X)\given J\subseteq m\in\Max k[t_1,\dots, t_n]}\\
-	&=& \set{ n \given n\in \Max A, n\supseteq J/I(X)}\\
-	&=& V(J/I(X))\cap \Max A
+	\phi(\Z(J)) &=& \set{m/\I(X)\given J\subseteq m\in\Max k[t_1,\dots, t_n]}\\
+	&=& \set{ n \given n\in \Max A, n\supseteq J/\I(X)}\\
+	&=& V(J/\I(X))\cap \Max A
 \end{eqnarray*}
 Also: Die Topologie auf $\Max A$, die von $X$ gegeben ist (via $\phi$) ist dieselbe wie die Relativtopologie von $\Spec A$ auf $\Max A$.
 \end{bem}
@@ -3025,32 +3033,32 @@ Also: Die Topologie auf $\Max A$, die von $X$ gegeben ist (via $\phi$) ist diese
 Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten 
 	\begin{center}
 	\begin{tikzcd}
-		k[t_1,\dots, t_n] \arrow{r}{\alpha_X}\arrow{d} &\operatorname{Abb}(X,k)\\
-		A(X)\arrow{r}{\beta_X}[swap]{\cong} & \Hom(X,\IA^1) \arrow[Subseteq]{u} 
+		k[t_1,\dots, t_n] \arrow{r}{\alpha_X}\arrow{d} &\Abb(X,k)\\
+		\A(X)\arrow{r}{\beta_X}[swap]{\cong} & \Hom(X,\IA^1) \arrow[Subseteq]{u} 
 	\end{tikzcd}
 	\end{center} 
 
 \begin{beme}\leavevmode \begin{enumerate}
 	\item
-		Seien $X\subseteq \IA^n$, $Y\subseteq \IA^m$ algebraische Teilmengen. Sei $f\colon X\to Y$ Morphismus. Definiere $f^*\colon A(Y)\to A(X)$.
+		Seien $X\subseteq \IA^n$, $Y\subseteq \IA^m$ algebraische Teilmengen. Sei $f\colon X\to Y$ Morphismus. Definiere $f^*\colon \A(Y)\to \A(X)$.
 		$$\begin{array}{ccccccc}
-		A(Y) & \xrightarrow {\beta_Y} & \Hom(Y,\IA^1) & \to & Hom(X,\IA^1) & \xto{\beta^{-1}_X} & A(X)\\
+		\A(Y) & \xrightarrow {\beta_Y} & \Hom(Y,\IA^1) & \to & Hom(X,\IA^1) & \xto{\beta^{-1}_X} & \A(X)\\
 		&&h&\mapsto &h\circ f&&
 		\end{array}$$
 		$f^*$ ist Ringhomomorphismus, denn $h\mapsto h\circ f$ ist Ringhomomorphismus (sogar $k$-Algebrenhomomorphismus). Es gilt für $Y\xto{g} Z$ Morphismus: $(g\circ f)^* = f^*\circ g^*$.
 	\item
-		Sei $\phi\colon A(Y)\to A(X)$ $k$-Algebrenhomomorphismus. Dann:
+		Sei $\phi\colon \A(Y)\to \A(X)$ $k$-Algebrenhomomorphismus. Dann:
 		\begin{center}
 			\begin{tikzcd}
 				k[s_1,\dots, s_m] \arrow{r}{\exists \Phi}\arrow{d} &k[t_1,\dots, t_n]\arrow{d}\\
-				A(Y)\arrow{r}{\phi} & A(X)
+				\A(Y)\arrow{r}{\phi} & \A(X)
 			\end{tikzcd} %TODO: die pfeile nach unten sollen surjektionen darstellen
 		\end{center}
 		wobei $\Phi$ $k$-Algebrenhomomorphismus ist.
 		
-		(Denn: Betrachte Bild $\overline{f_i}$ von $s_i$ unter $k[s_1,\dots, s_m]\to A(Y)\xto{\phi}A(X)$. Wähle Urbild $f_i$ von $\overline{f_i}$ unter $k[t_1,\dots, t_n]\to A(X)$. Definiere $\Phi\coloneqq \ev_(f_1,\dots, f_m)$. (nicht eindeutig bestimmt!))
+		(Denn: Betrachte Bild $\overline{f_i}$ von $s_i$ unter $k[s_1,\dots, s_m]\to \A(Y)\xto{\phi}\A(X)$. Wähle Urbild $f_i$ von $\overline{f_i}$ unter $k[t_1,\dots, t_n]\to \A(X)$. Definiere $\Phi := \ev_(f_1,\dots, f_m)$. (nicht eindeutig bestimmt!))
 		
-		Betrachte $F\colon \IA^n\to \IA^m, x = (x_1,\dots, x_n)\mapsto (f_1(x),\dots, f_m(x))$. Zeige $F(X)\subseteq Y$. Sei $x\in X$ und $g\in I(Y)$. 
+		Betrachte $F\colon \IA^n\to \IA^m, x = (x_1,\dots, x_n)\mapsto (f_1(x),\dots, f_m(x))$. Zeige $F(X)\subseteq Y$. Sei $x\in X$ und $g\in \I(Y)$. 
 		$$g(F(x)) = g(f_1(x),\dots, f_m(x)) \xeq{!} g(f_1,\dots, f_m)(x)$$
 		
 		(Denn:
@@ -3062,7 +3070,7 @@ Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten
 		\end{center}
 		kommutiert:
 		$$\ev_{(x_1,\dots, x_n)}\circ \ev_{(f_1,\dots, f_m)}(s_i) = \ev_{(x_1,\dots, x_n)}(f_i) = f_i(x_1,\dots, x_n) = f_i(x) = \ev_{(f_1(x), \dots, f_m(x))}(s_i)$$)
-		Also haben wir $g(F(x)) = (g(f_1,\dots, f_m))(x)$, wobei $(g(f_1,\dots, f_m)) = \ev_{(f_1,\dots, f_m)}(g) = \Phi(g)$ ist, also $g(F(x)) = (\Phi(g))(x) = 0$, da $\Phi(I(Y))\subseteq I(X)$. Das bedeutet nun:
+		Also haben wir $g(F(x)) = (g(f_1,\dots, f_m))(x)$, wobei $(g(f_1,\dots, f_m)) = \ev_{(f_1,\dots, f_m)}(g) = \Phi(g)$ ist, also $g(F(x)) = (\Phi(g))(x) = 0$, da $\Phi(\I(Y))\subseteq \I(X)$. Das bedeutet nun:
 		\begin{center}
 			\begin{tikzcd}
 				\IA^n \arrow{r}{F}&\IA^m\\
@@ -3071,10 +3079,10 @@ Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten
 		\end{center}
 		Nach Konstruktion von $F$ ist $f$ Morphismus. Zeige nun noch, dass $f$ unabhängig von den Wahlen der $f_i$ ist.
 		
-		Seien dazu $f_i'$ weitere Urbilder von $\overline{f_i}$. Dann gilt insbesondere $f_i-f_i'\in I(X)$. Daraus folgt nun:
-		$\forall x \in X: f_i(x) = f_i'(x)$, also $F(x) = F'(x) \coloneqq (f_1'(x),\dots, f_m'(x))$. Damit ist $f$ tatsächlich unabhängig von diesen Wahlen.
+		Seien dazu $f_i'$ weitere Urbilder von $\overline{f_i}$. Dann gilt insbesondere $f_i-f_i'\in \I(X)$. Daraus folgt nun:
+		$\forall x \in X: f_i(x) = f_i'(x)$, also $F(x) = F'(x) := (f_1'(x),\dots, f_m'(x))$. Damit ist $f$ tatsächlich unabhängig von diesen Wahlen.
 		
-		Notation: $\phi^{\#} \coloneqq f$. Es gilt: für $k$-Algebrenhomomorphismen: $A(Z)\xto{\psi} A(Y)$ ist $(\phi\circ \psi)^{\#} = \psi^{\#}\circ \phi ^{\#}$
+		Notation: $\phi^{\#} := f$. Es gilt: für $k$-Algebrenhomomorphismen: $\A(Z)\xto{\psi} \A(Y)$ ist $(\phi\circ \psi)^{\#} = \psi^{\#}\circ \phi ^{\#}$
 		
 	\end{enumerate}
 \end{beme}
@@ -3085,21 +3093,21 @@ Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten
 		\item Seien $X\subseteq \IA^n, Y\subseteq \IA^m$ algebraische Teilmengen. Dann sind
 		\begin{eqnarray*}
 			f & \longmapsto f^*\\
-			\Hom(X,Y) & \longleftrightarrow & \Hom_{k\text{-Alg}}(A(Y),A(X))\\
+			\Hom(X,Y) & \longleftrightarrow & \Hom_{k\text{-Alg}}(\A(Y),\A(X))\\
 			\phi^{\#}&\longmapsfrom & \phi
 		\end{eqnarray*}
 		zueinander inverse Bijektionen.
-		\item Zu jeder endlich erzeugten, reduzierten $k$-Algebra $A$ existiert eine algebraische Teilmenge $X\subseteq \IA^n$ mit $A(X)\cong A$. $X$ ist bis auf Isomorphie eindeutig bestimmt und $A$ ist Integritätsbereich genau dann, wenn $X$ Varietät ist.
+		\item Zu jeder endlich erzeugten, reduzierten $k$-Algebra $A$ existiert eine algebraische Teilmenge $X\subseteq \IA^n$ mit $\A(X)\cong A$. $X$ ist bis auf Isomorphie eindeutig bestimmt und $A$ ist Integritätsbereich genau dann, wenn $X$ Varietät ist.
 	\end{enumerate}
 \end{prop}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}
-		\item Sei $f\in\Hom(X,Y)$. Zeige $(f^*)^{\#} = f$. Definiere $\phi\coloneqq f^*$. Betrachte Diagramm (*)
+		\item Sei $f\in\Hom(X,Y)$. Zeige $(f^*)^{\#} = f$. Definiere $\phi := f^*$. Betrachte Diagramm (*)
 		\begin{center}
 			\begin{tikzcd}
 				k[s_1,\dots, s_m]\arrow{r}{\Phi}\arrow{d}& k[t_1,\dots, t_n]\arrow{d}\\
-				A(Y)\arrow{r}{\phi}& A(X)
+				\A(Y)\arrow{r}{\phi}& \A(X)
 			\end{tikzcd}
 		\end{center}
 		(das heißt wähle $\Phi$, sodass (*) kommutiert.)
@@ -3112,34 +3120,34 @@ Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten
 		$$(h\circ F)|_X = (h|_Y)\circ f$$
 		also für alle $h\in\Hom(\IA^m, \IA^1)$ und all $x\in X$ haben wir $h(F(x)) = h(f(x))$. 
 		
-		Wähle $h\colon \IA^m\to \IA^1, (y_1,\dots, y_m)\mapsto y_i$. Damit folgt $F(x)_i = i$-te Koordinate von $F(X) = f(x)_i$. Da $i$ beliebig ist, gilt schon $F(x) = f(x)$. Umgekehrt: Sei $\phi\colon A(Y)\to A(X)$ Homomorphismus von $k$-Algebren. Wähle Lift, sodass Diagramm (*) kommutiert. Erhalte $F\colon \IA^n\to \IA^m$. Es gilt $\phi^{\#}(x) = F(x)$ für alle $x\in X$. Reicht zu zeigen, dass
+		Wähle $h\colon \IA^m\to \IA^1, (y_1,\dots, y_m)\mapsto y_i$. Damit folgt $F(x)_i = i$-te Koordinate von $F(X) = f(x)_i$. Da $i$ beliebig ist, gilt schon $F(x) = f(x)$. Umgekehrt: Sei $\phi\colon \A(Y)\to \A(X)$ Homomorphismus von $k$-Algebren. Wähle Lift, sodass Diagramm (*) kommutiert. Erhalte $F\colon \IA^n\to \IA^m$. Es gilt $\phi^{\#}(x) = F(x)$ für alle $x\in X$. Reicht zu zeigen, dass
 		\begin{center}
 			\begin{tikzcd}
 				\Hom(Y,\IA^1)\arrow{r}{h\mapsto h\circ \phi^{\#}}& \Hom(X,\IA^1)\\
-				A(Y)\arrow{u}{\cong}[swap]{\beta_Y}\arrow{r}{\phi} & A(X) \arrow{u}{\cong}[swap]{\beta_X}
+				\A(Y)\arrow{u}{\cong}[swap]{\beta_Y}\arrow{r}{\phi} & \A(X) \arrow{u}{\cong}[swap]{\beta_X}
 			\end{tikzcd}
 		\end{center}
-		kommutiert. Sei $g\in A(Y), x\in X$. Zeige $(\beta_Y(g)\circ\phi^{\#})(x) = (\beta_X(\phi(g)))(x)$. 
+		kommutiert. Sei $g\in \A(Y), x\in X$. Zeige $(\beta_Y(g)\circ\phi^{\#})(x) = (\beta_X(\phi(g)))(x)$. 
 		$$
 			(\beta_Y(g)\circ\phi^{\#})(x)  =  (\beta_Y(g))(\phi^{\#}(x))
 		$$
-		Wähle Urbild $\overline{g}$ von $g$ unter $k[s_1,\dots, s_m]\to A(Y)$. Dann ist
+		Wähle Urbild $\overline{g}$ von $g$ unter $k[s_1,\dots, s_m]\to \A(Y)$. Dann ist
 		$$(\beta_Y(g))(\phi^{\#}(x)) = \overline{g}(\phi^{\#}(x)) = \overline{g}(F(x)) = (\Phi(\overline{g}))(x)$$
-		Wähle $\overline{\phi(g)}$ Urbild von $\phi(g)$ unter $k[t_1,\dots, t_n]\to A(X)$. Dann ist
+		Wähle $\overline{\phi(g)}$ Urbild von $\phi(g)$ unter $k[t_1,\dots, t_n]\to \A(X)$. Dann ist
 		$$(\Phi(\overline{g}))(x) = (\overline{\phi(g)})(x) = (\beta_Y(\phi(g)))(x)$$
 		
-		\item Sei $A$ reduzierte, endlich erzuegte $k$-Algebra. Wähle Surjektion $k[t_1,\dots, t_n]\xto{\phi}A$ von $k$-Algebren. Definiere $X\coloneqq Z(\ker\phi)\subseteq \IA^n$ algebraisch. Dann ist $A(X) = \fak{k[t_1,\dots, t_n]}{I(Z(\ker\phi))} = \fak{k[t_1,\dots, t_n]}{\sqrt{\ker\phi}}$. Da $A$ reduziert ist, ist $\fak{k[t_1,\dots, t_n]}{\sqrt{\ker\phi}} = \fak{k[t_1,\dots, t_n]}{\ker \phi} \cong A$.
+		\item Sei $A$ reduzierte, endlich erzuegte $k$-Algebra. Wähle Surjektion $k[t_1,\dots, t_n]\xto{\phi}A$ von $k$-Algebren. Definiere $X := \Z(\ker\phi)\subseteq \IA^n$ algebraisch. Dann ist $\A(X) = \fak{k[t_1,\dots, t_n]}{\I(\Z(\ker\phi))} = \fak{k[t_1,\dots, t_n]}{\sqrt{\ker\phi}}$. Da $A$ reduziert ist, ist $\fak{k[t_1,\dots, t_n]}{\sqrt{\ker\phi}} = \fak{k[t_1,\dots, t_n]}{\ker \phi} \cong A$.
 	\end{enumerate}
 \end{proof}
 
 \begin{lem}
-	Seien $X\subseteq \IA^n, Y\subseteq \IA^m$ algebraische Teilmengen, $f\colon X \to Y$ Morphismus. Sei $x\in X$ und $m_x\in\Max A(X)$ das zuegehörige maximale Ideal. Dann ist $m_x\cap A(Y) = m_{f(x)}$ (via $f^*\colon A(Y)\to A(X)$). 
+	Seien $X\subseteq \IA^n, Y\subseteq \IA^m$ algebraische Teilmengen, $f\colon X \to Y$ Morphismus. Sei $x\in X$ und $m_x\in\Max \A(X)$ das zuegehörige maximale Ideal. Dann ist $m_x\cap \A(Y) = m_{f(x)}$ (via $f^*\colon \A(Y)\to \A(X)$). 
 \end{lem}
 \begin{proof}
-	Unter $\beta_X\colon A(X)\xto{\cong}\Hom(X, \IA^1)$ ist $\beta_X(m_x) = \set{h\in\Hom(X,\IA^1)\given h(x) =0}$. Betrachte das kommutative Diagramm:
+	Unter $\beta_X\colon \A(X)\xto{\cong}\Hom(X, \IA^1)$ ist $\beta_X(m_x) = \set{h\in\Hom(X,\IA^1)\given h(x) =0}$. Betrachte das kommutative Diagramm:
 	\begin{center}
 		\begin{tikzcd}
-			A(Y) \arrow{r}{f^*}\arrow{d}{\beta_Y}[swap]{\cong} & A(X)\arrow{d}{\beta_X}[swap]{\cong}\\
+			\A(Y) \arrow{r}{f^*}\arrow{d}{\beta_Y}[swap]{\cong} & \A(X)\arrow{d}{\beta_X}[swap]{\cong}\\
 			\Hom(Y,\IA^1)\arrow{r}{\Phi}[swap]{h\mapsto h\circ f} & \Hom(X,\IA^1)
 		\end{tikzcd}
 	\end{center}
