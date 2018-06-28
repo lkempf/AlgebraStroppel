@@ -3224,9 +3224,94 @@ Das führt zu folgender Definition:
 	\end{enumerate}
 \end{bsp}
 
+\begin{beme}
+	Sei $A$ Ring, $\dim A = d \in\IZ_{\geq 0}\Rightarrow \exists $ Primidealkette $\fp_0\subsetneq \dots \subsetneq \fp_d$ in $A$. Dann ist diese Kette maximal, das heißt, es gibt kein $\fp $ in $\Spec A$ mit $\fp\subsetneq \fp_0$ oder $\fp_i\subsetneq \fp\subsetneq \fp_{i+1}, \fp_d\subsetneq \fp$. Insbesondere:
+	\begin{enumerate}
+		\item $\fp_0\in\operatorname{MinSpec}A\Rightarrow \dim A= max_{\fp_0\in \operatorname{MinSpec}A}\dim \fak a{\fp_0}$
+		\item $\fp_d\in \Max A\Rightarrow \dim A = \max_{m\in Max A} A_m$
+	\end{enumerate}
+\end{beme}
+\begin{beme}
+	Sei $X\subseteq \IA^n$ algebraische Teilmenge.
+	\begin{enumerate}
+		\item $\dim X = \max_{i = 1,\dots, r} \dim C_i$, wobei $C_1,\dots, C_r$ die irreduziblen Komponenten sind.
+		\item $\dim X = \max_{x\in X}\dim A(X)_{m_x}$ (falls $X$ irreduzibel, dann folgt $\forall x\in X$: $\dim A(X)_{m_x} = \dim A(X)$; zeigen wir später)
+	\end{enumerate}
+\end{beme}
+\begin{bsp}
+	Sei $X  = Z(t_1t_3, t_2t_3) = \set{(x_1,x_2,x_3)\given x_1x_3 = 0\text{ und } x_2x_3 = 0}$, also $x_3 = 0$ oder $x_1 = x_2 = 0$.
+	%TODO: Skizze davon einfügen$
+	Irreduzible Komponenten sind $C_1 = \set{(x_1,x_2, 0)\given x_1,x_2 \in k}\cong \IA^2$, $C_2 = \set{(0,0,x_3)\given x_3\in k}\cong \IA^1$. Dann ist $\dim X = \dim C_1 = \dim \IA^2 = 2$.
+\end{bsp}
+\begin{prop}
+	Sei $A\subseteq B$ ganze Ringerweiterung.
+	\begin{enumerate}
+		\item $\dim A = \dim B$
+		\item $\forall \fq\in\Spec B$ ist $\dim A_{\fq\cap A}\geq \dim B_{\fq}$.
+		\item Falls $A\subseteq B$ Going down erfüllt (d.h. $\forall \fp_1, \fp_2\in \Spec A, \fp_1\subseteq \fp_2\forall \fq_2\in\Spec B, \fq_2\cap A = \fp_2\exists \fq_1\in\Spec B: \fq_1\subseteq \fq_2, \fq_1\cap A = \fp_1$), dann gilt für alle $\fq\in\Spec B$ bereits Gleichheit: $\dim A_{\fq\cap A} =\dim B_{\fq}$
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Zeige $\dim A\geq \dim B$: Sei $\fq_0\subsetneq \dots \subsetneq \fq_l$ Primidealkette in $B$. Dann erhalten wir $\fq_0\cap A \subseteq \dots \subseteq \fq_l\cap A$ Primidealkette von $A$. Proposition 6.8 (iii) sagt uns, dass diese Inklusionen dabei alle echt sind. 
+		
+		Zeige noch $\dim A \leq \dim B$: Sei $\fp_0\subsetneq\dots\subsetneq \fp_d$ Primidealkette in $A$. Da $A\hookrightarrow B$ injektiv, folgt ebenfalls mit Proposition 6.8, dass es $\fq_0\in \Spec B$ gibt mit $\fq_0\cap A = \fp_0$. Wir haben also folgende Situation:
+		\begin{center}
+			\begin{tikzcd}
+				B & \fq_0\arrow[mapsto]{d}&\\
+				A\arrow[Subseteq]{u}& \fp_0&\subsetneq\dots \subsetneq \fp_d
+			\end{tikzcd}
+		\end{center}
+		Mit Going up folgt, dass es $\fq_1\subsetneq\dots \subsetneq \fq_d$ gibt mit $\fq_i\cap A = \fp_i$.
+		
+		\item Primidealkette $\fq_0\subsetneq \dots \subsetneq \fq_l = \fq$ in $B$. Nach Proposition 6.8 (iii) gilt dann $\fq_0\cap A\subsetneq \dots \subsetneq \fq_l\cap A = \fq \cap A$.
+		\item Sei $\fp_0\subsetneq \dots \subsetneq \fp_l = \fq \cap A$. Wir haben also folgende Situation:
+		\begin{center}
+			\begin{tikzcd}
+				B & \fq\arrow[mapsto]{d}&\\
+				A\arrow[Subseteq]{u}& \fq\cap A=\fp_l&\supsetneq\dots \supsetneq \fp_0
+			\end{tikzcd}
+		\end{center}
+	\end{enumerate}
+\end{proof}
 
-
-
+\subsection{Krulls Hauptidealsatz}
+\begin{defi}
+	Sei $A$ Ring, $\fp\in\Spec A, n\geq 0$:
+	$$\fp^{(n)}\coloneqq (\fp^n\cdot A_{\fp})\cap A$$
+	heißt $n$-te sympolische Potenz von $\fp$.
+\end{defi}
+\begin{lem}
+	$A, \fp, n$ wie oben.
+	\begin{enumerate}
+		\item $\fp^{(n)} = \set{ a\in A\given \exists s\in A\setminus \fp: sa \in \fp ^n}$
+		\item $\fp^{(0)}\supseteq \fp^{(1)}\supseteq \fp^{(2)}\supseteq \dots$, wobei $\fp^{(0)} = A$ und $\fp^{(1)} = \fp$
+		\item $\fp^n \subseteq \fp^{(n)}$
+		\item $\fp^{(n)}\cdot A_{\fp} = \fp^n\cdot A_{\fp} = (\fp\cdot A_{\fp})^n$
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item \begin{description}
+			\item[\glqq$\supseteq$\grqq:] Sei $a\in A$ mit $\exists s\in A\setminus \fp: sa\in \fp^n$. Dann ist $\frac a1 = \frac {sa}s\in \fp^n\cdot A_{\fp}\Rightarrow a\in (\fp^n\cdot A_{\fp})\cap A = \fp^{(n)}$.
+			\item[\glqq$\subseteq$\grqq:] Sei $a \in (\fp^n\cdot A_{\fp})\cap A\Rightarrow \frac a1\in \fp^n\cdot A_{\fp}$. Es gibt also $b \in \fp^n, t\in A\setminus \fp$ mit $\frac a1 = \frac bt\Rightarrow \exists u\in A\setminus \fp$ mit $s\coloneqq uta = ub \in \fp^n\Rightarrow s\in A\setminus \fp$.
+		\end{description}
+		\item $\checkmark$
+		\item $\checkmark$
+		\item $\fp^(n)\cdot A_{\fp} = ((\fp^n\cdot A_{\fp})\cap A)\cdot A_{\fp} = \fp^n \cdot A_{\fp}$. (Allgemein gilt $((I\cdot B)\cap A)\cdot B = I\cdot B$.)
+		
+		Zeige $\fp^n\cdot A_{\fp} = (\fp\cdot A_{\fp})^n$:
+		\begin{description}
+			\item[\glqq$\subseteq$\grqq:] Sei $b\in \fp^n\Rightarrow \exists b_{ij}\in \fp$ mit $b = \sum b_{i1}\dots b_{in}$. Für $s\in A\setminus \fp$ folgt $\frac bs = \sum \frac{b_{i1}}{s}\cdot \frac{b_{i2}}{1}\dots \frac{b_{in}}{1}\in (\fp\cdot A_{\fp})^n$. 
+			\item[\glqq$\supseteq$\grqq:] Sei $c \in (\fp\cdot A\fp)^n\Rightarrow \exists b_{ij}\in\fp, s_{ij}\in A\setminus \fp$ sodass $c = \sum \frac{b_{i1}}{s_{i1}}\cdots \frac{b_{in}}{s_{in}}$. Definiere
+			$$s\coloneqq \prod_{ij}s_ij, b\coloneqq \sum_i(\prod{i\neq j, j = 1,\dots, n}s_{ij})\prod_{j = 1}^n b_{ij}$$
+			$\Rightarrow s\in A\setminus \fp, b\in \fp^{(n)}$ und $c = \frac bs\in \fp^n\cdot A_{\fp}$
+		\end{description}
+	\end{enumerate}
+	
+\end{proof}
 \end{document}
 
 %\begin{bsp}
