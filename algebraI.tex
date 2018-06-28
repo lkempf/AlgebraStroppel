@@ -3092,7 +3092,7 @@ Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten
 	\begin{enumerate}
 		\item Seien $X\subseteq \IA^n, Y\subseteq \IA^m$ algebraische Teilmengen. Dann sind
 		\begin{eqnarray*}
-			f & \longmapsto f^*\\
+			f & \longmapsto &f^*\\
 			\Hom(X,Y) & \longleftrightarrow & \Hom_{k\text{-Alg}}(\A(Y),\A(X))\\
 			\phi^{\#}&\longmapsfrom & \phi
 		\end{eqnarray*}
@@ -3154,6 +3154,78 @@ Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten
 	Es gilt
 	$$\Phi^{-1}(\beta_X(m_x)) = \set{h\in \Hom(Y,\IA^1\given h\circ f \in\beta_X(m_x)} = \set{h\in\Hom(Y,\IA^1)\given h(f(x)) = 0} = \beta_Y(m_{f(x)})$$
 \end{proof}
+
+
+\lecture{28. Juni 2018}
+
+\begin{defi}
+	Sei $X\subseteq \IA^n$ algebraische Teilmenge, $h\in A(X)$.
+	$$D(h)\coloneqq \set{x\in X\given h(x) \neq 0} = X\setminus Z(h)$$
+	heißt offene Hauptmenge von $X$. (\glqq principal open subset\grqq)
+\end{defi}
+\begin{beme}
+	Offene Hauptmengen lassen sich als algebraische Teilmengen realisieren: $X\subseteq \IA^n\Rightarrow D(h)\subseteq \IA^{n+1}$ abgeschlossen. Es gilt $A(D(h))\cong A(X)[h^{-1}]$. 
+\end{beme}
+\begin{lem}
+	Sei $X\subseteq \IA^n$ algebraische Teilmenge, $U\subseteq X$ offen. Dann gibt es $h_1,\dots, h_m\in A(X)$, sodass
+	$$U = \bigcup\limits_{i = 1}^m D(h_1)$$
+\end{lem}
+\begin{proof}
+	Sei $Z = X\setminus U\subseteq X$ abgeschlossen. Dann gibt es ein Ideal $I\subseteq A(X)$, sodass $Z = Z(I) = \set{x\in X\given \forall f\in I; f(x) = 0}$. Da $A(X)$ noethersch ist, gibt es $h_1,\dots, h_m\in I$ mit $I = (h_1,\dots, h_m)$. Dann ist
+	$$Z  = \set{x\in X\given h_1(x) = \dots = h_m(x)= 0}$$
+	und
+	$$U = X\setminus U = \set{x\in X\given \exists i: h_i(x) \neq 0} = \bigcup\limits_{i = 1}^m D(h_m)$$
+\end{proof}
+\begin{prop}
+	Seien $X\subseteq\IA^n, Y\subseteq \IA^m$ algebraische Teilmengen, $f\colon X\to Y$ Morphismus. Dann ist $f$ stetig.
+\end{prop}
+\begin{proof}
+	Nach Lemma 8.31 genügt es zu zeigen: $\forall h\in A(Y)$ ist $f^{-1}(D(h))\subseteq X$ offen. Dabei ist $f^{-1}(D(h)) = \set{x\in X\given h(f(x))\neq 0} = \set{x\in X\given (f^*h)(x)\neq 0} = D(f^*h)$.
+\end{proof}
+\begin{beme}
+	Sei $X = Z(t_1^3-t_2^2) = \set{(x_1,x_2)\given x_1^3 = x_2^2}\subseteq \IA^2$ und $Y = \IA^1$. Dann ist $f\colon \IA^1\to X, x\mapsto (x^2, x^3)$ ein Morphismus. $f$ ist bijektiv. $f$ ist offen (das heißt Bilder offener Teilmengen sind offen): Sei $h\in A(\IA^1) = k[t]$ und betrachte $D(h)$. Sei ohne Einschränkung $h(t) = (t-x_1)\dots (t-x_n)$. Also ist $D(h) = \IA^1\setminus\set{x_1,\dots, x_n}$. Damit haben wir $f(D(h)) = \set{f(x)\given x\in D(h)} = X\setminus\set{f(x_1),\dots, f(x_n)}$, wobei wir hier ausnutzen, dass $f$ bijektiv ist. Aber endliche Teilmengen sind abgeschlossen $\Rightarrow f(D(h))$ offen.
+	
+	Folglich ist $f$ ein Homöomorphismus. Aber: $f$ ist kein Isomorphismus: Betrachte $f^*\colon A(X)\to A(\IA^1)$, wobei $A(\IA^1) = k[t], A(X) = k[t_1,t_2]/(t_1^3-t_2^2)$. (Beachte $t_1^3-t_2^2$ irreduzibel).
+	$$f^*\colon k[t_1,t_2]/(t_1^3-t_2^2) \longto k[t], t_1\longmapsto t^2, t_2\longmapsto t^3$$
+	$f^*$ ist kein Isomorphismus, denn $t\notin \im f^*$. Nach Proposition 8.27 ist damit auch $f$ kein Isomorphismus.
+	
+	Außerdem: $\IA^1$ und $X$ sind nicht isomorph: Betrachte $(0,0)$ auf $X$. Dieser entspricht dem maximalen Ideal $(t_1,t_2)/(t_1^3-t_2^2) = m$ von $A(X)$.
+	$$\fak{m}{m^2} \cong \fak{(t_1,t_2)}{(t_1^2, t_1t_2, t_2^2, t_1^2-t_2^2)} = \<t_1,t_2\>_k$$
+	und $t_1, t_2$ in $\fak{m}{m^2}$ linear unabhängig.
+	
+	Aber für $x\in\IA^1$ gilt $m_x = (t-x)\Rightarrow \fak{m_x}{m_x^2}\cong \<t-x\>_k$.
+	
+	\noindent $\Rightarrow$ Es kann keinen Isomorpismus $\IA^1\to X$ geben.
+\end{beme}
+
+\section{Dimension}
+\begin{defi}
+	Sei $X$ topologischer Raum. Definiere $\dim X \in \IZ_{\geq 0}\cup \set{\pm \infty}$ als 
+	$$\dim X\coloneqq \sup \set{l\given \exists X_0\supsetneq X_1\subsetneq\dots \subsetneq X_l \neq \emptyset,\enspace X_i\subseteq X\text{ abgeschlossen und irreduzibel}}$$
+	(formal $\dim\emptyset = -\infty$)
+\end{defi}
+
+Falls $X$ Varietät ist (oder algebraische Teilmenge) $\subseteq \IA^n$
+$$\set{\text{abg. irreduzible Teilmenge }Z\subseteq X}\xlongleftrightarrow{1:1}\set{\text{Primideale von }A(X)}$$
+Das führt zu folgender Definition:
+\begin{defi}
+	Sei $A$ Ring. Definiere $\dim A\in \IZ_{\geq 0}\cup\set{\pm\infty}$ als
+	$$\dim A \coloneqq \sup \set{l\in\IZ_{\geq 0}\given \exists \fp_0\subsetneq \dots \subsetneq \fp_l,\enspace \fp_i\in\Spec A}$$
+	(formal $\dim 0 = -\infty$)
+\end{defi}
+\begin{bsp}
+	\leavevmode
+	\begin{enumerate}
+		\item Sei $k$ Körper $\Rightarrow \dim k = 0$
+		\item $A$ Hauptidealring, kein Körper $\Rightarrow \dim A = 1$ (das heißt bspw $\dim \IZ= 1$, $\dim k[t] = 1$ (geometrisch $\dim \IA^1 = 1$)
+		\item In $k[t_1,\dots, t_n]$ betrachte Primidealkette
+		$$(0)\subsetneq (t_1)\subsetneq \dots \subsetneq (t_1,\dots, t_n)$$
+		$\Rightarrow \dim k[t_1,\dots, t_n]\geq n$, also $\dim\IA^n \geq n$. (Tatsächlich gilt Gleichheit, das sehen wir später.)
+	\end{enumerate}
+\end{bsp}
+
+
+
 
 \end{document}
 
