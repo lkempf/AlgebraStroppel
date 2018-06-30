@@ -439,7 +439,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
 	\begin{itemize}
 		\item $\ker f := \{x\in M\mid f(x) = 0\}$,
 		\item $\im f := f(M)$,
-		\item $\coker f := N/\im (f)$.
+		\item $\coker f := \fak N{\im f}$.
 	\end{itemize}
 	Der Kern und das Bild von $f$ sind dabei Untermoduln von $M$ bzw. $N$.
 \end{defi}
@@ -447,44 +447,40 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
 	Sei $f\colon M\to N$ eine $A$-lineare Abbildung.
 	\begin{enumerate}
         \item \label{lem:homsatz moduln:i} Sei $M'\subseteq M$ ein $A$-Untermodul mit $M'\subseteq \ker f$. Dann existiert genau eine Abbildung $\overline{f}\colon \fak M{M'}\to N$, sodass folgendes Diagramm kommutiert.
-        \begin{figure}[H]
-            \centering
+        \begin{center}
             \begin{tikzcd}
                     M \arrow{r}{f} \arrow{d}{\pi} & N \\
                     \fak M{M'} \arrow[dashrightarrow]{ur}{\overline{f}}
             \end{tikzcd}
-        \end{figure} \label{lem:homosatz fuer moduln:i}
+        \end{center}
         \item \label{lem:homsatz moduln:ii} Es existiert genau eine $A$-lineare Abbildung $\tilde{f}\colon \fak M{\ker f}\to \im f$, sodass das folgende Diagramm kommutiert.
-        \begin{figure}[H]
-            \centering
+        \begin{center}
             \begin{tikzcd}
                 M \arrow{r}{f} \arrow{d}{\pi} & N \\
                 \fak M{\ker f} \arrow[dashrightarrow]{r}{\tilde{f}} & \im f \arrow[hookrightarrow]{u}
             \end{tikzcd}
-        \end{figure}
+        \end{center}
 	\end{enumerate}
 \end{lem}
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}[label=\ref{lem:homsatz moduln:\roman*}]
 		\item Definiere $\overline{f}\colon \fak M{M'}\to N$ durch $\overline{f}(x+M') = f(x)$ (wohldefiniert, da $M'\subseteq \ker f$). Außerdem ist $\overline{f}$ auch $A$-linear, da $\overline{f}(ax+M') = f(ax) = a(f(x)) = a\overline{f}(x+M')$ gilt.
-        \item Wenden wir \ref{lem:homosatz fuer moduln:i} auf $M' = \ker f$ an, so erhalten wir eine eindeutige $A$-lineare Abbildung $\overline{f}\colon \fak M{\ker f}\to N$, sodass
-        \begin{figure}[H]
-            \centering
+        \item Wenden wir \ref{lem:homsatz moduln:i} auf $M' = \ker f$ an, so erhalten wir eine eindeutige $A$-lineare Abbildung $\overline{f}\colon \fak M{\ker f}\to N$, sodass
+        \begin{center}
             \begin{tikzcd}
                 M \arrow{r}{f} \arrow{d}{\pi} & N \\
                 \fak M{\ker f} \arrow[dashrightarrow]{ur}{\overline{f}}
             \end{tikzcd}
-        \end{figure}
+        \end{center}
         
         kommutiert. Da $\im\overline{f} = \im f$, folgt
-        \begin{figure}[H]
-            \centering
+        \begin{center}
             \begin{tikzcd}
                 & N  \\
                 \fak M{\ker f} \arrow{ur}{\overline{f}}\arrow[dashrightarrow]{r}{\exists!\tilde{f}}	& \im f\arrow[hookrightarrow]{u}
                \end{tikzcd}
-        \end{figure}
+        \end{center}
 		
         $\tilde{f}$ ist analog zum Homomorphiesatz für Gruppen bijektiv.
         \qedhere
@@ -626,10 +622,10 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \subsection{Tensorprodukte}
 \begin{defi}
 	Seien $M,N,P$ $A$-Moduln Eine Abbbildung $h\colon M \times N \to P$ heißt \emph{$A$-bilinear}, falls die Abbildungen
-	\begin{gather*}
-		h(x,-)\colon N \to P, y' \mapsto h(x,y') \\
-		h(-,y)\colon M \to P, x' \mapsto h(x',y)
-	\end{gather*}
+	\begin{alignat*}{3}
+		&h(x,-)\colon \, &&N \to P, \quad &&y' \mapsto h(x,y') \\
+		&h(-,y)\colon \, &&M \to P, \quad &&x' \mapsto h(x',y)
+	\end{alignat*}
 	$A$-linear für alle $x \in M$ und $y \in N$ sind.
 \end{defi}
 \begin{prop}[Existenz des Tensorprodukts] \label{prop:tensorprodukt}
@@ -688,13 +684,12 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		gilt (die andere Erzeugerdarstellung funktioniert analog).
 
 		Wir erhalten also das folgende kommutative Diagramm.
-		\begin{figure}[H]
-			\centering
+		\begin{center}
 			\begin{tikzcd}
 				D \arrow{r}{\ol\lambda} \arrow{d}{} & P \\
 				\fak DU \arrow[dashrightarrow]{ru}[swap]{\lambda} &
 			\end{tikzcd}
-		\end{figure}
+		\end{center}
 		Es gilt hierbei $\lambda(h(x,y)) = \lambda([x,y]) = g(x,y)$, also $\lambda \circ h = g$.
 
 		Zur Eindeutigkeit: Sei $h': \fak DU \to P$ eine weitere $A$-lineare Abbildung mit $\lambda' \circ h = g$. Dann gilt $\lambda'([x,y]+U) = \lambda'(h(x,y)) = g(x,y) = \lambda([x,y]+U)$, also folgt $\lambda = \lambda'$, da $\fak DU$ von $\set{[x,y]+U}$ als $A$-Modul erzeugt wird.
@@ -762,13 +757,12 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\leavevmode
 	\begin{enumerate}
 		\item Seien $f\colon M \to N$ und $g\colon M' \to N'$ $A$-linear. Dann ist $M \times M' \xrightarrow{f \times g} N \times N' \to N \tp_A N'$ $A$-bilinear; wir erhalten also das folgende kommutative Diagramm.
-		\begin{figure}[H]
-			\centering
+		\begin{center}
 			\begin{tikzcd}
 				M \times M' \arrow{r}{f \times g} \arrow{d}{} & N \times N' \arrow{d}{} \\
 				M \tp_A M' \arrow[dashrightarrow]{r}{\exists ! f \tp g} & N \tp_A N'
 			\end{tikzcd}
-		\end{figure}
+		\end{center}
 		\item Seien $M \xrightarrow{f} N \xrightarrow{g} P$ $A$-linear. Dann gilt $(g \circ g) \tp \id_{M'} = (g \tp \id_{M}) \circ (f \tp \id_{M})$.
 	\end{enumerate}
 \end{beme}
@@ -790,13 +784,12 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\bigskip
 	
 	Die Abbildung $(M\oplus N)\times P \to (M\tp_AP) \oplus(N\tp_AP), ((x,y),z)\mapsto (x\tp z, y\tp z)$ ist $A$-bilinear, folglich faktorisiert sie über das Tensorprodukt $(M\oplus N)\tp_aP$:
-	\begin{figure}[H]
-		\centering
+	\begin{center}
 		\begin{tikzcd}
 			(M\oplus N)\times P \arrow{r}\arrow{d}& Y(M\tp_AP)\oplus(N\tp_AP) \\
 			(M\oplus N)\tp_AP \arrow[dashrightarrow]{ru}[swap]{\exists!\lambda}
 		\end{tikzcd}
-	\end{figure}
+	\end{center}
 	Folglich gilt: $\lambda((x,y)\tp z) = (x\tp z, y\tp z)$.
 
 	Wir konstruieren nun eine Umkehrabbildung. Betrachte hierzu die Abbildung
@@ -805,13 +798,12 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		i_N : N \to M \tp N, y \mapsto (0,y)
 	\end{gather*}
 	und das folgende kommutative Diagramm.
-	\begin{figure}[H]
-		\centering
+	\begin{center}
 		\begin{tikzcd}
 			M \tp_A P \arrow{r}{i_M \circ \id_P} \arrow{rd}[swap]{i_{M \tp_A P}} & (M \oplus N) \tp_A P & N \tp_A P \arrow{l}[swap]{i_N \circ \id_P} \arrow{ld}{i_{N \tp_A P}} \\
 			& (M \tp_A P) \oplus (N \tp_A P) \arrow[dashrightarrow]{u}{\exists!\lambda'}
 		\end{tikzcd}
-	\end{figure}
+	\end{center}
 	Nun gilt
 	\begin{align*}
 		\lambda'(x \tp z, y \tp z') &= \lambda'(x \tp z,0)+ \lambda'(0,y \tp z') \\
@@ -837,13 +829,12 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \end{prop}
 \begin{proof}
 	$\Phi$ ist wohldefiniert und $A$-linear. Wir suchen nun eine Umkehrfunktion $\Psi : \Hom_A(M, \Hom_A(N, P)) \to \Hom_A (M \tp_A N, P )$. Sei $g \in \Hom_A(M, \Hom_A(N,P))$. Betrachte
-	\begin{figure}[H]
-		\centering
+	\begin{center}
 		\begin{tikzcd}[column sep=2.5cm]
 			M \times N \arrow{r}{(x,y) \mapsto (g(x))(y)} \arrow{d} & P \\
 			M \tp_A N \arrow[dashrightarrow]{ru}[swap]{\exists! \Psi(g)}
 		\end{tikzcd}
-	\end{figure}
+	\end{center}
 	$\Psi(g)$ ist $A$-linear, da $g$ und $g(x)$ $A$-linear sind. Nun folgt
 	\begin{align*}
 		(\Psi(g))(x \tp y) &= (g(x))(y) \\
@@ -893,8 +884,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\begin{description}
 		\item[zu \ref{prop:homexakt:i} und \ref{prop:homexakt:ii}:] siehe \href{http://www.math.uni-bonn.de/ag/stroppel/Franzen_Algebra_1_Uebung/Blatt3.pdf}{Übungsblatt 3}.
 		\item[zu \ref{prop:homexakt:iii}:] Sei \eqref{prop:homexakt:i:eq} exakt und $P$ ein $A$-Modul. Dann folgt mit \ref{prop:homexakt:i}
-		\begin{figure}[H]
-			\centering
+		\begin{center}
 			\begin{tikzpicture}[baseline= (a).base]
 				\node[scale=.85] (a) at (0,0){
 					\begin{tikzcd}
@@ -903,7 +893,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 					\end{tikzcd}
 				};
 			\end{tikzpicture}
-		\end{figure}
+		\end{center}
 		Da die obere Sequenz exakt ist, ist auch die untere Sequenz exakt ist. Da $P$ beliebig ist, folgt wieder mit \ref{prop:homexakt:i} die gewünschte Exaktheit.
 		\qedhere
 	\end{description}
@@ -913,13 +903,12 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\begin{enumerate}
 		\item Sei $f\colon M\to M'$ eine surjektive $A$-lineare Abbildung. Dann ist $f \tp_A \id_N\colon M \tp_A N \to M' \tp_ A N $ auch surjektiv.
 		\item Ist $f$ injektiv, so ist $f \tp \id_N$ nicht notwengierweise injektiv. Sei beispielsweise $a \in A \setminus A^{\times}$ kein Nulteiler. Betrachte $f: A \to A, x \mapsto ax$. Da $a$ kein Nullteiler ist, ist $f$ injektiv. Betrachte nun $N = \fak A{(a)}$ und das folgende Diagramm.
-		\begin{figure}[H]
-			\centering
+		\begin{center}
 			\begin{tikzcd}
 				A \tp_A \fak A{(a)} \arrow{r}{f \tp \id} \arrow[Equals]{d}{} & A \tp_a \fak A{(a)} \arrow[Equals]{d}{} \\
 				\fak A{(a)} \arrow{r}{ax \mapsto ax} & \fak A{(a)}
 			\end{tikzcd}
-		\end{figure}
+		\end{center}
 	\end{enumerate}
 \end{beme}
 \begin{defi}
@@ -931,15 +920,14 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\item Wenn $N$ frei ist, ist $N$ auch flach.
 		\begin{proof}
 			Ist $N$ frei, so gilt $\bigoplus_{i \in I} A \cong N$. Sei $f\colon M' \to M$ injektiv. Betrachte nun das folgende Diagramm.
-			\begin{figure}[H]
-				\centering
+			\begin{center}
 				\begin{tikzcd}
 					M' \tp_A N \arrow{r}{f \circ \id_N} \arrow[Cong]{d}{} & M \tp_A N  \arrow[Cong]{dd}{}\\
 					\bigoplus_{i \in I}(M' \tp_A A) \arrow[Cong]{d}{}  \\
 					\bigoplus_{i \in I} M' \arrow{r}{} & \bigoplus_{i \in I} M \\
 					(x_i) \arrow[mapsto]{r}{} &(f(x_i))
 				\end{tikzcd}
-			\end{figure}
+			\end{center}
 		\end{proof}
 		\item Ist $a \in A \setminus A^{\times}$ kein Nulteiler, so ist $\fak A {(a)}$ nicht flach.
 	\end{enumerate}
@@ -954,8 +942,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \end{prop}
 \begin{proof}
 	Die Implikationen \enquote{\ref{prop:flach:iii} $\Rightarrow$ \ref{prop:flach:ii}} und \enquote{\ref{prop:flach:ii} $\Rightarrow$ \ref{prop:flach:i}} sind klar. Gelte also \ref{prop:flach:i}. Betrachte nun das folgende Diagramm.
-	\begin{figure}[H]
-		\centering
+	\begin{center}
 		\begin{tikzcd}
 			&&&0 \arrow[blue]{d}{}&0 \\
 			&&& \im f_i \arrow[red]{ru} \arrow[blue]{d}{} \\
@@ -963,15 +950,14 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 			& \fak {M_{i-1}}{\ker f_{i-1}} \arrow[red]{ru}{\tilde f_{i-1}} \arrow[green]{d} \\
 			0 \arrow[red]{ru}{} & 0
 		\end{tikzcd}
-	\end{figure}
+	\end{center}
 	Wir nennen die grüne bzw. rote bzw. blaue Sequenz \circled{1} bzw. \circled{2} bzw. \circled{3}. Diese sind jeweils exakt. Da $N$ flach ist, bleiben \circled{1}, \circled{2} und \circled{3} nach dem Tensorieren ($\hat= \, \_ \tp_a N$) exakt. Somit gilt:
-	\begin{figure}[H]
-		\centering
+	\begin{center}
 		\begin{tikzcd}[sep=3cm]
 			\im(\tilde f_{i-1} \tp \id_N) \arrow[equal]{r}{\text{Exaktheit von \enquote{$\circled{2} \tp N$}}} \arrow[equal]{d}[swap]{\text{Exaktheit von \enquote{$\circled{1} \tp N$}}} & \ker(\tilde f_i \tp \id_N) \arrow[equal]{d}{\text{Exaktheit von \enquote{$\circled{3} \tp N$}}} \\
 			\im(f_{i-1}\tp \id_N) & \ker(f_i\tp\id_N)
 		\end{tikzcd}
-	\end{figure}
+	\end{center}
 	Wir beweisen $\im(\tilde f_{i-1}\tp\id_N) = \im(f_{i-1} \tp \id_N)$ noch genauer.
 	\begin{description}
 		\item[\enquote{$\supseteq$}] Klar.
@@ -997,23 +983,21 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \end{beme}
 \begin{defi}
 	Seien $(B, \phi_B),(C,\phi_C)$ $A$-Algebren. Ein Ringhomomorphismus $f\colon B\to C$ heißt \emph{$A$-Algebrenhomomorphismus}, wenn folgendes Diagramm kommutiert.
-	\begin{figure}[H]
-		\centering
+	\begin{center}
 		\begin{tikzcd}
 			B \arrow{r}{f}  & C \\
 			A \arrow{u}{\phi_B}\arrow{ur}[swap]{\phi_C}	&
 		\end{tikzcd}
-	\end{figure}
+	\end{center}
 \end{defi}
 \begin{bsp}
 	Sei $B$ eine $A$-Algebra und $b\in B$. Betrachte den Ringhomomorphismus $\ev_b\colon A[t]\to B$. Dann kommutiert das folgende Diagramm.
-	\begin{figure}[H]
-		\centering
+	\begin{center}
 		\begin{tikzcd}
 			A[t] \arrow{r}{\ev_b}  & B \\
 			A \arrow{u}{}\arrow{ur}{}	&
 		\end{tikzcd}
-	\end{figure}
+	\end{center}
 	Folglich ist $\ev_b$ ein $A$-Algebrenhomomorphismus.
 \end{bsp}
 
@@ -1042,13 +1026,12 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	(b,x) & \longmapsto & (b'b,x) & \longmapsto & b'b\tp x
 	\end{array}\]
 	Diese Abbildung ist bilinear ($\tp_A$ ist $A$-bilinear, Multiplikation auf $B$ ist $A$-bilinear).
-	\begin{figure}[H]
-		\centering
+	\begin{center}
 		\begin{tikzcd}[column sep=3cm]
 			B\times M \arrow{r}{(b,x) \mapsto (b'bx)}\arrow{d}  & B\times M\arrow{d} \\
 			B\tp_AM \arrow[dashrightarrow]{r}[swap]{\exists ! m_b \text{ $A$-linear}}	& B\tp_AM 
 		\end{tikzcd}
-	\end{figure}
+	\end{center}
 \end{bem}
 \begin{defi}
 	Definiere nun 
@@ -1187,32 +1170,29 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\end{align*}
 		sind Ringhomomorphismen. \label{thm:314:iii}
 		\item Das Diagramm
-		\begin{figure}[H]
-			\centering
+		\begin{center}
 			\begin{tikzcd}
 				B\tp_A C & B \arrow{l}[swap]{b\mapsto b\tp 1} \\
 				C \arrow{u}{c\mapsto 1\tp c} & A\arrow{l}\arrow{u}
 			\end{tikzcd}
-		\end{figure}
+		\end{center}
 		kommutiert. \label{thm:314:iv}
 		\item Sei $D$ ein Ring sowie $B\xrightarrow{\phi} D$ und $C\xrightarrow{\psi}D$ Ringhomomorphismen, sodass
-		\begin{figure}[H]
-			\centering
+		\begin{center}
 			\begin{tikzcd}
 				D  & B \arrow{l}{\phi} \\
 				C \arrow{u}{\psi}	& A\arrow{l}\arrow{u}
 			\end{tikzcd}
-		\end{figure}
+		\end{center}
 		kommutiert, dann existiert genau ein Ringhomomorphismus $\lambda\colon B\tp_AC\to D$ mit
-		\begin{figure}[H]
-			\centering
+		\begin{center}
 			\begin{tikzcd}[sep=1cm]
 				D \\
 				& B \tp_A C \arrow[dashrightarrow]{lu}{\exists! \lambda} & B \arrow{l} \arrow[bend right]{llu}[swap]{\phi} \\
 				& C \arrow[bend left]{luu}{\psi} \arrow{u}&A \arrow{u}\arrow{l}
 			\end{tikzcd}
 			. % TODO: punkt
-		\end{figure} \label{thm:314:v}
+		\end{center} \label{thm:314:v}
 	\end{enumerate}
 \end{satz}
 \begin{proof}
@@ -2157,7 +2137,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 			Sei $\frac{b}{s}\in S^{-1}B$. Dann ist $b$ ganz über $A$, es gibt also $a_0,\dots, a_{n-1}$ mit $b^n + a_{n-1}b^{n-1}+\dots + a_0 = 0$ Nun folgt $0 = \frac{b^n}{s^n}+\frac{a_{n-1}}{s}\cdot \frac{b^{n-1}}{s^{n-1}}+\dots+\frac {a_0}{s^n}$, also ist $\frac bs$ ganz über $S^{-1}A$.
 		\end{proof}
 		
-		Es gilt $B_\fp \neq 0$, denn $B_\fp\cong f(A\setminus \fp)^{-1}B$ und $f(A\setminus \fp)\not \ni 0$ (da $f$ injektiv). Da $B_\fp\neq 0$ ist, gibt es $n\in \Max B_\fp$. Nach \ref{thm:6.8:i} ist $n\cap A_\fp \in \Max(A_\fp)$, da wir eine ganze Ringerweiterung haben.
+		Es gilt $B_\fp \neq 0$, denn $B_\fp\cong f(A\setminus \fp)^{-1}B$ und $f(A\setminus \fp)\not \ni 0$ (da $f$ injektiv). Da $B_\fp\neq 0$ ist, gibt es $n\in \Max B_\fp$. Nach \ref{prop:6.8:i} ist $n\cap A_\fp \in \Max(A_\fp)$, da wir eine ganze Ringerweiterung haben.
 		
 		Da $A_\fp$ lokaler Ring ist, ist $n\cap A_\fp = \fp\cdot A_\fp$. Definiere $\fq = n\cap B$. Also haben wir 
 		\[\fq\cap A = (n\cap B)\cap A = (n\cap A_\fp)\cap A = (\fp\cdot A_\fp)\cap A = \fp,\]
@@ -2175,7 +2155,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 									   &= \fq_i \cap A = \fp.
 		\end{align*}
 		Also erhalten wir $\fp\cdot A_\fp = ((\fq_i'\cap A_\fp)\cap A)\cdot A_\fp = \fq_i'\cap A_\fp$ nach Primidealkorrespondenz (\cref{thm:spektrumkorrespondenz}).
-		Dabei ist $\fp\cdot A_\fp\in \Max(A_\fp)$. Mit \ref{thm:6.8:i} können wir folglich $\fq_i'\cdot \fq_2'\in \Max(B_\fp)$ folgern. Da $\fq_1'\subseteq \fq_2'$ ist, muss damit bereits $\fq_1' = \fq_2'$ gelten.
+		Dabei ist $\fp\cdot A_\fp\in \Max(A_\fp)$. Mit \ref{prop:6.8:i} können wir folglich $\fq_i'\cdot \fq_2'\in \Max(B_\fp)$ folgern. Da $\fq_1'\subseteq \fq_2'$ ist, muss damit bereits $\fq_1' = \fq_2'$ gelten.
 		
 		Wieder mit \cref{thm:spektrumkorrespondenz} können wir schließlich
 		\[\fq_1 = (\fq_1\cdot B_\fp)\cap B = \fq_1'\cap B = \fq_2'\cap B = \fq_2\]
