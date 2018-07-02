@@ -3285,6 +3285,73 @@ Dies führt zu der folgenden
 	\end{enumerate}
 	
 \end{proof}
+
+\begin{satz}[Krulls Hauptidealsatz]
+	Sei $A$ noetherscher Ring, $x\in A$, $\fp\in\Spec A$ mit $x\in\fp$ minimal (das heißt $\not\exists \fq \in\Spec A: x\in\fq\subsetneq \fp$). Dann ist $\dim A_{\fp}\leq 1$.
+\end{satz}
+\begin{proof}
+	Sei $\fq\in \Spec A$ mit $\fq\subsetneq \fp$. Zeige $\fq\in \operatorname{MinSpec} A$. Ohne Einschränkung sei $A$ lokaler Ring mit maximalem Ideal $\fp$ (sonst gehe zu Lokalisation $A_{\fp}$ über). Betrachte Ring $\fak A{(x)}$. Es gilt $\Spec \fak{A}{(x)} = \set{\fp}$. Also ist $\fak A{(x)}$ noetherscher Ring, in dem jedes Primideal maximal ist. Von Übungsblatt 8 wissen wir damit, dass $\fak A{(x)}$ artinsch ist.
+	
+	Betrachte die Idealkette in $\fak A{(x)}$:
+	$$\fak{(\fq^{(0)}+(x))}{(x)} \supseteq \fak{(\fq^{(1)}+(x))}{(x)}\supseteq \dots $$
+	Da $\fak A{(x)}$ artinsch ist, gibt es ein $n\geq 0$ sodass
+	$$\fak{(\fq^{(n)}+(x)}{(x)} = \fak{(\fq^{(n+1)}+(x)}{(x)} = \dots $$
+	Also insbesondere $\fq^{(n)}+(x) = \fq^{(n+1)}+ (x)$. Damit haben wir:
+	$\forall f\in \fq^{(n)} \exists g\in \fq^{(n+1)}, a\in A: f = g+ax\Rightarrow ax = f-g\in \fq^{(n)}$. Lemma 9.9 sagt uns jetzt, dass ein $s\in A\setminus \fq$ existiert, sodass $sax\in\fq^n$.
+	
+	Es gilt wegen der Minimalität von $\fp$ nun $x\notin \fq$, also $a\in\fq^{(n)}$. Mit anderen Worten: $\fq^{(n)} = (x)\fq^{(n)}+ \fq^{(n+1)}$. Jetzt wenden wir Korollar 2.19 an: Falls $M = I\cdot N'+N$ mit $N, N'\subseteq M$ Untermoduln, $N'$ endliche erzeugt, $I\subseteq \Jac(A)\Rightarrow N = M$. Wähle hier $\fq^{(n)} = M, (x) = I, \fq^{(n)} = N', \fq^{(n+1)} = N$. Also gilt $\fq^{(n)} = \fq^{(n+1)}$. Wir gehen jetzt zur Lokalisation $A_{\fq}$ über:
+	
+	$$(\fq\cdot A_{\fq})^n = \fq^{(n)} \cdot A_{\fq} = \fq^{(n+1)}A_{\fq} = (\fq\cdot A_{\fq})^{n+1}$$
+	Wende nun Nakayama an auf $M = (\fq\cdot A_{\fq})^n$ und $I = \fq\cdot A_{\fq} = \Jac(A_{\fq})$. Damit folgt $(\fq\cdot A\fq)^n = 0$. Lemma 9.11 impliziert nun $\Spec A_{\fq} = \set{\fq\cdot A_{\fq}}\Rightarrow \dim A_{\fq} = 0$. Das heißt $\fq\in\operatorname{MinSpec} A$.
+\end{proof}
+\begin{lem}
+	Sei $(B, m)$ lokaler Ring und es gibt ein $k\geq 0$ mit $m^k = 0$. Dann ist schon $\Spec B = \set{m}$.
+\end{lem}
+\begin{proof}
+	Sei $\fp\in\Spec B$. Zeige $\fp = m$. Die Inklusion $\fp\subseteq m$ ist klar. Umgekehrt: Sei $b\in m \Rightarrow b^k \in m^k = 0 \subseteq \fp \Rightarrow b\in\fp$.
+\end{proof}
+
+\subsection{Dimension von noetherschen lokalen Ringen}
+\begin{defi}
+	Sei $(A, m)$ ein noetherscher lokaler Ring, $I\subsetneq A$ ein Ideal. Dann sind äquivalent:
+	\begin{enumerate}
+		\item $\exists n\geq 0: m^n\subseteq I$
+		\item $\forall \fp\in\Spec A:$ falls $I\subseteq \fp\Rightarrow\fp = m$
+		\item $\dim \fak AI = 0$
+		\item $\fak AI$ artinsch.
+	\end{enumerate}
+	Falls die äquivalenten Bedingungen (i),\dots, (iv) erfüllt sind, heißt $I$ Definitionsideal (\glqq ideal of definition\grqq).
+\end{defi}
+\begin{proof}
+	\leavevmode
+	\begin{description}
+		\item[i$\Rightarrow$ii:] Maximales Ideal von $\fak AI$ ist nilpotent. Wende Lemma 9.11 auf $\fak AI$ an.
+		\item[ii$\Rightarrow$iii:] $\Spec \fak AI = \set{\fak mI}\Rightarrow\dim \fak AI = 0$
+		\item[iii$\Rightarrow$iv:] $\fak AI$ ist noethersch, $\Spec \fak AI = \Max \fak AI$. Mit Aufgabe 4 von Übungsblatt 8 folgt $\fak AI$ artinsch.
+		\item[iv$\Rightarrow$i:] Übungsblatt 8, Aufgabe 3 sagt uns: $A$ artinsch $\Rightarrow\Jac(\fak AI)$ nilpotent $\Rightarrow\exists n>0$ mit $(\fak mI)^n = 0\Rightarrow m^n \subseteq I$.
+	\end{description}
+\end{proof}
+\begin{satz}
+	Sei $(A, m)$ noetherscher lokaler Ring.
+	\begin{enumerate}
+		\item Falls $I = (a_1,\dots, a_l)$ Definitionsideal $\Rightarrow \dim A \leq l$. Insbesondere $\dim A <\infty$. 
+		\item Sei $\dim A = d$. Dann existiert ein Definitionsideal $I$, das von $d$ Elementen erzeugt wird.
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	Induktion nach $l$:
+	\begin{description}
+		\item[$l = 0$:] $\checkmark$
+		\item[$l = 1$:] Krulls Hauptidealsatz
+		\item[$l-1\to l$:] Sei $\fq\subsetneq m$ Primideal, kein Primideal dazwischen. Dann ist $(a_1,\dots, a_l)\not\subseteq \fq$. Ohne Einschränkung sei $a_1\notin \fq$. Dann ist $(a_1)+\fq$ Definitionsideal. $\Rightarrow \exists n>0: m^n \subseteq (a_1)+\fq$. Also gilt für alle $i$: $a_i^n \in (a_1)+\fq$. Anders gesagt: es gibt $g_2,\dots, g_l\in\fq, c_2,\dots, c_l\in A$ mit $a_i^n = c_ia_1+g_i$. Dann ist aber $(a, g_2,\dots, g_l)$ Definitionsideal:
+		
+		(Denn: $\exists r>0$ sodass $I^r\subseteq (a, g_2,\dots, g_l)$. (wähle $r = ln$: Sei $x\in I^r\Rightarrow x = \sum_{\nu} c_{\nu}a_{i_1,\nu}\dots a_{i_r,\nu}$; im Ausdruck $a_{i_1,\nu}\dots a_{i_r, \nu}$ muss mindestens eines der $a_i$ mit Potenz $\geq n$ vorkommen.) Aber $I$ ist Definitionsideal $\Rightarrow \exists s\geq 0: m^s\subseteq I\Rightarrow m^rs\subseteq I^r\subseteq (a_1,g_2,\dots, g_l)$.)
+		
+		Betrachte nun den Ring $\fak A{(g_2,\dots, g_l)}$. Darin Primideale $\fak{\fq}{(g_2,\dots, g_l)}\subsetneq \fak{m}{(g_2,\dots, g_l)}$ und Element $\overline{a_1}\coloneqq$ Bild von $a_1$ unter $A\to \fak A{(g_2,\dots, g_l)}$. Da $\fak{m}{(g_2,\dots, g_l)}$ kein Primoberideal von $\overline{a_1}$ ist (denn $(a_1,g_2,\dots, g_l)$ ist Definitionsideal), können wir Krulls Hauptidealsatz anwenden: $\dim \fak A{(g_2,\dots, g_l)}\geq 1\Rightarrow \dim \fak{A_{\fq}}{(g_2,\dots, g_l)} = 0$. Das bedeutet, dass $(g_2,\dots, g_l)$ Definitionsideal von $A_{\fq}$. Nach de Induktionsvoraussetzung bedeutet das, dass $\dim A_{\fq}\leq l-1$. Sei nun
+		$$\fp_0\subsetneq \dots \subsetneq \fp_{d-1}\subsetneq\fp_d$$
+		Primidealkette von Länge $d = \dim A\Rightarrow \fp_d = m$ und $\fp_{d-1}$ ist ein $\fq$ wie oben $\Rightarrow d-1\leq l-1\Rightarrow d\leq l$. 
+	\end{description}
+\end{proof}
 \end{document}
 
 %\begin{bsp}
