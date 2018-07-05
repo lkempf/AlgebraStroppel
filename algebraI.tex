@@ -3348,6 +3348,176 @@ Dies führt zu der folgenden
 		Betrachte nun den Ring $\fak A{(g_2,\dots, g_l)}$ sowie Primideale $\fak{\fq}{(g_2,\dots, g_l)}\subsetneq \fak{\fm}{(g_2,\dots, g_l)}$ und das Bild $\ol a_1$ von $a_1$ unter $A\to \fak A{(g_2,\dots, g_l)}$. Da $\fak{\fq}{(g_2,\dots, g_l)}$ kein Primoberideal von $\ol a_1$ ist (denn $(a_1,g_2,\dots, g_l)$ ist ein Definitionsideal), können wir \namereff{thm:krulls hauptidealsatz} anwenden. Demnach folgt $\dim \fak A{(g_2,\dots, g_l)}\ge 1$, also $\dim \fak{A_{\fq}}{(g_2,\dots, g_l)} = 0$. Also ist $(g_2,\dots, g_l)$ ein Definitionsideal von $A_{\fq}$. Nach der Induktionsvoraussetzung folgt $\dim A_{\fq}\le l-1$. Sei nun \[\fp_0\subsetneq \dots \subsetneq \fp_{d-1}\subsetneq\fp_d\] eine Primidealkette der Länge $d = \dim A$. Dann ist $\fp_d = \fm$ und $\fp_{d-1}$ ist ein $\fq$ wie oben. Schließlich folgt wegen $d-1\le l-1$ dann $d\le l$.
 	\end{description}
 \end{proof}
+
+
+INSERT REST OF LECTURE HERE
+
+\lecture{5. Juli 2018}
+
+\begin{kor}
+	Sei $A$ noetherscher Ring (nicht notwendigerweise lokal), $a_1,\dots, a_l\in A$ und $\fp\in\Spec A$ minimales Primoberideal von $(a_1,\dots, a_l)\Rightarrow \dim A_{\fp}\leq l$. 
+\end{kor}
+\qedhere
+
+\subsection{Dimension von endlich erzeugten $k$-Algebren}
+Sei $k$ Körper.
+\begin{lem}
+	$\dim k[t_1,\dots, t_n] = n$.
+\end{lem}
+\begin{proof}
+	$n\leq \dim A$ mit $A\coloneqq k[t_1,\dots, t_n]$ ist klar (siehe vorher). Zeige $\dim A\leq n$. Sei $\fp_0\subsetneq \dots \subsetneq \fp_l$ Primidealkette in $A$- Wende Noethernormalisierung an: es existieren $a_1,\dots, a_l\in A$ algebraisch unabhängig über $k$ und $0\leq h_0\leq \dots \leq h_l\leq n$:
+	\begin{itemize}
+		\item $C \coloneqq k[a_1,\dots, a_l]\subseteq A$ ganz
+		\item $\fp_i\cap C= (a_1,\dots, a_{h_i})$.
+	\end{itemize}
+	Da $\fp_i\subsetneq\fp_{i+1}$ und $A\subseteq C$ ganz, folgt mit Proposition 6.8 (iii) schon $\fp_i\cap C\subsetneq \fp_{i+1}\cap C$, also $h_i<h_{i+1}\Rightarrow l\leq n$.
+\end{proof}
+\begin{satz}
+	Sei $A$ endlich erzeugte $k$-Algebra, Integritätsbereich. Dann:
+	\begin{enumerate}
+		\item $\dim A = \operatorname{trdeg}(\Quot(A)/k)$
+		\item Sei $\fp_0\subsetneq\dots \subsetneq \fp_l$ maximale Primidealkette $\Rightarrow l = \dim A$.
+	\end{enumerate}
+\end{satz}
+\begin{proof}
+	\leavevmode
+	\begin{enumerate}
+		\item Wende Noethernormalisierung an: $\exists a_1,\dots, a_n\in A$ algebraisch unabhängig, $k[a_1,\dots, a_n]\subseteq A$ ganz. Dann ist $n\coloneqq \operatorname{trdeg}(\Quot(A)/k)$ und nach Proposition 9.7 ist $\dim A = \dim k[a_1,\dots, a_n] = n$ (vergleiche Lemma 9.15).
+		\item Gegeben Primidealkette $\fp_0\subsetneq \dots \subsetneq \fp_l$ maximal (das heißt: nicht verlängerbar). Wende wieder Noethernormalisierung an: es gibt $a_1,\dots, a_n\in A$ algebraisch unabhängig über $k$ und $0\leq h_0\leq \dots \leq h_l\leq n$:
+		\begin{itemize}
+			\item $C = k[a_1,\dots, a_n]\subseteq A$ ganz
+			\item $\fp_i\cap C = (a_1,\dots, a_{h_i})$ mit $i = 0,\dots, l$.
+		\end{itemize}
+		Wegen (i) muss $\dim A = n$ sein. (Also $l\leq n$.)
+		
+		Behauptung: $h_i = i$ für alle $i = 0,\dots, l$.
+		
+		Beweis: Wissen wegen $C\subseteq A$ ganz und $\fp_i\subsetneq \fp_{i+1}$ bereits $h_i<h_{i+1}$. Nun Induktion nach $i$:
+		\begin{description}
+			\item[$i = 0$:] Angenommen $h_0\neq 0\Rightarrow (a_1,\dots, a_{h_0}) \neq (0)$; da die Erweiterung ganz ist, folg $\fp_0 \neq (0)\Rightarrow \fp_0\notin \MinSpec(A)$ im Widerspruch zu Kette maximal.
+			
+			vgl folgendes Bild:
+		%	\begin{center}
+		%		\begin{tikzcd}
+		%			A  & (0) \arrow[Mapsto]{d}\arrow[Subseteq]{r}& \fp_0\arrow[Mapsto]{d}\\
+		%			C\arrow[Subseteq]{u}{\text{ganz}} & (0) \arrow[Subseteq]{r}& (a_1,\dots, a_{h_0}) \\
+		%			k[a_1,\dots, a_n] \arrow[=]{u}
+		%		\end{tikzcd}
+		%	\end{center}
+			wobei $A$ Integritätsbereich und $k[a_1,\dots, a_n]$ normal ist.
+			
+			\item[$i\to i+1$:] Angenommen $h_i+1 < h_{i+1}$. Definiere $r\coloneqq h_i, s\coloneqq h_{i+1}$. Going down impliziert nun, dass es ein $\overline{\fp}\in \Spec \fak A{\fp_i}$ gibt mit $(0)\subsetneq \overline{\fp} \subsetneq \fak{\fp_{i+1}}{\fp_i}$. Betrachte Urbild $\fp$ von $\overline{\fp}$ unter $A\to \fak{A}{\fp_i}$. Dann ist $\fp_i\subsetneq \fp\subsetneq \fp_{i+1}$, was aber ein Widerspruch zur Maximalität ist.
+			
+			
+			vgl folgendes Bild:
+		%	\begin{center}
+		%		\begin{tikzcd}
+		%			A \arrow{r} & \fak{A}{\fp_i} && \exists \overline{\fp}\arrow[Mapsto]{d}\arrow[Subsetneq]{r} \fak{\fp_{i+1}}{\fp_i}\\
+		%			C\arrow[Subseteq]{u}{\text{ganz}}\arrow{r} & \fak{C}{\fp_i\cap C}\arrow[Subseteq]{u}{\text{ganz}}&&\\
+		%			k[a_1,\dots, a_n] \arrow[=]{u} & k[a_{r+1},\dots, a_n]\arrow[=]{u} & (0) \arrow[Subsetneq]{r} & (a_r+1)\arrow[Subsetneq]{r} & (a_{r+1},\dots, a_s)
+		%		\end{tikzcd}
+		%	\end{center}
+			wobei $A$ Integritätsbereich und $k[a_1,\dots, a_n]$ normal ist.
+		\end{description}
+		
+		Zeige nun noch $h_l = n$. Angenommen $h_l< n$ Dann sagt uns Going up, dass ein $\fp\in\Spec A$ exisitert, $\fp_l\subseteq \fp$ und $\fp\cap C = (a_1,\dot, a_n)$, also aufgrund der Ganzheit $\fp_l\subsetneq \fp$. Das ist wieder ein Widerspruch.
+		
+		vgl folgendes Bild:
+	%	\begin{center}
+	%		\begin{tikzcd}
+	%			A  &  \fp_l \arrow[Mapsto]{d}\arrow[Subsetneq]{r} & \exists \fp\\
+	%			C\arrow[Subseteq]{u}{\text{ganz}} & (a_1,\dots, a_{h_l}) \arrow[Subsetneq]{r} & (a_1,\dots, a_n)\\
+	%			k[a_1,\dots, a_n] \arrow[=]{u}
+	%		\end{tikzcd}
+	%	\end{center}
+		wobei $A$ Integritätsbereich und $k[a_1,\dots, a_n]$ normal ist.
+	\end{enumerate}
+\end{proof}
+
+\begin{kor}
+	Sei $A$ endlich erzeugte $k$-Algebra, Integritätsbereich. $m\in\Max A\Rightarrow \dim A_m = \dim A$. 
+\end{kor}
+\begin{proof}
+	Die Ungleichung \glqq$\leq$\grqq\  ist klar. Für \glqq$\geq$\grqq\ wähle eine Primidealkette $\fq_0\subsetneq\dots\subsetneq \fq_d$ in $A_m$, wobei $d = \dim A_m$. Dann ist $\fq_0\cap A\subsetneq \dots \subsetneq \fq_d\cap A$ Primidelakette. Diese ist maximal wegen $\fq_0\subsetneq \dots \subsetneq \fq_d$ maximal. Aus Sazt 9.16 folgt dann $d = \dim A$.
+\end{proof}
+\begin{kor}
+	Sei $A$ endlich erzeugte $k$-Algebra, Integritätsbereich. Sei $x\in A\setminus \set{0}$, $\fp\in \Spec A$ mit $x\in \fp$ minimal $\Rightarrow \dim \fak{A}{\fp} =\dim A-1$. 
+\end{kor}
+\begin{proof}
+	Aus Krulls Hauptidealsatz wissen wir, dass $\dim A_{fp}\leq 1$ sein muss. Da $A$ Integritätsbereich ist, gilt sogar $\dim A_{\fp}  = 1$ (denn wäre $\dim A_{\fp} = 0\Rightarrow \fp\in\MinSpec A = \set{(0)}\Rightarrow x = 0$).
+	
+	Betrachte $\fak{A}{\fp}$ und definiere $d\coloneqq \dim \fak{A}{\fp}$. Sei 
+%	\begin{center}
+%		\begin{tikzcd}
+%			\fak A{\fp} && (0) \arrow[Subsetneq]{r}\arrow[Mapsto]{d} & \overline{\fp_1}\arrow[Subsetneq]{r}\arrow[Mapsto]{d} & \dots \arrow[Subsetneq]{r} & \overline{\fp_d} \arrow[Mapsto]{d} & \text{Primidealkette}\\
+%			A \arrow{u} & (0)\arrow[Subsetneq]{r}& \fp \arrow[Subsetneq]{r} & \fp_1\arrow[Subsetneq]{r} & |dots \arrow[Subsetneq]{r} & \fp_d &\\
+%		\end{tikzcd}
+%	\end{center}
+	$\Rightarrow \dim A \geq \dim \fak A{\fp}+1$. Aber es gilt auch schon Gleichheit, da $\dim A_{\fp} = 1$.
+\end{proof}
+
+\begin{beme}
+	Anwendung von Korollar 9.18 auf Geometrie: Sei $X\subseteq \IA^n$ affine Varietät und $f\in A(X)\setminus\set{0}$. Betrachte $\Z(f)\subseteq X$. Es gilt
+	$$\set{\text{Irreduzible Komponenten von }\Z(f)} \xlongleftrightarrow{1:1} \set{\fp\in\Spec A(X)\given f\in\fp\text{ minimal}}$$
+	Nach Korollar 9.18 folgt $\forall C\subseteq \Z(f)$ irreduzible Komponenten: $\dim C = \dim X-1$. Insbesondere $\dim \Z(f) = \dim X-1$. 
+\end{beme}
+
+
+\section{Varietäten}
+Sei $k$ algebraisch abgeschlossener Körper.
+\subsection{Räume mit $k$-Funktionengarben}
+\begin{defi}
+	Sei $X$ ein topologischer Rau. Eine Garbe von $k$-Funktionen $\mathcal{O}$ ist Tupel $(\mathcal{O}(U))_{U\subseteq X \text{ offen}}$ von Unteralgebren
+	$$\mathcal{O}(U)\subseteq \operatorname{Abb}(U,k)$$
+	sodass gilt:
+	\begin{enumerate}
+		\item (Unter-Prägarbe): Seien $V\subseteq U\subseteq X$ beide offen. Falls $f\in\mathcal{O}(U)\Rightarrow f|_V \in \mathcal{O}(V)$.
+		\item (Verklebung, \glqq gluing\grqq): Sei $U\subseteq X$ offen, $\set{U_i}_{i\in I}$ offene Überdeckung von $U$ (das heißt $U_i\subseteq U$ offen und $\bigcup U_i = U$). Falls $f\in\operatorname{Abb}(U,k)$ mit $f|_{U_i}\in\mathcal{O}(U_i) \Rightarrow f \in\mathcal{O}(U)$.
+	\end{enumerate}
+\end{defi}
+\begin{beme}
+	Sei $\operatorname{O}$ Garbe von $k$-Funktionen auf $X$.
+	\begin{enumerate}
+		\item Seien $V\subseteq U\subseteq X$ offen. Dann ist $\mathcal{O}(U)\to \mathcal{O}(V), f\mapsto f|_V$ ein Homomorphismus von $k$-Algebren. (Denn: $\operatorname{Abb}(U,k)\to \operatorname{Abb}(V,k), f\mapsto f|_V$ ist Homomorphismen von $k$-Algebren.)
+		\item Sei $U\subseteq X$ offen, $U = \bigcup U_i$ offene Überdeckung. Dann:
+		\begin{enumerate}
+			\item Falls $f,g\in\mathcal{O}(U)$, sodass $f|_{U_i} = g|_{U_i}\Rightarrow f = g$.
+			\item Seien $f_i\in\mathcal{O}(U_i)$, sodass $f_i|_{U_i\cap U_j} = f_j|_{U_i\cap U_j}$ für alle $i,j$. Dann existiert genau ein $f\in\mathcal O(U)$ mit $f|_{U_i} = f$. 
+		\end{enumerate}
+	\end{enumerate}
+\end{beme}
+
+\begin{defi}
+	Ein Paar $(X, \mathcal O_X)$ bestehend aus einem topolgischen Raum $X$ und Garbe $\mathcal O_X$ von $k$-Funktionen heißt Raum mit $k$-Funktionengarbe. 
+\end{defi}
+
+\begin{bsp}
+	Sei $X$ topologischer Raum. Bespiele für $k$-Funktionengarben auf $X$:
+	\begin{enumerate}
+		\item $\mathcal O(U) = \operatorname{Abb}(U,k)$ liefert Garbe von $k$-Funktionen
+		\item falls $k = $($\IR$ oder) $\IC$: $\mathcal O(U) = \set{\text{ stetige Abbildungen }U\to k}$
+		\item Falls $k = \IC$, $X$ komplexe Mannigfaltigkeit: $\mathcal O(U) = \set{\text{holomorphe Funktionen }U\to \IC}$
+	\end{enumerate}
+\end{bsp}
+\begin{beme}
+	Sei $X\subseteq \IA^n$ affine Varietät. Sei $h\in A(X)$. Betrachte den Isomorphismus $\beta$ von $k$-Algebren:
+	\begin{center}
+		\begin{tikzcd}
+		 A(X)\arrow{d}\arrow{r}{\beta} &\Hom(X,\IA^1) \arrow[Subseteq]{r}& \operatorname{Abb}(X,k)\arrow{d} & f \arrow[Mapsto]{d}\\
+		 A(X)[h^{-1}] &&\operatorname{Abb}(D(h), k)& f|_{D(h)}
+		\end{tikzcd}
+	\end{center}
+	Es gilt $h(x) \neq 0$ für alle $x \in\D(h)$, also $h|_{\D(h)} \in \operatorname{Abb}(\D(h), k)^{\times}$. Die Komposition $A(X)\to \operatorname{Abb}(D(h), k)$ faktorisiert folglich über $A(X)[h^{-1}]$ zu $A(X)[h^{-1}]\to \operatorname{Abb}(\D(h), k), \frac{f}{h^n}\mapsto \left[x\mapsto \frac{f(x)}{h(x)^n}\right]$.
+	
+	Letztere Abbildung ist dabe injektiv: Falls $\frac {f(x)}{h(x)^n}  = 0$ (für alle $x\in\D(h)$), dann bedeutet das, dass $f(x) = 0$ für alle $x\in\D(h)\Rightarrow f(x) h(x) = 0$ für alle $x\in X$. Daraus folgt $fh = 0$, da $\#k  = \infty$. Also $\frac{f}{h^n} = 0$ in $A(X)$. 
+\end{beme}
+
+\begin{lem}
+	Sei $X\subseteq \IA^n$ afine Varietät. Dann gibt es genau ein $\mathcal O_X$ Garbe von $k$-Funktionen auf $X$, sodass für alle $h\in A(X)$ gilt:
+	$$\mathcal O_X(\D(h)) = A(X)[h^{-1}]$$
+	(nach Identifikation von $A(X)[h^{-1}]$ mit seinem Bild unter $A(X)[h^{-1}]\hookrightarrow \operatorname{Abb}(\D(h), k)$).
+\end{lem}
+
 \end{document}
 
 %\begin{bsp}
