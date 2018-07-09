@@ -3518,7 +3518,142 @@ Sei $k$ algebraisch abgeschlossener Körper.
 	(nach Identifikation von $A(X)[h^{-1}]$ mit seinem Bild unter $A(X)[h^{-1}]\hookrightarrow \operatorname{Abb}(\D(h), k)$).
 \end{lem}
 
+
+\lecture{9. Juli 2018}
+
+%Nächstes Semester: Grundzüge der Darstellungstheorie (Homologische Algebra mit Anwendungen in Darstellungstheorie
+% abelsche Kategorien
+% Homologie, Kettenkomplex
+% Darstellungen von endlich erzeugten Algebren)
+
+%Algebra 2: algebraische Grppen, für mehr: Mail an Stroppel
+
+\begin{proof}
+	Eindeutigkeit: Seien $\mathcal O,\mathcal O'$ Garben von $k$-Funktionen mit $\mathcal O(\D(h)) = \mathcal O'(\D(h))$ (alle $h\in A(X)$). Sei $U\subseteq X$ offen $\Rightarrow \exists h_i\in A(X)$ mit $U = \D(h_1)\cup\dots\cup\D(h_N)$. Sei $f\in\mathcal O(U)\Rightarrow f|_{\D(h_i)}\in\mathcal O(\D(h_i)) = \mathcal O'(\D(h_i))$. Mit Verklebung folgt $f\in \mathcal O'(U)$.
+	
+	Existenz: Sei $U\subseteq X$ offen: Definiere $\mathcal O_X(U) = \set{f\colon U\to k\given \forall x\in U\exists V\subseteq U\text{ offen}, x\in V: \exists g,s\in A(X)\forall y\in V: s(y) \neq 0\text{ und } f(y) = \frac{g(y)}{s(y)}}$. 
+	\begin{enumerate}
+	\item Zeige $\mathcal O_X$ Garbe von $k$-Funktionen:
+	\begin{itemize}
+		\item $\mathcal O_X(U)\subseteq \Abb(U, k)$ Unteralgebra $\checkmark$
+		\item Unter-Prägarbe: gilt, da definierende Eigenschaft an $f$ lokal ist. 
+		\item Verklebung: wieder wegen Lokalität
+	\end{itemize}
+	\item Zeige $\mathcal O_X(\D(h)) = A(X)[h^{-1}]$
+	\begin{description}
+		\item[\glqq$\supseteq$\grqq:] $A(X)[h^{-1}] = \set{f\colon \D(h)\to k\given \exists g\in A(X), n\geq 0 \forall x\in\D(h): f(x) = \frac{g(x)}{h(x)^n}}$, also $A(X)[h^{-1}] \subseteq \mathcal O_X(\D(h))$.
+		\item[\glqq$\subseteq$\grqq:] Sei $f\in\mathcal O_X(\D(h))$. Betrachte
+		$I\coloneqq \set{a\in A(X)\given \exists g\in A(X): \forall x\in \D(h): g(x) = (af)(x)}$, also $I\subseteq A(X)$ Ideal.
+		
+		Behauptung: $h\in\sqrt I$
+		
+		Beweis: Aus dem Nullstellensatz folgt $\sqrt{I} = I(Z(I))$. Angenommen $h\notin I(Z(I))\Rightarrow \exists x\in Z(I): h(x) \neq 0$, also $x\in\D(h)$. Folglich existiert eine offene Umgebung $x\in V\subseteq \D(h)$ $\exists g, s\in A(X)\forall y\in V: s(y) \neq 0$ und $\forall y\in V$ gilt $f(y) = \frac{g(y)}{s(y)}$, was äquivalent ist zu:
+		$$\forall y\in V\qquad s(y)f(y) = g(y)$$
+		Ohne Einschränkung ist $V = \D(u)$ für ein $u\in A(X)$. Insbesondere gilt für alle $y\in \D(u)$: $(usf)(y) = (ug)(y)$. Daraus folgt jetzt, dass $(usf)(y) = (ug)(y)$ auch für alle $y\in D(h)$ gilt: Denn für alle $y\in \D(h)\setminus \D(u)$ gilt $u(y) = 0$.
+		
+		Damit ist nun $us\in I$, aber $us(x) \neq 0 \Rightarrow x\notin Z(I)$. Das ist ein Widerspruch zu unser Konstruktion. Folglich ist der Beweis von obiger Behauptung ($h\in\sqrt I$) vollbracht.
+		
+		Also gibt es $n\geq 0$ sodass $h^n \in I\Rightarrow \exists g\in A(X)$ sodass
+		$$g|_{\D(h)} = (fh^n)|_{\D(h)}$$
+		Das bedeutet aber $f = \frac{g}{h^n}\in A(X)[h^{-1}]$.
+	\end{description}
+	\end{enumerate}
+\end{proof}
+
+\begin{defi}
+	Sei $X\subseteq \IA^n$ affine Varietät. Die Garbe $\mathcal O_X$ von $k$-Funktionen heißt Strukturgarbe oder Garbe von regulären Funktionen auf $X$.
+\end{defi}
+
+\subsection{Morphismen}
+\begin{defi}
+	Seien $(X, \mathcal O_X), (Y, \mathcal O_Y)$ Räume mit $k$-Funktionengarben. Ein Morphismus $f\colon (X,\mathcal O_X)\to (Y, \mathcal O_Y)$ ist eine stetige Abbildung $f\colon X\to Y$, sodass gilt:
+	$$\forall U\subseteq Y \text{ offen, für alle }g\in\mathcal O_Y(U): g\circ f|_{f^{-1}(u)}\in \mathcal O_X(f^{-1}(u))$$
+\end{defi}
+\begin{bem}
+	Die Abbildung $\mathcal O_Y(U)\to\mathcal O_X(f^{-1}(U)), g\mapsto g\circ f|_{f^{-1}(U)}$ ist Homomorphismus von $k$-Algebren.
+\end{bem}
+\begin{beme}
+	Seien $X\subseteq \IA^n, Y\subseteq \IA^m$ affine Varietäten, sei $f\colon X\to Y$ Morphismus von affinen Varietäten. Sei $f^*\colon A(Y)\to A(X)$.
+	Frage: Ist $f$ ein Morphismus von Räumen mit $k$-Funktionengarben?
+	\begin{enumerate}
+		\item Sei $k\in A(Y)$. Betrachte $\D_Y(h)$ (offene Hauptmenge von $h$ in $Y$). Wir erhalten folgendes Diagramm:
+		\begin{center}
+			\begin{tikzcd}
+				A(Y)\arrow{r}{f^*}\arrow{d} & A(X)\arrow{d}\\
+				A(Y)[h^{-1}] \arrow{r}{\exists!f^*}& A(X)[(f^*h)^{-1}]
+			\end{tikzcd}
+		\end{center}
+		Sei $g\in\mathcal O_Y(\D_Y(h)) = A(X)[h^{-1}]$. Dann gilt:
+		$$f^*g \in A(X)[(f^*h)^{-1}] = \mathcal O_X(\D_X(f^*h)) = \mathcal O_X(f^{-1}(\D_Y(h)))$$
+		Gleichzeitig gilt $f^*g = g\circ f|_{f^{-1}(\D(h))}$
+		\item Sei $U\subseteq Y$ offen, sei $g\in\mathcal O_Y(U)$. Also gibt es $h_i\in A(Y)$ mit $U = \D(h_1)\cup\dots\cup\D(h_N)$. Wir verwenden nun die Abkürzung $U_i = \D(h_i)$. Betrachte $g|_{U_i}\in\mathcal O_Y(U_i)$. Wissen aus (i): $g|_{U_i}\circ f|_{f^{-1}(U_i)}\in \mathcal O_X(f^{-1}(U_i))$.
+		
+		Aber $(g\circ f|_{f^{-1}(U)})|_{f^{-1}(U_i)} = g|_{U_i}\circ f|_{f^{-1}(U_i)}$. Da $f^{-1}(U) = \bigcup f^{-1}(U_i)$ folgt mit Verklebung $g\circ f|_{f^{-1}(U)}\in\mathcal O_X(f^{-1}(U))$.
+	\end{enumerate}
+	Also: Ja, $f$ ist Morphismus von Räumen mit $k$-Funktionengarben.
+\end{beme}
+\begin{prop}
+	Seien $X\subseteq\IA^n, Y\subseteq \IA^m$ affine Varietäten. Dann ist die Zuordnung
+	$$\Hom(X,Y)\to Hom((X,\mathcal O_X), (Y, \mathcal O_Y)), f\mapsto f$$
+	aus Bemerkung 10.9 eine Bijektion.
+\end{prop}
+\begin{proof}
+	Die Injektivität ist klar. Zur Surjektivität: Sei $f\colon (X,\mathcal O_X)\to (Y,\mathcal O_Y)$ Morphismus von Räumen mit $k$-Funktionengarben. Definiere $\phi\colon A(Y)\to A(X)$ durch
+	\begin{center}
+		\begin{tikzcd}
+			A(Y)\arrow{r}{\phi} \arrow{d}{=} & A(X)\arrow{d}{=}\\
+			\mathcal O_Y(Y)\arrow{r}{g\mapsto g\circ f} & \mathcal O_X(X)
+		\end{tikzcd}
+	\end{center}
+	(Nach Definition von Morphismen von Räumen mit $k$-Funktionengarben ist $\phi$ wohldefiniert und $k$-Algebrenhomomorphismus.)
+	
+	Betrachte $\phi^{\#}\in \Hom(X,Y)$. Zeige $f = \phi^{\#}$. Zur Erinnerung: $\phi^{\#}$ entsteht wie folgt: wähle Lift $\Phi$ wie im Diagramm:
+	\begin{center}
+		\begin{tikzcd} %TODO: ergänze Diagramm noch (siehe Tims Notizen)
+			k[s_1,\dots, s_m]\arrow{r}{\exists \Phi} \arrow{d} & k[t_1,\dots, t_n]\arrow{d}\\
+			A(X) \arrow{r}{\phi}& A(X)
+		\end{tikzcd}
+	\end{center}
+	Betrachte $F\colon \IA^n\to \IA^m$. Es gilt für alle $x\in X$: $\phi^{\#}(x) = F(x)$. Es gilt $\forall g\in \mathcal O_{\IA^m}(\IA^m)$ und alle $x\in X$: $g(F(x)) = g(f(x))$. (Denn: verfolge den äußeren Weg im Diagramm.) %das tim hoffentlich komplett abgemalt hat
+	
+	Daraus folgt nun $F(x) = f(x)$ für alle $x\in X$. Damit folgt die Behauptung, da $\phi^{\#}(x) = F(x)$.
+	
+\end{proof}
+
+Das rechtfertigt nun folgende
+\paragraph{Re-Definition} Sei $(X,\mathcal O_X)$ ein Raum mit $k$-Funktionengarbe. $(X,\mathcal O_X)$ heißt affine Varietät, falls $\exists Y\subseteq \IA^n$ irreduzible algebraische Teilmenge, sodass $(X,\mathcal O_X)\cong (Y,\mathcal O_Y)$ (als Räume mit $k$-Funktionengarben).
+
+
+\subsection{Teilräume}
+\begin{lem}
+	Sei $(X,\mathcal O_X)$ Raum mit $k$-Funktionengarbe, $Y\subseteq X$ Teilmenge. Versieh $Y$ mit Relativtopologie von $X$. Betrachte die Teilmengeninklusion $i\colon Y\to X$ (stetig). Dann existiert genau eine $k$-Funktionengarbe $\mathcal O_X|_Y$ auf $Y$, sodass:
+	\begin{enumerate}
+		\item $i\colon (Y,\mathcal O_X|_Y)\to (X,\mathcal O_X)$ ist Morphismus.
+		\item $\forall f\colon (Z,\mathcal O_Z)\to (X,\mathcal O_X)$ Morphismus von Räumen mit $k$-Funktionengarben mit $f(Z)\subseteq Y$ kommutiert
+		\begin{center}
+			\begin{tikzcd}
+				(Z,\mathcal O_Z) \arrow{r}{f}\arrow{rd}[swap]{\exists!\tilde{f}} & (X,\mathcal O_X)\\
+				& (Y,\mathcal O_X|_Y)\arrow{u}{i}
+			\end{tikzcd}
+		\end{center}
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	Zur Eindeutigkeit: Seien $\mathcal O, \mathcal O'$, sodass (i) und (ii) gelten. 
+	\begin{center}
+		\begin{tikzcd}
+			(Y,\mathcal O) \arrow{rd}{i}\arrow{r}{\exists! i_2} & (Y, \mathcal O')\arrow{d}{i}\arrow{l}{\exists!i_1}\\
+			& (X,\mathcal O_X)
+		\end{tikzcd}
+	\end{center}
+	Dann ist $i_1 = i_2 = \id_Y$ (als Abbildungen), also $\mathcal O(U) \subseteq \mathcal O'(U)$ und $\mathcal O'(U)\subseteq \mathcal O(U)$, da $i_1,i_2$ Morphismen.
+\end{proof}
+
 \end{document}
+
+
+%Literatur für Alggeo: Görtz-Wedhorn: Algebraic Geometry I
+
 
 %\begin{bsp}
 %	Das hier ist ein Beispiel-Diagramm:
