@@ -546,7 +546,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
 \begin{lem}[Nakayamas Lemma] \label{lem:nakayama}
 	Sei $M$ ein endlich erzeugter $A$-Modul und $I\subseteq A$ ein Ideal mit $I \cdot M = M$.
 	\begin{enumerate}
-		\item \label{lem:nakayama:i} Es existiert ein $a\in I$ mit $(1+a)\cdot M = \{0\}$ \textup(das heißt, für alle $x\in M: (1+a)x = 0$\textup).
+		\item \label{lem:nakayama:i} Es existiert ein $a\in I$ mit $(1+a)\cdot M = \{0\}$ (das heißt, für alle $x\in M: (1+a)x = 0$).
 		\item Falls $I\subseteq\Jac(A)$, so gilt $M = \{0\}$. \label{lem:nakayama:ii}
 	\end{enumerate}
 \end{lem}
@@ -2808,7 +2808,7 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 	Andererseits folgt aus $t_1\cdot t_2\in \I(Y)$ dann $(t_1\cdot t_2)\subseteq \I(Y)$; und es gilt $\I(Y) = (t_1\cdot t_2)$.
 
 \begin{lem} \label{lem:8.12}
-	Sei $Y\subseteq \IA^n$ eine Teilmenge. Dann ist $\Z(\I(Y)) = \ol{Y}$ \textup(Abschluss in $\IA^n$\textup).
+	Sei $Y\subseteq \IA^n$ eine Teilmenge. Dann ist $\Z(\I(Y)) = \ol{Y}$ (Abschluss in $\IA^n$).
 \end{lem}
 \begin{proof}
 	\leavevmode
@@ -2853,7 +2853,7 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 			Y &\longmapsto& \I(Y) \\
 			\Z(I) &\longmapsfrom& I
 		\end{eqnarray*}
-		ist eine inklusionsumkehrende \textup(\enquote{inclusion reversing}\textup) Bijektion.
+		ist eine inklusionsumkehrende (\enquote{inclusion reversing}) Bijektion.
 		\item \label{kor:8.14:ii} Die Bjektion beschränkt sich sich zu
 		\[\set{\text{Abgeschlossene irreduzible Teilmengen }Y\subseteq \A^n}  \xlongleftrightarrow{1:1}\Spec k[t_1,\dots, t_n]\]
 		bzw. zu 
@@ -2911,7 +2911,7 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 \begin{kor}
 	Sei $X\subseteq \IA^n$ eine algebraische Teilmenge Dann liefern $\Z$ und $\I$ die Bijektion
 	\[\set{\text{Irreduzible Komponenten }C\subseteq X}\xlongleftrightarrow{1:1} \operatorname{MinSpec}\A(X).\]
-	Insbesondere hat $X$ nur endlich viele irreduzible Komponenten \textup(da $\A(X)$ noethersch\textup), aber mindestens eine.
+	Insbesondere hat $X$ nur endlich viele irreduzible Komponenten (da $\A(X)$ noethersch), aber mindestens eine.
 \end{kor}
 
 \paragraph{Beispiel.}
@@ -3114,7 +3114,7 @@ Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten dann:
 \end{proof}
 
 \begin{lem}
-	Seien $X\subseteq \IA^n$ und $Y\subseteq \IA^m$ algebraische Teilmengen sowie $f\colon X \to Y$ ein Morphismus. Sei $x\in X$ und $\fm_x\in\Max \A(X)$ das zugehörige maximale Ideal. Dann ist $\fm_x\cap \A(Y) = \fm_{f(x)}$ \textup(via $f^*\colon \A(Y)\to \A(X)$\textup). 
+	Seien $X\subseteq \IA^n$ und $Y\subseteq \IA^m$ algebraische Teilmengen sowie $f\colon X \to Y$ ein Morphismus. Sei $x\in X$ und $\fm_x\in\Max \A(X)$ das zugehörige maximale Ideal. Dann ist $\fm_x\cap \A(Y) = \fm_{f(x)}$ (via $f^*\colon \A(Y)\to \A(X)$). 
 \end{lem}
 \begin{proof}
 	Unter $\beta_X\colon \A(X)\xto{\cong}\Hom(X, \IA^1)$ ist $\beta_X(\fm_x) = \set{h\in\Hom(X,\IA^1)\given h(x) =0}$. Betrachte das folgende kommutative Diagramm.
@@ -3416,7 +3416,7 @@ INSERT REST OF LECTURE HERE
 				\end{center}
 			\end{description}
 		\end{proof}
-		Zeige nun noch $h_l = n$. Angenommen $h_l< n$ Dann existiert nach \namereff{thm:going up} ein $\fp\in\Spec A$ mit $\fp_l\subseteq \fp$ und $\fp\cap C = (a_1,\dots, a_n)$, also aufgrund der Ganzheit $\fp_l\subsetneq \fp$. Das ist wieder ein Widerspruch.
+		Zeige nun noch $h_l = n$. Angenommen $h_l< n$. Dann existiert nach \namereff{thm:going up} ein $\fp\in\Spec A$ mit $\fp_l\subseteq \fp$ und $\fp\cap C = (a_1,\dots, a_n)$, also aufgrund der Ganzheit $\fp_l\subsetneq \fp$. Das ist wieder ein Widerspruch.
 		
 		Man vergleiche auch hierzu wieder auch das folgende Bild, wobei $A$ ein Integritätsbereich und $k[a_1,\dots, a_n]$ normal ist.
 		\begin{center}
@@ -3524,130 +3524,131 @@ Sei $k$ ein algebraisch abgeschlossener Körper.
 %Algebra 2: algebraische Grppen, für mehr: Mail an Stroppel
 
 \begin{proof}
-	Eindeutigkeit: Seien $\Os,\Os'$ Garben von $k$-Funktionen mit $\Os(\D(h)) = \Os'(\D(h))$ (alle $h\in A(X)$). Sei $U\subseteq X$ offen $\Rightarrow \exists h_i\in A(X)$ mit $U = \D(h_1)\cup\dots\cup\D(h_N)$. Sei $f\in\Os(U)\Rightarrow f|_{\D(h_i)}\in\Os(\D(h_i)) = \Os'(\D(h_i))$. Mit Verklebung folgt $f\in \Os'(U)$.
+	Zunächst zur Eindeutigkeit. Seien $\Os$ und $\Os'$ Garben von $k$-Funktionen mit $\Os(\D(h)) = \Os'(\D(h))$ (alle $h\in A(X)$). Sei $U\subseteq X$ offen. Dann existieren $h_i\in \A(X)$ mit $U = \D(h_1)\cup\dots\cup\D(h_N)$. Sei $f\in\Os(U)$. Dann gilt $f|_{\D(h_i)}\in\Os(\D(h_i)) = \Os'(\D(h_i))$. Per Verklebung folgt $f\in \Os'(U)$.
 	
-	Existenz: Sei $U\subseteq X$ offen: Definiere $\Os_X(U) = \set{f\colon U\to k\given \forall x\in U\exists V\subseteq U\text{ offen}, x\in V: \exists g,s\in A(X)\forall y\in V: s(y) \neq 0\text{ und } f(y) = \frac{g(y)}{s(y)}}$. 
-	\begin{enumerate}
-	\item Zeige $\Os_X$ Garbe von $k$-Funktionen:
+	Nun zur Existenz. Sei hierzu $U\subseteq X$ offen. Definiere \[\Os_X(U) := \set*{f\colon U\to k\given \substack{\forall x\in U :\, \exists V\subseteq U\text{ offen},\, x\in V: \\\exists g,s\in \A(X):\, \forall y\in V:\, s(y) \neq 0\text{ und } f(y) = \frac{g(y)}{s(y)}}}.\]
+	$\Os_X$ ist eine Garbe von $k$-Funktionen:
 	\begin{itemize}
-		\item $\Os_X(U)\subseteq \Abb(U, k)$ Unteralgebra $\checkmark$
-		\item Unter-Prägarbe: gilt, da definierende Eigenschaft an $f$ lokal ist. 
-		\item Verklebung: wieder wegen Lokalität
+		\item $\Os_X(U)\subseteq \Abb(U, k)$ ist eine Unteralgebra.
+		\item Unter-Prägarbe: gilt, da definierende Eigenschaft an $f$ lokal ist
+		\item Verklebung: gilt ebenfalls wegen Lokalität
 	\end{itemize}
-	\item Zeige $\Os_X(\D(h)) = A(X)[h^{-1}]$
+	Es verbleibt, $\Os_X(\D(h)) = \A(X)[h^{-1}]$ zu zeigen.
 	\begin{description}
-		\item[\glqq$\supseteq$\grqq:] $A(X)[h^{-1}] = \set{f\colon \D(h)\to k\given \exists g\in A(X), n\ge 0 \forall x\in\D(h): f(x) = \frac{g(x)}{h(x)^n}}$, also $A(X)[h^{-1}] \subseteq \Os_X(\D(h))$.
+		\item[\glqq$\supseteq$\grqq:] Da $\A(X)[h^{-1}] = \set*{f\colon \D(h)\to k\given \exists g\in A(X), n\ge 0 :\forall x\in\D(h): f(x) = \frac{g(x)}{h(x)^n}}$, folgt $A(X)[h^{-1}] \subseteq \Os_X(\D(h))$.
 		\item[\glqq$\subseteq$\grqq:] Sei $f\in\Os_X(\D(h))$. Betrachte
-		$I := \set{a\in A(X)\given \exists g\in A(X): \forall x\in \D(h): g(x) = (af)(x)}$, also $I\subseteq A(X)$ Ideal.
+		$I := \set{a\in A(X)\given \exists g\in A(X): \forall x\in \D(h): g(x) = (af)(x)}$. $I$ ist ein Ideal in $\A(X)$.
 		
-		Behauptung: $h\in\sqrt I$
+		Wir zeigen nun $h\in\sqrt I$.
+		\begin{proof}
+			Nach \namereff{thm:hilberts nullstellensatz} folgt $\sqrt{I} = \I(\Z(I))$. Angenommen, $h\notin \I(\Z(I))$. Dann existiert ein $x\in \Z(I)$ mit $h(x) \neq 0$, also $x\in\D(h)$. Folglich existiert eine offene Umgebung $x\in V\subseteq \D(h)$ sowie $g, s\in \A(X)$, sodass $s(y) \neq 0$ und $f(y) = \frac{g(y)}{s(y)}$ für alle $y \in V$ gilt, was äquivalent ist zu \[\forall y\in V:\;s(y)f(y) = g(y)\] ist.
+			Ohne Einschränkung ist $V = \D(u)$ für ein $u\in A(X)$. Insbesondere gilt für alle $y\in \D(u)$ dann $(usf)(y) = (ug)(y)$. Daraus folgt nun, dass $(usf)(y) = (ug)(y)$ auch für alle $y\in D(h)$ gilt, da $u(y) = 0$ für alle $y\in \D(h)\setminus \D(u)$ gilt.
+
+			Damit ist nun $us\in I$, aber $us(x) \neq 0$, also $x\notin \Z(I)$. Das ist ein Widerspruch zu unser Konstruktion.
+		\end{proof}
 		
-		Beweis: Aus dem Nullstellensatz folgt $\sqrt{I} = I(Z(I))$. Angenommen $h\notin I(Z(I))\Rightarrow \exists x\in Z(I): h(x) \neq 0$, also $x\in\D(h)$. Folglich existiert eine offene Umgebung $x\in V\subseteq \D(h)$ $\exists g, s\in A(X)\forall y\in V: s(y) \neq 0$ und $\forall y\in V$ gilt $f(y) = \frac{g(y)}{s(y)}$, was äquivalent ist zu:
-		$$\forall y\in V\qquad s(y)f(y) = g(y)$$
-		Ohne Einschränkung ist $V = \D(u)$ für ein $u\in A(X)$. Insbesondere gilt für alle $y\in \D(u)$: $(usf)(y) = (ug)(y)$. Daraus folgt jetzt, dass $(usf)(y) = (ug)(y)$ auch für alle $y\in D(h)$ gilt: Denn für alle $y\in \D(h)\setminus \D(u)$ gilt $u(y) = 0$.
-		
-		Damit ist nun $us\in I$, aber $us(x) \neq 0 \Rightarrow x\notin Z(I)$. Das ist ein Widerspruch zu unser Konstruktion. Folglich ist der Beweis von obiger Behauptung ($h\in\sqrt I$) vollbracht.
-		
-		Also gibt es $n\ge 0$ sodass $h^n \in I\Rightarrow \exists g\in A(X)$ sodass
-		$$g|_{\D(h)} = (fh^n)|_{\D(h)}$$
+		Also gibt es $n\ge 0$ mit $h^n \in I$. Dann existiert ein $g\in \A(X)$ mit \[g|_{\D(h)} = (fh^n)|_{\D(h)}.\]
 		Das bedeutet aber $f = \frac{g}{h^n}\in A(X)[h^{-1}]$.
+		\qedhere
 	\end{description}
-	\end{enumerate}
 \end{proof}
 
 \begin{defi}
-	Sei $X\subseteq \IA^n$ affine Varietät. Die Garbe $\Os_X$ von $k$-Funktionen heißt Strukturgarbe oder Garbe von regulären Funktionen auf $X$.
+	Sei $X\subseteq \IA^n$ eine affine Varietät. Die Garbe $\Os_X$ von $k$-Funktionen heißt \emph{Strukturgarbe} oder \emph{Garbe von regulären Funktionen} auf $X$.
 \end{defi}
 
 \subsection{Morphismen}
 \begin{defi}
-	Seien $(X, \Os_X), (Y, \Os_Y)$ Räume mit $k$-Funktionengarben. Ein Morphismus $f\colon (X,\Os_X)\to (Y, \Os_Y)$ ist eine stetige Abbildung $f\colon X\to Y$, sodass gilt:
-	$$\forall U\subseteq Y \text{ offen, für alle }g\in\Os_Y(U): g\circ f|_{f^{-1}(u)}\in \Os_X(f^{-1}(u))$$
+	Seien $(X, \Os_X)$ und $(Y, \Os_Y)$ Räume mit $k$-Funktionengarben. Ein Morphismus $f\colon (X,\Os_X)\to (Y, \Os_Y)$ ist eine stetige Abbildung $f\colon X\to Y$, sodass \[g\circ f|_{f^{-1}(u)}\in \Os_X(f^{-1}(u))\] für alle offenen $U \subseteq Y$ und $g \in \Os_Y(U)$ gilt.
 \end{defi}
 \begin{bem}
-	Die Abbildung $\Os_Y(U)\to\Os_X(f^{-1}(U)), g\mapsto g\circ f|_{f^{-1}(U)}$ ist Homomorphismus von $k$-Algebren.
+	Die Abbildung $\Os_Y(U)\to\Os_X(f^{-1}(U)), g\mapsto g\circ f|_{f^{-1}(U)}$ ist ein Homomorphismus von $k$-Algebren.
 \end{bem}
-\begin{beme}
-	Seien $X\subseteq \IA^n, Y\subseteq \IA^m$ affine Varietäten, sei $f\colon X\to Y$ Morphismus von affinen Varietäten. Sei $f^*\colon A(Y)\to A(X)$.
+\begin{beme} \label{bem:10.9}
+	Seien $X\subseteq \IA^n$ und $Y\subseteq \IA^m$ affine Varietäten und $f\colon X\to Y$ ein Morphismus von affinen Varietäten. Sei $f^*\colon \A(Y)\to \A(X)$.
 	Frage: Ist $f$ ein Morphismus von Räumen mit $k$-Funktionengarben?
 	\begin{enumerate}
-		\item Sei $k\in A(Y)$. Betrachte $\D_Y(h)$ (offene Hauptmenge von $h$ in $Y$). Wir erhalten folgendes Diagramm:
+		\item \label{bem:10.9:i} Sei $k\in \A(Y)$. Betrachte $\D_Y(h)$ (die offene Hauptmenge von $h$ in $Y$). Wir erhalten das folgende Diagramm.
 		\begin{center}
 			\begin{tikzcd}
-				A(Y)\arrow{r}{f^*}\arrow{d} & A(X)\arrow{d}\\
-				A(Y)[h^{-1}] \arrow{r}{\exists!f^*}& A(X)[(f^*h)^{-1}]
+				\A(Y)\arrow{r}{f^*}\arrow{d} & \A(X)\arrow{d}\\
+				\A(Y)[h^{-1}] \arrow{r}{\exists!f^*}& \A(X)[(f^*h)^{-1}]
 			\end{tikzcd}
 		\end{center}
-		Sei $g\in\Os_Y(\D_Y(h)) = A(X)[h^{-1}]$. Dann gilt:
-		$$f^*g \in A(X)[(f^*h)^{-1}] = \Os_X(\D_X(f^*h)) = \Os_X(f^{-1}(\D_Y(h)))$$
+		Sei $g\in\Os_Y(\D_Y(h)) = \A(X)[h^{-1}]$. Dann gilt \[f^*g \in A(X)[(f^*h)^{-1}] = \Os_X(\D_X(f^*h)) = \Os_X(f^{-1}(\D_Y(h))).\]
 		Gleichzeitig gilt $f^*g = g\circ f|_{f^{-1}(\D(h))}$
-		\item Sei $U\subseteq Y$ offen, sei $g\in\Os_Y(U)$. Also gibt es $h_i\in A(Y)$ mit $U = \D(h_1)\cup\dots\cup\D(h_N)$. Wir verwenden nun die Abkürzung $U_i = \D(h_i)$. Betrachte $g|_{U_i}\in\Os_Y(U_i)$. Wissen aus (i): $g|_{U_i}\circ f|_{f^{-1}(U_i)}\in \Os_X(f^{-1}(U_i))$.
+		\item Sei $U\subseteq Y$ offen, sei $g\in\Os_Y(U)$. Also gibt es elemente $h_i\in \A(Y)$ mit $U = \D(h_1)\cup\dots\cup\D(h_N)$. Setze $U_i := \D(h_i)$. Betrachte $g|_{U_i}\in\Os_Y(U_i)$. Nach \ref{bem:10.9:i} gilt $g|_{U_i}\circ f|_{f^{-1}(U_i)}\in \Os_X(f^{-1}(U_i))$.
 		
-		Aber $(g\circ f|_{f^{-1}(U)})|_{f^{-1}(U_i)} = g|_{U_i}\circ f|_{f^{-1}(U_i)}$. Da $f^{-1}(U) = \bigcup f^{-1}(U_i)$ folgt mit Verklebung $g\circ f|_{f^{-1}(U)}\in\Os_X(f^{-1}(U))$.
+		Aber es gilt $(g\circ f|_{f^{-1}(U)})|_{f^{-1}(U_i)} = g|_{U_i}\circ f|_{f^{-1}(U_i)}$. Da $f^{-1}(U) = \bigcup f^{-1}(U_i)$ folgt mit Verklebung $g\circ f|_{f^{-1}(U)}\in\Os_X(f^{-1}(U))$.
 	\end{enumerate}
-	Also: Ja, $f$ ist Morphismus von Räumen mit $k$-Funktionengarben.
+	Also: Ja, $f$ ist ein Morphismus von Räumen mit $k$-Funktionengarben.
 \end{beme}
 \begin{prop}
 	Seien $X\subseteq\IA^n, Y\subseteq \IA^m$ affine Varietäten. Dann ist die Zuordnung
-	$$\Hom(X,Y)\to Hom((X,\Os_X), (Y, \Os_Y)), f\mapsto f$$
-	aus Bemerkung 10.9 eine Bijektion.
+	\begin{eqnarray*}
+		\Hom(X,Y) &\longto& \Hom((X,\Os_X), (Y, \Os_Y)), \\
+		f &\longmapsto& f
+	\end{eqnarray*}
+	aus \cref{bem:10.9} eine Bijektion.
 \end{prop}
 \begin{proof}
-	Die Injektivität ist klar. Zur Surjektivität: Sei $f\colon (X,\Os_X)\to (Y,\Os_Y)$ Morphismus von Räumen mit $k$-Funktionengarben. Definiere $\phi\colon A(Y)\to A(X)$ durch
+	Die Injektivität ist klar. Für die Surjektivität sei $f\colon (X,\Os_X)\to (Y,\Os_Y)$ ein Morphismus von Räumen mit $k$-Funktionengarben. Definiere $\phi\colon \A(Y)\to \A(X)$ durch
 	\begin{center}
 		\begin{tikzcd}
-			A(Y)\arrow{r}{\phi} \arrow{d}{=} & A(X)\arrow{d}{=}\\
-			\Os_Y(Y)\arrow{r}{g\mapsto g\circ f} & \Os_X(X)
+			\A(Y)\arrow{r}{\phi} \arrow[Equals]{d} & \A(X)\arrow[Equals]{d}\\
+			\Os_Y(Y)\arrow{r}{g\mapsto g\circ f} & \Os_X(X).
 		\end{tikzcd}
 	\end{center}
-	(Nach Definition von Morphismen von Räumen mit $k$-Funktionengarben ist $\phi$ wohldefiniert und $k$-Algebrenhomomorphismus.)
+	Nach der Definition von Morphismen von Räumen mit $k$-Funktionengarben ist $\phi$ wohldefiniert und ein $k$-Algebrenhomomorphismus.
 	
-	Betrachte $\phi^{\#}\in \Hom(X,Y)$. Zeige $f = \phi^{\#}$. Zur Erinnerung: $\phi^{\#}$ entsteht wie folgt: wähle Lift $\Phi$ wie im Diagramm:
+	Betrachte $\phi^{\#}\in \Hom(X,Y)$. Zeige $f = \phi^{\#}$. Zur Erinnerung: $\phi^{\#}$ entsteht durch einen Lift $\Phi$ im folgenden Diagramm.
 	\begin{center}
 		\begin{tikzcd} %TODO: ergänze Diagramm noch (siehe Tims Notizen)
 			k[s_1,\dots, s_m]\arrow{r}{\exists \Phi} \arrow{d} & k[t_1,\dots, t_n]\arrow{d}\\
 			A(X) \arrow{r}{\phi}& A(X)
 		\end{tikzcd}
 	\end{center}
-	Betrachte $F\colon \IA^n\to \IA^m$. Es gilt für alle $x\in X$: $\phi^{\#}(x) = F(x)$. Es gilt $\forall g\in \Os_{\IA^m}(\IA^m)$ und alle $x\in X$: $g(F(x)) = g(f(x))$. (Denn: verfolge den äußeren Weg im Diagramm.) %das tim hoffentlich komplett abgemalt hat
+	Betrachte $F\colon \IA^n\to \IA^m$. Es gilt $\phi^{\#}(x) = F(x)$ für alle $x\in X$. Für alle $g\in \Os_{\IA^m}(\IA^m)$ und $x\in X$ gilt $g(F(x)) = g(f(x))$, wie durch Verfolgen des äußeren Weges im folgenden Diagramm klar ist. %das tim hoffentlich komplett abgemalt hat
 	
 	Daraus folgt nun $F(x) = f(x)$ für alle $x\in X$. Damit folgt die Behauptung, da $\phi^{\#}(x) = F(x)$.
-	
+	\qedhere
 \end{proof}
 
-Das rechtfertigt nun folgende
-\paragraph{Re-Definition} Sei $(X,\Os_X)$ ein Raum mit $k$-Funktionengarbe. $(X,\Os_X)$ heißt affine Varietät, falls $\exists Y\subseteq \IA^n$ irreduzible algebraische Teilmenge, sodass $(X,\Os_X)\cong (Y,\Os_Y)$ (als Räume mit $k$-Funktionengarben).
+Das rechtfertigt nun die folgende\\
+\textbf{Re-Definition.} Sei $(X,\Os_X)$ ein Raum mit $k$-Funktionengarbe. $(X,\Os_X)$ heißt \emph{affine Varietät}, falls eine irreduzible algebraische Teilmenge $Y\subseteq \IA^n$ existiert, sodass $(X,\Os_X)\cong (Y,\Os_Y)$ (als Räume mit $k$-Funktionengarben) gilt.
 
 
 \subsection{Teilräume}
 \begin{lem}
-	Sei $(X,\Os_X)$ Raum mit $k$-Funktionengarbe, $Y\subseteq X$ Teilmenge. Versieh $Y$ mit Relativtopologie von $X$. Betrachte die Teilmengeninklusion $i\colon Y\to X$ (stetig). Dann existiert genau eine $k$-Funktionengarbe $\Os_X|_Y$ auf $Y$, sodass:
+	Sei $(X,\Os_X)$ ein Raum mit $k$-Funktionengarbe sowie $Y\subseteq X$ Teilmenge. Versehe $Y$ mit Relativtopologie von $X$. Betrachte die Teilmengeninklusion $i\colon Y\to X$ (stetig). Dann existiert genau eine $k$-Funktionengarbe $\Os_X|_Y$ auf $Y$, sodass
 	\begin{enumerate}
-		\item $i\colon (Y,\Os_X|_Y)\to (X,\Os_X)$ ist Morphismus.
-		\item $\forall f\colon (Z,\Os_Z)\to (X,\Os_X)$ Morphismus von Räumen mit $k$-Funktionengarben mit $f(Z)\subseteq Y$ kommutiert
+		\item \label{lem:10.11:i} $i\colon (Y,\Os_X|_Y)\to (X,\Os_X)$ ein Morphismus ist und
+		\item \label{lem:10.11:ii} für alle Morphismen von Räumen mit $k$-Funktionengarben $f\colon (Z,\Os_Z)\to (X,\Os_X)$ mit $f(Z)\subseteq Y$ das Diagramm
 		\begin{center}
 			\begin{tikzcd}
 				(Z,\Os_Z) \arrow{r}{f}\arrow{rd}[swap]{\exists!\tilde{f}} & (X,\Os_X)\\
 				& (Y,\Os_X|_Y)\arrow{u}{i}
 			\end{tikzcd}
 		\end{center}
+		kommutiert.
 	\end{enumerate}
 \end{lem}
 \begin{proof}
-	Zur Eindeutigkeit: Seien $\Os, \Os'$, sodass (i) und (ii) gelten. 
+	Zur Eindeutigkeit: Seien $\Os, \Os'$, sodass \ref{lem:10.11:i} und \ref{lem:10.11:ii} gelten. 
 	\begin{center}
 		\begin{tikzcd}
 			(Y,\Os) \arrow{rd}{i}\arrow{r}{\exists! i_2} & (Y, \Os')\arrow{d}{i}\arrow{l}{\exists!i_1}\\
 			& (X,\Os_X)
 		\end{tikzcd}
 	\end{center}
-	Dann ist $i_1 = i_2 = \id_Y$ (als Abbildungen), also $\Os(U) \subseteq \Os'(U)$ und $\Os'(U)\subseteq \Os(U)$, da $i_1,i_2$ Morphismen.
+	Dann ist $i_1 = i_2 = \id_Y$ (als Abbildungen), also $\Os(U) \subseteq \Os'(U)$ und $\Os'(U)\subseteq \Os(U)$, da $i_1$ und $i_2$ Morphismen sind.
 \end{proof}
 
 \end{document}
 
 
 %Literatur für Alggeo: Görtz-Wedhorn: Algebraic Geometry I
+% TODO: soll das ins Literaturverzeichnis?
 
 
 %\begin{bsp}
