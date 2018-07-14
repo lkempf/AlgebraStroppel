@@ -65,6 +65,7 @@ Vorlesungswebsite:\\
 \nocite{atiyah-macdonald}
 \nocite{eisenbud}
 \nocite{matsumura}
+\nocite{ulrich-goertz}
 \printbibliography[notkeyword=moduln-hir,title=Allgemeine Literatur]
 
 \nocite{lang}
@@ -2755,7 +2756,7 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 	Seien $I,J, I_{\nu}\subseteq k[t_1,\dots, t_n]$ mit $\nu\in V$ Ideale. Dann gilt
 	\begin{align*}
 		\Z\left(\sum_{\nu\in V} I_{\nu}\right) &= \bigcap_{\nu\in V} \Z(I_{\nu}) \tag{i}\label{lem:8.5:i} \\\intertext{und}
-		\Z(I\cdot J) &= \Z(I\cap J) = \Z(I)\cup Z(J) \tag{ii}\label{lem:8.5:ii}
+		\Z(I\cdot J) &= \Z(I\cap J) = \Z(I)\cup Z(J). \tag{ii}\label{lem:8.5:ii}
 	\end{align*}
 \end{lem}
 \begin{proof}
@@ -3572,7 +3573,7 @@ Sei $k$ ein algebraisch abgeschlossener Körper.
 		\begin{center}
 			\begin{tikzcd}
 				\A(Y)\arrow{r}{f^*}\arrow{d} & \A(X)\arrow{d}\\
-				\A(Y)[h^{-1}] \arrow{r}{\exists!f^*}& \A(X)[(f^*h)^{-1}]
+				\A(Y)[h^{-1}] \arrow[dashrightarrow]{r}{\exists!f^*}& \A(X)[(f^*h)^{-1}]
 			\end{tikzcd}
 		\end{center}
 		Sei $g\in\Os_Y(\D_Y(h)) = \A(X)[h^{-1}]$. Dann gilt \[f^*g \in A(X)[(f^*h)^{-1}] = \Os_X(\D_X(f^*h)) = \Os_X(f^{-1}(\D_Y(h))).\]
@@ -3583,7 +3584,7 @@ Sei $k$ ein algebraisch abgeschlossener Körper.
 	\end{enumerate}
 	Also: Ja, $f$ ist ein Morphismus von Räumen mit $k$-Funktionengarben.
 \end{beme}
-\begin{prop}
+\begin{prop} \label{prop:10.10}
 	Seien $X\subseteq\IA^n, Y\subseteq \IA^m$ affine Varietäten. Dann ist die Zuordnung
 	\begin{eqnarray*}
 		\Hom(X,Y) &\longto& \Hom((X,\Os_X), (Y, \Os_Y)), \\
@@ -3603,12 +3604,14 @@ Sei $k$ ein algebraisch abgeschlossener Körper.
 	
 	Betrachte $\phi^{\#}\in \Hom(X,Y)$. Zeige $f = \phi^{\#}$. Zur Erinnerung: $\phi^{\#}$ entsteht durch einen Lift $\Phi$ im folgenden Diagramm.
 	\begin{center}
-		\begin{tikzcd} %TODO: ergänze Diagramm noch (siehe Tims Notizen)
-			k[s_1,\dots, s_m]\arrow{r}{\exists \Phi} \arrow{d} & k[t_1,\dots, t_n]\arrow{d}\\
-			A(X) \arrow{r}{\phi}& A(X)
+		\begin{tikzcd}
+			\Os_{\IA^m}(\IA^m) \arrow{ddd}{g \mapsto g|_Y} \arrow{rrr}{g \mapsto g \circ F} \arrow[equal]{dr} &&& \Os_{\IA^n}(\IA^n) \arrow{ddd}[swap]{h \mapsto h|_X} \arrow[equal]{dl} \\
+			&k[s_1,\dots, s_m]\arrow[dashrightarrow]{r}{\exists \Phi} \arrow{d} & k[t_1,\dots, t_n]\arrow{d}\\
+			&\A(X) \arrow{r}{\phi}& \A(X) \\
+			\Os_Y(Y) \arrow{rrr}{h \mapsto h\circ f} \arrow[equal]{ur} &&& \Os_X(X) \arrow[equal]{ul}
 		\end{tikzcd}
 	\end{center}
-	Betrachte $F\colon \IA^n\to \IA^m$. Es gilt $\phi^{\#}(x) = F(x)$ für alle $x\in X$. Für alle $g\in \Os_{\IA^m}(\IA^m)$ und $x\in X$ gilt $g(F(x)) = g(f(x))$, wie durch Verfolgen des äußeren Weges im folgenden Diagramm klar ist. %das tim hoffentlich komplett abgemalt hat
+	Betrachte $F\colon \IA^n\to \IA^m$. Es gilt $\phi^{\#}(x) = F(x)$ für alle $x\in X$. Für alle $g\in \Os_{\IA^m}(\IA^m)$ und $x\in X$ gilt $g(F(x)) = g(f(x))$, wie durch Verfolgen des äußeren Weges im vorherigen Diagramm klar ist.
 	
 	Daraus folgt nun $F(x) = f(x)$ für alle $x\in X$. Damit folgt die Behauptung, da $\phi^{\#}(x) = F(x)$.
 	\qedhere
@@ -3619,14 +3622,14 @@ Das rechtfertigt nun die folgende\\
 
 
 \subsection{Teilräume}
-\begin{lem}
+\begin{lem} \label{lem:10.11}
 	Sei $(X,\Os_X)$ ein Raum mit $k$-Funktionengarbe sowie $Y\subseteq X$ Teilmenge. Versehe $Y$ mit Relativtopologie von $X$. Betrachte die Teilmengeninklusion $i\colon Y\to X$ (stetig). Dann existiert genau eine $k$-Funktionengarbe $\Os_X|_Y$ auf $Y$, sodass
 	\begin{enumerate}
 		\item \label{lem:10.11:i} $i\colon (Y,\Os_X|_Y)\to (X,\Os_X)$ ein Morphismus ist und
 		\item \label{lem:10.11:ii} für alle Morphismen von Räumen mit $k$-Funktionengarben $f\colon (Z,\Os_Z)\to (X,\Os_X)$ mit $f(Z)\subseteq Y$ das Diagramm
 		\begin{center}
 			\begin{tikzcd}
-				(Z,\Os_Z) \arrow{r}{f}\arrow{rd}[swap]{\exists!\tilde{f}} & (X,\Os_X)\\
+				(Z,\Os_Z) \arrow{r}{f}\arrow[dashrightarrow]{rd}[swap]{\exists!\tilde{f}} & (X,\Os_X)\\
 				& (Y,\Os_X|_Y)\arrow{u}{i}
 			\end{tikzcd}
 		\end{center}
@@ -3634,118 +3637,117 @@ Das rechtfertigt nun die folgende\\
 	\end{enumerate}
 \end{lem}
 \begin{proof}
-	Zur Eindeutigkeit: Seien $\Os, \Os'$, sodass \ref{lem:10.11:i} und \ref{lem:10.11:ii} gelten. 
-	\begin{center}
-		\begin{tikzcd}
-			(Y,\Os) \arrow{rd}{i}\arrow{r}{\exists! i_2} & (Y, \Os')\arrow{d}{i}\arrow{l}{\exists!i_1}\\
-			& (X,\Os_X)
-		\end{tikzcd}
-	\end{center}
-	Dann ist $i_1 = i_2 = \id_Y$ (als Abbildungen), also $\Os(U) \subseteq \Os'(U)$ und $\Os'(U)\subseteq \Os(U)$, da $i_1$ und $i_2$ Morphismen sind.
-
-
+	\leavevmode
+	\begin{description}
+		\item[Eindeutigkeit:] Seien $\Os, \Os'$, sodass \ref{lem:10.11:i} und \ref{lem:10.11:ii} gelten. 
+		\begin{center}
+			\begin{tikzcd}
+				(Y,\Os) \arrow{rd}[swap]{i}\arrow[dashed,leftrightarrow]{r}{\exists! i_1}[swap]{\exists!i_2} & (Y, \Os')\arrow{d}{i}\\
+				& (X,\Os_X)
+			\end{tikzcd}
+		\end{center}
+		Dann ist $i_1 = i_2 = \id_Y$ (als Abbildungen), also $\Os(U) \subseteq \Os'(U)$ und $\Os'(U)\subseteq \Os(U)$, da $i_1$ und $i_2$ Morphismen sind.
 
 \lecture{12. Juli 2018}
 
-	Zur Existenz: Sei $U\subseteq Y$ offen $\Rightarrow \exists V\subseteq X$ offen: $Y\cap V = U$. Beobachtung: Sei $g\in\mathcal O_X(V)$. Dann ist $g|_{V\cap Y = U} \in \mathcal O_Y(U)$. Problem: Verklebung. Deswegen machen wir das ganze lokal: Definiere
-	$$(\mathcal O_X|_Y)(U) \coloneqq \set{g\colon U\to k\given \forall y\in U\exists V'\subseteq X\text{ offen}, g\in V', \exists g'\in \mathcal O_X(V'): g'|_{U\cap V'} = g|_{K\cap V'}}$$
-	Dann: Zeige $\mathcal O_X|_Y$ Garben von $k$-Funktionen.
-	\begin{itemize}
-		\item $(\mathcal O_X|_Y)(U) \subseteq \Abb(U,k)$ Unteralgebra $\checkmark$
-		\item Unter-Prägarbe $\checkmark$
-		\item Verklebung: Sei $U = \bigcup U_i$ offene Überdeckung, $g\in \Abb(U,k)$ mit $g|_{U_i} \in (\mathcal O_X|_Y)(U_i)$. Behauptung: $g\in (\mathcal O_X|_Y)(U)$. Sei $y\in U$. Dann $\exists i: y|in U_i$. Nach Definition $\exists V_i'\subseteq X$ offen, $y\in V_i', \exists g_i'\in \mathcal O_X(V_i'): g_i'|_{U_i\cap V_i'} = g|_{U_i\cap V_i'}$. Definiere $V' \coloneqq V_i'\cap V\cap V_i$ (wobei $V\subseteq X$ offen, sodass $Y\cap V = U$ und $V_i\subseteq X$ offen, sodass $Y\cap V_i = U_i$).
+		\item[Existenz:] Sei $U\subseteq Y$ offen. Dann existiert ein offenes $V\subseteq X$ mit $Y\cap V = U$. Wir beobachten, dass $g\in\Os_X(V)$. Dann ist $g|_{V\cap Y = U} \in \Os_Y(U)$. Problem ist die Verklebung, weshalb wir lokal vorgehen. Definiere
+		\[(\Os_X|_Y)(U) := \set*{g\colon U\to k\given \substack{\forall y\in U:\,\exists V'\subseteq X\text{ offen},\, g\in V', \\\exists g'\in \Os_X(V'):\, g'|_{U\cap V'} = g|_{K\cap V'}}}.\]
+		Wir zeigen, dass $\Os_X|_Y$ eine Garbe von $k$-Funktionen ist.
+		\begin{itemize}
+			\item $(\Os_X|_Y)(U) \subseteq \Abb(U,k)$ Unteralgebra: Klar.
+			\item Unter-Prägarbe: Klar.
+			\item Verklebung: Sei $U = \bigcup U_i$ eine offene Überdeckung und $g\in \Abb(U,k)$ mit $g|_{U_i} \in (\Os_X|_Y)(U_i)$. Wir behaupten $g\in (\Os_X|_Y)(U)$. Sei hierzu $y\in U$. Dann existiert ein $i$ mit $y\in U_i$. Nach Definition existiert ein offenes $V_i'\subseteq X$, $y\in V_i'$ und es existiert ein $g_i'\in \Os_X(V_i')$ mit $g_i'|_{U_i\cap V_i'} = g|_{U_i\cap V_i'}$. Definiere nun $V' := V_i'\cap V\cap V_i$ (wobei $V\subseteq X$ offen, sodass $Y\cap V = U$ und $V_i\subseteq X$ offen, sodass $Y\cap V_i = U_i$).
+			
+			Dann folgt $g|_{V'\cap U} = g_i'|_{V'\cap U}$ (da $V'\cap U\subseteq V_i'\cap U_i)$.
+		\end{itemize}
+		Damit ist die Existenz gezeigt.
 		
-		Dann folgt $g|_{V'\cap U} = g_i'|_{V'\cap U}$ (da $V'\cap U\subseteq V_i'\cap U_i)$.
-	\end{itemize}
-	Damit ist die Existenz gezeigt.
-	
-	Tatsächlich gilt auch \ref{lem:10.11:i} nach Konstruktion.
-	
-	Zu \ref{lem:10.11:ii}: Sei $f\colon (Z, \mathcal O_Z)\to (X,\mathcal O_X)$ Morphismus mit $f(Z)\subseteq Y$. Definiere $\tilde f\colon Z\to Y, z\mapsto f(z)$; zeige $\tilde f$ ist Morphismus. Sei $U\subseteq Y$ offen, $g\in (\mathcal O_X|_Y)(U)$.
-	
-	Behauptung: $g\circ \tilde f|_{\tilde f^{-1}(U)}\in \mathcal O_Z(\tilde f^{-1}(U))$.
-	
-	Beweis: Da $g\in (\mathcal O_X|_Y)(U)$ ist, gilt: $\forall y\in U\exists V_y\subseteq X$ offen, $y\in V_y$, $\exists g_y\in \mathcal O_X(V_y): g_y|_{V_y\cap U} = g|_{V_y\cap U}$. Wieder: $V\subseteq X$ offen mit $V\cap Y = U$. Ohne Einschränkung: $V_y\subseteq V$. Dann gilt $U\cap V_y = Y\cap V_y$. Da $f\colon (Z,\mathcal O_Z)\to (X,\mathcal O_X)$ Morphismus ist, gilt $g_y\circ f|_{f^{-1}(V_y)} \in \mathcal O_Z(f^{-1}(V_y))$. Weil $f(Z)\subseteq Y\Rightarrow f^{-1}(V_y) = f^{-1}(V_y\cap Y) = \tilde f^{-1}(V_y\cap Y)$.
-	
-	Also $(g\circ \tilde f|_{\tilde f^{-1}(U)})|_{\tilde f^{-1}(V_y\cap Y)} = g|_{V_y\circ Y}\circ f|_{f^{-1}(V_y)} = g_y\circ f|_f^{-1}(V_y) \in \mathcal O_Z(f^{-1}(V_y)) = \mathcal O_Z(\tilde f^{-1}(V_y\cap Y))$
-	
-	Da $\tilde f^{-1}(U) = \bigcup\limits_{y\in U} \tilde f^{-1}(V_y\cap Y)$ folgt mit der Verklebung:
-	$$g\circ \tilde f|_{\tilde f^{-1}(U)} \in \mathcal O_Z(\tilde f^{-1}(U))$$
+		Tatsächlich gilt auch \ref{lem:10.11:i} nach Konstruktion.
+		
+		Zu \ref{lem:10.11:ii}: Sei $f\colon (Z, \Os_Z)\to (X,\Os_X)$ ein Morphismus mit $f(Z)\subseteq Y$. Definiere $\tilde f\colon Z\to Y, z\mapsto f(z)$. Wir zeigen, dass $\tilde f$ ein Morphismus ist. Sei $U\subseteq Y$ offen sowie $g\in (\Os_X|_Y)(U)$.
+		
+		Wir zeigen nun $g\circ \tilde f|_{\tilde f^{-1}(U)}\in \Os_Z(\tilde f^{-1}(U))$.
+		\begin{proof}
+			Da $g\in (\Os_X|_Y)(U)$ ist, existiert für alle $y\in U$ ein offenes $V_y\subseteq X$ mit $y\in V_y$ und ein $g_y\in \Os_X(V_y)$ mit $g_y|_{V_y\cap U} = g|_{V_y\cap U}$. Wie vorher sei $V\subseteq X$ offen mit $V\cap Y = U$. Ohne Einschränkung sei $V_y\subseteq V$. Dann gilt $U\cap V_y = Y\cap V_y$. Da $f\colon (Z,\Os_Z)\to (X,\Os_X)$ ein Morphismus ist, gilt $g_y\circ f|_{f^{-1}(V_y)} \in \Os_Z(f^{-1}(V_y))$. Wegen $f(Z)\subseteq Y$ folgt nun $f^{-1}(V_y) = f^{-1}(V_y\cap Y) = \tilde f^{-1}(V_y\cap Y)$.
+
+			Also gilt $(g\circ \tilde f|_{\tilde f^{-1}(U)})|_{\tilde f^{-1}(V_y\cap Y)} = g|_{V_y\circ Y}\circ f|_{f^{-1}(V_y)} = g_y\circ f|_f^{-1}(V_y) \in \Os_Z(f^{-1}(V_y)) = \Os_Z(\tilde f^{-1}(V_y\cap Y))$.
+		\end{proof}
+		
+		Da $\tilde f^{-1}(U) = \bigcup_{y\in U} \tilde f^{-1}(V_y\cap Y)$ folgt mit der Verklebung schließlich \[g\circ \tilde f|_{\tilde f^{-1}(U)} \in \Os_Z(\tilde f^{-1}(U)).\qedhere\]
+	\end{description}
 \end{proof}
 
 \begin{beme}
-	Sei $(X,\mathcal O_X)$ Raum mit $k$-Funktionengarbe. $Y\subseteq X$.
+	Sei $(X,\Os_X)$ Raum mit $k$-Funktionengarbe sowie $Y\subseteq X$.
 	\begin{enumerate}
-		\item Falls $Y\subseteq X$ offen $\Rightarrow  (\mathcal O_X|_Y)(U) = \mathcal O_X(U)$
+		\item Falls $Y\subseteq X$ offen ist, so folgt $(\Os_X|_Y)(U) = \Os_X(U)$.
 		
-		(denn: für $U\subseteq Y$ offen definiert $U\mapsto \mathcal O_X(U)$ Garbe von $k$-Funktionen auf $Y$ und diese erfüllt universelle Eigenschaft aus Lemma 10.11
-		\item Ist $Z\subseteq Y$, so gilt: $(\mathcal O_X|_Y)|_Z = \mathcal O_X|_Z$. 
+		Dies gilt, da für offene $U\subseteq Y$ dann $U\mapsto \Os_X(U)$ eine Garbe von $k$-Funktionen auf $Y$ definiert, welche die universelle Eigenschaft aus \cref{lem:10.11} erfüllt.
+		\item Ist $Z\subseteq Y$, so gilt $(\Os_X|_Y)|_Z = \Os_X|_Z$. 
 	\end{enumerate}
 \end{beme}
 
 \begin{lem}
-	Sei $X\subseteq \IA^n$ irreduzible algebraisch Teilmenge. 
+	Sei $X\subseteq \IA^n$ eine irreduzible algebraisch Teilmenge. 
 	\begin{enumerate}
-		\item Sei $Y\subseteq X$ abgeschlossen irreduzibel. Dann ist $\mathcal O_X|_Y = \mathcal O_Y$.
-		\item Sei $h\in A(X)$. Sei $Y = \set {(x,z)\in X\times \IA^1\given h(x)\cdot z = 1}\subseteq X\times \IA^1$ (abgeschlossen, irreduzibel). Dann ist $Y\subseteq \IA^{n+1}$ irreduzible algebraische Teilmenge. Es gilt $A(Y) \cong A(X)[h^{-1}]$. Die Abbildung $f\colon Y\to D(h), (x,z)\mapsto x$ ist ein Homöomorphismus und ein Isomorphismus
-		$$f\colon (Y,\mathcal O_Y)\longto (D(h), \mathcal O_X|_{D(h)})$$
+		\item Sei $Y\subseteq X$ abgeschlossen und irreduzibel. Dann ist $\Os_X|_Y = \Os_Y$. \label{lem:10.13:i}
+		\item Sei $h\in \A(X)$. Sei $Y = \set {(x,z)\in X\times \IA^1\given h(x)\cdot z = 1}\subseteq X\times \IA^1$ (abgeschlossen und irreduzibel). Dann ist $Y\subseteq \IA^{n+1}$ eine irreduzible algebraische Teilmenge. Es gilt $\A(Y) \cong \A(X)[h^{-1}]$. Die Abbildung $f\colon Y\to D(h), (x,z)\mapsto x$ ist ein Homöomorphismus und ein Isomorphismus \[f\colon (Y,\Os_Y)\longto (D(h), \Os_X|_{D(h)}).\] \label{lem:10.13:ii}
 	\end{enumerate}
 \end{lem}
 \begin{proof}
 	\leavevmode
-	\begin{enumerate}
-		\item Sei $h\subseteq X$. Zeige $(\mathcal O_X|_Y)(U) = \mathcal O_Y(U)$. 
+	\begin{enumerate}[label=\ref{lem:10.13:\roman*}]
+		\item Sei $h\subseteq X$. Zeige $(\Os_X|_Y)(U) = \Os_Y(U)$. 
 		\begin{description}
-			\item[\glqq$\subseteq$\grqq:] Sei $i\colon Y\to X$ die Inklusionsabbildung. Da $i$ Morphismus von algebraischen Teilmengen ist, ist nach Proposition 10.10 auch $i\colon (Y,\mathcal O_Y)\to (X,\mathcal O_X)$ ein Morphismus von Räumen mit $k$-Funktionengarben. Andererseits: $i\colon (Y,\mathcal O_X|_Y)\to (X,\mathcal O_X)$ ist auch Morphismus. Nach universeller Eigenschaft (Lemma 10.11 ii):
+			\item[\glqq$\subseteq$\grqq:] Sei $i\colon Y\to X$ die Inklusionsabbildung. Da $i$ ein Morphismus von algebraischen Teilmengen ist, ist nach \cref{prop:10.10} auch $i\colon (Y,\Os_Y)\to (X,\Os_X)$ ein Morphismus von Räumen mit $k$-Funktionengarben. Andererseits ist $i\colon (Y,\Os_X|_Y)\to (X,\Os_X)$ auch ein Morphismus. Nach der universellen Eigenschaft (\cref{lem:10.11} \ref{lem:10.11:ii}) erhalten wir
 			\begin{center}
 				\begin{tikzcd}
-					(Y,\mathcal O_Y) \arrow{r}{i}\arrow{rd}[swap]{\exists!\tilde i} & (X,\mathcal O_X)\\
-					& (Y, \mathcal O_Y|_Y)\arrow{u}{i}
+					(Y,\Os_Y) \arrow{r}{i}\arrow[dashed]{rd}[swap]{\exists!\tilde i} & (X,\Os_X)\\
+					& (Y, \Os_Y|_Y). \arrow{u}{i}
 				\end{tikzcd}
 			\end{center}
-			$\Rightarrow \tilde i = \id_Y$ (als Abbildung von Mengen). Also: Sei $U\subseteq Y$ offen, $g\in(\mathcal O_X|_Y)(U) \Rightarrow g = g\circ \tilde i|_U \in \mathcal O_Y(U)$.
-			\item[\glqq$\supseteq$\grqq:] Sei $g\in\mathcal O_Y(U)$. Sei $y\in U$. Dann $\exists \overline{h}\in A(Y) = \fak {A(X)}{I(Y)}$ mit $y\in D_Y(\overline{h})\subseteq U$. Da $g|_{D_y(\overline{h})} \in \mathcal O_Y(\D(\overline{h})) = A(Y)[h^{-1}]$.
-			
-			$\Rightarrow \exists \overline{f}\in A(Y), r\geq 0$: 
-			$$\overline{g} = \frac {\overline f}{\overline h^r}$$
-			Wähle Urbilder $f,h$ von $\overline f, \overline h$ unter $A(X)\to A(Y)$ (d.h. $\overline{f} = f|_Y,\dots$). Betrachte $g' = \frac f{h^r} \in A(X)[h^{-1}] = \mathcal O_X(\D_X(h))$. Definiere $V'\coloneqq \D_X(h)$. Dann ist $V'\cap Y = D_Y(\overline{h})$ und $g'|_{V'\cap Y} = g|_{V'\cap Y}$. Also $g\in (\mathcal O_X|_Y)(U)$.
+			Es folgt $\tilde i = \id_Y$ (als Abbildung von Mengen). Sei also $U\subseteq Y$ offen und $g\in(\Os_X|_Y)(U)$. Dann gilt $g = g\circ \tilde i|_U \in \Os_Y(U)$.
+			\item[\glqq$\supseteq$\grqq:] Sei $g\in\Os_Y(U)$. Sei $y\in U$. Dann existiert ein $\ol{h}\in \A(Y) = \fak {\A(X)}{\I(Y)}$ mit $y\in \D_Y(\ol{h})\subseteq U$. Da $g|_{\D_y(\ol{h})} \in \Os_Y(\D(\ol{h})) = \A(Y)[h^{-1}]$, existieren $\ol{f}\in \A(Y)$ und $r\ge 0$ mit $\ol{g} = \frac {\ol f}{\ol h^r}$.
+
+			Wir wählen nun Urbilder $f,h$ von $\ol f, \ol h$ unter $\A(X)\to \A(Y)$ (also $\ol{f} = f|_Y$ usw.). Betrachte $g' := \frac f{h^r} \in \A(X)[h^{-1}] = \Os_X(\D_X(h))$. Definiere $V' := \D_X(h)$. Dann ist $V'\cap Y = D_Y(\ol{h})$ und $g'|_{V'\cap Y} = g|_{V'\cap Y}$. Also gilt $g\in (\Os_X|_Y)(U)$.
 		\end{description}
-		\item In der Übung bereits bewiesen: \begin{itemize}
-			\item $Y$ irreduzibel abgeschlossen in $\IA^{n+1}$
-			\item $A(Y)\cong A(X)[h^{-1}]$. 
-			\item $f$ ist Homöomorphismus. 
+		\item In Aufgabe 3 (i) auf \href{http://www.math.uni-bonn.de/ag/stroppel/Franzen_Algebra_1_Uebung/Blatt10a.pdf}{Übungsblatt 10} wurde bereits bewiesen, dass \begin{itemize}
+			\item $Y$ irreduzibel und abgeschlossen in $\IA^{n+1}$,
+			\item $\A(Y)\cong \A(X)[h^{-1}]$ und
+			\item $f$ ein Homöomorphismus ist. 
 		\end{itemize}
-		Noch zu zeigen: \begin{enumerate}
-			\item $f$ ist Morphismus von Räumen mit $k$-Funktionengarben
-			\item $f^{-1}$ ist Morphismus von Räumen mit $k$-Funktionengarben
+		Es verbleibt zu zeigen, dass \begin{enumerate}
+			\item $f$ ein Morphismus von Räumen mit $k$-Funktionengarben und \label{lem:10.13:ii:a}
+			\item $f^{-1}$ ein Morphismus von Räumen mit $k$-Funktionengarben ist. \label{lem:10.13:ii:b}
 		\end{enumerate}
 		Beweis:
-		\begin{enumerate}
+		\begin{enumerate}[label=\ref{lem:10.13:ii:\alph*}]
 			\item Wir haben das kommutative Diagramm
 				\begin{center}
 					\begin{tikzcd}
-						X\times \IA^1\arrow{r}{{pr}_X} & X\\
-						Y \arrow[Subseteq]{u}{i}[swap]{\text{abgeschlossen}}\arrow{r}{f} & \D(h) \arrow[Subseteq]{u}{\text{offen}}
+						X\times \IA^1\arrow{r}{{\pr}_X} & X\\
+						Y \arrow[Subseteq]{u}[swap]{\;\;i}{\text{abgeschlossen}\;\;}\arrow{r}{f} & \D(h). \arrow[Subseteq]{u}[swap]{\;\;\text{offen}}
 					\end{tikzcd}
 				\end{center}
-				Betrachte die Komposition $\overline{f}\colon Y \to X, \overline{f} =  {pr}_X\circ i$. Also ist $\overline{f}$ Morphismus von algebraischen Teilmengen. Nach Proposition 10.10 ist $\overline{f}\colon (Y,\mathcal O_Y)\to (X,\mathcal O_X)$ Morphismus. Es gilt: $\overline{f}(Y) = \D(h)$ und mit Lemma 10.11 kommutiert folgendes Diagramm:
+				Betrachte die Komposition $\ol{f}\colon Y \to X, \ol{f} =  {\pr}_X\circ i$. Also ist $\ol{f}$ ein Morphismus von algebraischen Teilmengen. Nach \cref{prop:10.10} ist $\ol{f}\colon (Y,\Os_Y)\to (X,\Os_X)$ ein Morphismus. Es gilt $\ol{f}(Y) = \D(h)$ und mit \cref{lem:10.11} kommutiert das folgende Diagramm.
 				\begin{center}
 					\begin{tikzcd}
-						(Y,\mathcal O_Y) \arrow{r}{\overline{f}}\arrow{rd}{\exists!\tilde f} & (X,\mathcal O_X)\\
-						& (\D(h), \mathcal O_X|_{\D(h)})
+						(Y,\Os_Y) \arrow{r}{\ol{f}}\arrow[dashed]{rd}[swap]{\exists!\tilde f} & (X,\Os_X)\\
+						& (\D(h), \Os_X|_{\D(h)}) \arrow{u}
 					\end{tikzcd}
 				\end{center}
-				Als Abbildung: $\tilde f = f$.
+				Als Abbildung gilt nun $\tilde f = f$.
 				
-			\item Es gilt $f^{-1}\colon \D(h)\to Y, x\mapsto (x,\frac 1{h(x)})$. Zeige $f^{-1}$ ist Morphismus von Räumen mit $k$-Funktionengarben. Sei $U\subseteq Y$ offen, $g\in \mathcal O_Y(U)$.
+			\item Es gilt $f^{-1}\colon \D(h)\to Y, x\mapsto \left(x,\frac 1{h(x)}\right)$. Es ist zu zeigen, dass $f^{-1}$ ein Morphismus von Räumen mit $k$-Funktionengarben ist. Sei $U\subseteq Y$ offen sowie $g\in \Os_Y(U)$.
 			
-			Ohne Einschränkung $U = D_Y(u)$ für ein $u\in A(Y) \cong A(X)[h^{-1}]$; das heißt, es gibt $a\in A(X), r\geq 0$ sodass $u\mapsto \frac a{h^r}$ unter obigem Isomorphismus.
+			Ohne Einschränkung gilt $U = \D_Y(u)$ für ein $u\in \A(Y) \cong \A(X)[h^{-1}]$, was bedeutet, dass es $a\in \A(X)$ und $r\ge 0$ gibt, sodass $u\mapsto \frac a{h^r}$ unter obigem Isomorphismus.
 			
-			Also $u\colon Y\to k, (x,z)\mapsto \frac{a(x)}{h(x)^r} = a(x)z^r$. Damit gilt nun $D_Y(u) = \set{(x,z)\in Y\given a(x) \neq 0}$ und $(f^{-1})^{-1}(\D_Y(u)) = f(\D_Y(u)) = \set {x\in \D_X(h)\given a(x) \neq 0} = \D_X(ah)$.
+			Sei also $u\colon Y\to k, (x,z)\mapsto \frac{a(x)}{h(x)^r} = a(x)z^r$. Damit gilt nun $\D_Y(u) = \set{(x,z)\in Y\given a(x) \neq 0}$ und $(f^{-1})^{-1}(\D_Y(u)) = f(\D_Y(u)) = \set {x\in \D_X(h)\given a(x) \neq 0} = \D_X(ah)$.
 			
-			Es gilt $g\in \mathcal O_Y(\D_Y(a)) \cong A(X)[h^{-1}]$. Also existiert $g'\in A(X), n\geq 0: g\mapsto \frac{gÄ}{(ah)^n}$. Das heißt $g\colon \D_Y(h)\to k, (x,z)\mapsto \frac{g'(x)}{(a(x)h(x))^n} = \frac{g'(x)z^n}{a(x)^n}$.
+			Es gilt $g\in \Os_Y(\D_Y(a)) \cong A(X)[h^{-1}]$. Also existieren $g'\in \A(X)$ und $n\ge 0$ mit $g\mapsto \frac{g'}{(ah)^n}$. Das heißt $g\colon \D_Y(h)\to k, (x,z)\mapsto \frac{g'(x)}{(a(x)h(x))^n} = \frac{g'(x)z^n}{a(x)^n}$.
 			
-			$\Rightarrow$ für  $g\circ f^{-1}|_{(f^{-1})^{-1}(\D_Y(a))} \colon \D_X(ah)\to k, x\mapsto \frac{g'(x)}{a(x)^nh(x)^n}$ (wobei $(f^{-1})^{-1}(\D_Y(a)) = \D_X(ah)$) gilt $g\circ f^{-1}|_{(f^{-1})^{-1}(\D_Y(a))} \in \mathcal O_X(\D_X(ah)) = \mathcal O_X((f^{-1})^{-1}(\D_Y(u)))$, also $f^{-1}\colon (\D(h), \mathcal O_X|_{\D(h)}) \to (Y,\mathcal O_Y)$ Morphismus.
+			Wir erhalten also für $g\circ f^{-1}|_{(f^{-1})^{-1}(\D_Y(a))} \colon \D_X(ah)\to k, x\mapsto \frac{g'(x)}{a(x)^nh(x)^n}$ (wobei $(f^{-1})^{-1}(\D_Y(a)) = \D_X(ah)$ gilt) dann $g\circ f^{-1}|_{(f^{-1})^{-1}(\D_Y(a))} \in \Os_X(\D_X(ah)) = \Os_X((f^{-1})^{-1}(\D_Y(u)))$ folgt, also $f^{-1}\colon (\D(h), \Os_X|_{\D(h)}) \to (Y,\Os_Y)$ ein Morphismus ist.
+			\qedhere
 		\end{enumerate}
 	\end{enumerate}
 \end{proof}
@@ -3755,16 +3757,12 @@ Das rechtfertigt nun die folgende\\
 \begin{defi}
 	\leavevmode
 	\begin{enumerate}
-		\item Sei $(X,\mathcal O_X)$ ein Raum mit $k$-Funktionengarbe. $(X,\mathcal O_X)$ heißt Prävarietät (\glqq pre-variety\grqq), wenn es eine endliche offene Überdeckung $X = U_1\cup\dots\cup U_N$ gibt, sodass $(U_i,\mathcal O_X|_{U_i})$ eine affine Varietät ist (für jedes $i\in\set{1,\dots, N}$).
-		\item Seien $(X,\mathcal O_X), (Y, \mathcal O_Y)$ Prävarietäten. Ein Morphismus $f\colon (X,\mathcal O_X)\to (Y,\mathcal O_Y)$ ist ein Morphismus von Räumen mit $k$-Funktionengarben.
+		\item Sei $(X,\Os_X)$ ein Raum mit $k$-Funktionengarbe. $(X,\Os_X)$ heißt \emph{Prävarietät} (\enquote{pre-variety}), wenn es eine endliche offene Überdeckung $X = U_1\cup\dots\cup U_n$ gibt, sodass $(U_i,\Os_X|_{U_i})$ für jedes $1\le i \le n$ eine affine Varietät ist.
+		\item Seien $(X,\Os_X)$ und $(Y, \Os_Y)$ Prävarietäten. Ein Morphismus $f\colon (X,\Os_X)\to (Y,\Os_Y)$ ist ein Morphismus von Räumen mit $k$-Funktionengarben.
 	\end{enumerate}
 \end{defi}
 
 \end{document}
-
-
-%Literatur für Alggeo: Görtz-Wedhorn: Algebraic Geometry I
-% TODO: soll das ins Literaturverzeichnis? ja
 
 %Infos zur Klausur:  Do 2.8. 9-11 Uhr Großer Hörsaal
 
