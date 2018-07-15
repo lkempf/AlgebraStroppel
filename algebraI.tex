@@ -583,7 +583,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	Angenommen, $M$ ist endlich präsentiert. Dann existiert eine surjektive, $A$-lineare Abbildung $ f\colon A^n \twoheadrightarrow M$, sodass $\ker f$ endlich erzeugt ist.
 	Sei $e_j = (0,\dots, 1,\dots, 0)\in A^n$, wobei die $1$ im $j$-ten Eintrag steht. Definiere nun $z_j = f(e_j)\in\IZ$. Dann ist $\ker f = \set*{ p = (p_1,\dots, p_n)\in A^n \given \sum_{j=0}^n p_j(0)z_j = 0 }$.
 	
-	Nach unserer Annahme existieren nun $p^{(1)},\dots, p^{(m)}\in\ker f$ mit $\ker f = \gen{p^{(1)},\dots, p^{(m)}}_A$. Schreibe $p^{(i)} = \left(p_1^{(i)},\dots,p_n^{(i)}\right)$. Wähle $N>0$, sodass $T_N$ in keinem der $p_j^{(i)}$ auftritt. Betrachte $T_n\cdot e_j\in\ker f$. Es existiert dann ein $Q^{(i,j)}\in A$ mit $T_N\cdot e_j = \sum_{i = 1}^nQ^{(i,j)}p^{(i)}$.
+	Nach obiger Annahme existieren nun $p^{(1)},\dots, p^{(m)}\in\ker f$ mit $\ker f = \gen{p^{(1)},\dots, p^{(m)}}_A$. Schreibe $p^{(i)} = \left(p_1^{(i)},\dots,p_n^{(i)}\right)$. Wähle $N>0$, sodass $T_N$ in keinem der $p_j^{(i)}$ auftritt. Betrachte $T_n\cdot e_j\in\ker f$. Es existiert dann ein $Q^{(i,j)}\in A$ mit $T_N\cdot e_j = \sum_{i = 1}^nQ^{(i,j)}p^{(i)}$.
 	
 	Folglich gilt $\sum_{i = 1}^n Q^{(i,j)}p_k^{(i)} = \delta_{jk}T_N$ für alle $1 \le k \le n$. Damit erhalten wir
 	\begin{equation}
@@ -614,7 +614,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\end{enumerate}
 \end{beme}
 \begin{kor}
-	Sei $(A,\fm)$ ein lokaler Ring, $M$ ein endlich erzeugter $A$-Modul, $x_1,\ldots,x_n \in M$ sowie $\pi: M \to \fak M{\fm M}$. Falls $\fak{M}{\fm M}$ von $\pi(x_1),\ldots,\pi(x_n)$ als $\fak M\fm$-Vektorraum erzeugt wird, erzeugen die $x_i$ schon $M$ als $A$-Modul.
+	Sei $(A,\fm)$ ein lokaler Ring und $M$ ein endlich erzeugter $A$-Modul sowie $x_1,\ldots,x_n \in M$ und $\pi: M \to \fak M{\fm M}$. Falls $\fak{M}{\fm M}$ von $\pi(x_1),\ldots,\pi(x_n)$ als $\fak M\fm$-Vektorraum erzeugt wird, erzeugen die $x_i$ schon $M$ als $A$-Modul.
 \end{kor}
 \begin{proof}
 	Die $\pi(x_i)$ sind ein Erzeugendensystem von $\fak M{\fm M}$ als $\fak A\fm$-Vektorraum, also auch als $A$-Modul. Deshalb gilt $\gen{x_1,\ldots,x_n}_A + \fm M = M$. Mit \cref{kor:2.19} folgt nun $M= \gen{x_1,\ldots,x_n}_A$.
@@ -887,7 +887,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\item[zu \ref{prop:homexakt:iii}:] Sei \eqref{prop:homexakt:i:eq} exakt und $P$ ein $A$-Modul. Dann folgt mit \ref{prop:homexakt:i}
 		\begin{center}
 			\begin{tikzpicture}[baseline= (a).base]
-				\node[scale=.85] (a) at (0,0){
+				\node[scale=.8] (a) at (0,0){
 					\begin{tikzcd}
 						0 \arrow{r}{} & \Hom_A(M_3, \Hom_A(N,P)) \arrow{r}{f_2^*} \arrow[Cong]{d}{\;\text{ Adj}} & \Hom_A(M_2, \Hom_A(N,P)) \arrow{r}{f_1^*} \arrow[Cong]{d}{} & \Hom_A(M_1, \Hom_A(N,P)) \arrow[Cong]{d}{} \\
 						0 \arrow{r}{} &\Hom_A(M_3 \tp_A N, P) \arrow{r}{(f_2 \tp \id_N)^*} & \Hom_A(M_2 \tp_A N, P) \arrow{r}{(f_1 \tp \id_N)^*} & \Hom_A(M_1 \tp_A N, P)
@@ -1474,7 +1474,7 @@ Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\ge 0}\cup 
 		\item[$n = 1$:] Klar.
 		\item[$n-1\to n$:] Sei $\{x_1,\dots, x_n\}$ ein Erzeugendensystem von $M$. Nach \cref{lem:annullator} ist $(p^r) = \Ann(M)  = \bigcap \Ann(x_i)$. Es existieren also Elemente $t_i\le r$ mit $\Ann(x_i) = (p^{t_i})$, weshalb wiederum $x_i$ mit $\Ann(x_i) = (p_i^r)$ existieren. Setze $U := \<x_n\>$ und $N = \fak{M}{U}$. Betrachte $\pi\colon M\to N$. Da $\pi$ surjektiv ist, gilt $\Ann(M)\subseteq \Ann(N)$, und wir erhalten ein $s\le r$ mit $\Ann(N) = (p^s)$.
 		
-		Es gilt $N = \<\pi(x_1),\dots, \pi(x_{n-1})\>$. Nach Induktionsvoraussetzugn existieren Untermoduln $N_1,\dots, N_k\subseteq N$ und Elemente $1\le t_1\le\dots \le t_k = s$ mit $N = N_1\oplus \dots \oplus N_k$ und $N_j$ zyklisch mit $\Ann(N_j) = (p^{t_j})$.
+		Es gilt $N = \<\pi(x_1),\dots, \pi(x_{n-1})\>$. Nach Induktionsvoraussetzung existieren Untermoduln $N_1,\dots, N_k\subseteq N$ und Elemente $1\le t_1\le\dots \le t_k = s$ mit $N = N_1\oplus \dots \oplus N_k$ und $N_j$ zyklisch mit $\Ann(N_j) = (p^{t_j})$.
 		
 		\lecture{7. Mai 2018}
 		
@@ -2460,7 +2460,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 	Seien $(x_i)_{i\in I}$, $(y_j)_{j\in J}$ Transzendenbasen von $K\subseteq L$. Dann existiert eine Bijektion zwischen $I$ und $J$.
 \end{satz}
 \begin{proof}
-	Wir beweisen nur den Fall $\abs I, \abs J <\infty$. Es genügt zu zeigen, dass für über $K$ algebraisch unabhängige $(x_1,\dots, x_m)$ und algebraische $(y_1,\dots, y_n)$ mit $K(y_1,\dots, y_n)\subseteq L$ dann $m\le n$ gilt und Elemente $1\le j_{m+1}<\dots < j_n\le n$ mit $K(x_1,\dots, x_m, y_{j_{m+1}},\dots, y_{j_n})\subseteq L$ algebraisch existieren. Dies beweisen wir per Induktion nach $m$.
+	Wir beweisen nur den Fall $\abs I, \abs J <\infty$. Es genügt zu zeigen, dass für über $K$ algebraisch unabhängige $(x_1,\dots, x_m)$ und algebraische $(y_1,\dots, y_n)$ mit $K(y_1,\dots, y_n)\subseteq L$ dann $m\le n$ gilt und Elemente $1\le j_{m+1}<\dots < j_n\le n$ mit \[K(x_1,\dots, x_m, y_{j_{m+1}},\dots, y_{j_n})\subseteq L\] algebraisch existieren. Dies beweisen wir per Induktion nach $m$.
 	\begin{description}
 		\item[$m = 1$:] Wähle $s$ minimal, sodass $1\le i_1<\dots <i_s\le n$ und $f(t_0,t_{i_1}, \dots, t_{i_j})\in K[t_0, t_{i_1},\dots, t_{i_j}]\setminus \set 0$ mit $f(x_1, y_{i_1}, \dots, y_{i_j}) = 0$ existieren. Es gilt $s\ge 1$ (da $x_1$ transzendent). Schreibe
 		\[f(t_0, t_{i_1},\dots, t_{i_j}) = \sum_{d\ge 0} f_d(t_0, t_{i_2}, \dots, t_{i_j})t_{i_1}^d.\]
@@ -2590,8 +2590,8 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 			\item $b_1, \dots , b_n$ algebraisch unabhängig über $\Quot(A)$ und
 			\item $A[s^{-1}][b_1,\dots , b_n] \subseteq B[s^{-1}]$ endlich.\footnote{Man beachte $A[b_1, \dots b_n][s^{-1}]=A[s^{-1}][b_1, \dots , b_n]$.}
 		\end{itemize}
-		\item Für alle $\fp\in\Spec A [s^{-1}]$ existiert ein $\fq \in \Spec B[s^{-1}]$ mit $\fq \cap A[s^{-1}]=\fp$. \label{kor:7.17:ii}
-		\item  Für dieses $\fp$ und $\fq$ gilt $\Quot\left( \fak A {\fp \cap A} \right)=\Quot \left( \fak {A[s^{-1}]}\fp \right) \subseteq \Quot(\fak{B[s^{-1}]}\fq)=\Quot(\fak B {\fq \cap B})$ \label{kor:7.17:iii}
+		\item \label{kor:7.17:iii} Für alle $\fp\in\Spec A [s^{-1}]$ existiert ein $\fq \in \Spec B[s^{-1}]$ mit $\fq \cap A[s^{-1}]=\fp$. \label{kor:7.17:ii}
+		\item  Für dieses $\fp$ und $\fq$ gilt \[\Quot\left( \fak A {\fp \cap A} \right)=\Quot \left( \fak {A[s^{-1}]}\fp \right) \subseteq \Quot(\fak{B[s^{-1}]}\fq)=\Quot(\fak B {\fq \cap B}).\]
 	\end{enumerate}
 \end{kor}
 \begin{proof}
@@ -3333,25 +3333,35 @@ Dies führt zu der folgenden
 \begin{satz}
 	Sei $(A, \fm)$ ein noetherscher lokaler Ring.
 	\begin{enumerate}
-		\item Falls $I = (a_1,\dots, a_l)$ ein Definitionsideal ist, so gilt $\dim A \le l$. Insbesondere folgt $\dim A <\infty$.
-		\item Sei $\dim A = d$. Dann existiert ein Definitionsideal $I$ von $A$, das von $d$ Elementen erzeugt wird.
+		\item Falls $I = (a_1,\dots, a_l)$ ein Definitionsideal ist, so gilt $\dim A \le l$. Insbesondere folgt $\dim A <\infty$. \label{thm:9.13:i}
+		\item Sei $\dim A = d$. Dann existiert ein Definitionsideal $I$ von $A$, das von $d$ Elementen erzeugt wird. \label{thm:9.13:ii}
 	\end{enumerate}
 \end{satz}
 \begin{proof}
-	Induktion nach $l$:
-	\begin{description}
-		\item[$l = 0$:] Klar.
-		\item[$l = 1$:] \namereff{thm:krulls hauptidealsatz}.
-		\item[$l-1\to l$:] Sei $\fq\in \Spec A$ mit $\fq \subsetneq \fm$ und ohne dazwischenliegende Primideale. Dann ist $(a_1,\dots, a_l)\nsubseteq \fq$. Ohne Einschränkung sei $a_1\notin \fq$. Dann ist $(a_1)+\fq$ ein Definitionsideal, und somit existiert ein $n>0$ mit $\fm^n \subseteq (a_1)+\fq$. Also gilt $a_i^n \in (a_1)+\fq$ für alle $i$. Demnach gibt es Elemnte $g_2,\dots, g_l\in\fq$ und $c_2,\dots, c_l\in A$ mit $a_i^n = c_ia_1+g_i$.
-		
-		Wir zeigen nun, dass $(a, g_2,\dots, g_l)$ ein Definitionsideal ist. Es gilt mit $r := ln$ dann $I^r \subseteq (a_1,g_2,\ldots,g_l)$, da für $x \in I^r$ dann etwa $x= \sum_\nu c_\nu a_{i_1,\nu}\ldots a_{i_r,\nu}$ gilt und in diesem Ausdruck mindestens eines der $a_i$ mit Potenz $\ge n$ vorkommen muss. Somit ist $I$ aber ein Definitionsideal, und es existiert ein $s \ge 0$ mit $\fm^s \subseteq I$, also $\fm^rs \subseteq I^r \subseteq (a_1,g_2,\ldots,g_l)$.
-		
-		Betrachte nun den Ring $\fak A{(g_2,\dots, g_l)}$ sowie Primideale $\fak{\fq}{(g_2,\dots, g_l)}\subsetneq \fak{\fm}{(g_2,\dots, g_l)}$ und das Bild $\ol a_1$ von $a_1$ unter $A\to \fak A{(g_2,\dots, g_l)}$. Da $\fak{\fq}{(g_2,\dots, g_l)}$ kein Primoberideal von $\ol a_1$ ist (denn $(a_1,g_2,\dots, g_l)$ ist ein Definitionsideal), können wir \namereff{thm:krulls hauptidealsatz} anwenden. Demnach folgt $\dim \fak A{(g_2,\dots, g_l)}\ge 1$, also $\dim \fak{A_{\fq}}{(g_2,\dots, g_l)} = 0$. Also ist $(g_2,\dots, g_l)$ ein Definitionsideal von $A_{\fq}$. Nach der Induktionsvoraussetzung folgt $\dim A_{\fq}\le l-1$. Sei nun \[\fp_0\subsetneq \dots \subsetneq \fp_{d-1}\subsetneq\fp_d\] eine Primidealkette der Länge $d = \dim A$. Dann ist $\fp_d = \fm$ und $\fp_{d-1}$ ist ein $\fq$ wie oben. Schließlich folgt wegen $d-1\le l-1$ dann $d\le l$.
-	\end{description}
+	Wir führen in beiden Fällen einen Induktionsbeweis.
+	\begin{enumerate}[label=\ref{thm:9.13:\roman*}]
+		\item \begin{description}
+			\item[$l = 0$:] Klar.
+			\item[$l = 1$:] \namereff{thm:krulls hauptidealsatz}.
+			\item[$l-1\to l$:] Sei $\fq\in \Spec A$ mit $\fq \subsetneq \fm$ und ohne dazwischenliegende Primideale. Dann ist $(a_1,\dots, a_l)\nsubseteq \fq$. Ohne Einschränkung sei $a_1\notin \fq$. Dann ist $(a_1)+\fq$ ein Definitionsideal, und somit existiert ein $n>0$ mit $\fm^n \subseteq (a_1)+\fq$. Also gilt $a_i^n \in (a_1)+\fq$ für alle $i$. Demnach gibt es Elemnte $g_2,\dots, g_l\in\fq$ und $c_2,\dots, c_l\in A$ mit $a_i^n = c_ia_1+g_i$.
+			
+			Wir zeigen nun, dass $(a, g_2,\dots, g_l)$ ein Definitionsideal ist. Es gilt mit $r := ln$ dann $I^r \subseteq (a_1,g_2,\ldots,g_l)$, da für $x \in I^r$ dann etwa $x= \sum_\nu c_\nu a_{i_1,\nu}\ldots a_{i_r,\nu}$ gilt und in diesem Ausdruck mindestens eines der $a_i$ mit Potenz $\ge n$ vorkommen muss. Somit ist $I$ aber ein Definitionsideal, und es existiert ein $s \ge 0$ mit $\fm^s \subseteq I$, also $\fm^rs \subseteq I^r \subseteq (a_1,g_2,\ldots,g_l)$.
+			
+			Betrachte nun den Ring $\fak A{(g_2,\dots, g_l)}$ sowie Primideale $\fak{\fq}{(g_2,\dots, g_l)}\subsetneq \fak{\fm}{(g_2,\dots, g_l)}$ und das Bild $\ol a_1$ von $a_1$ unter $A\to \fak A{(g_2,\dots, g_l)}$. Da $\fak{\fq}{(g_2,\dots, g_l)}$ kein Primoberideal von $\ol a_1$ ist (denn $(a_1,g_2,\dots, g_l)$ ist ein Definitionsideal), können wir \namereff{thm:krulls hauptidealsatz} anwenden. Demnach folgt $\dim \fak A{(g_2,\dots, g_l)}\ge 1$, also $\dim \fak{A_{\fq}}{(g_2,\dots, g_l)} = 0$. Also ist $(g_2,\dots, g_l)$ ein Definitionsideal von $A_{\fq}$. Nach der Induktionsvoraussetzung folgt $\dim A_{\fq}\le l-1$. Sei nun \[\fp_0\subsetneq \dots \subsetneq \fp_{d-1}\subsetneq\fp_d\] eine Primidealkette der Länge $d = \dim A$. Dann ist $\fp_d = \fm$ und $\fp_{d-1}$ ist ein $\fq$ wie oben. Schließlich folgt wegen $d-1\le \dim A_{\fp_{d-1}} \le l-1$ dann $d\le l$.
+		\end{description}
+		\item \begin{description}
+			\item[$d = 0$:] $(0)$ ist offensichtlich ein Definitionsideal.
+			\item[$d-1 \rightarrow d$:] Sei $\fq\in \Spec A$. Dann ist $\dim A_\fq = d-1$. Hierzu wählen wir eine Primoberidealkette $\fp_0 \subsetneq \ldots \subsetneq \fp_{d-1} \subsetneq \fp_d$. Dann ist $\fp_d = \fm$ und $\dim A_{\fp_{d-1}} \le d-1$, da aus $\dim A_{\fp_{d-1}}\ge d$ dann $\dim A \ge d+1$ folgen würde.
+			
+			Nach der Induktionsvoraussetzung existieren Elemente $b_1,\ldots,b_{d-1} \in A_\fq$, sodass $(b_1,\ldots,b_{d-1})$ ein Definitionsideal von $A_\fq$ ist. Weiterhin existieren $u_i \in A,s_i \in A \setminus \fq$ mit $b_i = \frac{a_i}{s_i}$. Dann gilt \[ (b_1,\ldots,b_{d-1}) = \left(\frac{a_1}1 ,\ldots , \frac{a_{d-1}}1 \right), \] und $\fq$ ist somit in minimales Primideal von $(a_1,\ldots,a_{d-1})$.
+			
+			Seien $\fq_1,\ldots,\fq_r$ die (wegen noethersch endlich vielen) Primoberideale von $(a_1,\ldots,a_{d-1})$. Wir zeigen nun $\fm \nsubseteq \fq_1 \cup \ldots\cup \fq_r$. Wir nehmen das Gegenteil an. Nach \enquote{prime avoidance} existiert ein $i$ mit $\fm \subsetneq \fq_i$, also sogar $\fm = \fq_i$. Somit ist $\fm$ ein minimales Primideal über $(a_1,\ldots,a_{d-1})$, weshalb $(a_1,\ldots,a_{d-1})$ ein Definitionsideal von $A$ ist und nach \ref{thm:9.13:i} dann $\dim A \le d-1$ folgt, was ein Widerspruch ist.
+
+			Wir wählen nun ein $a_d \in \fm \setminus (q_1 \cup \ldots \cup q_r)$. Dann ist $(a_1,\ldots,a_{d-1},a_d)$ ein Definitionsideal von $A$, da sonst ein $\fp \in \Spec A$ mit $\fq \subsetneq \fp \subsetneq \fm$ existieren würde.
+			\qedhere
+		\end{description}
+	\end{enumerate}
 \end{proof}
-
-
-INSERT REST OF LECTURE HERE
 
 \lecture{5. Juli 2018}
 
