@@ -247,7 +247,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 		\[(x+y)^{m+n-1}=\sum_{r=0}^{m+n-1}{m+n-1 \choose r}\overbrace{x^r}^{\in I \text{ falls } r\ge m}\underbrace{y^{n+m-1-r}}_{\in I \text{ falls } r<m},\]
 		also liegt auch $x+y$ in $I$. Die anderen Eigenschaften sind schnell nachgeprüft.
 		\item Da $I\subseteq \sqrt{I}$, folgt sofort $\sqrt{I} \subseteq \sqrt{\sqrt{I}}$. Ist nun umgekehrt $x\in \sqrt{\sqrt{I}}$, so existiert ein $n>0$ mit $x^n\in \sqrt{I}$, und dann existiert ein $m>0$ mit $(x^n)^m = x^{nm} \in I$ Also liegt $x$ in $\sqrt{I}$.
-		\item Die Rückrichtung ist klar. Sei also $\sqrt I=(1)$. Dann exisitert ein $n>0$ mit $1^n \in I$, also liegt $1$ in $I$.
+		\item Die Rückrichtung ist klar. Sei also $\sqrt I=(1)$. Dann existiert ein $n>0$ mit $1^n \in I$, also liegt $1$ in $I$.
 		\item Sei $z\in \fak A{\sqrt{I}}$ mit $z^n=0$. Schreibe $z=x+\sqrt{I}$ für ein $x\in A$. Dann ist $x^n+\sqrt{I} = 0$, also liegt $x^n$ in $\sqrt{I}$ und es folgt $z=0$.
 		\qedhere
 	\end{enumerate}
@@ -557,7 +557,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
 		\item Induktion nach $n$, der minimalen Anzahl der Erzeuger von $M$.
         \begin{description}
             \item[$n = 0$:] $M = 0$, $\checkmark$
-            \item[$n-1\to n$:] Sei $x_1,\dots, x_n$ ein Erzeugendensystem von $M$. Definiere $N := \fak M{\<x_n\>}$. Sei $\pi \colon M\to N$ die Quotientenabbildung. Dann folgt $N = \<\pi(x_1),\dots,\pi(x_{n-1})\>$. Nun gilt $I\cdot N = N$, da für $y\in N$ ein $x\in M$ mit $\pi(x) = y$ und $x\in I\cdot M$ existiert, und somit $a_i\in I$ sowie $\tilde{x_i}\in M$ mit $x =\sum a_i\pi(\tilde{x_i})\in I\cdot N$ existieren.
+            \item[$n-1\to n$:] Sei $x_1,\dots, x_n$ ein Erzeugendensystem von $M$. Definiere $N := \fak M{\<x_n\>}$. Sei $\pi \colon M\to N$ die Quotientenabbildung. Dann folgt $N = \<\pi(x_1),\dots,\pi(x_{n-1})\>$. Nun gilt $I\cdot N = N$, da für $y\in N$ ein $x\in M$ mit $\pi(x) = y$ und $x\in I\cdot M$ existiert, und somit $a_i\in I$ sowie $\tilde{x_i}\in M$ mit $y =\sum a_i\pi(\tilde{x_i})\in I\cdot N$ existieren.
 		
             Nach der Induktionsannahme existiert ein $b\in I$, sodass $(1+b)\cdot N = \{0\}\subseteq N = \fak M{\<x_n\>}$. Dann gilt
             \begin{align*}
@@ -569,7 +569,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
             \end{align*}
             Dabei ist $(1+b-c)(1+b) = (1+a)$ mit $a = b-c+b^2-bc\in I$.
         \end{description}
-        \item Sei $x\in M$. Nach Punkt \ref{lem:nakayama:i} existiert ein $a\in I$ mit $(1+a)x = 0$. Da $a\in \Jac(A)$, folgt nach \cref{prop:jacobson} dann $1+a\in A^{*}$; also gilt $x = 0$.
+        \item Sei $x\in M$. Nach Punkt \ref{lem:nakayama:i} existiert ein $a\in I$ mit $(1+a)x = 0$. Da $a\in \Jac(A)$, folgt nach \cref{prop:jacobson} dann $1+a\in A^{\times}$; also gilt $x = 0$.
         \qedhere
 	\end{enumerate}
 \end{proof}
@@ -600,7 +600,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	Sei $M$ ein $A$-Modul, $N,N' \subseteq M$ $A$-Untermoduln mit $N'$ endlich erzeugt und $I\subseteq \Jac(A)$ ein Ideal in $A$. Falls $M=N + IN'$ gilt, so folgt bereits $M=N$.
 \end{kor}
 \begin{proof}
-	Wir zeigen zunächst, dass $\fak MN$ endlich erzeugt ist. Es gilt $M=N+ I \cdot N \subseteq N+ N' \subseteq M$. Also ist die Komposition $N' \hookrightarrow M \to \fak MN$ surjektiv, weil für $x+ N \in \fak MN$ wegen $M=N+IN'$ dann $y\in N$ und $y' \in N'$ mit $x=y+y'$ existieren, sodass also \[x+N=y+y'+N = y' + N \in \im(N' \hookrightarrow M \to \fak MN) \] gilt. Da $N'$ endlich erzeugt ist und $N' \twoheadrightarrow \fak MN$ surjektiv ist, ist auch $\fak MN$ endlich erzeugt.
+	Wir zeigen zunächst, dass $\fak MN$ endlich erzeugt ist. Es gilt $M=N+ I \cdot N' \subseteq N+ N' \subseteq M$. Also ist die Komposition $N' \hookrightarrow M \to \fak MN$ surjektiv, weil für $x+ N \in \fak MN$ wegen $M=N+IN'$ dann $y\in N$ und $y' \in N'$ mit $x=y+y'$ existieren, sodass also \[x+N=y+y'+N = y' + N \in \im(N' \hookrightarrow M \to \fak MN) \] gilt. Da $N'$ endlich erzeugt ist und $N' \twoheadrightarrow \fak MN$ surjektiv ist, ist auch $\fak MN$ endlich erzeugt.
 	
 	Weiterhin gilt $\fak MN = I \cdot \fak MN$, denn für $x+N \in \fak MN$ existieren wegen $M=N+ I\cdot N'$ dann $y' \in N$ sowie $a_i \in I$ und $y_i' \in N'$ mit $x= y' + \sum a_iy_i'$, sodass also $x+ N = \sum a_iy_i' + N = \sum a_i(y_i' + N) $ gilt, was in $I \cdot \fak MN$ liegt. Die andere Inklusion ist trivial.
 	
@@ -746,7 +746,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\begin{enumerate}
 		\item Die Notation \enquote{$x \tp y$} kann missverständlich sein, wenn nicht klar ist, was $M$ und $N$ sind.
 
-		Sei beispielsweise $M=\IZ$, $N= \fak \IZ{2\IZ}$, $A = \IZ$ und $M' = 2 \IZ$. Betrachte $x=2$ und $y=1$. Dann gilt $2 \tp 1 = 0$ in $\IZ \tp_\IZ \fak \IZ{2\IZ}$, denn $2 \tp 1 = 2 \cdot 1 \tp 1 = 1 \tp 2 \dot 1 = 0$, aber $2 \tp 1 \neq 0$ in $2\IZ \tp_\IZ \fak \IZ{2 \IZ}$, da $[2,1] \in D \setminus U$. Schönere Begründung (derzeit noch heuristisch): $2\IZ \cong \IZ$ via $2 \mapsto 1$, und somit
+		Sei beispielsweise $M=\IZ$, $N= \fak \IZ{2\IZ}$, $A = \IZ$ und $M' = 2 \IZ$. Betrachte $x=2$ und $y=1$. Dann gilt $2 \tp 1 = 0$ in $\IZ \tp_\IZ \fak \IZ{2\IZ}$, denn $2 \tp 1 = 2 \cdot 1 \tp 1 = 1 \tp 2 \cdot 1 = 0$, aber $2 \tp 1 \neq 0$ in $2\IZ \tp_\IZ \fak \IZ{2 \IZ}$, da $[2,1] \in D \setminus U$. Schönere Begründung (derzeit noch heuristisch): $2\IZ \cong \IZ$ via $2 \mapsto 1$, und somit
 		\begin{alignat*}{5}
 			&2\IZ \tp \fak \IZ{2\IZ} &&\cong &&\IZ \tp \fak \IZ{2\IZ} &&\cong &&\fak \IZ{2\IZ}, \\
 			&2 \tp 1 &&\mapsto\; &&1 \tp 1 &&\mapsto\; &&1.
