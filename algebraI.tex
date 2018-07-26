@@ -1519,7 +1519,7 @@ Sei $k$ ein Körper, $V$ ein $k$-Vektorraum, $\dim V<\infty$, $\psi\in \End_k(V)
 \end{beme}
 \begin{defi}
 	Sei $p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0\in k[t]$. Definiere $C(p) \in \M_{n\times n}(k)$ durch \[
-		C(P) = \begin{cases*}
+		C(p) = \begin{cases*}
 			(-a_0) & für $n = 1$, \\
 			\begin{pmatrix}
 				0 & \cdots & 0 & -a_0 \\ 
@@ -1529,7 +1529,7 @@ Sei $k$ ein Körper, $V$ ein $k$-Vektorraum, $\dim V<\infty$, $\psi\in \End_k(V)
 			\end{pmatrix} & für $n > 1$.
 		\end{cases*}
 	\]
-	$C(P)$ heißt \emph{Begleitmatrix} zu $p$ (\enquote{companion matrix}).
+	$C(p)$ heißt \emph{Begleitmatrix} zu $p$ (\enquote{companion matrix}).
 \end{defi}
 \begin{beme}
 	$\chi_{C(p)} = p$ (charakteristisches Polynom von $C(p)$ ist $p$).
@@ -1538,7 +1538,7 @@ Sei $k$ ein Körper, $V$ ein $k$-Vektorraum, $\dim V<\infty$, $\psi\in \End_k(V)
 	Sei $M$ ein zyklischer $k[t]$-Modul.
 	\begin{enumerate}
 		\item $\dim V = \deg m_{\psi}$ \label{lem:4.22:i}
-		\item Sei $u := \deg(m_{\psi})$ und $v\in V$ mit $M = \<v\>_{k[t]}$. Seien $p_0,\dots, p_{n-1}\in k[t]$ mit $\deg p_i<n$ und $p_0,\dots, p_{n-1}$ linear unabhängig über $k$. Dann ist $(p_0v, \dots, p_{n-1}v)$ eine Basis von $V$ über $k$. \label{lem:4.22:ii}
+		\item Sei $n := \deg(m_{\psi})$ und $v\in V$ mit $M = \<v\>_{k[t]}$. Seien $p_0,\dots, p_{n-1}\in k[t]$ mit $\deg p_i<n$ und $p_0,\dots, p_{n-1}$ linear unabhängig über $k$. Dann ist $(p_0v, \dots, p_{n-1}v)$ eine Basis von $V$ über $k$. \label{lem:4.22:ii}
 	\end{enumerate}
 \end{lem}
 \begin{proof}
@@ -1660,7 +1660,7 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 	\end{enumerate}
 \end{bem}
 \begin{satz}
-	Sei $S\subseteq A$ eine multiplikative Teilmenge, sei $g\colon A\to B$ ein Ringhomomorphismus mit $g(S) \in B^{\times}$. Dann kommutiert das folgende Diagramm.
+	Sei $S\subseteq A$ eine multiplikative Teilmenge, sei $g\colon A\to B$ ein Ringhomomorphismus mit $g(S) \subseteq B^{\times}$. Dann kommutiert das folgende Diagramm.
 	\begin{center}
 	\begin{tikzcd}
 		A \arrow{d}[swap]{f} \arrow{r}{g} & B \\
@@ -1677,7 +1677,7 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 	\begin{enumerate}
 		\item Ist $\fp\in \Spec A$, so ist $S := A\setminus \fp$ ist multiplikative Teilmenge. Definiere $A_\fp := S^{-1}A$.
 		
-		Spezialfall: Für einen Integritätsbereich $A$ gilt für $\fp = (0) \in \Spec A$ dann $A \fp = \Quot(A)$.
+		Spezialfall: Für einen Integritätsbereich $A$ gilt für $\fp = (0) \in \Spec A$ dann $A_{\fp} = \Quot(A)$.
 		\item Für $t\in A$ ist $S := \set{t^n\given n\in\IZ_{\ge 0}}$ eine multiplikative Teilmenge. Definiere $A[t^{-1}] := S^{-1}A$ (in \cite{atiyah-macdonald} heißt dies $A_t$).
 	\end{enumerate}
 \end{bsp}
@@ -1685,7 +1685,7 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 \begin{defi}
 	Sei $S\subseteq A$ eine multiplikative Teilmenge sowie $M$ ein $A$-Modul. Definiere auf $S\times M$ Äquivalenzrelation durch
 	\[(s,x)\sim (t,y) \quad \Longleftrightarrow \quad \exists u\in S: u(tx-sy) =0.\]
-	Definiere damit $S^{-1}M := (S\times M)/\sim$ bezeichne die Äquivalenklasse von $(s,x)$ mit $\frac xs$. Dann wird $S^{-1}M$ zu einem $S^{-1}A$-Modul via
+	Definiere damit $S^{-1}M := (S\times M)/\sim$ und bezeichne die Äquivalenzklasse von $(s,x)$ mit $\frac xs$. Dann wird $S^{-1}M$ zu einem $S^{-1}A$-Modul via
 	\[\frac cs +\frac yt := \frac{tx+sy}{st},\qquad \frac{a}{s}\cdot \frac{y}{t} := \frac{ay}{st}.\]
 	(Wohldefiniertheit und Modulaxiome gelten genauso wie für $S^{-1}A$.)
 \end{defi}
@@ -1693,7 +1693,7 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 \begin{bem}
 	Diese Konstruktion ist natürlich: Sei $f\colon M\to N$ eine $A$-lineare Abbildung. Wir erhalten eine Abbildung $S^{-1}f\colon S^{-1}M\to S^{-1}N$ definiert durch
 	\[S^{-1}f\left(\frac{x}{s}\right) := \frac{f(x)}{s}\]
-	Das ist $S^{-1}f$ wohldefiniert und $S^{-1}A$-linear.
+	$S^{-1}f$ ist wohldefiniert und $S^{-1}A$-linear.
 	\begin{proof}
 		Wir beweisen beispielhaft die Wohldefiniertheit: Sei $\frac xs = \frac yt$ in $S^{-1}M$, es existiert also ein $u\in S$ mit $u(tx-sy) = 0$. Also gilt $0 = f(u(tx-sy)) = u(tf(x)-sf(y))$, also $\frac{f(x)}{s} = \frac{f(y)}{s}$.
 	\end{proof}
@@ -1743,7 +1743,7 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 		S^{-1}A\tp_AM\arrow[dashrightarrow]{ru}[swap]{\exists!\phi \text{ $A$-linear}} 
 	\end{tikzcd}
 	\end{center}
-	Wir rechnen nach, dass $\phi$ $S^{-1}A$-linear ist. Sei dazu $\frac bt \in S^{-1}A$ und $z\in S^{-1}A\tp_A M$. Dann gilt $z = \sum \frac {a_i}{s_i}\tp x_i$ für $a_i\in A, s_i\in S, x_i\in M$. Wir erhalten also
+	Wir rechnen nach, dass $\phi$ auch  $S^{-1}A$-linear ist. Sei dazu $\frac bt \in S^{-1}A$ und $z\in S^{-1}A\tp_A M$. Dann gilt $z = \sum \frac {a_i}{s_i}\tp x_i$ für $a_i\in A, s_i\in S, x_i\in M$. Wir erhalten also
 	\begin{align*}
 		\phi\left(\frac{bt} z\right) &=\phi\left(\sum\frac{ba_i}{ts_i}\tp x_i \right) = \sum\phi(\frac{ba_i}{ts_i}\tp x_i) = \sum \frac{ba_ix_i}{ts_i} = \frac{b}{t} \cdot \sum \frac{a_ix_i}{s_i} \\
 		&= \frac bt \cdot \phi\left(\sum\frac{a_i}{s_i}\tp x_i\right).
@@ -1791,7 +1791,7 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 	\leavevmode
 	\begin{description}
 		\item[\ref{thm:lokalglobal:i} $\Rightarrow$ \ref{thm:lokalglobal:ii}:] Klar.
-		\item[\ref{thm:lokalglobal:ii} $\Rightarrow$ \ref{thm:lokalglobal:ii}:] Klar.
+		\item[\ref{thm:lokalglobal:ii} $\Rightarrow$ \ref{thm:lokalglobal:iii}:] Klar.
 		\item[\ref{thm:lokalglobal:iii} $\Rightarrow$ \ref{thm:lokalglobal:i}:] Angenommen, $M \neq 0$. Sei $x\in M\setminus \{0\}$. Dann ist $\Ann(x) \neq (1)$, es existiert also ein $\fm\in \Max A$ mit $\Ann(x)\subseteq \fm$. Aus \ref{thm:lokalglobal:iii} folgt dann, dass $M_\fm = 0$ ist, also $\frac x1 = 0$ in $M_\fm$; folglich gibt es ein $n\in A\setminus \fm$ mit $ nx = 0$ Dann folgt aber $n\in \Ann(x)\subseteq \fm$, was ein Widerspruch ist.
 		\qedhere
 	\end{description}
@@ -1860,7 +1860,7 @@ Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 			\fq &\longmapsto& \fq\cap A \\
 			\fp\cdot S^{-1}A &\longmapsfrom& \fp
 		\end{eqnarray*}
-		sind wohldefiniert und zueinander inverse Bijektionen sowie inklusionserhaltend (für $\fp\subseteq \fp'$ gilt also $\fp\cdot S^{-1}A\subseteq \fp'\cdot \fp'S^{-1}A$ und für $\fq\subseteq \fq'$ gilt $\fq\cap A\subseteq \fq'\cap A$). \label{thm:idealkorr:iv}
+		sind wohldefiniert und zueinander inverse Bijektionen sowie inklusionserhaltend (für $\fp\subseteq \fp'$ gilt also $\fp\cdot S^{-1}A\subseteq \fp'\cdot S^{-1}A$ und für $\fq\subseteq \fq'$ gilt $\fq\cap A\subseteq \fq'\cap A$). \label{thm:idealkorr:iv}
 	\end{enumerate}
 \end{satz}
 
@@ -1946,7 +1946,7 @@ Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 \begin{proof}
 	Es gilt
 	\[\pi(S)^{-1}(\fak{A}{I}) \cong S^{-1}(\fak AI) \cong S^{-1}A\tp_A(\fak AI) \cong \fak{S^{-1}A}{IS^{-1}A},\]
-	wobei der letzte Isomorphismus sogar in Isomorphismus von $A$-Algebren ist.
+	wobei der letzte Isomorphismus sogar ein Isomorphismus von $A$-Algebren ist.
 \end{proof}
 \begin{kor} \label{kor:5.18}
 	Sei $\fp\in \Spec A$ und $S = A\setminus \fp$. Dann gilt
@@ -2012,7 +2012,7 @@ Sei $B$ eine $A$-Algebra.
 
 Bezeichnungen. Sei $A\to B$ ein Ringhomomorphismus.
 \begin{enumerate}
-	\item Seien $b_1,\dots,b_n\in B$. Definiere $A[b_1,\dots, b_n]$ als die kleinste $A$-Unteralgebra, die $b_1,\dots, b_n$ enthält; also $A[b_1,\dots, b_n] = \im \ev_{(b_1,\dots, b_n)}\colon A[t_1,\dots, t_n]\to B)$.
+	\item Seien $b_1,\dots,b_n\in B$. Definiere $A[b_1,\dots, b_n]$ als die kleinste $A$-Unteralgebra, die $b_1,\dots, b_n$ enthält; also $A[b_1,\dots, b_n] = \im \ev_{(b_1,\dots, b_n)}\colon A[t_1,\dots, t_n]\to B$.
 	\item $A\to B$ heißt endlich genau dann, wenn ${}_AB$ ein endlich erzeugter $A$-Modul ist.
 \end{enumerate}
 
@@ -2045,7 +2045,7 @@ Bezeichnungen. Sei $A\to B$ ein Ringhomomorphismus.
 \end{proof}
 
 \begin{lem} \label{lem:ganzheit2}
-	Seien $A\to B\to C$ Rinhomomorphismen.
+	Seien $A\to B\to C$ Ringhomomorphismen.
 	\begin{enumerate}
 		\item Ist $B$ eine endliche $A$-Algebra und $C$ eine endliche $B$-Algebra, so ist $C$ eine endliche $A$-Algebra. \label{lem:ganzheit2:i}
 		\item Ist $B$ ganz über $A$ und $C$ ganz über $B$, so ist $C$ ganz über $A$. \label{lem:ganzheit2:ii}
@@ -2095,7 +2095,7 @@ Bezeichnungen. Sei $A\to B$ ein Ringhomomorphismus.
 \begin{proof} Sei ohne Einschränkung $A\subseteq B$.
 \begin{description}
 	\item[\glqq$\Rightarrow$\grqq:] Sei $a\in A\setminus \{0\}$. Dann ist $a\in B\setminus\{0\} = B^{\times}$. Also gibt es ein $b\in B$ mit $ab = 1$. Da $b$ ganz über $A$ ist, gibt es $a_0,\dots, a_{n-1}\in A$, sodass $b^n = \sum_{i = 0}^{n-1}a_ib^i$ gilt. Also folgt
-	\[ b = a^{n-1}b^n = \sum_{i = 0}^{n-1} a_ia^{n-1}b^i = \sum_{i = 0}^{n-1-i}\in A. \]
+	\[ b = a^{n-1}b^n = \sum_{i = 0}^{n-1} a_ia^{n-1}b^i = \sum_{i = 0}^{n-1}a_ia^{n-1-i}\in A. \]
 	Folglich gilt $b\in A$ und damit $a\in A^{\times}$.
 	\item[\glqq$\Leftarrow$\grqq:] Sei $b\in B\setminus\{0\}$. Es gibt also $p(t) \in A[t]$ normiert mit $p(b) = 0$. Schreibe
 	$$p(t) = t\cdot q(t) + a$$
@@ -2410,7 +2410,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 \end{proof}
 
 \subsection{Minimale Primideale}
-\begin{defi} Sei $A$ ein Ring. $\fp\in \Spec A$ heißt \emph{minimales Primideal}, wenn für alle $\fp'\in Spec A$ mit $\fp'\subseteq \fp$ schon $\fp' = \fp$ gilt. Wir bezeichnen die Menge aller minimalen Primideale mit \[\MinSpec A := \set{\fp\in\Spec A\given \text{$\fp$ minimal}}.\]
+\begin{defi} Sei $A$ ein Ring. $\fp\in \Spec A$ heißt \emph{minimales Primideal}, wenn für alle $\fp'\in \Spec A$ mit $\fp'\subseteq \fp$ schon $\fp' = \fp$ gilt. Wir bezeichnen die Menge aller minimalen Primideale mit \[\MinSpec A := \set{\fp\in\Spec A\given \text{$\fp$ minimal}}.\]
 \end{defi}
 \begin{bsp}
 	\leavevmode
@@ -2439,7 +2439,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 \end{proof}
 
 \subsection{Transzendenzbasen}
-\begin{defi} Sei $K\subseteq L$ eine Körpererweiterung. Eine Familie $(x_i)_{i\in I}$. in $L$ heißt \emph{Transzendenzbasis} von $L$ über $K$, falls
+\begin{defi} Sei $K\subseteq L$ eine Körpererweiterung. Eine Familie $(x_i)_{i\in I}$ in $L$ heißt \emph{Transzendenzbasis} von $L$ über $K$, falls
 \begin{enumerate}
 	\item $(x_i)_{i\in I}$ algebraisch unabhängig über $K$ und
 	\item $K(x_i)_{i\in I}\subseteq L$ algebraisch ist.
@@ -2590,8 +2590,8 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 			\item $b_1, \dots , b_n$ algebraisch unabhängig über $\Quot(A)$ und
 			\item $A[s^{-1}][b_1,\dots , b_n] \subseteq B[s^{-1}]$ endlich.\footnote{Man beachte $A[b_1, \dots b_n][s^{-1}]=A[s^{-1}][b_1, \dots , b_n]$.}
 		\end{itemize}
-		\item \label{kor:7.17:iii} Für alle $\fp\in\Spec A [s^{-1}]$ existiert ein $\fq \in \Spec B[s^{-1}]$ mit $\fq \cap A[s^{-1}]=\fp$. \label{kor:7.17:ii}
-		\item  Für dieses $\fp$ und $\fq$ gilt \[\Quot\left( \fak A {\fp \cap A} \right)=\Quot \left( \fak {A[s^{-1}]}\fp \right) \subseteq \Quot(\fak{B[s^{-1}]}\fq)=\Quot(\fak B {\fq \cap B}).\]
+		\item \label{kor:7.17:ii} Für alle $\fp\in\Spec A [s^{-1}]$ existiert ein $\fq \in \Spec B[s^{-1}]$ mit $\fq \cap A[s^{-1}]=\fp$. 
+		\item \label{kor:7.17:iii}  Für dieses $\fp$ und $\fq$ gilt \[\Quot\left( \fak A {\fp \cap A} \right)=\Quot \left( \fak {A[s^{-1}]}\fp \right) \subseteq \Quot(\fak{B[s^{-1}]}\fq)=\Quot(\fak B {\fq \cap B}).\]
 	\end{enumerate}
 \end{kor}
 \begin{proof}
