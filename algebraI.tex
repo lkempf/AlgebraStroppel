@@ -764,11 +764,11 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 				M \tp_A M' \arrow[dashrightarrow]{r}{\exists ! f \tp g} & N \tp_A N'
 			\end{tikzcd}
 		\end{center}
-		\item Seien $M \xrightarrow{f} N \xrightarrow{g} P$ $A$-linear. Dann gilt $(g \circ g) \tp \id_{M'} = (g \tp \id_{M}) \circ (f \tp \id_{M})$.
+		\item Seien $M \xrightarrow{f} N \xrightarrow{g} P$ $A$-linear. Dann gilt $(g \circ f) \tp \id_{M'} = (g \tp \id_{M'}) \circ (f \tp \id_{M'})$.
 	\end{enumerate}
 \end{beme}
 \begin{prop}
-	Seien $M,N,P$ $A$-Moduln. Dann existieren eindeutig bestimmte Isomorphismen.
+	Seien $M,N,P$ $A$-Moduln. Dann existieren eindeutig bestimmte Isomorphismen:
 	\begin{enumerate}
 		\item $M \tp_A N \xrightarrow{\cong} N \tp_A M, x \tp y \mapsto y \tp x$ \label{prop:tensorisos:i}
 		\item $(M \oplus N) \tp_A P \xrightarrow{\cong} (M \tp_A P) \oplus (N \tp_A P), (x,y)\tp z  \mapsto (x \tp z,y\tp z)$ \label{prop:tensorisos:ii}
@@ -895,7 +895,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 				};
 			\end{tikzpicture}
 		\end{center}
-		Da die obere Sequenz exakt ist, ist auch die untere Sequenz exakt ist. Da $P$ beliebig ist, folgt wieder mit \ref{prop:homexakt:i} die gewünschte Exaktheit.
+		Da die obere Sequenz exakt ist, ist auch die untere Sequenz exakt. Da $P$ beliebig ist, folgt wieder mit \ref{prop:homexakt:i} die gewünschte Exaktheit.
 		\qedhere
 	\end{description}
 \end{proof}
@@ -903,11 +903,11 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\leavevmode
 	\begin{enumerate}
 		\item Sei $f\colon M\to M'$ eine surjektive $A$-lineare Abbildung. Dann ist $f \tp_A \id_N\colon M \tp_A N \to M' \tp_ A N $ auch surjektiv.
-		\item Ist $f$ injektiv, so ist $f \tp \id_N$ nicht notwengierweise injektiv. Sei beispielsweise $a \in A \setminus A^{\times}$ kein Nulteiler. Betrachte $f: A \to A, x \mapsto ax$. Da $a$ kein Nullteiler ist, ist $f$ injektiv. Betrachte nun $N = \fak A{(a)}$ und das folgende Diagramm.
+		\item Ist $f$ injektiv, so ist $f \tp \id_N$ nicht notwengierweise injektiv. Sei beispielsweise $a \in A \setminus A^{\times}$ kein Nullteiler. Betrachte $f: A \to A, x \mapsto ax$. Da $a$ kein Nullteiler ist, ist $f$ injektiv. Betrachte nun $N = \fak A{(a)}$ und das folgende Diagramm.
 		\begin{center}
 			\begin{tikzcd}
 				A \tp_A \fak A{(a)} \arrow{r}{f \tp \id} \arrow[Equals]{d}{} & A \tp_a \fak A{(a)} \arrow[Equals]{d}{} \\
-				\fak A{(a)} \arrow{r}{ax \mapsto ax} & \fak A{(a)}
+				\fak A{(a)} \arrow{r}{x \mapsto ax} & \fak A{(a)}
 			\end{tikzcd}
 		\end{center}
 	\end{enumerate}
@@ -930,7 +930,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 				\end{tikzcd}
 			\end{center}
 		\end{proof}
-		\item Ist $a \in A \setminus A^{\times}$ kein Nulteiler, so ist $\fak A {(a)}$ nicht flach.
+		\item Ist $a \in A \setminus A^{\times}$ kein Nullteiler, so ist $\fak A {(a)}$ nicht flach.
 	\end{enumerate}
 \end{bsp}
 \begin{prop}
@@ -1029,8 +1029,8 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	Diese Abbildung ist bilinear ($\tp_A$ ist $A$-bilinear, Multiplikation auf $B$ ist $A$-bilinear).
 	\begin{center}
 		\begin{tikzcd}[column sep=3cm]
-			B\times M \arrow{r}{(b,x) \mapsto (b'bx)}\arrow{d}  & B\times M\arrow{d} \\
-			B\tp_AM \arrow[dashrightarrow]{r}[swap]{\exists ! m_b \text{ $A$-linear}}	& B\tp_AM 
+			B\times M \arrow{r}{(b,x) \mapsto (b'b,x)}\arrow{d}  & B\times M\arrow{d} \\
+			B\tp_AM \arrow[dashrightarrow]{r}[swap]{\exists ! m_{b'} \text{ $A$-linear}}	& B\tp_AM 
 		\end{tikzcd}
 	\end{center}
 \end{bem}
@@ -1041,7 +1041,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		(b', y) & \longmapsto & m_{b'}(y)
 	\end{eqnarray*}
 
-	Behauptung: $(B\tp_AM, +,\cdot)$ ist ein $B$-Modul.
+	Behauptung: $(B\tp_AM, +,\cdot)$ ist ein $B$-Modul (wobei die Multiplikation durch $m$ definiert wird).
 	\begin{proof}
 	Wir zeigen exemplarisch die Assoziativität: Seien $b'',b'\in B$ und $y\in B\tp_AM$. Zeige $m(b'', m(b',y)) = m(b''b', y)$. Sei $y = \sum b_i\tp x_i$ für $b_i\in B, x_i\in M$. Dann ist $m(b'', m(b', \sum b_i\tp x_i)) = m(b'', \sum b'b_i\tp x_i) = \sum b''b'b_i\tp x_i = m(b''b', \sum b_i\tp x_i)$.	
 	\end{proof}
