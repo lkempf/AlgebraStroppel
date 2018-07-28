@@ -1004,7 +1004,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 
 \begin{defi}
 	Sei $B$ eine $A$-Algebra. $B$ heißt \emph{endlich erzeugte $A$-Algebra}, wenn ein $n>0$ sowie $b_1, \dots, b_n\in B$ existieren, sodass
-	$$\ev_{b_1,\dots, b_n}\colon A[t_1,\dots, t_n] \longto B$$
+	\[\ev_{b_1,\dots, b_n}\colon A[t_1,\dots, t_n] \longto B\]
 	surjektiv ist.
 \end{defi}
 
@@ -1051,7 +1051,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	
 \end{defi}
 \begin{beme} \label{bem:3.9}
-	Sei $f\colon M\to N$ $A$-linear und $B$ eine $A$-Algebra. Dann ist $$\id_B\tp f\colon B\tp_AM\to B\tp_AN$$ eine $B$-lineare Abbildung.
+	Sei $f\colon M\to N$ $A$-linear und $B$ eine $A$-Algebra. Dann ist \[\id_B\tp f\colon B\tp_AM\to B\tp_AN\] eine $B$-lineare Abbildung.
 \end{beme}
 \begin{proof}
 	Sei $b'\in B, y = \sum b_i\tp x_i\in B\tp_AM$. Dann gilt
@@ -1064,7 +1064,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \begin{satz}[Adjunktion von Skalarerweiterung und Restriktion der Skalare]
 	Sei $B$ eine $A$-Algebra, $M$ ein $A$-Modul und $N$ ein $B$-Modul.
 	\begin{enumerate}
-		\item Sei $f\colon M\to {}_AN$ $A$-linear. Dann existiert genau eine $B$-lineare Abbildung $$f_B\colon B\tp_AM\to N$$ mit $f_B(b\tp x) = bf(x)$. \label{thm:scalarerweiterung:i}
+		\item Sei $f\colon M\to {}_AN$ $A$-linear. Dann existiert genau eine $B$-lineare Abbildung \[f_B\colon B\tp_AM\to N\] mit $f_B(b\tp x) = bf(x)$. \label{thm:scalarerweiterung:i}
 		\item Die Abbildung $\Phi\colon \Hom_A(M,{}_AN)\to \Hom_B(B\tp_AM,N), f\mapsto f_B$ ist $A$-linear und bijektiv. \label{thm:scalarerweiterung:ii}
 	\end{enumerate}
 \end{satz}
@@ -1075,9 +1075,8 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\begin{center}
 			\begin{tikzcd}
 				B\times M \arrow{r}\arrow{d}  & N \\
-				B\tp_AM \arrow{ur}[swap]{\exists! f_B \text{ $A$-linear}} &
+				B\tp_AM. \arrow{ur}[swap]{\exists! f_B \text{ $A$-linear}} &
 			\end{tikzcd}
-			. % TODO: punkt
 		\end{center}
 		Es verbleibt die $B$-Linearität von $f_B$ zu zeigen, was analog zu \cref{bem:3.9} geschieht.
 		\item Wir konstruieren eine Umkehrabbildung $\Psi\colon \Hom_B(B\tp_AM,N)\to \Hom_A(M,{}_AN)$. Sei $g\colon B\tp_AM\to N$. Definiere $\Psi(g) := g(1\tp \_)\colon M\to N, x\mapsto g(1\tp x)$.
@@ -1110,7 +1109,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 
 \begin{prop} \label{prop:3.12}
 	Sei $B$ eine $A$-Algebra, $C$ eine $B$-Algebra und $M$ ein $A$-Modul. Dann existiert genau ein Isomorphismus
-	$$C\tp_A M  \longmapsto  C\tp_B(B\tp_AM)$$
+	\[C\tp_A M  \longmapsto  C\tp_B(B\tp_AM)\]
 	von $C$-Moduln mit $c\tp x\mapsto c\tp(1\tp x)$.
 \end{prop}
 \begin{proof}
@@ -1138,7 +1137,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\begin{enumerate}[label=\ref{thm:tensorieren erhaelt eigenschaften:\roman*}]
 		\item Sei $M$ ein freier $A$-Modul. Folglich gilt $M \cong \bigoplus_{i\in I}A$ und wir erhalten \[B\tp_AM\cong B\tp \left(\bigoplus_{i\in I}A\right) \cong \bigoplus_{i\in I}(B\tp_A A) \cong \bigoplus_{i\in I} B\] als $B$-Moduln mit \cref{bem:3.9}.
 		\item Sei $M$ ein endlich erzeugter $A$-Modul. Dann existiert eine surjektive, $A$-lineare Abbildung $f\colon A^n\to M$. Folglich ist
-		$$\id_B\tp f\colon B\tp_AA^n\to B\tp_AM$$ surjektiv nach \cref{prop:exaktheit tensorieren} und $B$-linear nach \cref{bem:3.9}. Aber wir haben eben gesehen, dass $B\tp_AA^n \cong B^n\Rightarrow B\tp_AM$ endlich erzeugt ist.
+		\[\id_B\tp f\colon B\tp_AA^n\to B\tp_AM\] surjektiv nach \cref{prop:exaktheit tensorieren} und $B$-linear nach \cref{bem:3.9}. Aber wir haben eben gesehen, dass $B\tp_AA^n \cong B^n\Rightarrow B\tp_AM$ endlich erzeugt ist.
 		\item Sei $M$ als $A$-Modul endlich präsentiert. Dann existiert eine surjektive Abbildung $f\colon A^n \to M$ mit endlich erzeugtem Kern, weshalb wiederum eine surjektive Abbildung $g\colon A^m \to \ker f$ existiert. Betrachte nun $g'\colon A^m \to \ker f \to A^n$, hierbei gilt $\im g' = \ker f$. Somit existiert eine exakte Sequenz der Form
 		\[ A^m \longto A^n \longto M\longto 0. \]
 		
@@ -1190,9 +1189,8 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 			\begin{tikzcd}[sep=1cm]
 				D \\
 				& B \tp_A C \arrow[dashrightarrow]{lu}{\exists! \lambda} & B \arrow{l} \arrow[bend right]{llu}[swap]{\phi} \\
-				& C \arrow[bend left]{luu}{\psi} \arrow{u}&A \arrow{u}\arrow{l}
+				& C \arrow[bend left]{luu}{\psi} \arrow{u}&A. \arrow{u}\arrow{l}
 			\end{tikzcd}
-			. % TODO: punkt
 		\end{center} \label{thm:314:v}
 	\end{enumerate}
 \end{satz}
@@ -1203,9 +1201,8 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\begin{center}
 			\begin{tikzcd}
 				B\times C\arrow{d}\arrow{r}& B\tp_AC\\
-				B\tp_AC\arrow[dashrightarrow]{ru}[swap]{\exists!\phi_{(b,c)} \text{ $A$-linear}}
+				B\tp_AC.\arrow[dashrightarrow]{ru}[swap]{\exists!\phi_{(b,c)} \text{ $A$-linear}}
 			\end{tikzcd}
-			. % TODO: punkt
 		\end{center}
 		Daraus folgt, dass das Diagramm
 		\begin{center}
@@ -1231,14 +1228,14 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	
 		\noindent
 		Sie ist $A$-bilinear und faktorisiert damit über das Tensorprodukt zu $\lambda\colon B\tp_AC\to D$ $A$-linear. Zeige nun: $\lambda$ ist Ringhomomorphismus. Dazu $b,b'\in B, c,c'\in C$:
-		$$\lambda((b\tp c)(b'\tp c')) = \phi(b)\phi(b')\psi(c)\psi(c') = \lambda(b\tp c)\lambda (b'\tp c')$$
+		\[\lambda((b\tp c)(b'\tp c')) = \phi(b)\phi(b')\psi(c)\psi(c') = \lambda(b\tp c)\lambda (b'\tp c')\]
 		
 		\begin{bem}
 			Seien $R,S$ beide $A$-Algebren, $\lambda\colon R\to S$ sei $A$-linear, sei $\{x_i\}$ Erzeugendensystem von $R$ als $A$-Modul. Falls $\lambda(x_i,x_j) =)\lambda(x_i)\lambda(x_j)$ und $\lambda(1) = 1$, also ist $\lambda$ ein Ringhomomorphismus.
 		\end{bem}
 	
 		Nun zur Eindeutigkeit: Sei $\lambda'$ ein weiterer Ringhomomorphismus wie oben. Dann ist $\lambda'$ $A$-linear, reicht also auf reinen Tensoren zu prüfen.
-		$$\lambda'(b\tp c) = \lambda'((b\tp 1)\cdot(1\tp c)) = \phi(b)\cdot \psi(c) = \lambda(b\tp c)$$
+		\[\lambda'(b\tp c) = \lambda'((b\tp 1)\cdot(1\tp c)) = \phi(b)\cdot \psi(c) = \lambda(b\tp c)\]
 		wobei die vorletzte Gleichheit daraus folgt, dass $\lambda'$ Ringhomomorphismus ist, sodass das Diagramm kommutiert.
 		\qedhere
 	\end{enumerate}
@@ -1286,9 +1283,9 @@ Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\ge 0}\cup 
 	Sei $\{x_1,\dots, x_n\}$ Basis von $F$ ($\rk F = n$). Für $r\in\{1,\dots n\}$ definiere
 	\[M_r := \<x_1,\dots, x_r\>_A\cap M.\]
 	
-	Wir behaupten, dass $M_r$ frei und $\rk M_r \le r$ ist. Wir beweisen dies per Induktion nach $r$:
+	Wir behaupten, dass $M_r$ frei und $\rk M_r \le r$ ist, und zeigen dies per Induktion nach $r$.
 	\begin{description}
-		\item[$r = 1$:] Wir haben $M_1 = \<x_1\>_A\cap M$; dabei gilt $\<x_1\>_A\subseteq \<x_1\>$ und es gibt Isomorphismus $\phi\colon A\xrightarrow{\cong} \<x_1\>, a\mapsto ax_1$. Folglich ist $\phi^{-1}(M_1)\subseteq A$ ein Ideal und es existiert ein $a\in A$ mit $\phi^{-1}(M_1) = (a)$, also folgt also \[M_i = \<ax_i\> \cong \begin{cases} A & a\neq 0,\\ 0& a= 0.\end{cases}\]
+		\item[$r = 1$:] Wir haben $M_1 = \<x_1\>_A\cap M$; dann gibt es einen Isomorphismus $\phi\colon A\xto{\cong} \<x_1\>, a\mapsto ax_1$. Folglich ist $\phi^{-1}(M_1)\subseteq A$ ein Ideal und es existiert ein $a\in A$ mit $\phi^{-1}(M_1) = (a)$; es folgt also \[M_1 = \<ax_1\> \cong \begin{cases} A & a\neq 0,\\ 0& a= 0.\end{cases}\] % hier stand mal noch $\<x_1\>_A\subseteq \<x_1\>$, allerdings ist unklar, warum das nicht intrinsisch trivial ist
 		Beachte dabei: $\{x_1\}$ ist linear unabhängig, also $ax_1\neq 0 \Leftrightarrow a\neq 0$.
 		\item[$r\to r+1$:] Betrachte
 		\[ I = \set{a\in A \given \exists a_1,\dots, a_r\in A: a_1x_1+\dots a_rx_r+ax_{r+1}\in M}. \]
@@ -1599,7 +1596,7 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 	Mit \cref{lem:4.23} folgt daraus, dass $M_{ij}$ zyklisch ist und dass eine Basis $B_{ij}$ von $V_{ij}$ mit $M_{B_{ij}}(\psi|_{V_{ij}}) = C(p_i^{s_{ij}})$ existiert. Die Basis $B = B_{11}\cup B_{12}\cup \dots \cup B_{nl_n}$ ist nun eine geeignete Wahl.
 \end{proof}
 
-\begin{kor}
+\begin{kor} \label{kor:4.25}
 	Sei $m_{\psi} = p_1^{r_1}\cdot\ldots\cdot p_n^{r_n}$ mit normiertem und irreduziblem $p_i\in k[t]$ sowie $p_i\neq p_j$ für $i\neq j$. Dann existiert ein $s_i\ge r_i$ mit $\chi_{\psi} = p_1^{s_1}\cdot\ldots\cdot p_n^{s_n}$.
 \end{kor}
 \begin{proof}
@@ -1627,7 +1624,7 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 \begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[\ref{thm:jordan normalform:i} $\Leftrightarrow$ \ref{thm:jordan normalform:ii}:] Folgt aus Korollar 4.25
+		\item[\ref{thm:jordan normalform:i} $\Leftrightarrow$ \ref{thm:jordan normalform:ii}:] Folgt aus \cref{kor:4.25}.
 		\item[\ref{thm:jordan normalform:iii} $\Rightarrow$ \ref{thm:jordan normalform:ii}:] Klar.
 		\item[\ref{thm:jordan normalform:i} $\Rightarrow$ \ref{thm:jordan normalform:iii}:] Beweis analog zum Beweis der rationalen Normalform, statt \cref{lem:4.23} \ref{lem:4.23:i} nutze \cref{lem:4.23} \ref{lem:4.23:ii}.
 		\qedhere
@@ -1927,9 +1924,8 @@ Erinnerung: Für einen Ringhomomorphismus $f\colon A\to B$ gilt:
 		\begin{center}
 			\begin{tikzcd}
 				A \arrow{d} \arrow{r}{f} & B\arrow{d} \\
-				S^{-1}A\arrow{r}	& f(S)^{-1}B
+				S^{-1}A\arrow{r}	& f(S)^{-1}B.
 			\end{tikzcd}
-			% TODO: Punkt nach dem Diagramm
 		\end{center}
 		Man rechnet schnell nach, dass $\phi$ Homomorphismus von $S^{-1}A$-Algebren ist.
 		\item $\phi$ ist Isomorphismus von $S^{-1}A$-Algebren.
@@ -2013,7 +2009,7 @@ Sei $B$ eine $A$-Algebra.
 Bezeichnungen. Sei $A\to B$ ein Ringhomomorphismus.
 \begin{enumerate}
 	\item Seien $b_1,\dots,b_n\in B$. Definiere $A[b_1,\dots, b_n]$ als die kleinste $A$-Unteralgebra, die $b_1,\dots, b_n$ enthält; also $A[b_1,\dots, b_n] = \im \ev_{(b_1,\dots, b_n)}\colon A[t_1,\dots, t_n]\to B$.
-	\item $A\to B$ heißt endlich genau dann, wenn ${}_AB$ ein endlich erzeugter $A$-Modul ist.
+	\item $A\to B$ heißt \emph{endlich} genau dann, wenn ${}_AB$ ein endlich erzeugter $A$-Modul ist.
 \end{enumerate}
 
 \begin{lem} \label{lem:ganzheit}
@@ -2098,7 +2094,7 @@ Bezeichnungen. Sei $A\to B$ ein Ringhomomorphismus.
 	\[ b = a^{n-1}b^n = \sum_{i = 0}^{n-1} a_ia^{n-1}b^i = \sum_{i = 0}^{n-1}a_ia^{n-1-i}\in A. \]
 	Folglich gilt $b\in A$ und damit $a\in A^{\times}$.
 	\item[\glqq$\Leftarrow$\grqq:] Sei $b\in B\setminus\{0\}$. Es gibt also $p(t) \in A[t]$ normiert mit $p(b) = 0$. Schreibe
-	$$p(t) = t\cdot q(t) + a$$
+	\[p(t) = t\cdot q(t) + a\]
 	mit $q(t)\in A[t]$, $a\in A$. Insbesondere ist $q\neq 0$. Wähle $p$ von minimalem Grad. Dann folgt $\deg q < \deg p$, also $q(b) \neq 0$. Das bedeutet $0 = bq(b)+a$, wenn wir in obige Gleichung $b$ einsetzen, also $b\cdot q(b)  = -a$, wobei $b\cdot q(b) \neq 0$, da $B$ ein Integritätsbereich ist. Andererseits ist $b\cdot q(b) \in A$ und damit $b\cdot q(b) \in A^{\times}\subseteq B^{\times}$, also $b\in B^{\times}$.
 	\qedhere
 \end{description}	
@@ -2147,9 +2143,8 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 		\begin{center}
 		\begin{tikzcd}
 			A \arrow{r}{f\text{ ganz}} \arrow{d}& B \arrow{d} \\
-			A_\fp \arrow{r}{\text{ganz}}	& B_\fp
+			A_\fp \arrow{r}{\text{ganz}}	& B_\fp.
 		\end{tikzcd}
-		% TODO: punkt?
 		\end{center}
 		Definiere $\fq_i' := \fq_i\cdot B_\fp\in \Spec B_\fp$ für $i = 1,2$ (denn $\fq_i\cap f(A\setminus \fp) = \emptyset$). Es gilt \begin{align*}(\fq_i'\cap A_\fp)\cap A &= (\fq_i'\cap B) \cap A \\
 									   &= ((\fq_i\cdot B_\fp)\cap B)\cap A\\
@@ -2180,9 +2175,8 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 	Betrachte \begin{center}
 		\begin{tikzcd}
 			A \arrow{r}{\text{ganz}} \arrow{d}{\tilde{\pi}}& B \arrow{d}{\pi} \\
-			\fak{A}{\fp_1} \arrow{r}{\text{ganz}}	& \fak{B}{\fq_1}
+			\fak{A}{\fp_1} \arrow{r}{\text{ganz}}	& \fak{B}{\fq_1}.
 		\end{tikzcd}
-		% TODO: Punkt?
 	\end{center}
 	Es existiert $\fq_2'\in\Spec (\fak{B}{\fq_1})$ mit $\fq_2'\cap(\fak{A}{\fp_1}) = \fak{\fp_2}{\fp_1}$.
 	
@@ -2193,7 +2187,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 \subsection{Going down}
 \begin{defi}
 	Sei $A\to B$ ein Ringhomomorphismus und $I\subseteq A$ Ideal. Sei $b\in B$. $b$ heißt \emph{ganz über $I$}, wenn es ein normiertes Polynom $p(t)$ mit
-	$$p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0\in A[t]$$
+	\[p(t) = t^n+a_{n-1}t^{n-1}+\dots + a_0\in A[t]\]
 	gibt, sodass $p(b) = 0$ und $a_0,\dots, a_{n-1}\in I$.
 \end{defi}
 \begin{lem} \label{lem:6.11}
@@ -2226,7 +2220,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 \end{defi}
 \begin{lem} \label{lem:6.13}
 	Sei $A\subseteq B$ eine Ringerweiterung, $A$ und $B$ Integritätsbereiche, $A$ normal und $I\subseteq A$ ein Ideal. Sei $b\in B$ ganz über $I$. Sei
-	$$m_b(t) = t^n+a_{n-1}t^{n-1}+\dots +a_0\in K[t]$$
+	\[m_b(t) = t^n+a_{n-1}t^{n-1}+\dots +a_0\in K[t]\]
 	das Minimalpolynom von $b$ über $K := \Quot(A)$. Dann gilt $a_0,\dots, a_{n-1}\in\sqrt{I}$.
 \end{lem}
 
@@ -2489,94 +2483,100 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 
 \lecture{11. Juni 2018}
 
-\begin{proof} NOCH UNSCHÖN FORMATIERT + FEHLENDE DIAGRAMME, WIRD DEMNÄCHST BEARBEITET % TODO: do stuff
+\begin{proof}
 	\leavevmode
 	\begin{description}
-		\item[Schritt 1:] Sei $A = k[t_1,\dots, t_n]$ der Polynomring. Sei $a\in A\setminus(A^{\times}\cup \{0\})$. Wir beweisen nun, dass Elemente $a_2,\dots, a_n\in A$ mit $k[a, a_2,\dots, a_n]\subseteq A$ endlich existieren.
-		
-		Beweis: Für $\lambda = (\lambda_1,\dots, \lambda_n)\in\IZ_{\ge 0}^n$ schreibe $t^{\lambda} = t_1^{\lambda_1}\dots t_n^{\lambda_n}$. Schreibe $a = \sum_{\lambda\in\IZ_{\ge 0}^n} c_{\lambda}t^{\lambda}$ für gewisse $c_{\lambda}\in k$. Definiere
-		\[\Lambda_a := \set*{\lambda\in\IZ_{\ge 0}^n \given c_{\lambda}\neq 0}.\]
-		Es gibt also $r_2,\dots, r_n\in\IZ_{\ge 0}$, sodass für alle $\lambda, \mu\in \Lambda_a$ mit $\lambda\neq \mu$ dann
-		\[\lambda_1+r_2\lambda_2+\dots +r_n\lambda_n\neq \mu_1+r_2\mu s_2+\dots + r_n\mu_n\]
-		gilt. Dazu setzen wir \[R := \max\limits_{\lambda\in\Lambda_a}\max_{i = 1,\dots, n}\lambda _i\] und definieren $r_i := (R+1)^{i-1}$. Seien also $\lambda,\mu \in \Lambda_a$ mit $\lambda\neq\mu$. Sei $m := \max\set{1\le i \le n \given \lambda_i \neq \mu_i}$, also insbesondere $m\ge 1$. Wir nehmen ohne Einschränkung $\lambda_m < \mu_m$. Betrachte nun \begin{align*}
-			\sum_{i = 1}^nr_i\mu_i-r_i\lambda_i &= r_m(\mu_m-\lambda_m)+\sum_{i = 1}^{m-1}r_i(\mu_i-\lambda_i)\ge r_m-\sum_{i = 1}^{m-1}r_iR \\ &= (R+1)^{m-1}-\sum_{i = 1}^{m-1} R(R+1)^{i-1} = 1\neq 0
-		\end{align*}
-		
-		Definiere nun $a_i = t_i-t_i^{r_i}$ für $i = 2, \dots, n$. Es gilt $k[a,a_2,\dots, a_n][t_1] = k[t_1,\dots, t_n]$. Es genügt zu zeigen, dass $t_1$ ganz über $k[a,a_2,\dots, a_n]$ ist. Sei $\mu\in\Lambda_a$ das eindeutig bestimmte Element, für welches
-		\[\mu_1+r_2\mu_2+\dots+r_k\mu_k = \max\limits_{\lambda\in\Lambda_a}(\lambda_1+r_2\lambda_2+\dots+r_n\lambda_n) =: s\] gilt.
-		Es folgt \begin{align*}
-			0 &= a-a = \sum_{\lambda\in\Lambda_a}c_{\lambda}t^{\lambda}-a = \sum c_{\lambda}t_1^{\lambda_1}(a_2+t_2^{r_2})^{\lambda_2}\dots (a_n+t_n^{r_n})^{\lambda_n} -a \\ &= b_st_i^s+b_{s-1}t_{i-1}^{s-1}+\dots +b_0
-		\end{align*}
-		für gewisse $b_0,\dots, b_s\in k[a, a_2,\dots, a_n]$ und $b_s = c_{\mu} \in k\setminus \set{0} = A^{\times}$.
-		
-		Damit ist $t_1$ ganz über $k[a, a_2,\dots, a_n]$.
+		\item[Schritt 1:] Sei $A = k[t_1,\dots, t_n]$ der Polynomring sowie $a\in A\setminus(A^{\times}\cup \{0\})$. Wir beweisen nun, dass Elemente $a_2,\dots, a_n\in A$ existieren, sodass $k[a, a_2,\dots, a_n]\subseteq A$ endlich ist.
+		\begin{proof}
+			Mit $\lambda = (\lambda_1,\dots, \lambda_n)\in\IZ_{\ge 0}^n$ schreiben wir $t^{\lambda} = t_1^{\lambda_1}\dots t_n^{\lambda_n}$. Sei $a = \sum_{\lambda\in\IZ_{\ge 0}^n} c_{\lambda}t^{\lambda}$ für gewisse $c_{\lambda}\in k$. Definiere
+			\[\Lambda_a := \set*{\lambda\in\IZ_{\ge 0}^n \given c_{\lambda}\neq 0}.\]
+
+			Nun gibt es $r_2,\dots, r_n\in\IZ_{\ge 0}$, sodass für alle $\lambda, \mu\in \Lambda_a$ mit $\lambda\neq \mu$ dann
+			\[\lambda_1+r_2\lambda_2+\dots +r_n\lambda_n\neq \mu_1+r_2\mu_2+\dots + r_n\mu_n\]
+			gilt. Um dies zu sehen, setzen wir \[R := \max\limits_{\lambda\in\Lambda_a}\max_{1\le i \le n}\lambda _i\] und definieren $r_i := (R+1)^{i-1}$. Es seien also $\lambda,\mu \in \Lambda_a$ mit $\lambda\neq\mu$. Sei \[m := \max\set{1\le i \le n \given \lambda_i \neq \mu_i},\] also insbesondere $m\ge 1$. Wir nehmen ohne Einschränkung $\lambda_m < \mu_m$ an. Somit erhalten wir \begin{align*}
+				\sum_{i = 1}^nr_i\mu_i-r_i\lambda_i &= r_m(\mu_m-\lambda_m)+\sum_{i = 1}^{m-1}r_i(\mu_i-\lambda_i)\ge r_m-\sum_{i = 1}^{m-1}r_iR \\ &= (R+1)^{m-1}-\sum_{i = 1}^{m-1} R(R+1)^{i-1} = 1\neq 0.
+			\end{align*}
+			
+			Definiere nun $a_i = t_i-t_i^{r_i}$ für $i = 2, \dots, n$. Es gilt $k[a,a_2,\dots, a_n][t_1] = k[t_1,\dots, t_n]$. Es genügt zu zeigen, dass $t_1$ ganz über $k[a,a_2,\dots, a_n]$ ist. Sei $\mu\in\Lambda_a$ das eindeutig bestimmte Element, für welches
+			\[\mu_1+r_2\mu_2+\dots+r_k\mu_k = \max\limits_{\lambda\in\Lambda_a}(\lambda_1+r_2\lambda_2+\dots+r_n\lambda_n) =: s\] gilt.
+			Es folgt \begin{align*}
+				0 &= a-a = \sum_{\lambda\in\Lambda_a}c_{\lambda}t^{\lambda}-a = \sum c_{\lambda}t_1^{\lambda_1}(a_2+t_2^{r_2})^{\lambda_2}\dots (a_n+t_n^{r_n})^{\lambda_n} -a \\ &= b_st_i^s+b_{s-1}t_{i-1}^{s-1}+\dots +b_0
+			\end{align*}
+			für gewisse $b_0,\dots, b_s\in k[a, a_2,\dots, a_n]$ und $b_s = c_{\mu} \in k\setminus \set{0} = A^{\times}$.
+			
+			Damit ist $t_1$ ganz über $k[a, a_2,\dots, a_n]$.
+		\end{proof}
+
 		\item[Schritt 2:] Der Satz ist richtig für $A = k[t_1,\dots, t_n]$ und $m = 1$.
+		\begin{proof}[Beweis durch Induktion nach $n$]
+			Sei $I=I_1$. Da der Fall $n=0$ klar ist, wenden wir uns dem Induktionsschritt von $n-1$ nach $n$ zu.
 		
-		Beweis: Induktion nach $n$ ($I = I_1)$: Der Fall $n = 0$ ist klar.
+			Für $I = (0)$ ist die Aussage klar. Sei also $I \neq (0)$. Sei $a_1\in I\setminus\set{0}$. Dann ist aber $a_1\notin A^{\times}\cup\{0\}$. Nach Schritt 1 existieren $a_2', \dots, a_n'\in A$ mit $k[a_1, a_2',\dots, a_n']\subseteq A$ endlich. Die $a_i'$ sind algebraisch unabhängig über $k$, da $\trdeg(k[a_1,a_2',\dots, a_n']\mid k) = n$. Damit ist $k[a_1, a_2',\dots, a_n']$ ein Polynomring. Betrachte $I' = I\cap k[a_2',\dots, a_n']$. Nach Induktionsvoraussetzung gibt es $a_2,\dots, a_n\in k[a_2',\dots, a_n']$ und $1 \le h \le n$ mit $k[a_2,\dots, a_n]\subseteq k[a_2',\dots, a_n']$ ganz (endlich) und $I'\cap k[a_2,\dots, a_n] = (a_2,\dots, a_h)$.
+			Automatisch sind $a_2,\dots, a_n$ algebraisch unabhängig über $k$. Wir erhalten
+			\[k[a_1,a_2,\dots, a_n]\subseteq k[a_1,a_2',\dots, a_n']\subseteq A,\]
+			wobei beide Inklusionen ganz sind. Außerdem gilt wegen $a_i\in I$
+			\begin{align*}
+				I\cap k[a_1,a_2,\dots, a_n] &= (I\cap k[a_2,\dots, a_n]) + (a_i) = (a_2, \dots, a_k) + (a_1) \\ &= (a_1,\dots, a_k).
+			\end{align*}
+			Denn sei $A$ eine $k$-Algebra, $x,y\in A$ und $I\subseteq A$ ein Ideal mit $x\in I$. Dann gilt $I\cap k[x,y] = (x) + (I\cap k[y])$: \glqq$\supseteq$\grqq\ ist dabei klar. Für \glqq$\subseteq$\grqq\ sei $f\in I\cap k[x,y]$. Dann gibt es $a_{ij}\in k$ mit
+			\[f = \sum_{i,j\ge 0}a_{ij}x^iy^j = \sum_{i>0, j\ge0}a_{ij}x^{i}y^j + \sum_{j\ge 0} a_{0j}y^j\]
+			und damit ist $\sum_{j\ge 0}a_{0j}y^j\in I\cap k[y]$.
+		\end{proof}
 		
-		Induktionsschritt von $n-1$ nach $n$: Falls $I = (0)$ ist die Aussage klar. Sei $I \neq (0)$. Sei $a_1\in I\setminus\set{0}$. Dann ist aber $a_1\notin A^{\times}\cup\{0\}$. Nach Schritt 1 existieren $a_2', \dots, a_n'\in A$ mit $k[a_1, a_2',\dots, a_n']\subseteq A$ endlich $\Rightarrow a_1, a_2',\dots, a_n'$ algebraisch unabhängig über $k$ (denn $\operatorname{trdeg}(k[a_1,a_2',\dots, a_n']|k) = n$). Damit ist $k[a_1, a_2',\dots, a_n']$ Polynomring. Betrachte $I' = I\cap k[a_2',\dots, a_n']$. Nach Induktionsvoraussetzung gibt es $a_2,\dots, a_n\in k[a_2',\dots, a_n']$ und $h \in \set{0,\dots, n}$ mit $k[a_2,\dots, a_n]\subseteq k[a_2',\dots, a_n']$ ganz (endlich) und $I'\cap k[a_2,\dots, a_n] = (a_2,\dots, a_h)$.
-		Automatisch sind $a_2,\dots, a_n$ algebraisch unabhängig über $k$.
-		$$\Rightarrow k[a_1,a_2,\dots, a_n]\subseteq k[a_1,a_2',\dots, a_n']\subseteq A$$
-		wobei beide Inklusionen ganz sind. Außerdem gilt
-		$$I\cap k[a_1,a_2,\dots, a_n] = (I\cap k[a_2,\dots, a_n]) + (a_i) = (a_2, \dots, a_k) + (a_1) = (a_1,\dots, a_k)$$
-		(da $a_i\in I$)
-		
-		(Denn: Sei $A$ eine $k$-Algebra, $x,y\in A$, $I\subseteq A$ Ideal mit $x\in I$. Dann gilt $I\cap k[x,y] = (x) + (I\cap k[y])$: \glqq$\supseteq$\grqq\ ist dabei klar. Zu \glqq$\subseteq$\grqq: Sei $f\in I\cap k[x,y]$. Dann gibt es $a_{ij}\in k$ mit
-		$$f = \sum_{i,j\ge 0}a_{ij}x^iy^j = \sum_{i>0, j\ge0}a_{ij}x^{i}y^j + \sum_{j\ge 0} a_{0j}y^j$$
-		und damit ist $\sum_{j\ge 0}a_{0j}y^j\in I\cap k[y]$.)
-		
-		\item[Schritt 3:] Satz ist richtig für $ A = k[t_1,\dots, t_n]$.
-		
-		Beweis per Induktion nach $m$: $m = 1$ ist Schritt 2.
-		
-		Induktionsschritt von $m-1$ nach $m$: Betrachte die Idealkette $I_1\subseteq\dots\subseteq I_{m-1}$. Nach Induktionsvoraussetzung gibt es $b_1,\dots, b_n\in A$ und $0\le h_1\le\dots\le h_{m-1}\le n$ mit $k[b_1,\dots, b_n]\subseteq A$ ganz und $I_l\cap k[b_1,\dots, b_n] = (b_1,\dots, b_{n_l})$ für $l = 1,\dots, m-1$. Definiere $s := h_{m-1}$ und $J := I_m\cap k[b_{s+1},\dots, b_n] (\subsetneq k[b_{s+1},\dots, k_n])$. Aus Schritt 2 folgt, dass $a_{s+1}, \dots, a_n\in k[b_{2+1},\dots, b_n]$ und $h_m\in \{s,\dots, n\}$ existieren, sodass $k[a_{s+1},\dots, a_n]\subseteq k[b_{s+1},\dots, b_n]$ ganz und $J\cap k[a_{s+1},\dots, a_n] = (a_s+1,\dots, a_{h_m})$. Definiere nun $a_i := b_i$ für $i = 1,\dots, s$. Dann folgt:
-		$$k[a_1,\dots, a_n] \subseteq k[b_1,\dots, b_n]\subseteq A$$
-		wobei beide Inklusionen ganz sind. Außerdem gilt
-		$$I_l\cap k[a_1,\dots, a_n] = (I_l\cap k[b_1,\dots, b_n])\cap k[b_1,\dots, b_s, a_{s+1},\dots, a_n] = (b_1,\dots, b_{h_l})$$
-		für $l = 1,\dots, m-1$. Weiterhin haben wir 
-		$$I_m\cap k[a_1,\dots, a_n] = (a_1,\dots, a_s)+(I_k\cap k[a_{s+1},\dots, a_n]) = (a_1,\dots, a_{h_l})$$
+		\item[Schritt 3:] Der Satz ist richtig für $ A = k[t_1,\dots, t_n]$.
+		\begin{proof}[Beweis durch Induktion nach $m$]
+			Da der Induktionsanfang gerade Schritt 2 ist, betrachten wir nun den Induktionsschritt von $m-1$ nach $m$.
+
+			Betrachte die Idealkette $I_1\subseteq\dots\subseteq I_{m-1}$. Nach Induktionsvoraussetzung gibt es $b_1,\dots, b_n\in A$ und $0\le h_1\le\dots\le h_{m-1}\le n$ mit $k[b_1,\dots, b_n]\subseteq A$ ganz und $I_l\cap k[b_1,\dots, b_n] = (b_1,\dots, b_{n_l})$ für $l = 1,\dots, m-1$. Definiere $s := h_{m-1}$ und $J := I_m\cap k[b_{s+1},\dots, b_n] \subsetneq k[b_{s+1},\dots, k_n]$. Aus Schritt 2 folgt, dass $a_{s+1}, \dots, a_n\in k[b_{s+1},\dots, b_n]$ und $h_m\in \{s,\dots, n\}$ existieren, sodass $k[a_{s+1},\dots, a_n]\subseteq k[b_{s+1},\dots, b_n]$ ganz und $J\cap k[a_{s+1},\dots, a_n] = (a_{s+1},\dots, a_{h_m})$ ist. Definiere nun $a_i := b_i$ für $i = 1,\dots, s$. Dann folgt
+			\[k[a_1,\dots, a_n] \subseteq k[b_1,\dots, b_n]\subseteq A,\]
+			wobei beide Inklusionen ganz sind. Außerdem gilt
+			\[I_l\cap k[a_1,\dots, a_n] = (I_l\cap k[b_1,\dots, b_n])\cap k[b_1,\dots, b_s, a_{s+1},\dots, a_n] = (b_1,\dots, b_{h_l})\]
+			für $l = 1,\dots, m-1$. Weiterhin haben wir 
+			\[I_m\cap k[a_1,\dots, a_n] = (a_1,\dots, a_s)+(I_k\cap k[a_{s+1},\dots, a_n]) = (a_1,\dots, a_{h_l}).\qedhere\]
+		\end{proof}
 		
 		\item[Schritt 4:] Der Satz gilt allgemein.
+		\begin{proof}
+			Sei $A$ eine endlich erzeugte $k$-Algebra; es existiert also ein surjektiver $k$-Algebrenhomomorphismus
+			\[f\colon k[t_1,\dots, t_N]\longto A\]
+			Betrachte die Idealkette 
+			\[J_0 := \ker f\subseteq J_1 := f^{-1}(I_1)\subseteq \cdots \subseteq J_m := f^{-1}(I_m)\subseteq k[t_1,\dots, t_N].\]
+			Aus Schritt 3 folgt, dass $b_1,\dots, b_N\in k[t_1,\dots, t_N]$ und $0\le j_0\le\dots\le j_m\le N$ mit $k[b_1,\dots, b_N]\subseteq k[t_1,\dots, t_N]$ ganz und $J_l\cap k[b_1,\dots, b_N] = (b_1,\dots, b_{j_l})$ für $l = 0,\ldots,m$ existieren.
+			
+			Definiere $a_i = f(b_{j_0+i})$ für $1\le i \le n = N-j_0$. Dann sind $a_1,\dots, a_n$ algebraisch unabhängig über $k$, da das Diagramm
+			\begin{center}
+				\begin{tikzcd}
+					k[t_{j_0+1},\dots, t_N] \arrow{r}{t_i\mapsto b_i}\arrow{d}{\ev_{a_i}} & k[t_1,\dots, t_N] \arrow{dl}{f} \\
+					A	& 
+				\end{tikzcd}
+			\end{center}
+			kommutiert und $\ker f = (b_1,\dots, b_{j_0})$, also $\ev_{(a_i)}$ injektiv ist.
+			
+			Betrachten wir weiterhin das Diagramm
+			\begin{center}
+				\begin{tikzcd}
+					k[a_1,\ldots,a_n] \arrow[Subseteq]{r} & A \\
+					k[b_1,\ldots,b_N] \arrow[Subseteq]{r}{\substack{\text{ganz}\\~}} \arrow[twoheadrightarrow]{u}{\ol f} & k[t_1,\ldots,t_N] \arrow[twoheadrightarrow]{u}{f},
+				\end{tikzcd}
+			\end{center}
+			so folgt, dass $k[a_1,\ldots,a_n] \subseteq A$ ganz, also endlich ist. Da $J_t \supseteq \ker f$, gilt \begin{align*}
+				I_l\cap k[a_1,\dots, a_n] &= \ol{f}(\ol{f}^{-1}(I_1\cap k[a_1,\dots, a_n])) = \ol{f}(J_l\cap k[b_1,\dots, b_N]) \\ &= \ol{f}(b_1,\dots, b_{j_l}) = (a_1,\dots, a_{h_l}),
+			\end{align*}
+			wobei $h_l = j_l-j_0$.
+		\end{proof}
 		
-		Beweis: $A$ ist eine endlich erzeugte $k$-Algebra. Es existiert also ein surjektiver $k$-Algebrenhomomorphismus
-		$$f\colon k[t_1,\dots, t_N]\longto A$$
-		Betrachte die Idealkette 
-		$$J_0 := \ker f\subseteq J_1 := f^{-1}(I_1)\subseteq\dots \subseteq dots J_m := f^{-1}(I_m)\subseteq k[t_1,\dots, t_N]$$
-		Aus Schritt 3 folgt, dass $b_1,\dots, b_N\in k[t_1,\dots, t_N]$ und $0\le j_1\le\dots\le j_m\le N$ existieren mit $k[b_1,\dots, b_N]\subseteq k[t_1,\dots, t_N]$ ganz und $J_l\cap k[b_1,\dots, b_N] = (b_1,\dots, b_{j_l})$ für $l = 0,\dots, m$.
-		
-		Definiere $a_1 = f(b_{j_0+1}),\dots, a_n = f(b_{N})$ mit $n = N-j_0$. Dann sind $a_1,\dots, a_n$ algebraisch unabhängig über $k$.
-		
-		(Denn: \begin{center}
-			\begin{tikzcd}
-				k[t_{j_0+1},\dots, t_N] \arrow{r}{t_i\mapsto b_i}\arrow{d}{\ev_{a_i}} & k[t_1,\dots, t_N] \arrow{dl}{f} \\
-				A	& 
-			\end{tikzcd}
-		\end{center}
-		kommutiert und $\ker f = (b_1,\dots, b_{j_0}) \Rightarrow \ev_{(a_i)}$ injektiv.)
-		
-		Außerdem $k[a_1,\dots, a_n]\subseteq A$ endlich:
-		
-		INSERT DIAGRAMM HERE
-		
-		$\Rightarrow k[a_1,\dots, a_n]\subseteq A$ ganz. Es gilt, da $J_l\supseteq \ker f$:
-		$$I_l\cap k[a_1,\dots, a_n] = \ol{f}(\ol{f}^{-1}(I_1\cap k[a_1,\dots, a_n])) = \ol{f}(J_l\cap k[b_1,\dots, b_N]) = \ol{f}(b_1,\dots, b_{j_l}) = (a_1,\dots, a_{h_l})$$
-		wobei $h_l = j_l-j_0$.
-		
-		\item[Schritt 5:] Wir zeigen nun noch den Zusatz: Definiere
-		$$m_1 = \max_{\fp\in \Spec A}\operatorname{trdeg}(Q(A/\fp)|k)$$
-		und
-		$$m_2 = \max{\fp\in\operatorname{MinSpec} A} \operatorname{trdeg}(Q(A/\fp)|k)$$
-		Zeige $n\ge m_1\ge m_2\ge n$.
-		\begin{itemize}
-			\item Definiere $B = k[a_1,\dots, a_n] \subseteq A$. Dann ist $B\subseteq A$ endlich. Sei $\fp\in\Spec A \Rightarrow Q(B/\fp\cap B)\hookrightarrow Q(A/\fp)$ algebraische Körpererweiterung. Dann ist
-			$$\operatorname{trdeg}(Q(B/\fp\cap B)|k) = \operatorname{trdeg}(Q(A/\fp)|k)$$
-			$Q(B/\fp\cap B) = k(\ol{a_1},\dots, \ol{a_n})\Rightarrow \operatorname{trdeg}(Q(B/\fp\cap B))\le n$, also $m_1\le n$
-			\item $m_2\le m_1$ ist klar.
-			\item Sei $\{\fp_1,\dots , \fp_r\} = \operatorname{MinSpec}A$. Da $B\subseteq A$ ganz ist und $B$ Integritätsbereich ist, folgt mit Satz 6.8: Es gibt $\fp\in \Spec A$ mit $\fp\cap B = (0)$. Insbesondere gibt es $\fp_i$ mit $\fp_i\cap B = (0)$. Das bedeutet, dass
-			$$Q(B) = Q(B/\fp_i\cap B)\subseteq Q(A/\fp_i)$$
-			wobei die letze Erweiterung algebraisch ist. Dadurch erhalten wir
-			$$ n = \operatorname{trdeg}(Q(B)|k) = \operatorname{trdeg}(Q(A/\fp_i)|k) \le m_2$$
-		\end{itemize}
+		\item[Schritt 5:] Wir zeigen nun noch den Zusatz. Definiere \[m_1 := \max_{\mathclap{\fp\in \Spec A}}\trdeg(Q(A/\fp)\mid k) \quad\text{und}\quad m_2 := \max_{\mathclap{\fp\in\MinSpec A}} \trdeg(Q(A/\fp)\mid k).\]
+		Wir zeigen nun $n\ge m_1\ge m_2\ge n$.
+		\begin{description}
+			\item[$m_1 \le n$:] Setze $B := k[a_1,\dots, a_n] \subseteq A$. Dann ist $B\subseteq A$ endlich. Sei $\fp\in\Spec A$. Dann ist $\Quot(\fak B{\fp\cap B})\hookrightarrow \Quot(\fak A\fp)$ eine algebraische Körpererweiterung. Dann ist
+			\[\trdeg(\Quot(B/\fp\cap B)\mid k) = \trdeg(\Quot(\fak A\fp)\mid k).\]
+			Da $\Quot(\fak B{\fp\cap B}) = k(\ol{a_1},\dots, \ol{a_n})$, ist $\trdeg(\Quot(\fak B{\fp\cap B}))\le n$, also $m_1\le n$.
+			\item[$m_2 \le m_1$] Klar.
+			\item[$n \le m_2$:] Da $B\subseteq A$ ganz ist und $B$ ein Integritätsbereich ist, gibt es nach \cref{prop:6.8} ein $\fp\in \Spec A$ mit $\fp\cap B = (0)$. Insbesondere gibt es ein $\fp' \in \MinSpec A$ mit $\fp'\cap B = (0)$. Das bedeutet, dass
+			\[\Quot(B) = \Quot(\fak B{\fp'\cap B})\subseteq \Quot(\fak A{\fp'}),\]
+			wobei die letzte Erweiterung algebraisch ist. Dadurch erhalten wir
+			\[ n = \trdeg(\Quot(B)\mid k) = \trdeg(\Quot(\fak A{\fp'})\mid k) \le m_2.\qedhere\]
+		\end{description}
 	\end{description}
 \end{proof}
 
@@ -2612,7 +2612,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 		\item Wir betrachten das folgende Diagramm.
 		\begin{center}
 			\begin{tikzcd} 
-				A[s^{-1}][b_1, \dots , b_n] \arrow{d} \arrow[Subseteq]{r}{\text{endlich}} & B[s^{-1}] \arrow{d} \\ % TODO: spacing
+				A[s^{-1}][b_1, \dots , b_n] \arrow{d} \arrow[Subseteq]{r}{\substack{\text{endlich}\\~}} & B[s^{-1}] \arrow{d} \\
 				\fak{A[s^{-1}]}\fp \cong \fak{A[s^{-1}][b_1, \dots b_n]}{\fp'} \arrow[hookrightarrow]{r} & \fak{B[s^{-1}]}\fq
 			\end{tikzcd}
 		\end{center}
@@ -2673,9 +2673,10 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 			\begin{tikzcd}
 				\Quot(\fak{A'}{\fm'}) \arrow[equal]{d}[swap]{\fm' \in \Max A'} \arrow[hookrightarrow]{r}{\text{endl.}} & \Quot(\fak{B'}{\fn'}) \arrow[equal]{d} \\
 				\fak{A'}{\fm'} \arrow[equal]{d}  & \Quot(\fak B\fn) \arrow[equal]{d} \\
-				\fak A\fm \arrow[hookrightarrow]{r} & \fak B\fn
-			\end{tikzcd} % TODO: komma
-		\end{center} wobei $\fn := \fn' \cap B \in \Spec B$. Also ist $\fak B\fn$ ein Körper nach \cref{lem:6.7} und $\fn \in \Max B$.
+				\fak A\fm \arrow[hookrightarrow]{r} & \fak B\fn,
+			\end{tikzcd}
+		\end{center}
+		wobei $\fn := \fn' \cap B \in \Spec B$. Also ist $\fak B\fn$ ein Körper nach \cref{lem:6.7} und $\fn \in \Max B$.
 		Es gilt $\fq \subseteq \fn$ (da $\fn \cap A = \fm \supseteq \fq \cap A$) und $b \notin \fn$, da wir die folgende Bijektion haben. \begin{eqnarray*}
 			\Spec((\fak B\fq)[b^{-1}]) &\xlongleftrightarrow{1:1}& \set{\tilde \fq \in \Spec B \given \fq \subseteq \tilde \fq \text{ und } b \notin \tilde \fq} \\
 			\fq'& \mapsto &\fq' \cap B
@@ -2911,7 +2912,7 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 \end{defi}
 \begin{kor}
 	Sei $X\subseteq \IA^n$ eine algebraische Teilmenge Dann liefern $\Z$ und $\I$ die Bijektion
-	\[\set{\text{Irreduzible Komponenten }C\subseteq X}\xlongleftrightarrow{1:1} \operatorname{MinSpec}\A(X).\]
+	\[\set{\text{Irreduzible Komponenten }C\subseteq X}\xlongleftrightarrow{1:1} \MinSpec\A(X).\]
 	Insbesondere hat $X$ nur endlich viele irreduzible Komponenten (da $\A(X)$ noethersch), aber mindestens eine.
 \end{kor}
 
@@ -3771,6 +3772,8 @@ Das rechtfertigt nun die folgende\\
 		\item Seien $(X,\Os_X)$ und $(Y, \Os_Y)$ Prävarietäten. Ein Morphismus $f\colon (X,\Os_X)\to (Y,\Os_Y)$ ist ein Morphismus von Räumen mit $k$-Funktionengarben.
 	\end{enumerate}
 \end{defi}
+
+% TODO: rest einfügen
 
 \end{document}
 
