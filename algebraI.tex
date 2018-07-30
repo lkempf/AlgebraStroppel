@@ -196,7 +196,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
         \leavevmode
 		\begin{enumerate}[label=\ref{lem:lokale ringe:\roman*}]
 			\item \enquote{\ref{lem:lokale ringe:i:a} $\Rightarrow$ \ref{lem:lokale ringe:i:b}} folgt aus \cref{kor:einheiten und maximale ideale}. Für \enquote{\ref{lem:lokale ringe:i:b} $\Rightarrow$ \ref{lem:lokale ringe:i:a}} sei $J \subsetneq A$ ein Ideal. Dann liegt $J$ in $I$, und es folgt $I \in \Max A$ mit $\Max = \{I\}$.
-			\item Sei $b \in A \setminus \fm$. Es ist $b \in A^{\times}$ zu zeigen. Da $\fm \in \Max A$, gilt $(b)+\fm=A$, es existieren folglich $a \in A, x\in m$ mit $ab+x=1$. Daraus folgt $ab=1-x \in A^{\times}$ und dann $b \in A^{\times}$.
+			\item Sei $b \in A \setminus \fm$. Es ist $b \in A^{\times}$ zu zeigen. Da $\fm \in \Max A$, gilt $(b)+\fm=A$, es existieren folglich $a \in A, x\in \fm$ mit $ab+x=1$. Daraus folgt $ab=1-x \in A^{\times}$ und dann $b \in A^{\times}$.
             \qedhere
         \end{enumerate}
 	\end{proof}
@@ -962,7 +962,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	Wir beweisen $\im(\tilde f_{i-1}\tp\id_N) = \im(f_{i-1} \tp \id_N)$ noch genauer.
 	\begin{description}
 		\item[\enquote{$\supseteq$}] Klar.
-		\item[\enquote{$\subseteq$}] Sei $x \in \im(\tilde f_{i-1}\tp\id_N)$. Dann existiert ein $y \in \fak {M_{i-1}}{\ker f_{i-1}}$ mit $(\tilde f_{i-1}\tp\id_N)(y) = x$. Da $\pi \tp \id_N$ surjektiv ist, existiert ein $z \in M_{i-1} \tp N$ mit $(pi \tp \id_N)(z) = y$. Dann gilt $x = (\tilde f_{i-1} \tp \id_N)((\pi \tp \id_N)(z)) = (f_{i-1}\tp \id_N)(z)$.
+		\item[\enquote{$\subseteq$}] Sei $x \in \im(\tilde f_{i-1}\tp\id_N)$. Dann existiert ein $y \in \fak {M_{i-1}}{\ker f_{i-1}}$ mit $(\tilde f_{i-1}\tp\id_N)(y) = x$. Da $\pi \tp \id_N$ surjektiv ist, existiert ein $z \in M_{i-1} \tp N$ mit $(\pi \tp \id_N)(z) = y$. Dann gilt $x = (\tilde f_{i-1} \tp \id_N)((\pi \tp \id_N)(z)) = (f_{i-1}\tp \id_N)(z)$.
 	\end{description}
 	Somit gilt \ref{prop:flach:iii}.
 \end{proof}
@@ -1197,7 +1197,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}[label=\ref{thm:314:\roman*}]
-		\item Betrachte für $(b,c)\in B\times C$ die $A$-bilineare Abbildung $B\times C\to B\tp_AC, (b'c')\mapsto bb'\tp cc$ mit
+		\item Betrachte für $(b,c)\in B\times C$ die $A$-bilineare Abbildung $B\times C\to B\tp_AC, (b'c')\mapsto bb'\tp cc'$ mit
 		\begin{center}
 			\begin{tikzcd}
 				B\times C\arrow{d}\arrow{r}& B\tp_AC\\
@@ -1231,7 +1231,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\[\lambda((b\tp c)(b'\tp c')) = \phi(b)\phi(b')\psi(c)\psi(c') = \lambda(b\tp c)\lambda (b'\tp c')\]
 		
 		\begin{bem}
-			Seien $R,S$ beide $A$-Algebren, $\lambda\colon R\to S$ sei $A$-linear, sei $\{x_i\}$ Erzeugendensystem von $R$ als $A$-Modul. Falls $\lambda(x_i,x_j) =)\lambda(x_i)\lambda(x_j)$ und $\lambda(1) = 1$, also ist $\lambda$ ein Ringhomomorphismus.
+			Seien $R,S$ beide $A$-Algebren, $\lambda\colon R\to S$ sei $A$-linear, sei $\{x_i\}$ Erzeugendensystem von $R$ als $A$-Modul. Falls $\lambda(x_i,x_j) =\lambda(x_i)\lambda(x_j)$ und $\lambda(1) = 1$, also ist $\lambda$ ein Ringhomomorphismus.
 		\end{bem}
 	
 		Nun zur Eindeutigkeit: Sei $\lambda'$ ein weiterer Ringhomomorphismus wie oben. Dann ist $\lambda'$ $A$-linear, reicht also auf reinen Tensoren zu prüfen.
@@ -1414,7 +1414,7 @@ Wir werden die folgende Notation verwenden: $\rk F := \abs I \in\IZ_{\ge 0}\cup 
 	Definiere $b_i := \frac{a}{a_i} = \prod_{j\neq i} a_j$. Dann gilt bereits $(b_1,\dots, b_n) = (1)$. Denn sonst würde ein primes $p\in A$ existieren, welches alle $b_i$ teilt. $p$ teilt also insbesondere $b_1 = \prod_{j = 2}^n a_j$, es existiert also ein $j\ge 2$ mit $p \mid a_j$. Da $p \mid b_j$, existiert ein $k\neq j$ mit $p \mid a_k$, was ein Widerspruch zu $1 = \gcd(a_j,a_k)$ ist.
 	
 	Es existieren also $d_1,\dots, d_n\in A$ mit $\sum d_ib_i = 1$. Wir zeigen nun $M = M_{a_1}+\dots +M_{a_n}$. Sei $x\in M$. Betrachte $a_id_ib_ix$. Es gilt $a_id_ib_ix = d_iax = 0$, also $d_ib_ix\in M_{a_i}$. Wir erhalten folglich \[ x = \sum d_ib_ix \in \sum M_{a_i}. \]
-	Zeige nun noch $M_{a_i}\cap \sum_{j\neq i}M_{a_j} = \{0\}$. Sei $x\in M_{a_i}\cap\sum_{j \neq i}M_{a_j}$. Dann gilt $a_ix = 0$ und $b_ix = 0$, da $x = \sum_{j \neq i} x_j$ mit $x_j\in M_j$).
+	Zeige nun noch $M_{a_i}\cap \sum_{j\neq i}M_{a_j} = \{0\}$. Sei $x\in M_{a_i}\cap\sum_{j \neq i}M_{a_j}$. Dann gilt $a_ix = 0$ und $b_ix = 0$, da $x = \sum_{j \neq i} x_j$ mit $x_j\in M_j$.
 	
 	Da $(a_i,b_i)= (1)$, existieren $c,d\in A$ mit $ca_i+db_i = 1$, also $x = ca_ix+db_ix = 0$.
 \end{proof}
@@ -1740,15 +1740,15 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 		S^{-1}A\tp_AM\arrow[dashrightarrow]{ru}[swap]{\exists!\phi \text{ $A$-linear}} 
 	\end{tikzcd}
 	\end{center}
-	Wir rechnen nach, dass $\phi$ auch  $S^{-1}A$-linear ist. Sei dazu $\frac bt \in S^{-1}A$ und $z\in S^{-1}A\tp_A M$. Dann gilt $z = \sum \frac {a_i}{s_i}\tp x_i$ für $a_i\in A, s_i\in S, x_i\in M$. Wir erhalten also
+	Wir rechnen nach, dass $\phi$ auch  $S^{-1}A$-linear ist. Sei dazu $\frac bt \in S^{-1}M$ und $z\in S^{-1}A\tp_A M$. Dann gilt $z = \sum \frac {a_i}{s_i}\tp x_i$ für $a_i\in A, s_i\in S, x_i\in M$. Wir erhalten also
 	\begin{align*}
-		\phi\left(\frac{bt} z\right) &=\phi\left(\sum\frac{ba_i}{ts_i}\tp x_i \right) = \sum\phi(\frac{ba_i}{ts_i}\tp x_i) = \sum \frac{ba_ix_i}{ts_i} = \frac{b}{t} \cdot \sum \frac{a_ix_i}{s_i} \\
+		\phi\left(\frac{b}{t} z\right) &=\phi\left(\sum\frac{ba_i}{ts_i}\tp x_i \right) = \sum\phi(\frac{ba_i}{ts_i}\tp x_i) = \sum \frac{ba_ix_i}{ts_i} = \frac{b}{t} \cdot \sum \frac{a_ix_i}{s_i} \\
 		&= \frac bt \cdot \phi\left(\sum\frac{a_i}{s_i}\tp x_i\right).
 	\end{align*}
 	Damit ist $\phi$ tatsächlich $S^{-1}A$-linear.
 	
 	Es bleibt zu zeigen, dass $\phi$ ein Isomorphismus ist. Die Surjektivität ist klar. Für die Injektivität zeigen wir zunächst, dass für alle $z\in S^{-1}A\tp_AM$ dann $x\in M, s\in S$ mit $z = \frac 1s\tp x$ existieren. Denn seien $a_i\in A, s_i\in S, x_i\in M$ mit $z = \sum\frac{a_i}{s_i}\tp x_i$, so definieren wir $s = \prod_i s_i, t_i = \prod_{j \neq i} s_j$, woraus \[z = \sum \frac{a_it_i}{s}\tp x_i = \sum \frac 1s \tp a_it_ix_i = \frac{1}{s}\tp\sum a_it_ix_i\]
-	folgt. Sei nun $z\in S^{-1}A\tp_AM$ mit $\phi(z) = 0$. Wähle $s,x$ mit $z = \frac 1s\tp z$. Also gilt $0 = \frac xs$, und es exisiert somit ein $u\in S$ mit $ux = 0$. Damit gilt auch $0 = \frac 1{su}\tp ux = \frac{u}{su}\tp x = \frac{1}{s}\tp x = z$.
+	folgt. Sei nun $z\in S^{-1}A\tp_AM$ mit $\phi(z) = 0$. Wähle $s,x$ mit $z = \frac 1s\tp x$. Also gilt $0 = \frac xs$, und es exisiert somit ein $u\in S$ mit $ux = 0$. Damit gilt auch $0 = \frac 1{su}\tp ux = \frac{u}{su}\tp x = \frac{1}{s}\tp x = z$.
 \end{proof}
 \begin{kor}
 	$S^{-1}A$ ist flach als $A$-Modul.
@@ -1993,6 +1993,7 @@ Sei $B$ eine $A$-Algebra.
 		\item Die Menge $\set{b\in B\given \text{$b$ ganz über $A$}}$ heißt \emph{ganzer Abschluss} (\enquote{integral closure}) von $A$ in $B$.
 		\item $B$ heißt \emph{ganz} über $A$, wenn jedes $b\in B$ ganz über $A$ ist.
 		\item $A$ heißt \emph{ganz abgeschlossen} in $B$, wenn $b\in B$ genau dann ganz ist, wenn  $b$ in $\im (A\to B)$ liegt.
+		\item Ein Ringhomomorphismus $f : A \rightarrow B$ heißt \emph{ganz}, wenn $B$ ganz über $f(A)$ ist. 
 	\end{enumerate}
 \end{defi}
 \begin{bsp}
@@ -2151,7 +2152,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 									   &= \fq_i \cap A = \fp.
 		\end{align*}
 		Also erhalten wir $\fp\cdot A_\fp = ((\fq_i'\cap A_\fp)\cap A)\cdot A_\fp = \fq_i'\cap A_\fp$ nach Primidealkorrespondenz (\cref{thm:spektrumkorrespondenz}).
-		Dabei ist $\fp\cdot A_\fp\in \Max(A_\fp)$. Mit \ref{prop:6.8:i} können wir folglich $\fq_i'\cdot \fq_2'\in \Max(B_\fp)$ folgern. Da $\fq_1'\subseteq \fq_2'$ ist, muss damit bereits $\fq_1' = \fq_2'$ gelten.
+		Dabei ist $\fp\cdot A_\fp\in \Max(A_\fp)$. Mit \ref{prop:6.8:i} können wir folglich $\fq_1'\cdot \fq_2'\in \Max(B_\fp)$ folgern. Da $\fq_1'\subseteq \fq_2'$ ist, muss damit bereits $\fq_1' = \fq_2'$ gelten.
 		
 		Wieder mit \cref{thm:spektrumkorrespondenz} können wir schließlich
 		\[\fq_1 = (\fq_1\cdot B_\fp)\cap B = \fq_1'\cap B = \fq_2'\cap B = \fq_2\]
@@ -2259,7 +2260,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 		\[m_s(t) = t^n+\frac{a_{n-1}}xt^{n-1}+\dots + \frac {a_0}{x^n}\]
 		das Minimalpolynom von $s$ über $K$. Definiere $\tilde{a}_i := \frac{1}{x^{n-i}}a_i$. Es gilt $s\in B\setminus \fq_2\subseteq B$, also ist $s$ ganz über $A$; also folgt mit \cref{lem:6.13} (mit $I = A$), dass $\tilde{a}_0,\dots, \tilde{a}_{n-1}\in A$.
 		
-		Nach Annahme ist $x\notin p_1$. Aber $\tilde{a}_i\cdot x^{n-1} = a_i\in \fp_1$. Da $x^{n-1}$ nicht in $\fp_1$ ist, muss $\tilde{a_i}\in \fp_1$ gelten. Daraus folgt nun
+		Nach Annahme ist $x\notin \fp_1$. Aber $\tilde{a}_i\cdot x^{n-1} = a_i\in \fp_1$. Da $x^{n-1}$ nicht in $\fp_1$ ist, muss $\tilde{a_i}\in \fp_1$ gelten. Daraus folgt nun
 		\[s^n = -(\tilde{a}_{n.1}s^{n-1}+\dots+\tilde{a}_1)\in \fp_1B\subseteq \fp_2\cdot B\subseteq \fq_2\]
 		im Widerspruch zu $s\notin \fq_2$.
 		\qedhere
