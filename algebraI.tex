@@ -196,7 +196,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
         \leavevmode
 		\begin{enumerate}[label=\ref{lem:lokale ringe:\roman*}]
 			\item \enquote{\ref{lem:lokale ringe:i:a} $\Rightarrow$ \ref{lem:lokale ringe:i:b}} folgt aus \cref{kor:einheiten und maximale ideale}. Für \enquote{\ref{lem:lokale ringe:i:b} $\Rightarrow$ \ref{lem:lokale ringe:i:a}} sei $J \subsetneq A$ ein Ideal. Dann liegt $J$ in $I$, und es folgt $I \in \Max A$ mit $\Max = \{I\}$.
-			\item Sei $b \in A \setminus \fm$. Es ist $b \in A^{\times}$ zu zeigen. Da $\fm \in \Max A$, gilt $(b)+m=A$, es existieren folglich $a \in A, x\in m$ mit $ab+x=1$. Daraus folgt $ab=1-x \in A^{\times}$ und dann $b \in A^{\times}$.
+			\item Sei $b \in A \setminus \fm$. Es ist $b \in A^{\times}$ zu zeigen. Da $\fm \in \Max A$, gilt $(b)+\fm=A$, es existieren folglich $a \in A, x\in m$ mit $ab+x=1$. Daraus folgt $ab=1-x \in A^{\times}$ und dann $b \in A^{\times}$.
             \qedhere
         \end{enumerate}
 	\end{proof}
@@ -206,13 +206,13 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 	\begin{enumerate}
         \leavevmode
 		\item[0)] Körper sind lokale Ringe.
-        \item Ist $(A,\fm)$ ein lokaler Ring. Dann ist $A\llbracket t \rrbracket$ ein lokaler Ring. Dabei ist \[ A\llbracket t \rrbracket=\left\{\sum_{i=0}^\infty a_it^i \,\middle|\, a_i \in A\right\} \] der Ring der formalen Potenzreihen mit kanonischer Addition und Multiplikation. Betrachte die Komposition $A\llbracket t \rrbracket \to A \to A/\fm$ gegeben durch $\phi=\can \circ \ev_0$. Diese bildet surjektiv auf den Körper $A/\fm$ ab, also ist $\ker \phi \in \Max A\llbracket t \rrbracket$.
+        \item Sei $(A,\fm)$ ein lokaler Ring. Dann ist $A\llbracket t \rrbracket$ ein lokaler Ring. Dabei ist \[ A\llbracket t \rrbracket=\left\{\sum_{i=0}^\infty a_it^i \,\middle|\, a_i \in A\right\} \] der Ring der formalen Potenzreihen mit kanonischer Addition und Multiplikation. Betrachte die Komposition $A\llbracket t \rrbracket \to A \to \fak A\fm$ gegeben durch $\phi=\can \circ \ev_0$. Diese bildet surjektiv auf den Körper $\fak A\fm$ ab, also ist $\ker \phi \in \Max A\llbracket t \rrbracket$.
         
-        Sei $f \in \ker \phi$ und betrachte $1+ f$. Aus $f \in \ker \phi$ folgt $f=\sum_{i=0}^\infty a_it^i$ mit $a_0 \in \fm$. Wir wollen ein $g \in A\llbracket t\rrbracket$ mit $g=\sum_{i=0}^\infty b_it^i$ mit $(1+f)g=1$ finden, d.h. $(1+a_0)b_0$ und $(1+a_0)b_n+a_1b_{n-1}+\dots a_nb_0$ für alle $n > 0$. Erstere Gleichung ist lösbar, da $a_0 \in m$ liegt und damit $1+a_0 \in A^{\times}$ folgt. Wir führen nun eine Induktion nach $n$. Nehme an, dass $b_0, \dots b_{n-1}$ bereits bekannt sind. Dann folgt, dass $b_n=-(1+a_0)^{-1}(a_1b_{n-1}+\dots+a_nb_0)$. Nach \cref{lem:lokale ringe} ist $A\llbracket t \rrbracket$ lokal mit dem maximalen Ideal $(t)+\fm$. Der Residuenkörper ist $A\llbracket T\rrbracket /((t)+\fm) \cong A/\fm$.
+        Sei $f \in \ker \phi$ und betrachte $1+ f$. Aus $f \in \ker \phi$ folgt $f=\sum_{i=0}^\infty a_it^i$ mit $a_0 \in \fm$. Wir wollen ein $g \in A\llbracket t\rrbracket$ mit $g=\sum_{i=0}^\infty b_it^i$ mit $(1+f)g=1$ finden, d.h. $(1+a_0)b_0$ und $(1+a_0)b_n+a_1b_{n-1}+\dots a_nb_0$ für alle $n > 0$. Erstere Gleichung ist lösbar, da $a_0 \in m$ liegt und damit $1+a_0 \in A^{\times}$ folgt. Wir führen nun eine Induktion nach $n$. Nehme an, dass $b_0, \dots b_{n-1}$ bereits bekannt sind. Dann folgt, dass $b_n=-(1+a_0)^{-1}(a_1b_{n-1}+\dots+a_nb_0)$. Nach \cref{lem:lokale ringe} ist $A\llbracket t \rrbracket$ lokal mit dem maximalen Ideal $(t)+\fm$. Der Residuenkörper ist $\fak{A\llbracket T\rrbracket}{((t)+\fm)} \cong \fak A\fm$.
 
         Spezialfall: $k\llbracket t_1,\dots t_n\rrbracket := k\llbracket t_1,\dots,t_{n-1}\rrbracket\llbracket t_n\rrbracket$ lokaler Ring mit maximalen Ideal $(t_1,\dots,t_n)$ und Residuenkörper isomorph zu $k$.
         
-		\item Sei $X \subseteq \IR^n$ offen, $0 \in X$. Betrachte Paare $(U,f)$ mit $U \subseteq X$ offen, $0 \in U$ und $f:U \to R$ stetig. Definiere Äquivalenzklassen durch $(U_1,f_1) \sim (U_2,f_2)$ genau dann, wenn ein offenes $W \subseteq U_1 \cap U_2$ mit $0 \in W$ und $f_1|_W=f_2|_W$ existiert. Die Äquivalenzklasse $\langle U,f \rangle$ heißt Funktionenkeim. Definiere $A := \{\langle U,f \rangle \mid (U,f) \text{ wie oben}\}$ mit  punktweiser Addition und Multiplikation.
+		\item Sei $X \subseteq \IR^n$ offen, $0 \in X$. Betrachte Paare $(U,f)$ mit $U \subseteq X$ offen, $0 \in U$ und $f:U \to R$ stetig. Definiere Äquivalenzklassen durch $(U_1,f_1) \sim (U_2,f_2)$ genau dann, wenn ein offenes $W \subseteq U_1 \cap U_2$ mit $0 \in W$ und $f_1|_W=f_2|_W$ existiert. Die Äquivalenzklasse $\langle U,f \rangle$ heißt \emph{Funktionenkeim}. Definiere $A := \{\langle U,f \rangle \mid (U,f) \text{ wie oben}\}$ mit  punktweiser Addition und Multiplikation.
 
 		Wir zeigen nun, dass $A$ ein lokaler Ring ist. Betrachte $\phi: A \to \mathbb{R}, \; \langle U,f \rangle \to f(0)$, einen wohldefinierten Ringhomomorphismus. $\phi$ surjektiv und damit folgt $\ker \phi \in \Max A$.
 
@@ -246,7 +246,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 		\item Seien $x, y\in \sqrt{I}$, es existieren also $m, n > 0$ mit $x^m, y^n\in I$. Dann gilt
 		\[(x+y)^{m+n-1}=\sum_{r=0}^{m+n-1}{m+n-1 \choose r}\overbrace{x^r}^{\in I \text{ falls } r\ge m}\underbrace{y^{n+m-1-r}}_{\in I \text{ falls } r<m},\]
 		also liegt auch $x+y$ in $I$. Die anderen Eigenschaften sind schnell nachgeprüft.
-		\item Da $I\subseteq \sqrt{I}$, folgt sofort $\sqrt{I} \subseteq \sqrt{\sqrt{I}}$. Ist nun umgekehrt $x\in \sqrt{\sqrt{I}}$, so existiert ein $n>0$ mit $x^n\in \sqrt{I}$, und dann existiert ein $m>0$ mit $(x^n)^m = x^{nm} \in I$ Also liegt $x$ in $\sqrt{I}$.
+		\item Da $I\subseteq \sqrt{I}$, folgt sofort $\sqrt{I} \subseteq \sqrt{\sqrt{I}}$. Ist nun umgekehrt $x\in \sqrt{\sqrt{I}}$, so existiert ein $n>0$ mit $x^n\in \sqrt{I}$, und dann existiert ein $m>0$ mit $(x^n)^m = x^{nm} \in I$. Also liegt $x$ in $\sqrt{I}$.
 		\item Die Rückrichtung ist klar. Sei also $\sqrt I=(1)$. Dann existiert ein $n>0$ mit $1^n \in I$, also liegt $1$ in $I$.
 		\item Sei $z\in \fak A{\sqrt{I}}$ mit $z^n=0$. Schreibe $z=x+\sqrt{I}$ für ein $x\in A$. Dann ist $x^n+\sqrt{I} = 0$, also liegt $x^n$ in $\sqrt{I}$ und es folgt $z=0$.
 		\qedhere
@@ -426,7 +426,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
 		\begin{proof}
 		\leavevmode
 		\begin{description}
-			\item[\glqq $\Rightarrow$\grqq:] $\checkmark$
+			\item[\glqq $\Rightarrow$\grqq:] Klar.
 			\item[\glqq $\Leftarrow$\grqq:]
             Die Axiome \ref{defi:untermodul:i} und \ref{defi:untermodul:ii} von Untermoduln sind erfüllt, da $M'$ ein Untervektorraum ist. Für Axiom \ref{defi:untermodul:iii} sei $x\in M'$ und $P\in k[t]$ mit $P(t) = \sum a_\nu t^\nu$ mit $a_\nu\in k$. Dann folgt $P\cdot x = \sum a_\nu\psi^\nu(x)\in M'$, da $\psi^\nu(x)$ in $M'$ liegt.
             \qedhere
@@ -451,7 +451,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
         \begin{center}
             \begin{tikzcd}
                     M \arrow{r}{f} \arrow{d}{\pi} & N \\
-                    \fak M{M'} \arrow[dashrightarrow]{ur}{\ol{f}}
+                    \fak M{M'} \arrow[dashrightarrow]{ur}[swap]{\ol{f}}
             \end{tikzcd}
         \end{center}
         \item \label{lem:homsatz moduln:ii} Es existiert genau eine $A$-lineare Abbildung $\tilde{f}\colon \fak M{\ker f}\to \im f$, sodass das folgende Diagramm kommutiert.
@@ -471,7 +471,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
         \begin{center}
             \begin{tikzcd}
                 M \arrow{r}{f} \arrow{d}{\pi} & N \\
-                \fak M{\ker f} \arrow[dashrightarrow]{ur}{\ol{f}}
+                \fak M{\ker f} \arrow[dashrightarrow]{ur}[swap]{\ol{f}}
             \end{tikzcd}
         \end{center}
         
@@ -532,7 +532,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
             \item $M$ hat ein endliches Erzeugendensystem.
             \item Es existiert ein $n \ge 0$, sodass eine surjektive $A$-lineare Abbildung $A^{n}\to M$ existiert.
         \end{itemize}
-        \item $M$ heißt \emph{endlich präsentiert}, falls ein $n \ge 0$ existiert, sodass eine surjektive $A$-lineare Abbildung $A^{n}\xrightarrow{f} M$ existiert, sodass $\ker f$ endlich erzeugt ist.
+        \item $M$ heißt \emph{endlich präsentiert}, falls ein $n \ge 0$ existiert, sodass eine surjektive $A$-lineare Abbildung $f\colon A^{n}\to M$ existiert, sodass $\ker f$ endlich erzeugt ist.
 	\end{enumerate}
 \end{defi}
 \begin{beme}\label{bem:2.17}
@@ -556,7 +556,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
 	\begin{enumerate}[label=\ref{lem:nakayama:\roman*}]
 		\item Induktion nach $n$, der minimalen Anzahl der Erzeuger von $M$.
         \begin{description}
-            \item[$n = 0$:] $M = 0$, $\checkmark$
+            \item[$n = 0$:] $M = 0$, klar.
             \item[$n-1\to n$:] Sei $x_1,\dots, x_n$ ein Erzeugendensystem von $M$. Definiere $N := \fak M{\<x_n\>}$. Sei $\pi \colon M\to N$ die Quotientenabbildung. Dann folgt $N = \<\pi(x_1),\dots,\pi(x_{n-1})\>$. Nun gilt $I\cdot N = N$, da für $y\in N$ ein $x\in M$ mit $\pi(x) = y$ und $x\in I\cdot M$ existiert, und somit $a_i\in I$ sowie $\tilde{x_i}\in M$ mit $y =\sum a_i\pi(\tilde{x_i})\in I\cdot N$ existieren.
 		
             Nach der Induktionsannahme existiert ein $b\in I$, sodass $(1+b)\cdot N = \{0\}\subseteq N = \fak M{\<x_n\>}$. Dann gilt
@@ -1769,8 +1769,8 @@ Aus \ref{lem:4.22:a} und \ref{lem:4.22:b} folgen nun \ref{lem:4.22:i} und \ref{l
 	\begin{align*}
 		S^{-1}M\tp_{S^{-1}A}S^{-1}N &\cong S^{-1}M \tp_{S^{-1}A}(S^{-1}A\tp_AN) \tag{\cref{prop:5.8}} \\
 		&\cong S^{-1}M\tp_A N \tag{\cref{lem:3.11}} \\
-		&\cong S^{-1}A\tp_AM\tp_AN& \\ 
-		&\cong S^{-1}(M\tp_AN)&
+		&\cong S^{-1}A\tp_AM\tp_AN \\ 
+		&\cong S^{-1}(M\tp_AN).
 	\end{align*}
 	Verfolgen der Bilder von $\frac xs\tp \frac yt$ unter Komposition liefert tatsächlich $\phi\left(\frac xs\tp \frac yt\right) = \frac{x\tp y}{st}$.
 \end{proof}
@@ -2565,11 +2565,11 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 			wobei $h_l = j_l-j_0$.
 		\end{proof}
 		
-		\item[Schritt 5:] Wir zeigen nun noch den Zusatz. Definiere \[m_1 := \max_{\mathclap{\fp\in \Spec A}}\trdeg(Q(A/\fp)\mid k) \quad\text{und}\quad m_2 := \max_{\mathclap{\fp\in\MinSpec A}} \trdeg(Q(A/\fp)\mid k).\]
+		\item[Schritt 5:] Wir zeigen nun noch den Zusatz. Definiere \[m_1 := \max_{\mathclap{\fp\in \Spec A}}\trdeg(\Quot(\fak A\fp)\mid k) \quad\text{und}\quad m_2 := \max_{\mathclap{\fp\in\MinSpec A}} \trdeg(\Quot(\fak A\fp)\mid k).\]
 		Wir zeigen nun $n\ge m_1\ge m_2\ge n$.
 		\begin{description}
 			\item[$m_1 \le n$:] Setze $B := k[a_1,\dots, a_n] \subseteq A$. Dann ist $B\subseteq A$ endlich. Sei $\fp\in\Spec A$. Dann ist $\Quot(\fak B{\fp\cap B})\hookrightarrow \Quot(\fak A\fp)$ eine algebraische Körpererweiterung. Dann ist
-			\[\trdeg(\Quot(B/\fp\cap B)\mid k) = \trdeg(\Quot(\fak A\fp)\mid k).\]
+			\[\trdeg(\Quot(\fak B\fp\cap B)\mid k) = \trdeg(\Quot(\fak A\fp)\mid k).\]
 			Da $\Quot(\fak B{\fp\cap B}) = k(\ol{a_1},\dots, \ol{a_n})$, ist $\trdeg(\Quot(\fak B{\fp\cap B}))\le n$, also $m_1\le n$.
 			\item[$m_2 \le m_1$] Klar.
 			\item[$n \le m_2$:] Da $B\subseteq A$ ganz ist und $B$ ein Integritätsbereich ist, gibt es nach \cref{prop:6.8} ein $\fp\in \Spec A$ mit $\fp\cap B = (0)$. Insbesondere gibt es ein $\fp' \in \MinSpec A$ mit $\fp'\cap B = (0)$. Das bedeutet, dass
