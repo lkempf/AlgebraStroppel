@@ -614,7 +614,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\end{enumerate}
 \end{beme}
 \begin{kor}
-	Sei $(A,\fm)$ ein lokaler Ring und $M$ ein endlich erzeugter $A$-Modul sowie $x_1,\ldots,x_n \in M$ und $\pi: M \to \fak M{\fm M}$. Falls $\fak{M}{\fm M}$ von $\pi(x_1),\ldots,\pi(x_n)$ als $\fak M\fm$-Vektorraum erzeugt wird, erzeugen die $x_i$ schon $M$ als $A$-Modul.
+	Sei $(A,\fm)$ ein lokaler Ring und $M$ ein endlich erzeugter $A$-Modul sowie $x_1,\ldots,x_n \in M$ und $\pi: M \to \fak M{\fm M}$. Falls $\fak{M}{\fm M}$ von $\pi(x_1),\ldots,\pi(x_n)$ als $\fak A\fm$-Vektorraum erzeugt wird, erzeugen die $x_i$ schon $M$ als $A$-Modul.
 \end{kor}
 \begin{proof}
 	Die $\pi(x_i)$ sind ein Erzeugendensystem von $\fak M{\fm M}$ als $\fak A\fm$-Vektorraum, also auch als $A$-Modul. Deshalb gilt $\gen{x_1,\ldots,x_n}_A + \fm M = M$. Mit \cref{kor:2.19} folgt nun $M= \gen{x_1,\ldots,x_n}_A$.
@@ -2897,7 +2897,7 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 	\end{enumerate}
 \end{beme}
 \begin{defi}
-	Sei $X\subseteq \IA^n$ eine algebraische Teilmenge. Versehe $X$ mit der Relativtopologie von $\IA^n$. Diese Topologie auf $X$ heißt die \emph{Zariski-Topologie}.
+	Sei $X\subseteq \IA^n$ eine algebraische Teilmenge. Versieh $X$ mit der Relativtopologie von $\IA^n$. Diese Topologie auf $X$ heißt die \emph{Zariski-Topologie}.
 \end{defi}
 \begin{kor}
 	Sei $X\subseteq\IA^n$ eine algebraische Teilmenge. Dann induzieren $\Z$ und $\I$ aus \cref{kor:8.14} die folgenden Bijektionen.
@@ -3017,7 +3017,7 @@ Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten dann:
 		Seien $X\subseteq \IA^n$, $Y\subseteq \IA^m$ algebraische Teilmengen. Sei $f\colon X\to Y$ ein Morphismus. Definiere $f^*\colon \A(Y)\to \A(X)$ durch
 		\begin{center}
 			\begin{tikzcd}[column sep=2cm]
-				\A(Y) \arrow[bend right=15]{rrr}{f^*} \arrow{r}{\beta_X} & \Hom(Y,\A^1) \arrow{r}{h \mapsto h \circ f} &\Hom(X,\A^1) \arrow{r}{\beta_X^{-1}} & \A(X).
+				\A(Y) \arrow[bend right=15]{rrr}{f^*} \arrow{r}{\beta_X} & \Hom(Y,\IA^1) \arrow{r}{h \mapsto h \circ f} &\Hom(X,\IA^1) \arrow{r}{\beta_X^{-1}} & \A(X).
 			\end{tikzcd}
 		\end{center}
 		$f^*$ ist ein Ringhomomorphismus, da $h\mapsto h\circ f$ ein Ringhomomorphismus (und sogar ein $k$-Algebrenhomomorphismus) ist. Für einen weiteren Morphismus $g: Y \to Z$ gilt $(g\circ f)^* = f^*\circ g^*$.
