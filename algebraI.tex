@@ -83,7 +83,7 @@ Sei $k=\ol k$ (algebraisch abgeschlossener Körper). Seien $f_1, \dots f_m \in k
 
 \emph{Beispiel.} Sei $k=\IC$, $n=2$ und $m=1$. Wir erhalten die folgenden Bilder:
 \begin{figure}[H]
-    \begin{subfigure}[b]{.5\linewidth}
+    \begin{subfigure}[b]{.49\linewidth}
         \centering
         \begin{tikzpicture}
             \begin{axis}[width=7cm,xmax=1,xmin=-1,ymax=1,ymin=-1,axis equal,xtick={-1,0,1},ytick={-1,0,1}]
@@ -92,7 +92,7 @@ Sei $k=\ol k$ (algebraisch abgeschlossener Körper). Seien $f_1, \dots f_m \in k
         \end{tikzpicture}
         \caption*{$f=x_1^2+x_2^2-1$}
     \end{subfigure}
-    \begin{subfigure}[b]{.5\linewidth}
+    \begin{subfigure}[b]{.49\linewidth}
         \centering
         \begin{tikzpicture}
             \begin{axis}[width=7cm,xmax=1,xmin=-1,ymax=1,ymin=-1,axis equal,xtick={-1,0,1},ytick={-1,0,1}]
@@ -104,7 +104,7 @@ Sei $k=\ol k$ (algebraisch abgeschlossener Körper). Seien $f_1, \dots f_m \in k
     \end{subfigure}
 \end{figure}
 \begin{figure}[H]
-    \begin{subfigure}[b]{.5\linewidth}
+    \begin{subfigure}[b]{.49\linewidth}
         \centering
         \begin{tikzpicture}
             \begin{axis}[width=7cm,xmax=1,xmin=-1,ymax=1,ymin=-1,axis equal,xtick={-1,0,1},ytick={-1,0,1}]
@@ -114,7 +114,7 @@ Sei $k=\ol k$ (algebraisch abgeschlossener Körper). Seien $f_1, \dots f_m \in k
         \end{tikzpicture}
         \caption*{$f=x_1\cdot x_2$}
     \end{subfigure}
-    \begin{subfigure}[b]{.5\linewidth}
+    \begin{subfigure}[b]{.49\linewidth}
         \centering
         \begin{tikzpicture}
             \begin{axis}[width=7cm,xmax=1,xmin=-1,ymax=1,ymin=-1,axis equal,xtick={-1,0,1},ytick={-1,0,1}]
@@ -339,11 +339,11 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 \begin{bsp} \label{bsp:moduln}
     \leavevmode
     \begin{enumerate}
-        \item Falls $A=k$ Körper: $A$-Modul $=$ $k$-Vektorraum \label{bsp:moduln:i}
+        \item Falls $A=k$ Körper: $A$-Modul $=$ $k$-Vektorraum
         \item $A$ ist selbst ein $A$-Modul, genannt ${}_AA$. \label{bsp:moduln:ii}
-        \item Ist $\phi: A\rightarrow B$ ein Ringhomomorphismus, so wird $B$ ein $A$-Modul durch $a\cdot b = \phi(a)\cdot b$.
+        \item Ist $\phi: A\rightarrow B$ ein Ringhomomorphismus, so wird $B$ ein $A$-Modul durch $a\cdot b = \phi(a)\cdot b$. \label{bsp:moduln:iii}
         \item Ist $A=\IZ$, so sind $A$-Moduln abelsche Gruppen (für $n\in \IZ, n>0: nx=\underbrace{x+x+\ldots+x}_{n\text{ mal}}$).
-        \item Sei $A=k[t]$ ($k$ Körper). Sei $V$ ein $k$-Vektorraum und $\psi \in \End_k(V)$. Definiere $k[t] \times V \rightarrow V$ durch $(P,v) \mapsto (P(\psi))v:=\sum_{\nu=0}^n a_\nu(\psi^\nu)(v)$ mit $P(t)=\sum_{\nu=0}^n a_\nu t^\nu$. Dann wird $V$ ein $k[t]$-Modul.
+        \item Sei $A=k[t]$ ($k$ Körper). Sei $V$ ein $k$-Vektorraum und $\psi \in \End_k(V)$. Definiere $k[t] \times V \rightarrow V$ durch $(P,v) \mapsto (P(\psi))(v):=\sum_{\nu=0}^n a_\nu(\psi^\nu)(v)$ mit $P(t)=\sum_{\nu=0}^n a_\nu t^\nu$. Dann wird $V$ ein $k[t]$-Modul.
     \end{enumerate}
 \end{bsp}
 \begin{defi}
@@ -352,7 +352,7 @@ Hierzu ist das Studium von kommutativer Algebra notwendig.
 \begin{bsp}
     \leavevmode
     \begin{enumerate}
-        \item Mit \cref{bsp:moduln} \ref{bsp:moduln:i} und \ref{bsp:moduln:ii} gilt ${}_AB={}_A({}_BB)$.
+        \item Mit \cref{bsp:moduln} \ref{bsp:moduln:ii} und \ref{bsp:moduln:iii} gilt ${}_AB={}_A({}_BB)$.
         \item Sei $A=k$, $B=k[t]$ und $N$ $k[t]$-Modul.
         Dann ist ${}_kN$ ein $k$-Vektorraum.
         Betrachte $\psi: {}_kN \to {}_kN, y\mapsto t\cdot y$. Dann gilt $\psi\in \End_k({}_kN)$.
@@ -565,7 +565,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
                 &\Rightarrow (1+b)\cdot M = (1+b)\cdot (I\cdot M) = I\cdot((1+b)\cdot M)\subseteq I \cdot \<x_n\>\\
                 &\Rightarrow \exists c\in I: (1+b) x_n = cx_n \\
                 &\Rightarrow (1+b-c)x_n = 0\\
-                &\Rightarrow (1+b-c)(1+b)M = \{0\}
+                &\Rightarrow (1+b-c)(1+b)M = \{0\}.
             \end{align*}
             Dabei ist $(1+b-c)(1+b) = (1+a)$ mit $a = b-c+b^2-bc\in I$.
         \end{description}
@@ -636,7 +636,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 		\item Falls $(T',h')$ ein weiteres Paar mit der universellen Eigenschaft \ref{prop:tensorprodukt:i} ist, so existiert ein eindeutiger Isomorphismus von $A$-Moduln $\lambda\colon T \to T'$, sodass das Diagramm \subrefp{prop:tensorprodukt:b} kommutiert. \label{prop:tensorprodukt:ii}
 	\end{enumerate}
 	\begin{figure}[H]
-		\begin{subfigure}[b]{.5\linewidth}
+		\begin{subfigure}[b]{.49\linewidth}
 			\centering
 				\begin{tikzcd}
 					M \times N \arrow{r}{h} \arrow{rd}[swap]{g} & T \arrow{d}{\lambda} \\
@@ -645,7 +645,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 			\caption{}
 			\label{prop:tensorprodukt:a}
 		\end{subfigure}
-		\begin{subfigure}[b]{.5\linewidth}
+		\begin{subfigure}[b]{.49\linewidth}
 			\centering
 				\begin{tikzcd}
 				M \times N \arrow{r}{h}\arrow{rd}[swap]{h'} & T \arrow{d}{\lambda} \\
@@ -697,7 +697,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 
 		\item Sei $(T',h')$ ein weiteres Paar mit der universellen Eigenschaft. Wir erhalten die zwei kommutativen Diagramme \subrefp{prop:tensorprodukt:proof:a} und \subrefp{prop:tensorprodukt:proof:b}.
 		\begin{figure}[H]
-			\begin{subfigure}[b]{.24\linewidth}
+			\begin{subfigure}[b]{.235\linewidth}
 				\centering
 					\begin{tikzcd}
 						M \times N \arrow{r}{h} \arrow{rd}[swap]{h'} & T \arrow[dashrightarrow]{d}{\exists!\lambda} \\
@@ -715,7 +715,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 				\caption{}
 				\label{prop:tensorprodukt:proof:b}
 			\end{subfigure}
-			\begin{subfigure}[b]{.24\linewidth}
+			\begin{subfigure}[b]{.25\linewidth}
 				\centering
 					\begin{tikzcd}
 					M \times N \arrow{r}{h}\arrow{rd}[swap]{h} & T \arrow{d}{\lambda' \circ \lambda} \\
@@ -724,7 +724,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 				\caption{}
 				\label{prop:tensorprodukt:proof:c}
 			\end{subfigure}
-			\begin{subfigure}[b]{.24\linewidth}
+			\begin{subfigure}[b]{.235\linewidth}
 				\centering
 					\begin{tikzcd}
 					M \times N \arrow{r}{h}\arrow{rd}[swap]{h} & T \arrow{d}{\id_T} \\
@@ -1242,14 +1242,14 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \end{proof}
 
 \begin{bsp}
-	Sei $B$ eine $A$-Algebra und $C= A[t]$. Dann ist $B\tp_AA[t]\cong B[t]$ (als $A$-Algebra). Dann:	
+	Sei $B$ eine $A$-Algebra und $C= A[t]$. Dann ist $B\tp_AA[t]\cong B[t]$ (als $A$-Algebra, da
 	\begin{center}
 		\begin{tikzcd}
 			B[t]& B\arrow{l}\\
 			A[t]\arrow{u} & A\arrow{l}\arrow{u}
 		\end{tikzcd}
 	\end{center}
-	kommutiert und $B[t]$ ist universell dafür.
+	kommutiert und $B[t]$ dafür universell ist.
 \end{bsp}
 
 
@@ -2247,7 +2247,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 	\end{center}
 \end{satz}
 \begin{proof}
-	Es genügt, \begin{equation}(p_1\cdot B_{q_2})\cap A = p_1 \tag{*}\label{eq:goingdown}\end{equation} zu zeigen, da daraus nach einer Übung ein $\fq_1' \in \Spec B_{\fq_2}$ mit $\fq_1'\cap A = \fp_1$ existiert und wir dann $\fq_1 := \fq_1'\cap B\in\Spec B$ mit $\fq_1\cap A = (\fq_1'\cap B)\cap A = \fp_1$ und $\fq_1\subseteq \fq_2$ definieren können.
+	Es genügt, \begin{equation}(\fp_1\cdot B_{\fq_2})\cap A = \fp_1 \tag{*}\label{eq:goingdown}\end{equation} zu zeigen, da daraus nach einer Übung ein $\fq_1' \in \Spec B_{\fq_2}$ mit $\fq_1'\cap A = \fp_1$ existiert und wir dann $\fq_1 := \fq_1'\cap B\in\Spec B$ mit $\fq_1\cap A = (\fq_1'\cap B)\cap A = \fp_1$ und $\fq_1\subseteq \fq_2$ definieren können.
 	
 	Wir zeigen nun also \eqref{eq:goingdown}.
 	\begin{description}
@@ -2345,7 +2345,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 \lecture{7. Juni 2018}
 
 \begin{satz} \label{thm:7.6}
-	Sei $A$ Ring.
+	Sei $A$ ein Ring.
 	\begin{enumerate}
 		\item \label{thm:7.6:i} Sei $0\to M'\xto{\iota} M\xto{\pi} M''\to 0$ eine kurze exakte Sequenz von $A$-Moduln. Dann gilt:
 		\[\text{$M$ ist noethersch.} \quad \Longleftrightarrow\quad \text{$M'$ und $M''$ sind noethersch.}\]
@@ -2428,7 +2428,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 	Sei $\fq\in\MinSpec(\fak AI)$. Dann gilt $\pi^{-1}(\fq)\in \Spec A$ mit $I\subseteq \pi^{-1}(\fq)$, also $ab\in \pi^{-1}(\fq) =: \fp$. Also gilt $a\in \fp$ oder $b\in \fp$; sei ohne Einschränkung $a\in \fp$. Es folgt $\fp\supseteq I+(a)$, also $\pi_a(\fp) \in\Spec(\fak{A}{I+(a)})$ und sogar $\pi_{a}(\fp) \in \MinSpec(\fak A{I+(a)})$ (wobei $\pi_a\colon A\to \fak A{I+(a)}$ ist).
 	
 	Also haben wir
-	INSERT \glqq DIAGRAMM\grqq\ (spuriöse Anführungszeichen) HIER.
+	INSERT \glqq DIAGRAMM\grqq\ (spuriöse Anführungszeichen) HIER. % TODO: einfügen
 	
 	Das ist ein Widerspruch.
 \end{proof}
@@ -2528,7 +2528,7 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 		\begin{proof}[Beweis durch Induktion nach $m$]
 			Da der Induktionsanfang gerade Schritt 2 ist, betrachten wir nun den Induktionsschritt von $m-1$ nach $m$.
 
-			Betrachte die Idealkette $I_1\subseteq\dots\subseteq I_{m-1}$. Nach Induktionsvoraussetzung gibt es $b_1,\dots, b_n\in A$ und $0\le h_1\le\dots\le h_{m-1}\le n$ mit $k[b_1,\dots, b_n]\subseteq A$ ganz und $I_l\cap k[b_1,\dots, b_n] = (b_1,\dots, b_{n_l})$ für $l = 1,\dots, m-1$. Definiere $s := h_{m-1}$ und $J := I_m\cap k[b_{s+1},\dots, b_n] \subsetneq k[b_{s+1},\dots, k_n]$. Aus Schritt 2 folgt, dass $a_{s+1}, \dots, a_n\in k[b_{s+1},\dots, b_n]$ und $h_m\in \{s,\dots, n\}$ existieren, sodass $k[a_{s+1},\dots, a_n]\subseteq k[b_{s+1},\dots, b_n]$ ganz und $J\cap k[a_{s+1},\dots, a_n] = (a_{s+1},\dots, a_{h_m})$ ist. Definiere nun $a_i := b_i$ für $i = 1,\dots, s$. Dann folgt
+			Betrachte die Idealkette $I_1\subseteq\dots\subseteq I_{m-1}$. Nach Induktionsvoraussetzung gibt es $b_1,\dots, b_n\in A$ und $0\le h_1\le\dots\le h_{m-1}\le n$ mit $k[b_1,\dots, b_n]\subseteq A$ ganz und $I_l\cap k[b_1,\dots, b_n] = (b_1,\dots, b_{n_l})$ für $l = 1,\dots, m-1$. Definiere $s := h_{m-1}$ und $J := I_m\cap k[b_{s+1},\dots, b_n] \subsetneq k[b_{s+1},\dots, k_n]$. Aus dem vorherigen Schritt folgt, dass $a_{s+1}, \dots, a_n\in k[b_{s+1},\dots, b_n]$ und $h_m\in \{s,\dots, n\}$ existieren, sodass $k[a_{s+1},\dots, a_n]\subseteq k[b_{s+1},\dots, b_n]$ ganz und $J\cap k[a_{s+1},\dots, a_n] = (a_{s+1},\dots, a_{h_m})$ ist. Definiere nun $a_i := b_i$ für $i = 1,\dots, s$. Dann folgt
 			\[k[a_1,\dots, a_n] \subseteq k[b_1,\dots, b_n]\subseteq A,\]
 			wobei beide Inklusionen ganz sind. Außerdem gilt
 			\[I_l\cap k[a_1,\dots, a_n] = (I_l\cap k[b_1,\dots, b_n])\cap k[b_1,\dots, b_s, a_{s+1},\dots, a_n] = (b_1,\dots, b_{h_l})\]
@@ -2703,8 +2703,8 @@ Für einen Ringhomomorphismus $f\colon A \to B$ erhalten wir eine Abbildung \[f^
 \begin{proof}
 	\leavevmode
 	\begin{enumerate}[label=\ref{kor:7.23:\roman*}]
-		\item folgt direkt aus \cref{thm:7.22} \ref{thm:7.22:i}.
-		\item folgt direkt aus \cref{thm:7.22} \ref{thm:7.22:ii}.
+		\item Folgt direkt aus \cref{thm:7.22} \ref{thm:7.22:i}.
+		\item Folgt direkt aus \cref{thm:7.22} \ref{thm:7.22:ii}.
 		\item Die Inklusion von links nach rechts folgt aus \ref{kor:7.23:ii}; die andere Inklusion folgt daraus, dass $\fak A\fp$ ein Zwischenring zwischen $k$ und $\Quot(\fak A\fp)$ ist und damit schon ein Körper sein muss, weil die Erweiterung $\fak A\fp\hookrightarrow \Quot(\fak A\fp)$ endlich sein muss.
 		\item Wende \cref{thm:7.22} \ref{thm:7.22:ii} auf die endlich erzeugte $A$-Algebra $B$ an.
 		\qedhere
@@ -2827,7 +2827,7 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 \lecture{21. Juni 2018}
 
 \begin{proof}
-	Nach Definition gilt $\Z(I) = \set{x\in\IA^n\given \forall f\in I: f(x) = 0}$. Dabei ist $f(x) = 0$ genau dann, wenn $f\in \ker(\ev_x\colon k[t_1,\dots, t_n]\to k) =: \fm_x$ gilt. Also können wir auch \[\Z(I) = \set{x\in\IA^n\given I\subseteq m_x}\] schreiben. Daraus folgt nun
+	Nach Definition gilt $\Z(I) = \set{x\in\IA^n\given \forall f\in I: f(x) = 0}$. Dabei ist $f(x) = 0$ genau dann, wenn $f\in \ker(\ev_x\colon k[t_1,\dots, t_n]\to k) =: \fm_x$ gilt. Also können wir auch \[\Z(I) = \set{x\in\IA^n\given I\subseteq \fm_x}\] schreiben. Daraus folgt nun
 	\begin{align*}
 		\I(\Z(I)) &= \set{f\in k[t_1,\dots, t_n]\given \forall x \in \Z(I): f(x) = 0} \\
 		&= \set{f\in k[t_1,\dots, t_n] \given \forall x\in\IA^n: I\subseteq \fm_x\Rightarrow f\in \fm_x}\\
@@ -2836,7 +2836,8 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 		&= \bigcap_{\mathclap{\substack{\fm\in\Max k[t_1,\dots,t_n],\\I\subseteq \fm}}}\fm \\
 	\intertext{Da $k[t_1,\dots, t_n]$ Jacobson ist, folgt ferner}
 		&= \bigcap_{\mathclap{\substack{\fp\in\Spec k[t_1,\dots,t_n],\\I\subseteq \fp}}}\fp = \sqrt I.
-	\end{align*}\qedhere % TODO: qedhere fixen
+		\\[-\normalbaselineskip]\tag*{\qedhere}
+	\end{align*}
 \end{proof}
 
 \begin{bem}
@@ -2893,7 +2894,7 @@ Im ganzen folgenden Kapitel sei $k$ ein algebraisch abgeschlossener Körper.
 	\begin{enumerate}
 		\item $\A(X)$ ist \emph{reduziert}, für alle $f\in \A(X)$ bedeutet die Existenz eines $n\ge 0$ mit $f^n = 0$ also bereits $f = 0$.
 		
-		$\A(X)$ endlich erzeugte $k$-Algebra.
+		$\A(X)$ ist eine endlich erzeugte $k$-Algebra.
 		\item $X$ ist genau dann irreduzibel, wenn $\A(X)$ ein Integritätsbereich ist.
 	\end{enumerate}
 \end{beme}
@@ -3084,15 +3085,15 @@ Erinnerung: Sei $X\subseteq \IA^n$ abgeschlossen. Wir hatten dann:
 		wobei wir $\Phi$ so wählen, dass \eqref{eq:8.27:1} kommutiert.
 		
 		Sei $F\colon \IA^n\to \IA^m$ die Abbildung konstruiert wie in \cref{bem:8.26} \ref{bem:8.26:ii}. Es gilt $\phi^{\#}(x) = F(x)$ für alle $x\in X$. Wir wenden das $\beta$ aus \cref{bem:8.23} auf das Diagramm \eqref{eq:8.27:1} an und erhalten
-		\begin{equation}
+		\begin{center}
 			\begin{tikzcd}[column sep=0.8cm]
 				\Hom(\IA^m,\IA^1) \arrow{ddd}{h \mapsto h|_Y} \arrow{rrr}[swap]{h \mapsto h \circ F} && &\Hom(\IA^n,\IA^1) \arrow{ddd}[swap]{h \mapsto h|_X} \\
 				&k[s_1,\dots, s_m] \arrow{lu}{\cong} \arrow{r}{\Phi}\arrow{d} &k[t_1,\dots, t_n]\arrow{ru}[swap]{\cong}\arrow{d}\\
 				&\A(Y)\arrow{r}{\phi=f^*}\arrow{ld}[swap]{\cong} & \A(X)\arrow{rd}{\cong} \\
 				\Hom(Y,\IA^1) \arrow{rrr}{h\mapsto h \circ f} && &\Hom(X,\IA^1).
-			\end{tikzcd} \tag{**}\label{eq:8.27:2}
-		\end{equation}
-		Alle Teildiagramme in \eqref{eq:8.27:2} kommutieren, also insbesondere auch der äußere Weg, was gerade \[ (h \circ F)|_X = h|_Y \circ f \quad\text{und}\quad h(F(x))  = h(f(x)) \] für alle $h \in \Hom(\IA^m ,\IA^1)$ und $x \in X$ bedeutet.
+			\end{tikzcd}
+		\end{center}
+		Hierin kommutieren alle Teildiagramme, also insbesondere auch der äußere Weg, was gerade \[ (h \circ F)|_X = h|_Y \circ f \quad\text{und}\quad h(F(x))  = h(f(x)) \] für alle $h \in \Hom(\IA^m ,\IA^1)$ und $x \in X$ bedeutet.
 		
 		Wir wählen nun konkret $h\colon \IA^m\to \IA^1, (y_1,\dots, y_m)\mapsto y_i$. Dann ist $F(x)_i$ die $i$-te Koordinate von $F(x) = f(x)_i$. Da $i$ beliebig ist, gilt schon $F(x) = f(x)$.
 		
@@ -3422,7 +3423,7 @@ Dies führt zu der folgenden
 				Man vergleiche hierzu wieder auch das folgende Bild, wobei $A$ ein Integritätsbereich und $k[a_1,\dots, a_n]$ normal ist.
 				\begin{center}
 					\begin{tikzcd}[column sep=0.7cm]
-						A \arrow{r} & \fak{A}{\fp_i} && \exists \ol{\fp}\arrow[mapsto]{dd}\arrow[Subsetneq]{r} & \fak{\fp_{i+1}}{\fp_i}\\
+						A \arrow{r} & \fak{A}{\fp_i} && \exists \,\ol{\fp}\arrow[mapsto]{dd}\arrow[Subsetneq]{r} & \fak{\fp_{i+1}}{\fp_i}\\
 						C\arrow[Subseteq]{u}{\text{ganz}\;\;}\arrow{r} & \fak{C}{\fp_i\cap C}\arrow[Subseteq]{u}{\text{ganz}\;\;}\\
 						k[a_1,\dots, a_n] \arrow[Equals]{u} & k[a_{r+1},\dots, a_n]\arrow[Equals]{u} & (0) \arrow[Subsetneq]{r} & (a_r+1)\arrow[Subsetneq]{r} & (a_{r+1},\dots, a_s)
 					\end{tikzcd}
@@ -3434,7 +3435,7 @@ Dies führt zu der folgenden
 		Man vergleiche auch hierzu wieder auch das folgende Bild, wobei $A$ ein Integritätsbereich und $k[a_1,\dots, a_n]$ normal ist.
 		\begin{center}
 			\begin{tikzcd}
-				A  &  \fp_l \arrow[mapsto]{d}\arrow[Subsetneq]{r} & \exists \fp\\
+				A  &  \fp_l \arrow[mapsto]{d}\arrow[Subsetneq]{r} & \exists \,\fp\\
 				C\arrow[Subseteq]{u}{\text{ganz}\;\;} & (a_1,\dots, a_{h_l}) \arrow[Subsetneq]{r} & (a_1,\dots, a_n)\\
 				k[a_1,\dots, a_n] \arrow[Equals]{u}
 			\end{tikzcd}
