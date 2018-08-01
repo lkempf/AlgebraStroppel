@@ -432,7 +432,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
             \qedhere
 		\end{description}
 		\end{proof}
-		\item Sei $I\subseteq A$ ein Ideal, $M$ ein $A$-Modul. Definiere $I\cdot M  := \{\sum a_ix_i|a_i\in I, x_i\in M\}\subseteq M$. Das ist ein $A$-Untermodul. Beipsielsweise $I = (a)$; dann ist $(a)\cdot M = \{ax|x\in M\}$.
+		\item Sei $I\subseteq A$ ein Ideal, $M$ ein $A$-Modul. Definiere $I\cdot M  := \set{\sum a_ix_i\given a_i\in I, x_i\in M}\subseteq M$. Das ist ein $A$-Untermodul. Beipsielsweise $I = (a)$; dann ist $(a)\cdot M = \set{ax\given x\in M}$.
 	\end{enumerate}
 \end{bsp}
 \begin{defi}
@@ -557,7 +557,7 @@ Bezeichne $\Hom_A(M, N) := \{f \mid  \text{$f\colon M\rightarrow N$ ist $A$-line
 		\item Induktion nach $n$, der minimalen Anzahl der Erzeuger von $M$.
         \begin{description}
             \item[$n = 0$:] $M = 0$, klar.
-            \item[$n-1\to n$:] Sei $x_1,\dots, x_n$ ein Erzeugendensystem von $M$. Definiere $N := \fak M{\<x_n\>}$. Sei $\pi \colon M\to N$ die Quotientenabbildung. Dann folgt $N = \<\pi(x_1),\dots,\pi(x_{n-1})\>$. Nun gilt $I\cdot N = N$, da für $y\in N$ ein $x\in M$ mit $\pi(x) = y$ und $x\in I\cdot M$ existiert, und somit $a_i\in I$ sowie $\tilde{x_i}\in M$ mit $y =\sum a_i\pi(\tilde{x_i})\in I\cdot N$ existieren.
+            \item[$n-1\to n$:] Sei $x_1,\dots, x_n$ ein Erzeugendensystem von $M$. Definiere $N := \fak M{\<x_n\>}$. Sei $\pi \colon M\to N$ die Quotientenabbildung. Dann folgt $N = \<\pi(x_1),\dots,\pi(x_{n-1})\>$. Nun gilt $I\cdot N = N$, da für $y\in N$ ein $x\in M = I \cdot M$ mit $\pi(x) = y$ existiert, und somit $a_i\in I$ sowie $\tilde{x_i}\in M$ mit $y =\sum a_i\pi(\tilde{x_i})\in I\cdot N$ existieren.
 		
             Nach der Induktionsannahme existiert ein $b\in I$, sodass $(1+b)\cdot N = \{0\}\subseteq N = \fak M{\<x_n\>}$. Dann gilt
             \begin{align*}
@@ -609,7 +609,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 \begin{beme}
 	Sei $M$ ein $A$-Modul sowie $I \subseteq A$ ein Ideal.
 	\begin{enumerate}
-		\item Falls $I \cdot M = \{0\}$, so ist $M$ ein $\fak AI$-Modul via $(A+I) \cdot x = ax$.
+		\item Falls $I \cdot M = \{0\}$, so ist $M$ ein $\fak AI$-Modul via $(a+I) \cdot x = ax$.
 		\item Da $I \cdot \fak M{I M} = \{0\}$, ist $\fak M{IM}$ ein $\fak AI$-Modul.
 	\end{enumerate}
 \end{beme}
@@ -787,13 +787,13 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	Die Abbildung $(M\oplus N)\times P \to (M\tp_AP) \oplus(N\tp_AP), ((x,y),z)\mapsto (x\tp z, y\tp z)$ ist $A$-bilinear, folglich faktorisiert sie über das Tensorprodukt $(M\oplus N)\tp_aP$:
 	\begin{center}
 		\begin{tikzcd}
-			(M\oplus N)\times P \arrow{r}\arrow{d}& Y(M\tp_AP)\oplus(N\tp_AP) \\
+			(M\oplus N)\times P \arrow{r}\arrow{d}& (M\tp_AP)\oplus(N\tp_AP) \\
 			(M\oplus N)\tp_AP \arrow[dashrightarrow]{ru}[swap]{\exists!\lambda}
 		\end{tikzcd}
 	\end{center}
 	Folglich gilt: $\lambda((x,y)\tp z) = (x\tp z, y\tp z)$.
 
-	Wir konstruieren nun eine Umkehrabbildung. Betrachte hierzu die Abbildung
+	Wir konstruieren nun eine Umkehrabbildung. Betrachte hierzu die Abbildungen
 	\begin{gather*}
 		i_M: M \to M \tp N, x \mapsto (x,0) \\
 		i_N : N \to M \tp N, y \mapsto (0,y)
@@ -801,7 +801,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	und das folgende kommutative Diagramm.
 	\begin{center}
 		\begin{tikzcd}
-			M \tp_A P \arrow{r}{i_M \circ \id_P} \arrow{rd}[swap]{i_{M \tp_A P}} & (M \oplus N) \tp_A P & N \tp_A P \arrow{l}[swap]{i_N \circ \id_P} \arrow{ld}{i_{N \tp_A P}} \\
+			M \tp_A P \arrow{r}{i_M \tp \id_P} \arrow{rd}[swap]{i_{M \tp_A P}} & (M \oplus N) \tp_A P & N \tp_A P \arrow{l}[swap]{i_N \tp \id_P} \arrow{ld}{i_{N \tp_A P}} \\
 			& (M \tp_A P) \oplus (N \tp_A P) \arrow[dashrightarrow]{u}{\exists!\lambda'}
 		\end{tikzcd}
 	\end{center}
@@ -903,10 +903,10 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 	\leavevmode
 	\begin{enumerate}
 		\item Sei $f\colon M\to M'$ eine surjektive $A$-lineare Abbildung. Dann ist $f \tp_A \id_N\colon M \tp_A N \to M' \tp_ A N $ auch surjektiv.
-		\item Ist $f$ injektiv, so ist $f \tp \id_N$ nicht notwengierweise injektiv. Sei beispielsweise $a \in A \setminus A^{\times}$ kein Nullteiler. Betrachte $f: A \to A, x \mapsto ax$. Da $a$ kein Nullteiler ist, ist $f$ injektiv. Betrachte nun $N = \fak A{(a)}$ und das folgende Diagramm.
+		\item Ist $f$ injektiv, so ist $f \tp \id_N$ nicht notwengierweise injektiv. Sei beispielsweise $a \in A \setminus A^{\times}$ kein Nullteiler. Betrachte $f: A \to A, x \mapsto ax$. Da $a$ kein Nullteiler ist, ist $f$ injektiv. Betrachte nun $N = \fak A{(a)}$ und das folgende (nichtkommutative!) Diagramm.
 		\begin{center}
 			\begin{tikzcd}
-				A \tp_A \fak A{(a)} \arrow{r}{f \tp \id} \arrow[Equals]{d}{} & A \tp_a \fak A{(a)} \arrow[Equals]{d}{} \\
+				A \tp_A \fak A{(a)} \arrow{r}{f \tp \id} \arrow[Equals]{d}{} & A \tp_A \fak A{(a)} \arrow[Equals]{d}{} \\
 				\fak A{(a)} \arrow{r}{x \mapsto ax} & \fak A{(a)}
 			\end{tikzcd}
 		\end{center}
@@ -923,7 +923,7 @@ Nachtrag zu \cref{bem:2.17}: Sei $A = \IZ[T_1,\dots]$, $\phi = \ev_{T_i = 0}\col
 			Ist $N$ frei, so gilt $\bigoplus_{i \in I} A \cong N$. Sei $f\colon M' \to M$ injektiv. Betrachte nun das folgende Diagramm.
 			\begin{center}
 				\begin{tikzcd}
-					M' \tp_A N \arrow{r}{f \circ \id_N} \arrow[Cong]{d}{} & M \tp_A N  \arrow[Cong]{dd}{}\\
+					M' \tp_A N \arrow{r}{f \tp \id_N} \arrow[Cong]{d}{} & M \tp_A N  \arrow[Cong]{dd}{}\\
 					\bigoplus_{i \in I}(M' \tp_A A) \arrow[Cong]{d}{}  \\
 					\bigoplus_{i \in I} M' \arrow{r}{} & \bigoplus_{i \in I} M \\
 					(x_i) \arrow[mapsto]{r}{} &(f(x_i))
