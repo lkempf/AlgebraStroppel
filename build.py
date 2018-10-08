@@ -15,7 +15,7 @@ for f in glob.glob("*.tex"):
     lines = []
     with open(f, encoding="utf-8") as infile:
         for line in infile:
-            lines.append(line.replace("\\lastcompiled", "zuletzt geändert: \\printdate{{{}}}".format(date)))
+            lines.append(line.replace("\\lastcompiled", "\\printdate{{{}}}".format(date)))
     with open(f, "w", encoding="utf-8") as outfile:
         for line in lines:
             outfile.write(line)

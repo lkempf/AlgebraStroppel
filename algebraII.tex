@@ -1,0 +1,255 @@
+\documentclass[12pt,a4paper]{scrartcl}
+
+\usepackage{includes}
+\usepackage{shortcuts}
+\usepackage{numbering}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stroppel hat jetzt leider andere Nummerierungsvorlieben... %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TODO entweder wie bei Franzen hier hässlich Zeug umdefinieren,
+%      oder doch lieber für jeder Vorlesung einzeln
+
+% Literatur
+\usepackage[backend=biber,sorting=none,style=alphabetic]{biblatex}
+\addbibresource{literatur.bib}
+
+\title{Algebra II}
+\subtitle{Winter Semester 2018/19}
+\date{\lastcompiled}
+
+\begin{document}
+\begin{otherlanguage}{english}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\noindent
+These are notes of the lecture \enquote{Algebra II}, taught by Prof. Dr. Catharina Stroppel at the University of Bonn in the winter semester 2018/19.
+
+\bigskip
+
+\noindent
+Lecture website:\\
+\url{http://guests.mpim-bonn.mpg.de/enorton/alg2.html}
+
+\nocite{hungerford}
+\nocite{knapp-basic}
+\nocite{knapp-advanced}
+\nocite{procesi}
+\nocite{borel}
+\nocite{humphreys}
+\nocite{springer}
+\printbibliography
+
+\newpage
+
+Nummierierungsstuff wird demnächst gefixed.
+
+\lecture{October 8, 2018}
+
+\section{Group actions}
+If $G$ is a group, denote by $e \in G$ the neutral element, by $g^{-1}$ the inverse of $g\in G$ and by $gh$ the composition $g \circ h$.
+\begin{defi}
+  Given a group $G$ and a set $X$, an \emph{action} of $G$ on $X$ is a map
+  \begin{eqnarray*}
+    G \times X &\to& X \\
+    (g,x) &\mapsto& g.x
+  \end{eqnarray*}
+  such that
+  \begin{description}
+   \item[(A1)] $e.X = x$ and
+   \item[(A2)] $(gh).x = g.(h.x)$
+  \end{description}
+  for all $x \in X$ and $g,h \in G$. We call then $X$ a \emph{$G$-set}.
+\end{defi}
+\begin{defi}
+  Given a set $X$, define \[ S(X) := \set{f\colon X \to X \given f \text{ bijective}}, \] the \emph{symmetric group} of $X$ (with composition as group multiplication).
+  
+  Given a $G$-set $X$ and $g\in G$, let $\pi_g \in S(X)$ be defined as $\pi_g(x) = g.x$.
+\end{defi}
+\begin{lem}
+  For any group $G$ and set $X$ we have a bijective correspondence
+  \begin{eqnarray*}
+    \set{\text{$G$-actions on $X$}} &\xlongleftrightarrow{1:1}& \set{\text{Group homomorphisms $G \to S(X)$}} \\
+    \pi &\mapsto& \hat\pi = (x \mapsto \pi(g,x) = g.x) \\
+    ((g,x)\mapsto \phi(g)(x))=\mathring \phi &\mapsfrom& \phi.
+  \end{eqnarray*}
+\end{lem}
+\begin{proof}
+  Left to the reader.
+\end{proof}
+
+% TODO examples zu Umgebungen machen
+
+\paragraph{Examples.}
+Let $G$ be a group.
+\begin{enumerate}
+  \item $G$ acts on itself by
+  \begin{itemize}
+    \item left multiplication: $g.x = gx$ (left regular action)
+    \item \enquote{right multiplication}: $g.x = xg^{-1}$ (right regular action)
+    \item conjugation $g.x = gxg^{-1}$
+  \end{itemize}
+  \item Any set $X$ is a $G$-set via the \emph{trivial action} $g.x = x$.
+  \item Let $X,Y$ be $G$-sets. then $G$ acts on $\Maps(X,Y) := \set{f\colon X\to Y}$ via $(g.f)(x) = g.(f(g^{-1}.x))$. Special case: the action $Y$ is trivial, then $(g.f)(x) = f(g^{-1}.x)$.
+\end{enumerate}
+
+\begin{defi}
+  Let $X,Y$ be $G$-sets. A map $f\colon X\to Y$ is called \emph{$G$-equivariant} if $f(g.x) = g.f(x)$ for all $g\in G$ and $x \in X$. We write \[\Hom_G(X,Y) := \set{f\colon X\to Y \given \text{$f$ is $G$-equivariant}}.\]
+\end{defi}
+\begin{lem}
+  Let $G$ be a group.
+  \begin{enumerate}
+    \item If $X$ is a $G$-set then $\id_X\in \Hom_G(X,X)$.
+    \item If $X,Y,Z$ are $G$-sets, $f_1 \in \Hom_G(X,Y)$ and $f_2 \in \Hom_G(Y,Z)$ then $f_2 \circ f_1 \in \Hom_G(X,Z)$.
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  Left to the reader.
+\end{proof}
+
+\paragraph{Examples.}
+Let $G$ be a group.
+\begin{enumerate}
+  \item If $G$ acts on itself by left multiplication then
+  \begin{eqnarray*}
+    \Hom_G(G,G) &\cong& G \quad\text{(as sets)} \\
+    f &\mapsto& f(e) \\
+    (x\mapsto xa) = m_a &\mapsfrom& a.
+  \end{eqnarray*}
+  \item If $X,Y$ are trivial $G$-sets then $\Hom_G(X,Y) = \Maps(X,Y)$.
+\end{enumerate}
+
+% TODO besseres Symbol für Menge der Orbits
+\begin{defi}
+  Let $X$ be a $G$-set. For $x\in X$ let $G_x = \set{g.x \given g \in G}$ be the \emph{orbit} of $x$. We write \[ \orbits GX := \set{G_x \given x \in X}.\]
+\end{defi}
+\medskip
+Note that $G_x = G_y$ iff $y \in G_x$.
+
+% TODO environment hierfür...
+\paragraph{Remark.}
+We can view $\orbits GX$ as a $G$-set via the trivial action. Then $\can\colon X \to \orbits GX,x \mapsto G_x$ is $G$-equivariant.
+
+\begin{defi}
+  Let $X$ be a $G$-set. Then \[X^G := \set{x \in X \given \forall g\in G: g.x = x}\] is the \emph{set of $G$-fixed points} or \emph{$G$-invariants} in $X$.
+\end{defi}
+\begin{lem}
+  Let $X,Y$ be $G$-sets and $f\in \Hom_G(X,Y)$. Then, $f(X^G) \subseteq Y^G$.
+\end{lem}
+\begin{proof}
+  Let $x\in X^G$. For all $g\in G$, we have $g.f(x) = f(g.x) = f(x)$. Therefore, $f(x) \in Y^G$.
+\end{proof}
+
+\medskip
+Thus, $f$ induces a map $f^G\colon X^G \to Y^G$ by restriction.
+
+\begin{lem}
+  Let $G$ be a group.
+  \begin{enumerate}
+    \item If $X$ is a $G$-set then $\id_X^G = \id_{X^G}$.
+    \item If $X,Y,Z$ are $G$-sets, and $f_1 \in \Hom_G(X,Y)$ and $f_2\in \Hom_G(Y,Z)$ then $(f_2\circ f_1)^G = f_2^G \circ f_1^G$.
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  Left to the reader.
+\end{proof}
+\begin{lem}
+  Let $X,Y$ be $G$-sets. Then $\Hom_G(X,Y) = \Maps(X,Y)^G$.
+\end{lem}
+\begin{proof}
+  $f \in \Hom_G(X,Y) \Leftrightarrow \forall g\in G,x \in X: f(g.x) = g.f(x) \Leftrightarrow \forall g\in G,x \in X:g^{-1}.f(g.x) = g^{-1}.(g.f(x)) = f(x) \Leftrightarrow \forall g\in G,x \in X: g.f(g^{-1}.x) = f(x) \Leftrightarrow f\in \Maps(X,Y)^G$.
+\end{proof}
+\begin{defi}
+  Let $X$ be a $G$ set and $k$ a field. A map $f\colon X\to k $ is \emph{$G$-invariant} if $f(g.x) = f(x)$ for all $g \in G$ and $x\in X$.
+\end{defi}
+
+\paragraph{Example.}
+Let $G= \fak\IZ{2\IZ} = \set{e,s}$ and $k=\IR$. Let $G$ act on $\IR$ by $s.\lambda = -\lambda$. Any polynomial $p(t) \in \IR[t]$ can be viewed as an element in $\Maps(\IR,\IR)$. Then $p(t) = \sum a_it^i$ is $G$-invariant iff $p(t)$ is even (i.e. $a_i=0$ for odd $i$).
+\begin{proof}
+  \begin{align*}
+    &\phantom{{}\Leftrightarrow{}}\quad \text{$p(t)$ is $G$-invariant} \\
+    &\Leftrightarrow\quad \forall \lambda \in \IR: p(s.\lambda) = p(\lambda) \\
+    &\Leftrightarrow\quad \forall \lambda \in \IR: p(-\lambda) = p(\lambda) \\
+    &\Leftrightarrow\quad \forall \lambda \in \IR: \sum_i (-1)^ia_i \lambda^i = \sum_i a_i \lambda^i \\
+    &\Leftrightarrow\quad \forall \lambda \in \IR: 2 \sum_{\text{$i$ odd}} a_i\lambda^i = 0 \\
+    &\Leftrightarrow\quad \text{$a_i=0$ for all odd $i$}
+  \end{align*}
+\end{proof}
+
+\paragraph{Remark.}
+$f\colon X \to k$ is $G$-invariant iff $f\in \Maps(X,k)^G$ where we have trivial $G$-action on $k$.
+
+\begin{lem}[Universal property of invariant maps]
+  Let $X$ be a $G$-set, $k$ a field (or a commutative ring with $1$). Then $f\colon X \to k$ is $G$-invariant iff $f$ factors through $\can$ (i.e. $\exists! \ol f\colon \orbits GX \to k$ such that $f = \ol f \circ can$).
+  \begin{center}
+    \begin{tikzcd}
+      X \arrow{r}{f} \arrow[swap]{d}{\can} & k \\
+      \orbits GX \arrow[dashed,swap]{ru}{\exists!\ol f}
+    \end{tikzcd}
+  \end{center}
+\end{lem}
+\begin{proof}
+  \begin{align*}
+    &\phantom{{}\Leftrightarrow{}}\quad \text{$f$ is $G$-invariant} \\
+    &\Leftrightarrow\quad \forall g\in G, x \in X : f(g.x) = f(x) \\
+    &\Leftrightarrow\quad \text{$f$ is constant on orbits} \\
+    &\Leftrightarrow\quad \text{$\ol f$ exists (namely $\ol f(G_x) = f(x)$, obviously unique)}
+  \end{align*}
+\end{proof}
+\begin{lem} \label{lem:I.7}
+  Let $X$ be a finite $G$-set and $k$ a field (or commutative ring with $1$). Then:
+  \begin{enumerate}
+    \item\label{lem:I.7:1} $\Maps(X,k)$ is a $k$-vector space (or $k$-module) with pointwise addition and scalar multiplication.
+    \item\label{lem:I.7:2} A $k$-basis of $\Maps(X,k)$ is given by \[ \Xs_x\colon y \mapsto \begin{cases*} 1 & if $x = y$ \\ 0 & otherwise \end{cases*}\] where $x \in X$.
+    \item\label{lem:I.7:3} $\Maps(X,k)^G$ forms a subspace (or submodule) with basis \[ \Xs_\Gs \colon y \mapsto \begin{cases*} 1 & if $y \in \Gs$ \\ 0 & otherwise \end{cases*} \] where $\Gs \in \orbits GX$.
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}[label=\ref{lem:I.7:\arabic*}]
+    \item Clear.
+    \item To be inserted. % TODO insert
+    \item To be inserted.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+If $X$ is an infinite set we often replace $\Maps(X,k)$ by \[kX := \set{f\colon X \to k \given \text{$\supp f$ is finite}} \] where $\supp f := \set{ x \in X \given f(x) \neq 0}$ is the \emph{support} of $f$.
+
+\paragraph{Note:}
+We have
+\begin{align*}
+  \supp(f_1+f_2) \subseteq \supp f_1 \cup \supp f_2 \\
+  \supp(\lambda f) \subseteq \supp f
+\end{align*}
+for all $f_1,f_2,f\in \Maps(X,k)$ and $\lambda \in k\setminus \set0$. Thus, $kX \subseteq \Maps(X,k)$ together with the $0$-function is a vector space (usually just call it $kX$ as well).
+
+$kX$ is preserved under $G$-action. Let $f \in kX, g \in G$. Then 
+\begin{align*}
+  &\phantom{{}\Leftrightarrow{}}\quad (g.f)(x) \neq 0 \\
+  &\Leftrightarrow\quad f(g^{-1} .x ) \neq 0 \\
+  &\Leftrightarrow\quad g^{-1}.x \in \supp f\\
+  &\Leftrightarrow\quad x \in \underbrace{\set{g.y \given y \in \supp f}}_{\text{finite}}.
+\end{align*}
+
+\cref{lem:I.7} generalizes to $kX$.
+
+\begin{lem}
+  Let $G$ be a group and $R$ a ring. Let $G$ act on $R$ by ring homomorphisms (i.e. if $\pi\colon R \to R$ is the action then $\pi_g\colon R\to R$ is a ring homomorphism for all $g\in G$) then $R^G$ is a subring of $R$.
+\end{lem}
+\begin{proof}
+  Let $r_1,r_2 \in R^G$. To show: $r_1+r_2,r_1r_2 \in R^G$. For $g \in G$ we have $g.(r_1+r_2) = \pi_g(r_1+r_2) = \pi_g(r_1) + \pi_g(r_2) = g.r_1 + g.r_2 = r_1+r_2$. Similarly, $g.(r_1r_2) = r_1r_2$.
+\end{proof}
+
+\paragraph{Example.} Even polynomials form a subring of $\IR[t]$.
+
+\begin{defi}
+  If $G,H$ are groups and $X$ a $G$-set and an $H$-set then the two actions commute if \[g.(h.x) = h.(g.x)\] for all $g\in G$, $h\in H$ and $x \in X$.
+\end{defi}
+
+\end{otherlanguage}
+\end{document}
