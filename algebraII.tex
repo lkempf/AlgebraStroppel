@@ -12,6 +12,7 @@
 
 \renewcommand{\thethmcounter}{\Roman{section}.\arabic{thmcounter}}
 
+\counterwithout{thmcounter}{subsection}
 \counterwithin{thmcounter}{section}
 \counterwithin{subsection}{section}
 
@@ -541,6 +542,191 @@ for all $f \in kG$. It remains to check associativity and distributivity.
   
   We claim that $A$ has basis $\set{X^a\partial^b \given a,bc \in \IZ_{\ge 0}}$ (with $X^0\partial^0 = 1$). The reader may check this using the formula $\partial X = X\partial + \id$. Furthermore, one can define a filtration on $A$ via $F_j(A) = \gen{\set{X^a\partial^b \given a+b \le j}}$ for $j \ge 0$.
 \end{enumerate}
+
+\lecture{October 18, 2018}
+
+\paragraph{Remark.}
+For $(A,F_\bullet(A))$ a filtered algebra the canonical map
+\begin{eqnarray*}
+  A &\to& \gr A = \bigoplus_{i\ge0}\fak{F_i(A)}{F_{i-1}(A)} \\
+  a &\mapsto& (a+F_{i-1}(A))_{i\ge0}
+\end{eqnarray*}
+is an algebra homomorphism.
+
+\begin{deff}
+  Let $A = \bigoplus_{i\in\IZ} A_i$ be a graded algebra and $M$ and $A$-module. Then a \emph{grading} on $M$ is a decomposition $M=\bigoplus_{i\in\IZ}M_i$ into vector spaces such that $A_iM_j \subseteq M_{i+j}$ for all $i,j\in \IZ$. Then $M$ is called a \emph{graded} module.
+  
+  For graded $A$-modules $M=\bigoplus_{i\in\IZ}M_i$ and $N=\bigoplus_{i\in\IZ}N_i$, a morphism of graded $A$-modules from $M$ to $N$ is a morphism $f\colon M \to N$ of $A$-modules such that $f(M_i)\subseteq N_i$ for all $i\in\IZ$.
+\end{deff}
+
+\paragraph{Remark.} Graded $A$-modules with graded $A$-module homomorphisms form a category (where $A$ is graded algebra).
+
+\subsection{Symmetric polynomials}
+\begin{deff}
+  Let $k$ b a field. Let $G := S_n = S(\set{1,\ldots,n})$ act linearly on $K[X_1,\ldots,X_n]$ by \begin{equation} g. X_1^{a_1}X_2^{a_2}\cdots X_n^{a_n} = X_{g(1)}^{a_1}X_{g(2)}^{a_2}\cdots X_{g(n)}^{a_n}. \tag{*}\label{def:symmetric poly:eq} \end{equation}
+  A polynomial in $k[X_1,\ldots,X_n]^G$ is called a \emph{symmetric} polynomial (in $n$ variables).
+\end{deff}
+
+\paragraph{Remark.} We could replace $k$ by any commutative ring $R$ with $1$ and extend \eqref{def:symmetric poly:eq} $R$-linearly to get an action of $G$ on $R[X_1,\ldots,X_n]$.
+
+\paragraph{Examples.}
+In $K[X_1,X_2,X_3]^{S_3}$ we have e.g. the following elements:
+\begin{align*}
+  p_2^{(3)} &= X_1^2+X_2^2+X_3^2 \\
+  h_2^{(3)} &= X_1^2+X_1X_2+X_1X_3+X_2^2+X_2X_3+X_3^2 \\
+  e_2^{(3)} &= X_1X_2+X_1X_3+X_2X_3 \\
+  m_{(4,4,2)}^{(3)} &= X_1^4X_2^4X_3^2+X_1^4X_2^2X_3^4+X_1^2X_2^4X_3^4+X_1^2X_2^4X_3^4
+\end{align*}
+
+\begin{deff}
+  Let $n\in \IZ_{>0}$ and $r\in\IZ_{\ge0}$. Define the symmetric polynomials
+  \begin{align*}
+    p_r^{(n)} &:= X_1^r+X_2^r+\ldots+X_n^r \\ \intertext{the \emph{$r-th$ power symmetric polynomial} (with $p_0^{(n)} = n$),}
+    h_r^{(n)} &:= \sum_{\abs a = r}X_1^{a_1}X_2^{a_2}\cdots X_n^{a_n} \\ \intertext{where $a = (a_i)_{1\le i\le n}\in \IZ_{\ge 0}^n$ with $\abs a = \sum_{i=1}^na_i$, the \emph{$r$-th complete symmetric polynomial} ($h_0^{(n)} = 1$),}
+    e_r^{(n)} &:= \sum_{\mathclap{1\le i_1<\ldots<i_r\le n}} X_{i_1} X_{i_2}\cdots X_{i_r} = \sum_{\substack{I \subseteq \set{1,\ldots,n}\\\abs I = r}} \prod_{i \in I}X_i, \\ \intertext{the \emph{$r$-th elementary symmetric polynomial} (with $e_0^{(n)} = 1$ and $e_r^{(n)} = 0$ if $r>n$).}
+  \end{align*}
+\end{deff}
+
+\begin{lem}
+  For all $n\in \IZ_{>0}$ we have in $\IZ[X_1,\ldots,X_n][t]$ \[ \prod_{i=1}^n (t-X_i) = t^n-e_1^{n}t^{n-1}+e_2^{(n)}t^{n-2}+\ldots+(-1)^ne_n^{(n)}. \]
+\end{lem}
+\begin{proof}
+  The coefficients of $t^{n-j}$ on the left hand side equals \begin{align*} \sum_{\mathclap{i \le i_1 < \ldots < i_j \le n}} (-X_{i_1})(-X_{i_2})\cdots(-X_{i_j}) = (-1)^j e_j^{(n)}. \qedhereb \end{align*}
+\end{proof}
+
+\begin{thm}[Fundamental theorem of symmetric polynomials] \label{thm:symmetric polys}
+  The elementary symmetric polynomials $e_1^{(n)},\ldots,e_n^{(n)}$ generate $k[X_1,\ldots,X_n]^{S_n}$ as a $k$-algebra. Moreover they are algebraically independent over $k$. That means
+  \begin{eqnarray*}
+    k[X_1,\ldots,X_n]^{S_n} &\to& k[t_1,\ldots,t_n] \\
+    e_j^{(n)} &\mapsto& t_j
+  \end{eqnarray*}
+  is an isomorphism of algebras.
+\end{thm}
+
+\begin{lem} \label{lem:III.5/6}
+  Let $G$ be a group and $V_i$ ($i\in I$) representations of $G$ (over some fixed field $k$). Then \[ \left(\bigoplus_{i\in I}V_i\right)^G = \bigoplus_{i \in I}V_i^G \] as vector subspaces of $\bigoplus_{i\in I} V_i$. 
+\end{lem}
+\begin{proof}
+  \leavevmode
+  \begin{description}
+    \item[\enquote{$\supseteq$}] Obvious.
+    \item[\enquote{$\subseteq$}] Let $v = \sum_{i\in I}v_i \in \left(\bigoplus_{i\in I}V_i\right)^G$. Then we have \[ v = g.v = g. \left(\sum_{i\in I}v_i\right) = \sum_{i \in I}g.v_i \] for all $g \in G$ since the sum is direct. We get $v_i = g.v_i$ for all $i\in I$ and $g \in G$, and therefore $v_i \in V_i^G$ for all $i\in I$.
+    \qedhere
+  \end{description}
+\end{proof}
+
+\begin{lem}
+  A polynomial $f \in k[X_1,\ldots,X_n]$ is symmetric if and only if its homogeneous parts $f_i \in k[X_1,\ldots,X_n]$ are symmetric.
+\end{lem}
+\begin{proof}
+  Let $A = k[X_1,\ldots,X_n] = \sum_{i\in \IZ}k[X_1,\ldots,X_n]_i$ the decomposition (since $A$ is a graded algebra) where \[ k[X_1,\ldots,X_n]_i = \begin{cases*}
+                                            0 & if $i < 0$, \\
+                                            \gen{\set{X_1^{a_1}\cdots X_n^{a_n}\given \sum_{j=1}^na_j = i}} & otherwise.
+                                          \end{cases*} \]
+  $G = S_n$ acts on $A$ as above and preserves $k[X_1,\ldots,X_n]_i =: A_i$. By \cref{lem:III.5/6} we get \begin{align*} k[X_1\ldots,X_n]^{S_n} = A^G = \bigoplus_{i\in\IZ}A_i^G = \bigoplus_{i\in\IZ}k[X_1,\ldots,X_n]_i^{S_n} \qedhereb \end{align*}
+\end{proof}
+
+The following formula holds for all $1 \le r \le n$ ($n \in \IZ_{>0}$). \[ e_r^{(n)} = e_r^{(n-1)} + X_ne_r{-1}^{(n-1)} \]
+\begin{proof}
+  \begin{align*}
+    \qedherea
+    e_r^{(n)} &= \sum_{\substack{I \subseteq \set{1,\ldots,n}\\\abs I = r}} \prod_{i \in I}X_i = \sum_{\substack{I \subseteq \set{1,\ldots,n-1}\\\abs I = r}} \prod_{i \in I}X_i + X_n \sum_{\substack{I \subseteq \set{1,\ldots,n-1}\\\abs I = r-1}} \prod_{i \in I}X_i \\ &= e_r^{(n-1)} + X_ne_r{-1}^{(n-1)}
+    \qedhereb
+  \end{align*}
+\end{proof}
+
+\begin{lem}
+  A polynomial $f\in k[X_1,\ldots,X_n]$ is symmetric if and only if it can be expressed as a polynomial in the $e_r^{(n)}$'s (over $k$).
+\end{lem}
+\begin{proof}
+  \leavevmode
+  \begin{description}
+    \item[\enquote{$\Rightarrow$}] We have $e \in k[X_1,\ldots,X_n]^{S_n}$. But $k[X_1,\ldots,X_n]^{S_n}$ is a subring, even a subalgebra.
+    \item[\enquote{$\Leftarrow$}] Let $f \in k[X_1,\ldots,X_n]^{S_n}$ a symmetric polynomial. We use induction on $n$.
+    
+    For $n=1$ we have $k[X_1]^{S_1} = k[X_1]^{\set e} = k[X_1] = k[e_1^{(1)}]$.
+    
+    Assume the lemma for $n-1$. Let $d = \deg f$. If $d \le 1$, the claim is obvious. Let $d \ge 2$ and assume the lemma holds for any symmetric polynomial $h$ with $\deg h < d$.
+    
+    Consider
+    \begin{eqnarray*}
+      q \colon k[X_1,\ldots,X_n] &\to& \fak{k[X_1,\ldots,X_n]}{(X_n)} \cong k[X_1,\ldots,X_{n-1}], \\
+      p(x_1,\ldots,x_n) &\mapsto& p(x_1,\ldots,x_{n-1},0).
+    \end{eqnarray*}
+    Check that $q$ is an algebra homomorphism. We have:
+    \begin{itemize}
+      \item $q(e_j^{(n)}) = e_j^{(n-1)}$ for all $0\le j >n$.
+      \item $q(e_n^{(n)}) = 0$.
+      \item $q(f) \in k[X_1,\ldots,X_n]^{S_{n-1}}$, because for $g \in S_{n-1}$
+      \begin{align*}
+        g.(q(f)) &= (q(f))(X_{g^{-1}(1)},X_{g^{-1}(2)},\ldots,X_{g^{-1}(n-1)})) \\
+        &= q(f(X_{g^{-1}(1)},X_{g^{-1}(2)},\ldots,X_{g^{-1}(n)})) \\
+        &= q((g.f)(X_1,\ldots,X_n)) \\ \intertext{and as $f$ is symmetric,}
+        &= q(f).
+      \end{align*}
+    \end{itemize}
+    By induction $q(f)$ is a polynomial $P(e^{(n-1)}_1,\ldots,e_{n-1}^{(n-1)})$ in $e^{(n-1)}_1,\ldots,e_{n-1}^{(n-1)}$. Set $g= P(e_1^{(n)},\ldots,e_{n-1}^{(n)})\in k[X_1,\ldots,X_n]$. Because $q$ is an algebra homomorphism we have \[q(g) = P(q(e_1^{(n)}),\ldots,q(e_n^{(n)})) = P(e_n^{(n-1)},\ldots,e_{n-1}^{(n-1)},0) = q(f). \] Therefore, $q(f-g) = 0$ in $\fak{k[X_1,\ldots,X_n]}{(X_n)}$, and we get $X_n \mid f-g$.
+    
+    By assumption, $f$ is symmetric, by construction, $g$ is symmetric. Thus, $f-g$ is symmetric, and $X_i \mid f-g$ for all $1 \le i \le n$, and we have $X_1X_2\cdots X_n \mid f-g$. Set \[ h = \frac{f-g}{X_1X_2\cdots X_n} = \frac{f-g}{e_n^{(n)}} \] (here we use that $k[X_1,\ldots,X_n]$ is a unique factorization domain). Now due to $\deg g \le \deg f = d$ we have $\deg h < d $. By induction on degree $h$ canb e written as apolynomial in the $e_1^{(n)},\ldots,e_n^{(n)}$. Then, $f -g = e_n^{(n)}h$ as well as $f= e_n^{(n)}h +g$ can be written as such a polynomial by definition of $g$.
+    \qedhere
+  \end{description}
+\end{proof}
+
+\begin{proof}[Proof ot the \namereff{thm:symmetric polys}]
+  We still have to show that the $e_1^{(n)},\ldots,e_n^{(n)}$ are algebraicaly independent (over $k$). We use induction on $n$. For $n=1$ we have $k[X_1]^{S_1} = k[X_1] = k[e_1^{(1)}]$.
+  
+  Assume the claim holds for $n-1 \ge 1$, but it does not hold for $n$. Then there exists a polynomial $0 \neq P \in k[t_1,\ldots,t_n]$ such that $P(e_1^{(n)},\ldots,e_n^{(n)})=0$. Let $p$ be of minimal possible degree. Then \[ 0 = q(P(e_1^{(n)},\ldots,e_n^{(n)})) = P(q(e_1^{(n)}),\ldots,q(e_n^{(n)}) = p(e_1^{(n-1)},\ldots,e_{n-1}^{(n-1)},0) \] and by induction hypothesis $X_n \mid P$.
+  
+  Therefore, there exists a $\hat p \in k[t_1,\ldots,t_n]$ such that $P = t_n \hat P$. In particular $\hat P \neq 0$ and $\deg \hat P < \deg P$. We have $0 = P(e_1^{(n)},\ldots,e_n^{(n)}) = e_n^{(n)}\hat P (e_1^{(n)},\ldots,e_n^{(n)})$. Thus, $\hat P(e_1^{(n)},\ldots,e_n^{(n)}) = 0$ since $e_n^{(n)} \neq 0$ and $P \mid 0$. This contradicts the minimality of $\deg P$.
+\end{proof}
+
+\paragraph{Remark.} The proof givs also an algorithm how to express a symmetric polynomial $f$ in the $e_1^{(n)},\ldots,e_n^{(n)}$.
+
+\paragraph{Remark.} The proof and theorem also hold for $\IZ[X_1,\ldots,X_n]^{S_n}$.
+
+\bigskip
+
+To better understand the interaction ot the symmetric polynomials $e_r^{(n)}$, $p_r^{(n)}$ and $h_i^{(n)}$ we use \emph{generating series} in $k[X_1,\ldots,X_n]\llbracket t\rrbracket$. For fix $n\in \IZ_{>0}$ we define
+\begin{align*}
+  E(t) & := \sum_{r=0}^ne_r^{(n)}t^r, & H(t) & := \sum_{r\ge0}h_r^{(n)}t^r, & P(t) & := \sum_{r\ge 0} p_{r+1}^{(n)}t^r.
+\end{align*}
+
+\begin{lem} \label{lem:III.9}
+  \leavevmode
+  \begin{enumerate}
+    \item\label{lem:III.9:1} $\displaystyle E(t) = \prod_{i=1}^n (1+X_it)$
+    \item\label{lem:III.9:2} $\displaystyle H(t) = \prod_{i=1}^n\frac1{1-X_it}$
+    \item\label{lem:III.9:3} $\displaystyle P(t) = \sum_{i=1}^n \frac1{1-X_it}$
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}[label=\ref{lem:III.9:\arabic*}]
+    \item Clear.
+    \item $1-X_it$ is invertible in $k[X_1,\ldots,X_n]\llbracket t\rrbracket$, namely with the inverse $Q_i(t) = \frac1{1-X_it} := 1+X_i+X_i^2t^2 + \ldots$. Then $ \prod_{i=1}^n \frac1{1-X_it} = Q_1(t)Q_2(t)\cdots Q_n(t)$. But here the coefficient of $t_j$ equals $h_j^{(n)}$.
+    \item Left to the reader. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{cor}
+  For all $s \ge 1$ we have \[ h_s^{(n)} - e_1^{(n)}h_{s-1}^{(n)} + e_2^{(n)}h_{s-2}^{(n)} - \ldots + (-1)^se_sh_0^{(n)} = 0. \] The same holds with $e$ and $h$ swapped.
+\end{cor}
+\begin{proof}
+  Left to the reader.
+\end{proof}
+
+\begin{cor}
+  For all $j\ge 1$ we have \[ jh_j^{(n)} = p_1^{(n)}h_{j-1}^{(n)} + p_2^{(n)}h_{j-2}^{(n)} + \ldots + p_{j-1}^{(n)}h_1^{(n)}+p_j^{(n)}h_0^{(n)}. \]
+\end{cor}
+\begin{proof}
+  Let $H^r(t)$ be the formal derivation of $H(t)$ with respect to $t$, so $H_r'(t) = \sum_{r\ge 0}rh_r^{(n)}t^{r-1}$. On the other hand (by \cref{lem:III.9}) \[ H'(t) = \sum_{i=1}^n\left(\frac{X_i}{(1-X_it)^2}\prod_{j\neq i}\frac1{1-X_jt}\right) = \sum_{i=1}^n\frac{X_i}{1-X_it}\left(\prod_{j=1}^n\frac1{1-X_jt}\right). \] By comparing coefficients of $t^{r-1}$ we get \[ rh_r^{n} = \sum_{s=1}^rp_s^{(n)}h_{r-s}^{(n)} \] using \cref{lem:III.9} \ref{lem:III.9:2} and \ref{lem:III.9:3}.
+\end{proof}
+
+
+
+
+
+
 
 \end{otherlanguage}
 \end{document}
