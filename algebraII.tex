@@ -280,7 +280,7 @@ $kX$ is preserved under $G$-action. Let $f \in kX, g \in G$. Then
 
 \section{Representations of groups}
 \begin{deff}
-  Let $G$ be a group, $V$ a $k$-vector space and $G\times V \to V$ an action. This action is linear if $\pi_g\colon V\to V$ is a linear map for all $g\in G$. Then $V$ is called a $G$-space or a \emph{representation} of $G$.
+  Let $G$ be a group, $V$ a $k$-vector space and $G\times V \to V$ an action. This action is \emph{linear} if $\pi_g\colon V\to V$ is a linear map for all $g\in G$. Then $V$ is called a \emph{$G$-space} or a \emph{representation} of $G$.
 \end{deff}
 
 \paragraph{Example.} If $V$ is a $k$-vector space then $\GL(V)$ acts linearly on $V$ by $g.v = g(v)$ for all $g \in \GL(V)$ and $v\in V$. We call this the \emph{standard representation}.
@@ -313,7 +313,7 @@ We have a bijection
 Let \[ G = \set*{\begin{pmatrix}a&b\\0&c\end{pmatrix} \given a,b,c \in \IC, a,c \neq 0 } \] act on $V = \IC^2$ by standard action. Then $U = \gen{\begin{pmatrix}1\\0\end{pmatrix}}$ is a proper subrepresentation of $V$, but $V$ is not irreducible. But $V$ is indecomposable since $U$ is the unique proper subrepresentation. To see this, assume $U' = \gen{\begin{pmatrix}x\\y\end{pmatrix}}$ to be a proper subrepresentation. Then \[ \begin{pmatrix}1&1\\0&1\end{pmatrix} \begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}x+y\\y\end{pmatrix} \in U', \] and as $U'$ is a subspace, we have $\begin{pmatrix}y\\0\end{pmatrix} \in U'$ and therefore $U' = U$. $V$ is also not completely irreducible.
 
 \begin{deff}
-  Let $G$ be a group and $k$ a field. The group algebra of $G$ over $k$ is the $k$-algebra given by the $k$-vector space \[ kG = \set{f \colon G \to k \given \text{$\supp f$ is finite}} \] with multiplication given by convolution of functions: \[ (f_1\cdot f_2)(x) = \sum_{y \in G} f_1(y)f_2(y^{-1}x) \] with unit $1 = \Xs_e$.
+  Let $G$ be a group and $k$ a field. The group algebra of $G$ over $k$ is the $k$-algebra given by the $k$-vector space \[ kG = \set{f \colon G \to k \given \text{$\supp f$ is finite}} \] with multiplication given by convolution of functions \[ (f_1\cdot f_2)(x) = \sum_{y \in G} f_1(y)f_2(y^{-1}x) \] with unit $1 = \Xs_e$.
 \end{deff}
 Indeed, we have
 \begin{align*}
@@ -388,7 +388,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
 \paragraph{Remark.} It can be shown that $\Rep_k(G)$ is an abelian category.
 
 \begin{lem}[Schur's lemma] \label{lem:schur}
-  Let $g$ be a group and $V,W$ irreducible representations of $G$ over $k$.
+  Let $G$ be a group and $V,W$ irreducible representations of $G$ over $k$.
   \begin{enumerate}
     \item\label{lem:schur:1} $\Hom_G(V,W) = 0$ if $V \ncong W$. If $V \cong W$, we have $\Hom_G(V,W) \neq 0 $ and every non-zero morphism is an isomorphism.
     \item\label{lem:schur:2} If $k = \ol k$ and $V$ and $W$ are finite dimensional then \[ \Hom_G(V,W) \cong \begin{cases*}
@@ -447,7 +447,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
 
 \subsection{Gradings and filtrations}
 \begin{deff}
-  Let $A$ be a $k$-algebra. A \emph{grading} (or $\IZ$-grading) on $A$ is a decomposition \[ A = \bigoplus_{i\in IZ} A_i\] into vector subspaces $A_i$ such that $A_iA_j \subseteq A_{i+j}$ for all $i,j\in \IZ$. We call then $A$ a \emph{graded algebra}. The $A_i$ ($i \in \IZ$) are the \emph{graded} (or \emph{homogeneous}) \emph{components}. An element $a_i \in A_i$ is called \emph{homogeneous} (of degree $i$).
+  Let $A$ be a $k$-algebra. A \emph{grading} (or \emph{$\IZ$-grading}) on $A$ is a decomposition \[ A = \bigoplus_{i\in IZ} A_i\] into vector subspaces $A_i$ such that $A_iA_j \subseteq A_{i+j}$ for all $i,j\in \IZ$. We call then $A$ a \emph{graded algebra}. The $A_i$ ($i \in \IZ$) are the \emph{graded} (or \emph{homogeneous}) \emph{components}. An element $a_i \in A_i$ is called \emph{homogeneous} (of degree $i$).
 \end{deff}
 \begin{deff}
   A \emph{grading} of a ring $R$ is a decomposition $R = \sum_{i \in \IZ} R_i$ into $\IZ$-modules such that $R_iR_j \subseteq R_{i+j}$ for all $i,j\in \IZ$. We call then $R$ a \emph{graded} ring and the $R_i$ the \emph{graded}/\emph{homogeneous components}.
@@ -482,7 +482,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
   \item Let $V$ be a $k$-vector space. Consider the vector space \[ \T(V) := k \oplus V \oplus (V \tp V) \oplus \ldots = k \oplus \bigoplus_{d\ge1} V^{\tp d} =: \bigoplus_{d \ge 0} V^{\tp d}. \]
   We claim that $\T(V)$ is an algebra by setting \[ (\underbrace{v_{i_1} \tp \ldots \tp v_{i_d}}_{\in V^{\tp d}})(\underbrace{v_{j_1} \tp \ldots \tp v_{j_{d'}}}_{\in V^{\tp d'}}) = \underbrace{v_{i_1} \tp \ldots \tp v_{i_d} \tp v_{j_1} \tp \ldots \tp v_{j_{d'}}}_{\in V^{\tp (d+d')}} \] for any $v_{i_r}, v_{j_s}$ in a chosen basis $\set{v_i \given i \in I}$ of $V$ ($1 \le r \le d$, $1 \le s \le d'$) and extended linearly to $\T(V)$ with \begin{align*} \underbrace{\lambda}_{\in V^{\tp 0}} \cdot \underbrace{v}_{\in V^{\tp d}} & := \underbrace{\lambda v}_{\in V^{\tp d}} &&\text{and} & \underbrace{v}_{\in V^{\tp d}} \cdot \underbrace{\lambda}_{\in V^{\tp 0}} & := \underbrace{\lambda v}_{\in V^{\tp d}} . \end{align*}
   
-  We also claim that $\T(V) = \bigoplus_{i \in \IZ} \T(V)_i$ with \[ \T(V)_i = \begin{cases*}
+  We also claim that $\T(V) = \bigoplus_{i \in \IZ} \T(V)_i$ with \[ \T(V)_i := \begin{cases*}
                                                                                  V^{\tp i} & if $i \ge 0$ \\
                                                                                  0 & otherwise
                                                                                \end{cases*} \]
@@ -503,9 +503,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
                                                                           \fak{F_i(A)}{F_{i-1}(A)} & if $i \ge 0$, \\
                                                                           0 & if $i<0$.
                                                                         \end{cases*} \]
-  Then $\gr A$ becomes a graded algebra by defining the multiplication \[ (a + F_{i-1}(A))(b+F_{j-1}(A)) := ab + F_{i+j-1}(A) \] for any $a \in F_i(A)$ and $b \in F_j(A)$.
-  
-  This algebra is called the \emph{associated graded algebra} to the filtered algebra $(A,F_\bullet(A))$.
+  Then $\gr A$ becomes a graded algebra by defining the multiplication \[ (a + F_{i-1}(A))(b+F_{j-1}(A)) := ab + F_{i+j-1}(A) \] for any $a \in F_i(A)$ and $b \in F_j(A)$. It is called the \emph{associated graded algebra} to the filtered algebra $(A,F_\bullet(A))$.
 \end{prop}
 \begin{proof}
   We have to show that the multiplication is well-defined. Note that we have
@@ -520,7 +518,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
 \end{proof}
 
 \begin{prop}
-  Let $A = \bigoplus_{i \in IZ}A_i$ be a graded algebra such that $A_i = 0$ for $i <0$. Then define \[ F_j(A) = \bigoplus_{\mathclap{0\le i \le j}} A_i \] for all $j \ge 0$. Then \begin{equation} 0 =: F_{-1}(A) \subseteq F_0(A) \subseteq F_1(A) \subseteq \ldots \subseteq A \tag{*}\label{prop:III.3:eq} \end{equation} turns into a filtered algebra.
+  Let $A = \bigoplus_{i \in \IZ}A_i$ be a graded algebra such that $A_i = 0$ for $i <0$. Then define \[ F_j(A) = \bigoplus_{\mathclap{0\le i \le j}} A_i \] for all $j \ge 0$. Then \begin{equation} 0 =: F_{-1}(A) \subseteq F_0(A) \subseteq F_1(A) \subseteq \ldots \subseteq A \tag{*}\label{prop:III.3:eq} \end{equation} turns into a filtered algebra.
 \end{prop}
 \begin{proof}
   Obviously $F_j(A) \subseteq A$ are vector subspaces for all $j \ge -1$ and \eqref{prop:III.3:eq} is a sequence of nested vector spaces.
@@ -538,7 +536,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
     X\colon k[t] &\to k[t] & \qquad \partial\colon k[t] &\to k[t] \\
     p & \mapsto tp & \qquad p &\mapsto p' := \text{formal derivation}
   \end{xalignat*}
-  Let $A$ be the subalgebra of $\End_k(k[t])$ generated by $X$ and $\partial$. This is called the (first) \emph{Weyl algebra} $A_1$.
+  Let $A$ be the subalgebra of $\End_k(k[t])$ generated by $X$ and $\partial$. This is called the (first) \emph{Weyl algebra} $\As_1$.
   
   We claim that $A$ has basis $\set{X^a\partial^b \given a,bc \in \IZ_{\ge 0}}$ (with $X^0\partial^0 = 1$). The reader may check this using the formula $\partial X = X\partial + \id$. Furthermore, one can define a filtration on $A$ via $F_j(A) = \gen{\set{X^a\partial^b \given a+b \le j}}$ for $j \ge 0$.
 \end{enumerate}
@@ -559,7 +557,7 @@ is an algebra homomorphism.
   For graded $A$-modules $M=\bigoplus_{i\in\IZ}M_i$ and $N=\bigoplus_{i\in\IZ}N_i$, a morphism of graded $A$-modules from $M$ to $N$ is a morphism $f\colon M \to N$ of $A$-modules such that $f(M_i)\subseteq N_i$ for all $i\in\IZ$.
 \end{deff}
 
-\paragraph{Remark.} Graded $A$-modules with graded $A$-module homomorphisms form a category (where $A$ is graded algebra).
+\paragraph{Remark.} Graded $A$-modules with graded $A$-module homomorphisms form a category (where $A$ is a graded algebra).
 
 \subsection{Symmetric polynomials}
 \begin{deff}
@@ -581,9 +579,9 @@ In $K[X_1,X_2,X_3]^{S_3}$ we have e.g. the following elements:
 \begin{deff}
   Let $n\in \IZ_{>0}$ and $r\in\IZ_{\ge0}$. Define the symmetric polynomials
   \begin{align*}
-    p_r^{(n)} &:= X_1^r+X_2^r+\ldots+X_n^r \\ \intertext{the \emph{$r-th$ power symmetric polynomial} (with $p_0^{(n)} = n$),}
-    h_r^{(n)} &:= \sum_{\abs a = r}X_1^{a_1}X_2^{a_2}\cdots X_n^{a_n} \\ \intertext{where $a = (a_i)_{1\le i\le n}\in \IZ_{\ge 0}^n$ with $\abs a = \sum_{i=1}^na_i$, the \emph{$r$-th complete symmetric polynomial} ($h_0^{(n)} = 1$),}
-    e_r^{(n)} &:= \sum_{\mathclap{1\le i_1<\ldots<i_r\le n}} X_{i_1} X_{i_2}\cdots X_{i_r} = \sum_{\substack{I \subseteq \set{1,\ldots,n}\\\abs I = r}} \prod_{i \in I}X_i, \\ \intertext{the \emph{$r$-th elementary symmetric polynomial} (with $e_0^{(n)} = 1$ and $e_r^{(n)} = 0$ if $r>n$).}
+    p_r^{(n)} &:= X_1^r+X_2^r+\ldots+X_n^r, \\ \intertext{the $r$-th \emph{power symmetric polynomial} (with $p_0^{(n)} = n$),}
+    h_r^{(n)} &:= \sum_{\abs a = r}X_1^{a_1}X_2^{a_2}\cdots X_n^{a_n} \\ \intertext{where $a = (a_i)_{1\le i\le n}\in \IZ_{\ge 0}^n$ with $\abs a = \sum_{i=1}^na_i$, the $r$-th \emph{complete symmetric polynomial} ($h_0^{(n)} = 1$),}
+    e_r^{(n)} &:= \sum_{\mathclap{1\le i_1<\ldots<i_r\le n}} X_{i_1} X_{i_2}\cdots X_{i_r} = \sum_{\substack{I \subseteq \set{1,\ldots,n}\\\abs I = r}} \prod_{i \in I}X_i, \\ \intertext{the $r$-th \emph{elementary symmetric polynomial} (with $e_0^{(n)} = 1$ and $e_r^{(n)} = 0$ if $r>n$).}
   \end{align*}
 \end{deff}
 
@@ -591,7 +589,7 @@ In $K[X_1,X_2,X_3]^{S_3}$ we have e.g. the following elements:
   For all $n\in \IZ_{>0}$ we have in $\IZ[X_1,\ldots,X_n][t]$ \[ \prod_{i=1}^n (t-X_i) = t^n-e_1^{n}t^{n-1}+e_2^{(n)}t^{n-2}+\ldots+(-1)^ne_n^{(n)}. \]
 \end{lem}
 \begin{proof}
-  The coefficients of $t^{n-j}$ on the left hand side equals \begin{align*} \sum_{\mathclap{i \le i_1 < \ldots < i_j \le n}} (-X_{i_1})(-X_{i_2})\cdots(-X_{i_j}) = (-1)^j e_j^{(n)}. \qedhereb \end{align*}
+  The coefficient of $t^{n-j}$ on the left hand side equals \begin{align*} \sum_{\mathclap{i \le i_1 < \ldots < i_j \le n}} (-X_{i_1})(-X_{i_2})\cdots(-X_{i_j}) = (-1)^j e_j^{(n)}. \qedhereb \end{align*}
 \end{proof}
 
 \begin{thm}[Fundamental theorem of symmetric polynomials] \label{thm:symmetric polys}
@@ -635,7 +633,7 @@ The following formula holds for all $1 \le r \le n$ ($n \in \IZ_{>0}$). \[ e_r^{
   \end{align*}
 \end{proof}
 
-\begin{lem}
+\begin{lem} \label{lem:III.8}
   A polynomial $f\in k[X_1,\ldots,X_n]$ is symmetric if and only if it can be expressed as a polynomial in the $e_r^{(n)}$'s (over $k$).
 \end{lem}
 \begin{proof}
@@ -673,6 +671,7 @@ The following formula holds for all $1 \le r \le n$ ($n \in \IZ_{>0}$). \[ e_r^{
 \end{proof}
 
 \begin{proof}[Proof ot the \namereff{thm:symmetric polys}]
+  \leavevmode\\
   We still have to show that the $e_1^{(n)},\ldots,e_n^{(n)}$ are algebraicaly independent (over $k$). We use induction on $n$. For $n=1$ we have $k[X_1]^{S_1} = k[X_1] = k[e_1^{(1)}]$.
   
   Assume the claim holds for $n-1 \ge 1$, but it does not hold for $n$. Then there exists a polynomial $0 \neq P \in k[t_1,\ldots,t_n]$ such that $P(e_1^{(n)},\ldots,e_n^{(n)})=0$. Let $p$ be of minimal possible degree. Then \[ 0 = q(P(e_1^{(n)},\ldots,e_n^{(n)})) = P(q(e_1^{(n)}),\ldots,q(e_n^{(n)}) = p(e_1^{(n-1)},\ldots,e_{n-1}^{(n-1)},0) \] and by induction hypothesis $X_n \mid P$.
@@ -680,7 +679,7 @@ The following formula holds for all $1 \le r \le n$ ($n \in \IZ_{>0}$). \[ e_r^{
   Therefore, there exists a $\hat p \in k[t_1,\ldots,t_n]$ such that $P = t_n \hat P$. In particular $\hat P \neq 0$ and $\deg \hat P < \deg P$. We have $0 = P(e_1^{(n)},\ldots,e_n^{(n)}) = e_n^{(n)}\hat P (e_1^{(n)},\ldots,e_n^{(n)})$. Thus, $\hat P(e_1^{(n)},\ldots,e_n^{(n)}) = 0$ since $e_n^{(n)} \neq 0$ and $P \mid 0$. This contradicts the minimality of $\deg P$.
 \end{proof}
 
-\paragraph{Remark.} The proof givs also an algorithm how to express a symmetric polynomial $f$ in the $e_1^{(n)},\ldots,e_n^{(n)}$.
+\paragraph{Remark.} The proof gives an algorithm how to express a symmetric polynomial $f$ in the $e_1^{(n)},\ldots,e_n^{(n)}$.
 
 \paragraph{Remark.} The proof and theorem also hold for $\IZ[X_1,\ldots,X_n]^{S_n}$.
 
