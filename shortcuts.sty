@@ -33,11 +33,21 @@
 \renewcommand{\phi}{\varphi}
 
 %---- DELIMITER ----%
-\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\DeclarePairedDelimiter{\gen}{\langle}{\rangle}
+\NewDocumentCommand\xDeclarePairedDelimiter{mmm}
+ {%
+  \NewDocumentCommand#1{som}{%
+   \IfNoValueTF{##2}
+    {\IfBooleanTF{##1}{#2##3#3}{\mleft#2##3\mright#3}}
+    {\mathopen{##2#2}##3\mathclose{##2#3}}%
+  }%
+ }
+\xDeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\xDeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\xDeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\xDeclarePairedDelimiter{\gen}{\langle}{\rangle}
 \DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\def\given{\;\delimsize\vert\;}#1}
+\xDeclarePairedDelimiter{\pa}{(}{)}
+\xDeclarePairedDelimiter{\br}{[}{]}
 
 %---- OPERATORS ----%
 \DeclareMathOperator{\GL}{GL}
@@ -90,6 +100,7 @@
 \DeclareMathOperator{\Vect}{Vect}
 \DeclareMathOperator{\T}{T}
 \DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\Par}{Par}
 
 \let\ker\undefined %I want controll
 \DeclareMathOperator{\im}{im}

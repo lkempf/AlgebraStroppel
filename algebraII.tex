@@ -294,7 +294,7 @@ We have a bijection
 
 \paragraph{Examples.}
 \begin{enumerate}
-  \item Let $X$ be a $G$-set. Then $kX$ is a representation (the \emph{regular representation} of $kX$) of $G$ via \[ g.\left(\sum_{x\in X} a_x \Xs_x\right) = \sum_{x \in X} a_x \Xs_{g.x}. \]
+  \item Let $X$ be a $G$-set. Then $kX$ is a representation (the \emph{regular representation} of $kX$) of $G$ via \[ g.\pa{\sum_{x\in X} a_x \Xs_x} = \sum_{x \in X} a_x \Xs_{g.x}. \]
   \item Let $V$ and $W$ be representations of $G$ over $K$. Then the $G$-action on $\Maps(V,W)$ induces a $G$-action on $\Hom_k(V,W) = \set{f\colon V\to W \given \text{$f$ $k$-linear}}$.
   \item Let $V$ and $W$ be representations of $G$ over $k$. Then $V \oplus W$ and $V\tp W$ are representations of $G$, called direct sum and tensor product via $g.(v,w) = (g.v,g.w)$ and $g.(v\tp w) = (g.v)\tp (g.w)$ extended linearly.
 \end{enumerate}
@@ -341,7 +341,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
   Let $G$ be a group and $V$ a $k$-vector space. Then
   \begin{eqnarray*}
     \set{\text{linear $G$-actions on $V$}} &\xleftrightarrow{1:1}& \set{\text{$kG$-module structures on $V$}}, \\
-    (G \times V \to V) &\mapsto& \left(\left(\sum_{g\in G} a_g g\right).v := \sum_{g\in G} a_g (g.v)\right).
+    (G \times V \to V) &\mapsto& \pa{\pa{\sum_{g\in G} a_g g}.v := \sum_{g\in G} a_g (g.v)}.
   \end{eqnarray*}
 \end{lem}
 \begin{proof}
@@ -413,7 +413,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
 \begin{proof}
   We have
   \begin{align*}
-    \End_G(W_1\oplus \ldots\oplus W_r) &= \Hom_G\left(\bigoplus_{i=1}^r\bigoplus_{j=1}^{n_i} V_i,\bigoplus_{i=1}^r\bigoplus_{j=1}^{n_i} V_i \right) \\
+    \End_G(W_1\oplus \ldots\oplus W_r) &= \Hom_G\pa{\bigoplus_{i=1}^r\bigoplus_{j=1}^{n_i} V_i,\bigoplus_{i=1}^r\bigoplus_{j=1}^{n_i} V_i } \\
     \intertext{and by \namereff{lem:schur}, since $V_i \cong V_i$, and $\End_G(V_i)\cong k$, we get}
     &\cong \End_G(V_1^{\oplus n_1}) \oplus \ldots \oplus \End_G(V_r^{\oplus n_r})\\ & \cong \M_{n_1\times n_1}(k) \oplus \ldots \oplus M_{n_r \times n_r}(k).
     \qedhere
@@ -435,7 +435,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
     \item $\hat p$ is $G$-equivariant, as for any $h\in G$ and $v\in V$
     \begin{align*}
       \hat p(h.v) &= \frac1{\abs G} \sum_{g \in G}g^{-1}.p(g.h.v) = \frac1{\abs G} \sum_{g\in G} h.(h^{-1}.(g^{-1}.p(g.h.v)) \\
-      &= h.\left(\frac1{\abs G} \sum_{g \in G} (gh)^{-1}.p((gh).v)\right) = h.\left(\frac1{\abs G} \sum_{g \in G} g^{-1}.p(g.v)\right) = h.\hat p(v).
+      &= h.\pa{\frac1{\abs G} \sum_{g \in G} (gh)^{-1}.p((gh).v)} = h.\pa{\frac1{\abs G} \sum_{g \in G} g^{-1}.p(g.v)} = h.\hat p(v).
     \end{align*}
   \end{itemize}
   Therefore, $V = \im \hat p \oplus \ker \hat p = U \oplus \ker \hat p$ since $\hat p$ is $G$-equivariant. $W := \ker \hat p$ is a subrepresentation of $V$.
@@ -602,13 +602,13 @@ In $K[X_1,X_2,X_3]^{S_3}$ we have e.g. the following elements:
 \end{thm}
 
 \begin{lem} \label{lem:III.5/6}
-  Let $G$ be a group and $V_i$ ($i\in I$) representations of $G$ (over some fixed field $k$). Then \[ \left(\bigoplus_{i\in I}V_i\right)^G = \bigoplus_{i \in I}V_i^G \] as vector subspaces of $\bigoplus_{i\in I} V_i$. 
+  Let $G$ be a group and $V_i$ ($i\in I$) representations of $G$ (over some fixed field $k$). Then \[ \pa{\bigoplus_{i\in I}V_i}^G = \bigoplus_{i \in I}V_i^G \] as vector subspaces of $\bigoplus_{i\in I} V_i$. 
 \end{lem}
 \begin{proof}
   \leavevmode
   \begin{description}
     \item[\enquote{$\supseteq$}] Obvious.
-    \item[\enquote{$\subseteq$}] Let $v = \sum_{i\in I}v_i \in \left(\bigoplus_{i\in I}V_i\right)^G$. Then we have \[ v = g.v = g. \left(\sum_{i\in I}v_i\right) = \sum_{i \in I}g.v_i \] for all $g \in G$ since the sum is direct. We get $v_i = g.v_i$ for all $i\in I$ and $g \in G$, and therefore $v_i \in V_i^G$ for all $i\in I$.
+    \item[\enquote{$\subseteq$}] Let $v = \sum_{i\in I}v_i \in \pa{\bigoplus_{i\in I}V_i}^G$. Then we have \[ v = g.v = g. \pa{\sum_{i\in I}v_i} = \sum_{i \in I}g.v_i \] for all $g \in G$ since the sum is direct. We get $v_i = g.v_i$ for all $i\in I$ and $g \in G$, and therefore $v_i \in V_i^G$ for all $i\in I$.
     \qedhere
   \end{description}
 \end{proof}
@@ -619,7 +619,7 @@ In $K[X_1,X_2,X_3]^{S_3}$ we have e.g. the following elements:
 \begin{proof}
   Let $A = k[X_1,\ldots,X_n] = \sum_{i\in \IZ}k[X_1,\ldots,X_n]_i$ the decomposition (since $A$ is a graded algebra) where \[ k[X_1,\ldots,X_n]_i = \begin{cases*}
                                             0 & if $i < 0$, \\
-                                            \gen{\set{X_1^{a_1}\cdots X_n^{a_n}\given \sum_{j=1}^na_j = i}} & otherwise.
+                                            \gen{\set*{X_1^{a_1}\cdots X_n^{a_n}\given \sum_{j=1}^na_j = i}} & otherwise.
                                           \end{cases*} \]
   $G = S_n$ acts on $A$ as above and preserves $k[X_1,\ldots,X_n]_i =: A_i$. By \cref{lem:III.5/6} we get \begin{align*} k[X_1\ldots,X_n]^{S_n} = A^G = \bigoplus_{i\in\IZ}A_i^G = \bigoplus_{i\in\IZ}k[X_1,\ldots,X_n]_i^{S_n} \qedhereb \end{align*}
 \end{proof}
@@ -642,7 +642,7 @@ The following formula holds for all $1 \le r \le n$ ($n \in \IZ_{>0}$). \[ e_r^{
     \item[\enquote{$\Rightarrow$}] We have $e \in k[X_1,\ldots,X_n]^{S_n}$. But $k[X_1,\ldots,X_n]^{S_n}$ is a subring, even a subalgebra.
     \item[\enquote{$\Leftarrow$}] Let $f \in k[X_1,\ldots,X_n]^{S_n}$ a symmetric polynomial. We use induction on $n$.
     
-    For $n=1$ we have $k[X_1]^{S_1} = k[X_1]^{\set e} = k[X_1] = k[e_1^{(1)}]$.
+    For $n=1$ we have $k[X_1]^{S_1} = k[X_1]^{\set e} = k[X_1] = k\br{e_1^{(1)}}$.
     
     Assume the lemma for $n-1$. Let $d = \deg f$. If $d \le 1$, the claim is obvious. Let $d \ge 2$ and assume the lemma holds for any symmetric polynomial $h$ with $\deg h < d$.
     
@@ -663,7 +663,7 @@ The following formula holds for all $1 \le r \le n$ ($n \in \IZ_{>0}$). \[ e_r^{
         &= q(f).
       \end{align*}
     \end{itemize}
-    By induction $q(f)$ is a polynomial $P(e^{(n-1)}_1,\ldots,e_{n-1}^{(n-1)})$ in $e^{(n-1)}_1,\ldots,e_{n-1}^{(n-1)}$. Set $g= P(e_1^{(n)},\ldots,e_{n-1}^{(n)})\in k[X_1,\ldots,X_n]$. Because $q$ is an algebra homomorphism we have \[q(g) = P(q(e_1^{(n)}),\ldots,q(e_n^{(n)})) = P(e_n^{(n-1)},\ldots,e_{n-1}^{(n-1)},0) = q(f). \] Therefore, $q(f-g) = 0$ in $\fak{k[X_1,\ldots,X_n]}{(X_n)}$, and we get $X_n \mid f-g$.
+    By induction $q(f)$ is a polynomial $P\pa{e^{(n-1)}_1,\ldots,e_{n-1}^{(n-1)}}$ in $e^{(n-1)}_1,\ldots,e_{n-1}^{(n-1)}$. Set $g= P\pa{e_1^{(n)},\ldots,e_{n-1}^{(n)}}\in k[X_1,\ldots,X_n]$. Because $q$ is an algebra homomorphism we have \[q(g) = P\pa{q\pa{e_1^{(n)}},\ldots,q\pa{e_n^{(n)}}} = P\pa{e_n^{(n-1)},\ldots,e_{n-1}^{(n-1)},0} = q(f). \] Therefore, $q(f-g) = 0$ in $\fak{k[X_1,\ldots,X_n]}{(X_n)}$, and we get $X_n \mid f-g$.
     
     By assumption, $f$ is symmetric, by construction, $g$ is symmetric. Thus, $f-g$ is symmetric, and $X_i \mid f-g$ for all $1 \le i \le n$, and we have $X_1X_2\cdots X_n \mid f-g$. Set \[ h = \frac{f-g}{X_1X_2\cdots X_n} = \frac{f-g}{e_n^{(n)}} \] (here we use that $k[X_1,\ldots,X_n]$ is a unique factorization domain). Now due to $\deg g \le \deg f = d$ we have $\deg h < d $. By induction on degree $h$ canb e written as apolynomial in the $e_1^{(n)},\ldots,e_n^{(n)}$. Then, $f -g = e_n^{(n)}h$ as well as $f= e_n^{(n)}h +g$ can be written as such a polynomial by definition of $g$.
     \qedhere
@@ -672,11 +672,11 @@ The following formula holds for all $1 \le r \le n$ ($n \in \IZ_{>0}$). \[ e_r^{
 
 \begin{proof}[Proof ot the \namereff{thm:symmetric polys}]
   \leavevmode\\
-  We still have to show that the $e_1^{(n)},\ldots,e_n^{(n)}$ are algebraicaly independent (over $k$). We use induction on $n$. For $n=1$ we have $k[X_1]^{S_1} = k[X_1] = k[e_1^{(1)}]$.
+  We still have to show that the $e_1^{(n)},\ldots,e_n^{(n)}$ are algebraically independent (over $k$). We use induction on $n$. For $n=1$ we have $k[X_1]^{S_1} = k[X_1] = k[e_1^{(1)}]$.
   
-  Assume the claim holds for $n-1 \ge 1$, but it does not hold for $n$. Then there exists a polynomial $0 \neq P \in k[t_1,\ldots,t_n]$ such that $P(e_1^{(n)},\ldots,e_n^{(n)})=0$. Let $p$ be of minimal possible degree. Then \[ 0 = q(P(e_1^{(n)},\ldots,e_n^{(n)})) = P(q(e_1^{(n)}),\ldots,q(e_n^{(n)}) = p(e_1^{(n-1)},\ldots,e_{n-1}^{(n-1)},0) \] and by induction hypothesis $X_n \mid P$.
+  Assume the claim holds for $n-1 \ge 1$, but it does not hold for $n$. Then there exists a polynomial $0 \neq P \in k[t_1,\ldots,t_n]$ such that $P\pa{e_1^{(n)},\ldots,e_n^{(n)}}=0$. Let $p$ be of minimal possible degree. Then \[ 0 = q\pa{P\pa{e_1^{(n)},\ldots,e_n^{(n)}}} = P\pa{q\pa{e_1^{(n)}},\ldots,q\pa{e_n^{(n)}}} = P\pa{e_1^{(n-1)},\ldots,e_{n-1}^{(n-1)},0} \] and by induction hypothesis $X_n \mid P$.
   
-  Therefore, there exists a $\hat p \in k[t_1,\ldots,t_n]$ such that $P = t_n \hat P$. In particular $\hat P \neq 0$ and $\deg \hat P < \deg P$. We have $0 = P(e_1^{(n)},\ldots,e_n^{(n)}) = e_n^{(n)}\hat P (e_1^{(n)},\ldots,e_n^{(n)})$. Thus, $\hat P(e_1^{(n)},\ldots,e_n^{(n)}) = 0$ since $e_n^{(n)} \neq 0$ and $P \mid 0$. This contradicts the minimality of $\deg P$.
+  Therefore, there exists a $\hat p \in k[t_1,\ldots,t_n]$ such that $P = t_n \hat P$. In particular $\hat P \neq 0$ and $\deg \hat P < \deg P$. We have $0 = P\pa{e_1^{(n)},\ldots,e_n^{(n)}} = e_n^{(n)}\hat P \pa{e_1^{(n)},\ldots,e_n^{(n)}}$. Thus, $\hat P\pa{e_1^{(n)},\ldots,e_n^{(n)}} = 0$ since $e_n^{(n)} \neq 0$ and $P \mid 0$. This contradicts the minimality of $\deg P$.
 \end{proof}
 
 \paragraph{Remark.} The proof gives an algorithm how to express a symmetric polynomial $f$ in the $e_1^{(n)},\ldots,e_n^{(n)}$.
@@ -707,7 +707,7 @@ To better understand the interaction ot the symmetric polynomials $e_r^{(n)}$, $
   \end{enumerate}
 \end{proof}
 
-\begin{cor}
+\begin{cor} \label{cor:III.10}
   For all $s \ge 1$ we have \[ h_s^{(n)} - e_1^{(n)}h_{s-1}^{(n)} + e_2^{(n)}h_{s-2}^{(n)} - \ldots + (-1)^se_sh_0^{(n)} = 0. \] The same holds with $e$ and $h$ swapped.
 \end{cor}
 \begin{proof}
@@ -718,11 +718,138 @@ To better understand the interaction ot the symmetric polynomials $e_r^{(n)}$, $
   For all $j\ge 1$ we have \[ jh_j^{(n)} = p_1^{(n)}h_{j-1}^{(n)} + p_2^{(n)}h_{j-2}^{(n)} + \ldots + p_{j-1}^{(n)}h_1^{(n)}+p_j^{(n)}h_0^{(n)}. \]
 \end{cor}
 \begin{proof}
-  Let $H^r(t)$ be the formal derivation of $H(t)$ with respect to $t$, so $H_r'(t) = \sum_{r\ge 0}rh_r^{(n)}t^{r-1}$. On the other hand (by \cref{lem:III.9}) \[ H'(t) = \sum_{i=1}^n\left(\frac{X_i}{(1-X_it)^2}\prod_{j\neq i}\frac1{1-X_jt}\right) = \sum_{i=1}^n\frac{X_i}{1-X_it}\left(\prod_{j=1}^n\frac1{1-X_jt}\right). \] By comparing coefficients of $t^{r-1}$ we get \[ rh_r^{n} = \sum_{s=1}^rp_s^{(n)}h_{r-s}^{(n)} \] using \cref{lem:III.9} \ref{lem:III.9:2} and \ref{lem:III.9:3}.
+  Let $H^r(t)$ be the formal derivation of $H(t)$ with respect to $t$, so $H_r'(t) = \sum_{r\ge 0}rh_r^{(n)}t^{r-1}$. On the other hand (by \cref{lem:III.9}) \[ H'(t) = \sum_{i=1}^n\pa{\frac{X_i}{(1-X_it)^2}\prod_{j\neq i}\frac1{1-X_jt}} = \sum_{i=1}^n\frac{X_i}{1-X_it}\pa{\prod_{j=1}^n\frac1{1-X_jt}}. \] By comparing coefficients of $t^{r-1}$ we get \[ rh_r^{n} = \sum_{s=1}^rp_s^{(n)}h_{r-s}^{(n)} \] using \cref{lem:III.9} \ref{lem:III.9:2} and \ref{lem:III.9:3}.
 \end{proof}
 
+\lecture{October 22, 2018}
 
+\begin{cor}[Newton identities]
+  For all $r \ge 0$ one has \[ p_r^{(n)} - e_1^{(n)}p_{r-1}^{(n)} + \ldots + (-1)^re_r^{(n)}p_0^{(n)}. \]
+\end{cor}
+\begin{proof}
+  Left to the reader.
+\end{proof}
 
+\begin{cor} \label{cor:III.13}
+  Let $k$ be a field or $k= \IZ$. There exist polynomials $F_1,\ldots,F_n \in k[t_1,\ldots,t_n]$ such that \[ h_j^{(n)} = F_j(e_1^{(n)},\ldots,e_n^{(n)}) \quad\text{und}\quad e_j^{(n)}=F_j\pa{h_1^{(n)},\ldots,h_n^{(n)}} =0 \] for all $1 \le j \le n$.
+\end{cor}
+\begin{proof}
+  We have $h_1^{(n)} = X_1 + \ldots+X_n = e_1^{(n)}$. Set $F_1(t_1,\ldots,t_n) = t_1$. Now assume $F_1,\ldots,F_{s-1}$ exist for $1\le s \le n$. Define \[ F_s := t_1F_{s-1}-t_2F_{s-2} + \ldots + (-1)^{s-2}t_{s-1} +(-1)^{s-1}t_s. \] By induction and \cref{cor:III.10} we get \[ F_s = e_1^{(n)}h_{s-1}^{(n)} - e_2^{(n)}h_{s-2}^{(n)} + \ldots +(-1)^{s-2}e_{s-1}^{(n)}h_1+(-1)^{s-1}e_s^{(n)}h_0^{(n)} = h_s^{(n)}. \]
+  By switching th ole of the $e$'s and $h$'s (using $e_1^{(n)} = h_1^{(n)}$) and \cref{cor:III.10} again gives $F_s\pa{h_1^{(n)},\ldots,h_n^{(n)}} = e_s^{(n)}$.
+\end{proof}
+
+\begin{thm}
+  Let $k$ be a field. Then thre exists a unique algebra homomorphism 
+  \begin{eqnarray*}
+    \hat\Phi\colon k[X_1,\ldots,X_n]^{S_n} &\to& k[X_1,\ldots,X_n]^{S_n} \\
+    e_j^{(n)} &\mapsto& h_j^{(n)}
+  \end{eqnarray*}
+  for all $0 \le j \le n$. Moreover ${\hat\Phi}^2 = \id$ and so $\hat\Phi$ is an isomorphism.
+\end{thm}
+\begin{proof}
+  By the \namereff{thm:symmetric polys} we have an isomorphic of algebras
+  \begin{eqnarray*}
+    \Phi\colon k[X_1,\ldots,X_n]^{S_n} &\to& k[t_1,\ldots,t_n], \\
+    e_j^{(n)} &\mapsto& t_j.
+  \end{eqnarray*}
+  By the universal property of the polynomial we have a unique algebra homomorphism
+  \begin{eqnarray*}
+    \ol\Phi\colon k[t_1,\ldots,t_n] &\to& k[X_1,\ldots,X_n]^{S_n}, \\
+    t_j &\mapsto& h_j^{(n)}.
+  \end{eqnarray*}
+  Now set $\hat\Phi := \ol\Phi \circ \Phi$. This is an algebra homomorphism.
+  
+  We have to show that ${\hat\Phi}^2 = \id$. Since the $e_j^{(n)}$ generate $k[X_1,\ldots,X_n]^{S_n}$ as an algebra, it is enough to show that $\hat\Phi\pa{e_j^{(n)}} = h_j^{(n)}$ for all $0 \le j \le n$. By \cref{cor:III.13} and construction of $\hat\Phi$ we get \[ \hat\Phi\pa{h_j^{(n)}} = \hat\Phi\pa{F_j\pa{e_1^{(n)},\ldots,e_n^{(n)}}} = F_j\pa{\hat\Phi\pa{e_1^{(n)}},\ldots,\hat\Phi\pa{e_n^{(n)}}} = F_j\pa{h_1^{(n)},\ldots,h_n^{(n)}} = e_j^{(n)} \] for all $0 \le j \le n$.
+\end{proof}
+
+\begin{thm} \label{thm:III.15}
+  Let $k$ be a field with $\chr k=0$ or $\chr k>n$. Then the $p_1^{(n)},\ldots,p_n^{(n)}$ generate $k[X_1,\ldots,X_n]^{S_n}$ as a $k$-algebra and they are algebraically independent over $k$.
+\end{thm}
+\begin{proof}
+  Left to the reader.
+\end{proof}
+
+\paragraph{Remark.}
+\cref{thm:III.15} does not hold over $\IZ$. Consider $\IQ[X_1,X_2]^{S_2}$. There we have $e_2^{(2)} = \frac12\pa{\pa{p_1^{(2)}}^2-p_2^{(2)}}$, as one has $(X_1+X_2)^2 - (X_1^2 + X_2^2) = 2X_1X_2$. If the theorem holds for $k=\IZ$ then there exists an $F \in \IZ[t_1,t_2]$ such that $F\pa{p_1^{(2)},p_2^{(2)}} = e_2^{(n)}$. Viewed as a polynomial in $\IQ[t_1,t_2]$ we have $\frac12t_1^2-\frac12t_2-F(t_1,t_2) = G(t_1,t_2)$. It satisfies $G\pa{p_1^{(2)},p_2^{(2)}} = 0$. This implies $G = 0$ because $p_1^{(2)}$ and $p_2^{(2)}$ are algebraically independent over $IQ$. But this contradicts $F \in \IZ[t_1,t_2]$.
+
+\bigskip
+
+We want to find a basis of $k[X_1,\ldots,X_n]^{S_n}$. This is another natural occurence of power series.
+
+\begin{deff}
+  Let $A = \bigoplus_{i\in\IZ}A_i$ be a graded algebra. Assume $A_i = 0$ for $i<0$ (\emph{non-negatively graded}) and $\dim A_i <\infty$ for all $i \in \IZ$. Then define the \emph{Hilbert series} \[ P_A(t) = \sum_{i\ge 0} (\dim A_i)t^i \in \IN_0\llbracket t \rrbracket \] (in particular, if $\dim A < \infty$, we have $P_A(t) \in \IN_0[t]$).
+\end{deff}
+
+\paragraph{Examples.}
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item\label{ex:hs:1} For $k$ a field let $A = k[t]$ with standard grading $\bigoplus_{i\ge0}\gen{t^i}$. Then we get \[ P_A(t) = 1+t+t^2+\ldots = \frac1{1-t}. \] (Note that $P_A(t)$ is not defined for the \enquote{stupid} grading.)
+  \item If $A=\bigoplus_{i\in\IZ}$ and $B = \bigoplus_{i\in\IZ}B_i$ are non-negatively graded algebras with $\dim A< \infty>\dim B$ and $\dim A_i <\infty>\dim B_i$ for all $i \in \IZ$. Then $A \tp B$ is an algebra, even a graded ring via \[ A \tp B = \bigoplus_{i\in \IZ} (A\tp B)_i \quad\text{where}\quad (A\tp B)_i = 
+  \begin{cases*}
+    0 & if $i < 0$, \\
+    \bigoplus_{r=0}^i A_r \tp B_{i-r} & \text{otherwise}.
+  \end{cases*}
+  \]
+  
+  It is clear that the $(A\tp B)_i \subseteq A\tp B$ are vetorspaces and $\bigoplus_{i\in\IZ}(A\tp B)_i = A\tp B$ by choosing a homogeneous basis of $A$ and $B$.
+  
+  We have to check that $(A \tp B)_i(A\tp B)_j \subseteq (A\tp B)_{i+j}$ for all $i,j \in \IZ$. We can assume $i,j \ge 0$ and check the property on a basis. We have \[\underbrace{(a \tp b)}_{\mathclap{\in A_i\tp B_{i-r} \subseteq (A \tp B)_i}}\overbrace{(c \tp d)}^{\mathllap{\in A_s \tp B_{j-2}\subseteq (A \tp B)_j}} = \underbrace{ac}_{\mathclap{\in A_iA_s \subseteq A_{i+s}}} \tp \overbrace{bd}^{\mathclap{\in B_{i-r}B_{j-s} \subseteq B_{i+j-r-s}}}, \] and we get $ac \tp bd \in A_{i+s}\tp B_{i+j-(r+s)} \subseteq (A \tp B)_{i+j}$. Thus, $A\tp B$ is a non-negatively graded ring. We have $\dim(A \tp B)_i = \sum_{r=0}^i\dim A_r \dim B_{i-r}$, which results in \[ P_{A \tp B}(t) = P_A(t)P_B(t). \]
+  
+  We now consider the special case $A = k[X_1,\ldots,X_n]$ with standard grading. There is an isomorphism of algebras
+  \begin{equation*}
+  \begin{aligned}
+    A \;\;&\cong&& k[t_1] \tp k[t_2] \tp \ldots \tp k[t_n], \\
+    X_1^{a_1}X_2^{a_2}\cdots X_n^{a_n} \;\;&\mapsfrom&& t_1^{a_1}\tp t_2^{a_2}\tp \ldots\tp t_n^{a_n}.
+  \end{aligned} \tag{*}\label{ex:blub}
+  \end{equation*}
+  Thus $P_A(t) = P_{k[t_1]}(t)\cdots P_{k[t_n]}(t)$ with the standard grading on $k[t_i]$. (Note that \eqref{ex:blub} becomes a graded algebra isomorphism.) Hence \[ P_A(t) = (1+t+t^2+\ldots)(1+t+t^2+\ldots)\cdots(1+t+t^2+\ldots) = \prod_{i=1}^n\frac1{1-t}. \]
+  Then \[ P_A(t) = \sum_{j\ge 0}\binom{n+j+1}{n-1} t^j \] where the binomial coefficient counts all the ways o create $t^j$ from the $r$ factors. We want the number of tuples $(j_1,\ldots,j_n) \in \IZ_{\ge 0}^n$ with $j_1+\ldots+j_n = j$. We can think of this by choosing $n-1$ points as \enquote{barriers} out of $n+j-1$ points.
+  
+  For $n=1$, we have $\binom{n+j-1}0 = 1$, see \ref{ex:hs:1}. For $n=2$, $\binom{j+1}j$ is the number of monomials.
+  \item By the \namereff{thm:symmetric polys} we have an isomorphism of algebras \[ \Phi\colon k[X_1,\ldots,X_n] \cong k[t_1,\ldots,t_n],\] but this is not an isomorphism of graded algebras if we choose the standard gradings on $k[X_1,\ldots,X_n]$ and $k[t_1,\ldots,t_n ]$.
+  
+  Define a grading on $k[t_1,\ldots,t_n]$ by $k[t_1,\ldots,t_n]_i := \Phi\pa{k[X_1,\ldots,X_n]^{S_n}}$. Because $\Phi$ is an isomorphism of algebras (in particular of vector spaces) we have \[A = k[t_1,\ldots,t_n] = \bigoplus_{i\ge0} k[t_1,\ldots,t_n]_i.\]
+  We want to calculate $P_A(t)$ with this grading.
+  
+  We have \[ k[t_1,\ldots,t_n] \cong k[t_1] \tp k[t_2] \tp \ldots \tp k[t_n] \] as algebras and as graded algebras by setting $t_i \in k[t_i]$ in degree $i$ (since $t_j$ corresponds to $e_j^{(n)}$ which has degree $j$). Therefore \[ P_A(t) = \underbrace{(1+t+t^2+\ldots)}_{\text{$t_1$ is of degree $1$}}\underbrace{(1+t^2+t^4+\ldots)}_{\text{$t_2$ is of degree $2$}}\cdots \underbrace{(1+t^n+t^{2n}+\ldots)}_{\text{$t_n$ is of degree $n$}} = \prod_{j=1}^n\frac1{1-t^j}. \]
+  We now focus on how to express the coefficient of $t^j$ in $P_A(t)$ explicitly. The coefficient of $t_j$ equals the number of tuples $(a_1,\ldots,a_n)\in \IZ_{\ge0}^n$ satisfying $1a_1+2a_2+\ldots+na_n = j$.
+  
+  For visualization, consider the following Young diagram consisting of $j$ squares.
+  \begin{center}
+    \ytableausetup{mathmode, boxsize=0.6cm}
+    \begin{ytableau}
+      a_n & a_n & a_n &a_n & \none[\dots]
+      & a_n \\
+      a_n & a_n & a_n & a_n&\none[\dots]
+      & a_n \\
+      \none[\vdots] & \none[\vdots]
+      & \none[\vdots] \\ % TODO: ugly dots
+      a_2 & a_2 \\
+      a_2 & a_2 \\
+      a_1 \\
+      a_1 \\
+      a_1
+    \end{ytableau}
+  \end{center}
+  In this example, we have $a_1 = 3$, $a_2 = 2$ and $a_n = 2$.
+\end{enumerate}
+
+\begin{deff}
+  For $d \in \IN$ a sequence $\lambda = (\lambda_1\ge \lambda_2\ge\ldots)$ with $\lambda_i \in \IZ_{\ge0}$ is a \emph{partition} of $d$ if $\sum_{i=1}^\infty \lambda_i = d$. We write $\abs \lambda := \sum_{i=1}^\infty$ and let $l(\lambda)$ be maximal such that $\lambda_i \neq 0$ and call it the \emph{length} of $\lambda$. We set \[ \Par(d) := \set{\text{partitions of $d$}} \quad\text{und}\quad \Par = \bigcup_{d \ge 0}\Par(d).\]
+\end{deff}
+\begin{deff}
+  Define a partial ordering on $\Par$ by setting $\lambda \le \mu$ for $\lambda,\mu \in \Par$ if we have \[ \sum_{i=1}^r \lambda_i \le \sum_{i=1}^r\mu_i \] for all $r \ge 0$.
+\end{deff}
+\begin{deff}
+  For $\lambda \in \Par$ we define the following elements in $k[X_1,\ldots,X_n]^{S_n}$.
+  \begin{align*}
+    e_\lambda^{(n)} &:= e_{\lambda_1}^{(n)}e_{\lambda_2}^{(n)}\cdots  \tag{$\lambda_1 \le n$} \\
+    h_\lambda^{(n)} &:= h_{\lambda_1}^{(n)}h_{\lambda_2}^{(n)}\cdots \\
+    p_\lambda^{(n)} &:= p_{\lambda_1}^{(n)}p_{\lambda_2}^{(n)}\cdots \\
+    h_\lambda^{(n)} &:= \sum_{\mathclap{g \in S_n}}X_{g(1)}^{\lambda_1}X_{g(2)}^{\lambda_2}\cdots X_{g(n)}^{\lambda_n} \tag{$l(\lambda)\le n$}
+  \end{align*}
+  They are all homogeneous of degree $\abs\lambda$.
+\end{deff}
 
 
 
