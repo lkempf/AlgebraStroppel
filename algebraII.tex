@@ -450,7 +450,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
   Let $A$ be a $k$-algebra. A \emph{grading} (or \emph{$\IZ$-grading}) on $A$ is a decomposition \[ A = \bigoplus_{i\in IZ} A_i\] into vector subspaces $A_i$ such that $A_iA_j \subseteq A_{i+j}$ for all $i,j\in \IZ$. We call then $A$ a \emph{graded algebra}. The $A_i$ ($i \in \IZ$) are the \emph{graded} (or \emph{homogeneous}) \emph{components}. An element $a_i \in A_i$ is called \emph{homogeneous} (of degree $i$).
 \end{deff}
 \begin{deff}
-  A \emph{grading} of a ring $R$ is a decomposition $R = \sum_{i \in \IZ} R_i$ into $\IZ$-modules such that $R_iR_j \subseteq R_{i+j}$ for all $i,j\in \IZ$. We call then $R$ a \emph{graded} ring and the $R_i$ the \emph{graded}/\emph{homogeneous components}.
+  A \emph{grading} of a ring $R$ is a decomposition $R = \bigoplus_{i \in \IZ} R_i$ into $\IZ$-modules such that $R_iR_j \subseteq R_{i+j}$ for all $i,j\in \IZ$. We call then $R$ a \emph{graded} ring and the $R_i$ the \emph{graded}/\emph{homogeneous components}.
 \end{deff}
 
 \begin{lem}
@@ -479,7 +479,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
                                                                  \gen{\set*{X_1^{a_1}\cdots X_n^{a_n} \given \sum_{j=1}^n a_j =i}}_R & else,
                                                                \end{cases*} \]
   because clearly the monomials $X_1^{a_1}\cdots X_n^{a_n}$ with $a_i \in \IZ_{\ge0}$ (and by convention $X_1^0\cdots X_n^0=1$) form an $R$-basis of $R[X_1,\ldots,X_n]$ and $(X_1^{a_1}\cdots X_n^{a_n})(X_1^{b_1}\cdots X_n^{b_n}) = (X_1^{a_1+b_1}\cdots X_n^{a_n+b_n})$, so that $a_ia_j \in A_{i+j}$ for all basis elements $a_i \in A_i$ and $a_j \in A_j$ (then also $A_iA_j \subseteq A_{i+j}$).
-  \item Let $V$ be a $k$-vector space. Consider the vector space \[ \T(V) := k \oplus V \oplus (V \tp V) \oplus \ldots = k \oplus \bigoplus_{d\ge1} V^{\tp d} =: \bigoplus_{d \ge 0} V^{\tp d}. \]
+  \item Let $V$ be a $k$-vector space. Consider the vector space \[ \T(V) := k \oplus V \oplus (V \tp V) \oplus \ldots = k \oplus \bigoplus_{d\ge1} V^{\tp d} =: \bigoplus_{d \ge 0} V^{\tp d}, \] the \emph{tensor algebra}.
   We claim that $\T(V)$ is an algebra by setting \[ (\underbrace{v_{i_1} \tp \ldots \tp v_{i_d}}_{\in V^{\tp d}})(\underbrace{v_{j_1} \tp \ldots \tp v_{j_{d'}}}_{\in V^{\tp d'}}) = \underbrace{v_{i_1} \tp \ldots \tp v_{i_d} \tp v_{j_1} \tp \ldots \tp v_{j_{d'}}}_{\in V^{\tp (d+d')}} \] for any $v_{i_r}, v_{j_s}$ in a chosen basis $\set{v_i \given i \in I}$ of $V$ ($1 \le r \le d$, $1 \le s \le d'$) and extended linearly to $\T(V)$ with \begin{align*} \underbrace{\lambda}_{\in V^{\tp 0}} \cdot \underbrace{v}_{\in V^{\tp d}} & := \underbrace{\lambda v}_{\in V^{\tp d}} &&\text{and} & \underbrace{v}_{\in V^{\tp d}} \cdot \underbrace{\lambda}_{\in V^{\tp 0}} & := \underbrace{\lambda v}_{\in V^{\tp d}} . \end{align*}
   
   We also claim that $\T(V) = \bigoplus_{i \in \IZ} \T(V)_i$ with \[ \T(V)_i := \begin{cases*}
@@ -528,10 +528,14 @@ for all $f \in kG$. It remains to check associativity and distributivity.
   \end{enumerate}
 \end{proof}
 
+\paragraph{Remark.}
+At this point Professor Stroppel seems not to have numbered this proposition in her notes. Therefore, the next Lemma will have the same number.
+\addtocounter{thmcounter}{-1}
+
 \paragraph{Examples.}
 \begin{enumerate}
   \item Let $R = \IZ$ or $R=k$ a field. Consider $A=R[X_1,\ldots,X_n]$. This is a filtered algebra by setting \[ F_j(A) = \gen{\set*{X_1^{a_1}\cdots X_n^{a_n} \given \sum_{i=1}^na_i = j}}_R \] for $j\ge 0$ ($F_{-1}(A) = 0$).
-  \item Let $R=k[t]$ for any field $k$. Consider $\End_k(k[T])$ (linear endomorphisms). There are the two following interesting elements in $\End_k(k[t])$:
+  \item Let $R=k[t]$ for any field $k$. Consider $\End_k(k[t])$ (linear endomorphisms). There are the two following interesting elements in $\End_k(k[t])$:
   \begin{xalignat*}{2}
     X\colon k[t] &\to k[t] & \qquad \partial\colon k[t] &\to k[t] \\
     p & \mapsto tp & \qquad p &\mapsto p' := \text{formal derivation}
@@ -730,7 +734,7 @@ To better understand the interaction ot the symmetric polynomials $e_r^{(n)}$, $
   Left to the reader.
 \end{proof}
 
-\begin{cor} \label{cor:III.13}
+\begin{cor} \label{cor:III.12}
   Let $k$ be a field or $k= \IZ$. There exist polynomials $F_1,\ldots,F_n \in k[t_1,\ldots,t_n]$ such that \[ h_j^{(n)} = F_j(e_1^{(n)},\ldots,e_n^{(n)}) \quad\text{und}\quad e_j^{(n)}=F_j\pa{h_1^{(n)},\ldots,h_n^{(n)}} =0 \] for all $1 \le j \le n$.
 \end{cor}
 \begin{proof}
@@ -738,7 +742,7 @@ To better understand the interaction ot the symmetric polynomials $e_r^{(n)}$, $
   By switching th ole of the $e$'s and $h$'s (using $e_1^{(n)} = h_1^{(n)}$) and \cref{cor:III.10} again gives $F_s\pa{h_1^{(n)},\ldots,h_n^{(n)}} = e_s^{(n)}$.
 \end{proof}
 
-\begin{thm}
+\begin{thm} \label{thm:III.13}
   Let $k$ be a field. Then thre exists a unique algebra homomorphism 
   \begin{eqnarray*}
     \hat\Phi\colon k[X_1,\ldots,X_n]^{S_n} &\to& k[X_1,\ldots,X_n]^{S_n} \\
@@ -759,7 +763,7 @@ To better understand the interaction ot the symmetric polynomials $e_r^{(n)}$, $
   \end{eqnarray*}
   Now set $\hat\Phi := \ol\Phi \circ \Phi$. This is an algebra homomorphism.
   
-  We have to show that ${\hat\Phi}^2 = \id$. Since the $e_j^{(n)}$ generate $k[X_1,\ldots,X_n]^{S_n}$ as an algebra, it is enough to show that $\hat\Phi\pa{e_j^{(n)}} = h_j^{(n)}$ for all $0 \le j \le n$. By \cref{cor:III.13} and construction of $\hat\Phi$ we get \[ \hat\Phi\pa{h_j^{(n)}} = \hat\Phi\pa{F_j\pa{e_1^{(n)},\ldots,e_n^{(n)}}} = F_j\pa{\hat\Phi\pa{e_1^{(n)}},\ldots,\hat\Phi\pa{e_n^{(n)}}} = F_j\pa{h_1^{(n)},\ldots,h_n^{(n)}} = e_j^{(n)} \] for all $0 \le j \le n$.
+  We have to show that ${\hat\Phi}^2 = \id$. Since the $e_j^{(n)}$ generate $k[X_1,\ldots,X_n]^{S_n}$ as an algebra, it is enough to show that $\hat\Phi\pa{e_j^{(n)}} = h_j^{(n)}$ for all $0 \le j \le n$. By \cref{cor:III.12} and construction of $\hat\Phi$ we get \[ \hat\Phi\pa{h_j^{(n)}} = \hat\Phi\pa{F_j\pa{e_1^{(n)},\ldots,e_n^{(n)}}} = F_j\pa{\hat\Phi\pa{e_1^{(n)}},\ldots,\hat\Phi\pa{e_n^{(n)}}} = F_j\pa{h_1^{(n)},\ldots,h_n^{(n)}} = e_j^{(n)} \] for all $0 \le j \le n$.
 \end{proof}
 
 \begin{thm} \label{thm:III.15}
@@ -835,7 +839,7 @@ We want to find a basis of $k[X_1,\ldots,X_n]^{S_n}$. This is another natural oc
 \end{enumerate}
 
 \begin{deff}
-  For $d \in \IN$ a sequence $\lambda = (\lambda_1\ge \lambda_2\ge\ldots)$ with $\lambda_i \in \IZ_{\ge0}$ is a \emph{partition} of $d$ if $\sum_{i=1}^\infty \lambda_i = d$. We write $\abs \lambda := \sum_{i=1}^\infty$ and let $l(\lambda)$ be maximal such that $\lambda_i \neq 0$ and call it the \emph{length} of $\lambda$. We set \[ \Par(d) := \set{\text{partitions of $d$}} \quad\text{und}\quad \Par = \bigcup_{d \ge 0}\Par(d).\]
+  For $d \in \IN$ a sequence $\lambda = (\lambda_1\ge \lambda_2\ge\ldots)$ with $\lambda_i \in \IZ_{\ge0}$ is a \emph{partition} of $d$ if $\sum_{i=1}^\infty \lambda_i = d$. We write $\abs \lambda := \sum_{i=1}^\infty$ and let $l(\lambda)$ be maximal such that $\lambda_i \neq 0$ and call it the \emph{length} of $\lambda$. We set \[ \Par(d) := \set{\text{partitions of $d$}} \quad\text{und}\quad \Par := \bigcup_{d \ge 0}\Par(d).\]
 \end{deff}
 \begin{deff}
   Define a partial ordering on $\Par$ by setting $\lambda \le \mu$ for $\lambda,\mu \in \Par$ if we have \[ \sum_{i=1}^r \lambda_i \le \sum_{i=1}^r\mu_i \] for all $r \ge 0$.
@@ -850,6 +854,133 @@ We want to find a basis of $k[X_1,\ldots,X_n]^{S_n}$. This is another natural oc
   \end{align*}
   They are all homogeneous of degree $\abs\lambda$.
 \end{deff}
+
+\lecture{October 25, 2018}
+
+\begin{deff}
+  For $\lambda\in\Par$ let $\lambda^t$ be the \emph{transposed partition} given by $\lambda_i^t = \abs{\set{j \given \lambda_j = i }}$. In this case, the young diagram is \enquote{flipped}. % TODO tolles Bild hierfür?
+\end{deff}
+
+\begin{thm}
+  The $\set*{e_\lambda^{(n)}}$ and $\set*{h_\lambda^{(n)}}$ for $\lambda \in \Par$ with $\lambda_i \le n$ form a $k$-vector space of $k[X_1,\ldots,X_n]^{S_n}$ for $k$ any field or $k= \IZ$. Moreover $\set*{m_\lambda^{(n)}}$ for $\lambda \in \Par$ with $l(\lambda) \le n$ is also basis.
+\end{thm}
+\begin{proof}
+  By the \namereff{thm:symmetric polys} the monomials in the $e_j^{(n)}$'s are linearly independent, because the $e_j^{(n)}$'s are algebraically independent. Moreover, they generate as a vector space because the $e_j^{(n)}$'s generate as an algebra. Thus, the $\set*{e_\lambda^{(n)}}$ with $\lambda \in \Par$ and $\lambda_i \le n$ form a basis. Then the $\set*{h_\lambda^{(n)}}$ form a basis by applying the transformation of \cref{thm:III.13}.
+  
+  In $ e_\lambda^{(n)} = e_{\lambda_1}^{(n)}e_{\lambda_2}^{(n)}\cdots e_{\lambda_{l(\lambda)}}^{(n)} $ the maximum possible degree of $\lambda_2$ is $\lambda_2^t$ etc. In fact we have \[ e_\lambda^{(n)} = m_{\lambda^t}^{(n)} + \sum_{\mu \le \lambda^t} m_{\mu_t}^{(n)}. \] Therefore the $m_{\lambda^t}^{(n)}$ with $\lambda_i^t \le n$ form a basis, since the $e_\lambda^{(n)}$ with $\lambda_i \le n$ do. As one has $\set{\lambda \in \Par \given \lambda_i \le n} = \set{\lambda \in \Par \given l(\lambda^t) \le n}$ the $m_\lambda^{(n)}$ for $\lambda \in \Par$ with $l(\lambda) \le n$ form a basis.
+\end{proof}
+
+\subsection{Polynomial maps}
+In this section $k$ is an infinite field, $V$ a finite dimensional $k$-vector space and $v_1,\ldots,v_n$ a basis of $V$.
+
+\begin{deff}
+  We set $\Ps_k(V) = \set{f\colon V \to k \given \text{$f$ polynomial}}$ where $f$ is \emph{polynomial} if \[f\pa{\sum_{i=1}^n\alpha_iv_i} = p(\alpha_1,\ldots,\alpha_n)\] for some polynomial $p \in k[t_1,\ldots,t_n]$.
+\end{deff}
+
+\paragraph{Remark.}
+\begin{itemize}
+  \item Clearly $\Ps_k(V)$ is a $k$-vector space with pointwise addition and scalar multiplication.
+  \item The property \enquote{polynomial} does not depend on the choice of a basis.
+  \begin{proof}
+    Let $w_1,\ldots,w_n$ be a basis of $V$ and $w_j = \sum_{i=1}^n \beta_{ij} v_i$. Then we get \begin{align*} f\pa{\sum_{j=1}^n\alpha_jw_j} &= f\pa{\sum_{j=1}^n\alpha_j \sum_{i=1}^n\beta_{ij}v_i} = f\pa{\sum_{i=1}^n \sum_{j=1}^n\alpha_j\beta_{ij}v_i} \\ &= p\pa{\sum_{j=1}^n\alpha_j\beta_{1j},\ldots,\sum_{j=1}^n\alpha_j\beta_{nj}} \end{align*} for some $p \in k[t_1,\ldots,t_n]$ as $f$ is polynomial. But the last expression depends polynomial on $\alpha_1,\ldots,\alpha_n$; it equals $p'(\alpha_1,\ldots,\alpha_n)$ for some polynomial $p'$.
+  \end{proof}
+\end{itemize}
+
+\begin{lem}
+  Let $W \subseteq V$ be a vector subspace. If $f \in \Ps_k(V)$ we get $f|_W \in \Ps_k(W)$.
+\end{lem}
+\begin{proof}
+  We choose a basis $w_1,\ldots,w_m$ of $W$ and extend it to a basis $w_1,\ldots,w_n$ of $V$. Now $f\pa{\sum_{i=1}^m \alpha_1w_1} = p(\alpha_1,\ldots,\alpha_m,0,\ldots,0)$ for some $p\in k[X_1,\ldots,X_n]$ as $f \in \Ps_k(V)$. Consider the image $\tilde p$ of $p$ under the canonical map \[k[X_1,\ldots,X_n] \to \fak{k[X_1,\ldots,X_n]}{(X_{m+1},\ldots,X_n)} \cong k[X_1,\ldots,X_m].\] Then by construction $f\pa{\sum_{i=1}^m\alpha_iw_i} = \tilde p(\alpha_1,\ldots,\alpha_m)$ with $\tilde p \in k[X_1,\ldots,X_m]$.
+\end{proof}
+
+\begin{deff}
+  For $f,g \in \Ps_k(V)$ define $fg$ as $(fg)(v) = f(v)g(v)$ for all $v \in V$. This turns $\Ps_k(V)$ into a $k$-algebra.
+\end{deff}
+
+\begin{thm} \label{thm:III.17}
+  There is an isomorphism of $k$-algebras
+  \begin{eqnarray*}
+    k[X_1,\ldots,X_n] &\to& \Ps_k(V), \\
+    p &\mapsto& f_p = \pa{ \sum_{i=1}^n\alpha_iv_i \mapsto p(\alpha_1,\ldots,\alpha_n)}.
+  \end{eqnarray*}
+\end{thm}
+\begin{proof}
+  Define for $1\le j \le n$ the $j$-th \emph{coordinate function} $\phi_j\colon V \to k$ by $\phi_j\pa{\sum_{i=1}^n\alpha_iv_i} = \alpha_j$. Obviously we have $\phi_j \in \Ps_k(V)$. By the universal property of the polynomial algebra $k[X_1,\ldots,X_n]$ there exists a unique algebra homomorphism
+  \begin{eqnarray*}
+    \beta\colon k[X_1,\ldots,X_n] &\to& \Ps_k(V), \\
+    X_j &\mapsto& \phi_j.
+  \end{eqnarray*}
+  Then $\beta(X_1^{a_1}\cdots X_n^{a_n})(v) = (\phi_1^{a_1}\cdots\phi_n^{a_n})(v)$. By the definition of multiplication $\Ps_k(V)$ one gets $(\phi_1^{a_1}\cdots\phi_n^{a_n})\pa{\sum_{i=1}^n\alpha_iv_i} = \alpha_1^{a_1}\cdots\alpha_n^{a_n}$. Thus $\beta$ sends $p$ to $f_p$.
+
+  By definition $\beta $ is surjective. Now assume $\beta(p) = 0$. Then $f_p\pa{\sum_{i=1}^n\alpha_iv_i} = 0$ for all $(\alpha_1,\ldots,\alpha_n)\in k^n$, hence $p(\alpha_1,\ldots,\alpha_n) = 0$ for all $(\alpha_1,\ldots,\alpha_n) \in k^n$. As $k$ is infinite we get $p=0$. Therefore $\beta$ is an isomorphism.
+\end{proof}
+
+\paragraph{Remark.}
+The theorem does not hold for finite fields in general. For example, take $p(t) = t^2+t \in \IF_2[t]$. In this case we have $p(1) = 1+1 = 0 = 0+0 = p(0)$, so $p(\lambda) = 0$ for all $\lambda\in\IF_2$, but $p\neq 0$.
+
+\addtocounter{thmcounter}{1}
+\paragraph{Remark \Roman{section}.\arabic{thmcounter}.}
+At this point Professor Stroppel seems to have skipped a number in her notes.
+
+\begin{deff}
+  $f\in \Ps_k(V)$ is \emph{homogeneous} of degree $d$ if $f(\lambda v) = \lambda^df(v)$ for all $\lambda \in k$ and $v\in V$.
+\end{deff}
+
+\begin{prop}
+  We have \[ \Ps_k(v) = \bigoplus_{d\ge0}{\Ps_k(V)}_d \quad\text{where}\quad {\Ps_k(V)}_d = \set{f\in \Ps_k \given \text{$f$ is homogeneous of degree $d$}} \] and $\Ps_k(V)$ becomes a non-negatively graded algebra.
+\end{prop}
+\begin{proof}
+  Clearly ${\Ps_k(V)}_d \cap {\Ps_k(V)}_{d'} = 0$ if $d \neq d'$, as otherwise we have $\lambda^df(v) = f(\lambda v) = \lambda^{d'}f(v)$, or $\lambda^d - \lambda^{d'}=0$ for all $\lambda \in k$ and $v \in V$. But $t^d -t^{d'}$ only has finitely many roots which contradicts the infinity of $k$. We get $\bigoplus_{d\ge0}{\Ps_k(V)}_d \subseteq \Ps_k(V)$ via the isomorphism $\beta $ from \cref{thm:III.17} which maps a monomial $p = X_1^{a_1}\cdots X_n^{a_n} \in k[X_1,\ldots,X_n]$ to $f_p$ with $f_p\pa{\sum_{i=1}^n\lambda_iv_i} = p(\lambda_1,\lambda_n)$. Then $f_p(\lambda v) = p(\lambda\lambda_1,\ldots,\lambda\lambda_n) = \lambda^{a_1+\ldots+a_n}p(\lambda_1,\ldots,\lambda_n)$. Hence $f_p$ is homogeneous of degree $d = a_1+\dots+a_n$. Hence \begin{align*} \beta(k[X_1,\ldots,X_n]) &= \beta\pa{\bigoplus_{d\ge 0} k[X_1,\ldots,X_n]_d} = \bigoplus_{d\ge 0}\beta\pa{k[X_1,\ldots,X_n]_d} \\ &\subseteq \bigoplus_{d\ge0}{\Ps_k(V)}_d \subseteq \Ps(V). \end{align*} But \cref{thm:III.17} gives that $\im \beta = \Ps_k(V)$, hence $\bigoplus_{d\ge0}{\Ps_k(V)}_d = \Ps_k(v)$. Altogether $\beta$ is an isomorphism of graded algebras.
+\end{proof}
+
+\begin{deff}
+  Let $W$ be a $k$-vector space. $f\colon W\to V$ is \emph{polynomial} if the functions $f_i\colon W \to k$ defined by \[f(w) = \sum_{i=1}^nf_i(w)v_i \] are polynomial. Denote $\Ps_k(W,V) := \set{f\colon W\to V \given\text{$f$ polynomial}}$.
+\end{deff}
+
+\paragraph{Remark.}
+The property is independent of the choice of a basis. Let $w_1,\ldots,w_n$ be a basis of $V$ and $w_i = \sum_{j=1}^n\alpha_{ij}v_j$. Then we have for $w \in W$ \[ f(w) = \sum_{i=1}^n f_i(w) w_i = \sum_{i=1}^n\sum_{j=1}^n f_i(w)\alpha_{ji}v_j. \]
+If $f$ is polynomial in the $w_i$ then it is also polynomial in the $v_i$.
+
+\paragraph{Remark.}
+Consider the special case $V=k$. Then $f\colon W \to V = k$ is polynomial iff $f \in \Ps_k(W)$.
+
+\begin{lem} \label{lem:III.20}
+  Finite dimensional maps together with polynomial maps form a category.
+\end{lem}
+\begin{proof}
+  Left to the reader.
+\end{proof}
+
+\begin{lem}
+  $\Ps_k(W,V)$ for $W$ a finite dimensional $k$-vector space is a $\Ps_k(W)$-module via \[ (f.g)(w) = f(w)g(w)  \] for all $w \in W$ for $f\in \Ps_k(W) $ and $g\in \Ps_k(W,V)$.
+\end{lem}
+\begin{proof}
+  Clearly $\Maps(W,V)$ is a $\Maps(W,k)$-module via the same rule. We have to check that $\Ps_k(W,V)$ is preserved under the action of $\Ps_k(W) \subseteq \Maps(W,k)$. So let $f \in \Ps_k(W)$ and $g\in\Ps_k(W,V)$ and let $w_1,\ldots,w_m$ be a basis of $W$. Then
+  \begin{align*}
+    (fg)\pa{\sum_{i=1}^m\lambda_iw_i} &= f\pa{\sum_{i=1}^m\lambda_iw_i}g\pa{\sum_{i=1}^m\lambda_iw_i} = \sum_{j=1}^m p(\lambda_1,\ldots,\lambda_m) g_j\pa{\sum_{i=1}^m\lambda_iw_i}v_j \\
+    &= \sum_{j=1}^m\underbrace{p(\lambda_1,\ldots,\lambda_m)q_j(\lambda_1,\ldots,\lambda_m)}_{=: (fg)_j\pa{\sum_{i=1}^m\lambda_iw_i}}v_j = \sum_{j=1}^m (fg)_j\pa{\sum_{i=1}^m\lambda_iw_i} v_j
+  \end{align*}
+  for some $p,q_1,\ldots,q_m \in k[X_1,\ldots,X_m]$ as $f$ and the $g_j$ are polynomial. As the $(fg)_j$ are polynomial in $\lambda_1,\ldots,\lambda_n$ we are done.
+\end{proof}
+
+\begin{prop}
+  For $f \in \Ps_k(W,V)$ define $f^*\colon \Ps_k(V) \to \Ps_k(W)$ by $f^*(h) = h \circ f$, the \emph{comorphism attached to $f$}. $f^*$ is an algebra homomorphism.
+\end{prop}
+\begin{proof}
+  For $f\in \Ps_k(W,V)$ and $h\in \Ps_k(V)$ we have $h\circ f\in\Ps_k(W)$ by \cref{lem:III.20}. For $h_1,h_2,h \in  \Ps_k(V)$, $\lambda\in k$ and $w\in W$ we get
+  \begin{align*}
+    (f^*(h_1+h_2))(w) &= (h_1+h_2)(f(w)) = h_1(f(w)) + h_2(f(w)) \\
+    &= (f^*(h_1))(w) + (f^*(h_2))(w) = (f^*(h_1) + f^*(h_2))(w) \\
+    \intertext{and}
+    (f^*(\lambda h))(w) &= (\lambda h)(f(w)) = \lambda h (f(w)) = \lambda (f^*(h))(w) = ((\lambda f^*)(h))(w).
+  \end{align*}
+  Thus $f^*$ is linear. One easily checks that $f^*(h_1h_2) = f^*(h_1)f^*(h_2)$. Altogether $f^*$ is an algebra homomorphism.
+\end{proof}
+
+
+
+
+
 
 
 
