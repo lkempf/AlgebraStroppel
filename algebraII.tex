@@ -263,7 +263,7 @@ $kX$ is preserved under $G$-action. Let $f \in kX, g \in G$. Then
 
 \cref{lem:I.7} generalizes to $kX$.
 
-\begin{lem}
+\begin{lem} \label{lem:I.8}
   Let $G$ be a group and $R$ a ring. Let $G$ act on $R$ by ring homomorphisms (i.e. if $\pi\colon R \to R$ is the action then $\pi_g\colon R\to R$ is a ring homomorphism for all $g\in G$) then $R^G$ is a subring of $R$.
 \end{lem}
 \begin{proof}
@@ -391,7 +391,7 @@ for all $f \in kG$. It remains to check associativity and distributivity.
   Let $G$ be a group and $V,W$ irreducible representations of $G$ over $k$.
   \begin{enumerate}
     \item\label{lem:schur:1} $\Hom_G(V,W) = 0$ if $V \ncong W$. If $V \cong W$, we have $\Hom_G(V,W) \neq 0 $ and every non-zero morphism is an isomorphism.
-    \item\label{lem:schur:2} If $k = \ol k$ and $V$ and $W$ are finite dimensional then \[ \Hom_G(V,W) \cong \begin{cases*}
+    \item\label{lem:schur:2} If $k = \ol k$ and $V$ and $W$ are finite-dimensional then \[ \Hom_G(V,W) \cong \begin{cases*}
                                                                                             k & if $V \cong W$ \\
                                                                                             0 & if $V \ncong W$
                                                                                           \end{cases*} \]
@@ -402,13 +402,13 @@ for all $f \in kG$. It remains to check associativity and distributivity.
   \leavevmode
   \begin{enumerate}[label=\ref{lem:schur:\arabic*}]
     \item Assume $V \cong W$ and $0\neq f \in \Hom_G(V,W)$. This implies $\ker f \neq V$ and $\im F \neq 0$. By \cref{lem:II.5} it follows $\ker f = 0$ and $\im f = W$, since $f$ is a morphism and $V$ and $W$ are irreducible. As $f$ is linear, $f$ is an isomorphism.
-    \item Assume $V \cong W$ and $0\neq \alpha,\beta \in \Hom_G(V,W)$. It is enough to show $\beta = \lambda\alpha$ for some $\lambda \in k$. By \ref{lem:schur:1} $\alpha$ has an inverse $\alpha^{-1}$ (which is again a morphism) and we have $\alpha^{-1}\circ\beta \in \End_G(V)$. If $k=\ol k$ and $V$ is finite dimensional $\alpha^{-1}\circ\beta$ has eigenvectors. We define $K := \ker(\alpha^{-1}\circ\beta -\lambda\id_V) \neq 0$ for some $\lambda \in k$. Now $\alpha^{-1}\circ\beta - \lambda \id_v \in \End_G(V)$ (the reader may check this statement), thus $K$ is a subrepresentation of $V$, hence $K=V$, since $V$ is irreducible and $K \neq 0$. Therefore, $\alpha^{-1}\circ\beta = \lambda\id_V$ and $\beta = \lambda \alpha$.
+    \item Assume $V \cong W$ and $0\neq \alpha,\beta \in \Hom_G(V,W)$. It is enough to show $\beta = \lambda\alpha$ for some $\lambda \in k$. By \ref{lem:schur:1} $\alpha$ has an inverse $\alpha^{-1}$ (which is again a morphism) and we have $\alpha^{-1}\circ\beta \in \End_G(V)$. If $k=\ol k$ and $V$ is finite-dimensional $\alpha^{-1}\circ\beta$ has eigenvectors. We define $K := \ker(\alpha^{-1}\circ\beta -\lambda\id_V) \neq 0$ for some $\lambda \in k$. Now $\alpha^{-1}\circ\beta - \lambda \id_v \in \End_G(V)$ (the reader may check this statement), thus $K$ is a subrepresentation of $V$, hence $K=V$, since $V$ is irreducible and $K \neq 0$. Therefore, $\alpha^{-1}\circ\beta = \lambda\id_V$ and $\beta = \lambda \alpha$.
     \qedhere
   \end{enumerate}
 \end{proof}
 
 \begin{cor}
-  Let $k=\ol k$ and $V_i$ ($1 \le i \le r$) be pairwise non-isomorphic irreducible finite dimensional representations of $G$ over $k$. Let $W_i := V_i^{\oplus n_i} := V_i \oplus \ldots \oplus V_i$ for some $n_i \in \Z_{>0}$ (a representation of $G$). Then \[ \End_G(W_1 \oplus \ldots \oplus W_r) \cong \M_{n_1\times n_1}(k) \oplus \ldots \oplus M_{n_r \times n_r}(k) \] as algebras.
+  Let $k=\ol k$ and $V_i$ ($1 \le i \le r$) be pairwise non-isomorphic irreducible finite-dimensional representations of $G$ over $k$. Let $W_i := V_i^{\oplus n_i} := V_i \oplus \ldots \oplus V_i$ for some $n_i \in \Z_{>0}$ (a representation of $G$). Then \[ \End_G(W_1 \oplus \ldots \oplus W_r) \cong \M_{n_1\times n_1}(k) \oplus \ldots \oplus M_{n_r \times n_r}(k) \] as algebras.
 \end{cor}
 \begin{proof}
   We have
@@ -423,10 +423,10 @@ for all $f \in kG$. It remains to check associativity and distributivity.
 \lecture{October 15, 2018}
 
 \begin{thm}[Maschke's theorem] \label{thm:maschke}
-  Let $G$ be a finite group and $k$ a field such that $\chr k \nmid \abs G$ (in particular $\chr k = 0$ is allowed). The the finite dimensional representations of $G$ over $k$ are completely reducible.
+  Let $G$ be a finite group and $k$ a field such that $\chr k \nmid \abs G$ (in particular $\chr k = 0$ is allowed). The the finite-dimensional representations of $G$ over $k$ are completely reducible.
 \end{thm}
 \begin{proof}
-  It is enough to show that for any finite dimensional representation $V$ of $G$ the following holds: any subrepresentation $U$ of $V$ has a complement in $W$ in $V$ which is again a subrepresentation; so $V = U \oplus W$ as representations. Let $U$ be such a subrepresentation and choose a vector space complement $U'$ so $V = U \oplus U'$ as vector spaces.
+  It is enough to show that for any finite-dimensional representation $V$ of $G$ the following holds: any subrepresentation $U$ of $V$ has a complement in $W$ in $V$ which is again a subrepresentation; so $V = U \oplus W$ as representations. Let $U$ be such a subrepresentation and choose a vector space complement $U'$ so $V = U \oplus U'$ as vector spaces.
   
   Define now $\hat p\colon V \to U $ by \[ \hat p(v) = \frac1{\abs G} \sum_{g \in G}\underbrace{g^{-1}.\underbrace{p(g.v)}_{\in U}}_{\in U} \in U. \]
   Now:
@@ -550,10 +550,10 @@ At this point Professor Stroppel seems not to have numbered this proposition in 
 \paragraph{Remark.}
 For $(A,F_\bullet(A))$ a filtered algebra the canonical map
 \begin{eqnarray*}
-  A &\to& \gr A = \bigoplus_{i\ge0}\fak{F_i(A)}{F_{i-1}(A)} \\
+  \can\colon A &\to& \gr A = \bigoplus_{i\ge0}\fak{F_i(A)}{F_{i-1}(A)} \\
   a &\mapsto& (a+F_{i-1}(A))_{i\ge0}
 \end{eqnarray*}
-is an algebra homomorphism.
+is in general \emph{not} an algebra homomorphism.
 
 \begin{deff}
   Let $A = \bigoplus_{i\in\IZ} A_i$ be a graded algebra and $M$ and $A$-module. Then a \emph{grading} on $M$ is a decomposition $M=\bigoplus_{i\in\IZ}M_i$ into vector spaces such that $A_iM_j \subseteq M_{i+j}$ for all $i,j\in \IZ$. Then $M$ is called a \emph{graded} module.
@@ -766,7 +766,7 @@ To better understand the interaction ot the symmetric polynomials $e_r^{(n)}$, $
   We have to show that ${\hat\Phi}^2 = \id$. Since the $e_j^{(n)}$ generate $k[X_1,\ldots,X_n]^{S_n}$ as an algebra, it is enough to show that $\hat\Phi\pa{e_j^{(n)}} = h_j^{(n)}$ for all $0 \le j \le n$. By \cref{cor:III.12} and construction of $\hat\Phi$ we get \[ \hat\Phi\pa{h_j^{(n)}} = \hat\Phi\pa{F_j\pa{e_1^{(n)},\ldots,e_n^{(n)}}} = F_j\pa{\hat\Phi\pa{e_1^{(n)}},\ldots,\hat\Phi\pa{e_n^{(n)}}} = F_j\pa{h_1^{(n)},\ldots,h_n^{(n)}} = e_j^{(n)} \] for all $0 \le j \le n$.
 \end{proof}
 
-\begin{thm} \label{thm:III.15}
+\begin{thm} \label{thm:III.14}
   Let $k$ be a field with $\chr k=0$ or $\chr k>n$. Then the $p_1^{(n)},\ldots,p_n^{(n)}$ generate $k[X_1,\ldots,X_n]^{S_n}$ as a $k$-algebra and they are algebraically independent over $k$.
 \end{thm}
 \begin{proof}
@@ -774,7 +774,7 @@ To better understand the interaction ot the symmetric polynomials $e_r^{(n)}$, $
 \end{proof}
 
 \paragraph{Remark.}
-\cref{thm:III.15} does not hold over $\IZ$. Consider $\IQ[X_1,X_2]^{S_2}$. There we have $e_2^{(2)} = \frac12\pa{\pa{p_1^{(2)}}^2-p_2^{(2)}}$, as one has $(X_1+X_2)^2 - (X_1^2 + X_2^2) = 2X_1X_2$. If the theorem holds for $k=\IZ$ then there exists an $F \in \IZ[t_1,t_2]$ such that $F\pa{p_1^{(2)},p_2^{(2)}} = e_2^{(n)}$. Viewed as a polynomial in $\IQ[t_1,t_2]$ we have $\frac12t_1^2-\frac12t_2-F(t_1,t_2) = G(t_1,t_2)$. It satisfies $G\pa{p_1^{(2)},p_2^{(2)}} = 0$. This implies $G = 0$ because $p_1^{(2)}$ and $p_2^{(2)}$ are algebraically independent over $IQ$. But this contradicts $F \in \IZ[t_1,t_2]$.
+\cref{thm:III.14} does not hold over $\IZ$. Consider $\IQ[X_1,X_2]^{S_2}$. There we have $e_2^{(2)} = \frac12\pa{\pa{p_1^{(2)}}^2-p_2^{(2)}}$, as one has $(X_1+X_2)^2 - (X_1^2 + X_2^2) = 2X_1X_2$. If the theorem holds for $k=\IZ$ then there exists an $F \in \IZ[t_1,t_2]$ such that $F\pa{p_1^{(2)},p_2^{(2)}} = e_2^{(n)}$. Viewed as a polynomial in $\IQ[t_1,t_2]$ we have $\frac12t_1^2-\frac12t_2-F(t_1,t_2) = G(t_1,t_2)$. It satisfies $G\pa{p_1^{(2)},p_2^{(2)}} = 0$. This implies $G = 0$ because $p_1^{(2)}$ and $p_2^{(2)}$ are algebraically independent over $IQ$. But this contradicts $F \in \IZ[t_1,t_2]$.
 
 \bigskip
 
@@ -871,7 +871,7 @@ We want to find a basis of $k[X_1,\ldots,X_n]^{S_n}$. This is another natural oc
 \end{proof}
 
 \subsection{Polynomial maps}
-In this section $k$ is an infinite field, $V$ a finite dimensional $k$-vector space and $v_1,\ldots,v_n$ a basis of $V$.
+In this section $k$ is an infinite field, $V$ a finite-dimensional $k$-vector space and $v_1,\ldots,v_n$ a basis of $V$.
 
 \begin{deff}
   We set $\Ps_k(V) = \set{f\colon V \to k \given \text{$f$ polynomial}}$ where $f$ is \emph{polynomial} if \[f\pa{\sum_{i=1}^n\alpha_iv_i} = p(\alpha_1,\ldots,\alpha_n)\] for some polynomial $p \in k[t_1,\ldots,t_n]$.
@@ -952,7 +952,7 @@ Consider the special case $V=k$. Then $f\colon W \to V = k$ is polynomial iff $f
 \end{proof}
 
 \begin{lem}
-  $\Ps_k(W,V)$ for $W$ a finite dimensional $k$-vector space is a $\Ps_k(W)$-module via \[ (f.g)(w) = f(w)g(w)  \] for all $w \in W$ for $f\in \Ps_k(W) $ and $g\in \Ps_k(W,V)$.
+  $\Ps_k(W,V)$ for $W$ a finite-dimensional $k$-vector space is a $\Ps_k(W)$-module via \[ (f.g)(w) = f(w)g(w)  \] for all $w \in W$ for $f\in \Ps_k(W) $ and $g\in \Ps_k(W,V)$.
 \end{lem}
 \begin{proof}
   Clearly $\Maps(W,V)$ is a $\Maps(W,k)$-module via the same rule. We have to check that $\Ps_k(W,V)$ is preserved under the action of $\Ps_k(W) \subseteq \Maps(W,k)$. So let $f \in \Ps_k(W)$ and $g\in\Ps_k(W,V)$ and let $w_1,\ldots,w_m$ be a basis of $W$. Then
@@ -982,7 +982,7 @@ Consider the special case $V=k$. Then $f\colon W \to V = k$ is polynomial iff $f
 \begin{prop} \label{prop:III.23}
   There is a (contravariant) functor
   \begin{eqnarray*}
-    F\colon \Pol_k := \set*{\substack{\text{finite dimensional $k$-vector spaces}\\\text{with polynomial maps}}} &\to& \set*{\substack{\text{$k$-algebras with}\\\text{algebra homomorphisms}}}^{\op} := \Alg_k^{\op}, \\
+    F\colon \Pol_k := \set*{\substack{\text{finite-dimensional $k$-vector spaces}\\\text{with polynomial maps}}} &\to& \set*{\substack{\text{$k$-algebras with}\\\text{algebra homomorphisms}}}^{\op} := \Alg_k^{\op}, \\
     W &\mapsto& \Ps_k(W), \\
     f\in \Ps_k(W,V) &\mapsto& f^*\colon \Ps_k(V) \to \Ps_k(W).
   \end{eqnarray*}
@@ -997,7 +997,7 @@ Consider the special case $V=k$. Then $f\colon W \to V = k$ is polynomial iff $f
     \Omega\colon \Ps_k(W,V) &\to& \Hom_{\Alg_k}(\Ps_k(V),\Ps_k(W))\\
     f &\mapsto& f^*
   \end{eqnarray*}
-  is an isomorphism of $k$-vector spaces for all finite dimensional $k$-vector spaces $V$ and $W$.
+  is an isomorphism of $k$-vector spaces for all finite-dimensional $k$-vector spaces $V$ and $W$.
 \end{thm}
 \begin{proof}
   Clearly $\Omega$ is lineary. We have to show that it is invertible.
@@ -1027,21 +1027,21 @@ Consider the special case $V=k$. Then $f\colon W \to V = k$ is polynomial iff $f
 Let $k$ be a field of infinite cardinality.
 
 \paragraph{Remark.}
-Let $\pi\colon W \to V$ be a linear map of finite dimensional $k$-vector spaces. Then $\pi \in \Ps_k(W,V)$ is homogeneous of degree $1$. To see this choose bases $v_1,\ldots,v_n$ and $w_1,\ldots,w_m$ of $V$ and $W$, respectively. Now we get \[\pi\pa{\sum_{j=1}^m \lambda_jw_j} = \sum_{j=1}^m\lambda_j\underbrace{\pi(w_j)}_{\mathclap{\sum_{i=1}^n\beta_{ij}v_i}} = \sum_{i=1}^n\underbrace{\pa{\sum_{j=1}^m\beta_{ij}\lambda_j}}_{\mathclap{\text{polynomial in $\lambda_1,\ldots,\lambda_m$}}}v_i.\]
+Let $\pi\colon W \to V$ be a linear map of finite-dimensional $k$-vector spaces. Then $\pi \in \Ps_k(W,V)$ is homogeneous of degree $1$. To see this choose bases $v_1,\ldots,v_n$ and $w_1,\ldots,w_m$ of $V$ and $W$, respectively. Now we get \[\pi\pa{\sum_{j=1}^m \lambda_jw_j} = \sum_{j=1}^m\lambda_j\underbrace{\pi(w_j)}_{\mathclap{\sum_{i=1}^n\beta_{ij}v_i}} = \sum_{i=1}^n\underbrace{\pa{\sum_{j=1}^m\beta_{ij}\lambda_j}}_{\mathclap{\text{polynomial in $\lambda_1,\ldots,\lambda_m$}}}v_i.\]
 
-Let $G$ be a group and $V$ a finite dimensional representation of $G$. Then $\Ps_k(V)$ is a representation of $G$ via \[ (g.f)(v) = f(g^{-1}.v) \] for all $g\in G$, $f\in\Ps_k(V)$ and $v \in V$.
+Let $G$ be a group and $V$ a finite-dimensional representation of $G$. Then $\Ps_k(V)$ is a representation of $G$ via \[ (g.f)(v) = f(g^{-1}.v) \] for all $g\in G$, $f\in\Ps_k(V)$ and $v \in V$.
 We have to show that $g.f$ is again in $\Ps_k(V)$ (the rest is clear, since $V$ is a representation). Now $g .f = f \circ \pi_{g^{-1}}$ is a composition of polynomial maps and therefore by \cref{lem:III.20} polynomial.
 
 \begin{deff}
-  Let $G$ be a group and $V,W$ finite dimensional representations of $G$ (over $k$). A map $f\colon W \to V$ is \emph{covariant} if it is polynomial and $G$-equivariant. Denote $\Cov_k(W,V) = \Cov(W,V) := \set{f\colon W \to V \given \text{$f$ covariant}}$. 
+  Let $G$ be a group and $V,W$ finite-dimensional representations of $G$ (over $k$). A map $f\colon W \to V$ is \emph{covariant} if it is polynomial and $G$-equivariant. Denote $\Cov_k(W,V) = \Cov(W,V) := \set{f\colon W \to V \given \text{$f$ covariant}}$. 
 \end{deff}
 
 \begin{enumerate}
   \setcounter{enumi}{-1}
   \item If $f\in \Hom_G(W,V)$ we have $f \in \Cov(W,V)$.
-  \item Let $V$ be a finite dimensional representation of $G$. Then $f \colon V \to V^{\tp d}$ given by $f(x) = x^{\tp d}$ is covariant and homogeneous of degree $d$ because \[ f\pa{\sum_{i=1}^n\lambda_iw_i} = \pa{\sum_{i=1}^n\lambda_iw_i}^{\tp d} = \sum_{{\substack{I=(i_1,\ldots,i_d)\\\in \set{1,\ldots,n}^d}}} \underbrace{\prod_{i\in I}\lambda_i}_{\lambda_I} \underbrace{\bigotimes_{i\in I} v_i}_{v_I}. \]
+  \item Let $V$ be a finite-dimensional representation of $G$. Then $f \colon V \to V^{\tp d}$ given by $f(x) = x^{\tp d}$ is covariant and homogeneous of degree $d$ because \[ f\pa{\sum_{i=1}^n\lambda_iw_i} = \pa{\sum_{i=1}^n\lambda_iw_i}^{\tp d} = \sum_{{\substack{I=(i_1,\ldots,i_d)\\\in \set{1,\ldots,n}^d}}} \underbrace{\prod_{i\in I}\lambda_i}_{\lambda_I} \underbrace{\bigotimes_{i\in I} v_i}_{v_I}. \]
   Note that $\set*{v_i \given I \in \set{1,\ldots,n}^d}$ forms a basis of $V^{\tp d}$. Definite $p_I\in k[t_1,\ldots,t_n]$ by $p_I(t_1,\ldots,t_n) = t_1^{a_1}\cdots t_d^{a_d}$ where $a_k = \abs{\set{j \given i_j = h}}$. Then $p_I(\lambda_1,\ldots,\lambda_n) = \lambda_I$ and $f$ is polynomial. $f$ is $G$-equivariant since $f(g.v) = (g.v)^{\tp d} = g.v^{\tp d}$. Thus $f$ is covariant.
-  \item Let $V = \M_{n\times n}(k)$ and $G = \GL_n(k)$ act on $V$ by conjugation. Then
+  \item Let $V = \Mat n k$ and $G = \GL_n(k)$ act on $V$ by conjugation. Then
   \begin{eqnarray*}
    f_m \colon V &\to& V \\ A &\mapsto& A^m
   \end{eqnarray*}
@@ -1049,7 +1049,7 @@ We have to show that $g.f$ is again in $\Ps_k(V)$ (the rest is clear, since $V$ 
 \end{enumerate}
 
 \begin{lem}
-  Let $V,W$ be finite dimensional representations of a group $G$. Then $f \colon W \to V$ is covariant if and only if $f^* \colon \Ps_k(V) \to \Ps_k(W)$ is $G$-invariant.
+  Let $V,W$ be finite-dimensional representations of a group $G$. Then $f \colon W \to V$ is covariant if and only if $f^* \colon \Ps_k(V) \to \Ps_k(W)$ is $G$-invariant.
 \end{lem}
 Note: The action of $G$ on $\Hom_{\Alg_k}(\Ps_k(V), \Ps_k(W))$ is given by $(g.h)(\phi) = g.(h(g^{-1}.\phi))$ for all $g \in G$, $h \in \Hom_{\Alg_k}(\Ps_k(V), \Ps_k(W))$ and $\phi\in \Ps_k(v)$.
 \begin{proof}
@@ -1057,10 +1057,206 @@ Note: The action of $G$ on $\Hom_{\Alg_k}(\Ps_k(V), \Ps_k(W))$ is given by $(g.h
 \end{proof}
 
 \begin{prop}
-  Let $V,W$ be finite dimensional representations of a group $G$ and $f \in \Cov_k(W,V)$. Then \[ f^*\pa{\Ps_k(V)^G} \subseteq \Ps_k(W)^G. \]
+  Let $V,W$ be finite-dimensional representations of a group $G$ and $f \in \Cov_k(W,V)$. Then \[ f^*\pa{\Ps_k(V)^G} \subseteq \Ps_k(W)^G. \]
 \end{prop}
+\begin{proof}
+  Let $h \in \Ps_k(V)^G$ and $g \in G$. For all $w \in W$ we have
+  \begin{align*}
+    (g.f^*(h))(w) &= (g.(h\circ f))(w) = (h\circ f)(g^{-1}.w) = h(f(g^{-1}.w)) = h(g^{-1}.f(w)) \\
+    &= (g.h)(f(w)) = h(f(w)) = (f^*(h))(w). \qedhereb
+  \end{align*}
+\end{proof}
 
-TO BE INSERTED
+\begin{prop}
+  Let $V,W$ be finite-dimensional $k$-vector spaces. The $\Ps_k(W)$-module structure on $\Ps_k(W,V)$ induces a $\Ps_k(W)^G$-module structure on $\Cov(W,V)$ if $V,W$ are representations of $G$ by restriction.
+\end{prop}
+\begin{proof}
+  $\Ps_k(W)^G$ is a subring of $\Ps_k(W)$, and by \cref{lem:I.8} even a subalgebra. Let $f\in\Cov(W,V)$, $h\in \Ps_k(W)^G$, $g\in G$ and $w\in W$. Then we have
+  \begin{align*}
+    (h.f)(g.w) &= h(g.w)f(g.w) = h(w)f(g.w) = h(w)(g.f(w)) = g.(h(w)f(v)) \\ &= g.(h.f)(w),
+  \end{align*}
+  and hence $h.f$ is $G$-equivariant.
+\end{proof}
+
+
+\section{Invariants of matrix actions}
+Let $k$ be a field of infinite cardinality.
+
+\begin{thm}[Invariant Theorem I] \label{thm:inv thm I}
+  Let $G = \SL_n(k)$ act on $\Mat n k$ by left multiplication. Then \[\det\colon \Mat n k \to k \] generates $\Ps_k(\Mat n k)^G$ as a $k$-algebra and it is algebraically independent, i.e.
+  \begin{eqnarray*}
+    k[t] &\to& \Ps_k(\Mat n k)^G \\
+    t &\mapsto& \det
+  \end{eqnarray*}
+  is an isomorphism of $k$-algebras.
+\end{thm}
+\begin{proof}
+  Obviously, $\det$ is polynomial. It is also $G$-invariant, as we have $(S .\det)(A) = \det(S^{-1}A) = \det A$ for all $S \in G$ and $A \in \Mat n k$.
+  
+  We have to prove that $\det$ is algebraically independent. Let $p \in k[t]$ with $p(\det) = 0$. We get $(p(\det))(A) = p(\det(A)) = 0$ for all $A \in \Mat n k$. Thus, $p(\lambda) = 0$ for all $\lambda \in k$ because $\det$ is surjective. But this implies $p=0$ as $k$ is of infinite cardinality.
+  
+  It is left to show that $\det$ generates $\Ps_k(\Mat n k)^G$ as an algebra. Let $f \in \Ps_k(\Mat n k)^G$. Since $f$ is polynomial there exists a $p \in k[t_{11},\ldots,t_{nn}]$ such that $f(A) = p(a_{11},\ldots,a_{nn})$ for all $A = \sum_{1\le i,j \le n} a_{ij}E_{ij}$ using a basis $E_{ij}$ ($1\le i,j\le n$).
+  
+  Consider the algebra homomorphism
+  \begin{eqnarray*}
+    \Psi\colon k[X_{11},\ldots,X_{nn}] &\to& k[t] \\
+    X_{ij} &\mapsto& \begin{cases*}
+      0 & if $i \neq j$\\
+      1 & if $i = j \neq 1$ \\
+      t & if $i = j = 1$.
+    \end{cases*}
+  \end{eqnarray*}
+  Set $\ol p = \Psi(p)$. Then $\ol p(\lambda) = p(\diag(\lambda,1,\ldots,1))$ for $\lambda \in k$. Consider $A \in \GL_n(k)$, $B = \diag(\det A,1,\ldots,1)$ and $S := AB^{-1} \in G$. Then \[ f(A) = f(SB) = f(B) = \ol p(\det A) = (\ol p(\det))(A). \] Therefore $f=\ol p(\det) = 0$ when restricted to $\GL_n(k)$.
+  
+  We now claim the \emph{Zariski property I}: If $h\in \Ps_k(\Mat n k)$ such that $h|_{\GL_n(k)} = 0$ then $h=0$. We will prove this later. % TODO ref?
+  
+  As a consequence $f=\ol p(\det)$ as elements in $\Ps_k(\Mat n k)^G$. Hence $f$ is contained in the subalgebra generated by $\det$, and $\Ps_k(\Mat n k)^G$ is generated as an algebra by $\det$.
+\end{proof}
+
+Let $\chi_A(t) = \det(tI_n-A)$ denote the characteristic polynomial of $A \in \Mat n k$. We can expand this to \[\chi_A(t) = t^n-s_1(A)t^{n-1} + s_2(A)t^{n-2} - \ldots + (-1^n)s_n(A) \] with $s_i \in \Ps_k(\Mat nk)$ for all $1\le i \le n$. For $A= \diag(d_1,\ldots,d_n)$ we have $s_i(A) = e_i^{(n)}(d_1,\ldots,d_n)$.
+
+\lecture{November 5, 2018}
+
+\begin{thm}[Invariant Theorem II] \label{thm:inv thm II}
+  Let $G = \GL_n(k)$ act on $\Mat nk$ by conjugation $S.A = SAS^{-1}$ for $S \in \GL_n(k)$ and $A \in \Mat nk$. Then $\Ps_k(\Mat nk)^G$ is generated as a $k$-algebra by $s_1,\ldots,s_n$. Moreover these elements are algebraically independent over $k$, i.e.
+  \begin{eqnarray*}
+    \Ps_k(\Mat nk)^G &\to& k[t_1,\ldots,t_n] \\
+    s_i &\mapsto& t_i
+  \end{eqnarray*}
+  is an isomorphism of $k$-algebras.
+\end{thm}
+\begin{proof}
+  Obviously, $s_i \in \Ps_k(\Mat nk)$. They are $G$-invariant because $\chi_A(t)$ is invariant under conjugation. Thus $s_i \in \Ps_k(\Mat nk)^G$ for all $1\le i\le n$.
+  
+  Now let us show that the $s_i$ are algebraically independent. Take $p\in k[t_1,\ldots,t_n]$ such that $p(s_1,\ldots,s_n)=0$. Then $p(s_1,\ldots,s_n)(A) = 0$ for all $A \in \Ps_k(\Mat nk)$, so also for all diagonal matrices $\diag(d_1,\ldots,d_n)$. Using our observation from above we get $p\pa{e_1^{(n)},\ldots,e_n^{(n)}}(d_1,\ldots,d_n) = 0$ for all $d_i \in k$. Thus $p\pa{e_1^{(n)},\ldots,e_n^{(n)}} = 0$. By the \namereff{thm:symmetric polys} we get $p=0$ as the $e_i^{(n)}$ are algebraically independent.
+  
+  We still need to prove that the $s_i$ generate $\Ps_k(\Mat nk)^G$ as an algebra. Take $f\in \Ps_k(\Mat nk)^G$. Since it is polynomial, there exists a $p\in k[t_{11},\ldots,t_{nn}]$ such that $f(A) = p(a_{11},\ldots,a_{nn})$ for $A = (a_{ij})$. Define the algebra homomorphism
+  \begin{eqnarray*}
+    \Phi\colon k[t_{11},\ldots,t_{nn}] &\to& k[t_1,\ldots,t_n] \\
+    t_{ij} &\mapsto& \begin{cases*} t_i & if $i=j$ \\ 0 & otherwise \end{cases*}
+  \end{eqnarray*}
+  and $\ol p := \Phi(p)$. Hence $f(\diag(d_1,\ldots,d_n)) = \ol p(d_1,\ldots,d_n)$ by definition.
+  
+  Now we want to show that $\ol p$ is symmetric, i.e. $\ol p \in k[t_1,\ldots,t_n]^{S_n}$. We already have an isomorphism of algebras
+  \begin{eqnarray*}
+    \beta\colon k[t_1,\ldots,t_n] &\to& \Ps_k(k^n) \\
+    t_i &\mapsto& \phi_i\;\text{(coordinate function)}
+  \end{eqnarray*}
+  in standard basis. Now $\beta$ is $S_n$-equivariant if we let $S_n$ act on $k^n$ by permuting the standard basis vectors $e_i$. It is enough to show that $\beta(\ol p)$ is $S_n$ invariant. Realise $g \in S_n$ as a permutation matrix $A_g$ such that $A_gE_i = E_{g(i)}$. For $D=\diag(d_1,\ldots,d_n)$ we have $A_gDA_{g^{-1}} = \diag\pa{d_{g^{-1}(1)},\ldots,d_{g^{-1}(n)}}$. We gets
+  \begin{align*}
+    (g.\beta(\ol p))(d_1,\ldots,d_n) &= \beta(\ol p)\pa{g^{-1}.(d_1,\ldots,d_n)} = \beta(\ol p)\pa{d_{g^{-1}(1)},\ldots,d_{g^{-1}(n)}} \\
+    &= f\pa{\diag\pa{d_{g^{-1}(1)},\ldots,d_{g^{-1}(n)}}} = f\pa{A_{g^{-1}}DA_g} \\
+    &= f\pa{A_{g_{-1}}D\pa{A_{g^{-1}}}^{-1}} = f(D)
+  \end{align*}
+  for all $g\in S_n$ as $f$ is $G$-invariant. Thus $\ol p$ is a symmetric polynomial.
+  
+  By the \namereff{thm:symmetric polys} we have a $q\in k[t_1,\ldots,t_n]$ with $\ol p = q\pa{e_1^{(n)},\ldots,e_n^{(n)}}$. For $D = \diag(d_1,\ldots,d_n)$ we have \[f(D) = q\pa{e_1^{(n)},\ldots,e_n^{(n)}}(d_1,\ldots,d_n) = q(s_1,\ldots,s_n)(D).\] Therefore $f-q(s_1,\ldots,s_n) = 0$ whe restricted to diagonal matrices.
+  
+  We now claim the \emph{Zariski property II}: If $h\in \Ps_k(\Mat nk)^G$ such that $h|_{\substack{\text{\tiny diagonal}\\\text{\tiny matrices}}} = 0$ then $h = 0$. We will prove this later. % TODO ref
+  
+  As a consequence $f - q(s_1,\ldots,s_n)  = 0$ (on all matrices in $\Mat nk$). It follows that $s_1,\ldots,s_n$ generate $\Ps_k(\Mat nk)^G$.
+\end{proof}
+
+Another family of elements in $\Ps_k(\Mat nk)^{\GL_n(k)}$ (under conjugation action) are the \emph{power traces}
+\begin{eqnarray*}
+  \Tr_j\colon \Mat nk &\to& k \\
+  A &\mapsto& \Tr(A^j).
+\end{eqnarray*}
+Obviously $\Tr_j \in \Ps_k(\Mat nk)$. They are $\GL_n(k)$-invariant as we have \[ (S.\Tr_j)(A) = \Tr_j(S^{-1}AS) = \Tr(S^{-1}A^jS) = \Tr(A^j) = \Tr_j(A) \] for all $S \in \GL_n(k)$ and $A \in \Mat nk$.
+
+\begin{thm}
+  Let $n\ge 1$ and $k$ an infinite field with $\chr k = 0$ or $\chr k > n$. Then $\Tr_1,\ldots,\Tr_n$ generate $\Ps_k(\Mat nk)^{GL_n(k)}$ as a $k$-algebra and are algebraically independent. Hence
+  \begin{eqnarray*}
+    k[t_1,\ldots,t_n] &\to& \Ps_k(\Mat nk)^{\GL_n(k)} \\
+    t_j &\mapsto& \Tr_j
+  \end{eqnarray*}
+  defines an isomorphism of $k$-algebras.
+\end{thm}
+\begin{proof}
+  Let $D = \diag(d_1,\ldots,d_n)$ be a diagonal matrix. Then \[\Tr_j(D) = \Tr(D^j) = \sum_{i=1}^nd_1^j = p_j^{(n)}(d_1,\ldots,d_n).\] By \cref{thm:III.14} the $p_i^{(n)}$ generate $k[X_1,\ldots,X_n]^{S_n}$ as a $k$-algebra (under the given assumptions in $k$) and they are algebraically independent. Now argue as in the proof of the \namereff{thm:inv thm II} with $e_j^{(n)}$ replaced by $p_j^{(n)}$.
+\end{proof}
+
+\begin{deff}
+  Let $W$ be a finite-dimensional $k$-vector space ($k$ infinite field). $X \subseteq W$ is \emph{Zariski-dense} (over $k$) if $f|_X = 0$ implies $f = 0$ for all $f\in \Ps_k(W)$. Let $X \subseteq Y \subseteq W$. Then $X$ is \emph{Zariski-dense in $Y$} (over $k$) if $f|_X = 0$ implies $f|_Y = 0$ for all $f\in \Ps_k(W)$.
+\end{deff}
+
+\paragraph{Examples.}
+\begin{enumerate}
+ \setcounter{enumi}{-1}
+ \item An infinite subset $X \subseteq k$ is Zariski-dense.
+ \item Let $U \subsetneq W$ be a vector subspace. Then $U$ is not Zariski-dense in $W$.
+ \begin{proof}
+    Let $w_1,\ldots,w_u$ be a basis of $U$. Extend it to a basis $w_1,\ldots,w_n$ of $W$. Consider the map
+    \begin{eqnarray*}
+      \pi\colon W &\to& k \\
+      \sum_{i=1}^n\lambda_iw_i &\mapsto& \lambda_nw_n.
+    \end{eqnarray*}
+    Obviously $\pi\in\Ps_k(W)$. Now note that $\pi|_U = 0$, but $\pi\neq 0$.
+ \end{proof}
+\end{enumerate}
+
+\paragraph{Remark.}
+Zariski density depends on $k$, e.g. $\IR \subseteq \IC$ is not dense over $\IR$ but it is over $\IC$.
+
+\begin{lem} \label{lem:IV.4}
+  Let $k$ be an infinite field and $k \subseteq L$ a field extension as well as $W$ a finite-dimensional $k$-vector space. Let $W_L := L \tp_k W$.
+  \begin{enumerate}
+    \item $k^n \subseteq L^n$ is Zariski-dense over $L$ for all $n\ge 1$.
+    \item\label{lem:IV.4:2} $W \subseteq W_L$ (by $w \mapsto 1 \tp w$) is also Zariski-dense over $L$.
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  Left to the reader.
+\end{proof}
+
+\begin{lem} \label{lem:IV:5}
+  Let $k$ be an infinite field and $k \subseteq L$ a field extension as well as $W$ a finite-dimensional $k$-vector space. Let $W_L := L \tp_k W$. Then there exists a unique algebra homomorphism $\incl\colon\Ps_k(W) \to \Ps_L(W_L)$ such that the diagram
+  \begin{center}
+    \begin{tikzcd}
+      W \arrow{r}{\can}[swap]{w\mapsto 1 \tp w}\arrow{d}[swap]{f} & W_L \arrow{d}{\incl(f)} \\
+      k \arrow[hookrightarrow]{r} & L
+    \end{tikzcd}
+  \end{center}
+  commutes for all $f\in \Ps_k(W)$. Moreover $\incl(f)$ is surjective.
+\end{lem}
+\begin{proof}
+  Let $w_1,\ldots,w_n$ be a basis of $W$. Let $\phi_1,\ldots,\phi_n$ be the coordinate functions in $\Ps_k(W)$. Then $1\tp w_1,\ldots,1\tp w_n$ is a basis of $W_L$. Let $\psi_1,\ldots,\psi_n$ be the corresponding coordinate functions in $\Ps_L(W_L)$. Define $\incl(\phi_i) = \psi_j$. This results in a unique $k$-algebra homomorphism since the $\psi_1,\ldots,\psi_n$ are algebraically independent over $L$. The map is injective as the basis $\phi_i^a = \phi_i^{a_1}\cdots\phi_i^{a_n}$ with $a = (a_1,\ldots,a_n) \in \IZ_{\ge 0}^n$ is mapped to linearly independent elements.
+ 
+  Now we show that the above diagram commutes. For $f\in\Ps_k(W)$ we write $f = p(\phi_1,\ldots,\phi_n)$ for some polynomial $p\in k[t_1,\ldots,t_n]$. Then
+  \begin{align*}
+    (\incl(f) \circ \can)\pa{\sum_{i=1}^n\lambda_iw_i} = p(\psi_1,\ldots,\psi_n)\pa{\sum_{i=1}^n\lambda_i(1\tp w_i)} &= p(\lambda_1,\ldots,\lambda_n), \\\intertext{but on the other hand}
+    f\pa{\sum_{i=1}^n\lambda_iw_i} = p(\phi_1,\ldots,\phi_n)\pa{\sum_{i=1}^n\lambda_iw_i} &= p(\lambda_1,\ldots,\lambda_n).
+  \end{align*}
+  
+  Finally, assume that $\incl'$ is another such algebra homomorphism. We have $\incl(f) = \incl'(f) \in \Ps_L(W_L)$ for all $f\in \Ps_k(W)$. By definition $(\incl(f) - \incl'(f))|_W = 0$. By \cref{lem:IV.4} \ref{lem:IV.4:2} $W \subseteq W_L$ is dense over $L$. Therefore $\incl(f) = \incl'(f)$ for all $f \in \Ps_L(W_L)$.
+\end{proof}
+
+\begin{cor}
+  Let $k$ be an infinite field and $k \subseteq L$ a field extension as well as $W$ a finite-dimensional $k$-vector space. Let $W_L := L \tp_k W$. Then
+  \begin{eqnarray*}
+    \Phi\colon {\Ps_k(W)}_L &\to& \Ps_L(W_L) \\
+    \lambda \tp f &\mapsto& \lambda\incl(f)
+  \end{eqnarray*}
+  is an isomorphism of $k$-algebras.
+\end{cor}
+\begin{proof}
+  Take $k$-bases $\phi^a$ and $\psi^a$ of $\Ps_k(W)$ and $\Ps_L(W_L)$ for $a \in \IZ_{\ge0}^n$, respectively. Then $\Phi(1 \tp \phi^a) = \incl(\phi^a) = \psi^a$, a basis vector over $L$. Hence $\Phi$ is an isomorphism of $k$-vector spaces since it sends a basis to a basis. It is an algebra homomorphism by \cref{lem:IV:5}.
+\end{proof}
+
+\begin{lem} \label{lem:IV.7}
+  Let $k$ be an infinite field and $W$ a finite-dimensional $k$-vector space. For $h\in\Ps_k(W)\setminus\set0$ define $W_h := \set{w\in W\given h(w) \neq 0}$. Then $W_h \subseteq W$ is Zariski-dense (over $k$).
+\end{lem}
+\begin{proof}
+  Let $f \in \Ps_k(W)$ with $f|_{W_h} = 0$. Then $fh = 0$ as we have $(fh)(w) = f(w)h(w) = 0$ for all $w \in W$. Since $\Ps_k(W)$ is an integral domain we have $f=0$ since $h \neq 0$.
+\end{proof}
+
+\begin{cor}
+  $\GL_n(k) \subseteq \Mat nk$ is Zariski-dense (over $k$). This proves Zariski property I.
+\end{cor}
+\begin{proof}
+  Use \cref{lem:IV.7} with $W = \Mat nk$ and $h= \det$.
+\end{proof}
+
 
 
 
