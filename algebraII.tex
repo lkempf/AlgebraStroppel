@@ -926,7 +926,7 @@ At this point Professor Stroppel seems to have skipped a number in her notes.
   $f\in \Ps_k(V)$ is \emph{homogeneous} of degree $d$ if $f(\lambda v) = \lambda^df(v)$ for all $\lambda \in k$ and $v\in V$.
 \end{deff}
 
-\begin{prop}
+\begin{prop} \label{prop:III.19}
   We have \[ \Ps_k(v) = \bigoplus_{d\ge0}{\Ps_k(V)}_d \quad\text{where}\quad {\Ps_k(V)}_d = \set{f\in \Ps_k \given \text{$f$ is homogeneous of degree $d$}} \] and $\Ps_k(V)$ becomes a non-negatively graded algebra.
 \end{prop}
 \begin{proof}
@@ -1271,7 +1271,7 @@ We already proved Zariski property I in \cref{cor:IV.8}.
   Let $G$ be a group, $W$ a finite-dimensional representation of $G$ over $k$ and $f\in\Ps_k(W)^G$.
   \begin{enumerate}
     \item If $X\subseteq W$ such that $G.X = \set{g.x \given g\in G,x \in X}$ is Zariski-dense and if $f|_X = 0$ then $f=0$. \label{lem:IV.9:1}
-    \item If there exists a Zariski-dense orbit then $f$ is constant. \label{lem:IV.9:2} % TODO ???
+    \item If there exists a Zariski-dense orbit then $f$ is constant. \label{lem:IV.9:2}
   \end{enumerate}
 \end{lem}
 \begin{proof}
@@ -1369,7 +1369,7 @@ In this seciion $R$ is a ring with $1$, but not necessarily commutative. Modules
   \item Let $G$ be a finite group and $R=kG$ such that $\chr k \nmid \abs G$. By \namereff{thm:maschke} every finite-dimensional $kG$-module is semisimple.
 \end{enumerate}
 
-\begin{lem}
+\begin{lem} \label{lem:V.2}
   \leavevmode
   \begin{enumerate}
     \item If $(M_i)_{i\in I}$ is a collection of semisimple $R$-modules then $\bigoplus_{i\in I}M_i$ is semisimple. \label{lem:V.2:1}
@@ -1393,6 +1393,129 @@ In this seciion $R$ is a ring with $1$, but not necessarily commutative. Modules
 
 \begin{deff}
   Let $M$ be an $R$-module and $L$ an irreducible $R$-module. Then \[\Iso_L(M) := \sum_{\mathclap{\substack{\text{$E \subseteq M$ submodule}\\\text{$E\cong L$ as $R$-modules}}}}E \] is the $L$-isotypic component of $M$.
+\end{deff}
+
+\begin{lem}[Schur's lemma for modules] \label{lem:schur mod}
+  Let $M$ be an irreducible $R$-module. Then:
+  \begin{enumerate}
+    \item Let $N$ be an irreducible $R$-module and $f\colon M\to N$ an $R$-module homomorphism. Then $f=0$ or $f$ is an isomorphism. \label{lem:schur mod:1}
+    \item $\End_R(M)$ is a skew field (i.e. a field, but the multiplication is not necessarily commutative). \label{lem:schur mod:2}
+  \end{enumerate}
+  If $R$ is moreover a $k$-algebra:
+  \begin{enumerate}
+    \setcounter{enumi}{2}
+    \item $\End_R(M)$ is a division algebra (i.e. an algebra where all nonzero elements have a multiplicative inverse). \label{lem:schur mod:3}
+    \item If $\ol k = k$ and $\dim_k M <\infty $ then $\End_R(M) \cong k$ by $\lambda_{\id} \mapsfrom \lambda$. \label{lem:schur mod:4}
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  We omit the proofs of \ref{lem:schur mod:1}, \ref{lem:schur mod:2} and \ref{lem:schur mod:3} (see the proof of \namereff{lem:schur}).
+  
+  Now we show \ref{lem:schur mod:4}. We claim that if $D$ is a division algebra (over $k$) and $\dim_kD<\infty$ we have $D=k$. To see this let $0\neq a \in D$. The elements $1,a,a^2,\ldots,$ are linearly dependent because $\dim_kD < \infty$. Therefore we have a $p \in k[t]$ with $p(a) = 0$ and $p\neq 0$. Since $k=\ol k$ we have $p(t) = \prod_{i=1}^n(t-a_i)$ for some $a_i \in k$. Now $0 = p(a) = \prod_{i=1}^n(a-a_i)$, and we get $a=a_i$ for some $i$. Thus $a \in k$ and $D=k$.
+  
+  Now $\End_R(M) \subseteq \End_k(M)$ is finite dimensional by assumption, hence by \ref{lem:schur mod:3} a finite dimensional divison algebra. Our claim implies \ref{lem:schur mod:4}.
+\end{proof}
+
+\begin{lem} \label{lem:V.4}
+  Let $M$ be a semisimple $R$-module. Let $\phi\colon \bigoplus_{i\in I}L_i \to M$ be an isomorphism of $R$-modules with $L_i$ ($i\in I$) irreducible. Then \[ \Iso_L(M) = \phi\pa{\bigoplus_{j\in J}L_j}\] where $J=\set{i\in I\given L_i \cong L}$.
+\end{lem}
+\begin{proof}
+  Since $\phi$ is an $R$-module isomorphism (hence injective) we have $\phi\pa{\bigoplus_{i\in I} L_i} = \bigoplus_{i\in I}\phi(L_i)$ and $\phi(L_i) \cong L_i$ for all $i\in I$ (by \namereff{lem:schur mod}).
+  \begin{description}
+    \item[\enquote{$\supseteq$}:] ${\displaystyle \phi\pa{\bigoplus_{j\in J}L_j} =\bigoplus_{j\in J}\underbrace{\phi(L_j)}_{\cong L_j \cong L} = \sum_{j\in J}\phi(L_j) \subseteq \Iso_L(M)}$.
+    \item[\enquote{$\subseteq$}:] Assume $\Iso_L(M) \nsubseteq \phi\pa{\bigoplus_{j\in J}L_j}$. Then there exists a $i_0 \in I$ such that $i_0 \notin J$ and the map \[f\colon \Iso_l(M) \hookrightarrow M \to \phi(L_{i_0})\] ($M\to \phi(L_{i_0})$ by projection) is nonzero. Then there exists a submodule $L\subseteq M$ such that $f|_L \neq 0$ and $f$ defines a nonzero $R$-module homomorphism $L\to \phi(L_{i_0}) \cong L_{i_0}$, contradictory to \namereff{lem:schur mod} since $i_0\notin J$.
+    \qedhere
+  \end{description}
+\end{proof}
+
+\begin{deff}
+  We define \[\Irr(R) := \set*{\substack{\text{isoclasses of irre-}\\\text{ducible $R$-modules}}} := \fak{\set*{\substack{\text{irreducible}\\\text{$R$-modules}}}}\sim\] where $L\sim L'$ if $L\cong L'$ as $R$-modules. We often fix a system of representatives for the isoclasses and identify the set of representatives with $\Irr(R)$.
+\end{deff}
+
+\paragraph{Remark.}
+$\Irr(R)$ is indeed a set.
+\begin{proof}
+  Let $L$ be an irreducible $R$-module. Pick $0 \neq m\in L$. This generates $L$ as an $R$-module. We get a surjective $R$-module homomorphism
+  \begin{eqnarray*}
+    \phi\colon R &\to& L \\
+    1 &\mapsto& m.
+  \end{eqnarray*}
+  Henc $\fak R{\ker\phi} \cong L$ and $\ker\phi = \Ann_R(m)$ is a left ideal. Since $L$ is irreducible, $\ker\phi$ is in fact maximal. But maximal left ideals form a set.
+\end{proof}
+
+\paragraph{Example.}
+$R=k$ a field. If $V$ is an $R$-module (i.e. $k$-vector space) then $\gen v \subseteq V$ is a submodule of $V$ for all $v\in V$. Thus $\Irr(R) = \set k$.
+
+\begin{lem}
+  Let $M$ be a semisimple $R$-module. Then we have \[ M = \bigoplus_{\mathclap{L\in\Irr(R)}}\Iso_L(M), \] the \emph{isotypic decomposition}.
+\end{lem}
+\begin{proof}
+  As $M$ is semisimple there exists an isomorphism of $R$-modules $ \phi\colon \bigoplus_{i\in I} L_i \to M $ with irreducible modules $L_i$ ($i \in I$). Now group summands which belong to the same isomorphism class in $\Irr(R)$ and use \cref{lem:V.4}.
+\end{proof}
+
+\paragraph{Example.}
+If $R=k$ a field then \[ M = \bigoplus_{\mathclap{L\in\Irr(k) = \set k}}\Iso_L(M) = \underbrace{\Iso_k(M)}_{\mathclap{\text{$k$-isotypic component}}} \] and we get $M \cong \bigoplus_{i\in I}k$. The existence of such an isomorphism is equivalent to the existence of a basis. Each such iso corresponds to a choice of a basis.
+
+\subsection{Hilbert's theorem}
+\begin{thm}[Hilbert's theorem] \label{thm:hilbert}
+  Let $G$ be a group and $W$ a finite-dimensional representation of $G$ over $k$ ($k$ an infinite field). Assume $\Ps_k(W) \cong \bigoplus_{i\in I}L_i$ as representations of $G$ with irreducible $L_i$ ($i\in I$). Then $\Ps_k(W)^G$ is finitely generated as a $k$-algebra.
+\end{thm}
+
+\paragraph{Remark.}
+The assumption says precisely that $\Ps_k(W)$ is a semisimple $kG$-module.
+
+\paragraph{Remarks.}
+\begin{itemize}
+  \item If $G$ is a finite group and $\chr k\nmid \abs G$ then $\Ps_k(W) = \bigoplus_{d\ge 0}{\Ps_k(W)}_d$ (see \cref{prop:III.19}) is a graded algebra with finite-dimensional homogeneous components ${\Ps_k(W)}_d$ with are then finite-dimensional representations of $G$.
+  
+  By \namereff{thm:maschke} $\Ps_k(W)$ is semisimple and so $\Ps_k(W) = \bigoplus_{d\ge0}{\Ps_k(W)}_d$ is semisimple by \cref{lem:V.2}.
+  \item In the case $R=kG$ for some group $G$ the semisimplicity is often called \emph{complete reducibility}.
+\end{itemize}
+
+\paragraph{Goal.} We want to find examples where \namereff{thm:hilbert} holds. This will lead us to \emph{reductive groups} ($\SL_n(k)$, $\GL_n(k)$, algebraically closed fields, \ldots).
+
+\begin{lem} \label{lem:V.7} % V.6
+  Let $B=\bigoplus_{d\ge0}B_d$ be a non-negatively graded $k$-algebra. Consider the (two-sided) ideal $B_+ \cong \bigoplus_{d>0}B_d$. If $B_d$ is a finitely generated ideal in $B$, then $B$ is finitely generated as a $B_0$-algebra. Moreover one can finite a finite generating set of homogeneous elements.
+\end{lem}
+\begin{proof}
+  Left to the reader.
+\end{proof}
+
+\begin{lem} \label{lem:V.8} % V.7
+  Let $A$ be a commutative $k$-algebra, $G$ a group acting on $A$ by algebra automorphisms. Assume $A = \sum_{i\in I}L_i$ as representations of $G$ with the $L_i$ ($i\in I$) irreducible. (i.e. $A$ is a semisimple $kG$-module). Then:
+  \begin{enumerate}
+    \item $A = A^G \bigoplus N$ as representations where $A^G = \sum_{j\in J} L_j$ and $N = \sum_{i\in I\setminus J}L_i$ with $J = \set{i\in I\given L_i \cong T}$ and the trivial representation $T$. \label{lem:V.8:1}
+    \item The \emph{Reynolds operator} $\pi\colon A \to A^G$ (projection) satisfies $\pi(ba) = b\pi(a)$ for all $b\in A^G$ and $a\in A$. \label{lem:V.8:2}
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}[label=\ref{lem:V.8:\arabic*}]
+    \item This follows from the isotypic decomposition $A^G = \Iso_T(A)$ and \[N= \bigoplus_{\mathclap{\substack{L\in\Irr(kG)\\ L\ncong T}}}\Iso_L(A).\]
+    \item For $s \in A^G$ consider $m_b\colon A \to A$ by $a \mapsto ba$. This is an morphism of representations as we have $m_b(g.a) = b(g.a) = (g.b)(g.a) = g.(ba) = g.m_b(a)$ for all $a \in A$ and $g\in G$. By \namereff{lem:schur mod} the restriction of $m_b$ to any $L_i$ has image isomorphic to $L_i$ or $0$. Thus $m_b(A^G) \subseteq A^G$ and $m_b(N) \subseteq N$. For $b\in A^G$ and $a \in A$ we have $\pi(ba) = \pi(ba_1+a_2) = ba_1 = b\pi(a)$ where $a = a_1+a_2$ with $a_1 \in A^G$ and $a_2 \in N$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{proof}[Proof of \namereff{thm:hilbert}]
+  Set $A := \Ps_k(W)$. We know that $A = \bigoplus_{d\ge 0}A_d$. By \cref{lem:V.8} we have $A = A^G \oplus N$ (with the notation from there). If $I \subseteq A^G$ is an ideal then
+  \begin{equation}
+    \pi(IA) = I\pi(A) = IA^G = I \tag{*}\label{eq:thm:hilbert}
+  \end{equation}
+  using the definition of $\pi$ and $1\in A^G$. By \cref{lem:III.5/6} we have $A^G = \bigoplus_{d\ge0}A_d^G$ and we can take $I := A^G_+ = \bigoplus_{d>0}A_d^G$. Then $\tilde I = IA$ is the ideal in $A$ generated by $I$. Since $A$ is noetherial (because $A \cong k[X_1,\ldots,X_n]$) we can find $f_1,\ldots,f_m\in I$ which generate $\tilde I$ (for some $m\in\IN$).
+  
+  We claim that $f_1,\ldots,f_m$ generate $I$ as in ideal in $A^G$. By \eqref{eq:thm:hilbert} any $x\in I$ is contained in $\pi(IA)$, hence $x = \pi\pa{\sum_{i=1}^mf_ia_i}$ for some $a_i\in A$. Using \cref{lem:V.8} \ref{lem:V.8:2} we get $x = \sum_{i=1}f_i\pi(a_i)$. As $\pi(a_i)\in A^G$ for all $i$ the claim follows.
+  
+  Now apply \cref{lem:V.7} to $B = A^G$ with $B_+ = \bigoplus_{d\ge0}A_d^G$. Then $A^G$ is finitely generated as a $B_0$-algebra. But $B_0 = A_0^G =A_0 = k1 = k$. Hence $A^G$ is a finitely generated $k$-algebra.
+\end{proof}
+
+\subsection{Semisimple rings and algebras}
+\begin{deff}
+  A ring $R$ (with $1$) is semisimple if it is semisimple as a left mdoule over itself (via the regular action given by left multiplication). In this case $R=\bigoplus_{i\in \Irr(R)}\Iso_L(R)$. An algebra $A$ is semisimple if it is semisimple as a ring.
+\end{deff}
+
+\begin{deff}
+  A ring $R$ (with $1$) is simple if $R\neq 0$ and $R=\Iso_L(R)$ for some irreducible $R$-module $L$. An algebra is simple if it is simple as a ring.
 \end{deff}
 
 
