@@ -1380,9 +1380,6 @@ In this seciion $R$ is a ring with $1$, but not necessarily commutative. Modules
   \leavevmode
   \begin{enumerate}[label=\ref{lem:V.2:\arabic*}]
     \item As the $M_i$ are semisimple there exist irreducible modules $L_i^{(j)}$ with $j \in J_i$ such that $M_i \cong \bigoplus_{j\in J_i}L_i^{(j)}$. Then we have \[\bigoplus_{i\in I}\bigoplus_{j\in J_i}L_i^{(j)} = \bigoplus_{i\in I} M_i.\]
-    
-    \vspace{-1cm}
-    \lecture{November 12, 2018}
     \item \begin{description}
       \item[$N$ is semisimple:] It is enough to show that any submodule of $N$ has a complement in $N$. Consider a submodule $U\subseteq N$ which also is a submodule of $M$. Since $M$ is semisimple there exists a complement $C$ of $U$ in $M$, i.e. $M= U \oplus C$ as $R$-modules. Set $C' = N\cap C$. We want to show that $N=U \oplus C'$. Take $y \in N$. Then we have $n\in U$ and $c \in C$ such that $y=u+c$. Now $c = y-u\in N$ since $u\in U \subseteq N$. Then $c \in C \cap N = C'$. We get $N = U+C'$ and then $N=U\oplus C'$ since $U\cap C=0$.
       \item[$\fak MN$ is semisimple:] We have $\fak MN \cong C'$ as $R$-modules. Since $C'$ is a submodule of $N$ it is semisimple by \ref{lem:V.2:1}. Hence $\fak MN$ is semisimple.
@@ -1391,11 +1388,13 @@ In this seciion $R$ is a ring with $1$, but not necessarily commutative. Modules
   \end{enumerate}
 \end{proof}
 
+\lecture{November 12, 2018}
+
 \begin{deff}
   Let $M$ be an $R$-module and $L$ an irreducible $R$-module. Then \[\Iso_L(M) := \sum_{\mathclap{\substack{\text{$E \subseteq M$ submodule}\\\text{$E\cong L$ as $R$-modules}}}}E \] is the $L$-isotypic component of $M$.
 \end{deff}
 
-\begin{lem}[Schur's lemma for modules] \label{lem:schur mod}
+\begin{lem}[Schur's lemma] \label{lem:schur mod}
   Let $M$ be an irreducible $R$-module. Then:
   \begin{enumerate}
     \item Let $N$ be an irreducible $R$-module and $f\colon M\to N$ an $R$-module homomorphism. Then $f=0$ or $f$ is an isomorphism. \label{lem:schur mod:1}
@@ -1409,7 +1408,7 @@ In this seciion $R$ is a ring with $1$, but not necessarily commutative. Modules
   \end{enumerate}
 \end{lem}
 \begin{proof}
-  We omit the proofs of \ref{lem:schur mod:1}, \ref{lem:schur mod:2} and \ref{lem:schur mod:3} (see the proof of \namereff{lem:schur}).
+  We omit the proofs of \ref{lem:schur mod:1}, \ref{lem:schur mod:2} and \ref{lem:schur mod:3} (see the proof of \namereff{lem:schur} for representations).
   
   Now we show \ref{lem:schur mod:4}. We claim that if $D$ is a division algebra (over $k$) and $\dim_kD<\infty$ we have $D=k$. To see this let $0\neq a \in D$. The elements $1,a,a^2,\ldots,$ are linearly dependent because $\dim_kD < \infty$. Therefore we have a $p \in k[t]$ with $p(a) = 0$ and $p\neq 0$. Since $k=\ol k$ we have $p(t) = \prod_{i=1}^n(t-a_i)$ for some $a_i \in k$. Now $0 = p(a) = \prod_{i=1}^n(a-a_i)$, and we get $a=a_i$ for some $i$. Thus $a \in k$ and $D=k$.
   
@@ -1517,6 +1516,146 @@ The assumption says precisely that $\Ps_k(W)$ is a semisimple $kG$-module.
 \begin{deff}
   A ring $R$ (with $1$) is simple if $R\neq 0$ and $R=\Iso_L(R)$ for some irreducible $R$-module $L$. An algebra is simple if it is simple as a ring.
 \end{deff}
+
+\lecture{November 15, 2018}
+
+\paragraph{Remark.} Simple rings are semisimple.
+
+\paragraph{Example.}
+\begin{enumerate}
+  \item $R=k$ is a simple ring.
+  \item Let $G$ finite group and $k$ a field with $\chr k\nmid \abs G$. By \namereff{thm:maschke} $kG$ is a semisimple ring.
+  \item Let $R=\Mat nD$ with $n\in\IZ_{>0}$ and $D$ a division algebra. Then $R$ is a simple ring/$k$-algebra.
+  \begin{proof}
+    For $1\le i\le n$ let \[G = \set*{A\in\Mat nD \given \text{nonzero entries only in $i$-th column}}.\] Then $R=\Mat nD = \bigoplus_{i=1}^nC_i$ as $R$-modules because $E_{ab}E_{ji} = \delta_{jb}E_{ai}$ and $C_i\cong D^n$ as $R$-modules and $C_i\cong D^n$ as $R$-modules by $E_{ji}\mapsto e_j$ (the $j$-th basis vector). Now $D^n$ is an irreducible $R$-module since $R$ acts trasitively on $D^n$ (because then any nonzero submodule is already $D^n$). Thus $R\cong \bigoplus_{i=1}^nL$ with $L\cong D^n$ irreducible, and $R$ is simple.
+  \end{proof}
+\end{enumerate}
+
+\begin{lem} % V.5
+  Let $R$ be a simple ring. Then $\abs{\Irr(R)} = 1$.
+\end{lem}
+\begin{proof}
+  As $R$ is simple we have $R=\Iso_L(R)$ for some irreducible $R$-module $L$ by definition. Assume that $L'$ is another irreducible $R$-module with $L\ncong L'$. Then pick $0\neq m\in L'$ and obtain a surjective $R$-module homomorphism $R\to L'$ by $1\mapsto m$. Hence we get a nonzero $R$-module homomorphism $\Iso_L(R) \to L'$. Thus there exists a nonzero $R$-module homomorphism $L\to L'$ which is a contradiction to \namereff{lem:schur mod}. We get $L \cong L'$.
+\end{proof}
+
+% TODO insert: $D^n$ is the unique (up to isomorphism) irredicuble presentation.
+
+\begin{prop} % V.7
+  Let $R$ be a semisimple ring and $M$ an $R$-module homomorphism. Then $M$ is semisimple as an $R$-module.
+\end{prop}
+\begin{proof}
+  Let $\set{m_i}_{i\in I}$ be a set of generators of the $R$-module $M$. We get a surjective $R$-module homomorphism
+  \begin{eqnarray*}
+    \bigoplus_{i\in I}R &\to& M \\
+    (0,\ldots,0,1,0,\ldots,0) &\mapsto& m_j.
+  \end{eqnarray*}
+  Now $R$ is semisimple, and it is also semisimple as a left $R$-module. By \cref{lem:V.2} $\bigoplus_{i\in I} R$ is a semisimple $R$-module and then also the quotient $M$.
+\end{proof}
+
+\begin{prop} % V.8
+  Let $R$ be a semisimple ring. Then we can find irreducible $R$-modules $L_i$ with $i\in I$ finite such that \[R \cong \bigoplus_{i\in I}L_i.\]
+\end{prop}
+\begin{proof}
+  As $R$ is a semisimple ring we can find irreducible $R$-modules $L_i$ ($i\in J$) such that $\phi\colon \bigoplus_{i\in J}L_i \to R$ is an isomorphism of $R$-modules. Write $1 = \sum_{i\in J}e_i$ with $e_i\in L_i$ and finitely many $e_i$ nonzero. Let $I=\set{i\in J\given e_i\neq 0}$. Then \[f= \phi\left|_{\bigoplus_{i\in I}}\right.\colon \bigoplus_{i\in I}L_i \to R.\] $f$ is injective (because $\phi$ is) and $1\in\im f$. We get $R1 \subseteq \im f$ because it is an $R$-module homomorphism. Thus $f$ is surjective and an isomorphism.
+\end{proof}
+
+\paragraph{Motivation.}
+Assume $R$ is a ring and $M$ an $R$-module. Then $M$ is an $R' := \End_R(M)$-module via $f.m = f(m)$ for all $f\in R'$ and $m\in M$. We call $R'$ the \emph{centralizer} of the $R$-action on $M$. What is now the centralizer of the $R'$-action on $M$? By definition we have $R'' = \End_{R'}(M) = \Endd RM$. We are interested in situations where $R'' = R'$ (the \emph{double centralizer property}).
+
+\begin{thm}[Jacobson density theorem I] \label{thm:jacobson density I}
+  Let $R$ be a ring with $1$ and $M$ a semisimple $R$-module. Consider the map
+  \begin{eqnarray*}
+    \Phi\colon R &\to& \Endd RM \\
+    r &\mapsto& (m \mapsto rm).
+  \end{eqnarray*}
+  Then the image of $\Phi$ is \enquote{dense} in the following sense: For all $f\in \Endd RM$ and $m_1,\ldots,m_s\in M$ there exists an $a\in R$ such that $f(m_i) = am_i$ for all $1\le i\le s$.
+\end{thm}
+
+\paragraph{Remark.}
+\begin{enumerate}
+  \item Consider $\Phi\colon R \to \Endd RM \subseteq \Maps(M,M)$ with the discrete topology. Then $\im\Phi$ is dense in $\Endd RM$ in the topological sense.
+  \item In the special case $M=R$ (an $R$-module via left multiplication) the \namereff{thm:jacobson density I} gives an isomorphism of algebras
+  \begin{eqnarray*}
+    \phi\colon R &\to& \Endd RM = \End_R(R) = R \\
+    r &\mapsto& (m\mapsto rm). % TODO path to $R$?
+  \end{eqnarray*}
+\end{enumerate}
+
+\begin{proof}[Proof of \namereff{thm:jacobson density I}]
+  As we have $\Phi(r)(f.m) = \Phi(r)(f(m)) = rf(m) = f(rm) = f.(\Phi(r)(m))$ for all $f\in \End_R(M)$, $m\in M$ and $r\in R$, $\Phi$ is well-defined.
+  
+  First we assume $s=1$. Let $m=m_1\in M$. Since $M$ is a semisimple $R$-module the submodule $Rm$ has a complement, i.e. $M=Rm \oplus C$ as $R$-modules. Consider $\pi\colon M = Rm \oplus C \to Rm \hookrightarrow R$ by projection. Clearly $\pi\in\End_R(M)$. For any $f\in \Endd RM$ we have $\pi\circ f = f\circ \pi$. Thus $f(m) = f(\pi(m)) = \pi(f(m)) \in Rm$, so there exists an $a\in R$ such that $f(m) = am$.
+  
+  For the general case let $m_1,\ldots,m_s\in M$ and $f\in \Endd RM$. Define
+  \begin{eqnarray*}
+    \hat f := \bigoplus_{i=1}^sf\colon M^s &\to& M^s \\
+    (n_1,\ldots,n_s) &\mapsto& (f(n_1),\ldots,f(n_s)).
+  \end{eqnarray*}
+  The reader may check that $\hat f \in \Endd R{M^s}$. Using the case $s=1$ there exists an $a\in R$ such that $\hat f((m_1,\ldots,m_s)) = a(m_1,\ldots,m_s)$. But we also have $\hat f((m_1,\ldots,m_s) = (f(m_1),\ldots,f(m_s))$, so we get $f(m_i) = am_i$ for all $1\le i\le s$.
+\end{proof}
+
+\begin{cor} % V.10
+  Let $k$ be a field and $A$ a $k$-algebra with $1$. Let $M$ be a finite-dimensional $A$-module. Then
+  \begin{eqnarray*}
+    \Phi\colon A &\to& \Endd AM \\
+    a &\mapsto& (m \mapsto am)
+  \end{eqnarray*}
+  is surjective.
+\end{cor}
+\begin{proof}
+  We have $k\subseteq \End_A(M)$, hence $\Endd AM \subseteq \End_k(M)$. Let $m_1,\ldots,m_s\in M$ be a basis of $M$. For $f\in  \Endd AM$ we find an $a\in A$ such that $f(m_i) = am_i$ for all $1\le i\le s$ by the \namereff{thm:jacobson density I}. Now $f$ is determined on a basis of $M$, and we get $f(m) = am$ for all $m\in M$.
+\end{proof}
+
+\begin{thm}[Jacobson density theorem II] \label{thm:jacobson density II} % V.11
+  Let $R$ be a ring with $1$ and $N$ a semisimple $R$-module. Let $n_1,\ldots,n_s\in N$ be linearly independent over $\End_R(M)$ and $n_1',\ldots,n_s'\in N$ arbitrary. Then there is an $r\in R$ such that $rn_i = n_i'$ for all $1\le i\le s$.
+\end{thm}
+
+\paragraph{Remark.} That means that $N^s$ is generated by $n_1,\ldots,n_s$.
+
+\begin{proof}
+  Let $x=(n_1,\ldots,n_s) \in N^s$. Now $N^s$ is semisimple. Hence $Rx$ has a complement in $N^s$, say $N^s = Rx \oplus C$. Consider $\pi\colon N^s \to C \hookrightarrow N^s$ by projection. Clearly $\pi \in \End_r(N^s)$. We can realize $\pi$ as a matrix $A=(a_{ij})\in \Mat s {\End_R(N)}$. Then $a_{i1}n_1 + a_{i2}n_2 + \ldots + a_{is}n_s = 0$ for all $1\le i\le s$ since $\pi(Rx) = 0$. Therefore $a_{ij} = 0$ for all $1\le i,j\le s$ because $n_1,\ldots,n_s$ are linearly independent over $\End_R(N)$. We get $A=0$, $\pi=0$ and $C=0$, so $N^s=Rx$. The claim follows.
+\end{proof}
+
+\begin{cor}[Burnside theorem -- coordinate form] % V.12
+  Let $k=\ol k$, $V$ a finite-dimensional $k$-vector space and $A\subseteq \End_k(V)$ a subalgebra such that $V$ is an irreducible $A$-module. Then $A = \End_k(V)$.
+\end{cor}
+\begin{proof}
+  We have $\End_k(V) = k$ by \namereff{lem:schur mod}. Now $\Phi\colon A \to \Endd AV = \End_k(V)$ is surjective by the \cref{thm:jacobson density II}, hence an isomorphism.
+\end{proof}
+
+\begin{cor}[Burnside theorem -- coordinate free] % V.13
+  Let $k=\ol k$ and $A \subseteq \Mat nk$ be a subalgebra such that $k^n$ is irreducible as an $A$-module. Then $A = \Mat nk$.
+\end{cor}
+
+\begin{cor} \label{cor:V.17} % V.14
+  Let $k=\ol k$, $A$ be a $k$-algebra and $M$ a finite-dimensional $A$-module. Then the following are equivalent:
+  \begin{enumerate}
+    \item $M$ is an ireducible $A$-module. \label{cor:V.17:1}
+    \item $\Phi\colon A \to \Endd AM$ is surjective. \label{cor:V.17:2}
+  \end{enumerate}
+\end{cor}
+\begin{proof}
+  \leavevmode
+  \begin{description}
+    \item[\ref{cor:V.17:1} $\Rightarrow$ \ref{cor:V.17:2}:] By \namereff{lem:schur mod} we have $\End_A(M) = k$, and by the \namereff{thm:jacobson density II} $\Phi$ is surjective.
+    \item[\ref{cor:V.17:2} $\Rightarrow$ \ref{cor:V.17:1}:] Let $0\neq m\in M$. For all $m' \in M$ we have an $\phi \in \End_k(M)$ such that $\phi(m) = m'$. Since $\Phi$ is surjective there exists an $a\in A$ with $\Phi(a) = \phi$. Now $m' = \phi(m) = am$, and $M$ is irreducible.
+    \qedhere
+  \end{description}
+\end{proof}
+
+\begin{cor} % V.15
+  Let $k=\ol k$, $A$ be a $k$-algebra and $M$ a finite-dimensional irreducible $A$-module. Then $(\dim_kM)^2 \le \dim_kA$.
+\end{cor}
+\begin{proof}
+  This follows from the surjectivity of $A \to \Endd AM = \End_k(M)$ (using \cref{cor:V.17}) because of $\dim_k\End(M) = (\dim_kM)^2$.
+\end{proof}
+
+
+
+
+
+
+
 
 
 
