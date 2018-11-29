@@ -1531,14 +1531,14 @@ The assumption says precisely that $\Ps_k(W)$ is a semisimple $kG$-module.
   \end{proof}
 \end{enumerate}
 
-\begin{lem} % V.5
+\begin{lem} \label{lem:V.9} % V.5
   Let $R$ be a simple ring. Then $\abs{\Irr(R)} = 1$.
 \end{lem}
 \begin{proof}
   As $R$ is simple we have $R=\Iso_L(R)$ for some irreducible $R$-module $L$ by definition. Assume that $L'$ is another irreducible $R$-module with $L\ncong L'$. Then pick $0\neq m\in L'$ and obtain a surjective $R$-module homomorphism $R\to L'$ by $1\mapsto m$. Hence we get a nonzero $R$-module homomorphism $\Iso_L(R) \to L'$. Thus there exists a nonzero $R$-module homomorphism $L\to L'$ which is a contradiction to \namereff{lem:schur mod}. We get $L \cong L'$.
 \end{proof}
 
-% TODO insert: $D^n$ is the unique (up to isomorphism) irredicuble presentation.
+% TODO insert: $D^n$ is the unique (up to isomorphism) irreducible presentation.
 
 \begin{prop} % V.7
   Let $R$ be a semisimple ring and $M$ an $R$-module homomorphism. Then $M$ is semisimple as an $R$-module.
@@ -1649,6 +1649,135 @@ Assume $R$ is a ring and $M$ an $R$-module. Then $M$ is an $R' := \End_R(M)$-mod
 \begin{proof}
   This follows from the surjectivity of $A \to \Endd AM = \End_k(M)$ (using \cref{cor:V.17}) because of $\dim_k\End(M) = (\dim_kM)^2$.
 \end{proof}
+
+
+\begin{lem} % V.16
+  Let $R_i$ ($1\le i\le n$) be rings (with $1$) and $R := R_1 \times \cdots \times R_n$. Let $1_i$ be the unit in $R_i \subseteq R$ (i.e. $(1_i)_j = \delta_{ij}$). Let $M$ be an $R$-module. Then we have:
+  \begin{enumerate}
+    \item $1 = \sum_{i=1}^n1_i$ is the unit in $R$.
+    \item $1_iM$ is an $R_i$-module via restriction of the $R$-module structure.
+    \item $M = \sum_{i=1}^n1_iM$ as $R$-modules where $R$ acts on the right-hand side by \[ (r_1,\ldots,r_n) . \sum_{i=1}^nm_i = \sum_{i=1}^nr_im_i. \] Moreover the sum is direct.
+    \item $\End_R(M) = \prod_{i=1}^n \End_R(1_iM)$.
+    \item If $M_i$ is an $R_i$-module for $1\le i\le n$ then $\bigoplus_{i=1}^n M_i$ is an $R$-module via \[(r_1,\ldots,r_n).(m_1,\ldots,m_n) = (r_1m_1,\ldots,r_nm_n).\]
+    \item $M$ is irreducible if and only if $M = 1_iM$ for some (unique) $1\le i\le n$ and $1_iM$ is irreducible as an $R_i$-module.
+    \item $R$ is semisimple if and only if each $R_i$ ($1\le i\le n$) is semisimple.
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  The proof is left to the reader. It is advisable to construct a bijection of sets \[ S_1 \times S_2 \times \cdots \times S_n \xleftrightarrow{1:1} S \] where \[ S_i := \set{\text{$R_i$-submodules of $1_iM$}} \quad\text{and}\quad S_i := \set{\text{$R$-submodules of $M$}}. \qedhere \]
+\end{proof}
+
+\newpage
+{\Large MISSING/INCOMPLETE PROOFS, TO BE INSERTED}
+
+\begin{cor} % V.17
+  Let $R$ be a ring such that \[R \cong \Mat {n_1}{D_1} \times \cdots \times \Mat{n_r}{D_r}\] as rings where $n_i \in \IN$ and the $D_i$ are skewfields. Then $R$ is a semisimple ring. Moreover $\abs{\Irr(R)} = r$.
+\end{cor}
+\begin{proof}
+  We saw that $\Mat{n_i}{D_i}$ is a simple ring. Thus it is semisimple, and $R$ is semisimple too.
+  
+  By \cref{lem:V.9} we have $\abs{\Irr(\Mat{n_i}{D_i}} = 1$.
+\end{proof}
+
+\subsection{Applicatons of the Density theorems}
+
+\begin{prop} % V.18
+  Let $k=\ol k$ b a field and $A$ and $k$-algebra. Assume that $M_1,\ldots,M_s$ are finite-dimensional pairwise non-isomorphic irreducible $A$-modules. Then
+  \begin{eqnarray*}
+    \hat\Phi\colon A &\to& \bigoplus_{i=1}^s \End_k(M_i) \\
+    a &\mapsto& ((m_1,\ldots,m_s) \mapsto (am_1,\ldots,a_ms))
+  \end{eqnarray*}
+  is surjective.
+\end{prop}
+
+\begin{prop} % V.19
+  Let $k$ be a field and $A$ a finite-dimensional $k$-algebra.
+  \begin{enumerate}
+    \item Any irreducible $A$-module is finitely generated.
+    \item If $k = \ol k$ then $A$ has only finitely many irreducible $A$-modules up to isomorphism.
+  \end{enumerate}
+\end{prop}
+
+\begin{deff}
+  Let $R$ be a ring (not necessarily with $1$). Then $R^{\op}$ denotes the opposite ring (i.e. $R^{\op} = R$ as abelian groups but with multiplication $a \circ b = ba$.
+\end{deff}
+
+\paragraph{Facts.}
+\begin{enumerate}
+  \item $R$ is unitary iff $R^{\op}$ is unitary.
+  \item $(R^{\op})^{\op} = R$
+  \item $R^{\op} = R$ iff $R$ is commutative.
+  \item $D$ is a skewfield iff $D^{\op}$ is a skewfield.
+  \item ${\displaystyle \pa{\prod_{i=1}^s R_i}^{\op} = \prod_{i=1}^sR_i^{\op}}$ for rings $R_i$ ($1\le i\le s$).
+\end{enumerate}
+
+\begin{lem}
+  Let $D$ be a skewfield and and $n\in\IN$. Then
+  \begin{eqnarray*}
+    \alpha\colon \Mat nD &\to& (\Mat n{D^{\op}})^{\op} \\
+    A &\mapsto& A^T
+  \end{eqnarray*}
+  is an isomorphism of rings.
+\end{lem}
+
+\begin{lem}
+  Let $R$ be a ring with $1$. Then $\End_R(R) \cong R^{\op}$.
+\end{lem}
+
+\paragraph{Observation.} Let $D$ be a skewfield. By \namereff{lem:schur mod} $\End_{\Mat nD}(D^n)$ ($D^n$ is an irreducible module) is again a skewfield. We want to study the connections between the two.
+
+\begin{lem}
+  Let $D$ be a skewfield and $n\in \IN$. Then $\End_{\Mat nD}(D^n) \cong D^{\op}$ as rings.
+\end{lem}
+\begin{thm}[Artin-Wedderburn]
+  Let $R$ be a semisimple ring with $1$. Then there is an isomorphism of rings \[ R \cong \Mat{n_1}{D_1}\times \ldots \times \Mat{n_r}{D_r}\] for some $n_i \in \IN$, $r\in \IN$ and some skewfields $D_i$ ($1\le i\le r$). This is unique up to permutations of the $(D_i,n_i)$.
+\end{thm}
+
+\begin{cor}
+  Let $R$ be a semisimple ring. Then $R^{\op}$ is semisimple.
+\end{cor}
+
+\begin{cor}
+  Let $A$ be a finite-dimensional semisimple $k$-algebra with $k=\ol k$. Then there exists an isomorphism of $k$-algebras $A\cong \Mat{n_1}{k}\times \ldots \times \Mat{n_r}{k}$ for some $n_i,r\in \IN$.
+\end{cor}
+
+\begin{cor}
+  Let $A$ be a finite-dimensional semisimple $k$-algebra with $k=\ol k$. Then $A$ has finitely many left ideals $I_1,\ldots,I_r$ and $A\cong \Mat{n_1}{I_1}\times \ldots \times \Mat{n_r}{I_r}$.
+\end{cor}
+
+\begin{cor}
+  Let $R$ be a simple ring. Then $R\cong \Mat nD$ as rings for some unique $n\in\IN$ and (up to skewfield isomorphism) unique skewfield $D$.
+\end{cor}
+
+\subsection{Application: Brauer group}
+\begin{deff}
+  A $k$-algebra is \emph{central-simple} if it is a finite-dimensional siple algebra and $\Z(A) = k$.
+\end{deff}
+
+\begin{lem}
+  Let $A,B$ be finite-dimensional $k$-algebras. Then $\Z(A)\tp \Z(B) = \Z(A\tp B)$ (as subsets of $A\tp B$).
+\end{lem}
+
+\begin{lem}
+  Let $A$ and $B$ be central-simple algebras. Then $A \tp B$ is central-simple.
+\end{lem}
+
+\begin{deff}
+  Let $A$ and $B$ be central-simple algebras. Then $A\sim B$ (Brauer equivalent) if $A \cong \Mat nD$ and $B \cong \Mat mC$ with $C \cong D$ as skewfields.
+\end{deff}
+
+\begin{deff}
+  The \emph{Brauer group} $\Br(k)$ ($k$ a field) has the equivalence classes of $\sim$ as elements. The composition is given by $[A]\circ [B] = [A\tp B]$. The neutral element is $[k]$, and the inverse of $[A]$ is $[A^{\op}]$.
+\end{deff}
+
+
+
+
+
+
+
+
+
 
 
 
