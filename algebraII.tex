@@ -1339,7 +1339,7 @@ We claim that this Lemma implies Zariski property II.
 \end{proof}
 
 \section{Semisimple modules and the Artin-Wedderburn theorem}
-In this seciion $R$ is a ring with $1$, but not necessarily commutative. Modules are left modules.
+In this section $R$ is a ring with $1$, but not necessarily commutative. Modules are left modules.
 
 \subsection{Semisimple modules}
 \begin{deff}
@@ -1391,7 +1391,7 @@ In this seciion $R$ is a ring with $1$, but not necessarily commutative. Modules
 \lecture{November 12, 2018}
 
 \begin{deff}
-  Let $M$ be an $R$-module and $L$ an irreducible $R$-module. Then \[\Iso_L(M) := \sum_{\mathclap{\substack{\text{$E \subseteq M$ submodule}\\\text{$E\cong L$ as $R$-modules}}}}E \] is the $L$-isotypic component of $M$.
+  Let $M$ be an $R$-module and $L$ an irreducible $R$-module. Then \[\Iso_L(M) := \sum_{\mathclap{\substack{\text{$E \subseteq M$ submodule}\\\text{$E\cong L$ as $R$-modules}}}}E \] is the \emph{$L$-isotypic component} of $M$.
 \end{deff}
 
 \begin{lem}[Schur's lemma] \label{lem:schur mod}
@@ -1404,7 +1404,7 @@ In this seciion $R$ is a ring with $1$, but not necessarily commutative. Modules
   \begin{enumerate}
     \setcounter{enumi}{2}
     \item $\End_R(M)$ is a division algebra (i.e. an algebra where all nonzero elements have a multiplicative inverse). \label{lem:schur mod:3}
-    \item If $\ol k = k$ and $\dim_k M <\infty $ then $\End_R(M) \cong k$ by $\lambda_{\id} \mapsfrom \lambda$. \label{lem:schur mod:4}
+    \item If $\ol k = k$ and $\dim_k M <\infty $ then $\End_R(M) \cong k$ by $\lambda{\id_M} \mapsfrom \lambda$. \label{lem:schur mod:4}
   \end{enumerate}
 \end{lem}
 \begin{proof}
@@ -1552,7 +1552,7 @@ The assumption says precisely that $\Ps_k(W)$ is a semisimple $kG$-module.
   Now $R$ is semisimple, and it is also semisimple as a left $R$-module. By \cref{lem:V.2} $\bigoplus_{i\in I} R$ is a semisimple $R$-module and then also the quotient $M$.
 \end{proof}
 
-\begin{prop} % V.8
+\begin{prop} \label{prop:V.11} % V.8
   Let $R$ be a semisimple ring. Then we can find irreducible $R$-modules $L_i$ with $i\in I$ finite such that \[R \cong \bigoplus_{i\in I}L_i.\]
 \end{prop}
 \begin{proof}
@@ -1594,8 +1594,8 @@ Assume $R$ is a ring and $M$ an $R$-module. Then $M$ is an $R' := \End_R(M)$-mod
   The reader may check that $\hat f \in \Endd R{M^s}$. Using the case $s=1$ there exists an $a\in R$ such that $\hat f((m_1,\ldots,m_s)) = a(m_1,\ldots,m_s)$. But we also have $\hat f((m_1,\ldots,m_s) = (f(m_1),\ldots,f(m_s))$, so we get $f(m_i) = am_i$ for all $1\le i\le s$.
 \end{proof}
 
-\begin{cor} % V.10
-  Let $k$ be a field and $A$ a $k$-algebra with $1$. Let $M$ be a finite-dimensional $A$-module. Then
+\begin{cor} \label{cor:V.13} % V.10
+  Let $k$ be a field and $A$ a $k$-algebra with $1$. Let $M$ be a finite-dimensional semisimple $A$-module. Then
   \begin{eqnarray*}
     \Phi\colon A &\to& \Endd AM \\
     a &\mapsto& (m \mapsto am)
@@ -1617,7 +1617,7 @@ Assume $R$ is a ring and $M$ an $R$-module. Then $M$ is an $R' := \End_R(M)$-mod
 \end{proof}
 
 \begin{cor}[Burnside theorem -- coordinate form] % V.12
-  Let $k=\ol k$, $V$ a finite-dimensional $k$-vector space and $A\subseteq \End_k(V)$ a subalgebra such that $V$ is an irreducible $A$-module. Then $A = \End_k(V)$.
+  Let $k=\ol k$ a field, $V$ a finite-dimensional $k$-vector space and $A\subseteq \End_k(V)$ a subalgebra such that $V$ is an irreducible $A$-module. Then $A = \End_k(V)$.
 \end{cor}
 \begin{proof}
   We have $\End_k(V) = k$ by \namereff{lem:schur mod}. Now $\Phi\colon A \to \Endd AV = \End_k(V)$ is surjective by the \cref{thm:jacobson density II}, hence an isomorphism.
@@ -1630,7 +1630,7 @@ Assume $R$ is a ring and $M$ an $R$-module. Then $M$ is an $R' := \End_R(M)$-mod
 \begin{cor} \label{cor:V.17} % V.14
   Let $k=\ol k$, $A$ be a $k$-algebra and $M$ a finite-dimensional $A$-module. Then the following are equivalent:
   \begin{enumerate}
-    \item $M$ is an ireducible $A$-module. \label{cor:V.17:1}
+    \item $M$ is an irreducible $A$-module. \label{cor:V.17:1}
     \item $\Phi\colon A \to \Endd AM$ is surjective. \label{cor:V.17:2}
   \end{enumerate}
 \end{cor}
@@ -1650,16 +1650,17 @@ Assume $R$ is a ring and $M$ an $R$-module. Then $M$ is an $R' := \End_R(M)$-mod
   This follows from the surjectivity of $A \to \Endd AM = \End_k(M)$ (using \cref{cor:V.17}) because of $\dim_k\End(M) = (\dim_kM)^2$.
 \end{proof}
 
+\lecture{November 19, 2018}
 
-\begin{lem} % V.16
+\begin{lem} \label{lem:V.19} % V.16
   Let $R_i$ ($1\le i\le n$) be rings (with $1$) and $R := R_1 \times \cdots \times R_n$. Let $1_i$ be the unit in $R_i \subseteq R$ (i.e. $(1_i)_j = \delta_{ij}$). Let $M$ be an $R$-module. Then we have:
   \begin{enumerate}
     \item $1 = \sum_{i=1}^n1_i$ is the unit in $R$.
     \item $1_iM$ is an $R_i$-module via restriction of the $R$-module structure.
     \item $M = \sum_{i=1}^n1_iM$ as $R$-modules where $R$ acts on the right-hand side by \[ (r_1,\ldots,r_n) . \sum_{i=1}^nm_i = \sum_{i=1}^nr_im_i. \] Moreover the sum is direct.
-    \item $\End_R(M) = \prod_{i=1}^n \End_R(1_iM)$.
+    \item \label{lem:V.19:4} $\displaystyle\End_R(M) = \prod_{i=1}^n \End_R(1_iM)$.
     \item If $M_i$ is an $R_i$-module for $1\le i\le n$ then $\bigoplus_{i=1}^n M_i$ is an $R$-module via \[(r_1,\ldots,r_n).(m_1,\ldots,m_n) = (r_1m_1,\ldots,r_nm_n).\]
-    \item $M$ is irreducible if and only if $M = 1_iM$ for some (unique) $1\le i\le n$ and $1_iM$ is irreducible as an $R_i$-module.
+    \item \label{lem:V.19:6} $M$ is irreducible if and only if $M = 1_iM$ for some (unique) $1\le i\le n$ and $1_iM$ is irreducible as an $R_i$-module.
     \item $R$ is semisimple if and only if each $R_i$ ($1\le i\le n$) is semisimple.
   \end{enumerate}
 \end{lem}
@@ -1668,38 +1669,57 @@ Assume $R$ is a ring and $M$ an $R$-module. Then $M$ is an $R' := \End_R(M)$-mod
 \end{proof}
 
 \newpage
-{\Large MISSING/INCOMPLETE PROOFS, TO BE INSERTED}
 
-\begin{cor} % V.17
-  Let $R$ be a ring such that \[R \cong \Mat {n_1}{D_1} \times \cdots \times \Mat{n_r}{D_r}\] as rings where $n_i \in \IN$ and the $D_i$ are skewfields. Then $R$ is a semisimple ring. Moreover $\abs{\Irr(R)} = r$.
+\begin{cor} \label{cor:V.20} % V.17
+  Let $R$ be a ring such that \[R \cong \Mat {n_1}{D_1} \times \cdots \times \Mat{n_r}{D_r}\] as rings where $n_i \in \IN$ and the $D_i$ are skew fields. Then $R$ is a semisimple ring. Moreover we have $\abs{\Irr(R)} = r$.
 \end{cor}
 \begin{proof}
   We saw that $\Mat{n_i}{D_i}$ is a simple ring. Thus it is semisimple, and $R$ is semisimple too.
   
-  By \cref{lem:V.9} we have $\abs{\Irr(\Mat{n_i}{D_i}} = 1$.
+  By \cref{lem:V.9} we have $\abs{\Irr(\Mat{n_i}{D_i})} = 1$ since $\Mat{n_i}{D_i}$ is simple. Due to \cref{lem:V.19} \ref{lem:V.19:6} every irreducible $R$-module is of the form $1_iM$ for some $1\le i\le n$ with $1_i M$ is irreducible as an $\Mat{n_i}{D_i}$-module (where $\Mat{n_i}{D_i}$ acts by zero). This implies $\abs{\Irr(r)} \le r$. It is now enough to show that $1_iM\ncong 1_jM'$ as $R$-modules for $i\neq j$. Assume we have an isomorphism $\phi\colon 1_iM \to 1_j M'$. For all $m\in 1_i M$ we get $\phi(m) = \phi(1_im) = 1_i \phi(m) = 1_i(1_j \phi(m)) = (1_i1_j) \phi(m)$. But $1_i1_j = 0$ as $i \neq j$. Therefore equality holds.
 \end{proof}
 
 \subsection{Applicatons of the Density theorems}
 
-\begin{prop} % V.18
-  Let $k=\ol k$ b a field and $A$ and $k$-algebra. Assume that $M_1,\ldots,M_s$ are finite-dimensional pairwise non-isomorphic irreducible $A$-modules. Then
+\begin{prop} \label{prop:V.21} % V.18
+  Let $k=\ol k$ be a field and $A$ and $k$-algebra. Assume that $M_1,\ldots,M_s$ are finite-dimensional pairwise non-isomorphic irreducible $A$-modules. Then
   \begin{eqnarray*}
     \hat\Phi\colon A &\to& \bigoplus_{i=1}^s \End_k(M_i) \\
-    a &\mapsto& ((m_1,\ldots,m_s) \mapsto (am_1,\ldots,a_ms))
+    a &\mapsto& ((m_1,\ldots,m_s) \mapsto (am_1,\ldots,am_s))
   \end{eqnarray*}
   is surjective.
 \end{prop}
+\begin{proof}
+  Clearly $\hat\Phi$ is well defined since multiplication with $a \in A$ is $k$-linear.
+  
+  Now let $M=\bigoplus_{i\in I}^s M_i$. By \namereff{lem:schur mod} we have
+  \begin{eqnarray*}
+    \bigoplus_{i=1}^s\End_A(M_i) &\cong& \End_A(M) \\
+    (\phi_1,\ldots,\phi_s) &\mapsto& \hat\phi \colon (m_1,\ldots,m_s) \mapsto (\phi_1(m_1),\ldots,\phi_s(m_s)).
+  \end{eqnarray*}
+  and since $k$ is algebraically closed one has $\End_A(M_i) \cong k$ by $\lambda\id_{M_i} \mapsfrom \lambda$. Thus $End_A(M) = k^s $ as rings where $(\lambda_1,\ldots,\lambda_s)$ acts on $M=\bigoplus_{i=1}^sM_i$ by multiplication. By \cref{cor:V.13} (since $M_i$ and then $M$ are finite-dimensional) we get a surjective map $\Phi\colon A \to \Endd AM$. But as $\End_A(M) = k^s$ and $k^s \cong \prod_{i=1}^s \End_{k}(M_i)$ by \cref{lem:V.19} \ref{lem:V.19:4} we get $\Phi=\hat\Phi$.
+\end{proof}
 
-\begin{prop} % V.19
-  Let $k$ be a field and $A$ a finite-dimensional $k$-algebra.
+% If $A$ is a finite dimensional $k$-algebra ($k=\ol k$) then we have ????
+
+\begin{prop} \label{prop:V.22} % V.19
+  Let $K$ be a field and $A$ be a finite-dimensional $k$-algebra.
   \begin{enumerate}
-    \item Any irreducible $A$-module is finitely generated.
-    \item If $k = \ol k$ then $A$ has only finitely many irreducible $A$-modules up to isomorphism.
+    \item \label{prop:V.22:1} Any irreducible $A$-module is finite-dimensional.
+    \item \label{prop:V.22:2} If $k=\ol k$ then $A$ has only finitely many irreducible $A$-modules up to isomorphism.
   \end{enumerate}
 \end{prop}
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}[label=\ref{prop:V.22:\arabic*}]
+   \item If $M$ is an irreducible $A$-module then there exists a surjective $A$-module homorphism $A \to M$. We have $\dim_kM\le\dim_k A <\infty$.
+   \item Let $L_i$ ($1\le i\le r$ be pairwise non-isomorphic $A$-modules. As $k=\ol k$ and the $L_i$ are finite-dimensional by \ref{prop:V.22:1} we can apply \cref{prop:V.21} to get a surjection $A \to \bigoplus_{i=1}^r \End_k(L_i)$. But the $\End_k(L_i)$ are finite-dimensional because the $L_i$ are irreducible. We now have a surjection $A \to \bigoplus_{i=1}^r k^{\dim L_i}$. Thus $r \le \dim_k A$, so the number of irreducible $A$-modules (up to isomorphism) is less than $\dim_k A$.
+   \qedhere
+  \end{enumerate}
+\end{proof}
 
 \begin{deff}
-  Let $R$ be a ring (not necessarily with $1$). Then $R^{\op}$ denotes the opposite ring (i.e. $R^{\op} = R$ as abelian groups but with multiplication $a \circ b = ba$.
+  Let $R$ be a ring (not necessarily with $1$). Then $R^{\op}$ denotes the opposite ring (i.e. $R^{\op} = R$ as abelian groups but with multiplication $a \circ_{\op} b = ba$.
 \end{deff}
 
 \paragraph{Facts.}
@@ -1707,76 +1727,185 @@ Assume $R$ is a ring and $M$ an $R$-module. Then $M$ is an $R' := \End_R(M)$-mod
   \item $R$ is unitary iff $R^{\op}$ is unitary.
   \item $(R^{\op})^{\op} = R$
   \item $R^{\op} = R$ iff $R$ is commutative.
-  \item $D$ is a skewfield iff $D^{\op}$ is a skewfield.
+  \item $D$ is a skew field iff $D^{\op}$ is a skew field.
   \item ${\displaystyle \pa{\prod_{i=1}^s R_i}^{\op} = \prod_{i=1}^sR_i^{\op}}$ for rings $R_i$ ($1\le i\le s$).
 \end{enumerate}
 
-\begin{lem}
-  Let $D$ be a skewfield and and $n\in\IN$. Then
+\begin{lem} \label{lem:V.23} % V.20
+  Let $D$ be a skew field and and $n\in\IN$. Then
   \begin{eqnarray*}
     \alpha\colon \Mat nD &\to& (\Mat n{D^{\op}})^{\op} \\
     A &\mapsto& A^T
   \end{eqnarray*}
   is an isomorphism of rings.
 \end{lem}
+\begin{proof}
+  Left to the reader. % TODO fill in?
+\end{proof}
 
-\begin{lem}
-  Let $R$ be a ring with $1$. Then $\End_R(R) \cong R^{\op}$.
+\begin{lem} \label{lem:V.24} % V.21
+  Let $R$ be a ring with $1$. Then
+  \begin{eqnarray*}
+    \Phi\colon \End_R(R) &\cong& R^{\op} \\
+    r &\mapsto& (r' \mapsto r'r) \\
+    f(1) &\mapsfrom& f.
+  \end{eqnarray*}
 \end{lem}
+\begin{proof}
+  Obviously, $\Phi$ is well-defined, has an inverse and is additive. We have to show that $\Phi$ is multiplicative.
+  \[ \Phi(r\circ_{\op}s)(x) = \Phi(sr)(x) = x(sr) = \Phi(r)(xs) = (\Phi(r) \circ \Phi(s)(x))(x) \qedhere \]
+\end{proof}
 
-\paragraph{Observation.} Let $D$ be a skewfield. By \namereff{lem:schur mod} $\End_{\Mat nD}(D^n)$ ($D^n$ is an irreducible module) is again a skewfield. We want to study the connections between the two.
 
-\begin{lem}
-  Let $D$ be a skewfield and $n\in \IN$. Then $\End_{\Mat nD}(D^n) \cong D^{\op}$ as rings.
+\paragraph{Observation.}
+Let $D$ be a skew field. By \namereff{lem:schur mod} $\End_{\Mat nD}(D^n)$ ($D^n$ is an irreducible module) is again a skew field. We want to study the connections between the two.
+
+Special cases:
+\begin{description}
+  \item[$n=1$:] $\End_D(D) \cong D^{\op}$.
+  \item[$D=k$:] We get $\End_{\Mat nk}(k^n)\cong k$ by $\lambda\id_{\Mat nk} \mapsfrom \lambda$ because
+  \begin{align*}
+    \End_{\Mat nk}(k^n) &= \set{f\in\End_k(k^n) \given \forall B \in \Mat nk : A_f B 0 BA_f} \\
+    &\cong \set{A \in \Mat nk \given \forall B \in \Mat nk : A B = BA} \\
+    &= \Z(\Mat nk) \cong k.
+  \end{align*}
+
+\end{description}
+
+
+\begin{lem} \label{lem:V.25} % V.22
+  Let $D$ be a skew field and $n\in \IN$. Then
+  \begin{eqnarray*}
+    \Phi\colon D^{\op} &\to& \End_{\Mat nD} (D^{n}) \\
+    d &\mapsto& \phi_d \colon \mat{x_1\\\vdots\\x_n} \mapsto \mat{x_1d\\\vdots\\x_nd}
+  \end{eqnarray*}
+  is an isomorphism of rings.
 \end{lem}
-\begin{thm}[Artin-Wedderburn]
-  Let $R$ be a semisimple ring with $1$. Then there is an isomorphism of rings \[ R \cong \Mat{n_1}{D_1}\times \ldots \times \Mat{n_r}{D_r}\] for some $n_i \in \IN$, $r\in \IN$ and some skewfields $D_i$ ($1\le i\le r$). This is unique up to permutations of the $(D_i,n_i)$.
+\begin{proof}
+  To be inserted. % TODO fill in
+\end{proof}
+
+\begin{thm}[Artin-Wedderburn theorem] \label{thm:aw} % V,23
+  Let $R$ be a semisimple ring with $1$. Then there is an isomorphism of rings \[ R \cong \Mat{n_1}{D_1}\times \cdots \times \Mat{n_r}{D_r}\] for some $n_i \in \IN$, $r\in \IN$ and some skew fields $D_i$ ($1\le i\le r$). Moreover the $(n_1,D_1),\ldots,(n_r,D_r)$ are unique up to permutation and isomorphism of skew fields.
 \end{thm}
 
 \begin{cor}
   Let $R$ be a semisimple ring. Then $R^{\op}$ is semisimple.
 \end{cor}
+\begin{proof}
+  This follows from the \namereff{thm:aw}, \cref{cor:V.20} and \cref{lem:V.23}.
+\end{proof}
 
 \begin{cor}
   Let $A$ be a finite-dimensional semisimple $k$-algebra with $k=\ol k$. Then there exists an isomorphism of $k$-algebras $A\cong \Mat{n_1}{k}\times \ldots \times \Mat{n_r}{k}$ for some $n_i,r\in \IN$.
 \end{cor}
+\begin{proof}
+  By the \namereff{thm:aw} we have $A \cong \Mat {n_1}{D_1} \times\cdots\times \Mat {n_r}{D_r}$ as rings and also as $k$-algebras (we will show this in the proof) for some skew fields $D_i$ and $n_i,r\in\IN$. It is finite-dimensional since $A$ is finite-dimensional. Now $k=\ol k$ implies $D_i = k$ for all $1\le i\le r$.
+\end{proof}
 
-\begin{cor}
-  Let $A$ be a finite-dimensional semisimple $k$-algebra with $k=\ol k$. Then $A$ has finitely many left ideals $I_1,\ldots,I_r$ and $A\cong \Mat{n_1}{I_1}\times \ldots \times \Mat{n_r}{I_r}$.
+
+\begin{cor} \label{cor:V.29} % V.26
+  Let $A$ be a finite-dimensional semisimple $k$-algebra with $k=\ol k$. Then $A$ has finitely many pairwise non-isomorphic left ideals $I_1,\ldots,I_r$ and $A\cong \Mat{n_1}{I_1}\times \ldots \times \Mat{n_r}{I_r}$.
 \end{cor}
 
-\begin{cor}
-  Let $R$ be a simple ring. Then $R\cong \Mat nD$ as rings for some unique $n\in\IN$ and (up to skewfield isomorphism) unique skewfield $D$.
-\end{cor}
+\lecture{November 22, 2018}
 
-\subsection{Application: Brauer group}
+\begin{proof}[Proof of the \namereff{thm:aw}]
+  \leavevmode
+  \begin{description}
+    \item[Existence:] As $R$ is semisimple there exists a finite set $I$ and irreducible $R$-modules $L_i'$ ($i\in I$) such that $R\cong\bigoplus_{i\in I}L_i'$ by \cref{prop:V.11}. We group isomorphic summands and get $R \cong L_i^{\oplus n_1}\oplus \ldots \oplus L_r^{\oplus n_r}$ for irreducible pairwise non-isomorphic $R$-modules $L_i$ and $n_i\in \IN$ (isotypic decomposition).
+    
+    By \namereff{lem:schur mod} $\End_R(L_i)$ is a skew field. We set $D_i := \End_R(L_i)^{\op}$. Using $\End_R (L_i^{\oplus n_i}) \cong \Mat{n_i}{\End_R(L_i)} \cong \Mat{n_i}{D_i^{\op}}$ (as rings), \cref{lem:V.23} and \cref{lem:V.24} we get
+    \begin{align*}
+      R & \cong \pa{R^{\op}}^{\op} \cong \pa{\End_R(R)}^{\op} \\
+      &\cong \pa{\End_R\pa{L_i^{\oplus n_1}\oplus \ldots \oplus L_r^{\oplus n_r}}}^{\op} \\
+      &\cong \pa{\Mat {n_1}{D_i^{\op}}\times \cdots \times \Mat {n_r}{D_i^{\op}}}^{\op} \\
+      &\cong \pa{\Mat {n_1}{D_i^{\op}}}^{\op}\times \cdots \times \pa{\Mat {n_r}{D_i^{\op}}}^{\op} \\
+      &\cong \Mat{n_1}{D_1}\times \cdots \times \Mat{n_r}{D_r} \tag{1} \label{eq:proof aw 1}
+    \end{align*}
+    as rings.
+    \item[Uniqueness:] Assume \begin{equation}R\cong \Mat{m_1}{C_1}\times\cdots\times \Mat{m_s}{C_s}\tag{2}\label{eq:proof aw}\end{equation} for some skew fields $C_i$ and $m_i,s\in\IN$. By \cref{cor:V.20} we have $r = \abs{\Irr(R)} = s$ and $D_i \cong \End_R(L_i)^{\op}$ (see above) where $\Irr(R) = \set{L_1,\ldots,L_r}$. Now consider \eqref{eq:proof aw}. The irreducible modules are exactly the irreducible $\Mat{m_i}{C_i}$-modules $C_i^{m_i}$ viewed as modules for \eqref{eq:proof aw 1} (use $\Irr(\Mat{m_i}{C_i}) \cong C^{m_i}$). But due to \cref{lem:V.25} we have $\End_{\Mat{m_i}{C_i}}(C_i^{m_i})\cong C_i^{\op}$. Thus there exists a permutation $\sigma\in S_r$ such that $D_i\cong C_{\sigma(i)}$ and also $n_i=m_{\sigma(i)}$ since the dimensions of the irreducible modules agree.
+    \qedhere
+  \end{description}
+\end{proof}
+
+Hence we proved: If $R\cong L_1^{\oplus n_1}\oplus \ldots \oplus L_r^{\oplus n_r}$ with irreducible pairwise non-isomorphic $R$-modules $L_i$ then $\abs{\Irr(R)} = r$ and \[ R \cong \Mat{n_1}{\End_R(L_i)^{\op}}\times\cdots\times \Mat{n_r}{\End_R(L_r)^{\op}}. \]
+
+\paragraph{Remark.} If $R$ is also a finite-dimensional $k$-algebra then $\End_R(L_i)$ is a divison algebra. All involved isomorphisms are linear, hence we get an algebra homomorphism.
+
+\begin{proof}[Proof of \cref{cor:V.29}]
+  As $A$ is semisimple there exists an isomorphism $\phi\colon A \cong L_1^{\oplus n_1}\oplus\ldots\oplus L_r^{\oplus n_r}$ where the $L_i$ are irreducible pairwise non-isomorphic $A$-modules ($r$ is finite since $A$ is finite-dimensional). Then $\phi^{-1}(L_i) \subseteq A$ is an $A$-submodule, hence a left ideal $I_i$ of $A$ and $I$ is minimal, since $L_i$ is irreducible. The $I_i$ are pairwise non-isomorphic as the $L_i$ are so. Moreover these must be all minimal ideals (up to isomorphism) since $A = \bigoplus_{i=1}^rI_i^{\oplus n_i}$ and by the \namereff{thm:aw} $A$ has precisely $r$ irreducible representations (up to isomorphism).
+\end{proof}
+
+\begin{cor}
+  Let $R$ be a simple ring. Then $R\cong \Mat nD$ as rings for some unique $n\in\IN$ and (up to isomorphism) unique skew field $D$.
+\end{cor}
+\begin{proof}
+  As $R$ is simple it is semisimple and $\abs{\Irr(R)} = 1$. Then we apply the \namereff{thm:aw}.
+\end{proof}
+
+\subsection{Application: Brauer groups}
 \begin{deff}
-  A $k$-algebra is \emph{central-simple} if it is a finite-dimensional siple algebra and $\Z(A) = k$.
+  A $k$-algebra is \emph{central-simple} if it is a finite-dimensional simple algebra and $\Z(A) = k$.
 \end{deff}
+
+\paragraph{Examples.} Consider $A=k$ or $A = \Mat nk$.
 
 \begin{lem}
   Let $A,B$ be finite-dimensional $k$-algebras. Then $\Z(A)\tp \Z(B) = \Z(A\tp B)$ (as subsets of $A\tp B$).
 \end{lem}
+\begin{proof}
+  \leavevmode
+  \begin{description}
+    \item[\enquote{$\subseteq$}] Clear.
+    \item[\enquote{$\supseteq$}] Let $z\in \Z(A\tp B)$. We write $z=\sum_{i=1}^na_i\tp b_i$ where $a_i\in A$, $b_i\in B$ and the $b_i$ are linearly independent. For all $a\in A$ we have \[ az = \sum_{i=1}^n aa_i\tp b_i  = (a\tp 1)z = z(a\tp 1) = \sum_{i=1}^na_ia\tp b_i \] and $aa_i = a_ia$ for all $1\le i\le n$ since the $b_i$ are linearly independent. This implies $a_i\in \Z(A)$ for all $1\le i\le n$, and similarly $b_i\in\Z(B)$ for all $1\le i\le n$. Therefore $z=\sum_{i=1}^na_i\tp b_i \in\Z(A)\tp Z(B)$.
+    \qedhere
+  \end{description}
+\end{proof}
 
-\begin{lem}
+\begin{lem} \label{lem:V.32} % V.29
   Let $A$ and $B$ be central-simple algebras. Then $A \tp B$ is central-simple.
 \end{lem}
+\begin{proof}
+  It is clear that $A \tp B$ is finite dimensional. We have $\Z(A\tp B) = \Z(A)\tp \Z(B) = k\tp k = k$. We still have to show that $A\tp B$ is a simple algebra. It is enough to show that $A\tp B$ is \enquote{simple} (i.e. $0$ and $A\tp B$ are the only two-sided ideals).
+  
+  Now let $0\ne I \subseteq A\tp B$ be a two-sided ideal. We want to show that $I=A \tp B$. Any $0\neq u \in I$ can be written as $u=\sum_{i=1}^na_i\tp b_i$ where $a_i\in A$, $b_i\in B$ and the $b_i$ are linearly independent. We pick $u$ with a minimal such representation (with respect to $n$). Now $a_i \neq 0$ for all $1\le i\le n$ and $Aa_1A = A$ because $A$ is simple and therefore \enquote{simple}. Hence there exist $c,c'\in A$ with $ca_1c' = 1$. Let $x := (c\tp 1)a(c'\tp1) = \sum_{i=1}^nca_ic'\tp b$ and we have $x = 1\tp b_1 + a_2'\tp b_2 + \ldots + a_n' \tp b_n$ for some $a_i' \in A$. Note that $x\neq 0$ since the $b_i$ are linearly independent. We get \[ (a \tp 1)x - x(a\tp 1) = (aa_2' - a_2'a) \tp b_2 + \ldots + (aa_n' -a_n'a)\tp b_n = 0 \] by assumption for all $a\in A$. Thus $aa_i' -a_i'a = 0$ for all $2\le i\le n$ since the $b_i$ are linearly independent and $a_i' \in \Z(A) = k$ since $A$ is central simple. Now we can write $ x = 1 \tp b$ for some $b\in B$ ($b\neq 0$ as $x\neq 0$). We have $BbB = B$ since $B$ is simple and hence \enquote{simple}. This implies $I \supseteq (1\tp B) x(1 \tp B) = I\tp B$ and $I \supseteq (A \tp 1)(1\tp B) = A\tp B$. Therefore we get $I = A \tp B$.
+\end{proof}
+
 
 \begin{deff}
-  Let $A$ and $B$ be central-simple algebras. Then $A\sim B$ (Brauer equivalent) if $A \cong \Mat nD$ and $B \cong \Mat mC$ with $C \cong D$ as skewfields.
+  Let $A$ and $B$ be central-simple algebras. We call $A$ and $B$ \emph{Brauer equivalent} ($A \sim B$) if $A \cong \Mat nD$ and $B \cong \Mat mC$ with $C \cong D$ as skew fields.
 \end{deff}
 
 \begin{deff}
   The \emph{Brauer group} $\Br(k)$ ($k$ a field) has the equivalence classes of $\sim$ as elements. The composition is given by $[A]\circ [B] = [A\tp B]$. The neutral element is $[k]$, and the inverse of $[A]$ is $[A^{\op}]$.
 \end{deff}
+\begin{proof}[Proof that $\Br(k)$ is indeed a group]
+  By $\cref{lem:V.32}$ $A \tp B$ is again central-simple, hence $[A]\circ[B] = [A \tp B]$ is defined. The reader may check that $[A]\circ [B]$ is independent of the choice of the representants.
+  
+  The composition is commutative ($A \tp B \cong B\tp A$). Thus $\Br(k)$ is abelian.
+  
+  $k$ is the neutral element, since $[A\tp k] = [A]$.
+  
+  For the inverse we use the folowing claim: For any finite-dimensional central-simple algebra $A$ with $n = \dim_kA$ we have an isomorphism
+  \begin{eqnarray*}
+    \gamma\colon A \tp A^{\op} &\cong& \End_k(A) \\
+    a \tp b &\mapsto& (x \mapsto axb).
+  \end{eqnarray*}
+  We check that $\gamma$ is injective. Obviously $\gamma \neq 0$. $\ker\gamma$ is a two-sided ideal (the calculation is left to the reader). But $A$ and $A^{\op}$ and hence $A \tp A^{\op}$ are central-simple, thus $\ker\phi = 0$. As $\dim_k (A\tp A^{\op}) = \dim_k(\End_k(A))$ we get that $\gamma$ is indeed bijective. % TODO insert?
+\end{proof}
 
+\paragraph{Examples.}
+Let $k$ be an algebraically closed field. By the \namereff{thm:aw} we get $\Br(k) = \set{[k]}$.
 
+Without going into detail one has $\Br(k) = \set{[\IR],[\IH]} \cong \fak\IZ{2\IZ}$.
 
+\lecture{November 26, 2018}
 
-
-
-
-
+\section{The double centralizer theorem}
+\begin{deff}
+  Let $k$ be a field, $W$ a $k$-vector space and $S \subseteq \End_k(W)$ a subset. Then \[ S' := \set{\phi\in\End_k(W) \given \forall s\in S: \phi\circ s = s\circ \phi}\] is the \emph{commutant} or \emph{centralizer} of $S$ in $\End_k(W)$. We abbreviate $(S')' = S''$ and so on.
+\end{deff}
 
 
 
