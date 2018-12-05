@@ -1575,10 +1575,11 @@ Assume $R$ is a ring and $M$ an $R$-module. Then $M$ is an $R' := \End_R(M)$-mod
 \begin{enumerate}
   \item Consider $\Phi\colon R \to \Endd RM \subseteq \Maps(M,M)$ with the discrete topology. Then $\im\Phi$ is dense in $\Endd RM$ in the topological sense.
   \item In the special case $M=R$ (an $R$-module via left multiplication) the \namereff{thm:jacobson density I} gives an isomorphism of algebras
-  \begin{eqnarray*}
-    \phi\colon R &\to& \Endd RM = \End_R(R) = R \\
-    r &\mapsto& (m\mapsto rm). % TODO path to $R$?
-  \end{eqnarray*}
+  \begin{center}
+    \begin{tikzcd}[column sep=large]
+      R\arrow[mapsto]{r}{m\mapsto rm} & \Endd RM\arrow[mapsto]{r}{\id} & \End_RR \arrow[mapsto]{r}{f \mapsto f(1)} & R.
+    \end{tikzcd}
+  \end{center}
 \end{enumerate}
 
 \begin{proof}[Proof of \namereff{thm:jacobson density I}]
@@ -1679,7 +1680,7 @@ Assume $R$ is a ring and $M$ an $R$-module. Then $M$ is an $R' := \End_R(M)$-mod
   By \cref{lem:V.9} we have $\abs{\Irr(\Mat{n_i}{D_i})} = 1$ since $\Mat{n_i}{D_i}$ is simple. Due to \cref{lem:V.19} \ref{lem:V.19:6} every irreducible $R$-module is of the form $1_iM$ for some $1\le i\le n$ with $1_i M$ is irreducible as an $\Mat{n_i}{D_i}$-module (where $\Mat{n_i}{D_i}$ acts by zero). This implies $\abs{\Irr(r)} \le r$. It is now enough to show that $1_iM\ncong 1_jM'$ as $R$-modules for $i\neq j$. Assume we have an isomorphism $\phi\colon 1_iM \to 1_j M'$. For all $m\in 1_i M$ we get $\phi(m) = \phi(1_im) = 1_i \phi(m) = 1_i(1_j \phi(m)) = (1_i1_j) \phi(m)$. But $1_i1_j = 0$ as $i \neq j$. Therefore equality holds.
 \end{proof}
 
-\subsection{Applicatons of the Density theorems}
+\subsection{Applicatons of the density theorems}
 
 \begin{prop} \label{prop:V.21} % V.18
   Let $k=\ol k$ be a field and $A$ and $k$-algebra. Assume that $M_1,\ldots,M_s$ are finite-dimensional pairwise non-isomorphic irreducible $A$-modules. Then
@@ -1740,7 +1741,12 @@ Assume $R$ is a ring and $M$ an $R$-module. Then $M$ is an $R' := \End_R(M)$-mod
   is an isomorphism of rings.
 \end{lem}
 \begin{proof}
-  Left to the reader. % TODO fill in?
+  \begin{align*}
+    \qedherea
+    (\alpha(AB))_{ij} &= ((AB)^T)_{ij} = \sum_{k=1}^na_{jk}b_{ki} \\
+    (\alpha(A)_{ij}\alpha(B))_{ij} &= (A^T \circ_{\op} B^T)_{ij} = (B^TA^T)_{ij} = \sum_{k=1}^n b_{ki}\circ_{\op} a_{jk} = \sum_{k=1}^na_{jk}b_{ki}
+    \qedhereb
+  \end{align*}
 \end{proof}
 
 \begin{lem} \label{lem:V.24} % V.21
@@ -1782,7 +1788,13 @@ Special cases:
   is an isomorphism of rings.
 \end{lem}
 \begin{proof}
-  To be inserted. % TODO fill in
+  Let $\pi_i\colon D^n\to D$ be the projection onto the $i$-th component. $\Phi$ is well-defined as we have \[ \phi_d\pa{A\mat{x_1\\\vdots\\x_n}} = \mat{\pa{\sum_{i=1}^na_{1i}x_i}d\\\vdots\\\pa{\sum_{i=1}^na_{ni}x_i}d} = \mat{\sum_{i=1}^na_{1i}(x_id)\\\vdots\\\sum_{i=1}^na_{ni}(x_id)} = A\phi_d\pa{\mat{x_1\\\vdots\\x_n}}. \]
+  Clearly, $\Phi$ is additive. We show that it is multiplicative.
+  \begin{align*}
+    \Phi(d_1\circ_{\op}d_2)\pa{\mat{x_1\\\vdots\\x_n}} &= \Phi(d_2d_1)\pa{\mat{x_1\\\vdots\\x_n}} = \mat{x_1d_2d_1\\\vdots\\x_nd_2d_1} = (\phi_{d_1}\circ \phi_{d_2})\pa{\mat{x_1\\\vdots\\x_n}}\\ &= (\Phi(d_1)\circ\Phi(d_2))\pa{\mat{x_1\\\vdots\\x_n}}
+  \end{align*}
+  For injectivity assume that $\Phi(d_1) = \Phi(d_2)$. We get $d_1 = \pi_i(\phi_{d_1}(e_i)) = \pi_i(\phi_{d_2}(e_i)) = d_2$.
+  For surjectivity let $f\in \End_{\Mat nD}(D^n)$. Then $f$ is $D$-linear with $D \subseteq \Mat nD$ via $d\mapsto \diag(d,\ldots,d)$. Let $d_i := \pi(f(e_i))$. Then $f(e_i) = f(E_{ij}e_i = d_ie_i$. Now we get \[f\pa{\mat{x_1\\\vdots\\x_n}} = \sum_{i=1}^nf(x_ie_i) = \sum_{i=1}^nx_ie_id_i = \mat{x_id_i\\\vdots\\x_nd_n}.\] But for all $i,j$ we have $d_i = \pi_i(f(e_i)) = \pi_i(f(E_{ij}e_j)) = \pi_i(E_{ij}f(e_j)) = \pi_i(E_{ij}e_jd_j) = d_j$. Thus $f = \Phi(d)$ with $d = d_1 = \ldots = d_n$.
 \end{proof}
 
 \begin{thm}[Artin-Wedderburn theorem] \label{thm:aw} % V,23
@@ -1881,7 +1893,7 @@ Hence we proved: If $R\cong L_1^{\oplus n_1}\oplus \ldots \oplus L_r^{\oplus n_r
   The \emph{Brauer group} $\Br(k)$ ($k$ a field) has the equivalence classes of $\sim$ as elements. The composition is given by $[A]\circ [B] = [A\tp B]$. The neutral element is $[k]$, and the inverse of $[A]$ is $[A^{\op}]$.
 \end{deff}
 \begin{proof}[Proof that $\Br(k)$ is indeed a group]
-  By $\cref{lem:V.32}$ $A \tp B$ is again central-simple, hence $[A]\circ[B] = [A \tp B]$ is defined. The reader may check that $[A]\circ [B]$ is independent of the choice of the representants.
+  By \cref{lem:V.32} $A \tp B$ is again central-simple, hence $[A]\circ[B] = [A \tp B]$ is defined. The reader may check that $[A]\circ [B]$ is independent of the choice of the representants.
   
   The composition is commutative ($A \tp B \cong B\tp A$). Thus $\Br(k)$ is abelian.
   
@@ -1898,7 +1910,7 @@ Hence we proved: If $R\cong L_1^{\oplus n_1}\oplus \ldots \oplus L_r^{\oplus n_r
 \paragraph{Examples.}
 Let $k$ be an algebraically closed field. By the \namereff{thm:aw} we get $\Br(k) = \set{[k]}$.
 
-Without going into detail one has $\Br(k) = \set{[\IR],[\IH]} \cong \fak\IZ{2\IZ}$.
+Without going into detail one has $\Br(\IR) = \set{[\IR],[\IH]} \cong \fak\IZ{2\IZ}$.
 
 \lecture{November 26, 2018}
 
@@ -1907,6 +1919,137 @@ Without going into detail one has $\Br(k) = \set{[\IR],[\IH]} \cong \fak\IZ{2\IZ
   Let $k$ be a field, $W$ a $k$-vector space and $S \subseteq \End_k(W)$ a subset. Then \[ S' := \set{\phi\in\End_k(W) \given \forall s\in S: \phi\circ s = s\circ \phi}\] is the \emph{commutant} or \emph{centralizer} of $S$ in $\End_k(W)$. We abbreviate $(S')' = S''$ and so on.
 \end{deff}
 
+\paragraph{Facts.}
+\begin{enumerate}
+  \item \label{fact:commutant:1} $S' \subseteq \End_k(W)$ is a subalgebra.
+  \item \label{fact:commutant:2} Let $T\subseteq S \subseteq \End_k(W)$ be subsets. Then $S' \subseteq T'$.
+  \item \label{fact:commutant:3} $S\subseteq T' \Rightarrow T \subseteq S'$.
+  \item \label{fact:commutant:4} $S \subseteq S''$.
+  \item \label{fact:commutant:5} $S = S'''$.
+  \item \label{fact:commutant:6} $S = T' \Leftrightarrow T = S'$.
+\end{enumerate}
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}[label=\ref{fact:commutant:\arabic*}]
+    \item[\ref{fact:commutant:1}, \ref{fact:commutant:2}] Clear.
+    \setcounter{enumi}{2}
+    \item $S \subseteq T' \Leftrightarrow \forall s\in S:\forall t\in T: st = ts \Leftrightarrow \forall t \in T:\forall s\in S st = ts \Leftrightarrow T \subseteq S'$.
+    \item $S' \subseteq S'\Rightarrow S \subseteq S''$.
+    \item $S' \subseteq (S')'' = S'''$ and $S \subseteq S''$ implies $(S'')' \subseteq S'$.
+    \item $S = T' \Rightarrow S'' = (T')'' = T' \Rightarrow T = S'$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+\paragraph{Remark.}
+Let $V$ be an $A$-module ($A$ a $k$-algebra) and also a $B$-module ($B$ a $k$-algebra). If the actions of $A$ and $B$ commute (i.e. $ab = ba $ for all $a\in A,b\in B$) where $a\in $ and $b\in B$ denote the corresponding action in $\End_A(V)$ then $V$ is an $A \tp B$-module given by $a\tp b .v = abv = bav$ for all $v\in V$. The reader may check the details.
+
+\begin{lem} \label{lem:VI.1}
+  Let $A$ and $B$ be $k$-algebras ($k$ any field), $M$ an $A$-module and $N$ a $B$-module. Then $M\tp N$ is an $A\tp B$-module via $a\tp b . m\tp n = am\tp bn$ for all $m\in M$ and $n\in N$.
+\end{lem}
+\begin{proof}
+  One could do explicit calculations, but we will give a better proof. $M$ being an $A$-modue means a choice of an algebra homomorphism $\phi\colon A \to \End_k(M)$. Similarly we get an algebra homomorphism $\psi\colon B \to \End_k(N)$. Then consider
+  \begin{align*}
+    \begin{tikzcd}[ampersand replacement=\&]
+      A\tp B \arrow{r}{\phi\tp\psi} \arrow[dashed]{rd} \& \End_k(M) \tp \End_k(N) \arrow[Cong]{d}\\
+      \& \End_k(M\tp N).
+    \end{tikzcd}
+    \qedhereb
+  \end{align*}
+\end{proof}
+
+\paragraph{Example.}
+Let $G$ and $H$ begroups with representations $M$ and $N$ over a fixed field $k$, respectively. Note that
+\begin{eqnarray*}
+  kG \tp kH &\cong& k(G\tp H) \\
+  g\tp h &\mapsto& (g,h)
+\end{eqnarray*}
+as algebras. $M\tp N$ is an $kG\tp kH$-module and hence a representation of $G\tp H$.
+
+\begin{thm}[Double centralizer theorem] \label{thm:dct} % VI.3
+  Let $k$ be a field and $W$ a finite-dimensional $k$-vector space. Let $A \subseteq \End_k(W)$ be a subalgebra. Then the following holds:
+  \begin{enumerate}
+    \item \label{thm:dct:1} $A'$ is a semisimple algebra (a subalgebra of $\End_k(W)$).
+    \item \label{thm:dct:2} $A'' = A$.
+  \end{enumerate}
+  Now let $k$ be algebraically closed.
+  \begin{enumerate}
+    \setcounter{enumi}2
+    \item \label{thm:dct:3} There is a decomposition of $A\tp A'$-modules \[ \Phi\colon W \cong \bigoplus_{i=1}^rL_i\tp L_i'\] (isomorphism as $A\tp A'$-modules) such that $L_1,\ldots,L_r$ are pairwise non-isomorphic irreducible $A$-modules and $L_1',\ldots,L_r'$ are pairwise non-isomorphic irreducible $A'$-modules.
+    \item \label{thm:dct:4} The $L_1,\ldots,L_r $ and $L_1',\ldots,L_r'$ are precisely the irreducible $A$-modules and $A'$-modules upt to isomorphism. Hence in particular $\abs{\Irr(A)} = \abs{\Irr(A')}$.
+  \end{enumerate}
+\end{thm}
+
+\paragraph{Remark.}
+More generally if $k$ is an arbitrary field we can replace $\Phi$ by $\Phi'\colon W\cong \bigoplus_{i=1}^rL_i\tp_{D_i}L_i'$ for division algebras $D_i := \End_A(L_i)$. Moreover this isomorphism is the isotypic decomposition for $W$ as an $A$-module, but also as an $A'$-module.
+
+\paragraph{Remark.}
+Let $A$ be a $k$-algebra, $M$ an $A$-module and $N$ a $k$-vector space. Then \cref{lem:VI.1} gives an $A$-module structure on $M\tp N$ ($A$-modules are $A\tp k$-modules), the \emph{multiplicity space}. Note that $M\tp N \cong M^{\bigoplus \dim N}$ as $A$-modules if $N$ is finite-dimensional. To see this choose bases $\set{m_i}$ of $M$ and $\set{n_i}$ of $N$ and send $m_i\tp n_j$ to $\delta_jm_i$.
+
+\begin{proof}[Proof of the \namereff{thm:dct}]
+  As $A$ is a semisimple algebra any $A$-module is semisimple. We get \begin{equation}W\cong\bigoplus_{i=1}^sL_i^{\oplus n_i}\tag{*}\label{eq:dct}\end{equation} for some $n_i,s\in \IN$ and pairwise non-isomorphic irreducible $A$-modules $L_i$.
+  \begin{enumerate}[label=\arabic*.]
+    \item $s = \abs{\Irr(A)}$.
+    
+    By the \namereff{thm:aw} we have $A \cong \prod_{i=1}^rR_i$ for some $m\in\IN$ and $R_i \cong \Mat{m_i}{C_i}$ where $C_i$ is a division algebra and the $(m_i,C_i)$ are unique up to permutation and isomorphism of division algebras. Then $\abs{\Irr(A)} = m$ and so $s \le m$ (by definition of $s$). Since $A \subseteq \End_k(W)$ is a subalgebra with have that $1_iW \neq 0$ for any $1\le i \le s$ ($1_i$ is the unit in $R_i$). Therefore $1_iW$ contains an irreducible $R_i$-module. For any irreducible $R_i$-module $U_i$ ($1\le i\le s$) there is an $R$-submodule in $W$ which is isomorphic to $U_i$ as an $R_i$-module. Thus $s=m$ and $\abs{\Irr(A)} = s$.
+    \item \label{thm:dct:proof:2} $A'$ is a semisimple algebra and $\abs{\Irr(A')} = \abs{\Irr(A)}$.
+    
+    Using the \namereff{thm:aw}, \namereff{lem:schur mod} and \eqref{eq:dct} we get an isomorphism of algebras
+    \begin{align*} A' &= \set{b\in\End_k(W) \given \forall a \in A\colon ba = ab} = \End_A(W) \\&\cong \prod_{i=1}^s \Mat{n_i}{\End_A(L_i)} = \prod_{i=1}^S \Mat{n_i}{D_i} \end{align*} where $D_i := \End_A(L_i)$ are division algebras. By \cref{cor:V.20} $A'$ is semisimple and $\abs{\Irr(A')} = \abs{\Irr(A)}$.
+    \item \label{thm:dct:proof:3} If $U\subseteq W$ is an irreducible $A$-module, then $\Hom_A(U,W)$ is an irreducible $A'$-module with action given by $(\beta.f)(u) = \beta(f(u))$ for $f\in\Hom_A(U,W)$, $\beta\in A'$ and $u\in U$.
+    
+    This action is well-defined as we have \[(\beta.f).(au) = \beta(f(au)) = \beta(af(u)) = a\beta(f(u)) = a (\beta.f)(u) .\]
+    
+    For irreducibility it is enough to show that for any nonzero $f_1,f_2 \in\Hom_A(U,W)$ there exists a $\beta\in A'$ such that $\beta .f_1=f_2$. For $0\neq u\in U$ set $v_1 := f_1(u)$ and $v_2 := f_2(u)$. Since $W$ is semisimple we get $W = Av_1 \oplus C$ for some $A$-module $C$. Now define
+    \begin{eqnarray*}
+      \beta\colon W = Av_1 \oplus C &\to& W \\
+      av_1 &\mapsto& v_2 \\
+      c &\mapsto& c.
+    \end{eqnarray*}
+    This is obviously $k$- and $A$-linear, hence $\beta\in A'$. Now $(\beta.f_1)(u) =\beta(f_1(m)) = v_2 = f_2(u)$ and thus $f_1(au) = f_2(au)$ for all $a\in A$ because $\beta$ and $f_1$ are $A$-linear. As $U$ is irreducible we get $\beta f_1 = f_2$.
+    \item $L_i' \cong \Hom_A(L_i,W)$ is an irreducible $A'$-module by \ref{thm:dct:proof:3}. Since $L_i$ is a left $D_i$-module, $L_i'$ is a right $D_i$-module and hence a left $D_i^{\op}$-module. Therefore $L_i\tp_{D_i^{\op}}L_i'$ makes sense.
+    \item $L_i \tp_{D_i^{\op}} L_i'$ is an $A\tp A'$-module via $(a\tp b) . (m\tp n) = am\tp bn$ for all$m\in M$, $n\in N$, $a\in A$ and $b\in A'$.
+    
+    If $k$ is algebraically closed then $D_i = k = D_i^{\op}$ and it is clear by \cref{lem:VI.1}. For the general case we have to check that the action is well-defined. Let $\phi\in D_i^{\op}$, $f\in L_i'$, $a\in A$ and $b\in A'$. On the one hand, we have
+    \begin{align*}
+      (a\tp b)(x\phi \tp f) &= (a\tp b) (\phi(x)\tp f) = a\phi(x) \tp bf, \\
+      \intertext{on the other hand, }
+      (a\tp b)(x\tp \phi f) &= (a\tp b)(x\tp (f\circ\phi)) = (ax \tp (f\circ\phi)) = ax \tp (bf)(\phi) \\ &= ax \tp \phi . (bf) = ax\tp \tp bf = \phi(ax) \tp bf = a\phi(x) \tp bf.
+    \end{align*}
+    \item \label{thm:dct:proof:6} The map
+    \begin{eqnarray*}
+      \Phi_i\colon L_i \tp_{D_i^{\op}}L_i' &\to& W \\
+      x \tp f &\mapsto& f(x)
+    \end{eqnarray*}
+    is an $A$-module homomorphism (since $\Phi_i(ax\tp f) = f(ax) = af(x) = a\Phi_i(x\tp f)$. By \namereff{lem:schur mod} we have $\im \Phi_i \subseteq \Iso_{L_i}(W)$. We claim $\im \Phi_i = \Iso_{L_i}(W)$.
+    
+    Let $f_1,\ldots,f_s$ be a basis of $\Hom_A(_i,W) \cong \bigoplus_{i=1}^s L_i^{\tp n_i}$. Then
+    \begin{align*}
+      f_i(x) = \begin{cases*} x_i := (0,\ldots,0,x,0,\ldots,0)  & $\substack{\text{if $f_i$ is contained in the $i$-th copy}\\\text{of $L_i' = \bigoplus_{i=1}^{n_i}\Hom_A(L_i,L_i)$,}}$ \\ 0 & otherwise. \end{cases*} \in L_i^{\oplus n_i}
+    \end{align*}
+    \item \label{thm:dct:proof:7} $\Phi_i$ is injective and we get an isomorphism \begin{eqnarray*} \Phi := \bigoplus_{i=1}^s\Phi_i\colon \bigoplus_{i=1}^sL_i\tp_{D_i^{\op}}L_i' &\to& W \\ x_i \tp f_i &\mapsto& f_i(x_i) \end{eqnarray*} and moreover $\Phi_i$ and $\Phi$ are $A\tp A'$-module homomorphisms.
+    
+    First, assume that $k$ is algebraically closed. Then by \ref{thm:dct:proof:6} $\Phi_i$ is surjective and we have \[ \dim(L_i \tp L_i') = (\dim L_i)\underbrace{(\dim L_i')}_{n_i} = \dim \underbrace{L_i^{\oplus n_i}}_{\Iso_{L_i}(W)}. \]
+    Thus $\Phi_i$ and then $\Phi$ is bijective.
+    
+    Now let $k$ be arbitrary. By \ref{thm:dct:proof:3} $L_i'$ is an irreducible $A'$-module on $\Mat{n_i}{D_i}$ (see \ref{thm:dct:proof:2} acts non-trivially. We get $L_i' \cong D_i^{n_i}$ as $\Mat{n_i}{D_i}$-modules. In particular one has $L_i\tp_{D_i^{\op}} D_i^{n_i} \cong L_i^{\oplus n_i}$ and we get $\dim (L_i \tp_{D_i^{\op}} D_i^{n_i} = n_i \dim L_i = \dim \Iso_{L_i}(W)$.
+    
+    We still have to show that $\Phi$ is an homomorphism of $A\tp A'$-modules. It suffices to show that the $\Phi_i$ are $A\tp A'$-module homomorphisms. Let $x_i \in L_i$, $f_i\in L_i'$, $a\in A$ and $b\in A'$. Then
+    \begin{align*}
+      \Phi_i(a.(x_i\tp f_i)) &= \Phi_i(ax_i \tp f_i) = f_i(ax_i) = af_i(x_i) = a.\Phi_i(x_i\tp f_i) \\ &= \Phi_i(b.(x_i\tp f_i)) = \Phi(x_i\tp bf_i) = (bf_i)(x_i) = b.f_i(x_i) \\&= b.\phi(x_i\tp f_i).
+    \end{align*}
+    \item $A = A''$.
+    
+    It is clear that $A \subseteq A''$. As $A$ is semisimple we have $A \cong \prod_{i=1}^s \Mat{m_i}{C_i}$ by the \namereff{thm:aw} for some division algebras $C_i$, $n_i \in\IN$ and $r=\abs{\Irr(A)}$. Also $W \cong \bigoplus_{i=1}^sL_i^{n_i}$ and we get $L_i\cong C_i^{m_i}$ after renumbering. Now
+    \begin{align*}
+      D_i = \End_A(L_i) \cong \End_{\prod_{j=1}^s\Mat{m_j}{C_j^{m_j}}}\pa{C_i^{m_i}} = \End_{\Mat{m_i}{C_i}}(C_i^{m_i}) = C_i^{\op}.
+    \end{align*}
+    By \ref{thm:dct:proof:2} one has \[ A' = \prod_{i=1}^s \Mat{n_i}{D_i} \cong \prod_{i=1}^s\Mat{n_i}{C_i^{\op}}. \]
+    
+    We can now apply the same argument for $A'$ instead of $A$ and get \[ A'' \cong \prod_{i=1}^s\Mat{q_i}{{{(C_i^{\op})}^{\op}}}\quad\text{and}\quad W \cong \bigoplus_{j=1}^s \pa{L_i'}^{q_i} \] as $A$-modules. But by \ref{thm:dct:proof:7} we have \[ W \cong \bigoplus_{i=1}^sL_i\tp_{D_i^{\op}}L_i' \cong \bigoplus_{i=1}^s C_i^{m_i} \tp_{C_i}L_i' \cong \bigoplus_{i=1}^s\pa{L_i'}^{m_i} \] and therefore $a_i = m_i$ for all $1\le i\le s$. Therefore $A \cong A''$, which implies $A = A''$ as they are finite-dimensional and $A \subseteq A''$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
 
 
 
