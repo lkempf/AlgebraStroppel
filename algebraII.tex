@@ -1771,7 +1771,7 @@ Special cases:
   \item[$n=1$:] $\End_D(D) \cong D^{\op}$.
   \item[$D=k$:] We get $\End_{\Mat nk}(k^n)\cong k$ by $\lambda\id_{\Mat nk} \mapsfrom \lambda$ because
   \begin{align*}
-    \End_{\Mat nk}(k^n) &= \set{f\in\End_k(k^n) \given \forall B \in \Mat nk : A_f B 0 BA_f} \\
+    \End_{\Mat nk}(k^n) &= \set{f\in\End_k(k^n) \given \forall B \in \Mat nk : A_f B = BA_f} \\
     &\cong \set{A \in \Mat nk \given \forall B \in \Mat nk : A B = BA} \\
     &= \Z(\Mat nk) \cong k.
   \end{align*}
@@ -1841,7 +1841,7 @@ Special cases:
   \end{description}
 \end{proof}
 
-Hence we proved: If $R\cong L_1^{\oplus n_1}\oplus \ldots \oplus L_r^{\oplus n_r}$ with irreducible pairwise non-isomorphic $R$-modules $L_i$ then $\abs{\Irr(R)} = r$ and \[ R \cong \Mat{n_1}{\End_R(L_i)^{\op}}\times\cdots\times \Mat{n_r}{\End_R(L_r)^{\op}}. \]
+Hence we proved: If $R\cong L_1^{\oplus n_1}\oplus \ldots \oplus L_r^{\oplus n_r}$ with irreducible pairwise non-isomorphic $R$-modules $L_i$ then $\abs{\Irr(R)} = r$ and \[ R \cong \Mat{n_1}{\End_R(L_1)^{\op}}\times\cdots\times \Mat{n_r}{\End_R(L_r)^{\op}}. \]
 
 \paragraph{Remark.} If $R$ is also a finite-dimensional $k$-algebra then $\End_R(L_i)$ is a divison algebra. All involved isomorphisms are linear, hence we get an algebra homomorphism.
 
@@ -1959,7 +1959,7 @@ Let $V$ be an $A$-module ($A$ a $k$-algebra) and also a $B$-module ($B$ a $k$-al
 \end{proof}
 
 \paragraph{Example.}
-Let $G$ and $H$ begroups with representations $M$ and $N$ over a fixed field $k$, respectively. Note that
+Let $G$ and $H$ be groups with representations $M$ and $N$ over a fixed field $k$, respectively. Note that
 \begin{eqnarray*}
   kG \tp kH &\cong& k(G\tp H) \\
   g\tp h &\mapsto& (g,h)
@@ -1976,7 +1976,7 @@ as algebras. $M\tp N$ is an $kG\tp kH$-module and hence a representation of $G\t
   \begin{enumerate}
     \setcounter{enumi}2
     \item \label{thm:dct:3} There is a decomposition of $A\tp A'$-modules \[ \Phi\colon W \cong \bigoplus_{i=1}^rL_i\tp L_i'\] (isomorphism as $A\tp A'$-modules) such that $L_1,\ldots,L_r$ are pairwise non-isomorphic irreducible $A$-modules and $L_1',\ldots,L_r'$ are pairwise non-isomorphic irreducible $A'$-modules.
-    \item \label{thm:dct:4} The $L_1,\ldots,L_r $ and $L_1',\ldots,L_r'$ are precisely the irreducible $A$-modules and $A'$-modules upt to isomorphism. Hence in particular $\abs{\Irr(A)} = \abs{\Irr(A')}$.
+    \item \label{thm:dct:4} The $L_1,\ldots,L_r $ and $L_1',\ldots,L_r'$ are precisely the irreducible $A$-modules and $A'$-modules up to isomorphism. Hence in particular $\abs{\Irr(A)} = \abs{\Irr(A')}$.
   \end{enumerate}
 \end{thm}
 
@@ -2016,7 +2016,7 @@ Let $A$ be a $k$-algebra, $M$ an $A$-module and $N$ a $k$-vector space. Then \cr
       \intertext{on the other hand, }
       (a\tp b)(x\tp \phi f) &= (a\tp b)(x\tp (f\circ\phi)) = (ax \tp (f\circ\phi)) = ax \tp (bf)(\phi) \\ &= ax \tp \phi . (bf) = ax\tp \tp bf = \phi(ax) \tp bf = a\phi(x) \tp bf.
     \end{align*}
-    \item \label{thm:dct:proof:6} The map
+    \item \label{thm:dct:proof:6} The map % TODO r or s???
     \begin{eqnarray*}
       \Phi_i\colon L_i \tp_{D_i^{\op}}L_i' &\to& W \\
       x \tp f &\mapsto& f(x)
@@ -2051,10 +2051,10 @@ Let $A$ be a $k$-algebra, $M$ an $A$-module and $N$ a $k$-vector space. Then \cr
   \end{enumerate}
 \end{proof}
 
-\lecture{December 3, 2018}
+\lecture{November 29, 2018}
 
 \begin{cor}
-  Let $G,H$ be finite groups and $k$ an algebraically closed field with $\chr k \nmid \abs G \cdot \abs H$. Then for any two irreducible finite-dimensional representations $V$ of $G$ and $W$ of $H$ we have an irreducible representation $V \tp W$ of $G \times H$ given by $(g,h)(v\tp w) = gv \tp hw$. Every irreducible finite dimensional representation of $G\times H$ is of this form.
+  Let $G$ and $H$ be finite groups and $k$ an algebraically closed field with $\chr k \nmid \abs G \cdot \abs H$. Then for any two irreducible finite-dimensional representations $V$ of $G$ and $W$ of $H$ we have an irreducible representation $V \tp W$ of $G \times H$ given by $(g,h)(v\tp w) = gv \tp hw$. Every irreducible finite-dimensional representation of $G\times H$ is of this form.
 \end{cor}
 \begin{proof}
   Consider the algebra homomorphisms $kG \to \End_k(V)$ and $kH \to \End_k(W)$. As $V$ and $W$ are irreducible and finite-dimensional they are surjective. Now
@@ -2097,7 +2097,7 @@ Decompose $V\tp V$ as a representation of $\GL(V)$. Consider
 \end{align*}
 One can see \[ S^2V \cong \gen{v_1\tp v_1,v_2\tp v_2,v_1\tp v_2+ v_2\tp v_1} \quad\text{and}\quad \Lambda^2V \cong \gen{v_1\tp v_2 - v_2 \tp v_1} \] as representations of $\GL(V)$.
 
-We get a decomposition of $V\tp V$ as a representation of $S_2 \tp \GL(V)$ (or as $\gen{S_2}\tp \gen{\GL(V)}$-modules) \[ V\tp V \cong \triv \tp\, S^2V \oplus \sign \tp\, \Lambda^2V. \] One can show that $S^2$ and $\Lambda^2V$ are irreducible representations of $\GL(V)$. Then above decomposition is the decomposition into isotypic components.
+We get a decomposition of $V\tp V$ as a representation of $S_2 \tp \GL(V)$ (or as $\gen{S_2}\tp \gen{\GL(V)}$-modules) \[ V\tp V \cong \triv \tp\, S^2V \oplus \sign \tp\, \Lambda^2V. \] One can show that $S^2V$ and $\Lambda^2V$ are irreducible representations of $\GL(V)$. Then the above decomposition is the decomposition into isotypic components.
 
 \paragraph{Generalization.}
 Let $k$ be any field, $V$ a finite-dimensional $k$-vector space and $d\in\IZ_{\ge0}$. Consider $V^{\tp d}$ as a representation of $\GL(V)$ via $g(v_1\tp\ldots\tp v_d) = gv_1\tp \ldots \tp gv_d$. Let $\alpha\colon \GL(V) \to \GL(V^{\tp d}) \subseteq \End_k(V^{\tp d})$ and $\gen{\GL(v)}$ be the subalgebra generated by $\im\alpha$. $V^{\tp d}$ becomes a representation of $S_d$ via $\sigma(v_1\tp \ldots\tp v_d) = v_{\sigma^{-1}(1)}\tp \ldots\tp v_{\sigma^{-1}(d)}$. Consider the group homomorphism $\beta\colon S_d \to \GL(V^{\tp d}) \subseteq \End_k(V^{\tp d})$ and the subalgebra $\gen{S_d}$ generated by $\im\beta$. For $g\in \GL(V)$ and $\sigma\in S_d$ we obtain
@@ -2106,13 +2106,144 @@ Let $k$ be any field, $V$ a finite-dimensional $k$-vector space and $d\in\IZ_{\g
 \end{align*}
 and thus $\gen{\GL(V)} \subseteq \gen{S_d}'$ and $\gen{S_d}\subseteq \gen{\GL(V)}'$.
 
-\begin{thm}[Schur-Weyl duality]
+\begin{thm}[Schur-Weyl duality] \label{thm:schur weyl}
   Let $k$ be an infinite field, $V$ a finite-dimensional $k$-vector space and $d\in\IZ_{\ge0}$.
   \begin{enumerate}
-    \item $\End_{S_d}(V^{\tp d}) = \gen{\GL(V)}$.
-    \item If $\chr k = 0$ or $\chr k > d$ we have $\End_{\GL(V)}(V^{\tp d}) =\gen{S_d}$.
+    \item \label{thm:schur weyl:1} $\End_{S_d}(V^{\tp d}) = \gen{\GL(V)}$.
+    \item \label{thm:schur weyl:2} If $\chr k = 0$ or $\chr k > d$ we have $\End_{\GL(V)}(V^{\tp d}) =\gen{S_d}$.
   \end{enumerate}
 \end{thm}
+
+\lecture{December 3, 2018}
+
+\paragraph{Remark.}
+Assume that $\chr k = 0$ or $\chr k > d$. Then it follows from the \namereff{thm:schur weyl} that the double commutant property holds, as we have $\gen {\GL(V)}'' = \End_{\GL(V)}\pa{V^{\otimes d}}' = \gen{S_d}' = \End_{S_d}(V^{\otimes d})$ and similarly $\gen{S_d}'' = \gen {S_d}$.
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}[label=\ref{thm:schur weyl:\arabic*}]
+    \item The isomorphism of isomorphism of vector spaces
+    \begin{eqnarray*}
+      \Phi\colon \End_k(V)^{\otimes d} &\to& \End_k\pa{V^{\otimes d}} \\
+      f_1 \tp \ldots \tp f_d &\mapsto& (v_1 \tp \ldots\tp v_d \mapsto f_1(v_1) \tp \ldots f_d(v_d))
+    \end{eqnarray*}
+    is $S_d$-equivariant where $S_d$ acts on $\End_k\pa{V^{\otimes d}}$ by $(\sigma f)(x) = \sigma(f(\sigma^{-1}x))$ with $\sigma \in S_d$, $x \in V^{\otimes d}$ and $f\in \End_k\pa{V^{\otimes d}}$ and on $\End_k(V)^{\otimes d}$ by $\sigma (f_1 \tp \ldots \tp f_d) = f_{\sigma^{-1}(1)} \tp \ldots \tp f_{\sigma^{-1}(d)}$. To show this take $\sigma \in S_d$. On the one hand,
+    \begin{align*}
+      \Phi(\sigma f)(v_1 \tp \ldots \tp v_d) &= \Phi\pa{f_{\sigma^{-1}(1)} \tp \ldots \tp f_{\sigma^{-1}(d)}}(v_1 \tp \ldots \tp v_d) \\ &= f_{\sigma^{-1}(1)}(v_1) \tp \ldots \tp f_{\sigma^{-1}(d)}(v_d), \\\intertext{and on the other hand,}
+    (\sigma\Phi(f))(v_1 \tp \ldots \tp v_d) &= \sigma\pa{\Phi(f)(v_{\sigma(1)} \tp \ldots \tp v_{\sigma(d)})} \\ &= \sigma\pa{f_1(v_{\sigma(1)}) \tp \ldots \tp f_d(v_{\sigma(d)})} \\ &= f_{\sigma^{-1}(1)}(v_1) \tp \ldots \tp f_{\sigma^{-1}(d)}(v_d).
+    \end{align*}
+    \begin{cor}
+      $\Phi$ induces an isomorphism of $k$-vector spaces \[\pa{\End_k(V)^{\tp d}}^{S_d} \cong \pa{\End_k\pa{V^{\tp d}}}^{S_d} = \End_{S_d}\pa{V^{\tp d}}.\]
+    \end{cor}
+    \begin{proof}
+      Take invariants for the isomorphism above.
+    \end{proof}
+    Now $\gen{\GL(V)} \subseteq \End_{S_d}\pa{V^{\tp d}} = S_d'$ by definition since the $\GL(V)$- and the $S_d$-action commute. The image of the map
+    \begin{eqnarray*}
+      F\colon \GL(V) &\to& \Aut\pa{V^{\tp d}} \subseteq \End_k\pa{V^{\tp d}} \cong \End_k(V)^{\tp d} \\
+      \phi &\mapsto& \phi^{\tp d}
+    \end{eqnarray*}
+    is obviously contained in $\pa{\End_k(V)^{\tp d}}^{S_d}$. It is now enough to see that the image of $\gen{\GL(V)}$ is the whole of $\End_k\pa{V^{\tp d}}^{S_d} = \End_{S_d}\pa{V^{\tp d}}$. Now $E := \End_k\pa{V}$ is a finite-dimensional vector space and $\GL(V) \subseteq E$ is a Zariski-dense subset. Then by \cref{lem:VI.8} we get an isomorphism of vector spaces $\gen{\GL(V)} \cong \pa{\End_k(V)^{\tp d}}^{S_d} \cong \End_{S_d}\pa{V^{\tp d}}$ via $F$ and $\Phi$.
+    \item As $\chr k \nmid \abs{S_d} = d!$, $kS_d$ is a semisimple algebra, and $A := \gen{S_d}$ is semisimple (note that $\gen{S_d}$ is a quotient of $kS_d$). By \ref{thm:schur weyl:1} we get $A' = \End_{S_d}\pa{V^{\otimes d}} = \gen{\GL(V)}$. Thus $\End_{\GL(V)}\pa{V^{\otimes d}} = \gen{\GL(V)}' = A'' = A$ be the \namereff{thm:dct}.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{lem} \label{lem:VI.8}
+  Let $k$ be an infinite field, $d \ge 1$, $E$ a finite-dimensional vector space and $X \subseteq E$ a Zariski-dense subset (over $k$). Then the vector space $\pa{E^{\tp d}}^{S_d}$ (the vector space of symmetric tensors) is generated as a vector space by the elements $ \set*{x^{\tp d}\given x \in X} \subseteq \pa{E^{\tp d}}^{S_d}$.
+\end{lem}
+\begin{proof}  
+  Let $e_1, \ldots,e_n$ be a basis of $E$. Then $B = \set{e_{i_1} \tp \ldots \tp e_{i_d} \given 1\le i_j \le n }$ is a $k$-basis of $E^{\tp d}$. Obviously $B$ is an invariant subset of $E^{\tp d}$ under $S_d$-action (by permuting the factors). Two vectors from $B$ are in the same $S_d$-orbit if and only if the number of factors equal to $e_i$ agree in the two basis vectors for each $i$. In particular every orbit contains a (unique) element of the form $e^\mu = e_1^{\tp \mu_1} \tp \ldots \tp e_n^{\tp\mu_n}$ for some $\mu=(\mu_1,\ldots,\mu_n)\in \IN_0^n$ with $\sum_{i=1}^n\mu_i = d$. Let $a ^\mu := \sum_{{\omega\in \fak{S_d}{S_{\mu_1}\times \ldots \times S_{\mu _n}}}} \omega (e^\mu)$. It is easy to see that $\set*{a^\mu \given \mu \in \IN_0^n, \sum_{i=1}^n\mu_1 = d}$ forms a basis of $\pa{E^{\tp d}}^{S_d}$.
+  
+  Let $\Sym := \pa{E^{\tp d}}^{S_d}$ and $U := \set*{x^{\tp d}\given x \in X}$. We have to show that $U = \Sym$.
+  \begin{description}
+    \item[\enquote{$\subseteq$}] Obvious.
+    \item[\enquote{$\supseteq$}] It is enough to show that if $f \colon \Sym \to k$ is $k$-linear then $f|_u = 0$ implies $f = 0$. To see this, assume $U \subsetneq \Sym$ and pick a basis $\set{u_i\given i\in I}$ of $U$ and extend it by $u_j$ ($j\in J$) to a basis of $\Sym$. Then \[ f(u_s) = \begin{cases*}0 & if $s \in I$\\ 1 & if $s \in J$\end{cases*} \] with $s \in I\cup J$ defines a map $\Sym \to k$ such that $f|_U =0$ but $f\neq 0$.
+    
+    Let now $f\colon \Sym \to k$ be $k$-linear such that $f|_U = 0$. Then $f(x\tp \ldots \tp x) =0$ for all $x \in X$. Write $x = \sum_{i=1}^nx_ie_i$. Then
+    \begin{align*}
+      x \tp \ldots \tp x &= \sum_{\mathclap{\substack{\mu \in \IN_0^n, \\ \sum_{i=1}^n\mu_i = d}}} x_1^{\mu_1}\cdots x_n^{\mu_n} a^\mu.
+    \end{align*}
+    Consider $p\in\Ps_k(E)$ defined by \[ p\pa{\sum_{i=1}^ny_ie_i} = \sum_{\mathclap{\substack{\mu \in \IN_0^n, \\ \sum_{i=1}^n\mu_i = d}}} f(a^\mu)y_1^{\mu_1}\cdots y_n^{\mu_n}. \]
+    Then in particular
+    \begin{align*}
+      0 = f(x \tp \ldots \tp x) = \sum_{\mathclap{\substack{\mu \in \IN_0^n, \\ \sum_{i=1}^n\mu_i = d}}} f\pa{x_1^{\mu_1}\cdots x_n^{\mu_n}a^\mu} = \sum_{\mathclap{\substack{\mu \in \IN_0^n, \\ \sum_{i=1}^n\mu_i = d}}} f(a^\mu)x_1^{\mu_1}\cdots x_n^{\mu_n} = p(x).
+    \end{align*}
+    Therefore $p(x) = 0$ for all $x\in X$, and $p=0$ (as an element in $\Ps_k(E)$). This implies $f(a^\mu) = 0$ for all $\mu \in \IN_0^n$ with $\sum_{i=1}^n\mu_i = d$. Thus $f = 0$ since the $a^\mu$ form a basis of $\Sym$.
+    \qedhere
+  \end{description}
+\end{proof}
+
+\begin{cor}
+  Let $k$ be a field of $\chr = 0$ (in particular $\abs k =\infty$). Let $V$ be a finite-dimensional $k$-vector space and $d \in \IN$. Then $V^{\tp d}$ is a representation of $S_d \times \GL(V)$ and we have a decomposition of representations of $S_d \times \GL(V)$ \[V^{\tp d} \cong \bigoplus_{\lambda \in \Lambda}S_\lambda L(\lambda) \] where $S_\lambda$ are the pariwise non-isomorphic representations of $S_d$ and the $L(\lambda)$ are the pariwise non-isomorphic representations of $\GL(V)$ for some labelling set $\Lambda$. If $\dim V \ge d$ then $\set{S_\lambda \given \lambda \in \Lambda} =\Irr(S_d)$. 
+\end{cor}
+\begin{proof}
+  The \namereff{thm:dct} and the \namereff{thm:schur weyl} imply all statements except of the last one by applying \cref{lem:VI.10} to $kS_d \to \gen{S_d}$ and $k\GL(V) \to \gen{\GL(V)}$.
+  
+  For the last statement assume $\dim_kV \ge d$. Then we can pick a basis $e_1,\ldots,e_n$ of $V$ ($n \ge d$). Then
+  \begin{eqnarray*}
+    \beta \colon kS_d &\to& \End_k\pa{V^{\tp d}} \\
+    g &\mapsto& \pa{v_1 \tp \ldots v_d \mapsto v_{g^{-1}(1)} \tp \ldots \tp v_{g^{-1}(d)}}
+  \end{eqnarray*}
+  is injective since the action of $\sum_{g\in S_d} a_g g \in kS_d$ on $e_1 \tp \ldots \tp e_d$ is given by $\sum_{g \in S_d} a_ge_{g^{-1}(1)} \tp \ldots e_{g^{-1}(d)}$ and the summands are linearly independent. Thus  $kS_d\subseteq \End_k(V^{\tp d})$ is a subalgebra. Hence the assumptions of the \namereff{thm:dct} hold for $A = kS_d$ and we get $\set{S_\lambda\given \lambda\in\Lambda} = \Irr(S_d)$ (Specht modules). % \im \beta??
+\end{proof}
+
+\begin{lem} \label{lem:VI.10}
+  Let $\gamma\colon A \to B$ be a surjective algebra homomorphisms over a field $k$. If $M$ is an irreducible $B$-module then it is also an irreducible $A$-module by pulling back the action via $\gamma$.
+\end{lem}
+\begin{proof}
+  If $M$ has no proper $B$-submodule then it has also no proper $A$-submodule because $\gamma$ is surjective.
+\end{proof}
+
+\paragraph{Problem.}
+We want to describe the labelling set of irreducible representations of $S_d$ (up to isomorphism)
+
+\begin{deff}
+  Let $k$ be a field and $A$ a $k$-algebra.
+  \begin{itemize}
+    \item $[A,A] := \gen{\set{ab-ba\given a,b\in A}} \subseteq A$.
+    \item If $V$ is a finite-dimensional $A$-module then its \emph{character} $\chi_V$ is defined as
+    \begin{eqnarray*}
+      \chi_V \colon A &\to& k \\
+      a &\mapsto& \Tr(\pi_a)
+    \end{eqnarray*}
+    where $\pi_a\colon V\to V, v\mapsto av$.
+  \end{itemize}
+\end{deff}
+
+\begin{thm} \label{thm:VI.10}
+  Let $k$ be an algebraically closed field and $A$ a $k$-algebra.
+  \begin{enumerate}
+    \item If $V_i$ ($i\in I$) are pairwise non-isomorphic finite-dimensional irreducible $A$-modules then $\chi_{V_i}\colon A \to k$ ($i\in I$) define linearly independent elements in $\pa{\fak A{[A,A]}}^*$.
+    \item If $A$ is a finite-dimensional semisimple algebra then the characters $\chi_V$ for $V \in \Irr(A)$ form a basis of $\pa{\fak A{[A,A]}}^*$.
+  \end{enumerate}
+\end{thm}
+
+A special case is
+\begin{thm}
+  Let $k$ be an algebraically closed field with $\chr k = 0$ and $G$ a finite group.
+  \begin{itemize}
+    \item $\abs{\Irr(kG)}$ is the number of conjugacy classes of $G$.
+    \item $\abs{\Irr(kG)} = \dim \Z(kG)$.
+  \end{itemize}
+\end{thm}
+
+Consider the special special case $G = S_d$. Then $g,h \in S_d$ are in the same conjugacy class iff $g$ and $h$ have the same cycle type. Hence
+\[
+  \set{\text{cycle types of $S_d$}} \xlongleftrightarrow{1:1} \set{\text{partitions of $d$}} \xlongleftrightarrow{1:1} \Irr(S_d).
+\]
+
+\begin{proof}[Proof of \cref{thm:VI.10}]
+  If $V$ is a finite-dimensional irreducible $A$-module then $\chi_V(ab-ba) = \Tr(\pi_a\pi_b - \pi_b\pi_a) = 0$. Therefore $\chi_V$ factors through $[A,A]$ and $\chi_V$ induces an element in $\pa{\fak A{[A,A]}}^*$.
+  
+  Let $\sum_{i\in J}\lambda v_i\chi_{V_i} = 0$ with $J \subseteq I $ finite. By \cref{prop:V.21}
+  \begin{eqnarray*}
+    A &\to& \sum_{i\in J}\End_k(V_i) \\
+    a&\mapsto& \pa{(v_i)_{i\in J} \mapsto (av_i)_{i\in J} }
+  \end{eqnarray*}
+  is surjective. In particular the identity $1_j \in \End_k(V_j)$ has a preimage $a_j \in A$ for all $j\in J$. Hence \[0 = \sum_{i\in J}\lambda v_i \chi_{V_i}(a_j) = \sum_{i\in J}\lambda_i v_i \underbrace{\dim V_i}_{\neq 0} \] and therefore $\lambda_j v_j = 0$ for all $j \in J$.
+\end{proof}
+
 
 
 
