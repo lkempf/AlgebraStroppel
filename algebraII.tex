@@ -31,6 +31,9 @@
 \theoremstyle{definition}
 \newtheorem*{deff}{Definition}
 
+% Römische Zahlen...
+\setlength{\cftsecnumwidth}{1.3cm}
+
 % Literatur
 \usepackage[backend=biber,sorting=none,style=alphabetic]{biblatex}
 \addbibresource{literatur.bib}
@@ -2214,8 +2217,8 @@ We want to describe the labelling set of irreducible representations of $S_d$ (u
 \begin{thm} \label{thm:VI.10}
   Let $k$ be an algebraically closed field and $A$ a $k$-algebra.
   \begin{enumerate}
-    \item If $V_i$ ($i\in I$) are pairwise non-isomorphic finite-dimensional irreducible $A$-modules then $\chi_{V_i}\colon A \to k$ ($i\in I$) define linearly independent elements in $\pa{\fak A{[A,A]}}^*$.
-    \item If $A$ is a finite-dimensional semisimple algebra then the characters $\chi_V$ for $V \in \Irr(A)$ form a basis of $\pa{\fak A{[A,A]}}^*$.
+    \item \label{thm:VI.10:1} If $V_i$ ($i\in I$) are pairwise non-isomorphic finite-dimensional irreducible $A$-modules then $\chi_{V_i}\colon A \to k$ ($i\in I$) define linearly independent elements in $\pa{\fak A{[A,A]}}^*$.
+    \item \label{thm:VI.10:2} If $A$ is a finite-dimensional semisimple algebra then the characters $\chi_V$ for $V \in \Irr(A)$ form a basis of $\pa{\fak A{[A,A]}}^*$.
   \end{enumerate}
 \end{thm}
 
@@ -2234,20 +2237,272 @@ Consider the special special case $G = S_d$. Then $g,h \in S_d$ are in the same 
 \]
 
 \begin{proof}[Proof of \cref{thm:VI.10}]
-  If $V$ is a finite-dimensional irreducible $A$-module then $\chi_V(ab-ba) = \Tr(\pi_a\pi_b - \pi_b\pi_a) = 0$. Therefore $\chi_V$ factors through $[A,A]$ and $\chi_V$ induces an element in $\pa{\fak A{[A,A]}}^*$.
-  
-  Let $\sum_{i\in J}\lambda v_i\chi_{V_i} = 0$ with $J \subseteq I $ finite. By \cref{prop:V.21}
-  \begin{eqnarray*}
-    A &\to& \sum_{i\in J}\End_k(V_i) \\
-    a&\mapsto& \pa{(v_i)_{i\in J} \mapsto (av_i)_{i\in J} }
-  \end{eqnarray*}
-  is surjective. In particular the identity $1_j \in \End_k(V_j)$ has a preimage $a_j \in A$ for all $j\in J$. Hence \[0 = \sum_{i\in J}\lambda v_i \chi_{V_i}(a_j) = \sum_{i\in J}\lambda_i v_i \underbrace{\dim V_i}_{\neq 0} \] and therefore $\lambda_j v_j = 0$ for all $j \in J$.
+  \leavevmode
+  \begin{enumerate}[label=\ref{thm:VI.10:\arabic*}]
+    \item If $V$ is a finite-dimensional irreducible $A$-module then $\chi_V(ab-ba) = \Tr(\pi_a\pi_b - \pi_b\pi_a) = 0$. Therefore $\chi_V$ factors through $[A,A]$ and $\chi_V$ induces an element in $\pa{\fak A{[A,A]}}^*$.
+    
+    Let $\sum_{i\in J}\lambda_{V_i}\chi_{V_i} = 0$ with $J \subseteq I $ finite. By \cref{prop:V.21}
+    \begin{eqnarray*}
+      A &\to& \sum_{i\in J}\End_k(V_i) \\
+      a&\mapsto& \pa{(v_i)_{i\in J} \mapsto (av_i)_{i\in J} }
+    \end{eqnarray*}
+    is surjective. In particular the identity $1_j \in \End_k(V_j)$ has a preimage $a_j \in A$ for all $j\in J$. Hence \[0 = \sum_{i\in J}\lambda_{V_i} \chi_{V_i}(a_j) = \lambda_{V_j} \underbrace{\dim V_j}_{\neq 0} \] and thereore $\lambda_{V_j} = 0$ for all $j \in J$.
+    \item Left to the reader.
+    \qedhere
+  \end{enumerate}
 \end{proof}
 
 
+\lecture{December 6, 2018}
 
+\newpage
+\part*{Algebraic groups}
 
+\paragraph{Motivation.}
+If $G$ is a finite group then $G$ is a subgroup of some permutation group $S_n$ (e.g. $n = \abs G$). We want to generalize this by replacing $S_n$ with $\GL_n(\IR)$ and finite groups by compact subgroups of $\GL_n(\IR) \subseteq \IR^{n^2}$.
 
+\section{Linear algebraic groups and affine algebraic groups}
+
+\paragraph{Fact.}
+Let $K\subseteq \GL_n(\IR)$ be a compact subgroup. Then there exist $f_1,\ldots,f_s \in k[X_{11},\ldots,X_{nn}]$ such that $K = \set{A\in\GL_n(\IR) \given \forall 1\le i\le s : f_i(A) = 0 }$.
+
+\medskip
+
+For example $\OO_n(\IR) = \set{A \in \GL_n(\IR) \given A^TA = 1 = AA^T}$.
+
+\medskip
+
+Warning: The converse is not true, e.g. \[ \SL_2(\IR) = \set{A \in \GL_2(\IR) \given \det A = 1} = \set*{\mat{a&b\\c&c} \in \GL_2(\IR) \given ad-bc-1=0}. \]
+
+\paragraph{Convention.} From now on, let $k$ be an algebraically closed field.
+
+\begin{deff}
+  A \emph{linear algebraic group} $G$ (over $k$) is a subgroup of $\GL_n(k)$ which is the common zero set of a set $M$ of polynomials in $k[X_{11},\ldots,X_{nn}]$, i.e. \[ G = \set{A \in \GL_n(k) \given \forall f\in M : f(A) = 0 } .\]
+\end{deff}
+
+\paragraph{Examples.}
+\begin{enumerate}
+  \item $\GL_n(k)$ is the zero set of the zero polynomial.
+  \item $\SL_n(k) = \set{A \in \GL_n(k) \given \det(A) - 1 = 0}$.
+  \item Finite subgroups of $\GL_n(k)$.
+  \item Diagonal matrices in $\GL_n(k)$, as we can write them as $\set{A\in \GL_n(k) \given \forall 1\le i \neq j\le n : P_{ij}(A) = 0}$ with $P_{ij}(X_{11},\ldots,X_{nn}) = X_{ij}$.
+  \item Uper triangular matrices in $\GL_n(k)$. More generally \emph{standard parabolic subgroups}. % TODO insert def
+  \item The orthogonal group $\OO_n(k) = \set{A \in \GL_n(k) \given A^T = 1_n=AA^T}$.
+  \item Symplectic groups \[ \Sp_{2n} = \set{A \in \GL_{2n}(k) \given A^TJA = J } \quad\text{with}\quad  J = \mat{0& E_n \\ -E_n & 0} \]
+  \item Intersections of linear algebraic groups are again linear algebraic.
+\end{enumerate}
+
+We now want for instance that $\GL_1(k) = k^\times $ is isomorphic to \[ \set*{\mat{a&0\\0&1}\given a \in k^\times} \subseteq \GL_2(k). \]
+
+\begin{deff}
+  An \emph{affine algebraic group} (over $k$) is an affine algebraic variety $(G,k[G])$ (over $k$) together with a group structure such that
+  \begin{xalignat*}{2}
+    \mu\colon G \times G &\to G & \qquad \inv\colon G &\to G \\
+    (g,h) &\mapsto gh & \qquad g &\mapsto g^{-1}
+  \end{xalignat*}
+  are morphisms of affine algebraic varieties.
+\end{deff}
+
+\begin{deff}
+  An \emph{affine algebraic variety} (over $k$) is a pair $(X,k[X])$ where
+  \begin{itemize}
+    \item $X$ is a set and
+    \item $k[X]$, the \emph{algebra of regular functions}, is a finitely generated subalgebra of $\Maps(X,k)$ such that
+      \begin{eqnarray*}
+        \Phi\colon X &\to& \Hom_{\Alg}(k[X],k) \\
+        x &\mapsto& \ev_x
+      \end{eqnarray*}
+      is bijective. Here, \enquote{subalgebra} means a subalgebra with $1$, elements in $\Hom_{\Alg}(k[X],k)$ send $1$ to $1$, and $\ev_x$ is the evaluation at $x$.
+  \end{itemize}
+\end{deff}
+
+\paragraph{Examples.}
+\begin{enumerate}
+  \item Consider $X = k^n$ and $k[X] := k[X_1,\ldots,X_n]$ identified with the subalgebra $\Ps_k(k^n) \subseteq \Maps(k^n,k)$. We want to show that $(X,k[X])$ is an affine variety, the affine space of dimension $n$.
+  \begin{proof}
+    Obviously $k[X]$ is finitely generated. The map
+    \begin{eqnarray*}
+      \Phi\colon X &\to& \Hom_{\Alg}(k[X_1,\ldots,X_n],k) \\
+      y &\mapsto& \ev_y
+    \end{eqnarray*}
+    is a bijection by \textsc{Hilbert's Nullstellensatz} as we have
+    \begin{center}
+      \begin{tikzcd}
+        \set{\text{points in $X=k^n$}} \arrow[leftrightarrow]{d}{1\,\mbox{\scriptsize :}\,1}[swap]{\beta} \arrow[leftrightarrow]{r}{1\,\mbox{\scriptsize :}\,1} &  \arrow[leftrightarrow]{d}{1\,\mbox{\scriptsize :}\,1}[swap]{k = \ol k}\set{\text{maximal ideals in $k[X_1,\ldots,X_n]$}} \\
+        \set*{\substack{\text{algebra homomorphisms}\\ k[X_1,\ldots,X_n] \to k}} \arrow[leftrightarrow]{r}{1\,\mbox{\scriptsize :}\,1}  & \set*{\substack{\text{kernels of algebra homomorphisms}\\ k[X_1,\ldots,X_n] \to k}}
+      \end{tikzcd}
+    \end{center}
+    with $\beta$ given by $y \mapsto \ev_y$.
+  \end{proof}
+  \item $X = \point$ and $k[X] = \Maps(X,k) = \Maps(\point,k) = k$. Obviously $k$ is a finitely generated subalgebra of $k = \Maps(\point,k)$ and $\Phi\colon\point \to \Hom_{\Alg}(k[X],k)$ is a bijection.
+  \item $X$ a finite set and $k[X] = \Maps(X,k)$. Then $(X,k[X])$ is an affine algebraic variety.
+  \item Let $\aav X$ be an affine algebraic variety. Consider a subset $M\subseteq k[X]$ and define the \emph{vanishing set} of $M$ by \[ \Vs(M) := \set{x\in X \given \forall f\in M : f(x) = 0} \] and set $k[\Vs(M)] = k[X]|_{\Vs(M)}$. We want to show that $\aav {\Vs(M)}$ is an affine algebraic variety.
+  \begin{proof}
+    We have a restriction map $\res\colon k[X]\to k[\Vs(M)]$ which is obviously an surjective algebra homomorphism by definition. By assumption $k[X]$ is finitely generated, and thus its quotient $k[\Vs(M)]$ is a finitely generated subalgebra.
+
+    It is left to show that
+    \begin{eqnarray*}
+      \tilde\Phi\colon \Vs(M) &\to& \Hom_{\Alg}(k[\Vs(M)],k) \\
+      x &\mapsto& \ev_x
+    \end{eqnarray*}
+    is bijective.
+
+    If $f\colon k[\Vs(M)] \to k$ is an algebra homomorphism then
+    \[
+      \begin{tikzcd}
+        k[X] \arrow{r}{\res} \arrow[dashed]{dr}[swap]{\tilde f} & \arrow{d}{f} k[\Vs(M)] \\
+        & k
+      \end{tikzcd}
+    \]
+    defines an algebra homomorphism $\tilde f = f \circ \res$. In particular we have $\tilde f = \ev_x$ for some $x\in X$ because $\aav X$ is an affine algebraic variety.
+
+    For injectivity let $x,y\in \Vs(M)$ with $\ev_x = ev_y\colon k[\Vs(M)] \to k$. Then $\tilde\ev_x = \tilde\ev_y$. But $\tilde\ev_x$ must be $\ev_x\colon k[X] \to k$, and the same holds for $\tilde\ev_y$. Thus $\ev_x = \ev_y \colon k[X] \to k$, and as $\Phi$ is bijective, we get $x = y$.
+
+    For surjectivity let $h\in \Hom_{\Alg}(k[\Vs(M)],k)$. Define $\tilde h := h \circ \res$, and we have $\tilde h = \ev_x$ for some $x\in X$.
+    \begin{description}
+      \item[$x \in \Vs(M)$:] For $f\in k[\Vs(M)]$ pick $f' \in k[X]$ such that $f'|_{\Vs(M)} = f$. Then $\ev_x(f) = f(x)$ and $h(f) = h(\res(f)) = \tilde h (f) = \ev_x(f) = f(x)$ for all $f\in k[\Vs(M)]$. Thus $\ev_x = h$.
+      \item[$x\notin \Vs(M)$:] Then there exists an $f\in M \subseteq k[X]$ with $g(x) \neq 0$ but $g|_{\Vs(M)} = 0$. Now consider
+        \[
+          \begin{tikzcd}
+            k[X] \arrow{r}{\res} \arrow{dr}[swap]{\ev_x} & \arrow{d}{h} k[\Vs(M)] \\
+            & k
+          \end{tikzcd}
+        \]
+        and we get $g \mapsto \res(g) = 0 \mapsto h(0) = 0$ and $g \mapsto \ev_x(g) = g(x) \neq 0$ which is a contradiction.
+    \end{description}
+    Thus any $h\in \Hom_{\Alg}(k[X], k)$ has a preimage.
+  \end{proof}
+  \item Let $\aav X$ be an affine algebraic variety and $f\in k[X]$. Define $X_f := \set{x \in X \given f(x) \neq 0}$ and $k[X_f] := k[X]|_{X_f}\br{f^{-1}}$ (localisation at $f$). Then $\aav {X_f}$ is an affine algebraic variety.
+\end{enumerate}
+As a consequence every linear algebraic group is an affine algebraic group. % TODO d) e)
+
+\begin{prop}
+  Given a linear algebraic group $X = G$ (over $k$) we can find some $k[X]$ such that $(X,k[X])$ is an affine algebraic variety.
+\end{prop}
+\begin{proof}
+  Consider $Y = k^{n^2} = \Mat nk$. Now $\aav Y$ with $k[Y] = k[X_{11},\ldots,X_{nn}]$ and $\GL_n(k) \subseteq Y$ with $k[\GL_n(k)] = k[X_{\det}]$ are affine algebraic varieties. Thus $(\Vs(M) = G, k[\Vs(M)] = k[G])$ is an affine algebraic variety.
+\end{proof}
+
+\begin{deff}
+  Let $\aav X$ and $\aav Y$ be affine algebraic varieties. A \emph{morphism} (of affine algebraic varieties) from $\aav X$ to $\aav Y$ is a map $f\colon X \to Y$ such that $f^*\colon k[Y] \to k[X]$ where 
+  \begin{eqnarray*}
+    f^*\colon k[Y] \subseteq \Maps(Y,k) &\to& \Maps(X,k) \\
+    h &\mapsto & h \circ f.
+  \end{eqnarray*}
+  If $\im f^* \subseteq k[X]$ we also write $f^\natural$. Hence a morphism is a pair $(f,f^\natural)$.
+\end{deff}
+
+\paragraph{Warning.} Consider $k =\ol{\IF_p}$ and the Frobenius map $\Fr\colon k \to k$. Then $\Fr$ is a morphism $\aav k$ which is bijective, but not an isomorphism.
+
+\lecture{December 10, 2018}
+
+\begin{lem} \label{lem:VII.2}
+  There is a bijection
+  \begin{eqnarray*}
+    \set*{\substack{\text{morphisms of affine}\\\text{algebraic varieties}\\ f\colon (X,k[X]) \to (Y,k[Y]) }} & \xlongleftrightarrow{1:1} & \set*{\substack{\text{algebra homomorphisms}\\ k[Y]\to k[X]}} \\
+    (f,f^\natural) &\mapsto& f^* = f^\natural \\
+    (\phi_g \colon X \to Y ,\phi_g^*) &\mapsfrom& g
+  \end{eqnarray*}
+  where $\phi_g(x) \in Y$ for $x \in X$ such that
+  \[
+    \begin{tikzcd}
+      k[Y] \arrow[dashed]{dr}[swap]{\ev_{\phi_g(x)}}\arrow{r}{g} & k[X] \arrow{d}{\ev_x} \\
+      & k
+    \end{tikzcd}
+  \]
+  commutes. The bijection is compatible with composition and the identities are mapped to each other.
+\end{lem}
+
+\paragraph{Notation.} We denote \[\Hom_{\Var}(X,Y) = \set*{f\colon \aav X \to \aav Y \given \substack{\text{$f$ is a morphism of}\\\text{affine algebraic varieties}}}.\]
+
+\paragraph{Remark.}
+Behind \cref{lem:VII.2} is an equivalence of categories
+\begin{eqnarray*}
+  \set*{\substack{\text{affine algebraic varieties}\\\text{over $k$ with morphisms}}} &\xlongleftrightarrow{1:1}& \set*{\substack{\text{finitely generated $k$-algebras}\\\text{without nilpotent elements}}} \\
+  \aav X &\mapsto& k[X] \\
+  (f,f^\natural) &\mapsto& f^* = f^\natural
+\end{eqnarray*}
+identifying $\Hom_{\Var}(X,Y)$ with $\Hom_{\Alg}(k[Y],k[X])$.
+
+\begin{proof}[Proof of \cref{lem:VII.2}]
+  We show that the maps are inverse to each other.
+  \begin{description}
+    \item[$(f,f^\natural)\mapsto f^\natural \mapsto \phi_{f^\natural}$:] Let $h\in k[Y]$ and $x \in X$. Then we have
+    \begin{align*}
+      \ev_{\phi^\natural(x)}(h) = \ev_x \circ f^\natural(h) = \ev_x \circ f^*(h) = ev_x(h\circ f) = (h \circ f)(x) = \ev_{f(x)}(h)
+    \end{align*}
+    which yields $\ev_{\phi_{f^\natural}(x)} = \ev_{f(x)}$ and $\phi_{f^\natural}(x) = f(x)$ as $\aav Y$ is an affine algebraic variety. Thus $f^\natural = f$.
+  \item[$g \mapsto \phi_g \mapsto \phi_g^*$:] Let $h \in K[Y]$ and $x \in X$. We get \[ \phi_g^*(h)(x) = (h\circ \phi_g)(x) = \ev_{\phi_g(x)}(h) = \ev_x(g(h)) = g(h)(x) = \phi_{g}^*(h) = g(h) \] and therefore $\phi_g^* = g$ (in particular also $\phi_g^* \colon k[Y] \to k[X]$, so $\phi_g^* = \phi_g^\natural$ and the inverse map is well-defined).
+  \end{description}
+  The compatibility with composition and identity maps is obvious.
+\end{proof}
+
+\begin{thm}
+  Every affine algebraic variety is isomorphic to some $\aav{\Vs(M)}$ where $M\subseteq k[T_1,\ldots,T_n]$.
+\end{thm}
+\begin{proof}
+  Let $\aav X$ be an affine algebraic variety. Then $k[X]$ is a finitely generated commutative $k$-algebra. Let $a_1,\ldots,a_n$ be generators. Then there exists a surjective algebra homomorphism $\pi\colon k[T_1,\ldots,T_n]$ sending $T_i$ to $a_i$. Now define
+  \begin{eqnarray*}
+    f\colon X &\to& k^* \\
+    x &\mapsto& (\pi(T_1)(x),\ldots,\pi(T_n)(x)).
+  \end{eqnarray*}
+  We get $f^* = \pi$ (with $k[k^n] = k[T_1,\ldots,T_n]$) as we have $f^*(T_i)(x) = T_i(f(x)) = \pi(T_i)(x) =$ for all $x\in X$ and $1\le i\le n$ and both $f^*$ and $\pi$ are algebra homomorphisms.
+
+  Let $M = \ker\pi$. Hence $\im f \subseteq \Vs(M)$, as we have $\phi(f(x)) = f^*(\phi)(x) = \pi(\phi)(x) = 0$ for $\phi \in M = \ker\pi$ and $x \in X$. Note that $\sqrt{\ker\pi} = \ker\pi$ (since $p^r \in \ker\pi \Leftrightarrow \pi(p^r) = 0 \Leftrightarrow (\pi(p))^r = 0 \Leftrightarrow \pi(p) = 0$).
+
+  We have a surjective algebra homomorphism
+  \begin{eqnarray*}
+    k[T_1,\ldots,T_n] &\to& k[\Vs(M)] \\
+    f &\mapsto& f|_{\Vs(M)}
+  \end{eqnarray*}
+  with the kernel
+  \begin{align*}
+    \Is(\Vs(M)) = \set{f\in k[T_1,\ldots,T_n]\given \forall x \in \Vs(M): f(x) = 0} = \sqrt{M} = \sqrt{\ker\pi} = M
+  \end{align*}
+  using Hilbert's Nullstellensatz. Hence $k[\Vs(M)] = \fak{k[T_1,\ldots,T_n]}M = \fak{k[T_1,\ldots,T_n}{\ker\pi}$, and $(f,f^\natural)$ defines an isomorphism $\aav X \to \aav{\Vs(M)}$ using \cref{lem:VII.2}.
+\end{proof}
+
+\paragraph{Consequence.}
+Let $\aav X$ be an affine algebraic variety. Via this identification $X$ is a topological space with the Zariski topology. One can show that this is independent (up to isomorphism of topological spaces) from the chosen realisation.
+
+\begin{lem}
+  Every morphism of affine algebraic varieties is continuous.
+\end{lem}
+\begin{proof}
+  Let $f\colon \aav X \to \aav Y$ be a morphism. We have to show that the preimages of closed subset are closed. Let $Z\subseteq Y$ be closed. Then $Z = \Vs(N) \cap Y$ for some subset of polynomials $N$.  Now
+  \begin{align*}
+    f^{-1}(Z) &= \set{x\in X \given f(x) \in \Vs(N)} = \set{x\in X \given \forall\phi\in N:\phi(f(x)) = 0} \\&= \set{x\in X \given \forall \phi\in N:f^*(\phi)(x) = 0} = \set{x\in X \given x \in \Vs(f^*(N)) }.
+  \end{align*}
+  Using $f^* = f^\natural$ we get $f^*(N) \subseteq k[X] = k[T_1,\ldots,T_n]|_{\Vs(M)}$ and thus $f^{-1}(Z) = \Vs(f^*(N)) \cap X$ is closed.
+\end{proof}
+
+\section{Products and Hopf algebras}
+\paragraph{Goal.}
+We are interested in relations between linear algebraic groups and affine algebraic groups as affine algebraic varieties. % TODO why product?
+
+\begin{deff}
+  Let $\aav{X_i}$ for $i\in I=\set{1,2}$ be affine algebraic varieties. Then let \[ \aav{X_1\dotcup x_2} \quad\text{with}\quad k[X_1\dotcup X_2] := \set{f\colon X_1 \dotcup X_2 \to k \given \forall i \in I : f|_{X_i} \in k[X_i]} \] be the \emph{coproduct} of $\aav{X_1}$ and $\aav{X_2}$ and \[ \aav{X_1\times X_2} \quad\text{with}\quad k[X_1\times X_2] := \gen{\bigcup_{i\in I}\im \pa{\left.p_i^*\right|_{k[X_i]}}} \subseteq \Maps(X_1\times X_2, k)  \] the \emph{product} where $p_i\colon X_1\times X_2 \to X_i$ are the canonical projections.
+\end{deff}
+
+\begin{prop}
+  Let $\aav {X_i}$ for $i\in I=\set{1,2}$ be affine algebraic varieties.
+  \begin{enumerate}
+    \setcounter{enumi}{-1}
+    \item \label{prop:VIII.1:0} The (co)product is an affine algebraic variety and satisfies the following universal properties for any affine algebraic variety $\aav Z$.
+    \item \label{prop:VIII.1:1} If $f_i \in \Hom_{\Var}(X_i,Z)$ then there exists a unique $h\in \Hom_{\Var}(X_1\dotcup X_2, Z)$ such that
+    \[\begin{tikzcd}
+        X_1 \arrow[hookrightarrow]{r}{\incl_1} \arrow{dr}[swap]{f_1} & X_1 \dotcup X_2 \arrow[dashed]{d}{\exists!h} & X_2 \arrow[hookrightarrow]{l}[swap]{\incl_2} \arrow{dl}{f_2}  \\
+        & Z
+    \end{tikzcd}\]
+  commutes.
+  \item \label{prop:VIII.1:2} If $f_i \in \Hom_{\Var}(Z,X_i)$ then there exists a unique $h\in \Hom_{\Var}( Z,X_1\times X_2)$ such that
+    \[\begin{tikzcd}
+        X_1   & \arrow[twoheadrightarrow]{l}[swap]{p_1} X_1 \times X_2  \arrow[twoheadrightarrow]{r}{p_2}& X_2   \\
+        & Z \arrow{ul}{f_1}\arrow{ur}[swap]{f_2} \arrow[dashed]{u}{\exists!h}
+    \end{tikzcd}\]
+    commutes.
+  \end{enumerate}
+\end{prop}
 
 \end{otherlanguage}
 \end{document}
