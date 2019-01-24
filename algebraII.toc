@@ -1,0 +1,205 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {ngerman}{}
+\babel@toc {ngerman}{}
+\babel@toc {english}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {I}Group actions}{4}{section.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{4}{section*.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{5}{section*.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{5}{section*.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Example.}{6}{section*.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{6}{section*.7}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Note.}{7}{section*.9}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Example.}{8}{section*.10}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {II}Representations of groups}{8}{section.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Example.}{8}{section*.11}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{8}{section*.12}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{9}{section*.13}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Example.}{9}{section*.14}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{10}{section*.15}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Note.}{10}{section*.16}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Note.}{11}{section*.17}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Example.}{11}{section*.18}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{11}{section*.19}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Warning.}{13}{section*.21}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {III}Invariant polynomial functions}{13}{section.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {III.1}Gradings and filtrations}{13}{subsection.3.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{14}{section*.22}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{16}{section*.26}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{16}{section*.27}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{17}{section*.28}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{17}{section*.29}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {III.2}Symmetric polynomials}{17}{subsection.3.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{17}{section*.31}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{17}{section*.32}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{20}{section*.39}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{21}{section*.40}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{23}{section*.41}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{23}{section*.42}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {III.3}Polynomial maps}{26}{subsection.3.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{26}{section*.48}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{27}{section*.49}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark III.18.}{28}{section*.50}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{28}{section*.51}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{29}{section*.52}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {III.4}Covariants}{31}{subsection.3.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{31}{section*.53}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {IV}Invariants of matrix actions}{32}{section.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{35}{section*.56}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{36}{section*.57}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {V}Semisimple modules and the Artin-Wedderburn theorem}{39}{section.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {V.1}Semisimple modules}{39}{subsection.5.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{40}{section*.58}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{42}{section*.59}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Example.}{42}{section*.60}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Example.}{42}{section*.61}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {V.2}Hilbert's theorem}{43}{subsection.5.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{43}{section*.62}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remarks.}{43}{section*.63}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Goal.}{43}{section*.64}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {V.3}Semisimple rings and algebras}{44}{subsection.5.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{44}{section*.66}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Example.}{44}{section*.67}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Motivation.}{46}{section*.68}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{46}{section*.69}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{47}{section*.70}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {V.4}Applicatons of the density theorems}{49}{subsection.5.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Facts.}{50}{section*.71}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Observation.}{51}{section*.74}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{53}{section*.78}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {V.5}Application: Brauer groups}{53}{subsection.5.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{53}{section*.79}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{55}{section*.80}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {VI}The double centralizer theorem}{55}{section.6}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Facts.}{55}{section*.81}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{56}{section*.82}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Example.}{56}{section*.85}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{57}{section*.86}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{57}{section*.87}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Generalization.}{61}{section*.90}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{62}{section*.91}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Problem.}{64}{section*.92}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Motivation.}{66}{section*.95}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {VII}Linear algebraic groups and affine algebraic groups}{66}{section.7}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Fact.}{66}{section*.96}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Convention.}{66}{section*.97}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{66}{section*.98}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Examples.}{67}{section*.99}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Warning.}{69}{section*.100}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Notation.}{70}{section*.101}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{70}{section*.102}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Consequence.}{71}{section*.103}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {VIII}Products and Hopf algebras}{71}{section.8}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Goal.}{71}{section*.104}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {IX}Linearization of algebraic groups}{73}{section.9}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{73}{section*.105}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Warning.}{74}{section*.106}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {IX.1}Characterisation of elements in closed subgroups}{75}{subsection.9.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {X}Affine algebraic varieties/groups as topological spaces}{76}{section.10}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {X.1}Generalities}{76}{subsection.10.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{76}{section*.107}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Notation.}{76}{section*.108}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {X.2}Identity component}{77}{subsection.10.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Remark.}{77}{section*.110}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {XI}More on products}{78}{section.11}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Warning.}{78}{section*.111}% 
+\babel@toc {ngerman}{}

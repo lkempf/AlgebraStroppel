@@ -1,0 +1,213 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.0 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{hungerford}{book}{}
+      \name{author}{1}{}{%
+        {{hash=64a267974697fa7cd3a948e5fd9e1da8}{%
+           family={Hungerford},
+           familyi={H\bibinitperiod},
+           given={Thomas\bibnamedelima W.},
+           giveni={T\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{fullhash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{bibnamehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{authorbibnamehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{authornamehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{authorfullhash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \field{labelalpha}{Hun80}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algebra}
+      \field{year}{1980}
+      \true{nocite}
+      \keyw{moduln-hir}
+    \endentry
+    \entry{knapp-basic}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c579640723007d8b4bf4222c9f25b26a}{%
+           family={Knapp},
+           familyi={K\bibinitperiod},
+           given={Anthony\bibnamedelima W.},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Birkhäuser Boston}%
+      }
+      \strng{namehash}{c579640723007d8b4bf4222c9f25b26a}
+      \strng{fullhash}{c579640723007d8b4bf4222c9f25b26a}
+      \strng{bibnamehash}{c579640723007d8b4bf4222c9f25b26a}
+      \strng{authorbibnamehash}{c579640723007d8b4bf4222c9f25b26a}
+      \strng{authornamehash}{c579640723007d8b4bf4222c9f25b26a}
+      \strng{authorfullhash}{c579640723007d8b4bf4222c9f25b26a}
+      \field{extraname}{1}
+      \field{labelalpha}{Kna06}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Basic Algebra}
+      \field{year}{2006}
+      \true{nocite}
+    \endentry
+    \entry{knapp-advanced}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c579640723007d8b4bf4222c9f25b26a}{%
+           family={Knapp},
+           familyi={K\bibinitperiod},
+           given={Anthony\bibnamedelima W.},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Birkhäuser Boston}%
+      }
+      \strng{namehash}{c579640723007d8b4bf4222c9f25b26a}
+      \strng{fullhash}{c579640723007d8b4bf4222c9f25b26a}
+      \strng{bibnamehash}{c579640723007d8b4bf4222c9f25b26a}
+      \strng{authorbibnamehash}{c579640723007d8b4bf4222c9f25b26a}
+      \strng{authornamehash}{c579640723007d8b4bf4222c9f25b26a}
+      \strng{authorfullhash}{c579640723007d8b4bf4222c9f25b26a}
+      \field{extraname}{2}
+      \field{labelalpha}{Kna06}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Advanced Algebra}
+      \field{year}{2006}
+      \true{nocite}
+    \endentry
+    \entry{procesi}{book}{}
+      \name{author}{1}{}{%
+        {{hash=3271f309c0effca6307597d1a7913f6f}{%
+           family={Procesi},
+           familyi={P\bibinitperiod},
+           given={Claudio},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{3271f309c0effca6307597d1a7913f6f}
+      \strng{fullhash}{3271f309c0effca6307597d1a7913f6f}
+      \strng{bibnamehash}{3271f309c0effca6307597d1a7913f6f}
+      \strng{authorbibnamehash}{3271f309c0effca6307597d1a7913f6f}
+      \strng{authornamehash}{3271f309c0effca6307597d1a7913f6f}
+      \strng{authorfullhash}{3271f309c0effca6307597d1a7913f6f}
+      \field{labelalpha}{Pro06}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{An Approach through Invariants and Representations}
+      \field{title}{Lie Groups}
+      \field{year}{2006}
+      \true{nocite}
+    \endentry
+    \entry{borel}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0ee895917eb0a33121189b88eecae67e}{%
+           family={Borel},
+           familyi={B\bibinitperiod},
+           given={Armand},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{0ee895917eb0a33121189b88eecae67e}
+      \strng{fullhash}{0ee895917eb0a33121189b88eecae67e}
+      \strng{bibnamehash}{0ee895917eb0a33121189b88eecae67e}
+      \strng{authorbibnamehash}{0ee895917eb0a33121189b88eecae67e}
+      \strng{authornamehash}{0ee895917eb0a33121189b88eecae67e}
+      \strng{authorfullhash}{0ee895917eb0a33121189b88eecae67e}
+      \field{labelalpha}{Bor12}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Linear Algebraic Groups}
+      \field{year}{2012}
+      \true{nocite}
+    \endentry
+    \entry{humphreys}{book}{}
+      \name{author}{1}{}{%
+        {{hash=fffcf3523abd2080d6ffc75ac22de7f8}{%
+           family={Humphreys},
+           familyi={H\bibinitperiod},
+           given={James\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{fffcf3523abd2080d6ffc75ac22de7f8}
+      \strng{fullhash}{fffcf3523abd2080d6ffc75ac22de7f8}
+      \strng{bibnamehash}{fffcf3523abd2080d6ffc75ac22de7f8}
+      \strng{authorbibnamehash}{fffcf3523abd2080d6ffc75ac22de7f8}
+      \strng{authornamehash}{fffcf3523abd2080d6ffc75ac22de7f8}
+      \strng{authorfullhash}{fffcf3523abd2080d6ffc75ac22de7f8}
+      \field{labelalpha}{Hum75}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Linear Algebraic Groups}
+      \field{year}{1975}
+      \true{nocite}
+    \endentry
+    \entry{springer}{book}{}
+      \name{author}{1}{}{%
+        {{hash=84098306a40fdd8365ff13218803843f}{%
+           family={Springer},
+           familyi={S\bibinitperiod},
+           given={Tonny\bibnamedelima A.},
+           giveni={T\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Birkhäuser Boston}%
+      }
+      \strng{namehash}{84098306a40fdd8365ff13218803843f}
+      \strng{fullhash}{84098306a40fdd8365ff13218803843f}
+      \strng{bibnamehash}{84098306a40fdd8365ff13218803843f}
+      \strng{authorbibnamehash}{84098306a40fdd8365ff13218803843f}
+      \strng{authornamehash}{84098306a40fdd8365ff13218803843f}
+      \strng{authorfullhash}{84098306a40fdd8365ff13218803843f}
+      \field{labelalpha}{Spr08}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Linear Algebraic Groups}
+      \field{year}{2008}
+      \true{nocite}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

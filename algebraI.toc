@@ -1,0 +1,95 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {ngerman}{}
+\babel@toc {ngerman}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {0}Motivation}{4}{section.0}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Primideale und maximale Ideale}{5}{section.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1}Grundbegriffe}{5}{subsection.1.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2}Lokale Ringe}{6}{subsection.1.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.3}Nilradikal und Jacobson-Radikal}{7}{subsection.1.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Moduln}{10}{section.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}Grundbegriffe}{10}{subsection.2.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}Untermoduln}{11}{subsection.2.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Endlich erzeugte Moduln}{14}{subsection.2.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4}Tensorprodukte}{17}{subsection.2.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.5}Flache Moduln}{21}{subsection.2.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Algebren}{24}{section.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Grundbegriffe}{24}{subsection.3.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}Skalarerweiterung}{25}{subsection.3.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Moduln \IeC {\"u}ber Hauptidealringen}{31}{section.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Freie Moduln}{31}{subsection.4.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Zerlegung in freien Anteil und Torsionsanteil}{32}{subsection.4.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}Prim\IeC {\"a}rzerlegung}{34}{subsection.4.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.4}Anwendung auf Matrizen}{37}{subsection.4.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Lokalisation}{40}{section.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1}Lokal-Global-Prinzipien}{43}{subsection.5.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2}Idealkorrespondenz}{44}{subsection.5.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3}Lokalisation von Algebren}{46}{subsection.5.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Ganze Ringerweiterungen}{48}{section.6}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1}Going up}{50}{subsection.6.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.2}Going down}{53}{subsection.6.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}Kettenbedingungen}{55}{section.7}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.1}Noethersche Ringe und Moduln}{56}{subsection.7.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.2}Minimale Primideale}{58}{subsection.7.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.3}Transzendenzbasen}{59}{subsection.7.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.4}Noether-Normalisierung}{60}{subsection.7.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.5}Jacobson-Ringe}{65}{subsection.7.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8}Affine Variet\IeC {\"a}ten}{68}{section.8}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {8.1}Hilberts Nullstellensatz}{70}{subsection.8.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Beispiel.}{70}{section*.25}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Beispiel.}{73}{section*.28}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {8.2}Morphismen}{73}{subsection.8.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9}Dimensionstheorie}{80}{section.9}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.1}Krulls Hauptidealsatz}{82}{subsection.9.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.2}Dimension von noetherschen lokalen Ringen}{83}{subsection.9.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.3}Dimension von endlich erzeugten $k$-Algebren}{85}{subsection.9.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {10}Variet\IeC {\"a}ten}{88}{section.10}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {10.1}R\IeC {\"a}ume mit $k$-Funktionengarben}{88}{subsection.10.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {10.2}Morphismen}{90}{subsection.10.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {10.3}Teilr\IeC {\"a}ume}{92}{subsection.10.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {10.4}Pr\IeC {\"a}variet\IeC {\"a}ten}{95}{subsection.10.4}% 

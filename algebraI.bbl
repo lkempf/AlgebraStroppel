@@ -1,0 +1,192 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.0 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{atiyah-macdonald}{book}{}
+      \name{author}{2}{}{%
+        {{hash=dc8e3148a6567202d3cb06286c641120}{%
+           family={Atiyah},
+           familyi={A\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=da3bcb689258d8c9ec780c4b4c1fa701}{%
+           family={Macdonald},
+           familyi={M\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Westview}%
+      }
+      \strng{namehash}{dd5127ea6d628de925d7618db82cff0d}
+      \strng{fullhash}{dd5127ea6d628de925d7618db82cff0d}
+      \strng{bibnamehash}{dd5127ea6d628de925d7618db82cff0d}
+      \strng{authorbibnamehash}{dd5127ea6d628de925d7618db82cff0d}
+      \strng{authornamehash}{dd5127ea6d628de925d7618db82cff0d}
+      \strng{authorfullhash}{dd5127ea6d628de925d7618db82cff0d}
+      \field{labelalpha}{AM04}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Addison-Wesley Series in Mathematics}
+      \field{title}{Introduction to Commutative Algebra}
+      \field{year}{2004}
+    \endentry
+    \entry{eisenbud}{book}{}
+      \name{author}{1}{}{%
+        {{hash=1249d4c8877c098355d267da038c837b}{%
+           family={Eisenbud},
+           familyi={E\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{1249d4c8877c098355d267da038c837b}
+      \strng{fullhash}{1249d4c8877c098355d267da038c837b}
+      \strng{bibnamehash}{1249d4c8877c098355d267da038c837b}
+      \strng{authorbibnamehash}{1249d4c8877c098355d267da038c837b}
+      \strng{authornamehash}{1249d4c8877c098355d267da038c837b}
+      \strng{authorfullhash}{1249d4c8877c098355d267da038c837b}
+      \field{labelalpha}{Eis95}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Commutative Algebra with a View Toward Algebraic Geometry}
+      \field{year}{1995}
+      \true{nocite}
+    \endentry
+    \entry{matsumura}{book}{}
+      \name{author}{1}{}{%
+        {{hash=776b8e0ad6906790350e9e610fe0bbbd}{%
+           family={Matsumura},
+           familyi={M\bibinitperiod},
+           given={Hideyuki},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Benjamin-Cummings Pub Co}%
+      }
+      \strng{namehash}{776b8e0ad6906790350e9e610fe0bbbd}
+      \strng{fullhash}{776b8e0ad6906790350e9e610fe0bbbd}
+      \strng{bibnamehash}{776b8e0ad6906790350e9e610fe0bbbd}
+      \strng{authorbibnamehash}{776b8e0ad6906790350e9e610fe0bbbd}
+      \strng{authornamehash}{776b8e0ad6906790350e9e610fe0bbbd}
+      \strng{authorfullhash}{776b8e0ad6906790350e9e610fe0bbbd}
+      \field{labelalpha}{Mat80}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Commutative Algebra}
+      \field{year}{1980}
+      \true{nocite}
+    \endentry
+    \entry{ulrich-goertz}{book}{}
+      \name{author}{2}{}{%
+        {{hash=6ce6acdb0fb322d897f757dab4854fa0}{%
+           family={Görtz},
+           familyi={G\bibinitperiod},
+           given={Ulrich},
+           giveni={U\bibinitperiod}}}%
+        {{hash=19a9170cb8e6a605aacaaf60dcce3a64}{%
+           family={Wedhorn},
+           familyi={W\bibinitperiod},
+           given={Torsten},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Vieweg+Teubner Verlag}%
+      }
+      \strng{namehash}{f23b3d42d595de42569aeb63bfb2ea8c}
+      \strng{fullhash}{f23b3d42d595de42569aeb63bfb2ea8c}
+      \strng{bibnamehash}{f23b3d42d595de42569aeb63bfb2ea8c}
+      \strng{authorbibnamehash}{f23b3d42d595de42569aeb63bfb2ea8c}
+      \strng{authornamehash}{f23b3d42d595de42569aeb63bfb2ea8c}
+      \strng{authorfullhash}{f23b3d42d595de42569aeb63bfb2ea8c}
+      \field{labelalpha}{GW10}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algebraic Geometry 1}
+      \field{year}{2010}
+      \true{nocite}
+    \endentry
+    \entry{lang}{book}{}
+      \name{author}{1}{}{%
+        {{hash=88c92ddced8d93c4ed4df52ee477b0c6}{%
+           family={Lang},
+           familyi={L\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{fullhash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{bibnamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorbibnamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authornamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorfullhash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \field{labelalpha}{Lan02}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algebra}
+      \field{year}{2002}
+      \true{nocite}
+      \keyw{moduln-hir}
+    \endentry
+    \entry{hungerford}{book}{}
+      \name{author}{1}{}{%
+        {{hash=64a267974697fa7cd3a948e5fd9e1da8}{%
+           family={Hungerford},
+           familyi={H\bibinitperiod},
+           given={Thomas\bibnamedelima W.},
+           giveni={T\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{fullhash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{bibnamehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{authorbibnamehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{authornamehash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \strng{authorfullhash}{64a267974697fa7cd3a948e5fd9e1da8}
+      \field{labelalpha}{Hun80}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algebra}
+      \field{year}{1980}
+      \keyw{moduln-hir}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

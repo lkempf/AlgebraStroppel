@@ -1,0 +1,15 @@
+[0] Config.pm:304> INFO - This is Biber 2.12
+[0] Config.pm:307> INFO - Logfile is 'out/algebraI.blg'
+[30] biber:315> INFO - === Thu Jan 24, 2019, 00:54:12
+[53] Biber.pm:371> INFO - Reading 'out/algebraI.bcf'
+[128] Biber.pm:889> INFO - Found 6 citekeys in bib section 0
+[142] Biber.pm:4093> INFO - Processing section 0
+[154] Biber.pm:4254> INFO - Looking for bibtex format file 'literatur.bib' for section 0
+[155] bibtex.pm:1523> INFO - LaTeX decoding ...
+[168] bibtex.pm:1340> INFO - Found BibTeX data source 'literatur.bib'
+[209] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[209] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[209] Biber.pm:3921> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'de-DE'
+[209] Biber.pm:3927> INFO - No sort tailoring available for locale 'de-DE'
+[213] bbl.pm:636> INFO - Writing 'out/algebraI.bbl' with encoding 'UTF-8'
+[216] bbl.pm:739> INFO - Output to out/algebraI.bbl
