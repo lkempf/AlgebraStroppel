@@ -119,6 +119,9 @@
 \DeclareMathOperator{\inv}{inv}
 \DeclareMathOperator{\point}{pt}
 \DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Trans}{Trans}
+\DeclareMathOperator{\C}{C}
+\DeclareMathOperator{\N}{N}
 
 \let\ker\undefined %I want controll
 \DeclareMathOperator{\im}{im}
@@ -175,6 +178,22 @@
 
 \newcommand{\verteq}{\rotatebox{90}{$\,=$}}
 \newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
+\newcommand{\blockeq}[5]{\begin{eqnarray*}#1\colon #2 &\to& #3 \\ #4 &\mapsto& #5\end{eqnarray*}}
+
+\makeatletter
+\def\moverlay{\mathpalette\mov@rlay}
+\def\mov@rlay#1#2{\leavevmode\vtop{%
+   \baselineskip\z@skip \lineskiplimit-\maxdimen
+   \ialign{\hfil$\m@th#1##$\hfil\cr#2\crcr}}}
+\newcommand{\charfusion}[3][\mathord]{
+    #1{\ifx#1\mathop\vphantom{#2}\fi
+        \mathpalette\mov@rlay{#2\cr#3}
+      }
+    \ifx#1\mathop\expandafter\displaylimits\fi}
+\makeatother
+
+\newcommand{\clin}{\charfusion[\mathop]{\subset}{c}}
+\newcommand{\opin}{\charfusion[\mathop]{\subset}{o}}
 
 \newcommand{\orbits}[2]{#1\,\backslash\!\!\backslash\, #2}
 \newcommand{\Mat}[2]{\M_{#1\times #1}\pa{#2}}

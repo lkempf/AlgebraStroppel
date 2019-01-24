@@ -2288,7 +2288,7 @@ Warning: The converse is not true, e.g. \[ \SL_2(\IR) = \set{A \in \GL_2(\IR) \g
   \item Diagonal matrices in $\GL_n(k)$, as we can write them as $\set{A\in \GL_n(k) \given \forall 1\le i \neq j\le n : P_{ij}(A) = 0}$ with $P_{ij}(X_{11},\ldots,X_{nn}) = X_{ij}$.
   \item Uper triangular matrices in $\GL_n(k)$. More generally \emph{standard parabolic subgroups}. % TODO insert def
   \item The orthogonal group $\OO_n(k) = \set{A \in \GL_n(k) \given A^T = 1_n=AA^T}$.
-  \item Symplectic groups \[ \Sp_{2n} = \set{A \in \GL_{2n}(k) \given A^TJA = J } \quad\text{with}\quad  J = \mat{0& E_n \\ -E_n & 0} \]
+  \item Symplectic groups \[ \Sp_{2n} = \set{A \in \GL_{2n}(k) \given A^TJA = J } \quad\text{with}\quad  J = \mat{0& E_n \\ -E_n & 0}. \]
   \item Intersections of linear algebraic groups are again linear algebraic.
 \end{enumerate}
 
@@ -2503,6 +2503,267 @@ We are interested in relations between linear algebraic groups and affine algebr
     commutes.
   \end{enumerate}
 \end{prop}
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}[label=\ref{prop:VIII.1:\arabic*}]
+    \setcounter{enumi}{-1}
+    \item Let $\one_{X_i}\in \Maps(X_1 \dotcup X_2 ,k)$ be defined by \[\one_{X_i}(w) = \begin{cases*}1&if $w \in X_i$,\\ 0 & otherwise.\end{cases*}\] $\one_{X_i}|_{X_i}$ is the unit in $k[X_i]$, and $\one_{X_i}|_{X_j}$ ($i\neq j$) is the zero map in $k[X_j]$, and we have $\one_{X_i}\in k[X_1 \dotcup X_2]$. Now $\one_{X_1}+\one_{X_2} = 1 \in k[X_1 \dotcup X_2]$, where $1$ is the unit in $\Maps(X_1 \dotcup X_2,k)$.
+
+    For $h\in k[X_1]$ define $\tilde h\in \Maps(X_1 \dotcup X_2 ,k)$ by $\tilde h |_{X_2} = h$ % TODO ?!?!
+    \item 
+    \item Left to the reader.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+TO BE CONTINUED
+
+\lecture{December 13, 2018}
+
+TO BE INSERTED
+
+\lecture{December 17, 2018}
+
+TO BE INSERTED
+
+\lecture{December 20, 2018}
+
+TO BE INSERTED
+
+\lecture{January 11, 2019}
+
+\section{Linearization of algebraic groups}
+
+\begin{deff}
+  Let $\aav G$ be an affine algebraic group and $\aav X$ be an affine algebraic variety. An \emph{action of $\aav G$ on $\aav X$} is a morphism
+  \begin{eqnarray*}
+    \alpha\colon G\times X &\to& X\\
+    (g,x) &\mapsto& g.x.
+  \end{eqnarray*}
+  (we say that $G$ acts on $X$ as affine algebraic varieties) such that $e.x = x$ and $(g.h).x = g.(h.x)$ for all $x\in X$. We then write $G \operates^\alpha X$ or $G \operates X$ and call the action \emph{algebraic} (in contrast to an ordinary action of a group on a set).
+\end{deff}
+
+\paragraph{Remark.}
+One can define orbits, fixed points, transitive actions, \ldots as usual.
+
+\begin{deff}
+  Let $G\operates X$ and $Y,Z \subseteq X$. Then we define
+  \begin{itemize}
+  \item $\Trans_G(Y,Z) := \set{g\in G \given \forall y\in Y : g.y \in Y}$, the \emph{transporter from $Y$ to $Z$}, and
+  \item $\C_G(Y) := \bigcap_{y\in Y} G_y$ where $G_y := \set{g \in G \given g.y = y}$, the \emph{stabilizer of $Y$ respectively $y\in Y$}.
+  \end{itemize}
+\end{deff}
+
+\begin{lem}
+  Let $\aav X, \aav {X'}, \aav Y, \aav {Y'}$ be affine algebraic varieties.
+  \begin{enumerate}
+  \item For any $y\in Y$ the maps $X \to X \times Y, x \mapsto (x,y)$ and $X \to Y\times X, x \mapsto (y,x)$ are morphisms.
+  \item If $\phi_1\colon X \to X'$ and $\phi_2\colon Y\to Y'$ are morphisms, then \begin{eqnarray*}\phi_1\times \phi_2\colon X \times Y &\to& X' \times Y', \\(x,y) &\mapsto& (\phi_1(x),\phi_2(y))\end{eqnarray*} is a morphism.
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  Left to the reader.
+\end{proof}
+
+\begin{prop} \label{prop:IX.2}
+  Let $G \operates^\alpha X$ and $Y,Z \subseteq X$ subsets with $Z$ closed.
+  \begin{enumerate}
+  \item \label{prop:IX.2:1} $\Trans_G(Y,Z) \subseteq G$ is closed.
+  \item \label{prop:IX.2:2} $\C_G(Y) \subseteq G$ and $G_y \subseteq G$ is closed for any $y \in Y$.
+  \item \label{prop:IX.2:3} $X^G\subseteq Y$ is closed.
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}[label=\ref{prop:IX.2:\arabic*}]
+  \item Let $y \in Y$. The \emph{orbit map} for $y$
+    \begin{eqnarray*}
+      \alpha_y\colon G &\to& Y\\
+      g &\mapsto& g.y
+    \end{eqnarray*}
+    is a morphism, because $\alpha_y = \alpha \circ (g \mapsto (g,y))$ and the composition of morphisms is again a morphism. On the other hand $Z$ is closed, so $\alpha_y^{-1}(Z)$ is closed, as morphisms are continuous. We have $\alpha_y^{-1}(Z) = \set{g\in G \given g.y\in Z}$ and now $\Trans_G(Y,Z) = \bigcap_{y\in Y} \alpha_y^{-1}(Z)$ is closed.
+  \item $G_y = \Trans_G(\set y,\set y)$ is closed since ponts are closed in $X$. Therefore $\C_g(Y) = \bigcap_{y\in Y}(G_y)$ is also closed.
+  \item
+    Let $g\in G$ and \begin{eqnarray*}\phi\colon X &\to& X \times X\\x &\mapsto& (x,g.x),\end{eqnarray*} which is a morphism. We get $X^g = \set{x\in X \given g.x = x} = \phi^{-1}(\set{(x,x)\given x\in X})$. Now the \enquote{diagonal} $\set{(x,x)\given x\in X}$ is closed (since it is a zero set) and $\phi$ is continuous, so $X^g$ is closed. Hence $X^G = \bigcap_{g\in G}X^g$ is also closed.
+  \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{cor}
+  Let $\aav G$ be an affine algebraic group, $H \subseteq G$ a closed subgroup and $x\in G$. The normalizer $\N_G(H) = \set{g\in G \given gHg^{-1} \subseteq H}$ of $H$ and the centralizer $\C_G(x) = \set{g \in G \given gxg^{-1} = x}$ of $x$ are closed.
+\end{cor}
+\begin{proof}
+  Consider conjugation as the group action on $G$. Then $\C_G(x) =G_x$ and $\N_G(H) = \Trans_G(H,H)$ are closed by \cref{prop:IX.2}.
+\end{proof}
+
+\paragraph{Warning.}
+Orbits are in general not closed.
+
+For example, consider $G = \IG_m = \GL(\IC) \operates \IC$ by multiplication. The orbit of $0$ is $\set 0$ (closed), but the orbit of $1$ is $\IC\setminus \set 0$ which is not closed, since closed subsets in $\IC$ are finite).
+
+\bigskip
+
+Assume $G \operates^\alpha X$ for $g \in G$ consider \blockeq{\beta_g}XXx{g^{-1}.x} (a morphism since $\beta_g = x \mapsto (g,x) \mapsto (g^{-1},x) \mapsto g^{-1}.x$). Hence we get a comorphism \blockeq {\beta_g^*}{k[X]}{k[X]}f{f\circ \beta_g.} Note $\beta_g^*(f)(x) = f(g^{-1}x)$ for all $x \in X$. Moreover $\beta_{gh}^* = \beta_g^* \circ \beta_h^*(f)$ for all $g,h \in G$.
+
+If $\aav X = \aav G$ is an affine algebraic group, then we can also consider \blockeq {\gamma_g} GGx{xg} and get a comorphism \blockeq{\gamma_g^*}{k[G]}{k[G]} f {f \circ \gamma_g.} Note $\gamma_g^*(f)(x) = f(xg)$ for all $g,x\in G$. Moreover $\gamma_{gh}^* = \gamma_g^* \circ \gamma_h^*$.
+\begin{deff}
+  For any affine algebraic group $\aav G$ we obtain representations of the (ordinary) group $G$ on $k[G]$ \blockeq \lambda G {\GL(k[G])} g {\lambda_g := \beta_g^*} called \emph{left translation of functions} and \blockeq \rho G {\GL(k[G])} g {\rho_g := \gamma_g^*.}
+\end{deff}
+
+\subsection{Characterisation of elements in closed subgroups}
+\begin{lem}
+  Let $\aav G$ be an affine algebraic group, $H\subseteq G$ a closed subgroup and $I = \Is(H)$. Then $H = \set{g\in G \given \rho_y(I) \subseteq I}$.
+\end{lem}
+\begin{proof}
+  \leavevmode
+  \begin{description}
+  \item[\enquote{$\subseteq$}] Let $g\in H$ and $f\in I$. Then $\rho_g(f)(h) = f(hg) = 0$ for all $h\in H$, so $\rho_g(f) \in I$.
+  \item[\enquote{$\subseteq$}] Let $\rho_g(I) \subseteq I$. Then for all $f\in I$ we have $0 = \rho_g(f)(e) = f(eg) = f(g)$, so $f(g) = 0$ for all $f\in I$. This implies $g \in H$. % TODO insert spam?
+  \end{description}
+\end{proof}
+
+MISSING PROOFS, TO BE INSERTED
+
+\begin{prop}
+  Let $G \operates^\alpha X$ and $F \subseteq k[X]$ a finite-dimensional subspace.
+  \begin{enumerate}
+  \item There exists a finite-dimensional subspace $E \subseteq k[X]$ such that $F \subseteq E$ and $E$ is stable under all left translations of functions (i.e. $\lambda_g(E) \subseteq E$ for all $g \in G$).
+  \item $F$ is stable under all left translations if and only if $\alpha^*(F) \subseteq k[G] \tp k[X] \cong k[G \times X]$.
+  \end{enumerate}
+\end{prop}
+
+\begin{cor}
+  Let $\aav G$ be an affine algebraic group. Then every subspace $F \subseteq k[G]$ is contained in a finite-dimensional subspace $E \subseteq k[G]$ which is stable under both left and right translations.
+\end{cor}
+
+We know that linear algebraic groups are affine algebraic groups.
+\begin{thm}
+  Let $\aav G$ be an affine algebraic group. Then it is isomorphic to a linear algebraic group.
+\end{thm}
+
+\lecture{January 14, 2019}
+
+\section{Affine algebraic varieties/groups as topological spaces}
+Let $X$ be an affine algebraic variety. We want to study $X$ as a topological space with the Zariski topology.
+
+\subsection{Generalities}
+\begin{deff}
+  A topological space $X$ is called
+  \begin{itemize}
+  \item \emph{noetherian} if open sets satisfy the ascending chain condition: For any chain of open sets $U_1\subseteq U_2 \subseteq \ldots $ there exists an $i_0\in \IN$ such that $U_i = U_{i_0}$ for all $i\ge i_0$.
+  \item \emph{irreducible} if $X = X_1 \cup X_2$ for some disjoint and closed $X_1,X_2 \subseteq X$ implies $X_1 = X$ or $X_2 = X$.
+  \end{itemize}
+\end{deff}
+
+\paragraph{Remark.}
+Let $X$ be a topological space.
+\begin{enumerate}
+\item If $X$ is irreducible, $X$ is connected.
+\item The following are equivalent:
+  \begin{enumerate}
+  \item $X$ is irreducible.
+  \item Any nonempty open subset of $X$ is dense.
+  \item If $U_1,U_2 \subseteq X$ are open and non-empty then $U_1 \cap U_2 \neq \emptyset$.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{lem}
+  Let $\aav X$ be an affine algebraic variety. Then $X$ is noetherian.
+\end{lem}
+
+\paragraph{Notation.}
+Let $X$ be a topological space and $U\subseteq X$. We write $U \opin \subset X$ if $U$ is open in $X$, and $U \clin  X$ if $U$ is closed in $X$.
+
+\begin{lem}
+  Let $X$ and $X'$ be topological spaces.
+  \begin{enumerate}
+  \item If $Y \subseteq X$ is irreducible, $\ol Y$ is irreducible.
+  \item Let $\phi\colon X \to X'$ be continuous. If $X$ is irreducible, $\phi(X)$ is irreducible.
+  \item If $X$ and $X'$ are irreducible, $X \times X'$ is irreducible.
+  \end{enumerate}
+\end{lem}
+
+\begin{prop}
+  Let $X$ be a noetherian topological space.
+  \begin{enumerate}
+  \item There exists an $r \in \IN$ and irreducible $X_i \clin X$ ($1\le i\le r$) such that \begin{equation}X = X_1 \cup \cdots \cup X_r.\label{eq:lem:irrcomp}\tag{*}\end{equation}
+    \item If one assumes moreover that $X_i \nsubseteq X_j$ for $i\neq j$ then the decomposition \eqref{eq:lem:irrcomp} is unique up to permutation. In this case the $X_i$ are called the \emph{irreducible components} of $X$ and are maximal irreducible subsets (with respect to inclusion).
+  \end{enumerate}
+\end{prop}
+
+\subsection{Identity component}
+\begin{lem}
+  Let $\aav G$ be an affine algebraic group. Then there exists exactly one irreducible component $G_0$ containing $e\in G$. It is called the \emph{identity component}.
+\end{lem}
+
+\begin{deff}
+  An affine algebraic group $\aav G$ is \emph{connected} if $G_0 = G$.
+\end{deff}
+
+\begin{prop}
+  Let $\aav G$ be an affine algebraic group.
+  \begin{enumerate}
+  \item $G_0 \subseteq G$ is a closed and maximal subgroup.
+  \item $(G : G_0) < \infty$.
+  \item The $gG_0$ ($g \in G$) are the connected and irreducible components.
+  \item Each closed subgroup $H < G$ with finite index contains $G_0$.
+  \end{enumerate}
+\end{prop}
+
+\begin{lem}
+  Let $\aav G$ be an affine algebraic group. Let $U,V \subseteq G$ be open and dense. Then $G = U \cdot V$.
+\end{lem}
+
+% TODO motivation
+
+\begin{deff}
+  Let $X$ be a topological space and $Y \subseteq X$ a subset. It is called \emph{locally closed} if $Y = U \cap Z$ for some $U \opin X$ and $Z \clin X$. Finite unions of locally closed subsets in $X$ are called \emph{constructible}.
+\end{deff}
+
+\paragraph{Remark.}
+One can show that $\set{\text{constructible subsets in $X$}}$ contains all open and closed sets, and it is \emph{closed} under taking finite unions and complements (in fact it is minimal with these properties).
+
+\begin{prop}
+  Let $X$ be a topological space.
+  \begin{enumerate}
+  \item A constructible set $Y \subseteq X$ contains a subset which is closed and open in $\ol Y$.
+  \item (Chevalley) Images of constructible sets (under morphisms of affine algebraic varieties) are constructible.
+  \end{enumerate}
+\end{prop}
+
+\begin{prop}
+  Let $\aav G$ be an affine algebraic group and $H \subseteq G$ a subgroup.
+  \begin{enumerate}
+  \item $\ol H \subseteq G$ is a subgroup.
+  \item If $H$ is constructible then $H = \ol H$.
+  \end{enumerate}
+\end{prop}
+
+\begin{prop}
+  Let $\phi\colon G \to G'$ be a morphism of affine algebraic groups.
+  \begin{enumerate}
+  \item $\ker\phi \subseteq G$ is a closed subgroup.
+  \item $\im \phi \subseteq G'$ is a closed subgroup.
+  \item $\phi(G_0) = \im \phi$.
+  \end{enumerate}
+\end{prop}
+
+\section{More on products}
+We know that if $\aav X$ and $\aav Y$ are affine algebraic varieties then $\aav{X\times Y}$ (with $k[X \times Y] \cong k[X]\tp k[Y]$) is an affine algebraic variety.
+
+\paragraph{Warning.}
+The Zariski topology on $X \tp Y$ is not (in general) the product of the Zariski topology.
+
+For example consider the product $\IA^1\times\IA^1$. In the product topology the open sets are unions of $U_1 \times U_2$'s where $U_1$ and $U_2$ are open in $\IA^1$ in the Zariski topology. The closed sets are $\emptyset$, $Z_1\times k$, $k \times Z_2$, finite sets and $k \times k$ (where $Z_1,Z_2$ are closed in the Zariski topology, so finite). But in the Zariski topology of $\IA^1\times\IA^1$ things like curves or $\Is(x-y)$ are closed.
+
+\lecture{January 18, 2019}
+
+TO BE INSERTED
+
+\lecture{January 21, 2019}
+
+TO BE INSERTED
+
 
 \end{otherlanguage}
 \end{document}
